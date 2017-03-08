@@ -504,6 +504,47 @@ In this case, a temperature sensor is connected to WoT Servient 1 and control ag
           home hub;<br />
           e)    Emergency Apps running in a local environment when the fire
           alarm and similar event occur.</p>
+        <p>Client Apps can control devices at home through WoT servient on a
+          Smart Home Hub. But the location of client Apps is restricted within
+          home because physical communication path “WiFi” and/or wired Ethernet
+          between smart home hub and client apps such as browser is limited
+          inside home.<br />
+          So, controlling devices at home from outside the house, WoT servient
+          from a smart home hub should be mapped to a globally accessible cloud server.<br />
+        </p>
+        <div  style="text-align: center;"><img  src="images/servient_on_cloud_server2-2.png"
+
+             alt="WoT Servient on Cloud Server Type2"  title="WoT Servient on Cloud Server Type2"
+
+             style="width: 640px;" /></div>
+        <p  style="text-align: center;">Fig.17 WoT Servient on Cloud Server</p>
+        <p  style="text-align: left;">Fig.17 shows an example of WoT servient on
+          a cloud server.<br />
+          In Fig.17 case, a browser accesses WoT servient on the cloud Server named
+          “platform”. This WoT servient provides Things Description through
+          internet globally. So, wherever browser user is, he/she can access
+          this WoT servient.<br />
+          WoT servient on "platform" accepts browser and/or other application’s request
+          through HTTP, CoAP and so on. Then WoT Servient on the cloud server
+          finds out the route to access the WoT servient on a smart home hub. In
+          Fig.16 case, Things Description of WoT Servient on cloud server is
+          mirror of that on the smart home hub.<br />
+          After finding out the route, WoT Servient on the cloud server transfer
+          browser’s request to WoT Servient on the smart home hub.<br />
+          After that, the smart home hub processes the request according to
+          Fig.15 case.<br />
+          In this Fig.16 case, the smart home hub works as<br />
+          a)    Unifier of very wide variety of legacy communication protocols
+          both in the physical and logical view;<br />
+          b)    Firewall between internet as WoT Servient on the cloud server
+          and legacy connected devices at home;<br />
+          c)    Privacy filter which substitutes real image and/or speech, and
+          logs data at home to symbols;<br />
+          d)    Autonomous WoT Servient which provides house inside the server,
+          even if the connection is shut down between internet and the smart
+          home hub;<br />
+          e)    Emergency Apps running in a local environment when the fire
+          alarm and similar event occur.</p>
       </section>
     </section>
     <section>
