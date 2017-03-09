@@ -517,30 +517,29 @@ In this case, a temperature sensor is connected to WoT Servient 1 and control ag
              alt="WoT Servient on Cloud Server Type2"  title="WoT Servient on Cloud Server Type2"
 
              style="width: 640px;" /></div>
-        <p  style="text-align: center;">Fig.17 WoT Servient on Cloud Server</p>
-        <p  style="text-align: left;">Fig.17 shows an example of WoT servient on
+        <p  style="text-align: center;">Fig.17 WoT Servient on Cloud Server Type2</p>
+        <p  style="text-align: left;">Fig.17 shows second example of WoT servient on
           a cloud server.<br />
           In Fig.17 case, a browser accesses WoT servient on the cloud Server named
-          “platform”. This WoT servient provides Things Description through
+          “platform” same as Fig.16. This WoT servient provides Things Description through
           internet globally. So, wherever browser user is, he/she can access
           this WoT servient.<br />
           WoT servient on "platform" accepts browser and/or other application’s request
           through HTTP, CoAP and so on. Then WoT Servient on the cloud server
-          finds out the route to access the WoT servient on a smart home hub. In
-          Fig.16 case, Things Description of WoT Servient on cloud server is
-          mirror of that on the smart home hub.<br />
-          After finding out the route, WoT Servient on the cloud server transfer
-          browser’s request to WoT Servient on the smart home hub.<br />
-          After that, the smart home hub processes the request according to
-          Fig.15 case.<br />
-          In this Fig.16 case, the smart home hub works as<br />
+          finds out the route to access the proprietry discovery service runs on a smart home hub. In
+          Fig.17 case, Things Description of WoT Servient on cloud server interprete connected device functionality and its name to WoT.
+          <br />
+          Before Web of Things standardization, many service providers have provided IoT services with proprietry manner or conventional IoT standards.
+	  Fig.17 case shows WoT servient wrapping conventional IoT service on cloud. This architecture might be tentative but from the service provider's
+		point of view, is very practical way.<br />
+          In this Fig.17 case, the smart home hub is expected following functionalities in proprietry method from security and privacy requirement.<br />
           a)    Unifier of very wide variety of legacy communication protocols
           both in the physical and logical view;<br />
           b)    Firewall between internet as WoT Servient on the cloud server
           and legacy connected devices at home;<br />
           c)    Privacy filter which substitutes real image and/or speech, and
           logs data at home to symbols;<br />
-          d)    Autonomous WoT Servient which provides house inside the server,
+          d)    Autonomous server, that is, 
           even if the connection is shut down between internet and the smart
           home hub;<br />
           e)    Emergency Apps running in a local environment when the fire
