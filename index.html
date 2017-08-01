@@ -168,7 +168,15 @@ Supported transfer communication patterns are push, pull, pub-sub and bi-directi
 
            style="width: 640px;" /><br />
         <p>Fig.2 Protocol Binding Structure</p>
-        <p  style="text-align: left;">The workflow of protocol binding is as follows;</p>
+        <p  style="text-align: left;">The data flow of protocol binding is as follows;<br />
+		This data flow is mainly described in WoT client.
+		1) At first, App Logic refers TD (Thing Description) of other WoT device (server). And App Logic understands how to call API provided by WoT server.<br />
+		2) App Logic calls Run TIme according to the syntax described in Scripting API document.<br />
+		3) Run TIme block calls Protocol Binding Common block with the type of request, that is, "Property", "Action" or "Event" and parameters. <br />
+		4) Protocol Binding Common block refers TD of requested WoT device. And Protocol Binding Common block understands a) what standardization organization's protocol syntax supported by the WoT server, b) what kind of transport protocol supported by the WoT server, c) what kind of serialization scheme supported by the WoT server, d) what kind of security technology adopted by the WoT server.<br />
+		5) Protocol Binding Common block selects proper binding template to communicate to the WoT server.(It might sometimes be OCF device, oneM2M device and so on.) <br />
+		6) Binding template block creates data pack according to its definition and communicates to the WoT server.
+	      </p>
       </div>
       </section>
       <section>
