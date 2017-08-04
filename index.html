@@ -113,9 +113,42 @@
       </section>
       <section>
         <h2>Security and Privacy</h2>
-        <p> Functional WoT architecture should have the room for providing
-          security and privacy functionalities.<br />
-          In the IoT solutions, once cyber security barrier is hacked, it is more easily led to safety and/or privacy issues than conventional web solutions. That is because hacked IoT devices often treat heat cycle such as central heating systems, physical moving devices such as cars.<br />
+        <p><!-- Requirements -->
+          The functional WoT architecture should provide for
+          best practices in security and privacy. 
+          Generally, 
+          the WoT security architecture must support the 
+          goals and mechanisms of the IoT protocols and systems it
+          connects to.  
+          These systems vary in their security requirements
+          and risk tolerance,
+          so security mechanisms will also vary
+          based on these factors.
+          However, the WoT architecture
+          needs to do no harm:
+          it should support security and privacy
+          at least as well as the systems it connects to.
+        </p>
+        <p><!-- Definition -->
+          Security means the system should
+          preserve its integrity even when subject to attack.
+          Privacy means that the system should maintain the       
+          confidentiality of personally identifiable information.
+          In general,
+          security and privacy cannot be guaranteed but the
+          WoT architecture should support best practices.
+          </p>
+          <p><!-- Motivation -->
+          Security and privacy are especially important in the IoT 
+          domain since IoT devices need to operate autonomously 
+          and in many cases have access to both personal data and/or
+          can be in control of safety-critical systems.
+          Compared to personal systems,
+          IoT devices are subject to
+          different and in some cases higher risks.
+          It is also 
+          important to protect IoT systems so that they can not be
+          used to launch attacks on other computer systems.
         </p>
       </section>
     </section>
@@ -186,10 +219,22 @@ Supported transfer communication patterns are push, pull, pub-sub and bi-directi
       </section>
       <section>
         <h2>Security and Privacy</h2>
-        <p>Cross-cutting mechanism for security and privacy over Thing Description, Scripting API and Protocol Bindings <br />
-Thing Description and Scripting API will support both transport and object security using  best practices.
-Binding Templates will support the use of appropriate for the protocols they map to.
-It includes requirements of network and web-based technologies for implementation.
+        <p>
+           Security is a cross-cutting issue that needs to be
+           taken into account in all other aspects of the 
+           WoT Architecture,
+           including the Thing Description, 
+           the Scripting API, and the Protocol Bindings.
+           The Thing Description and the Scripting API should
+           support both transport and object security using
+           best practices.  
+           <!-- TODO: only mention "data" below, what about actions? -->
+           This should apply to both data produced
+           by the Things' interfaces and to the metadata stored in
+           the Thing Description and accessible via the Scripting API.
+           Binding Templates will support the use of appropriate 
+           security mechanisms for the protocols they map to in order
+           to satisfy the "do no harm" principle.
 </p>
       </section>
       <section>
