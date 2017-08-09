@@ -38,6 +38,13 @@
   </head>
   <body>
     <section  id="abstract">
+      <p> The Web of Things is intended to support IoT interoperability.
+      Primarily, it provides mechanisms to formally describe IoT interfaces
+      to allow IoT devices and services to communicate with each other,
+      independent of their underlying implementation,
+      and across multiple networking protocols.  
+      Secondarily, it provides a standardized way to define and program IoT behaviour.
+      </p>
       <p> This document describes an abstract architecture for the Web of Things.
 	  <!-- some discussion about what to word to use instead of "architecture".  Abstract here is meant to 
                emphasize that it's about a class of systems, not a particular one.  It also shows up below, but
@@ -51,14 +58,22 @@
       This document is focused on the standardization scope of Web of Things,
       which consists of three primary building blocks: 
       Thing Descriptions, a Scripting API, and Binding Templates.
-      Other non-normative architectural blocks and conditions underlying the Web of Things are described as example implementations and/or requirements, such as a description of how to treat constrained devices.
-Non-normative recommendations for security and privacy are also outlined.
-      The Web of Things is a distributed platform using the latest Web technology.
-      The Web of Things also provides for interoperation with other IoT protocols.
-      Primarily, the Web of Things is descriptive, not prescriptive.
-      Utilizing this interoperability, IoT application developers can ship only one wot-compliant application instead of shipping code for multiple standards.
-Conversely, by providing a Thing Description for a legacy device, it is possible to access it from a Web of Things application.
-</p>
+      The Thing Description provides a formal mechanism to describe the network interface
+      provided by an IoT service, independent of its implementation.
+      Provision of a Thing Description is the primary requirement for a device to participate in the 
+      Web of Things.
+      In fact, defining a Thing Description for an existing device allows that device to
+      participate in the Web of Things without having to make any modifications to that device.
+      The Scripting API provides a convenient mechanism to create, expose, and consume 
+      Thing Descriptions and define behavior, although its use is not mandatory.
+      Binding Templates define how a Web of Things device communicates using a specific concrete protocol.
+      Other non-normative architectural blocks and conditions underlying the Web of Things are also
+      described in the context of example implementations and/or requirements.
+      In particular, this document includes a description of implementation issues on constrained devices.
+      Recommendations for security and privacy are also included;
+      in general, 
+      the Web of Things is intended to preserve and support existing privacy and security device mechanisms and properties.
+      </p>
     </section>
     <section  id="sotd">
       <p>Through the discussion in WoT IG, This document is reflected the conclusion for the scope of standardization in WoT WG, that is, "Thing Description", "Scripting API" and "Binding Template".<br />
