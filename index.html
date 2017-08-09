@@ -56,8 +56,8 @@
     </section>
     <section>
       <h1>Introduction</h1>
-      <p>This document describes the abstract architecture of the “Web Of
-        Things”, which we will also refer to with the acronym "WoT".
+      <p>This document describes the abstract architecture of the “Web Of Things”, 
+        which we will also refer to with the acronym "WoT".
         The purpose of this document is to provide
         <ol type="a">
         <li>a guideline to the mapping between functional architecture and
@@ -107,10 +107,8 @@
       </p>
       <section>
         <h2>Flexibility</h2>
-        <p>There are a wide variety of physical device configurations for WoT
-          implementations.
-          The WoT abstract architecture should be able to be mapped to and cover
-          all of the variations.</p>
+        <p>There are a wide variety of physical device configurations for WoT implementations.
+          The WoT abstract architecture should be able to be mapped to and cover all of the variations.</p>
       </section>
       <section>
         <h2>Compatibility</h2>
@@ -118,8 +116,7 @@
           standardization activities in many business fields.
           The WoT should provide a bridge between these existing and developing IoT
           solutions and Web technology based on WoT concepts. 
-          The WoT should be upwards compatible with existing IoT solutions and current
-          standards.<br />
+          The WoT should be upwards compatible with existing IoT solutions and current standards.
         </p>
       </section>
       <section>
@@ -138,18 +135,18 @@
       <p>In the Web of Things (WoT) abstract architecture, 
         we use the term “Servient” to refer to a functional virtual device that provides access to
         IoT physical devices, including the ability to control and query the status of such devices.
-        <!-- following is new, to discuss! Does "Servient" include "existing devices" or not? Does Thing == Servient, or is Servient a subclass of Thing? -->
+        <!-- following is new, to discuss! Does "Servient" include "existing devices" or not? Does Thing == Servient, 
+             or is Servient a subclass of Thing? -->
         The word "Servient" refers to the fact that such devices may take the role of either client or server, or both. 
         The term "Thing" refers to any device or service which can be described with a WoT Thing Description.
         This can include existing devices or devices implemented under other standards (eg OCF) 
         but provided with a Thing Description as well as WoT Servients 
         implemented using the functional architecture described here.
-        <!-- comment: "devices and services", since we might have a Servient that does not map onto a physical device, eg a bridge, fog compute service, etc?? -->
+        <!-- comment: "devices and services", since we might have a Servient that does not map onto a physical device, 
+             eg a bridge, fog compute service, etc?? -->
         The WoT Servient functional architecture is presented in Fig.1</p>
       <div  style="text-align: center;"><img  title="Functional Architecture of WoT Servient"
-
            alt="Functional Architecture of WoT Servient"  src="images/functional_architecture2.png"
-
            style="width: 640px;" /><br />
         <p>Fig.1 Functional Architecture of WoT Servient</p>
         <p  style="text-align: left;">The role and functionality of each module
@@ -229,8 +226,7 @@ It includes requirements of network and web-based technologies for implementatio
            Application logic running in a WoT Runtime may also access local hardware via the Scripting API as if it were a Thing accessible over a network protocol.
            In this case the implementation should be optimized to avoid the overhead that would be involved in a literal implementation
            of a network protocol while maintaining a consistent Thing interface.
-           Such "System Things" are out of the scope of standardization at present although we will document several 
-           informational examples. 
+           Such "System Things" are out of the scope of standardization at present although we will document several informational examples. 
         </p>
       </section>
       <section>
@@ -284,11 +280,12 @@ It includes requirements of network and web-based technologies for implementatio
       <section>
         <h2>WoT Client on Smartphone</h2>
         <p  style="text-align: left;">The second example is a WoT Client on a Smartphone as shown in Fig.4.
-For example, a browser on smartphone can be expanded to include WoT Client functionality that can directly or remotely control an air conditioner depending on the network.
-Wi-Fi or Bluetooth/BLE connection of the smartphone is used for the direct (local) control while the cellular network of the smartphone can be used for remote control.
+        For example, a browser on a smartphone can be expanded to include WoT Client functionality that 
+        can directly or remotely control an air conditioner depending on the network.
+        Wi-Fi or Bluetooth/BLE connection of the smartphone is used for the direct (local) control while
+        the cellular network of the smartphone can be used for remote control.
         </p>
         <div  style="text-align: center;"><img  src="images/wot_client_on_smartphone.png"  alt="smartphone"
-
              title="WoT client on Smartphone"  style="width: 500px;" /></div>
         <p  style="text-align: center;">Fig.4 WoT client on Smartphone</p>
         <p  style="text-align: left;">
@@ -303,7 +300,8 @@ Wi-Fi or Bluetooth/BLE connection of the smartphone is used for the direct (loca
            <ul>
            <li>Script on WoT client accesses electronic appliances nearby with Client API through local interface when possible.</li>
            <li>WoT Servient exposes Server API.</li>
-           <li>Client API connects to WoT Server via a specific application and transport protocol (eg OCF over CoAP over UDP over IP) when remote access is needed.</li>
+           <li>Client API connects to WoT Server via a specific application and transport protocol 
+           (eg OCF over CoAP over UDP over IP) when remote access is needed.</li>
            </ul>
          </dd>
          </dl>
@@ -312,10 +310,12 @@ Wi-Fi or Bluetooth/BLE connection of the smartphone is used for the direct (loca
       <section>
         <h2>WoT Servient on Smart Home Hub</h2>
         <p  style="text-align: left;">Fig.5 shows an example of WoT Servient on a smart home hub.
-In this case, a home hub with WoT Servient is placed between a home network and the internet.  The home hub manages electronic appliances in a house. The home hub controls the electronic appliances when remotely receiving a command from a remote controller with WoT Client such as browser application or native application on a smartphone.
+         In this case, a home hub with WoT Servient is placed between a home network and the internet.
+         The home hub manages electronic appliances in a house.
+         The home hub controls the electronic appliances when remotely receiving a command from a remote controller
+         with WoT Client such as browser application or native application on a smartphone.
         </p>
-        <div  style="text-align: center;"><img  src="images/wot_servient_on_homehub.png"  alt="homehub1"
-
+        <div  style="text-align: center;"><img  src="images/wot_servient_on_homehub.png" alt="homehub1"
              title="WoT Servient on Smart Home Hub"  style="width: 640px;" /></div>
         <p  style="text-align: center;">Fig.5 WoT Servient on Smart Home Hub</p>
         <p  style="text-align: left;">
@@ -331,7 +331,8 @@ In this case, a home hub with WoT Servient is placed between a home network and 
            <li>WoT Servient exposes a Server API and consumes a Client API.
            The Client API in the WoT Servient allows scripts running in the WoT Servient's runtime to access electronic 
            appliances through a physical interface.</li>
-           <li>Client API in WoT Client is used to connect to the WoT Servient via a specific application and transport protocol (eg OCF over CoAP over UDP over IP) when needed.</li>
+           <li>Client API in WoT Client is used to connect to the WoT Servient via a specific application and transport protocol
+           (eg OCF over CoAP over UDP over IP) when needed.</li>
            </ul>
          </dd>
          </dl>
@@ -343,10 +344,11 @@ In this case, a home hub with WoT Servient is placed between a home network and 
        <section>
         <h3>Smart Home: WoT Device</h3>
         <p  style="text-align: left;">Fig.6 shows an example of WoT Servient on a cloud server that shadows a WoT device.
-A WoT Servient running in the cloud serves as device shadow of an electrical appliance. In this case the WoT Servient controls the appliances when receiving commands from a WoT Client such as a browser or an application on a smartphone.
+        A WoT Servient running in the cloud serves as device shadow of an electrical appliance.
+        In this case the WoT Servient controls the appliances when receiving commands from a WoT Client
+        such as a browser or an application on a smartphone.
         </p>
-        <div  style="text-align: center;"><img  src="images/wot_servient_on_cloudserver1.png"  alt="wot_servient_on_cloudserver1"
-
+        <div  style="text-align: center;"><img  src="images/wot_servient_on_cloudserver1.png" alt="wot_servient_on_cloudserver1"
              title="WoT servient on Cloud Server controls WoT device"  style="width: 640px;" /></div>
         <p  style="text-align: center;">Fig.6 WoT Servient on Cloud Server controls WoT device</p>
         <p  style="text-align: left;">
@@ -370,8 +372,11 @@ A WoT Servient running in the cloud serves as device shadow of an electrical app
        </section>
        <section>
         <h3>Smart home: Legacy device</h3>
-        <p  style="text-align: left;">Fig.7 shows an example of a WoT Servient on a cloud server that controls a legacy electronic appliance through a home hub.
-In this case, a WoT Servient running in the cloud caches properties of electric appliances that a home hub manages and acts as an agent that manages them in the cloud in conjunction with the home hub. 
+        <p  style="text-align: left;">Fig.7 shows an example of a WoT Servient on a cloud server that
+        controls a legacy electronic appliance through a home hub.
+        In this case,
+	a WoT Servient running in the cloud caches properties of electric appliances that
+        a home hub manages and acts as an agent that manages them in the cloud in conjunction with the home hub. 
         </p>
         <div  style="text-align: center;"><img  src="images/wot_servient_on_cloudserver2.png"  alt="wot_servient_on_cloudserver2"
              title="WoT servient on Cloud Server "  style="width: 640px;" /></div>
@@ -388,13 +393,10 @@ In this case, a WoT Servient running in the cloud caches properties of electric 
          <dt>APIs</dt><dd>
            <ul>
            <li>WoT Servient1 exposes Server API and Client API.
-           The Client API in WoT Servient1 allows script to access WoT Servient2 
-           through IP based network.</li>
-           <li>WoT Servient2 exposes Server API and Client API.
-           The Client API in WoT Servient2 allows script to access electronic 
-           appliances through a local physical interface.</li>
-           <li>Client API in WoT Client accesses WoT Servient1 with REST or 
-           Client API through IP-based network.</li>
+           The Client API in WoT Servient 1 allows a script to access WoT Servient 2 through an IP based network.</li>
+           <li>WoT Servient 2 exposes Server API and Client API.
+           The Client API in WoT Servient 2 allows a script to access electronic appliances through a local physical interface.</li>
+           <li>Client API in WoT Client accesses WoT Servient 1 with REST or Client API through an IP-based network.</li>
          </ul>
          </dd>
          </dl>
@@ -403,13 +405,14 @@ In this case, a WoT Servient running in the cloud caches properties of electric 
        <section>
         <h3>Smart Factory</h3>
         <p  style="text-align: left;">Fig.8 shows an example of a Smart Factory that uses WoT Servients.
-In this case, WoT Servient 1 and WoT Servient 2 control factory equipment with legacy communication such as RS-485 or EtherCAT.
-WoT Servient 3 running in the cloud collects data from the other WoT Servients.
-Services on WoT Servient 3 analyze the data and can provide a dashboard.
-Users can monitor the dashboard from a browser.
-Note that running WoT Servient 3 in the cloud is not mandatory (it could also run in a local gateway computer),
-however the other WoT Servients might be placed only on the local network for security reasons (eg perimeter security using a firewall)
-and because they require actual physical access to the controlled or monitored hardware.
+        In this case, WoT Servient 1 and WoT Servient 2 control factory equipment with legacy communication such as RS-485 or EtherCAT.
+        WoT Servient 3 running in the cloud collects data from the other WoT Servients.
+        Services on WoT Servient 3 analyze the data and can provide a dashboard.
+        Users can monitor the dashboard from a browser.
+        Note that running WoT Servient 3 in the cloud is not mandatory (it could also run in a local gateway computer),
+        however the other WoT Servients might be placed only on the local network for security reasons
+	(eg to implement perimeter security using a firewall)
+        and because they require actual physical access to the controlled or monitored hardware.
         </p>
         <div  style="text-align: center;"><img  src="images/smartfactory.png"  alt="smartfactory"
              title="Smart Factory utilizing WoT Servient"  style="width: 640px;" /></div>
@@ -424,11 +427,10 @@ and because they require actual physical access to the controlled or monitored h
          <dt>APIs:</dt>
          <dd><ul>
          <li>WoT Servient 3 exposes Server API and Client API.
-           The Client API in WoT Servient 3 allows scripts to access WoT Servient 1 and WoT 
-           Servient 2 through IP based network.</li>
+           The Client API in WoT Servient 3 allows scripts to access WoT Servient 1 and WoT Servient 2 through IP based network.</li>
          <li>WoT Servient 1 and WoT Servient 2 expose Server API and Client API.
-           The Client API in WoT Servient 1 and WoT Servient 2 allows scripts to access 
-           factory appliances nearby from these WoT Servients.</li>
+          The Client API in WoT Servient 1 and WoT Servient 2 allows scripts to access
+	  factory appliances nearby from these WoT Servients.</li>
          <li>A browser monitors WoT Servient 3 through a web (HTTP/TCP/IP) interface. 
          </ul></dd>
          </dl>
@@ -436,10 +438,13 @@ and because they require actual physical access to the controlled or monitored h
        </section>
        <section>
         <h3>Connected Car</h3>
-        <p  style="text-align: left;">Fig.9 shows an example of Connected Car that utilizes WoT Servients.
-In this case, a WoT Servient is running on a gateway and is connected to car devices through CAN to the car navigation system.
-Services on a WoT Client running in the cloud collects data pushed from multiple WoT Servients and analyzes the data from cars to determine traffic patterns.
-Finally, the WoT Servient accesses a WoT Server running in the cloud to get traffic data and shows this data to the driver through the car navigation systems.
+        <p  style="text-align: left;">Fig.9 shows an example of a Connected Car that utilizes WoT Servients.
+        In this case,
+	a WoT Servient is running on a gateway and is connected to car devices through CAN to the car navigation system.
+        Services on a WoT Client running in the cloud collects data pushed from multiple WoT Servients and 
+        analyzes the data from cars to determine traffic patterns.
+        Finally, the WoT Servient accesses a WoT Server running in the cloud to get traffic data and
+        shows this data to the driver through the car navigation systems.
         </p>
         <div  style="text-align: center;"><img  src="images/connectedcar.png"  alt="connectedcar"
              title="Connected Car utilizing WoT Servient"  style="width: 500px;" /></div>
@@ -454,10 +459,8 @@ Finally, the WoT Servient accesses a WoT Server running in the cloud to get traf
          <dt>APIs:</dt>
          <dd><ul>
          <li>WoT Servient exposes Server API and Client API.
-           The client API in WoT Servient allows script to access car devices 
-           through physical interface.</li>
-         <li>WoT client API in WoT client accesses WoT Servient with REST or 
-           Client API through IP-based network.</li>
+           The client API in WoT Servient allows script to access car devices through physical interface.</li>
+         <li>WoT client API in WoT client accesses WoT Servient with REST or Client API through IP-based network.</li>
          </ul></dd>
          </dl>
        </p>
@@ -466,9 +469,14 @@ Finally, the WoT Servient accesses a WoT Server running in the cloud to get traf
       <section>
         <h2>Thing to Thing Control</h2>
         <p  style="text-align: left;">Fig.10 shows an example of direct Thing to Thing control using WoT Servients.
-The scenario depicted in Fig.10 is as follows: a sensor detects room temperature surpassing a set threshold e.g. 25 degree C, so a control agent issues "power-on" command to an air conditioner.
-In this case, a temperature sensor is connected to WoT Servient 1 and a control agent that monitors the temperature and compares it to a threshold is also working on the WoT Servient 1. 
-On the other hand the air conditioner is connected to WoT Servient 2 and acts as a server that controls the air conditioner.</p>
+        The scenario depicted in Fig.10 is as follows:
+	a sensor detects room temperature surpassing a set threshold e.g. 25 degree C,
+        so a control agent issues "power-on" command to an air conditioner.
+        In this case,
+	a temperature sensor is connected to WoT Servient 1 and a control agent that monitors the temperature and
+        compares it to a threshold is also working on the WoT Servient 1. 
+        On the other hand the air conditioner is connected to WoT Servient 2 and acts as a server that controls the air conditioner.
+	</p>
 <div  style="text-align: center;"><img  src="images/t2t.png"  alt="t2t"
              title="Thing to thing control"  style="width: 400px;" /></div>
         <p  style="text-align: center;">Fig.10 Thing to thing control</p>
@@ -481,10 +489,10 @@ On the other hand the air conditioner is connected to WoT Servient 2 and acts as
          <dt>APIs:</dt>
          <dd><ul>
          <li>WoT Servient 1 and WoT Servient 2 exposes Server API and Client API.
-           The client API in WoT Servient 1 allows script to access WoT Servient 2 
-           through IP based network.</li>
+           The client API in WoT Servient 1 allows script to access WoT Servient 2 through IP based network.</li>
          <li>WoT Servient 2 API exposes a Server API and supports an internal Client API.</li>
-           The client API in WoT Servient 2 allows script running on the WoT Runtime in WoT Servient 2 to access local hardware through a physical interface.</li>
+           The client API in WoT Servient 2 allows script running on the WoT Runtime in WoT Servient 2 to access local hardware
+           through a physical interface.</li>
          </ul></dd>
          </dl>
         </p>
@@ -494,28 +502,26 @@ On the other hand the air conditioner is connected to WoT Servient 2 and acts as
       <h1>Mapping Variations</h1>
       <p>In real world, there are many possibilities for mapping the WoT abstract architecture
         to physical devices and network structures.
-        This section, which is informative but not normative, lists some specific mappings.  Other mappings may be possible.
+        This section, which is informative but not normative, lists some specific mappings.
+	Other mappings may be possible.
       <section>
         <h2>Browser to WoT Servient to Legacy Device</h2>
         <div  style="text-align: center;"><img  src="images/browser-wot.png"  alt="Simple use case"
-
              title="Simple use case"  style="width: 640px;" /></div>
         <p  style="text-align: center;">Fig.11 Browser to WoT Servient to legacy device</p>
         <p  style="text-align: left;">Fig.11 shows very simple use case.
           In this use case, a browser accesses a WoT Servient to get some information from a legacy
           device and/or to send some control parameters to a legacy device.
           In this use case, the browser’s App Script refers to the WoT Thing Description of
-          the WoT Servient to obtain information about the device and what kind of APIs it
-          provides.
+          the WoT Servient to obtain information about the device and what kind of APIs it provides.
           Then App Script calls the Client API provided by its RunTime Environment and through a resource model
-          block and a protocol binding block, the request is mapped onto a
-          internet protocol such as HTTP/TCP/IP.
+          block and a protocol binding block, the request is mapped onto an internet protocol such as HTTP/TCP/IP.
           The protocol accesses the Server Connector block of the WoT Servient through this network interface,
-          after which the
-          request is transferred to the App Script in the WoT Servient through the protocol binding block
+          after which the request is transferred to the App Script in the WoT Servient through the protocol binding block
           and resource model block of the WoT Servient.
           The App Script running on the WoT Servient understands what kind of request is coming from browser and
-          according to that request, the App Script on the WoT Servient controls the legacy device through
+          according to that request,
+	  the App Script on the WoT Servient controls the legacy device through
           local hardware and legacy communication APIs provided in its Runtime Environment. 
          </p>
       </section>
@@ -523,17 +529,13 @@ On the other hand the air conditioner is connected to WoT Servient 2 and acts as
         <h2>WoT Servient on Device<br />
         </h2>
         <div  style="text-align: center;"><img  src="images/Wot-on-device.png"
-
              alt="WoT Servient on device itself"  title="WoT Servient on device itself"
-
              style="width: 640px;" /></div>
         <p  style="text-align: center;">Fig.12 WoT Servient on device itself </p>
-        <p  style="text-align: left;">In this case a WoT Servient is running on
-          the device itself. 
+        <p  style="text-align: left;">In this case a WoT Servient is running on the device itself. 
           <!-- if we use this, should be in definitions: This is referred as a “WoT Device”.-->
           The right most WoT Servient in Fig.12 shows an LED Light whose controller
-          has a powerful CPU and a large memory and is able to provide web server functionality
-          connected directly to the internet.
+          has a powerful CPU and a large memory and is able to provide web server functionality connected directly to the internet.
           Then the leftmost browser and/or another application on the internet can
           access the LED light through the internet directly.</p>
       </section>
@@ -545,54 +547,52 @@ On the other hand the air conditioner is connected to WoT Servient 2 and acts as
           intermediate hardware.
         </p>
         <div  style="text-align: center;"><img  src="images/Wot-on-smartphone-A.png"
-
              alt="WoT servient on Smartphone (A)"  title="WoT Servient on Smartphone (A)" /></div>
         <p  style="text-align: center;">Fig.13 WoT Servient on smartphone (A)</p>
         <p  style="text-align: left;">Fig.13 shows an example of a WoT Servient on a
-          smartphone. In Fig.13, there are two independent software modules, running on different devices (for example, a laptop and a smartphone).  
-	  The first module is WoT Servient running on the smartphone which might not have any user interface, but
-          provides gateway functionality to access legacy devices over local communications (eg Bluetooth) and/or sensors within smartphone.
+          smartphone. In Fig.13, there are two independent software modules, running on different devices 
+          (for example, a laptop and a smartphone).  
+	  The first module is WoT Servient running on the smartphone which might not have any user interface,
+          but provides gateway functionality to access legacy devices over local communications (eg Bluetooth) and/or
+	  sensors within smartphone.
 	  The second module is
-          a browser running on a separate device (such as a laptop) which provides a user experience interface via a WoT Server interface provided by the WoT Servient.
+          a browser running on a separate device (such as a laptop) which provides a user experience interface via
+	  a WoT Server interface provided by the WoT Servient.
 	</p>
         <div  style="text-align: center;"><img  src="images/Wot-on-smartphone-B.png"
-
              alt="WoT Servient on Smartphone (B)"  title="WoT Servient on Smartphone (B)" /></div>
         <p  style="text-align: center;">Fig.14 WoT Servient on Smartphone (A)</p>
-        <p  style="text-align: left;">Fig.14 shows an example of a WoT Servient on a
-          smartphone. In Fig.14, there are still two independent software modules, but both are running on the smartphone.
-	  The first module is WoT Servient running on the smartphone which might not have any user interface, but
-          provides gateway functionality to access legacy devices over local communications (eg Bluetooth) and/or sensors within smartphone.
-	  The second module is
-          a browser also running on the smartphone which provides a user experience interface via a WoT Server interface provided by the WoT Servient.
+        <p  style="text-align: left;">Fig.14 shows an example of a WoT Servient on a smartphone.
+	  In Fig.14, there are still two independent software modules, but both are running on the smartphone.
+	  The first module is WoT Servient running on the smartphone which might not have any user interface,
+          but provides gateway functionality to access legacy devices over local communications (eg Bluetooth) and/or
+	  sensors within a smartphone.
+	  The second module is a browser also running on the smartphone which provides a user experience interface via
+	  a WoT Server interface provided by the WoT Servient.
         <div  style="text-align: center;"><img  src="images/Wot-on-smartphone-C.png"
-
              alt="WoT Servient on Smartphone (C)"  title="WoT Servient on Smartphone (C)" /></div>
         <p  style="text-align: center;">Fig.15 WoT Servient on Smartphone (B)</p>
         <p  style="text-align: left;">Fig.15 shows another example of a WoT
           Servient combined with a Browser on a smartphone.
           In this case, the browser is expanded (for instance, by using a Javascript library) to include WoT Servient
-          functionality. Then there is no need for an app script to call a web
-          protocol binding block. Instead of protocol binding block, the client API can be called directly by the application inside the browser.</p>
+          functionality.
+          Then there is no need for an app script to call a web protocol binding block.
+          Instead of protocol binding block, the client API can be called directly by the application inside the browser.</p>
       </section>
       <section>
         <h2>WoT Servient on Smart Home Hub</h2>
         <div  style="text-align: center;"><img  src="images/Wot-on-smarthomehub.png"
-
              alt="WoT Servient on smart home hub"  title="WoT Servient on smart home hub"
-
              style="width: 640px;" /></div>
         <p  style="text-align: center;">Fig.16 WoT Servient on smart home hub</p>
         <p>Fig.16 shows an example of WoT Servient on a smart home hub.
-          A smart home hub is usually introduced as a home automation and/or home
-          energy management solution.
+          A smart home hub is usually introduced as a home automation and/or home energy management solution.
           In the case of consumer electronics, there are very wide variety of
           physical communication formats such as WiFi, 802.15.4g, Bluetooth low
           energy, HDPLC and so on. In order to normalize those variations,
           almost all home automation systems introduce a smart home hub.
           In Fig.16, a WoT Servient wraps various mechanisms for communicating with legacy
-          devices and provides to other clients a universal device accessing
-          method.
+          devices and provides to other clients a universal device accessing method.
           Inside the home, HTTP/TCP/IP/WiFi can then be used as the sole
           unfied communication method between WoT Servient on
           smart home hub and a user interface device such as a web broswer.</p>
@@ -611,26 +611,23 @@ On the other hand the air conditioner is connected to WoT Servient 2 and acts as
           devices running in the home through only local interfaces such as Bluetooth.
         </p>
         <div  style="text-align: center;"><img  src="images/Wot-on-cloud.png"
-
              alt="WoT Servient on Cloud Server"  title="WoT Servient on Cloud Server"
-
              style="width: 640px;" /></div>
         <p  style="text-align: center;">Fig.17 WoT Servients on Cloud Server and Gateway</p>
         <p  style="text-align: left;">Fig.17 shows an example of WoT Servient running on
           a cloud server paired with another WoT Servient running in a smart home hub.
-          In the case of Fig.17, a browser accesses the WoT Servient on the cloud Server named
-          “platform”. This WoT Servient provides its interface through the internet globally. 
+          In the case of Fig.17, a browser accesses the WoT Servient on the cloud Server named “platform”. 
+          This WoT Servient provides its interface through the internet globally. 
           So, wherever browser user is, he/she can access this WoT Servient.
           The WoT Servient on "platform" can accepts the browser and/or other application’s request
-          through HTTP, CoAP and so on. Then the WoT Servient on the cloud server
-          finds out the route to access another WoT Servient on a smart home hub. 
+          through HTTP, CoAP and so on. 
+          Then the WoT Servient on the cloud server finds out the route to access another WoT Servient on a smart home hub. 
           After finding out the route, the WoT Servient on the cloud server transfers
           browser’s request to WoT Servient on the smart home hub.
-          After that, the smart home hub processes the request according to
-          Fig.16 case.
+          After that, the smart home hub processes the request according the Fig.16 case.
           The Thing Description of the WoT Servient on the cloud server can be just
-          a mirror of that on the smart home hub, since it will generally just pass interactions
-          directly through.
+          a mirror of that on the smart home hub, 
+          since it will generally just pass interactions directly through.
           More generally, though, one or both WoT Servients can provide services such as
           privacy filtering or sub-setting.
           When the user is home, they can also access the WoT Servient in the home hub directly.
@@ -651,17 +648,13 @@ On the other hand the air conditioner is connected to WoT Servient 2 and acts as
           </ol>
         </p>
         <div  style="text-align: center;"><img  src="images/servient_on_cloud_server2-2.png"
-
              alt="WoT Servient on Cloud Server Type2"  title="WoT Servient on Cloud Server Type2"
-
              style="width: 640px;" /></div>
         <p  style="text-align: center;">Fig.18 WoT Servient on Cloud Server Type 2</p>
-        <p  style="text-align: left;">Fig.18 shows a second example of WoT Servient on
-          a cloud server.
+        <p  style="text-align: left;">Fig.18 shows a second example of WoT Servient on a cloud server.
           In the case shown in Fig.18, a browser accesses WoT Servient on the cloud Server named
           “platform” same as Fig.16. This WoT Servient provides access through the global
-          internet. So, wherever browser user is, he/she can access
-          this WoT Servient.
+          internet. So, wherever browser user is, he/she can access this WoT Servient.
           WoT Servient on "platform" accepts browser and/or other application’s request
           through HTTP, CoAP and so on. Then WoT Servient on the cloud server
           finds out the route to access a proprietry discovery service running on a smart home hub. In
@@ -684,7 +677,8 @@ On the other hand the air conditioner is connected to WoT Servient 2 and acts as
         It is based on three building blocks which are to be covered by additional WoT definitions:
         Thing Descriptions, Binding Templates, and a Scripting API.
         Of these, the Thing Description is primary as it describes the network interface of a device
-        whether or not it uses the WoT Scripting API internally.  However, when a device is using the WoT Scripting API
+        whether or not it uses the WoT Scripting API internally.  
+        However, when a device is using the WoT Scripting API
         internally, it can also access other WoT Things using Client APIs by reading in ("consuming") the WoT Thing
         Descriptions of those devices.
       </p><p>
