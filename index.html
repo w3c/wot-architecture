@@ -125,15 +125,20 @@
         Servient” which provides the access to, control and get the status and
         values from IoT physical devices.<br />
         General WoT Servient functional architecture is presented in Fig.1</p>
-      <div  style="text-align: center;"><img  title="Functional Architecture of WoT Servient"
 
-           alt="Functional Architecture of WoT Servient"  src="images/functional_architecture2.png"
+      <div  style="text-align: center;">
+	    <img title="Conceptional Architecture of WoT Servient" alt="Conceptional Architecture of WoT Servient" src="images/architecture-concept.png" style="width: 640px;" /><br />
+        <p>Fig.1a Conceptional Architecture of WoT Servient</p>
+      </div>
+	  
+	  <div  style="text-align: center;">
+	    <img title="Functional Architecture of WoT Servient" alt="Functional Architecture of WoT Servient" src="images/architecture-implementation.png" style="width: 640px;" /><br />
+        <p>Fig.1b Functional Architecture of WoT Servient</p>
+      </div>
 
-           style="width: 640px;" /><br />
-        <p>Fig.1 Functional Architecture of WoT Servient</p>
         <p  style="text-align: left;">The role and functionality of each module
           is as follows;</p>
-      </div>
+      
       <section>
         <h2>Thing Description</h2>
         <p>Metadata and declarations of thing’s capabilities (e.g., possible interactions).<br />
@@ -162,12 +167,12 @@ Supported transfer communication patterns are push, pull, pub-sub and bi-directi
 </p>
         <p>this binding template is a part of protocol binding block.<br />
         Protocol binding block consists of common upper part and binding template part and it is described in Fig.2</p>
-      <div  style="text-align: center;"><img  title="Protocol Binding structure"
 
-           alt="Functional Architecture of WoT Servient"  src="images/protocol-binding-concept.png"
-
-           style="width: 640px;" /><br />
+      <div  style="text-align: center;">
+	    <img title="Protocol Bindings" alt="Protocol Bindings" src="images/binding-templates.png" style="width: 640px;" /><br />
         <p>Fig.2 Protocol Binding Structure</p>
+	  </div>
+	  
         <p  style="text-align: left;">The data flow of protocol binding is as follows;<br />
 		This data flow is mainly described in WoT client.<br />
 		1) At first, App Logic refers TD (Thing Description) of other WoT device (server). And App Logic understands how to call API provided by WoT server.<br />
@@ -182,7 +187,6 @@ Supported transfer communication patterns are push, pull, pub-sub and bi-directi
 		<br />
 		6) Binding template block creates data pack according to its definition and communicates to the WoT server.
 	      </p>
-      </div>
       </section>
       <section>
         <h2>Security and Privacy</h2>
@@ -391,10 +395,12 @@ In this case, a temperature sensor is connected to WoT Servient 1 and control ag
         This chapter tries to list up informative mapping samples.</p>
       <section>
         <h2> Simple Use case</h2>
-        <div  style="text-align: center;"><img  src="images/browser-wot.png"  alt="Simple use case"
 
-             title="Simple use case"  style="width: 640px;" /></div>
-        <p  style="text-align: center;">Fig.11 Simple use case</p>
+        <div style="text-align: center;">
+		  <img  src="images/wot-mappings.png" alt="Simple use case" title="Simple use case" style="width: 640px;" />
+          <p>Fig.11 Simple use case</p>
+		</div>
+
         <p  style="text-align: left;">Fig.11 shows very simple use case such that
           a browser accessed WoT Servient to get some information of legacy
           device and/or put some parameters to control legacy device.<br />
@@ -412,14 +418,18 @@ In this case, a temperature sensor is connected to WoT Servient 1 and control ag
           Runtime Environment. In Fig.11 case, runtime environment calls legacy communication and access legacy device.</p>
       </section>
       <section>
-        <h2>WoT servient on device<br />
-        </h2>
-        <div  style="text-align: center;"><img  src="images/Wot-on-device.png"
+        <h2>WoT servient on device</h2>
 
-             alt="WoT Servient on device itself"  title="WoT Servient on device itself"
+        <div  style="text-align: center;">
+		  <img src="images/wot-on-device.png" alt="WoT Servient on device itself" title="WoT Servient on device itself" style="width: 640px;" />
+          <p>Fig.12a WoT Servient on device itself </p>
+		</div>
+		
+		<div  style="text-align: center;">
+		  <img src="images/wot-on-device-minimal.png" alt="WoT Servient on constrained device" title="WoT Servient on constrained device" style="width: 640px;" />
+          <p>Fig.12b WoT Servient on constrained device</p>
+		</div>
 
-             style="width: 640px;" /></div>
-        <p  style="text-align: center;">Fig.12 WoT Servient on device itself </p>
         <p  style="text-align: left;">The first example is WoT servient on
           device itself. This is referred as “WoT Device”.<br />
           The right most WoT servient in Fig.12 shows an LED Light which
@@ -435,10 +445,12 @@ In this case, a temperature sensor is connected to WoT Servient 1 and control ag
           which bridges between internet and legacy device without any
           intermediate hardware.<br />
         </p>
-        <div  style="text-align: center;"><img  src="images/Wot-on-smartphone-A.png"
 
-             alt="WoT servient on Smartphone (A)"  title="WoT servient on Smartphone (A)" /></div>
-        <p  style="text-align: center;">Fig.13 WoT servient on Smartphone (A)</p>
+        <div style="text-align: center;">
+		  <img src="images/wot-on-smartphone.png" alt="WoT servient on Smartphone" title="WoT servient on Smartphone" style="width: 640px;" />
+          <p  style="text-align: center;">Fig.13 WoT servient on Smartphone (A)</p>
+		</div>
+
         <p  style="text-align: left;">Fig.13 shows an example of WoT servient on
           Smartphone. In Fig.12, there are independent 2 software modules, one is
           browser which has user experience to provide interaction and runs outside of smartphone,
@@ -465,12 +477,12 @@ In this case, a temperature sensor is connected to WoT Servient 1 and control ag
       </section>
       <section>
         <h2>WoT servient on Smart Home Hub</h2>
-        <div  style="text-align: center;"><img  src="images/Wot-on-smarthomehub.png"
 
-             alt="WoT servient on smart home hub"  title="WoT servient on smart home hub"
+        <div style="text-align: center;">
+		  <img  src="images/wot-on-edge-hub.png" alt="WoT Servient on edge hub" title="WoT Servient on edge hub" style="width: 640px;" />
+          <p style="text-align: center;">Fig.16 WoT servient on edge hub</p>
+		</div>
 
-             style="width: 640px;" /></div>
-        <p  style="text-align: center;">Fig.16 WoT servient on smart home hub</p>
         <p>Fig.16 shows an example of WoT servient on smart home hub.<br />
           Smart home hub is usually introduced home automation and/or home
           energy management solution.<br />
@@ -494,12 +506,12 @@ In this case, a temperature sensor is connected to WoT Servient 1 and control ag
           So, controlling devices at home from outside the house, WoT servient
           from a smart home hub should be mapped to a globally accessible cloud server.<br />
         </p>
-        <div  style="text-align: center;"><img  src="images/Wot-on-cloud.png"
 
-             alt="WoT Servient on Cloud Server"  title="WoT Servient on Cloud Server"
+        <div style="text-align: center;">
+		  <img  src="images/wot-on-cloud.png" alt="WoT Servient on Cloud Server" title="WoT Servient on Cloud Server" style="width: 640px;" />
+          <p>Fig.17 WoT Servient on Cloud Server</p>
+		</div>
 
-             style="width: 640px;" /></div>
-        <p  style="text-align: center;">Fig.17 WoT Servient on Cloud Server</p>
         <p  style="text-align: left;">Fig.17 shows an example of WoT servient on
           a cloud server.<br />
           In Fig.16 case, a browser accesses WoT servient on the cloud Server named
@@ -535,12 +547,12 @@ In this case, a temperature sensor is connected to WoT Servient 1 and control ag
           So, controlling devices at home from outside the house, WoT servient
           from a smart home hub should be mapped to a globally accessible cloud server.<br />
         </p>
-        <div  style="text-align: center;"><img  src="images/servient_on_cloud_server2-2.png"
 
-             alt="WoT Servient on Cloud Server Type2"  title="WoT Servient on Cloud Server Type2"
+        <div  style="text-align: center;">
+		  <img  src="images/wot-on-cloud-legacy.png" alt="WoT Servient on Cloud Server Type2"  title="WoT Servient on Cloud Server Type2" style="width: 640px;" />
+          <p>Fig.18 WoT Servient on Cloud Server Type2</p>
+		</div>
 
-             style="width: 640px;" /></div>
-        <p  style="text-align: center;">Fig.18 WoT Servient on Cloud Server Type2</p>
         <p  style="text-align: left;">Fig.18 shows second example of WoT servient on
           a cloud server.<br />
           In Fig.18 case, a browser accesses WoT servient on the cloud Server named
