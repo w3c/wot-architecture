@@ -209,7 +209,7 @@
              eg a bridge, fog compute service, etc?? -->
         The WoT Servient functional architecture is presented in Fig.1</p>
       <div  style="text-align: center;"><img  title="Functional Architecture of WoT Servient"
-           alt="Functional Architecture of WoT Servient"  src="images/functional_architecture2.png"
+           alt="Functional Architecture of WoT Servient"  src="images/fig101.png"
            style="width: 640px;" /><br />
         <p>Fig.1 Functional Architecture of WoT Servient</p>
         <p  style="text-align: left;">The role and functionality of each module
@@ -247,7 +247,7 @@
         The Protocol Binding block consists of a common upper part and binding template part and as described in Fig.2</p>
       <div  style="text-align: center;"><img  title="Protocol Binding structure"
 
-           alt="Functional Architecture of WoT Servient"  src="images/protocol-binding-concept.png"
+           alt="Functional Architecture of WoT Servient"  src="images/fig102.png"
 
            style="width: 640px;" /><br />
         <p>Fig.2 Protocol Binding Structure</p>
@@ -581,7 +581,7 @@
 	Other mappings may be possible.
       <section>
         <h2>Browser to WoT Servient to Legacy Device</h2>
-        <div  style="text-align: center;"><img  src="images/browser-wot.png"  alt="Simple use case"
+        <div  style="text-align: center;"><img  src="images/fig103.png"  alt="Simple use case"
              title="Simple use case"  style="width: 640px;" /></div>
         <p  style="text-align: center;">Fig.11 Browser to WoT Servient to legacy device</p>
         <p  style="text-align: left;">Fig.11 shows very simple use case.
@@ -603,17 +603,27 @@
       <section>
         <h2>WoT Servient on Device<br />
         </h2>
-        <div  style="text-align: center;"><img  src="images/Wot-on-device.png"
+        <div  style="text-align: center;"><img  src="images/fig104.png"
              alt="WoT Servient on device itself"  title="WoT Servient on device itself"
              style="width: 640px;" /></div>
-        <p  style="text-align: center;">Fig.12 WoT Servient on device itself </p>
+        <p  style="text-align: center;">Fig.12.1 WoT Servient on device itself </p>
         <p  style="text-align: left;">In this case a WoT Servient is running on the device itself. 
           <!-- if we use this, should be in definitions: This is referred as a “WoT Device”.-->
-          The right most WoT Servient in Fig.12 shows an LED Light whose controller
+          The right most WoT Servient in Fig.12.1 shows an LED Light whose controller
           has a powerful CPU and a large memory and is able to provide web server functionality connected directly to the internet.
           Then the leftmost browser and/or another application on the internet can
           access the LED light through the internet directly.</p>
-      </section>
+        <div  style="text-align: center;"><img  src="images/fig105.png"
+             alt="WoT Servient on device itself"  title="WoT Servient on device itself"
+             style="width: 640px;" /></div>
+        <p  style="text-align: center;">Fig.12.2 WoT Servient on device itself </p>
+        <p  style="text-align: left;">In this case a WoT Servient is running on the device itself. 
+          <!-- if we use this, should be in definitions: This is referred as a “WoT Device”.-->
+          The right most WoT Servient in Fig.12.2 shows an legacy device
+          has a constraint CPU and a small memory and is able to provide web server functionality connected directly to the internet.
+          Then the leftmost browser and/or another application on the internet can
+          access the device through the internet directly like fig.12.1.</p>
+	</section>
       <section>
         <h2>WoT Servient on Smartphone</h2>
         <p>This example uses a WoT Servient running on a Smartphone.
@@ -621,7 +631,7 @@
           This functionality can be used to bridge between the internet and a legacy device without any
           intermediate hardware.
         </p>
-        <div  style="text-align: center;"><img  src="images/Wot-on-smartphone-A.png"
+        <div  style="text-align: center;"><img  src="images/fig106.png"
              alt="WoT servient on Smartphone (A)"  title="WoT Servient on Smartphone (A)" /></div>
         <p  style="text-align: center;">Fig.13 WoT Servient on smartphone (A)</p>
         <p  style="text-align: left;">Fig.13 shows an example of a WoT Servient on a
@@ -643,8 +653,8 @@
           but provides gateway functionality to access legacy devices over local communications (eg Bluetooth) and/or
 	  sensors within a smartphone.
 	  The second module is a browser also running on the smartphone which provides a user experience interface via
-	  a WoT Server interface provided by the WoT Servient.
-        <div  style="text-align: center;"><img  src="images/Wot-on-smartphone-C.png"
+	  a WoT Server interface provided by the WoT Servient. ((This section should be merged to next section))
+        <div  style="text-align: center;"><img  src="images/fig107.png"
              alt="WoT Servient on Smartphone (C)"  title="WoT Servient on Smartphone (C)" /></div>
         <p  style="text-align: center;">Fig.15 WoT Servient on Smartphone (B)</p>
         <p  style="text-align: left;">Fig.15 shows another example of a WoT
@@ -656,7 +666,7 @@
       </section>
       <section>
         <h2>WoT Servient on Smart Home Hub</h2>
-        <div  style="text-align: center;"><img  src="images/Wot-on-smarthomehub.png"
+        <div  style="text-align: center;"><img  src="images/fig108.png"
              alt="WoT Servient on smart home hub"  title="WoT Servient on smart home hub"
              style="width: 640px;" /></div>
         <p  style="text-align: center;">Fig.16 WoT Servient on smart home hub</p>
@@ -685,7 +695,7 @@
           However, in this case the WoT Servient in the cloud cannot generally access
           devices running in the home through only local interfaces such as Bluetooth.
         </p>
-        <div  style="text-align: center;"><img  src="images/Wot-on-cloud.png"
+        <div  style="text-align: center;"><img  src="images/fig109.png"
              alt="WoT Servient on Cloud Server"  title="WoT Servient on Cloud Server"
              style="width: 640px;" /></div>
         <p  style="text-align: center;">Fig.17 WoT Servients on Cloud Server and Gateway</p>
@@ -722,7 +732,7 @@
           alarms and similar event occur.</li>
           </ol>
         </p>
-        <div  style="text-align: center;"><img  src="images/servient_on_cloud_server2-2.png"
+        <div  style="text-align: center;"><img  src="images/fig110.png"
              alt="WoT Servient on Cloud Server Type2"  title="WoT Servient on Cloud Server Type2"
              style="width: 640px;" /></div>
         <p  style="text-align: center;">Fig.18 WoT Servient on Cloud Server Type 2</p>
