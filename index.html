@@ -7,33 +7,86 @@
     <title>Web of Things (WoT) Architecture</title>
     <script  class="remove"  async=""  src="https://www.w3.org/Tools/respec/respec-w3c-common"></script>
     <script  class="remove">
-		  var respecConfig = {
-			  specStatus:   "ED"
-			  ,   editors:      [{name:"Kazuo Kajimoto"}, {name:"Uday Davuluru"}]
-			  ,   authors:      [{name:"Kazuo Kajimoto"}, {name:"Ryuichi Matsukura"}, {name:"Johannes Hund"}, {name:"Matthias Kovatsch"}, {name:"Kazuaki Nimura"}, {name:"Michael McCool"}]
-			  ,   processVersion: 2015
-			  ,   shortName:    "wot-architecture"
-			  , wg:           "Web of Things Working Group"
-			  , wgURI:        "http://www.w3.org/WoT/WG/"
-			  , wgPublicList: "public-wot-wg"
-			  , otherLinks: [
-				{
-				 key: "GitHub",
-				 data: [
-				   {
-					 value: "Master branch on GitHub",
-					 href: "https://github.com/w3c/wot-architecture/"
-				   }, {
-					value: "File a bug",
-					href: "https://github.com/w3c/wot-architecture/issues"
-				   }, {
-					value: "Contribute",
-					href: "https://github.com/w3c/wot-architecture/"
-				   }
-				  ]
-				}
-			   ]
-			};
+          var respecConfig = {
+              specStatus:   "ED"
+            , processVersion: 2015
+            , shortName:    "wot-architecture"
+            , wg:           "Web of Things Working Group"
+            , wgURI:        "http://www.w3.org/WoT/WG/"
+            , wgPublicList: "public-wot-wg"
+            , editors: [
+                {
+                  name:       "Kazuo Kajimoto"
+                , w3cid:      "74112"
+                , company:    "Panasonic Corp."
+                , companyURL: "https://www.panasonic.com/"
+                }
+              , {
+                  name:       "Uday Davuluru"
+                , w3cid:      "92757"
+                , company:    "RWE AG"
+                , companyURL: "https://www.lemonbeat.com/"
+                }
+              ]
+            , authors: [
+                {
+                  name:       "Kazuo Kajimoto"
+                , w3cid:      "74112"
+                , company:    "Panasonic Corp."
+                , companyURL: "https://www.panasonic.com/"
+                }
+              , {
+                  name:       "Ryuichi Matsukura"
+                , w3cid:      "95969"
+                , company:    "Fujitsu Ltd."
+                , companyURL: "https://www.fujitsu.com/"
+                }
+              , {
+                  name:       "Johannes Hund"
+                , w3cid:      "74472"
+                , company:    "Siemens AG"
+                , companyURL: "https://www.siemens.com/"
+                , note:       "Until July 2017"
+                }
+              , {
+                  name:    "Matthias Kovatsch"
+                , w3cid:   "75998"
+                , company: "Siemens AG"
+                , companyURL: "https://www.siemens.com/"
+                }
+              , {
+                  name:    "Kazuaki Nimura"
+                , w3cid:   "59208"
+                , company: "Fujitsu Ltd."
+                , companyURL: "https://www.fujitsu.com/"
+                }
+              , {
+                  name:    "Michael McCool"
+                , w3cid:   "93137"
+                , company: "Intel Corp."
+                , companyURL: "https://www.intel.com/"
+                }
+              ]
+            , otherLinks: [
+                {
+                  key: "Repository",
+                  data: [
+                    {
+                      value: "We are on GitHub",
+                      href: "https://github.com/w3c/wot-architecture/"
+                    }
+                  , {
+                      value: "File a bug",
+                      href: "https://github.com/w3c/wot-architecture/issues"
+                    }
+                  , {
+                      value: "Contribute",
+                      href: "https://github.com/w3c/wot-architecture/pulls"
+                    }
+                  ]
+                }
+              ]
+            };
 		</script>
   </head>
   <body>
@@ -75,12 +128,16 @@
       the Web of Things is intended to preserve and support existing privacy and security device mechanisms and properties.
       </p>
     </section>
-    <section  id="sotd">
-      <p>Through the discussion in WoT IG, This document is reflected the conclusion for the scope of standardization in WoT WG, that is, "Thing Description", "Scripting API" and "Binding Template".<br />
-      And this document also describes informative information such as implementation which covers very wide variety of systems and requirements for security and privacy. All of them are touched in WoT WG Charter. </p>
-      <p  title="Contributing"  class="note"> Please contribute using <a  href="https://github.com/w3c/wotwg/blob/master/architecture/wot-architecture.html">Git</a>
-        or the <a  href="https://github.com/w3c/wotwg/edit/master/architecture/wot-architecture.html">GitHub
-          edit feature</a>. </p>
+    <section id="sotd">
+      <p>
+	    This document reflects the scope of WoT standardization as defined in the WG Charter and serves as an umbrella for the other W3C WoT draft specifications, that is,
+		the <a href="https://w3c.github.io/wot-thing-description/">WoT Thing Description</a>,
+		the <a href="https://w3c.github.io/wot-binding-templates/">WoT Binding Templates</a>,
+		and the <a href="https://w3c.github.io/wot-scripting-api/">WoT Scripting API</a>.
+	  </p>
+      <p class="note" title="The W3C WoT WG is asking for feedback on this draft">
+	    Please contribute using the <a href="https://github.com/w3c/wot-architecture/issues">GitHub Issue</a> feature.
+	  </p>
     </section>
     <section>
       <h1>Introduction</h1>
