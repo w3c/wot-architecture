@@ -13,6 +13,8 @@ See Thing Description
 ## Thing Description (TD)
 Structured data describing a physical device or software service (WoT Thing) that includes metadata, links to domain-specific vocabulary, a list of offered interactions, the supported protocol bindings for each interaction, and links to related Things.
 
+> Structured data describing a physical entity (WoT Thing) that includes generic metadata, domain-specific metadata, a list of offered interactions, the supported protocol bindings for each interaction, and links to related Things.
+
 ## Interaction Model
 A formal model to semantically and syntactically describe network application interfaces. The Thing Description is built around this model.
 
@@ -40,11 +42,17 @@ The Resource Description Framework (RDF) of the Semantic Web [rdf11-concepts](ht
 ## Thing
 An entity (either a physical device or a software service) whose metadata and interfaces are described by a WoT Thing Description. A Thing can be an existing device (or service) augmented by a Thing Description or an entity that that natively implements WoT building blocks (e.g., Protocol Bindings or the Scripting API).
 
+> A physical entity (either a computational device or a real-word object) described by a WoT Thing Description. Examples of Thing include (but are not limited to) sensors, actuators, building spaces, industrial equipment and manufactured products. A Thing can be interacted with via a WoT Servient.
+
 ## Servient
 An entity that implements WoT building blocks and both consumes Things and exposes one or more Things. Servients usually have multiple Protocol Bindings to enable interaction with different devices. Servients can implement the Scripting API.
 
+> A software agent that implements WoT building blocks and both consumes Thing Descriptions and exposes one or more Thing Description(s). Servients usually have multiple Protocol Bindings to enable interaction with different devices. Servients can implement the Scripting API.
+
 ## WoT Server
 An entity that exposes a network interface consistent with a WoT Thing Description. A Thing is at least a WoT Server. WoT Server is also used to refer to a Servient in server role only.
+
+> An entity that exposes a network interface consistent with a WoT Thing Description. There exists at least one WoT Server for a Thing. WoT Server is also used to refer to a Servient in server role only.
 
 ## WoT Client
 An entity that can connect with ("consume") a network interface described by a WoT Thing Description. WoT Clients usually implement multiple Protocol Bindings. WoT Client is also used to refer to a Servient in client role only.
