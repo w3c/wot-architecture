@@ -7,12 +7,6 @@ Please provide pull requests for comments (`> ` prefix) or proposals to the term
 ## IoT platform
 A specific IoT ecosystem such as OCF, oneM2M, or Mozilla Project Things with its own specifications for application-facing APIs, data model, and protocols or protocol configurations.
 
-## TD
-See Thing Description
-
-## Thing Description (TD)
-Structured data describing a physical device, software service, or logical entity (e.g., location). A TD includes metadata, domain-specific metadata, a list of offered interactions, the supported protocol bindings for each interaction, and links to related Things.
-
 ## Thing
 An abstraction of a physical entity whose metadata and interfaces are described by a WoT Thing Description. This entity can be an existing device augmented with a Thing Description, a logical component of a device that has a software stack that natively provides Thing Descriptions (see Servient), a local hardware component of a Servient, or a physical entity that does not directly provide any software stack such as a room or building.
 
@@ -21,14 +15,20 @@ An abstraction of a physical entity whose metadata and interfaces are described 
 ## Servient
 A software stack that implements the WoT building blocks. A Servient can host one or more Things. Servients usually have multiple Protocol Bindings to enable interaction with different platforms. Implement the Scripting API is optional for Servients.
 
+## Thing Description (TD)
+Structured data describing a physical device, software service, or logical entity (e.g., location). A TD includes metadata, domain-specific metadata, a list of offered interactions, the supported protocol bindings for each interaction, and links to related Things.
+
+## TD
+See Thing Description
+
 ## Interaction Model
-A formal model to semantically and syntactically describe network application interfaces. The Thing Description is built around this model.
+A formal model to semantically and syntactically describe network application interfaces. The Thing Description is built around this model and connects it to Link Data vocabularies.
 
 ## Interaction
 A functionality exposed over the network that is well defined by the TD Interaction Model.
 
 ## Interaction Pattern
-A default solution to describe common interactions: Property, Action, Event.
+A default solution to describe common interactions: Property, Action, Event. Often referred to as just "Interaction".
 
 ## Property
 An Interaction to read a specific value of a Thing and optionally to write it.
