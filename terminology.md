@@ -8,15 +8,18 @@ Please provide pull requests for comments (`> ` prefix) or proposals to the term
 A specific IoT ecosystem such as OCF, oneM2M, or Mozilla Project Things with its own specifications for application-facing APIs, data model, and protocols or protocol configurations.
 
 ## Thing
-An abstraction of a physical entity whose metadata and interfaces are described by a WoT Thing Description. This entity can be an existing device augmented with a Thing Description, a logical component of a device that has a software stack that natively provides Thing Descriptions (see Servient), a local hardware component of a Servient, or a physical entity that does not directly provide any software stack such as a room or building.
+An abstraction of a physical entity whose metadata and interfaces are described by a WoT Thing Description. This entity can be an existing device augmented with a Thing Description, a logical component of a device that has a software stack that natively provides Thing Descriptions (see Servient), a local hardware component of a Servient, or a logical entity (e.g., location) that does not directly provide any software stack such as a room or building.
 
 > Problem: Is a Manager Thing abstracting a physical entity? It could refer to the hardware that will execute the scripts...
 
 ## Servient
-A software stack that implements the WoT building blocks. A Servient can host Things (server role) and/or consume Things (client role). Servients usually have multiple Protocol Bindings to enable interaction with different platforms. Implement the Scripting API is optional for Servients.
+A software stack that implements the WoT building blocks. A Servient can host and expose Things (server role) and/or consume Things (client role). Servients usually have multiple Protocol Bindings to enable interaction with different platforms.
+
+## Runtime
+A runtime system for application scripts with the WoT Scripting API. Implementing a Runtime is optional for Servients.
 
 ## Thing Description (TD)
-Structured data describing a physical device, software service, or logical entity (e.g., location). A TD includes metadata, domain-specific metadata, a list of offered interactions, the supported protocol bindings for each interaction, and links to related Things.
+Structured data describing a Thing. A TD includes metadata, domain-specific metadata, a list of offered interactions, the supported protocol bindings for each interaction, and links to related Things.
 
 ## TD
 See Thing Description
