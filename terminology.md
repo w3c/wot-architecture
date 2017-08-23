@@ -4,6 +4,8 @@ This document serves for faster iterations and discussions of our terminology, a
 
 Please provide pull requests for comments (`> ` prefix) or proposals to the terminology.
 
+TODO: Alphabetical order
+
 ## IoT platform
 A specific IoT ecosystem such as OCF, oneM2M, or Mozilla Project Things with its own specifications for application-facing APIs, data model, and protocols or protocol configurations.
 
@@ -48,12 +50,11 @@ A JSON document that is augmented with support for Linked Data by providing an `
 ## RDF
 The Resource Description Framework (RDF) of the Semantic Web [rdf11-concepts](https://www.w3.org/TR/rdf11-concepts/)
 
-
 ## WoT Server
-An entity that exposes a network interface consistent with a WoT Thing Description. A Thing is at least a WoT Server. WoT Server is also used to refer to a Servient in server role only.
+An entity that exposes a network interface consistent with a WoT Thing Description. WoT Server is also used to refer to a Servient in server role only.
 
 ## WoT Client
-An entity that can connect with ("consume") a network interface described by a WoT Thing Description. WoT Clients usually implement multiple Protocol Bindings. WoT Client is also used to refer to a Servient in client role only.
+An entity that can connect with a network interface described by a WoT Thing Description (i.e., consume a Thing). WoT Clients usually implement multiple Protocol Bindings. WoT Client is also used to refer to a Servient in client role only.
 
 ## Binding Templates
 A re-usable collection of blueprints for the communication with different IoT platforms. The blueprints includes the required vocabulary for the Thing Description to map Interactions to platform-specific messages as well as implementation notes for the required protocol stacks or dedicated communication drivers.
@@ -68,7 +69,7 @@ A running or periodically running process that consumes one or more Things (read
 The application-facing programming interface provided by a Servient; comparable to the Web browser APIs.
 
 ## Execution Environment
-A sandbox that isolates scripts running on the same Servient.
+A sandbox within the Runtime that isolates scripts running on the same Servient.
 
 ## Client API
 Programming interface that allows scripts to access remote Things over the network, local Things in a different execution environment, or directly attached hardware (which as abstracted as Things).
@@ -101,6 +102,11 @@ A discovery method which supports lookup of remote Things also beyond network bo
 
 ## TD Repository
 A directory service for TDs that provides a Web interface to register TDs (see [draft-ietf-core-resource-directory](https://tools.ietf.org/html/draft-ietf-core-resource-directory)) and look them up (e.g., using SPARQL queries).
+
+---
+
+Maybe a new sub-section for technical terms that are not defined by us?
+
 
 ## CoAP
 Acronym for Constrained Application Protocol [RFC7252]
