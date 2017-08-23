@@ -19,7 +19,7 @@ A software stack that implements the WoT building blocks. A Servient can host an
 A runtime system for application scripts with the WoT Scripting API. Implementing a Runtime is optional for Servients.
 
 ## Thing Description (TD)
-Structured data describing a Thing. A TD includes metadata, domain-specific metadata, a list of offered interactions, the supported protocol bindings for each interaction, and links to related Things.
+Structured data describing a Thing. A TD includes metadata, domain-specific metadata, a list of offered interactions, the supported protocol bindings for each interaction, and links to related Things. The Thing Description is built around a formal Interaction Model.
 
 ## TD
 See Thing Description
