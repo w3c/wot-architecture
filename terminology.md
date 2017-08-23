@@ -11,13 +11,21 @@ A specific IoT ecosystem such as OCF, oneM2M, or Mozilla Project Things with its
 See Thing Description
 
 ## Thing Description (TD)
-Structured data describing a physical device or software service (WoT Thing) that includes metadata, links to domain-specific vocabulary, a list of offered interactions, the supported protocol bindings for each interaction, and links to related Things.
+Structured data describing a physical device, software service, or logical entity (e.g., location). A TD includes metadata, domain-specific metadata, a list of offered interactions, the supported protocol bindings for each interaction, and links to related Things.
+
+## Thing
+An abstraction of a physical entity whose metadata and interfaces are described by a WoT Thing Description. This entity can be an existing device augmented with a Thing Description, a logical component of a device that has a software stack that natively provides Thing Descriptions (see Servient), a local hardware component of a Servient, or a physical entity that does not directly provide any software stack such as a room or building.
+
+> Problem: Is a Manager Thing abstracting a physical entity? It could refer to the hardware that will execute the scripts...
+
+## Servient
+A software stack that implements the WoT building blocks. A Servient can host one or more Things. Servients usually have multiple Protocol Bindings to enable interaction with different platforms. Implement the Scripting API is optional for Servients.
 
 ## Interaction Model
 A formal model to semantically and syntactically describe network application interfaces. The Thing Description is built around this model.
 
 ## Interaction
-A functionality exposed over the network that is described by the TD Interaction Model.
+A functionality exposed over the network that is well defined by the TD Interaction Model.
 
 ## Interaction Pattern
 A default solution to describe common interactions: Property, Action, Event.
@@ -37,11 +45,6 @@ A JSON document that is augmented with support for Linked Data by providing an `
 ## RDF
 The Resource Description Framework (RDF) of the Semantic Web [rdf11-concepts](https://www.w3.org/TR/rdf11-concepts/)
 
-## Thing
-An entity (either a physical device or a software service) whose metadata and interfaces are described by a WoT Thing Description. A Thing can be an existing device (or service) augmented by a Thing Description or an entity that that natively implements WoT building blocks (e.g., Protocol Bindings or the Scripting API).
-
-## Servient
-An entity that implements WoT building blocks and both consumes Things and exposes one or more Things. Servients usually have multiple Protocol Bindings to enable interaction with different devices. Servients can implement the Scripting API.
 
 ## WoT Server
 An entity that exposes a network interface consistent with a WoT Thing Description. A Thing is at least a WoT Server. WoT Server is also used to refer to a Servient in server role only.
