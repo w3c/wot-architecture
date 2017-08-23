@@ -13,7 +13,7 @@ An abstraction of a physical entity whose metadata and interfaces are described 
 > Problem: Is a Manager Thing abstracting a physical entity? It could refer to the hardware that will execute the scripts...
 
 ## Servient
-A software stack that implements the WoT building blocks. A Servient can host one or more Things. Servients usually have multiple Protocol Bindings to enable interaction with different platforms. Implement the Scripting API is optional for Servients.
+A software stack that implements the WoT building blocks. A Servient can host Things (server role) and/or consume Things (client role). Servients usually have multiple Protocol Bindings to enable interaction with different platforms. Implement the Scripting API is optional for Servients.
 
 ## Thing Description (TD)
 Structured data describing a physical device, software service, or logical entity (e.g., location). A TD includes metadata, domain-specific metadata, a list of offered interactions, the supported protocol bindings for each interaction, and links to related Things.
