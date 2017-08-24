@@ -53,6 +53,11 @@ The Resource Description Framework (RDF) of the Semantic Web [rdf11-concepts](ht
 ## WoT Server
 An entity that exposes a network interface consistent with a WoT Thing Description. WoT Server is also used to refer to a Servient in server role only.
 
+## WoT API
+A network interface consistent with a WoT Thing Description exposed by a WoT Server.
+
+> This term is used extensively in the security threat model
+
 ## WoT Client
 An entity that can connect with a network interface described by a WoT Thing Description (i.e., consume a Thing). WoT Clients usually implement multiple Protocol Bindings. WoT Client is also used to refer to a Servient in client role only.
 
