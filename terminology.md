@@ -17,7 +17,7 @@ An abstraction of a physical entity whose metadata and interfaces are described 
 ## Servient
 A software stack that implements the WoT building blocks. A Servient can host and expose Things (server role) and/or consume Things (client role). Servients usually have multiple Protocol Bindings to enable interaction with different platforms.
 
-## Runtime
+## WoT Runtime
 A runtime system for application scripts with the WoT Scripting API. Implementing a Runtime is optional for Servients.
 
 ## Thing Description (TD)
