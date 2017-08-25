@@ -50,6 +50,9 @@ A JSON document that is augmented with support for Linked Data by providing an `
 ## RDF
 The Resource Description Framework (RDF) of the Semantic Web [rdf11-concepts](https://www.w3.org/TR/rdf11-concepts/)
 
+## WoT Interface
+The network-facing interface of a Thing as defined by its Thing Description.
+
 ## WoT Server
 An entity that exposes a network interface consistent with a WoT Thing Description. WoT Server is also used to refer to a Servient in server role only.
 
