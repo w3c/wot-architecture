@@ -157,7 +157,7 @@
         With the WoT <a href="https://www.w3.org/WoT/WG/">Working Group</a> chartered end of 2016, the first set of WoT building blocks is now being standardized:
       </p>
       <ul>
-        <li>the <a href="#">WoT Thing Description</a> (this document),</li>
+        <li>the <a href="#">WoT Architecture</a> (this document),</li>
         <li>the <a href="https://w3c.github.io/wot-thing-description/">WoT Thing Description</a>,</li>
         <li>the <a href="https://w3c.github.io/wot-binding-templates/">WoT Binding Templates</a>, and</li>
         <li>the <a href="https://w3c.github.io/wot-scripting-api/">WoT Scripting API</a>.</li>
@@ -171,7 +171,7 @@
         <li>a set of use cases that lead to the W3C WoT Architecture,
         <li>a set of requirements for WoT implementations,</li>
         <li>an overview of the WoT building blocks being standardized and their interplay,</li>
-        <li>a guideline to map the abstract architechture to software stacks and hardware components,</li>
+        <li>a guideline to map the abstract architecture to software stacks and hardware components,</li>
         <li>and security considerations to be aware of when implementing WoT building blocks.</li>
       </ul>
     </section>
@@ -193,7 +193,7 @@
       </dl>
     </section>
 
-    <section>
+    <section id="sec-use-cases">
       <h1>Use Cases</h1>
       <p>
         This section presents the use cases targeted by W3C WoT and which are used to derive the abstract architecture discussed in <a href="#sec-building-blocks"></a>.
@@ -354,7 +354,7 @@
       </section>
     </section>
 
-    <section>
+    <section id="sec-requirements">
       <h1>Functional Requirements</h1>
       <p>
       This section defines the properties required in a Web of Things (WoT) abstract architecture.
@@ -423,7 +423,7 @@
         This section presents the abstract architecture for the Web of Things,
         which is derived from the use cases in section <a href="#sec-use-cases"></a> and the requirements in section <a href="sec-requirements"></a>,
         and the WoT building blocks to realize this architecture.
-        Figure <a href="#architecture-abstract"></a> summarizes the high-level goals and requirements, and shows the three levels, where WoT building blocks can be applied:
+        <a href="#architecture-abstract"></a> summarizes the high-level goals and requirements, and shows the three levels, where WoT building blocks can be applied:
       </p>
       <ul>
         <li>the device level</li>
@@ -435,7 +435,7 @@
         <figcaption>Abstract Architecture of W3C WoT</figcaption>
       </figure>
       <p>
-        Figure <a href="#architecture-concept"></a> has the conceptional view of how a component in the WoT Architecture makes use of the WoT building blocks.
+        <a href="#architecture-concept"></a> has the conceptional view of how a component in the WoT Architecture makes use of the WoT building blocks.
         Each block is described in more detail in the following sections.
       </p>
       <figure id="architecture-concept">
@@ -459,7 +459,7 @@
         </p>
         <p>
           There can be Things, however, that do not provide a WoT Interface and only consist of metadata that is relevant to the application (e.g., the room in which devices are located).
-          In W3C WoT, a Thing must have a Thing Description, ergo, everthing that has a Thing Description is a Thing.
+          In W3C WoT, a Thing must have a Thing Description, ergo, everything that has a Thing Description is a Thing.
         </p>
       </section>
 
@@ -510,7 +510,7 @@
           <figcaption>From Binding Templates to Protocol Bindings</figcaption>
         </figure>
         <p>
-          Figure <a href="#binding-templates"></a> shows how Binding Templates are applied.
+          <a href="#binding-templates"></a> shows how Binding Templates are applied.
           A WoT Binding Template is created only once for each IoT Platform
           and then reused in TDs, where it is instantiated.
           The WoT Client consuming that TD must implement the corresponding Protocol Binding to be able to interact with the Thing described.
@@ -548,7 +548,7 @@
       <section>
         <h2>WoT Scripting API</h2>
         <p>
-          The <a href="https://w3c.github.io/wot-scripting-api/">WoT Scripting API</a> as an optional building block that eases IoT application development.
+          The <a href="https://w3c.github.io/wot-scripting-api/">WoT Scripting API</a> is an optional building block that eases IoT application development.
           Traditionally, device logic is implemented in firmware, which underlies the productivity constraints of embedded development.
           The WoT Scripting API enables having a runtime system for IoT applications similar to the Web browser, and hence improve productivity and reduce integration costs.
           Furthermore, standardized APIs enable portability for application modules,
@@ -569,9 +569,9 @@
       <section>
         <h2>Security and Privacy</h2>
         <p>
-          Security is a cross-cutting issue that needs to be taken into account in all WoT building block listed above.
+          Security is a cross-cutting issue that needs to be taken into account in all WoT building blocks listed above.
           W3C WoT does not define any new security mechanisms,
-          but provides guidelines to apply the best practices from Web secrutiy,
+          but provides guidelines to apply the best practices from Web security,
           IoT security,
           and information security for general software and hardware considerations.
         </p>
@@ -594,12 +594,12 @@
       <p>
         A Servient is a software stack that implements the WoT building blocks presented in the previous section.
         Servients can host and expose Things and/or consume Things.
-        Thus, the can be in both, server and client role, which constitutes for the naming.
+        Thus, they can be in both, server and client role, which constitutes for the naming.
       </p>
       <p>
-        The previous Figure <a href="#architecture-concept"></a> shows how the WoT building blocks conceptionally relate to each other.
+        The previous <a href="#architecture-concept"></a> shows how the WoT building blocks conceptionally relate to each other.
         When implementing these concepts, a slightly different view emerges that takes the technical aspects into account.
-        The detailed architecture of a Servient is shown in Figure <a href="#architecture-implementation"></a>.
+        The detailed architecture of a Servient is shown in <a href="#architecture-implementation"></a>.
       </p>
       <figure id="architecture-implementation">
         <img src="images/architecture-implementation.png" style="width: 640px;" />
@@ -612,18 +612,21 @@
       <section>
         <h2>Application</h2>
         <p>
-          Applications running on a Servient are implemented through scripts (i.e., JavaScript).
+          Applications running on a Servient are usually implemented through scripts (i.e., JavaScript).
           These must be provided along with security metadata that defines their execution environment and consequently how scripts must be isolated.
-          The security metadata also needs to unclude keying material or certifictes to authenticate the Things the script exposes.
+          The security metadata also needs to include keying material or certificates to authenticate the Things the script exposes.
         </p>
+        <p>
+          Note that the WoT Scripting API building block is optional.
+          There can be minimal Servient implementations where applications are implemented natively for the platform.
+          These do not have the Scripting API and Runtime System modules.
       </section>
       
       <section>
         <h2>Scripting API</h2>
         <p>
-          Applications running on a Servient are implemented by scripts (i.e., JavaScript).
-          These must provided along with security metadata that defines their execution environment and consequently how scripts must be isolated.
-          The security metadata also needs to unclude keying material or certifictes to authenticate the Things the script exposes.
+          The standardized Scripting API is the contract between applications and the runtime system of the Servient.
+          As mentioned above, this building block is optional.
         </p>
         <p>
           See <a href="https://w3c.github.io/wot-scripting-api/">WoT Scripting API</a> for details.
@@ -653,7 +656,7 @@
         <p>
           In many cases, where standard protocols are used, generic protocol stacks can be used to procude the platform-specific messages (e.g., one for HTTP(S) dialects, one for CoAP(S) dialects, and one for MQTT solutions).
           In this case, the communication metadata from the Thing Description is used to select and configure the right stack (e.g., HTTP with the right header fields or CoAP with the right options).
-          Parsers and serializers for the expected representation format identified by the Internet Media Type can also be shared across theses generic protocol stacks.
+          Parsers and serializers for the expected representation format identified by the Internet Media Type can also be shared across these generic protocol stacks.
         </p>
         <p>
           In some cases, where no aspects can be shared,
@@ -702,7 +705,7 @@
       <section>
         <h2>WoT in the Web Browser</h2>
         <p>
-          Figure <a href="#architecture-browser"></a> shows how a Servient implementation for Web browsers would look like.
+          <a href="#architecture-browser"></a> shows how a Servient implementation for Web browsers would look like.
         </p>
         <figure id="architecture-browser">
           <img src="images/architecture-browser.png" style="width: 640px;" />
@@ -747,7 +750,7 @@
           <figcaption>Servient Consuming Thing</figcaption>
         </figure>
         <p>
-          <a href="#wot-existing"></a> the basic scenario,
+          <a href="#wot-existing"></a> shows the basic scenario,
           where a Servient is consuming an existing device that is augmented with a WoT Thing Description (TD).
           The latter could be generated from digital descriptions already available for the device within the corresponding the IoT Platform.
           It could also be written by a developer using tools or even manually.
@@ -1101,27 +1104,34 @@
     <section>
       <h1>Conclusion</h1>
       <p>
-        A abstract architecture for the WoT and a functional architecture for Servients has been introduced. 
-        It is based on three building blocks which are to be covered by additional WoT definitions:
-        Thing Descriptions, Binding Templates, and a Scripting API.
-        Of these, the Thing Description is primary as it describes the network interface of a device
-        whether or not it uses the WoT Scripting API internally.  
-        However, when a device is using the WoT Scripting API
-        internally, it can also access other WoT Things using Client APIs by reading in ("consuming") the WoT Thing
-        Descriptions of those devices.
+        An abstract architecture for the Web of Things and a functional architecture for Servients has been introduced. 
+        It is based on WoT building blocks, which are to be covered by additional WoT specifications:
+      </p>
+      <ul>
+        <li>the <a href="https://w3c.github.io/wot-thing-description/">WoT Thing Description</a>,</li>
+        <li>the <a href="https://w3c.github.io/wot-binding-templates/">WoT Binding Templates</a>, and</li>
+        <li>the <a href="https://w3c.github.io/wot-scripting-api/">WoT Scripting API</a>.</li>
+      </ul>
+      <p>
+        Of these, the WoT Thing Description is the primary building block, as it describes the network-facing interface of a Thing ("WoT Interface"),
+        whether or not it uses WoT Binding Templates or the WoT Scripting API internally.
+        The implementation of WoT Binding Templates results in multiple possible Protocol Bindings, so that a Thing can communicate with different IoT Platforms (i.e., IoT ecosystems or standards).
+        When a Thing uses the WoT Scripting API internally,
+        its application logic can be programmed against a standardized contract using JavaScript.
+        This way, it simplifies IoT application development and enables portability across vendors and WoT network components.
       </p>
       <p>
-        The architecture described here applies well to wide variety of different application scenarios.
-        We have described serveral situtations where one or more Servients were used together to overcome,
-        for instance, limitations on the range of specific communication protocols.  These examples are not
-        exhaustive and were only meant to illustrate the flexibility of the WoT approach.
+        The architecture described here applies well to a wide variety of different use cases.
+        Based on these, we have described serveral scenarios where one or more Servients were used together to overcome,
+        for instance, limitations on the reach of specific communication protocols.
+        These examples are not exhaustive and are only meant to illustrate the applicability and flexibility of the WoT approach.
       </p>
     </section>
-    <section  class="appendix">
+    <section class="appendix remove">
       <h2>Acknowledgements</h2>
       <p> @TODO decide whether needed... </p>
     </section>
-    <section  class="appendix">
+    <section class="appendix remove">
       <h2>Change History</h2>
       <p> @TODO decide whether needed... </p>
     </section>
