@@ -151,7 +151,7 @@
       <p>
         The "Web of Things" (WoT) started as an academic initiative in the form of publications and, starting in 2010, a yearly <a href="https://webofthings.org/events/">International Workshop on the Web of Things</a>.
         Its goal is to improve interoperability as well as usability in the Internet of Things (IoT).
-        With the increasing role of WoT in commercial and industrial applications,
+        With the increasing role of IoT services using other web standards in commercial and industrial applications,
         the W3C chartered an <a href="https://www.w3.org/WoT/IG/">Interest Group</a> in 2015
         to identify technological building blocks for Recommendation Track standardization.
         With the WoT <a href="https://www.w3.org/WoT/WG/">Working Group</a> chartered end of 2016, the first set of WoT building blocks is now being standardized:
@@ -184,7 +184,7 @@
       </p>
       <p class="ednote">
         Please refer to <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md">this markdown file</a>.
-        Once the terminology definitions are stable, they well be included here.
+        Once the terminology definitions are stable, they will be included here.
       </p>
       <dl class="remove">
         <dt><dfn id="Term">Term</dfn></dt>
@@ -196,14 +196,14 @@
     <section id="sec-use-cases">
       <h1>Use Cases</h1>
       <p>
-        This section presents the use cases targeted by W3C WoT and which are used to derive the abstract architecture discussed in <a href="#sec-building-blocks"></a>.
-        While the Smart Home use cases might appear predominant in this section,
-        they should be seen as mere vehicle to identify fundamental requirements inherent to most application domains.
-        The Smart Home domain is eligible for this, as most stakeholders can relate to it.
+        This section presents the use cases targeted by the W3C WoT and which are used to derive the abstract architecture discussed in <a href="#sec-building-blocks"></a>.
+        While Smart Home use cases might appear predominant in this section,
+        they should be seen as simply a vehicle to identify fundamental requirements inherent to most application domains.
+        The Smart Home domain is suitable for identifying such general requirements, as most stakeholders can relate to it.
       </p>
         
       <p class="note" title="TODO">
-        The individual use cases need polishing. The figures should avoid already talking about WoT and Servients, but just name the functional roles (existing device, smart home hub / factory cell controller and line controller, cloud proxy, etc.).
+        The individual use cases need polishing. The figures should avoid talking about WoT and Servients, and instead should just name the functional roles (existing device, smart home hub / factory cell controller and line controller, cloud proxy, etc.).
       </p>
 
       <section>
@@ -213,7 +213,7 @@
           As stated above its use cases are eligible to convey the fundamental requirements on discovery, connectivity, and provided functionality.
           Also security has become a central issue in consumer systems.
           Furthermore, Smart Home use cases have stronger privacy requirements than commercial and industrial ones.
-          In general, the fundamental aspects of the Smart Home use cases given also apply to other use cases.
+          In general, however, the fundamental aspects of the Smart Home use cases given also apply to other use cases.
         </p>
         
         <section>
@@ -278,7 +278,7 @@
             Device Shadows in the cloud can be realized in different ways:
           </p>
           <p class="note" title="TODO">
-            The complexity of the use cases here increases to quickly, with to many features added at once.
+            The complexity of the use cases here increases too quickly, with too many features added at once.
           </p>
           <section>
             <h4>Cloud-ready Devices</h4>
@@ -327,11 +327,11 @@
         <p>
           <a href="#smartfactory"></a> shows an example of a Smart Factory.
           In this case, cell controllers automate factory equipment with specialized communication such as RS-485 or EtherCAT.
-          Line controllers orchestrates multiple cell controllers over IP-based networks.
+          Line controllers orchestrate multiple cell controllers over IP-based networks.
           A factory controller integrates different line controllers.
           A cloud service collects data from the factory controller and analyzes them for predictive maintenance.
           Users can monitor the factory through a dashboard.
-          Note that factories usually to not reveal the internal topology of their lines and cells.
+          Note that factories usually do not reveal the internal topology of their lines and cells.
         </p>
         <figure id="smartfactory">
           <img src="images/smartfactory.png" style="width: 640px;" />
@@ -345,7 +345,7 @@
           <a href="#connectedcar"></a> shows an example of a Connected Car.
           In this case, a gateway connects to car components through CAN and to the car navigation system through a proprietary interface.
           Services running in the cloud collect data pushed from car components  and analyze the data from multiple cars to determine traffic patterns.
-          The gateway can also consume the cloud services, in this case, to get traffic data and show it to the driver through the car navigation system.
+          The gateway can also consume cloud services, in this case, to get traffic data and show it to the driver through the car navigation system.
         </p>
         <figure id="connectedcar">
           <img src="images/connectedcar.png" style="width: 500px;" />
@@ -409,7 +409,7 @@
           can be in control of safety-critical systems.
           Compared to personal systems,
           IoT devices are subject to
-          different and in some cases higher risks.
+          different and in some cases higher risks than IT systems.
           It is also 
           important to protect IoT systems so that they can not be
           used to launch attacks on other computer systems.
@@ -423,7 +423,7 @@
         This section presents the abstract architecture for the Web of Things,
         which is derived from the use cases in section <a href="#sec-use-cases"></a> and the requirements in section <a href="sec-requirements"></a>,
         and the WoT building blocks to realize this architecture.
-        <a href="#architecture-abstract"></a> summarizes the high-level goals and requirements, and shows the three levels, where WoT building blocks can be applied:
+        <a href="#architecture-abstract"></a> summarizes the high-level goals and requirements and shows the three levels where WoT building blocks can be applied:
       </p>
       <ul>
         <li>the device level</li>
@@ -435,7 +435,7 @@
         <figcaption>Abstract Architecture of W3C WoT</figcaption>
       </figure>
       <p>
-        <a href="#architecture-concept"></a> has the conceptional view of how a component in the WoT Architecture makes use of the WoT building blocks.
+        <a href="#architecture-concept"></a> shows a conceptional view of how a component in the WoT Architecture makes use of the WoT building blocks.
         Each block is described in more detail in the following sections.
       </p>
       <figure id="architecture-concept">
@@ -455,11 +455,11 @@
         <p>
           Things provide a network-facing API for interaction (WoT Interface) based on a formal model.
           These WoT Interfaces are a superset of Web APIs, as Things can also be available over non-Web protocols such as MQTT or ZigBee.
-          While sometimes called "WoT API", the WoT Interface is not to be confused with the WoT Scripting API, which is optional and interfaces with application scripts inside the software stack of a Thing.
+          The outward-facing WoT Interface is not to be confused with the WoT Scripting API, which is optional and interfaces with application scripts inside the software stack of a Thing.
         </p>
         <p>
           There can be Things, however, that do not provide a WoT Interface and only consist of metadata that is relevant to the application (e.g., the room in which devices are located).
-          In W3C WoT, a Thing must have a Thing Description, ergo, everything that has a Thing Description is a Thing.
+          In W3C WoT however, a Thing must have a Thing Description; ergo, everything that has a Thing Description is a Thing.
         </p>
       </section>
 
@@ -470,7 +470,7 @@
           It can be seen as the "HTML for Things".
           A TD provides general metadata of a Thing as well as metadata about the interactions, data model, communication, and security mechanisms of a Thing.
           Usually, TDs make use of domain-specific metadata for which WoT provides explicit extension points.
-          (The domain-specific vocabulary is out-of-scope of the W3C activity.)
+          However, any domain-specific vocabulary is out-of-scope of the W3C standardization activity.
         </p>
         <p>
           The Thing Description is built around a formal Interaction Model
@@ -478,14 +478,15 @@
           The default Interaction Patterns are Property, Action, and Event.
           These were found to be able to cover the network-facing APIs provided by most IoT Platforms.
           Properties abstract data points that can be read and often written.
-          Actions abstract invokable processes that may run for a certian time; yet they can also abstract RPC-like interactions in general.
+          Actions abstract invokable processes that may run for a certain time; yet they can also abstract RPC-like interactions in general.
           Events abstract interactions where the remote endpoint pushes data asynchronously.
         </p>
         <p>
           Thing Descriptions are serialized to JSON-LD by default.
           More serialization formats are planned in the future, in particular more concise formats for resource-constrained Things.
           For now, JSON-LD offers a good trade-off between machine-understandable semantics and usability for developers.
-          This fosters interoperability in two ways:
+         </p><p>
+          TDs foster interoperability in two ways:
           First, and foremost, TDs enable machine-to-machine communication in the Web of Things.
           Second, TDs can serve as a common, uniform format for developers to document and retrieve all details necessary to access IoT devices and make use of their data.
         </p>
@@ -494,11 +495,12 @@
       <section>
         <h2>WoT Binding Templates</h2>
         <p>
-          A great challenge for WoT is to interact with different IoT Platforms (e.g., OCF or oneM2M).
+          A great challenge for the WoT is to enable interactions with a myriad of different IoT Platforms (e.g., OCF, oneM2M, RESTful devices not following any particular standard but providing an HTTP or CoAP interface, etc.).
           The IoT uses a variety of protocols for accessing Things, since no one protocol is appropriate in all contexts.
-          W3C WoT is tackling this through communication metadata
-          that is included in the WoT Thing Description
-          and used to configure the communication stack to produce platform-compliant messages.
+          W3C WoT is tackling this variety by including communication metadata
+          in the WoT Thing Description.
+          This metadata can be 
+          used to configure the communication stack to produce compliant messages for a wide variety of target platforms and protocols.
         </p>
         <p>
           The <a href="https://w3c.github.io/wot-binding-templates/">WoT Binding Templates</a> are an informal collection of communication metadata blueprints that explain how to interact with different IoT Platforms.
@@ -527,7 +529,7 @@
           <li>
             <b>Transfer Protocol:</b>
             The WoT Thing Description comes with vocabulary to identify standard protocols (e.g., HTTP, CoAP, WebSockets, or MQTT).
-            Their configuration (e.g., port or variations such as HTTP long-polling [[!RFC6202]]) is also done through TD vocabulary.
+            Their configuration (e.g., port or variations such as HTTP long-polling [[!RFC6202]] to support event notification) is also done through TD vocabulary.
             If a transfer protocol is not covered by the TD vocabulary, domain-specific vocabulary can be used.
             This, of course, needs to be backed by a corresponding Protocol Binding implementation in the WoT Client.
           </li>
@@ -539,7 +541,7 @@
           <li>
             <b>Security:</b>
             Security can be applied at different places of the communication,
-            and hence opens another dimension.
+            and hence opens another dimension of variability.
             Examples are (D)TLS [[!RFC5246]]/[[!RFC6347]], IPSec [[!RFC6071]], OAuth [[!RFC6749]], and ACE [[!RFC7744]].
           </li>
         </ul>
@@ -550,7 +552,7 @@
         <p>
           The <a href="https://w3c.github.io/wot-scripting-api/">WoT Scripting API</a> is an optional building block that eases IoT application development.
           Traditionally, device logic is implemented in firmware, which underlies the productivity constraints of embedded development.
-          The WoT Scripting API enables having a runtime system for IoT applications similar to the Web browser, and hence improve productivity and reduce integration costs.
+          The WoT Scripting API enables having a runtime system for IoT applications similar to a Web browser, and aims to improve productivity and reduce integration costs.
           Furthermore, standardized APIs enable portability for application modules,
           for instance, to move compute-intense logic from a device up to a local edge hub,
           or to move time-critical logic from the cloud down to an edge hub.
@@ -581,10 +583,10 @@
         </p>
         <p>
           The WoT Binding Templates must correctly cover the security mechanisms employed by the underlying IoT Platform.
-          Due to the automation of network interactions, operators need to ensure that Things are exposed and consumed in a way that is compliant with their security policies.
+          Due to the automation of network interactions necessary in the IoT, operators need to ensure that Things are exposed and consumed in a way that is compliant with their security policies.
         </p>
         <p>
-          The Scripting API is equivalent to any platform API, and hence must have mechanisms to prevent malicious access of the system.
+          The Scripting API is equivalent to any platform API, and hence must have mechanisms to prevent malicious access to the system.
         </p>
       </section>
     </section>
@@ -594,11 +596,11 @@
       <p>
         A Servient is a software stack that implements the WoT building blocks presented in the previous section.
         Servients can host and expose Things and/or consume Things.
-        Thus, they can be in both, server and client role, which constitutes for the naming.
+        Thus, Servients can perform in both the server and client roles; the name (a portmanteau of server and client) is based on this dual role.
       </p>
       <p>
         The previous <a href="#architecture-concept"></a> shows how the WoT building blocks conceptionally relate to each other.
-        When implementing these concepts, a slightly different view emerges that takes the technical aspects into account.
+        When implementing these concepts, a more detailed view is necessary that takes certain technical aspects into account.
         The detailed architecture of a Servient is shown in <a href="#architecture-implementation"></a>.
       </p>
       <figure id="architecture-implementation">
@@ -638,8 +640,8 @@
         <p>
           The Thing abstraction and Interaction Model is implemented in a runtime system that offers the application-facing WoT Scripting API.
           The runtime system interfaces with the Protocol Bindings as well as the System API to access local hardware and proprietary means for communication.
-          Note that both, local hardware and devices behind proprietary communication are reflected by Things in the runtime environment,
-          that is, they are also accessed through the Client API.
+          Note that both local hardware and devices behind proprietary communications protocols may also be represented by Things in the runtime environment,
+          that is, they may also be made accessible through the Client API.
           The runtime system is also tasked with generating the Thing Description
           based on the Servient metadata (e.g., location), application metadata (e.g., implemented Interactions), and available protocol bindings (e.g., implemented Binding Templates).
         </p>
@@ -650,11 +652,11 @@
         <p>
           Protocol Bindings are implementations of the Binding Templates.
           They produce the messages to interact with Things over the network
-          based on the information given in the WoT Things Description of the consumed Thing.
+          based on the information given in the WoT Thing Description of the consumed Thing.
           Servients usually have multiple Protocol Bindings to enable interaction with different platforms.
         </p>
         <p>
-          In many cases, where standard protocols are used, generic protocol stacks can be used to procude the platform-specific messages (e.g., one for HTTP(S) dialects, one for CoAP(S) dialects, and one for MQTT solutions).
+          In many cases, where standard protocols are used, generic protocol stacks can be used to produce the platform-specific messages (e.g., one for HTTP(S) dialects, one for CoAP(S) dialects, and one for MQTT solutions, etc.).
           In this case, the communication metadata from the Thing Description is used to select and configure the right stack (e.g., HTTP with the right header fields or CoAP with the right options).
           Parsers and serializers for the expected representation format identified by the Internet Media Type can also be shared across these generic protocol stacks.
         </p>
@@ -672,7 +674,7 @@
         <p>
           A Thing's implementation may access local hardware or services (e.g. storage) through proprietary APIs or other means. 
           This block is out of scope of WoT standardization.
-          Application logic running in a WoT Runtime may also access local hardware via the Scripting API as if it were a Thing accessible over a network protocol.
+          Application logic running in a WoT Runtime may alternatively access local hardware via the Scripting API as if it were a Thing accessible over a network protocol.
           In this case the implementation should be optimized to avoid the overhead that would be involved in a literal implementation
           of a network protocol while maintaining a consistent Thing interface.
           Such "System Things" are out of the scope of standardization at present although we will document several informational examples. 
