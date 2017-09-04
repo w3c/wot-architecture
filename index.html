@@ -101,7 +101,6 @@
       <p class="note" title="TODO">
         The abstract needs polishing.
       </p>
-    
       <p>
         The Web of Things is intended to support IoT interoperability.
         Primarily, it provides mechanisms to formally describe IoT interfaces
@@ -352,7 +351,7 @@
     <section id="sec-requirements">
       <h1>Functional Requirements</h1>
       <p>
-      This section defines the properties required in a Web of Things (WoT) abstract architecture.
+      This section defines the properties required in an abstract Web of Things (WoT) architecture.
       </p>
       <section>
         <h2>Flexibility</h2>
@@ -416,13 +415,13 @@
       <h1>WoT Building Blocks</h1>
       <p>
         This section presents the abstract architecture for the Web of Things,
-        which is derived from the use cases in section <a href="#sec-use-cases"></a> and the requirements in section <a href="sec-requirements"></a>,
+        which is derived from the use cases in Section <a href="#sec-use-cases"></a> and the requirements in Section <a href="#sec-requirements"></a>,
         and the WoT building blocks to realize this architecture.
         <a href="#architecture-abstract"></a> summarizes the high-level goals and requirements and shows the three levels where WoT building blocks can be applied:
       </p>
       <ul>
         <li>the device level</li>
-        <li>the gateway level ("edge")</li>
+        <li>the gateway level (or "edge")</li>
         <li>the cloud level</li>
       </ul>
       <figure id="architecture-abstract">
@@ -441,20 +440,20 @@
       <section>
         <h2>Thing</h2>
         <p>
-          A Thing is the abstraction of a physical entity that needs to be represented in applications.
+          A <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a> is the abstraction of a physical entity that needs to be represented in applications.
           This entity can be a device,
           a logical component of a device,
           a local hardware component,
           or even a logical entity such as a location (e.g., room or building).
         </p>
         <p>
-          Things provide a network-facing API for interaction (WoT Interface) based on a formal model.
-          These WoT Interfaces are a superset of Web APIs, as Things can also be available over non-Web protocols such as MQTT or ZigBee.
-          The outward-facing WoT Interface is not to be confused with the WoT Scripting API, which is optional and interfaces with application scripts inside the software stack of a Thing.
+          <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Things</a> provide a network-facing API for interaction (<a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#wot-interface">WoT Interface</a>) based on a formal model.
+          These <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#wot-interface">WoT Interfaces</a> are a superset of Web APIs, as <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Things</a> can also be available over non-Web protocols such as MQTT or ZigBee.
+          The outward-facing <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#wot-interface">WoT Interface</a> is not to be confused with the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#scripting-api">Scripting API</a>, which is optional and interfaces with application scripts inside the software stack of a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a>.
         </p>
         <p>
-          There can be Things, however, that do not provide a WoT Interface and only consist of metadata that is relevant to the application (e.g., the room in which devices are located).
-          In W3C WoT however, a Thing must have a Thing Description; ergo, everything that has a Thing Description is a Thing.
+          There can be <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Things</a>, however, that do not provide a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#wot-interface">WoT Interface</a> and only consist of metadata that is relevant to the application (e.g., the room in which devices are located).
+          In W3C WoT however, a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a> must have a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">Thing Description</a>; ergo, everything that has a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">Thing Description</a> is a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a>.
         </p>
       </section>
 
@@ -463,27 +462,27 @@
         <p>
           The <a href="https://w3c.github.io/wot-thing-description/">WoT Thing Description</a> (TD) is structured data that adheres to a formal model and closes the gap between Linked Data vocabularies and functional APIs of IoT systems.
           It can be seen as the "HTML for Things".
-          A TD provides general metadata of a Thing as well as metadata about the interactions, data model, communication, and security mechanisms of a Thing.
-          Usually, TDs make use of domain-specific metadata for which WoT provides explicit extension points.
+          A <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TD</a> provides general metadata of a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a> as well as metadata about the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#interaction">Interactions</a>, data model, communication, and security mechanisms of a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a>.
+          Usually, <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TDs</a> make use of domain-specific metadata for which WoT provides explicit extension points.
           However, any domain-specific vocabulary is out-of-scope of the W3C standardization activity.
         </p>
         <p>
-          The Thing Description is built around a formal Interaction Model
+          The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">Thing Description</a> is built around a formal <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#interaction-model">Interaction Model</a>
           that can support multiple messaging paradigms (i.e, request-response, publish-subscribe, and message passing).
-          The default Interaction Patterns are Property, Action, and Event.
+          The default <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#interaction-pattern">Interaction Patterns</a> are <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#property">Property</a>, <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#action">Action</a>, and <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#event">Event</a>.
           These were found to be able to cover the network-facing APIs provided by most IoT Platforms.
-          Properties abstract data points that can be read and often written.
-          Actions abstract invokable processes that may run for a certain time; yet they can also abstract RPC-like interactions in general.
-          Events abstract interactions where the remote endpoint pushes data asynchronously.
+          <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#property">Properties</a> abstract data points that can be read and often written.
+          <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#action">Actions</a> abstract invokable processes that may run for a certain time; yet they can also abstract RPC-like interactions in general.
+          <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#event">Events</a> abstract interactions where the remote endpoint pushes data asynchronously.
         </p>
         <p>
-          Thing Descriptions are serialized to JSON-LD by default.
-          More serialization formats are planned in the future, in particular more concise formats for resource-constrained Things.
+          <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">Thing Descriptions</a> are serialized to JSON-LD by default.
+          More serialization formats are planned in the future, in particular more concise formats for resource-constrained <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Things</a>.
           For now, JSON-LD offers a good trade-off between machine-understandable semantics and usability for developers.
          </p><p>
-          TDs foster interoperability in two ways:
-          First, and foremost, TDs enable machine-to-machine communication in the Web of Things.
-          Second, TDs can serve as a common, uniform format for developers to document and retrieve all details necessary to access IoT devices and make use of their data.
+          <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TDs</a> foster interoperability in two ways:
+          First, and foremost, <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TDs</a> enable machine-to-machine communication in the Web of Things.
+          Second, <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TDs</a> can serve as a common, uniform format for developers to document and retrieve all details necessary to access IoT devices and make use of their data.
         </p>
       </section>
       
@@ -491,46 +490,46 @@
         <h2>WoT Binding Templates</h2>
         <p>
           A great challenge for the WoT is to enable interactions with a myriad of different IoT Platforms (e.g., OCF, oneM2M, RESTful devices not following any particular standard but providing an HTTP or CoAP interface, etc.).
-          The IoT uses a variety of protocols for accessing Things, since no one protocol is appropriate in all contexts.
+          The IoT uses a variety of protocols for accessing devices, since no one protocol is appropriate in all contexts.
           W3C WoT is tackling this variety by including communication metadata
-          in the WoT Thing Description.
+          in the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">Thing Description</a>.
           This metadata can be 
-          used to configure the communication stack to produce compliant messages for a wide variety of target platforms and protocols.
+          used to configure the communication stack to produce compliant messages for a wide variety of target <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#iot-platform">IoT Platforms</a> and protocols.
         </p>
         <p>
-          The <a href="https://w3c.github.io/wot-binding-templates/">WoT Binding Templates</a> are an informal collection of communication metadata blueprints that explain how to interact with different IoT Platforms.
-          When creating a WoT Thing Description for a particular device,
-          the Binding Template for the corresponding IoT Platform can be used and instantiated in the Thing Description for that device.
+          The <a href="https://w3c.github.io/wot-binding-templates/">WoT Binding Templates</a> are an informal collection of communication metadata blueprints that explain how to interact with different <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#iot-platform">IoT Platforms</a>.
+          When creating a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">Thing Description</a> for a particular device,
+          the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#binding-templates">Binding Template</a> for the corresponding <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#iot-platform">IoT Platform</a> can be used and instantiated in the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">Thing Description</a> for that device.
         </p>
         <figure id="binding-templates">
           <img src="images/binding-templates.png" style="width: 640px;" />
           <figcaption>From Binding Templates to Protocol Bindings</figcaption>
         </figure>
         <p>
-          <a href="#binding-templates"></a> shows how Binding Templates are applied.
-          A WoT Binding Template is created only once for each IoT Platform
-          and then reused in TDs, where it is instantiated.
-          The WoT Client consuming that TD must implement the corresponding Protocol Binding to be able to interact with the Thing described.
+          <a href="#binding-templates"></a> shows how <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#binding-templates">Binding Templates</a> are applied.
+          A <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#binding-templates">WoT Binding Template</a> is created only once for each <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#iot-platform">IoT Platform</a>
+          and then reused in <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TDs</a>, where it is instantiated.
+          The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#wot-client">WoT Client</a> consuming that <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TD</a> must implement the corresponding <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#protocol-binding">Protocol Binding</a> to be able to interact with the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a> described.
           The communication metadata of a Binding spans four dimensions:
         </p>
         <ul>
           <li>
             <b>IoT Platform:</b>
-            IoT Platforms often introduce proprietary tweaks to protocols such as platform-specific HTTP header fields or CoAP options.
+            <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#iot-platform">IoT Platforms</a> often introduce proprietary tweaks to protocols such as platform-specific HTTP header fields or CoAP options.
             This spans another dimension within the transfer protocol used.
-            Usually, these tweaks can be described with standard TD vocabulary.
-            If not, platform-specific vocabulary along with a corresponding Protocol Binding implementation is required.
+            Usually, these tweaks can be described with standard <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TD</a> vocabulary.
+            If not, platform-specific vocabulary along with a corresponding <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#protocol-binding">Protocol Binding</a> implementation is required.
           </li>
           <li>
             <b>Transfer Protocol:</b>
-            The WoT Thing Description comes with vocabulary to identify standard protocols (e.g., HTTP, CoAP, WebSockets, or MQTT).
-            Their configuration (e.g., port or variations such as HTTP long-polling [[!RFC6202]] to support event notification) is also done through TD vocabulary.
-            If a transfer protocol is not covered by the TD vocabulary, domain-specific vocabulary can be used.
-            This, of course, needs to be backed by a corresponding Protocol Binding implementation in the WoT Client.
+            The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">WoT Thing Description</a> comes with vocabulary to identify standard protocols (e.g., HTTP, CoAP, WebSockets, or MQTT).
+            Their configuration (e.g., port or variations such as HTTP long-polling [[!RFC6202]] to support event notification) is also done through <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TD</a> vocabulary.
+            If a transfer protocol is not covered by the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TD</a> vocabulary, domain-specific vocabulary can be used.
+            This, of course, needs to be backed by a corresponding <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#protocol-binding">Protocol Binding</a> implementation in the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#wot-client">WoT Client</a>.
           </li>
           <li>
             <b>Media Type:</b>
-            IoT Platforms often differ in the representation formats (or serializations) used for exchanging data.
+            <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#iot-platform">IoT Platforms</a> often differ in the representation formats (or serializations) used for exchanging data.
             The Internet Meda Type [[!RFC6838]] identifies these formats.
           </li>
           <li>
@@ -547,13 +546,13 @@
         <p>
           The <a href="https://w3c.github.io/wot-scripting-api/">WoT Scripting API</a> is an optional building block that eases IoT application development.
           Traditionally, device logic is implemented in firmware, which underlies the productivity constraints of embedded development.
-          The WoT Scripting API enables having a runtime system for IoT applications similar to a Web browser, and aims to improve productivity and reduce integration costs.
+          The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#scripting-api">WoT Scripting API</a> enables having a runtime system for IoT applications similar to a Web browser, and aims to improve productivity and reduce integration costs.
           Furthermore, standardized APIs enable portability for application modules,
           for instance, to move compute-intense logic from a device up to a local gateway,
           or to move time-critical logic from the cloud down to a gateway or edge node.
         </p>
         <p>
-          The Scripting API is built on top of the Thing abstraction and the TD Interaction Model.
+          The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#scripting-api">Scripting API</a> is built on top of the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a> abstraction and the TD <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#interaction-model">Interaction Model</a>.
           There are three sub APIs:
         </p>
         <ul>
@@ -567,14 +566,14 @@
     <section>
       <h1>WoT Servient Architecture</h1>
       <p>
-        A Servient is a software stack that implements the WoT building blocks presented in the previous section.
-        Servients can host and expose Things and/or consume Things.
-        Thus, Servients can perform in both the server and client roles; the name (a portmanteau of server and client) is based on this dual role.
+        A <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> is a software stack that implements the WoT building blocks presented in the previous section.
+        <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servients</a> can host and expose <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Things</a> and/or consume <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Things</a>.
+        Thus, <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servients</a> can perform in both the server and client roles; the name (a portmanteau of server and client) is based on this dual role.
       </p>
       <p>
         The previous <a href="#architecture-concept"></a> shows how the WoT building blocks conceptionally relate to each other.
         When implementing these concepts, a more detailed view is necessary that takes certain technical aspects into account.
-        The detailed architecture of a Servient is shown in <a href="#architecture-implementation"></a>.
+        The detailed architecture of a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> is shown in <a href="#architecture-implementation"></a>.
       </p>
       <figure id="architecture-implementation">
         <img src="images/architecture-implementation.png" style="width: 640px;" />
@@ -587,21 +586,21 @@
       <section>
         <h2>Application</h2>
         <p>
-          Applications running on a Servient are usually implemented through scripts (i.e., JavaScript).
-          These must be provided along with security metadata that defines their execution environment and consequently how scripts must be isolated.
-          The security metadata also needs to include keying material or certificates to authenticate the Things the script exposes.
+          <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#application">Applications</a> running on a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> are usually implemented through scripts (i.e., JavaScript).
+          These must be provided along with security metadata that defines their <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#execution-environment">Execution Environment</a> and consequently how scripts must be isolated.
+          The security metadata also needs to include keying material or certificates to authenticate the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Things</a> the script exposes.
         </p>
         <p>
-          Note that the WoT Scripting API building block is optional.
-          There can be minimal Servient implementations where applications are implemented natively for the platform.
-          These do not have the Scripting API and Runtime System modules.
+          Note that the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#scripting-api">WoT Scripting API</a> building block is optional.
+          There can be minimal <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> implementations where applications are implemented natively for the software stack.
+          These do not have the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#scripting-api">Scripting API</a> and Runtime System modules.
       </section>
       
       <section>
         <h2>Scripting API</h2>
         <p>
-          The standardized Scripting API is the contract between applications and the runtime system of the Servient.
-          The Scripting API is equivalent to any platform API, and hence must have mechanisms to prevent malicious access to the system.
+          The standardized <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#scripting-api">Scripting API</a> is the contract between applications and the runtime system of the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a>.
+          The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#scripting-api">Scripting API</a> is equivalent to any platform API, and hence must have mechanisms to prevent malicious access to the system.
           As mentioned above, this building block is optional.
         </p>
         <p>
@@ -612,31 +611,31 @@
       <section>
         <h2>Runtime System</h2>
         <p>
-          The Thing abstraction and Interaction Model is implemented in a runtime system that offers the application-facing WoT Scripting API.
-          The runtime system interfaces with the Protocol Bindings as well as the System API to access local hardware and proprietary means for communication.
-          Note that both local hardware and devices behind proprietary communications protocols may also be represented by Things in the runtime environment,
-          that is, they may also be made accessible through the Client API.
-          The runtime system is also tasked with generating the Thing Description
-          based on the Servient metadata (e.g., location), application metadata (e.g., implemented Interactions), and available protocol bindings (e.g., implemented Binding Templates).
+          The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a> abstraction and <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#interaction-model">Interaction Model</a> is implemented in a runtime system that offers the application-facing <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#scripting-api">Scripting API</a>.
+          The runtime system interfaces with the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#protocol-binding">Protocol Bindings</a> as well as the system API to access local hardware and proprietary means for communication.
+          Note that both local hardware and devices behind proprietary communications protocols may also be represented by <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Things</a> in the runtime environment,
+          that is, they may also be made accessible through the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#client-api">Client API</a>.
+          The runtime system is also tasked with generating the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">Thing Description</a>
+          based on the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> metadata (e.g., location), application metadata (e.g., implemented <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#interaction">Interactions</a>), and available <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#protocol-binding">Protocol Bindings</a> (e.g., implemented <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#binding-templates">WoT Binding Templates</a>).
         </p>
       </section>
       
       <section>
         <h2>Protocol Bindings</h2>
         <p>
-          Protocol Bindings are implementations of the Binding Templates.
-          They produce the messages to interact with Things over the network
-          based on the information given in the WoT Thing Description of the consumed Thing.
-          Servients usually have multiple Protocol Bindings to enable interaction with different platforms.
+          <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#protocol-binding">Protocol Bindings</a> are implementations of the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#binding-templates">Binding Templates</a>.
+          They produce the messages to interact with <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Things</a> over the network
+          based on the information given in the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">WoT Thing Description</a> of the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#consumed-thing">Consumed Thing</a>.
+          <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servients</a> usually have multiple <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#protocol-binding">Protocol Bindings</a> to enable interaction with different <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#iot-platform">IoT Platforms</a>.
         </p>
         <p>
           In many cases, where standard protocols are used, generic protocol stacks can be used to produce the platform-specific messages (e.g., one for HTTP(S) dialects, one for CoAP(S) dialects, and one for MQTT solutions, etc.).
-          In this case, the communication metadata from the Thing Description is used to select and configure the right stack (e.g., HTTP with the right header fields or CoAP with the right options).
+          In this case, the communication metadata from the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">Thing Description</a> is used to select and configure the right stack (e.g., HTTP with the right header fields or CoAP with the right options).
           Parsers and serializers for the expected representation format identified by the Internet Media Type can also be shared across these generic protocol stacks.
         </p>
         <p>
           In some cases, where no aspects can be shared,
-          the Protocol Binding is more comparable to a platform-specific driver that is selected and configured through the communication metadata in similar way as above.
+          the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#protocol-binding">Protocol Binding</a> is more comparable to a platform-specific driver that is selected and configured through the communication metadata in similar way as above.
         </p>
         <p>
           See <a href="https://w3c.github.io/wot-binding-templates/">WoT Binding Templates</a> for details.
@@ -646,21 +645,21 @@
       <section>
         <h2>System API</h2>
         <p>
-          A Thing's implementation may access local hardware or services (e.g. storage) through proprietary APIs or other means. 
+          The implementation of a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a> may access local hardware or system services (e.g. storage) through proprietary APIs or other means. 
           This block is out of scope of WoT standardization.
-          Application logic running in a WoT Runtime may alternatively access local hardware via the Scripting API as if it were a Thing accessible over a network protocol.
-          In this case the implementation should be optimized to avoid the overhead that would be involved in a literal implementation
-          of a network protocol while maintaining a consistent Thing interface.
-          Such "System Things" are out of the scope of standardization at present although we will document several informational examples. 
         </p>
         <p>
-          A device may be physically external to a Servient but connected to the Servient via legacy IoT protocols, 
-          In this case the implemented runtime environment may access Legacy Communication protocols such as Echonet Lite, I2C, SPI, and so on through proprietary APIs.
-          In particular, constrained devices such as simple sensors with low speed CPUs may be accessed through simple protocols by a gateway which has higher spec resources.
-          In this case a Servient for the sensors can be implemented in a gateway on behalf of such external hardware by utilizing a Legacy Communication block.
-          This should only be done if the Legacy Protocol cannot be described using a Thing Description.
-          This block is out of scope of WoT standardization,
-          but will sometimes be touched upon during discussion of implementation practices and/or liaisons with other W3C WG and SDOs.
+          A <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#wot-runtime">WoT Runtime</a> may provide local hardware or system services to application scripts through the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a> abstraction, as if they were accessible over a network protocol.
+          In this case the implementation should be optimized to avoid the overhead that would be involved in a literal implementation
+          of a network protocol while maintaining a consistent <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#wot-interface">WoT Interface</a>.
+          The details of such "System Things" are out of the scope of standardization at present, although W3C WoT will document several informational examples. 
+        </p>
+        <p>
+          A device may be physically external to a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a>, but connected via proprietary protocols.
+          In this case, the implemented runtime environment may access legacy devices with such protocols (e.g., Echonet Lite, X10, I2C, SPI) through proprietary APIs,
+          but again exposes them to applications as <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Things</a>  through the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#scripting-api">Scripting API</a>.
+          A script can then act as gateway to the legacy devices.
+          This should only be done if the legacy device cannot be described using a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">Thing Description</a>.
         </p>
       </section>
       
@@ -685,7 +684,7 @@
           More details will be added while the document progresses.
         </p>
         <p>
-          <a href="#architecture-browser"></a> shows how a Servient implementation for Web browsers would look like.
+          <a href="#architecture-browser"></a> shows how a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> implementation for Web browsers would look like.
         </p>
         <figure id="architecture-browser">
           <img src="images/architecture-browser.png" style="width: 640px;" />
@@ -697,12 +696,13 @@
           The application scripts would be part of a Web page that can provide visualization and user interaction.
         </p>
         <p>
-          The WoT Scripting API needs to be added by a WoT library loaded together with the application scripts by the Web page.
-          This library would also implement TD handling (i.e., parsing for consuming Things and generating for exposing Things) and provide glue code to use the browser APIs.
-          The other aspects of the WoT Runtime are provided by the browser JavaScript runtime system.
+          The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#scripting-api">WoT Scripting API</a> needs to be added by a WoT library loaded together with the application scripts by the Web page.
+          This library would also implement <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TD</a> handling (i.e., parsing for consuming <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Things</a> and generating for exposing <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Things</a>) and provide glue code to use the browser APIs.
+          The other aspects of the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#wot-runtime">WoT Runtime</a> are provided by the browser JavaScript runtime system.
         </p>
         <p>
-          The Protocol Bindings are limited to the protocols implemented by Web browsers. These are:
+          The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#protocol-binding">Protocol Bindings</a> are limited to the protocols implemented by Web browsers.
+          These are:
         </p>
         <ul>
           <li>HTTP(S) (1.0/1.1/2.0) [[!RFC7230]]/[[!RFC7540]] (including Server-Sent Events [[!HTML5]]),</li>
@@ -711,7 +711,7 @@
           <li>FTP [[!RFC765]] (which might be of limited use similar to the file protocol)</li>
         </ul>
         <p>
-          The other browser APIs (e.g., Geolocation, Vibration, and Web Storage) are comparable to the System API of normal Servients and can enable access to local hardware.
+          The other browser APIs (e.g., Geolocation, Vibration, and Web Storage) are comparable to the System API of normal <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servients</a> and can enable access to local hardware.
         </p>
       </section>
     </section>
@@ -731,27 +731,27 @@
         </figure>
         <p>
           <a href="#wot-existing"></a> shows the basic scenario,
-          where a Servient in client role, a WoT Client, is consuming an existing device that is augmented with a WoT Thing Description (TD).
-          The latter could be generated from digital descriptions already available for the device within the corresponding the IoT Platform.
+          where a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> in client role, a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#wot-client">WoT Client</a>, is consuming an existing device that is augmented with a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">WoT Thing Description</a> (TD).
+          The latter could be generated from digital descriptions already available for the device within the corresponding the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#iot-platform">IoT Platform</a>.
           It could also be written by a developer using tools or even manually.
         </p>
         <p>
-          The Application Script is loaded and executed by the Servient Runtime System.
-          It is configured with the URI of the TD located on a reachable Web server.
-          Using the Client API, the Application Script retrieves the TD and instantiates a corresponding Consumed Thing.
-          The Application Script can use the metadata of the Thing and what Interactions it provides.
-          The communication metadata is used by the Servient to select the matching Protocol Binding and to configure its protocol stack.
+          The Application Script is loaded and executed by the Servient Runtime System (<a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#wot-runtime">WoT Runtime</a>).
+          It is configured with the URI of the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TD</a> located on a reachable Web server.
+          Using the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#client-api">Client API</a>, the Application Script retrieves the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TD</a> and instantiates a corresponding <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#consumed-thing">Consumed Thing</a>.
+          The Application Script can use the metadata of the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a> and what <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#interaction">Interactions</a> it provides.
+          The communication metadata is used by the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> to select the matching <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#protocol-binding">Protocol Binding</a> and to configure its protocol stack.
           These communication details are hidden from the Application Script.
-          However, the script can only interact with the Thing, 
-          if the Servient implements a Protocol Binding that matches the communication metadata given in the TD.
+          However, the script can only interact with the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a>, 
+          if the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> implements a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#protocol-binding">Protocol Binding</a> that matches the communication metadata given in the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TD</a>.
         </p>
         <p>
-          Using the Client API, the Application Script can read or write a Property,
-          invoke an Action,
-          or subscribe for Events offered by the Thing.
-          The selected Protocol Binding maps these Interactions to the protocol operations and serializations understood by the Thing.
-          When a message is returned by the Thing, the Protocol Binding parses the response and maps it back to the Interaction abstraction.
-          The Interaction output is delivered back to the Application Script by resolving a (JavaScript) Promise.
+          Using the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#client-api">Client API</a>, the Application Script can read or write a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#property">Property</a>,
+          invoke an <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#action">Action</a>,
+          or subscribe for <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#event">Events</a> offered by the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a>.
+          The selected <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#protocol-binding">Protocol Binding</a> maps these <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#interaction">Interactions</a> to the protocol operations and serializations understood by the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a>.
+          When a message is returned by the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a>, the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#protocol-binding">Protocol Binding</a> parses the response and maps it back to the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#interaction">Interaction</a> abstraction.
+          The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#interaction">Interaction</a> output is delivered back to the Application Script by resolving a (JavaScript) Promise.
         </p>
         <p class="ednote">
           Each sub-section shall describe the technical details to realize the scenario.
@@ -782,12 +782,6 @@
           </dd>
         </dl>
       </section>
-      
-      <p class="note" title="TODO">
-        The following sub-sections need polishing.
-        Some "t.b.d." can be left open, as long as the intention of these sections are clear.
-      </p>
-      
       <section>
         <h2>Servient on Device</h2>
         <figure id="wot-on-device">
@@ -795,8 +789,8 @@
           <figcaption>Servient on Device Itself</figcaption>
         </figure>
         <p>
-          In this case, a Servient is running on the device itself.
-          The right most Servient in <a href="#wot-on-device"></a> shows an LED Light,
+          In this case, a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> is running on the device itself.
+          The right most <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> in <a href="#wot-on-device"></a> shows an LED Light,
           whose controller has a powerful CPU and a large memory and is able to provide web server functionality connected directly to the Internet.
           Then the leftmost browser and/or another application on the internet can access the LED light through the Internet directly.
         </p>
@@ -805,9 +799,9 @@
           <figcaption>Resource-constrained Device as Thing</figcaption>
         </figure>
         <p>
-          Devices that are not powerful enough to host a Servient can still act as Things.
-          In this case, a classic firmware is providing a Thing Description that describes the functionality and protocols implemented.
-          The right most Servient in <a href="#wot-on-device-minimal"></a> shows an legacy device
+          Devices that are not powerful enough to host a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> can still act as <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Things</a>.
+          In this case, a classic firmware is providing a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">Thing Description</a> that describes the functionality and protocols implemented.
+          The right most <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> in <a href="#wot-on-device-minimal"></a> shows an legacy device
           has a constraint CPU and a small memory and is able to provide web server functionality connected directly to the internet.
           Then the leftmost browser and/or another application on the internet can
           access the device through the internet directly like <a href="#wot-on-device"></a>.
@@ -816,7 +810,7 @@
           <dt>Discovery:</dt>
           <dd>
             <ul>
-              <li>WoT Client discovers Servient on the same network [network discovery].</li>
+              <li>WoT Client discovers <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> on the same network [network discovery].</li>
             </ul>
           </dd>
           <dt>Connectivity:</dt>
@@ -838,7 +832,7 @@
       <section>
         <h2>Servient on Smartphone</h2>
         <p>
-          This example uses a Servient running on a Smartphone.
+          This example uses a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> running on a Smartphone.
           Smartphones are not only popular but have enough performance to provide gateway functionality.
           This functionality can be used to bridge between the internet and a legacy device without any
           intermediate hardware.
@@ -848,7 +842,7 @@
           <figcaption>Servient on Smartphone</figcaption>
         </figure>
         <p>
-          <a href="#wot-on-smartphone"></a> shows an example of a Servient on a smartphone,
+          <a href="#wot-on-smartphone"></a> shows an example of a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> on a smartphone,
           which can act as a gateway to existing devices (e.g., via Bluetooth or local Wi-Fi).
           The Web browser with the user interface can either run on the smartphone directly
           or remotely on a separate device (such as a laptop).
@@ -858,7 +852,7 @@
           <dd>
             <ul>
               <li>WoT Client discovers an electronic appliance when the remote controller is nearby [nearby discovery].</li>
-              <li>WoT Client discovers Servient remotely when the remote controller is outside [remote discovery].</li>
+              <li>WoT Client discovers <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> remotely when the remote controller is outside [remote discovery].</li>
             </ul>
           </dd>
           <dt>Connectivity:</dt>
@@ -883,24 +877,83 @@
           <figcaption>Servient on Gateway</figcaption>
         </figure>
         <p>
-          <a href="#wot-on-edge-gateway"></a> shows an example of Servient on a gateway.
+          <a href="#wot-on-edge-gateway"></a> shows an example of a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> on a gateway.
           Gateway are often introduced as a home automation and/or home energy management solution.
           In the case of consumer electronics, there are very wide variety of
           physical communication formats such as WiFi, 802.15.4g, Bluetooth Low
           Energy, HDPLC and so on. In order to normalize those variations,
           almost all home automation systems introduce a gateway.
-          In <a href="#wot-on-gateway"></a>, a Servient wraps various mechanisms for communicating with legacy
+          In <a href="#wot-on-gateway"></a>, a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> wraps various mechanisms for communicating with legacy
           devices and provides to other clients a universal device accessing method.
           Inside the home, HTTP/TCP/IP/WiFi can then be used as the sole
-          unfied communication method between the Servient on
+          unfied communication method between the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> on
           the gateway and a user interface device such as a Web broswer.
         </p>
         <dl>
           <dt>Discovery:</dt>
           <dd>
             <ul>
-              <li>Servient discovers electronic appliances nearby [nearby discovery].</li>
-              <li>WoT Client discovers Servient remotely [remote discovery].</li>
+              <li><a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> discovers electronic appliances nearby [nearby discovery].</li>
+              <li>WoT Client discovers <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> remotely [remote discovery].</li>
+            </ul>
+          </dd>
+          <dt>Connectivity:</dt>
+          <dd>
+            <ul>
+              <li>t.b.d.</li>
+            </ul>
+          </dd>
+          <dt>Security:</dt>
+          <dd>
+            <ul>
+              <li>t.b.d.</li>
+            </ul>
+          </dd>
+        </dl>
+      </section>
+
+      <section>
+        <h2>Servient on Cloud and Gateway</h2>
+        <p>
+          Client Apps can control devices at home through a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> on a gateway.
+          But in this case the location of client apps is restricted to the
+          home, because physical communication path "WiFi" and/or wired Ethernet
+          between gateway and client apps such as a Web browser is limited
+          to the physical domain provided by the WiFi signal.
+          To provide for controlling devices at home from outside the house, a
+          HTTP/TCP/IP interface to a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a>
+          running in the cloud with a globally reachable address could be used.
+          However, in this case the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> in the cloud cannot generally access
+          devices running in the home through only local interfaces such as Bluetooth.
+        </p>
+        <figure id="wot-on-cloud">
+          <img src="images/wot-on-cloud.png" style="width: 800px;" />
+          <figcaption>Servient on Cloud Server and Gateway</figcaption>
+        </figure>
+        <p>
+          <a href="#wot-on-cloud"></a> shows an example of <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> running on
+          a cloud server paired with another <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> running on a gateway.
+          In the case of <a href="#wot-on-cloud"></a>, a browser accesses the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> on the cloud Server named "Cloud". 
+          This <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> provides its interface through the Internet globally. 
+          So, wherever a browser user is, they can access this <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a>.
+          The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> on "Cloud" can accept the request of the browser and/or other application through HTTP, CoAP, and so on. 
+          Then the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> on the cloud server finds out the route to access another <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> on the gateway. 
+          After finding out the route, the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> on the cloud server transfers
+          the request from the browser to the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> on the gateway.
+          After that, the gateway processes the request according the <a href="#wot-on-gateway"></a> use case.
+          The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">Thing Description</a> of the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> on the cloud server can be just
+          a mirror of that on the gateway, 
+          since it will generally just pass interactions directly through.
+          More generally, though, one or both <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servients</a> can provide services such as
+          privacy filtering or sub-setting.
+          When the user is home, they can also access the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> in the gateway directly.
+        </p>
+        <dl>
+          <dt>Discovery:</dt>
+          <dd>
+            <ul>
+              <li><a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> discovers WoT Server remotely [remote discovery].</li>
+              <li>WoT Client discovers <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> remotely [remote discovery].</li>
             </ul>
           </dd>
           <dt>Connectivity:</dt>
@@ -925,17 +978,17 @@
           <figcaption>Servient on Cloud Server Only</figcaption>
         </figure>
         <p>
-          <a href="#wot-on-cloud-legacy"></a> shows a second example of Servients on a cloud server.
-          In this case, a browser accesses Servient on the cloud server named
-          “Cloud” same as <a href="#wot-on-cloud"></a>. This Servient provides access through the global
-          internet. So, wherever browser user is, he/she can access this Servient.
-          Servient on “Cloud” accepts browser and/or other application’s request
-          through HTTP, CoAP and so on. Then Servient on the cloud server
-          finds out the route to access a proprietry discovery service running on a gateway. In
-          <a href="#wot-on-cloud"></a> case, the Servient running in the cloud could talk to another Servient running on the gateway.
+          <a href="#wot-on-cloud-legacy"></a> shows a second example of <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servients</a> in the cloud.
+          In this case, a browser accesses a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> on a cloud server, similar to <a href="#wot-on-cloud"></a>.
+          This <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> provides access through the global Internet.
+          So, wherever the browser user is, they can access this <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a>.
+          The cloud <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> accepts the requests of the browser and/or other applications
+          through HTTP, CoAP, etc.
+          Then it finds out the route to access a proprietry discovery service running on a gateway.
+          In <a href="#wot-on-cloud"></a>, the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> running in the cloud could talk to another <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> running on the gateway.
           However, many service providers have already provided IoT services using proprietary IoT interfaces or some other IoT standard.
-          In this case, the gateway can still support the following same functionalities, 
-          as in the previous case, but using methods outside the WoT definitions.
+          In this case, the gateway can still support the same functionalities, 
+          as in the previous case, but using methods outside of the WoT definitions.
         </p>
         <dl>
           <dt>Discovery:</dt>
@@ -944,65 +997,6 @@
               <li>Servient1 discovers Servient2 remotely [remote discovery].</li>
               <li>Servient2 discovers electronic appliances nearby [nearby discovery].</li>
               <li>WoT Client discovers Servient1 remotely [remote discovery].</li>
-            </ul>
-          </dd>
-          <dt>Connectivity:</dt>
-          <dd>
-            <ul>
-              <li>t.b.d.</li>
-            </ul>
-          </dd>
-          <dt>Security:</dt>
-          <dd>
-            <ul>
-              <li>t.b.d.</li>
-            </ul>
-          </dd>
-        </dl>
-      </section>
-
-      <section>
-        <h2>Servient on Cloud and Gateway</h2>
-        <p>Client Apps can control devices at home through a Servient on a
-          gateway.
-          But in this case the location of client apps is restricted to the
-          home, because physical communication path "WiFi" and/or wired Ethernet
-          between gateway and client apps such as a Web browser is limited
-          to the physical domain provided by the WiFi signal.
-          To provide for controlling devices at home from outside the house, a
-          HTTP/TCP/IP interface to a Servient
-          running in the cloud with a globally reachable address could be used.
-          However, in this case the Servient in the cloud cannot generally access
-          devices running in the home through only local interfaces such as Bluetooth.
-        </p>
-        <figure id="wot-on-cloud">
-          <img src="images/wot-on-cloud.png" style="width: 800px;" />
-          <figcaption>Servient on Cloud Server and Gateway</figcaption>
-        </figure>
-        <p>
-          <a href="#wot-on-cloud"></a> shows an example of Servient running on
-          a cloud server paired with another Servient running on a gateway.
-          In the case of <a href="#wot-on-cloud"></a>, a browser accesses the Servient on the cloud Server named "Cloud". 
-          This Servient provides its interface through the Internet globally. 
-          So, wherever a browser user is, they can access this Servient.
-          The Servient on "Cloud" can accept the request of the browser and/or other application through HTTP, CoAP, and so on. 
-          Then the Servient on the cloud server finds out the route to access another Servient on the gateway. 
-          After finding out the route, the Servient on the cloud server transfers
-          the request from the browser to the Servient on the gateway.
-          After that, the gateway processes the request according the <a href="#wot-on-gateway"></a> use case.
-          The Thing Description of the Servient on the cloud server can be just
-          a mirror of that on the gateway, 
-          since it will generally just pass interactions directly through.
-          More generally, though, one or both Servients can provide services such as
-          privacy filtering or sub-setting.
-          When the user is home, they can also access the Servient in the gateway directly.
-        </p>
-        <dl>
-          <dt>Discovery:</dt>
-          <dd>
-            <ul>
-              <li>Servient discovers WoT Server remotely [remote discovery].</li>
-              <li>WoT Client discovers Servient remotely [remote discovery].</li>
             </ul>
           </dd>
           <dt>Connectivity:</dt>
@@ -1034,16 +1028,16 @@
         and information security for general software and hardware considerations.
       </p>
       <p>
-        The WoT Thing Description must be used together with integrity protection mechanisms and access control policies.
-        Users must ensure that no sensitive information is included in the TDs themselves.
+        The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">WoT Thing Description</a> must be used together with integrity protection mechanisms and access control policies.
+        Users must ensure that no sensitive information is included in the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TDs</a> themselves.
       </p>
       <p>
-        The WoT Binding Templates must correctly cover the security mechanisms employed by the underlying IoT Platform.
-        Due to the automation of network interactions necessary in the IoT, operators need to ensure that Things are exposed and consumed in a way that is compliant with their security policies.
+        The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#binding-templates">WoT Binding Templates</a> must correctly cover the security mechanisms employed by the underlying <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#iot-platform">IoT Platform</a>.
+        Due to the automation of network interactions necessary in the IoT, operators need to ensure that <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Things</a> are exposed and consumed in a way that is compliant with their security policies.
       </p>
       <p>
-        The WoT Scripting API must have mechanisms to prevent malicious access to the system.
-        More security mechanisms need to be applied to the WoT Runtime implementation.
+        The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#scripting-api">WoT Scripting API</a> must have mechanisms to prevent malicious access to the system.
+        More security mechanisms need to be applied to the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#wot-runtime">WoT Runtime</a> implementation.
       </p>
       <p class="ednote">
         Please file your security considerations and/or concerns using the <a href="https://github.com/w3c/wot-architecture/issues">GitHub Issue</a> feature.
@@ -1053,7 +1047,7 @@
     <section>
       <h1>Summary</h1>
       <p>
-        An abstract architecture for the Web of Things and a functional architecture for Servients has been introduced. 
+        An abstract architecture for the Web of Things and a functional architecture for <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servients</a> has been introduced. 
         It is based on WoT building blocks, which are to be covered by additional WoT specifications:
       </p>
       <ul>
@@ -1062,16 +1056,16 @@
         <li>the <a href="https://w3c.github.io/wot-scripting-api/">WoT Scripting API</a>.</li>
       </ul>
       <p>
-        Of these, the WoT Thing Description is the primary building block, as it describes the network-facing interface of a Thing ("WoT Interface"),
-        whether or not it uses WoT Binding Templates or the WoT Scripting API internally.
-        The implementation of WoT Binding Templates results in multiple possible Protocol Bindings, so that a Thing can communicate with different IoT Platforms (i.e., IoT ecosystems or standards).
-        When a Thing uses the WoT Scripting API internally,
+        Of these, the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">WoT Thing Description</a> is the primary building block, as it describes the network-facing interface of a Thing (<a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#wot-interface">WoT Interface</a>),
+        whether or not it uses <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#binding-templates">WoT Binding Templates</a> or the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#scripting-api">WoT Scripting API</a> internally.
+        The implementation of <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#binding-templates">WoT Binding Templates</a> results in multiple possible Protocol Bindings, so that a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a> can communicate with different <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#iot-platform">IoT Platforms</a> (i.e., IoT ecosystems or standards).
+        When a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a> uses the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#scripting-api">WoT Scripting API</a> internally,
         its application logic can be programmed against a standardized contract using JavaScript.
         This way, it simplifies IoT application development and enables portability across vendors and WoT network components.
       </p>
       <p>
         The architecture described here applies well to a wide variety of different use cases.
-        Based on these, we have described serveral scenarios where one or more Servients were used together to overcome,
+        Based on these, we have described serveral scenarios where one or more <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servients</a> were used together to overcome,
         for instance, limitations on the reach of specific communication protocols.
         These examples are not exhaustive and are only meant to illustrate the applicability and flexibility of the WoT approach.
       </p>
