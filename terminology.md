@@ -17,7 +17,7 @@ An abstraction of a physical entity whose metadata and interfaces are described 
 ## Servient
 A software stack that implements the WoT building blocks. A Servient can host and expose Things (server role) and/or consume Things (client role). Servients usually have multiple Protocol Bindings to enable interaction with different platforms.
 
-## Runtime
+## WoT Runtime
 A runtime system for application scripts with the WoT Scripting API. Implementing a Runtime is optional for Servients.
 
 ## Thing Description (TD)
@@ -27,28 +27,31 @@ Structured data describing a Thing. A TD includes metadata, domain-specific meta
 See Thing Description
 
 ## Interaction Model
-A formal model to semantically and syntactically describe network application interfaces. The Thing Description is built around this model and connects it to Link Data vocabularies.
+A formal model that syntactically and semantically maps different network-facing interfaces (i.e., WoT Interfaces) to application-facing interfaces (e.g., the Scripting API -- note that these can also be proprietary APIs when not implementing the WoT Runtime). The Thing Description is built around this model and connects it to Link Data vocabularies.
 
 ## Interaction
-A functionality exposed over the network that is well defined by the TD Interaction Model.
+A functionality exposed by Thing that is well defined by the TD Interaction Model.
 
 ## Interaction Pattern
-A default solution to describe common interactions: Property, Action, Event. Often referred to as just "Interaction".
+A default solution to describe common Interactions: Property, Action, Event. Often referred to as just "Interaction".
 
 ## Property
-An Interaction to read a specific value of a Thing and optionally to write it.
+An Interaction Pattern to read a specific value of a Thing and optionally to write it.
 
 ## Action
-An Interaction to invoke procedure on a Thing, potentially a long running physical process (e.g., lowering of window blinds).
+An Interaction Pattern to invoke procedure on a Thing, potentially a long running physical process (e.g., lowering of window blinds).
 
 ## Event
-An Interaction to subscribe to data pushed by a WoT Server. These can be stand-alone events such as an alarm, change-of-value notifications, or time series of data.
+An Interaction Pattern to subscribe to data pushed by a WoT Server. These can be stand-alone events such as an alarm, change-of-value notifications, or time series of data.
 
 ## JSON-LD
 A JSON document that is augmented with support for Linked Data by providing an `@context` property with a defining URI [JSON-LD](https://www.w3.org/TR/json-ld/).
 
 ## RDF
 The Resource Description Framework (RDF) of the Semantic Web [rdf11-concepts](https://www.w3.org/TR/rdf11-concepts/)
+
+## WoT Interface
+The network-facing interface of a Thing as defined by its Thing Description.
 
 ## WoT Server
 An entity that exposes a network interface consistent with a WoT Thing Description. WoT Server is also used to refer to a Servient in server role only.
