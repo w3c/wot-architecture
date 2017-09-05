@@ -93,6 +93,14 @@
                   ]
                 }
               ]
+            , localBiblio: {
+                "CoRE-RD" : {
+                  href: "https://tools.ietf.org/html/draft-ietf-core-resource-directory",
+                  title: "CoRE Resource Directory",
+                  publisher: "IETF",
+                  date: "03 July 2017"
+                }
+              }
             };
     </script>
   </head>
@@ -403,8 +411,8 @@
           In general,
           security and privacy cannot be guaranteed but the
           WoT architecture should support best practices.
-          </p>
-          <p><!-- Motivation -->
+        </p>
+        <p><!-- Motivation -->
           Security and privacy are especially important in the IoT 
           domain since IoT devices need to operate autonomously 
           and in many cases have access to both personal data and/or
@@ -487,7 +495,14 @@
           <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">Thing Descriptions</a> are serialized to JSON-LD by default.
           More serialization formats are planned in the future, in particular more concise formats for resource-constrained <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Things</a>.
           For now, JSON-LD offers a good trade-off between machine-understandable semantics and usability for developers.
-         </p><p>
+        </p>
+        <p>
+          <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">Thing Descriptions</a> can be managed in 
+          <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-directory">Thing Directories</a>, which are aligned with the CoRE Resource Directory [[CoRE-RD]].
+          They provide a Web interface for registration, registration updates, and removal, and automatic removal after a given lifetime expired without registration update.
+          <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-directory">Thing Directories</a> also provide a Web interface for lookups, usually including a SPARQL endpoint for semantic queries in addition to simple CoRE Resource Directory [[CoRE-RD]] lookups.
+        </p>
+        <p>
           <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TDs</a> foster interoperability in two ways:
           First, and foremost, <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TDs</a> enable machine-to-machine communication in the Web of Things.
           Second, <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TDs</a> can serve as a common, uniform format for developers to document and retrieve all details necessary to access IoT devices and make use of their data.
