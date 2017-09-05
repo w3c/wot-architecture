@@ -23,6 +23,9 @@ A software object instance created through the WoT object of the Scripting API t
 ## Discovery API
 Programming interface that allows scripts to discover other Things (local, nearby, or remote).
 
+## Domain-specific vocabulary
+Linked Data vocabulary that can be used in the WoT Thing Description, but is not defined by W3C WoT.
+
 ## Event
 An Interaction Pattern to subscribe to data pushed by a WoT Server. These can be stand-alone events such as an alarm, change-of-value notifications, or time series of data.
 
@@ -78,7 +81,10 @@ Programming interface that allows scripts to expose local functionality as Thing
 A software stack that implements the WoT building blocks. A Servient can host and expose Things (server role) and/or consume Things (client role). Servients usually have multiple Protocol Bindings to enable interaction with different platforms.
 
 ## TD
-See Thing Description.
+Short for Thing Description.
+
+## TD Vocabulary
+A controlled Linked Data vocabulary by W3C WoT to tag the metadata of Things in the WoT Thing Description including communication metadata of WoT Binding Templates.
 
 ## Thing
 An abstraction of a physical entity whose metadata and interfaces are described by a WoT Thing Description. This entity can be an existing device augmented with a Thing Description, a logical component of a device that has a software stack that natively provides Thing Descriptions (see Servient), a local hardware component of a Servient, or a logical entity (e.g., location) that does not directly provide any software stack such as a room or building.

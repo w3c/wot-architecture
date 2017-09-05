@@ -128,8 +128,8 @@
       <p>
         This document is focused on the standardization scope of Web of Things,
         which consists of three primary building blocks: 
-        Thing Descriptions, a Scripting API, and Binding Templates.
-        The Thing Description provides a formal mechanism to describe the network interface
+        WoT Thing Description, WoT Scripting API, and WoT Binding Templates.
+        The WoT Thing Description provides a formal mechanism to describe the network interface
         provided by an IoT service, independent of its implementation.
         Provision of a Thing Description is the primary requirement for a device to participate in the 
         Web of Things.
@@ -360,16 +360,19 @@
     <section id="sec-requirements" class="informative">
       <h1>Functional Requirements</h1>
       <p>
-      This section defines the properties required in an abstract Web of Things (WoT) architecture.
+        This section defines the properties required in an abstract Web of Things (WoT) architecture.
       </p>
       <section id="sec-requirements-flexibility">
         <h2>Flexibility</h2>
-        <p>There are a wide variety of physical device configurations for WoT implementations.
-          The WoT abstract architecture should be able to be mapped to and cover all of the variations.</p>
+        <p>
+          There are a wide variety of physical device configurations for WoT implementations.
+          The WoT abstract architecture should be able to be mapped to and cover all of the variations.
+        </p>
       </section>
       <section id="sec-requirements-compatibility">
         <h2>Compatibility</h2>
-        <p> We already have many existing IoT solutions and ongoing IoT
+        <p>
+          We already have many existing IoT solutions and ongoing IoT
           standardization activities in many business fields.
           The WoT should provide a bridge between these existing and developing IoT
           solutions and Web technology based on WoT concepts. 
@@ -381,10 +384,10 @@
         <p class="ednote">
           This section will likely undergo significant revision and reorganization.
           Please see the
-          <a href="https://github.com/w3c/wot/tree/master/security-privacy">Security and Privacy</a>
-          section of the WoT repository for work in progress.
-          In particular the <a href="https://github.com/w3c/wot/tree/master/security-privacy/AssetsThreatModelSecurityObjectives.md">WoT Threat Model</a> defines the main WoT security stakeholders,
-           assets, attack surfaces and threats. 
+          <a href="https://github.com/w3c/wot-security/">WoT Security and Privacy</a>
+          repository for work in progress.
+          In particular, the <a href="https://github.com/w3c/wot-security/blob/master/wot-threat-model.md">WoT Threat Model</a>
+          defines the main WoT security stakeholders, assets, attack surfaces, and threats. 
         </p>
         <p><!-- Requirements -->
           The functional WoT architecture should enable the use of
@@ -481,10 +484,10 @@
           It can be seen as the "HTML for Things".
           A <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TD</a> provides general metadata of a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a> as well as metadata about the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#interaction">Interactions</a>, data model, communication, and security mechanisms of a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a>.
           Usually, <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TDs</a> make use of domain-specific metadata for which WoT provides explicit extension points.
-          However, any domain-specific vocabulary is out-of-scope of the W3C standardization activity.
+          However, any <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#domain-specific-vocabulary">domain-specific vocabulary</a> is out-of-scope of the W3C standardization activity.
         </p>
         <p>
-          The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">Thing Description</a> is built around a formal <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#interaction-model">Interaction Model</a>
+          The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">WoT Thing Description</a> is built around a formal <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#interaction-model">Interaction Model</a>
           that can support multiple messaging paradigms (i.e, request-response, publish-subscribe, and message passing).
           The default <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#interaction-pattern">Interaction Patterns</a> are <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#property">Property</a>, <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#action">Action</a>, and <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#event">Event</a>.
           These were found to be able to cover the network-facing APIs provided by most IoT Platforms.
@@ -504,7 +507,7 @@
           <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-directory">Thing Directories</a> also provide a Web interface for lookups, usually including a SPARQL endpoint for semantic queries in addition to simple CoRE Resource Directory [[CoRE-RD]] lookups.
         </p>
         <p>
-          <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TDs</a> foster interoperability in two ways:
+          The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">WoT Thing Description</a> fosters interoperability in two ways:
           First, and foremost, <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TDs</a> enable machine-to-machine communication in the Web of Things.
           Second, <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TDs</a> can serve as a common, uniform format for developers to document and retrieve all details necessary to access IoT devices and make use of their data.
         </p>
@@ -532,7 +535,7 @@
         <p>
           <a href="#binding-templates"></a> shows how <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#binding-templates">Binding Templates</a> are applied.
           A <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#binding-templates">WoT Binding Template</a> is created only once for each <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#iot-platform">IoT Platform</a>
-          and then reused in <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TDs</a>, where it is instantiated.
+          and then instantiated, and hence reused in all <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TDs</a> for its devices.
           The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#wot-client">WoT Client</a> consuming that <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TD</a> must implement the corresponding <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#protocol-binding">Protocol Binding</a> to be able to interact with the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a> described.
           The communication metadata of a Binding spans four dimensions:
         </p>
@@ -541,14 +544,14 @@
             <b>IoT Platform:</b>
             <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#iot-platform">IoT Platforms</a> often introduce proprietary tweaks to protocols such as platform-specific HTTP header fields or CoAP options.
             This spans another dimension within the transfer protocol used.
-            Usually, these tweaks can be described with standard <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TD</a> vocabulary.
+            Usually, these tweaks can be described with standard <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td-vocabulary">TD Vocabulary</a>.
             If not, platform-specific vocabulary along with a corresponding <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#protocol-binding">Protocol Binding</a> implementation is required.
           </li>
           <li>
             <b>Transfer Protocol:</b>
             The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">WoT Thing Description</a> comes with vocabulary to identify standard protocols (e.g., HTTP, CoAP, WebSockets, or MQTT).
-            Their configuration (e.g., port or variations such as HTTP long-polling [[!RFC6202]] to support event notification) is also done through <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TD</a> vocabulary.
-            If a transfer protocol is not covered by the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TD</a> vocabulary, domain-specific vocabulary can be used.
+            Their configuration (e.g., port or variations such as HTTP long-polling [[!RFC6202]] to support event notification) is also done through <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td-vocabulary">TD Vocabulary</a>.
+            If a transfer protocol is not covered by the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td-vocabulary">TD Vocabulary</a>, <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#domain-specific-vocabulary">domain-specific vocabulary</a> can be used.
             This, of course, needs to be backed by a corresponding <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#protocol-binding">Protocol Binding</a> implementation in the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#wot-client">WoT Client</a>.
           </li>
           <li>
@@ -650,7 +653,7 @@
         <p>
           <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#protocol-binding">Protocol Bindings</a> are implementations of the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#binding-templates">Binding Templates</a>.
           They produce the messages to interact with <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Things</a> over the network
-          based on the information given in the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">WoT Thing Description</a> of the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#consumed-thing">Consumed Thing</a>.
+          based on the information given in the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">Thing Description</a> of the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#consumed-thing">Consumed Thing</a>.
           <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servients</a> usually have multiple <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#protocol-binding">Protocol Bindings</a> to enable interaction with different <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#iot-platform">IoT Platforms</a>.
         </p>
         <p>
@@ -684,7 +687,7 @@
           In this case, the implemented runtime environment may access legacy devices with such protocols (e.g., Echonet Lite, X10, I2C, SPI) through proprietary APIs,
           but again exposes them to applications as <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Things</a>  through the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#scripting-api">Scripting API</a>.
           A script can then act as gateway to the legacy devices.
-          This should only be done if the legacy device cannot be described using a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">Thing Description</a>.
+          This should only be done if the legacy device cannot be described using the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">WoT Thing Description</a>.
         </p>
       </section>
       
@@ -756,7 +759,7 @@
         </figure>
         <p>
           <a href="#wot-existing"></a> shows the basic scenario,
-          where a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> in client role, a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#wot-client">WoT Client</a>, is consuming an existing device that is augmented with a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">WoT Thing Description</a> (TD).
+          where a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> in client role, a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#wot-client">WoT Client</a>, is consuming an existing device that is augmented with a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">Thing Description</a> (TD).
           The latter could be generated from digital descriptions already available for the device within the corresponding the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#iot-platform">IoT Platform</a>.
           It could also be written by a developer using tools or even manually.
         </p>
