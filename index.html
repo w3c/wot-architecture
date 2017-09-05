@@ -416,23 +416,6 @@
           important to protect IoT systems so that they can not be
           used to launch attacks on other computer systems.
         </p>
-        <p><!-- Security requirements for the the WoT -->
-           Security is a cross-cutting issue that needs to be
-           taken into account in all other aspects of the 
-           WoT Architecture,
-           including the Thing Description, 
-           the Scripting API, and the Protocol Bindings.
-           The Thing Description and the Scripting API should
-           support both transport and object security using
-           best practices.  
-           <!-- TODO: only mention "data" below, what about actions? -->
-           This should apply to both data produced
-           by the Things' interfaces and to the metadata stored in
-           the Thing Description and accessible via the Scripting API.
-           Binding Templates must also support the use of appropriate 
-           security mechanisms for the protocols they map to in order
-           to satisfy the "do no harm" principle.  
-        </p>
       </section>
     </section>
 
@@ -1053,7 +1036,7 @@
         Please see work in progress at 
         <a href="https://github.com/w3c/wot/tree/master/security-privacy">WoT Security and Privacy</a>.
       </p>
-      <p>
+        <p><!-- Security requirements for the the WoT -->
         Security is a cross-cutting issue that needs to be taken into account in all WoT building blocks listed in <a href="sec-building-blocks"></a>.
         W3C WoT does not define any new security mechanisms,
         but provides guidelines to apply the best practices from Web security,
