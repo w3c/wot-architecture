@@ -18,7 +18,7 @@ Programming interface that allows scripts to access remote Things over the netwo
 To read in a Thing Description and create a Consumed Thing software object for the application in the local runtime environment.
 
 ## Consumed Thing
-A software object instance created through the WoT object of the Scripting API that represents a remote Thing used by the local application.
+A software object instance created through the WoT object of the Scripting API that represents a remote Thing used by the local application. It is defined by the ConsumedThing interface of the WoT Scripting API.
 
 ## Discovery API
 Programming interface that allows scripts to discover other Things (local, nearby, or remote).
@@ -33,7 +33,7 @@ A sandbox within the Runtime that isolates scripts running on the same Servient.
 To create an Exposed Thing software object in the local runtime environment that enables the application to provide local state and calls as Interactions over the network.
 
 ## Exposed Thing
-A software object instance created through the Server API that is implemented locally and can be accessed over the network by remote WoT Clients.
+A software object instance created through the Server API that is implemented locally and can be accessed over the network by remote WoT Clients. It is defined by the ExposedThing interface of the WoT Scripting API.
 
 ## Interaction
 A functionality exposed by Thing that is defined by the TD Interaction Model.
@@ -95,8 +95,11 @@ An entity that can connect with a network interface described by a WoT Thing Des
 ## WoT Interface
 The network-facing interface of a Thing as defined by its Thing Description.
 
+## WoT Object
+The WoT object is the Scripting API entry point within a WoT Runtime. It provides methods to discover, consume, and expose Things.
+
 ## WoT Runtime
-A runtime system for application scripts with the WoT Scripting API. Implementing a Runtime is optional for Servients.
+A runtime system for application scripts with the WoT Scripting API. Implementing a WoT Runtime is optional for Servients.
 
 ## WoT Server
 An entity that exposes a network interface consistent with a WoT Thing Description. WoT Server is also used to refer to a Servient in server role only.

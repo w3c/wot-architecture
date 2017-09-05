@@ -616,13 +616,13 @@
         <p>
           Note that the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#scripting-api">WoT Scripting API</a> building block is optional.
           There can be minimal <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> implementations where applications are implemented natively for the software stack.
-          These do not have the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#scripting-api">Scripting API</a> and Runtime System modules.
+          These do not have the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#scripting-api">Scripting API</a> and <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#wot-runtime">WoT Runtime</a> modules.
       </section>
       
       <section>
         <h2>Scripting API</h2>
         <p>
-          The standardized <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#scripting-api">Scripting API</a> is the contract between applications and the runtime system of the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a>.
+          The standardized <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#scripting-api">Scripting API</a> is the contract between applications and the runtime system of the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a>, the so-called <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#wot-runtime">WoT Runtime</a>.
           The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#scripting-api">Scripting API</a> is equivalent to any platform API, and hence must have mechanisms to prevent malicious access to the system.
           As mentioned above, this building block is optional.
         </p>
@@ -633,13 +633,13 @@
       </section>
       
       <section>
-        <h2>Runtime System</h2>
+        <h2>WoT Runtime</h2>
         <p>
           The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a> abstraction and <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#interaction-model">Interaction Model</a> is implemented in a runtime system that offers the application-facing <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#scripting-api">Scripting API</a>.
-          The runtime system interfaces with the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#protocol-binding">Protocol Bindings</a> as well as the system API to access local hardware and proprietary means for communication.
+          This <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#wot-runtime">WoT Runtime</a> interfaces with the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#protocol-binding">Protocol Bindings</a> as well as the system API to access local hardware and proprietary means for communication.
           Note that both local hardware and devices behind proprietary communications protocols may also be represented by <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Things</a> in the runtime environment,
           that is, they may also be made accessible through the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#client-api">Client API</a>.
-          The runtime system is also tasked with generating the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">Thing Description</a>
+          The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#wot-runtime">WoT Runtime</a> is also tasked with generating the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">Thing Description</a>
           based on the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> metadata (e.g., location), application metadata (e.g., implemented <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#interaction">Interactions</a>), and available <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#protocol-binding">Protocol Bindings</a> (e.g., implemented <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#binding-templates">WoT Binding Templates</a>).
         </p>
       </section>
@@ -704,8 +704,8 @@
       <section>
         <h2>WoT in the Web Browser</h2>
         <p class="ednote">
-          This section is an early outline.
-          More details will be added while the document progresses.
+          This section is an early outline to realize WoT with the existing browser APIs.
+          More details and a native WoT integration into the Web browser will be added as the WG drafts progress.
         </p>
         <p>
           <a href="#architecture-browser"></a> shows how a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> implementation for Web browsers would look like.
@@ -760,42 +760,43 @@
           It could also be written by a developer using tools or even manually.
         </p>
         <p>
-          The Application Script is loaded and executed by the Servient Runtime System (<a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#wot-runtime">WoT Runtime</a>).
-          It is configured with the URI of the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TD</a> located on a reachable Web server.
-          Using the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#client-api">Client API</a>, the Application Script retrieves the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TD</a> and instantiates a corresponding <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#consumed-thing">Consumed Thing</a>.
-          The Application Script can use the metadata of the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a> and what <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#interaction">Interactions</a> it provides.
-          The communication metadata is used by the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> to select the matching <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#protocol-binding">Protocol Binding</a> and to configure its protocol stack.
+          The Application Script is loaded and executed by the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#wot-runtime">WoT Runtime</a>.
+          Scripts can be manually configured with the URI of the device <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TD</a> located on a reachable Web server.
+          Using the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#wot-object"><code>WoT</code> object</a>, the Application Script retrieves the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TD</a> and instantiates a corresponding <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#consumed-thing">Consumed Thing</a>.
+          The Application Script can use the metadata of the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a> and inspect what <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#interaction">Interactions</a> it provides.
+          The communication metadata within the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TD</a> is used by the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> to select the matching <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#protocol-binding">Protocol Binding</a> and to configure its protocol stack.
           These communication details are hidden from the Application Script.
           However, the script can only interact with the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a>, 
           if the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> implements a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#protocol-binding">Protocol Binding</a> that matches the communication metadata given in the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TD</a>.
         </p>
         <p>
-          Using the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#client-api">Client API</a>, the Application Script can read or write a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#property">Property</a>,
+          Using the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#client-api">Client API</a> (i.e., <code>ConsumedThing</code> interface), the Application Script can read or write a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#property">Property</a>,
           invoke an <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#action">Action</a>,
           or subscribe for <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#event">Events</a> offered by the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a>.
-          The selected <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#protocol-binding">Protocol Binding</a> maps these <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#interaction">Interactions</a> to the protocol operations and serializations understood by the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a>.
+          The selected <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#protocol-binding">Protocol Binding</a> maps these <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#interaction">Interactions</a> to the low-level protocol operations and serializations understood by the remote <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a>.
           When a message is returned by the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a>, the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#protocol-binding">Protocol Binding</a> parses the response and maps it back to the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#interaction">Interaction</a> abstraction.
           The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#interaction">Interaction</a> output is delivered back to the Application Script by resolving a (JavaScript) Promise.
         </p>
         <p class="ednote">
           Each sub-section shall describe the technical details to realize the scenario.
-          They shall describe how to discover the involved WoT components, how to realize connectivity, and possible security configurations.
+          They shall describe how to discover the involved WoT components, how to realize connectivity, and what security mechanisms can be used.
+          For now, the draft only contains strawman proposals and placeholders that will be replaced as the draft progresses.
         </p>
         <dl>
-          <dt>Discovery:</dt>
+          <dt>Discovery</dt>
           <dd>
             <ul>
               <li>Manual (Application Script is configured with TD URI)</li>
             </ul>
           </dd>
-          <dt>Connectivity:</dt>
+          <dt>Connectivity</dt>
           <dd>
             <ul>
               <li>Local over (W)LAN or LPWANs (ZigBee, Z-Wave, etc.)</li>
               <li>Remote over globally reachable IP address of the Thing</li>
             </ul>
           </dd>
-          <dt>Security:</dt>
+          <dt>Security</dt>
           <dd>
             <ul>
               <li>Security metadata to sandbox the Application Script</li>
@@ -831,20 +832,20 @@
           access the device through the internet directly like <a href="#wot-on-device"></a>.
         </p>
         <dl>
-          <dt>Discovery:</dt>
+          <dt>Discovery</dt>
           <dd>
             <ul>
               <li>WoT Client discovers <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> on the same network [network discovery].</li>
             </ul>
           </dd>
-          <dt>Connectivity:</dt>
+          <dt>Connectivity</dt>
           <dd>
             <ul>
               <li>(W)LAN</li>
               <li>LPWANs (ZigBee, Z-Wave, etc.)</li>
             </ul>
           </dd>
-          <dt>Security:</dt>
+          <dt>Security</dt>
           <dd>
             <ul>
               <li>t.b.d.</li>
@@ -872,20 +873,20 @@
           or remotely on a separate device (such as a laptop).
         </p>
         <dl>
-          <dt>Discovery:</dt>
+          <dt>Discovery</dt>
           <dd>
             <ul>
               <li>WoT Client discovers an electronic appliance when the remote controller is nearby [nearby discovery].</li>
               <li>WoT Client discovers <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> remotely when the remote controller is outside [remote discovery].</li>
             </ul>
           </dd>
-          <dt>Connectivity:</dt>
+          <dt>Connectivity</dt>
           <dd>
             <ul>
               <li>t.b.d.</li>
             </ul>
           </dd>
-          <dt>Security:</dt>
+          <dt>Security</dt>
           <dd>
             <ul>
               <li>t.b.d.</li>
@@ -914,20 +915,20 @@
           the gateway and a user interface device such as a Web broswer.
         </p>
         <dl>
-          <dt>Discovery:</dt>
+          <dt>Discovery</dt>
           <dd>
             <ul>
               <li><a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> discovers electronic appliances nearby [nearby discovery].</li>
               <li>WoT Client discovers <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> remotely [remote discovery].</li>
             </ul>
           </dd>
-          <dt>Connectivity:</dt>
+          <dt>Connectivity</dt>
           <dd>
             <ul>
               <li>t.b.d.</li>
             </ul>
           </dd>
-          <dt>Security:</dt>
+          <dt>Security</dt>
           <dd>
             <ul>
               <li>t.b.d.</li>
@@ -973,20 +974,20 @@
           When the user is home, they can also access the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> in the gateway directly.
         </p>
         <dl>
-          <dt>Discovery:</dt>
+          <dt>Discovery</dt>
           <dd>
             <ul>
               <li><a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> discovers WoT Server remotely [remote discovery].</li>
               <li>WoT Client discovers <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> remotely [remote discovery].</li>
             </ul>
           </dd>
-          <dt>Connectivity:</dt>
+          <dt>Connectivity</dt>
           <dd>
             <ul>
               <li>t.b.d.</li>
             </ul>
           </dd>
-          <dt>Security:</dt>
+          <dt>Security</dt>
           <dd>
             <ul>
               <li>t.b.d.</li>
@@ -1015,7 +1016,7 @@
           as in the previous case, but using methods outside of the WoT definitions.
         </p>
         <dl>
-          <dt>Discovery:</dt>
+          <dt>Discovery</dt>
           <dd>
             <ul>
               <li>Servient1 discovers Servient2 remotely [remote discovery].</li>
@@ -1023,13 +1024,13 @@
               <li>WoT Client discovers Servient1 remotely [remote discovery].</li>
             </ul>
           </dd>
-          <dt>Connectivity:</dt>
+          <dt>Connectivity</dt>
           <dd>
             <ul>
               <li>t.b.d.</li>
             </ul>
           </dd>
-          <dt>Security:</dt>
+          <dt>Security</dt>
           <dd>
             <ul>
               <li>t.b.d.</li>
@@ -1042,21 +1043,24 @@
     <section id="sec-security-considerations">
       <h1>Security and Privacy Considerations</h1>
       <p class="ednote">
-        Security and privacy considerations are still under discussion and development.
+        Security and privacy considerations are still under discussion and development; the content below should be considered preliminary.
         Due to the complexity of the subject
-        we are considering producing a separate document containing a detailed security and privacy considerations
-        discussion including a threat model,
-        risks, recommended mitigations, and appropriate references to best practices.  
-        A summary will be included here; the content below should be considered preliminary.
-        Work in progress is located at 
-        <a href="https://github.com/w3c/wot/tree/master/security-privacy">WoT Security and Privacy</a>.
-        Please file any additional security or privacy considerations and/or concerns using the <a href="https://github.com/w3c/wot-architecture/issues">GitHub Issue</a> feature.
+        we are considering producing a separate document containing a detailed security and privacy considerations discussion
+        including a risk analysis,
+        threat model,
+        recommended mitigations,
+        and appropriate references to best practices.  
+        A summary will be included here.
+        The work in progress is located in the
+        <a href="https://github.com/w3c/wot-security">WoT Security and Privacy</a> repository.
+        Please file any additional security or privacy considerations and/or concerns using the <a href="https://github.com/w3c/wot-security/issues">GitHub Issue</a> feature.
       </p>
-        <p><!-- Security requirements for the the WoT -->
-        Security is a cross-cutting issue that needs to be taken into account in all 
-<a href="#sec-building-blocks">WoT building blocks</a>.
+      <p><!-- Security requirements for the the WoT -->
+        Security is a cross-cutting issue that needs to be taken into account in all
+        <a href="#sec-building-blocks">WoT building blocks</a>.
         The W3C WoT does not define any new security mechanisms,
-        but provides guidelines to apply the best practices from Web security,
+        but provides guidelines to apply the best practices from
+        Web security,
         IoT security,
         and information security for general software and hardware considerations.
       </p>
@@ -1069,8 +1073,7 @@
         Due to the automation of network interactions necessary in the IoT, operators need to ensure that <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Things</a> are exposed and consumed in a way that is compliant with their security policies.
       </p>
       <p>
-        The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#scripting-api">WoT Scripting API</a> must have mechanisms to prevent malicious access to the system.
-        More security mechanisms need to be applied to the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#wot-runtime">WoT Runtime</a> implementation.
+        The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#wot-runtime">WoT Runtime</a> implementation for the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#scripting-api">WoT Scripting API</a> must have mechanisms to prevent malicious access to the system and isolate scripts in multi-tenant <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servients</a>.
       </p>
     </section>
 
