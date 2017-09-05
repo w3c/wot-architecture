@@ -12,10 +12,13 @@ A running or periodically running process that consumes one or more Things (read
 A re-usable collection of blueprints for the communication with different IoT platforms. The blueprints includes the required vocabulary for the Thing Description to map Interactions to platform-specific messages as well as implementation notes for the required protocol stacks or dedicated communication drivers.
 
 ## Client API
-Programming interface that allows scripts to access remote Things over the network, local Things in a different execution environment, or directly attached hardware (which as abstracted as Things).
+Programming interface that allows scripts to access remote Things over the network, local Things in a different execution environment, or directly attached hardware (which is abstracted as Things).
+
+## to consume a Thing
+To read in a Thing Description and create a Consumed Thing software object for the application in the local runtime environment.
 
 ## Consumed Thing
-A software object instance created through the Client API that represents a remote Thing that is used by the local application.
+A software object instance created through the WoT object of the Scripting API that represents a remote Thing used by the local application.
 
 ## Discovery API
 Programming interface that allows scripts to discover other Things (local, nearby, or remote).
@@ -25,6 +28,9 @@ An Interaction Pattern to subscribe to data pushed by a WoT Server. These can be
 
 ## Execution Environment
 A sandbox within the Runtime that isolates scripts running on the same Servient.
+
+## to expose a Thing
+To create an Exposed Thing software object in the local runtime environment that enables the application to provide local state and calls as Interactions over the network.
 
 ## Exposed Thing
 A software object instance created through the Server API that is implemented locally and can be accessed over the network by remote WoT Clients.

@@ -200,7 +200,7 @@
       </dl>
     </section>
 
-    <section id="sec-use-cases">
+    <section id="sec-use-cases" class="informative">
       <h1>Use Cases</h1>
       <p>
         This section presents the use cases targeted by the W3C WoT and which are used to derive the abstract architecture discussed in <a href="#sec-building-blocks"></a>.
@@ -356,7 +356,7 @@
       </section>
     </section>
 
-    <section id="sec-requirements">
+    <section id="sec-requirements" class="informative">
       <h1>Functional Requirements</h1>
       <p>
       This section defines the properties required in an abstract Web of Things (WoT) architecture.
@@ -579,9 +579,9 @@
           There are three sub APIs:
         </p>
         <ul>
-          <li><b>Client API</b> to consume remote Things and local hardware</li>
-          <li><b>Server API</b> to expose Things over the network</li>
-          <li><b>Discovery API</b> to find consumable Things</li>
+          <li><b><code>WoT</code> object</b> as API entry point to discover, consume, and expose <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Things</a></li>
+          <li><b><code>ConsumedThing</code> interface</b> as Cient API to and consume <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Things</a> over the network or locally (e.g., physically attached hardware)</li>
+          <li><b><code>ExposedThing</code> interface</b> as Server API to configure and expose <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Things</a> over the network</li>
         </ul>
       </section>
     </section>
