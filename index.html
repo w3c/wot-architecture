@@ -158,7 +158,6 @@
         With the WoT <a href="https://www.w3.org/WoT/WG/">Working Group</a> chartered end of 2016, the first set of WoT building blocks is now being standardized:
       </p>
       <ul>
-        <li>the <a href="#">WoT Architecture</a> (this document),</li>
         <li>the <a href="https://w3c.github.io/wot-thing-description/">WoT Thing Description</a>,</li>
         <li>the <a href="https://w3c.github.io/wot-binding-templates/">WoT Binding Templates</a>, and</li>
         <li>the <a href="https://w3c.github.io/wot-scripting-api/">WoT Scripting API</a>.</li>
@@ -275,7 +274,7 @@
             Cloud proxies can be realized in different ways:
           </p>
           <p class="ednote">
-            The complexity of the use cases here increases too quickly. They will be split up to progressively add each new features.
+            The complexity of the use cases here increases too quickly. They will be split up to progressively add and explain each new feature.
           </p>
           <section>
             <h4>Cloud-ready Devices</h4>
@@ -427,15 +426,14 @@
     <section id="sec-building-blocks">
       <h1>WoT Building Blocks</h1>
       <p>
-        This section presents the abstract architecture for the Web of Things,
-        which is derived from the use cases in Section <a href="#sec-use-cases"></a> and the requirements in Section <a href="#sec-requirements"></a>,
-        and the WoT building blocks to realize this architecture.
-        <a href="#architecture-abstract"></a> summarizes the high-level goals and requirements and shows the three levels where WoT building blocks can be applied:
+        This section presents the initial WoT building blocks that build up the abstract architecture for the Web of Things.
+        This architecture is derived from the use cases in Section <a href="#sec-use-cases"></a> and the requirements in Section <a href="#sec-requirements"></a>.
+        <a href="#architecture-abstract"></a> summarizes the high-level goals and requirements and shows the three levels where the WoT building blocks can be applied:
       </p>
       <ul>
-        <li>the device level</li>
-        <li>the gateway level (or "edge")</li>
-        <li>the cloud level</li>
+        <li>the device level,</li>
+        <li>the gateway level (or "edge"), and</li>
+        <li>the cloud level.</li>
       </ul>
       <figure id="architecture-abstract">
         <img src="images/architecture-abstract.png" style="width: 100%;" />
@@ -489,7 +487,7 @@
           <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#event">Events</a> abstract interactions where the remote endpoint pushes data asynchronously.
         </p>
         <p>
-          <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">Thing Descriptions</a> are serialized to JSON-LD by default.
+          <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">Thing Descriptions</a> are serialized to JSON-LD [[!JSON-LD]] by default.
           More serialization formats are planned in the future, in particular more concise formats for resource-constrained <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Things</a>.
           For now, JSON-LD offers a good trade-off between machine-understandable semantics and usability for developers.
         </p>
@@ -522,7 +520,7 @@
           the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#binding-templates">Binding Template</a> for the corresponding <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#iot-platform">IoT Platform</a> can be used and instantiated in the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">Thing Description</a> for that device.
         </p>
         <figure id="binding-templates">
-          <img src="images/binding-templates.png" style="width: 640px;" />
+          <img src="images/binding-templates.png" style="width: 800px;" />
           <figcaption>From Binding Templates to Protocol Bindings</figcaption>
         </figure>
         <p>
