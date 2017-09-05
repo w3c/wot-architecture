@@ -353,12 +353,12 @@
       <p>
       This section defines the properties required in an abstract Web of Things (WoT) architecture.
       </p>
-      <section>
+      <section id="sec-requirements-flexibility">
         <h2>Flexibility</h2>
         <p>There are a wide variety of physical device configurations for WoT implementations.
           The WoT abstract architecture should be able to be mapped to and cover all of the variations.</p>
       </section>
-      <section>
+      <section id="sec-requirements-compatibility">
         <h2>Compatibility</h2>
         <p> We already have many existing IoT solutions and ongoing IoT
           standardization activities in many business fields.
@@ -367,8 +367,16 @@
           The WoT should be upwards compatible with existing IoT solutions and current standards.
         </p>
       </section>
-      <section>
+      <section id="sec-requirements-security">
         <h2>Security and Privacy</h2>
+        <p class="ednote">
+          This section will likely undergo significant revision and reorganization.
+          Please see the
+          <a href="https://github.com/w3c/wot/tree/master/security-privacy">Security and Privacy</a>
+          section of the WoT repository for work in progress.
+          In particular the following document <a href="https://github.com/w3c/wot/tree/master/security-privacy/AssetsThreatModelSecurityObjectives.md">WoT Threat Model</a> defines the main WoT security stakeholders,
+           assets, attack surfaces and threats. 
+        </p>
         <p><!-- Requirements -->
           The functional WoT architecture should enable the use of
           best practices in security and privacy. 
@@ -408,6 +416,23 @@
           important to protect IoT systems so that they can not be
           used to launch attacks on other computer systems.
         </p>
+        <p><!-- Security requirements for the the WoT -->
+           Security is a cross-cutting issue that needs to be
+           taken into account in all other aspects of the 
+           WoT Architecture,
+           including the Thing Description, 
+           the Scripting API, and the Protocol Bindings.
+           The Thing Description and the Scripting API should
+           support both transport and object security using
+           best practices.  
+           <!-- TODO: only mention "data" below, what about actions? -->
+           This should apply to both data produced
+           by the Things' interfaces and to the metadata stored in
+           the Thing Description and accessible via the Scripting API.
+           Binding Templates must also support the use of appropriate 
+           security mechanisms for the protocols they map to in order
+           to satisfy the "do no harm" principle.  
+        </p>
       </section>
     </section>
 
@@ -437,7 +462,7 @@
         <figcaption>Conceptional Architecture of the WoT Building Blocks</figcaption>
       </figure>
       
-      <section>
+      <section id="sec-building-blocks-thing">
         <h2>Thing</h2>
         <p>
           A <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a> is the abstraction of a physical entity that needs to be represented in applications.
@@ -457,7 +482,7 @@
         </p>
       </section>
 
-      <section>
+      <section id="sec-building-blocks-thing-description">
         <h2>WoT Thing Description</h2>
         <p>
           The <a href="https://w3c.github.io/wot-thing-description/">WoT Thing Description</a> (TD) is structured data that adheres to a formal model and closes the gap between Linked Data vocabularies and functional APIs of IoT systems.
@@ -486,7 +511,7 @@
         </p>
       </section>
       
-      <section>
+      <section id="sec-building-blocks-binding-templates">
         <h2>WoT Binding Templates</h2>
         <p>
           A great challenge for the WoT is to enable interactions with a myriad of different IoT Platforms (e.g., OCF, oneM2M, RESTful devices not following any particular standard but providing an HTTP or CoAP interface, etc.).
@@ -541,7 +566,7 @@
         </ul>
       </section>
       
-      <section>
+      <section id="sec-building-blocks-scripting-api">
         <h2>WoT Scripting API</h2>
         <p>
           The <a href="https://w3c.github.io/wot-scripting-api/">WoT Scripting API</a> is an optional building block that eases IoT application development.
@@ -563,7 +588,7 @@
       </section>
     </section>
 
-    <section>
+    <section id="sec-servient-architecture">
       <h1>WoT Servient Architecture</h1>
       <p>
         A <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> is a software stack that implements the WoT building blocks presented in the previous section.
@@ -605,6 +630,7 @@
         </p>
         <p>
           See <a href="https://w3c.github.io/wot-scripting-api/">WoT Scripting API</a> for details.
+           
         </p>
       </section>
       
@@ -1015,11 +1041,12 @@
       </section>
     </section>
 
-    <section>
+    <section id="sec-security-considerations">
       <h1>Security and Privacy Considerations</h1>
       <p class="ednote">
-        Security and privacy considerations are under development.
-        We plan to produce a separate document with a detailed security and privacy considerations
+        Security and privacy considerations are still under discussion and development.
+        Due to the complexity of the subject
+        we are considering producing a separate document a detailed security and privacy considerations
         discussion including a threat model,
         risks, recommended mitigations, and appropriate references to best practices.  
         A summary will be included here; the content below should be considered preliminary.
@@ -1046,7 +1073,7 @@
         More security mechanisms need to be applied to the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#wot-runtime">WoT Runtime</a> implementation.
       </p>
       <p class="ednote">
-        Please file and additional security or privacy considerations and/or concerns using the <a href="https://github.com/w3c/wot-architecture/issues">GitHub Issue</a> feature.
+        Please file any additional security or privacy considerations and/or concerns using the <a href="https://github.com/w3c/wot-architecture/issues">GitHub Issue</a> feature.
       </p>
     </section>
 
