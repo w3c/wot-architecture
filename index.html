@@ -105,45 +105,38 @@
     </script>
   </head>
   <body>
-    <section  id="abstract">
-      <p class="note" title="TODO">
-        The abstract needs polishing.
-      </p>
+    <section id="abstract">
       <p>
-        The Web of Things is intended to support IoT interoperability.
+        The W3C Web of Things (WoT) is intended to enable interoperability across IoT Platforms and application domains.
         Primarily, it provides mechanisms to formally describe IoT interfaces
         to allow IoT devices and services to communicate with each other,
         independent of their underlying implementation,
         and across multiple networking protocols.  
-        Secondarily, it provides a standardized way to define and program IoT behaviour.
+        Secondarily, it provides a standardized way to define and program IoT behavior.
       </p>
       <p>
-        This document describes the abstract architecture for the Web of Things.
-        It is derived from a set of use cases and consists of
-        a set of building blocks.
-        In this document, each building block is defined and its function explained.
-        The WoT abstract architecture can be mapped onto a variety of concrete implementation patterns,
+        This document describes the abstract architecture for the W3C Web of Things.
+        It is derived from a set of use cases and can be mapped onto a variety of concrete deployment scenarios,
         several examples of which are given.
+        This document is focused on the standardization scope of W3C WoT,
+        which consists of three initial building blocks
+        that are briefly introduced and their interplay explained.
       </p>
       <p>
-        This document is focused on the standardization scope of Web of Things,
-        which consists of three primary building blocks: 
-        WoT Thing Description, WoT Scripting API, and WoT Binding Templates.
-        The WoT Thing Description provides a formal mechanism to describe the network interface
-        provided by an IoT service, independent of its implementation.
-        Provision of a Thing Description is the primary requirement for a device to participate in the 
-        Web of Things.
+        The WoT Thing Description (TD) provides a formal mechanism to describe the network interface
+        provided by IoT devices and services, independent of their implementation.
+        Provision of a TD is the primary requirement for a device to participate in the Web of Things.
         In fact, defining a Thing Description for an existing device allows that device to
-        participate in the Web of Things without having to make any modifications to that device.
-        The Scripting API provides a convenient mechanism to create, expose, and consume 
-        Thing Descriptions and define behavior, although its use is not mandatory.
-        Binding Templates define how a Web of Things device communicates using a specific concrete protocol.
+        participate in the Web of Things without having to make any modifications to the device itself.
+        WoT Binding Templates define how a WoT device communicates using a concrete protocol.
+        The WoT Scripting API&mdash;whose use is not mandatory&mdash;provides a convenient mechanism to discover, consume, and expose Things based on the WoT Thing Description.
+      </p>
+      <p>
         Other non-normative architectural blocks and conditions underlying the Web of Things are also
-        described in the context of example implementations and/or requirements.
-        In particular, this document includes a description of implementation issues on constrained devices.
-        Recommendations for security and privacy are also included;
-        in general, 
-        the Web of Things is intended to preserve and support existing privacy and security device mechanisms and properties.
+        described in the context of deployment scenarios.
+        In particular, recommendations for security and privacy are included,
+        while the goal is to preserve and support existing device mechanisms and properties.
+        In general, W3C WoT is designed to describe what exists rather than to prescribe what to implement.
       </p>
     </section>
 
@@ -460,7 +453,7 @@
       <section id="sec-building-blocks-thing">
         <h2>Thing</h2>
         <p>
-          A <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a> is the abstraction of a physical entity that needs to be represented in applications.
+          A <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a> is the abstraction of a physical or virtual entity that needs to be represented in IoT applications.
           This entity can be a device,
           a logical component of a device,
           a local hardware component,
