@@ -12,13 +12,19 @@ A running or periodically running process that consumes one or more Things (read
 A re-usable collection of blueprints for the communication with different IoT platforms. The blueprints includes the required vocabulary for the Thing Description to map Interactions to platform-specific messages as well as implementation notes for the required protocol stacks or dedicated communication drivers.
 
 ## Client API
-Programming interface that allows scripts to access remote Things over the network, local Things in a different execution environment, or directly attached hardware (which as abstracted as Things).
+Programming interface that allows scripts to access remote Things over the network, local Things in a different execution environment, or directly attached hardware (which is abstracted as Things).
+
+## to consume a Thing
+To read in a Thing Description and create a Consumed Thing software object for the application in the local runtime environment.
 
 ## Consumed Thing
-A software object instance created through the Client API that represents a remote Thing that is used by the local application.
+A software object instance created through the WoT object of the Scripting API that represents a remote Thing used by the local application. It is defined by the ConsumedThing interface of the WoT Scripting API.
 
 ## Discovery API
 Programming interface that allows scripts to discover other Things (local, nearby, or remote).
+
+## Domain-specific vocabulary
+Linked Data vocabulary that can be used in the WoT Thing Description, but is not defined by W3C WoT.
 
 ## Event
 An Interaction Pattern to subscribe to data pushed by a WoT Server. These can be stand-alone events such as an alarm, change-of-value notifications, or time series of data.
@@ -26,8 +32,11 @@ An Interaction Pattern to subscribe to data pushed by a WoT Server. These can be
 ## Execution Environment
 A sandbox within the Runtime that isolates scripts running on the same Servient.
 
+## to expose a Thing
+To create an Exposed Thing software object in the local runtime environment that enables the application to provide local state and calls as Interactions over the network.
+
 ## Exposed Thing
-A software object instance created through the Server API that is implemented locally and can be accessed over the network by remote WoT Clients.
+A software object instance created through the Server API that is implemented locally and can be accessed over the network by remote WoT Clients. It is defined by the ExposedThing interface of the WoT Scripting API.
 
 ## Interaction
 A functionality exposed by Thing that is defined by the TD Interaction Model.
@@ -72,10 +81,13 @@ Programming interface that allows scripts to expose local functionality as Thing
 A software stack that implements the WoT building blocks. A Servient can host and expose Things (server role) and/or consume Things (client role). Servients usually have multiple Protocol Bindings to enable interaction with different platforms.
 
 ## TD
-See Thing Description.
+Short for Thing Description.
+
+## TD Vocabulary
+A controlled Linked Data vocabulary by W3C WoT to tag the metadata of Things in the WoT Thing Description including communication metadata of WoT Binding Templates.
 
 ## Thing
-An abstraction of a physical entity whose metadata and interfaces are described by a WoT Thing Description. This entity can be an existing device augmented with a Thing Description, a logical component of a device that has a software stack that natively provides Thing Descriptions (see Servient), a local hardware component of a Servient, or a logical entity (e.g., location) that does not directly provide any software stack such as a room or building.
+An abstraction of a physical or virtual entity whose metadata and interfaces are described by a WoT Thing Description. This entity can be an existing device augmented with a Thing Description, a logical component of a device that has a software stack that natively provides Thing Descriptions (see Servient), a local hardware component of a Servient, or a logical entity (e.g., location) that does not directly provide any software stack such as a room or building.
 
 ## Thing Description (TD)
 Structured data describing a Thing. A TD includes metadata, domain-specific metadata, a list of offered interactions, the supported protocol bindings for each interaction, and links to related Things. The Thing Description is built around a formal Interaction Model.
@@ -89,8 +101,11 @@ An entity that can connect with a network interface described by a WoT Thing Des
 ## WoT Interface
 The network-facing interface of a Thing as defined by its Thing Description.
 
+## WoT Object
+The WoT object is the Scripting API entry point within a WoT Runtime. It provides methods to discover, consume, and expose Things.
+
 ## WoT Runtime
-A runtime system for application scripts with the WoT Scripting API. Implementing a Runtime is optional for Servients.
+A runtime system for application scripts with the WoT Scripting API. Implementing a WoT Runtime is optional for Servients.
 
 ## WoT Server
 An entity that exposes a network interface consistent with a WoT Thing Description. WoT Server is also used to refer to a Servient in server role only.
