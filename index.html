@@ -587,27 +587,26 @@
       </section>
       
       <section>
-        <h2>Scripting API</h2>
+        <h2>WoT Scripting API</h2>
         <p>
-          The standardized <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#scripting-api">Scripting API</a> is the contract between applications and the runtime system of the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a>, the so-called <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#wot-runtime">WoT Runtime</a>.
-          The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#scripting-api">Scripting API</a> is equivalent to any platform API, and hence must have mechanisms to prevent malicious access to the system.
-          As mentioned above, this building block is optional.
+          The standardized <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#scripting-api">WoT Scripting API</a> is the contract between applications and the runtime system of a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a>, the so-called <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#wot-runtime">WoT Runtime</a>.
+          The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#scripting-api">WoT Scripting API</a> is equivalent to any platform API, and hence there must be mechanisms to prevent malicious access to the system.
+          As mentioned above, this building block, including the underlying WoT Runtime implementation, is optional.
         </p>
         <p>
           See <a href="https://w3c.github.io/wot-scripting-api/">WoT Scripting API</a> for details.
-           
         </p>
       </section>
       
       <section>
         <h2>WoT Runtime</h2>
         <p>
-          The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a> abstraction and <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#interaction-model">Interaction Model</a> is implemented in a runtime system that offers the application-facing <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#scripting-api">Scripting API</a>.
-          This <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#wot-runtime">WoT Runtime</a> interfaces with the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#protocol-binding">Protocol Bindings</a> as well as the system API to access local hardware and proprietary means for communication.
-          Note that both local hardware and devices behind proprietary communications protocols may also be represented by <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Things</a> in the runtime environment,
-          that is, they may also be made accessible through the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#client-api">Client API</a>.
+          The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Thing</a> abstraction and <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#interaction-model">Interaction Model</a> is implemented in a runtime system that offers the application-facing <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#scripting-api">WoT Scripting API</a>.
+          This <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#wot-runtime">WoT Runtime</a> interfaces with the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#protocol-binding">Protocol Bindings</a> to access remote <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Things</a> and with the system API to access local hardware and proprietary means for communication.
+          Note that both local hardware and devices behind proprietary communications protocols are also represented as <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing">Things</a> in the runtime environment,
+          that is, they are also accessed through the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#client-api">Client API</a>.
           The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#wot-runtime">WoT Runtime</a> is also tasked with generating the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">Thing Description</a>
-          based on the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> metadata (e.g., location), application metadata (e.g., implemented <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#interaction">Interactions</a>), and available <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#protocol-binding">Protocol Bindings</a> (e.g., implemented <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#binding-templates">WoT Binding Templates</a>).
+          based on the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> metadata (e.g., location), application metadata (e.g., provided <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#interaction">Interactions</a>), and available <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#protocol-binding">Protocol Bindings</a> (e.g., implemented <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#binding-templates">WoT Binding Templates</a>).
         </p>
       </section>
       
