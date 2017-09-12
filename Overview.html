@@ -650,8 +650,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
             </li>
             <li class="tocline"><a href="#sec-security-considerations" class="tocxref"><span class="secno">8. </span>Security and Privacy Considerations</a></li>
             <li class="tocline"><a href="#summary" class="tocxref"><span class="secno">9. </span>Summary</a></li>
-            <li class="tocline"><a href="#acknowledgements" class="tocxref"><span class="secno">A. </span>Acknowledgements</a></li>
-            <li class="tocline"><a href="#change-history" class="tocxref"><span class="secno">B. </span>Change History</a></li>
+            <li class="tocline"><a href="#acknowledgements" class="tocxref"><span class="secno">A. </span>Acknowledgements</a> @@@missing link@@@</li>
+            <li class="tocline"><a href="#change-history" class="tocxref"><span class="secno">B. </span>Change History</a> @@@missing link@@@</li>
             <li class="tocline"><a href="#references" class="tocxref"><span class="secno">C. </span>References</a>
                 <ol class="toc">
                     <li class="tocline"><a href="#normative-references" class="tocxref"><span class="secno">C.1 </span>Normative references</a></li>
@@ -944,7 +944,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
                 Usually, <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#td">TDs</a> make use of domain-specific metadata for which WoT provides explicit extension points. However, any <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#domain-specific-vocabulary">domain-specific vocabulary</a>                is out-of-scope of the <abbr title="World Wide Web Consortium">W3C</abbr> standardization activity.
             </p>
             <p>
-                The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#thing-description">WoT Thing Description</a> is built around a formal <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#interaction-model">Interaction Model</a>                that can support multiple messaging paradigms (i.e, request-response, publish-subscribe, and message passing). The default <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#interaction-pattern">Interaction Patterns</a>                are <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#property">Property</a>, <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#action">Action</a>, and <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#event">Event</a>.
+                The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-thing-description">(@@@need to add "user-content-" to the fragment id@@@ WoT Thing Description</a> is built around a formal <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#interaction-model">Interaction Model</a>                that can support multiple messaging paradigms (i.e, request-response, publish-subscribe, and message passing). The default <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#interaction-pattern">Interaction Patterns</a>                are <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#property">Property</a>, <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#action">Action</a>, and <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#event">Event</a>.
                 These were found to be able to cover the network-facing APIs provided by most IoT Platforms.
                 <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#property">Properties</a> abstract data points that can be read and often written.
                 <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#action">Actions</a> abstract invokable processes that may run for a certain time; yet they can also abstract RPC-like interactions in general.
@@ -1324,7 +1324,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
                 <figcaption>Figure <span class="figno">18</span> <span class="fig-title">Servient on Gateway</span></figcaption>
             </figure>
             <p>
-                <a href="#wot-on-edge-gateway"></a> shows an example of a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> on a gateway. Gateway are often introduced as a home automation and/or home energy
+                <a href="#wot-on-edge-gateway">@@@missing link@@@</a> shows an example of a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a> on a gateway. Gateway are often introduced as a home automation and/or home energy
                 management solution. In the case of consumer electronics, there are very wide variety of physical communication formats such as WiFi, 802.15.4g, Bluetooth Low Energy, HDPLC and so on. In order to normalize those variations, almost all
                 home automation systems introduce a gateway. In <a href="#wot-on-gateway" class="fig-ref">Figure <span class="figno">18</span> <span class="fig-title">Servient on Gateway</span></a>, a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#servient">Servient</a>                wraps various mechanisms for communicating with legacy devices and provides to other clients a universal device accessing method. Inside the home, HTTP/TCP/IP/WiFi can then be used as the sole unfied communication method between the
                 <a
