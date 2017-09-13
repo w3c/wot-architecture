@@ -1023,7 +1023,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
             </p>
             <ul>
                 <li><b><code>WoT</code> object</b> as API entry point to discover, consume, and expose <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-thing">Things</a></li>
-                <li><b><code>ConsumedThing</code> interface</b> as Cient API to and consume <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-thing">Things</a> over the network or locally (e.g., physically attached hardware)</li>
+                <li><b><code>ConsumedThing</code> interface</b> as Client API to and consume <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-thing">Things</a> over the network or locally (e.g., physically attached hardware)</li>
                 <li><b><code>ExposedThing</code> interface</b> as Server API to configure and expose <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-thing">Things</a> over the network</li>
             </ul>
         </section>
@@ -1320,8 +1320,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
                 <a href="#wot-on-gateway" class="fig-ref">Figure <span class="figno">18</span> <span class="fig-title">Servient on Gateway</span></a> shows an example of a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-servient">Servient</a>                on a gateway. Gateway are often introduced as a home automation and/or home energy management solution. In the case of consumer electronics, there are very wide variety of physical communication formats such as WiFi, 802.15.4g, Bluetooth
                 Low Energy, HDPLC and so on. In order to normalize those variations, almost all home automation systems introduce a gateway. In <a href="#wot-on-gateway" class="fig-ref">Figure <span class="figno">18</span> <span class="fig-title">Servient on Gateway</span></a>,
                 a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-servient">Servient</a> wraps various mechanisms for communicating with legacy devices and provides to other clients a universal device accessing
-                method. Inside the home, HTTP/TCP/IP/WiFi can then be used as the sole unfied communication method between the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-servient">Servient</a> on the gateway
-                and a user interface device such as a Web broswer.
+                method. Inside the home, HTTP/TCP/IP/WiFi can then be used as the sole unified communication method between the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-servient">Servient</a> on the gateway
+                and a user interface device such as a Web browser.
             </p>
             <dl>
                 <dt>Discovery</dt>
@@ -1400,7 +1400,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
                 <a href="#wot-on-cloud-legacy" class="fig-ref">Figure <span class="figno">20</span> <span class="fig-title">Servient on Cloud Server Only</span></a> shows a second example of <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-servient">Servients</a>                in the cloud. In this case, a browser accesses a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-servient">Servient</a> on a cloud server, similar to <a href="#wot-on-cloud" class="fig-ref">Figure <span class="figno">19</span> <span class="fig-title">Servient on Cloud Server and Gateway</span></a>.
                 This <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-servient">Servient</a> provides access through the global Internet. So, wherever the browser user is, they can access this <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-servient">Servient</a>.
                 The cloud <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-servient">Servient</a> accepts the requests of the browser and/or other applications through HTTP, CoAP, etc. Then it finds out the route
-                to access a proprietry discovery service running on a gateway. In <a href="#wot-on-cloud" class="fig-ref">Figure <span class="figno">19</span> <span class="fig-title">Servient on Cloud Server and Gateway</span></a>, the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-servient">Servient</a>                running in the cloud could talk to another <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-servient">Servient</a> running on the gateway. However, many service providers have already provided IoT
+                to access a proprietary discovery service running on a gateway. In <a href="#wot-on-cloud" class="fig-ref">Figure <span class="figno">19</span> <span class="fig-title">Servient on Cloud Server and Gateway</span></a>, the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-servient">Servient</a>                running in the cloud could talk to another <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-servient">Servient</a> running on the gateway. However, many service providers have already provided IoT
                 services using proprietary IoT interfaces or some other IoT standard. In this case, the gateway can still support the same functionalities, as in the previous case, but using methods outside of the WoT definitions.
             </p>
             <dl>
@@ -1478,7 +1478,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
                 This way, it simplifies IoT application development and enables portability across vendors and WoT network components.
         </p>
         <p>
-            The architecture described here applies well to a wide variety of different use cases. Based on these, we have described serveral scenarios where one or more <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-servient">Servients</a>            were used together to overcome, for instance, limitations on the reach of specific communication protocols. These examples are not exhaustive and are only meant to illustrate the applicability and flexibility of the WoT approach.
+            The architecture described here applies well to a wide variety of different use cases. Based on these, we have described several scenarios where one or more <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-servient">Servients</a>            were used together to overcome, for instance, limitations on the reach of specific communication protocols. These examples are not exhaustive and are only meant to illustrate the applicability and flexibility of the WoT approach.
         </p>
     </section>
     <section class="appendix" id="acknowledgements">
