@@ -1,0 +1,24 @@
+@startuml
+hide footbox
+
+box "Client"
+participant "Application" as AP
+participant "Scripting API" as SA
+end box
+
+box "Server(Thing)"
+participant "WoT Server" as WS
+participant "Device" as DC
+end box
+
+AP  -> SA: calls \n thing.readProperty()
+activate SA
+SA  -> AP: returns Promise
+SA  -> WS: sends HTTP GET Request to href of form
+activate WS
+WS <-> DC: retrieves Property value \n from corresponding device
+WS  -> SA: sends back HTTP GET Response \n (body: schema data)
+deactivate WS
+SA  -> AP: calls back Promise \n resolving to \n schema data
+deactivate SA
+@enduml

@@ -1,0 +1,40 @@
+@startuml
+hide footbox
+
+box "Client"
+participant "Application" as AP
+participant "Scripting API" as SA
+end box
+
+box "Server(Thing)"
+participant "WoT Server" as WS
+participant "Device" as DC
+end box
+
+== subscribe ==
+
+AP  -> SA: calls thing.onEvent() \n .subscribe(Observer)
+activate SA
+SA  -> AP: returns Subscription
+SA  -> WS: connects WebSocket to href of form
+activate WS
+WS  -> DC: waits until corresponding \n device detects change
+activate DC
+
+== notify ==
+
+DC  -> WS: change detected
+WS  -> SA: sends schema data to WoT Client Lib \n through WebSocekt connection
+SA  -> AP: calls back \n Observer.next() \n with schema data
+
+== unsubscribe ==
+
+AP  -> SA: calls Subscription \n .unsubscribe()
+SA  -> AP: returns void
+SA --> WS: disconnects WebSocket connection
+deactivate SA
+destroy WS
+WS --> DC: stop waiting
+destroy DC
+
+@enduml

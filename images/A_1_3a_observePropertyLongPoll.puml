@@ -1,0 +1,45 @@
+@startuml
+hide footbox
+
+box "Client"
+participant "Application" as AP
+participant "Scripting API" as SA
+end box
+
+box "Server(Thing)"
+participant "WoT Server" as WS
+participant "Device" as DC
+end box
+
+== subscribe ==
+
+AP  -> SA: calls thing \n .onPropertyChange() \n .subscribe(Observer)
+activate SA
+SA  -> AP: returns Subscription
+SA  -> WS: sends HTTP GET Request to href of form \n with rel: observeProperty & subProtocol: LongPoll
+activate WS
+WS  -> DC: waits until corresponding \n device detects change
+activate DC
+
+== notify ==
+
+DC  -> WS: change detected
+deactivate DC
+WS  -> SA: sends back HTTP GET Response \n (body: schema data)
+deactivate WS
+SA  -> AP: calls back \n Observer.next() \n with schema data
+SA  -> WS: sends HTTP GET Request to the same href again
+activate WS
+WS  -> DC: waits until corresponding \n device detects change
+activate DC
+
+== unsubscribe ==
+
+AP  -> SA: calls Subscription \n .unsubscribe()
+SA  -> AP: returns void
+SA --> WS: cancels ongoing HTTP GET Request
+deactivate SA
+destroy WS
+WS --> DC: stop waiting
+destroy DC
+@enduml
