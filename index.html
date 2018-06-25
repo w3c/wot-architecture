@@ -1067,59 +1067,91 @@
     </section>
 
     <section class="appendix">
-      <h1 id="example-sequences-of-interaction-patterns">Example Sequences of interaction patterns</h1>
+      <h1>Example Sequences of interaction patterns</h1>
 
       <p><em>This section is non-normative.</em></p>
       <p>This section illustrates example sequences of interaction patterns such as read propery, invoke action and event, among WoT client and WoT server.</p>
       <p>For the sake of simplicity, remote and local proxies between client and server are omitted from following sequences.</p>
-      <h2 id="property">Property</h2>
+      <section>
+        <h2>Property</h2>
+        <section>
+          <h3>Read property (binding = HTTP)</h3>
 
-      <h3 id="read-property-binding-http">Read property (binding = HTTP)</h3>
+          <p>Following sequence illustrates example sequence of read property operation with HTTP binding.</p>
+          <p><img src="images/A_1_1_readProperty.png" alt="Read property (binding = HTTP)"></p>
+        </section>
 
-      <p>Following sequence illustrates example sequence of read property operation with HTTP binding.</p>
-      <p><img src="images/A_1_1_readProperty.png" alt="Read property (binding = HTTP)"></p>
-      <h3 id="write-property-binding-http">Write property (binding = HTTP)</h3>
+        <section>
+          <h3>Write property (binding = HTTP)</h3>
 
-      <p>Following sequence illustrates example sequence of write property operation with HTTP binding.</p>
-      <p><img src="images/A_1_2_writeProperty.png" alt="Write property (binding = HTTP)"></p>
-      <h3 id="observe-property-binding-http-long-polling">Observe property (binding = HTTP Long Polling)</h3>
+          <p>Following sequence illustrates example sequence of write property operation with HTTP binding.</p>
+          <p><img src="images/A_1_2_writeProperty.png" alt="Write property (binding = HTTP)"></p>
+        </section>
 
-      <p>Following sequence illustrates example sequence of observe property operation with HTTP Long Polling binding.</p>
-      <p><img src="images/A_1_3a_observePropertyLongPoll.png" alt="Observe property (binding = HTTP Long Polling)"></p>
-      <h3 id="observe-property-binding-http-server-sent-event">Observe property (binding = HTTP Server Sent Event)</h3>
+        <section>
+          <h3>Observe property (binding = HTTP Long Polling)</h3>
 
-      <p>Following sequence illustrates example sequence of observe property operation with HTTP Server Sent Event binding.</p>
-      <p><img src="images/A_1_3b_observePropertySSE.png" alt="Observe property (binding = HTTP Server Sent Event)"></p>
-      <h3 id="observe-property-binding-simple-websocket">Observe property (binding = Simple WebSocket)</h3>
+          <p>Following sequence illustrates example sequence of observe property operation with HTTP Long Polling binding.</p>
+          <p><img src="images/A_1_3a_observePropertyLongPoll.png" alt="Observe property (binding = HTTP Long Polling)"></p>
+        </section>
 
-      <p>Following sequence illustrates example sequence of observe property operation with simple WebSocket binding.</p>
-      <p><img src="images/A_1_3c_observePropertyWebSocket.png" alt="Observe property (binding = simple WebSocket)"></p>
-      <h2 id="action">Action</h2>
+        <section>
+          <h3>Observe property (binding = HTTP Server Sent Event)</h3>
 
-      <h3 id="invoke-action-binding-http">Invoke action (binding = HTTP)</h3>
+          <p>Following sequence illustrates example sequence of observe property operation with HTTP Server Sent Event binding.</p>
+          <p><img src="images/A_1_3b_observePropertySSE.png" alt="Observe property (binding = HTTP Server Sent Event)"></p>
+        </section>
 
-      <p>Following sequence illustrates example sequence of invoke action operation with HTTP binding, where operation is synchronous and the request to server is blocked until action completes.</p>
-      <p><img src="images/A_2_1_invokeAction.png" alt="Invoke action (binding = HTTP)"></p>
-      <p>Note: Action with asynchronous operation is subject to further study.</p>
-      <h2 id="event">Event</h2>
+        <section>
+          <h3>Observe property (binding = Simple WebSocket)</h3>
 
-      <h3 id="subscribe-notify-and-unsubscribe-event-binding-http-long-polling">Subscribe, notify and unsubscribe event (binding = HTTP Long Polling)</h3>
+          <p>Following sequence illustrates example sequence of observe property operation with simple WebSocket binding.</p>
+          <p><img src="images/A_1_3c_observePropertyWebSocket.png" alt="Observe property (binding = simple WebSocket)"></p>
+        </section>
+      </section>
 
-      <p>Following sequence illustrates example sequence of subscribe, notify and unsubscribe event operation with HTTP Long Polling binding.</p>
-      <p><img src="images/A_3_1a_eventLongPoll.png" alt="Subscribe, notify and unsubscribe event (binding = HTTP Long Polling)"></p>
-      <h3 id="subscribe-notify-and-unsubscribe-event-binding-http-server-sent-event">Subscribe, notify and unsubscribe event (binding = HTTP Server Sent Event)</h3>
+      <section>
+        <h2>Action</h2>
+        <section>
+          <h3>Invoke action (binding = HTTP)</h3>
 
-      <p>Following sequence illustrates example sequence of subscribe, notify and unsubscribe event operation with HTTP Server Sent Event.</p>
-      <p><img src="images/A_3_1b_eventSSE.png" alt="Subscribe, notify and unsubscribe event (binding = HTTP Server Sent Event)"></p>
-      <h3 id="subscribe-notify-and-unsubscribe-event-binding-simple-websocket">Subscribe, notify  and unsubscribe event (binding = Simple WebSocket)</h3>
+          <p>Following sequence illustrates example sequence of invoke action operation with HTTP binding, where operation is synchronous and the request to server is blocked until action completes.</p>
+          <p><img src="images/A_2_1_invokeAction.png" alt="Invoke action (binding = HTTP)"></p>
+          <p>Note: Action with asynchronous operation is subject to further study.</p>
+        </section>
+      </section>
 
-      <p>Following sequence illustrates example sequence of subscribe, notify and unsubscribe event operation with simple WebSocket binding.</p>
-      <p><img src="images/A_3_1c_eventWebSocket.png" alt="Subscribe, notify and unsubscribe event (binding = simple WebSocket)"></p>
-      <h2 id="further-things-to-consider">Further things to consider</h2>
+      <section>
+        <h2>Event</h2>
+        <section>
+          <h3>Subscribe, notify and unsubscribe event (binding = HTTP Long Polling)</h3>
 
-      <ul>
-        <li>CoAP, MQTT bindings</li>
-      </ul>
+          <p>Following sequence illustrates example sequence of subscribe, notify and unsubscribe event operation with HTTP Long Polling binding.</p>
+          <p><img src="images/A_3_1a_eventLongPoll.png" alt="Subscribe, notify and unsubscribe event (binding = HTTP Long Polling)"></p>
+        </section>
+
+        <section>
+          <h3>Subscribe, notify and unsubscribe event (binding = HTTP Server Sent Event)</h3>
+
+          <p>Following sequence illustrates example sequence of subscribe, notify and unsubscribe event operation with HTTP Server Sent Event.</p>
+          <p><img src="images/A_3_1b_eventSSE.png" alt="Subscribe, notify and unsubscribe event (binding = HTTP Server Sent Event)"></p>
+        </section>
+
+        <section>
+          <h3>Subscribe, notify  and unsubscribe event (binding = Simple WebSocket)</h3>
+
+          <p>Following sequence illustrates example sequence of subscribe, notify and unsubscribe event operation with simple WebSocket binding.</p>
+          <p><img src="images/A_3_1c_eventWebSocket.png" alt="Subscribe, notify and unsubscribe event (binding = simple WebSocket)"></p>
+        </section>
+      </section>
+
+      <section>
+        <h2>Further things to consider</h2>
+
+        <ul>
+          <li>CoAP, MQTT bindings</li>
+        </ul>
+      </section>
 
     </section>
 
