@@ -1,0 +1,40 @@
+@startuml
+hide footbox
+
+box "Client"
+participant "Application" as AP
+participant "Scripting API" as SA
+end box
+
+box "Server(Thing)"
+participant "WoT Server" as WS
+participant "Device" as DC
+end box
+
+== subscribe ==
+
+AP  -> SA: calls thing \n .onEvent() \n .subscribe(Observer)
+activate SA
+SA  -> AP: returns Subscription
+SA  -> WS: sends HTTP POST Request to href of form \n with subProtocol: EventSource (body: none)
+activate WS
+WS  -> SA: sends back HTTP POST Response \n (body: none; Content-Type: text/event-stream)
+WS  -> DC: keep monitoring  \n change on the \n corresponding device
+activate DC
+
+== notify ==
+
+DC  -> WS: change detected
+WS  -> SA: sends back HTTP POST Response \n (body: schema data; Content-Type: text/event-stream)
+SA  -> AP: calls back \n Observer.next() \n with schema data
+
+== unsubscribe ==
+
+AP  -> SA: calls Subscription \n .unsubscribe()
+SA  -> AP: returns void
+SA --> WS: cancels ongoing HTTP POST Request
+deactivate SA
+destroy WS
+WS --> DC: stop monitoring
+destroy DC
+@enduml

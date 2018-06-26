@@ -1,0 +1,31 @@
+@startuml
+hide footbox
+
+box "Client"
+participant "Application" as AP
+participant "Scripting API" as SA
+end box
+
+box "Server(Thing)"
+participant "WoT Server" as WS
+participant "Device" as DC
+end box
+
+AP  -> SA: calls \n thing.invokeAction()
+activate SA
+SA  -> AP: returns Promise
+SA  -> WS: sends HTTP POST Request to href of form \n (body: inputSchema data)
+
+activate WS
+WS  -> DC: operates corresponding \n device and waits completion
+...(certain time erapsed)...
+DC  -> WS: finished
+
+WS  -> SA: sends back HTTP POST Response \n (body: outputSchema data)
+
+deactivate WS
+SA  -> AP: calls back Promise \n resolving to \n outputSchema data
+
+deactivate SA
+
+@enduml
