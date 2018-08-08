@@ -6,7 +6,7 @@ This document serves for faster iterations and discussions of our terminology, a
 An Interaction Pattern to invoke procedure on a Thing, potentially a long running physical process (e.g., lowering of window blinds).
 
 ## Application
-A running or periodically running process that consumes one or more Things (read and processes there data, control their state) and/or exposes on or more Things (provide access to locally gathered data or computed from consumed Things, provide remote control and management interfaces). The application can be implemented using the Scripting API or native platform APIs. The application may also be distributed over multiple Things and other hosts.
+A running or periodically running process that consumes one or more Things (read and processes there data, control their state) and/or exposes one or more Things (provide access to locally gathered data or computed from consumed Things, provide remote control and management interfaces). The application can be implemented using the Scripting API or native platform APIs. The application may also be distributed over multiple Things and other hosts.
 
 ## Binding Templates
 A re-usable collection of blueprints for the communication with different IoT platforms. The blueprints includes the required vocabulary for the Thing Description to map Interactions to platform-specific messages as well as implementation notes for the required protocol stacks or dedicated communication drivers.
