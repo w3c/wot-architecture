@@ -151,13 +151,145 @@
         The WoT prefix is used to avoid ambiguity for terms that are defined specifically for Web of Things concepts.
       </p>
       <p class="ednote">
-        Please refer to <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md">this markdown file</a>.
+        Please refer to <a href="./proposals/terminology.md">this markdown file</a>.
         Once the terminology definitions are stable, they will be included here.
       </p>
       <dl class="remove">
         <dt><dfn id="Term">Term</dfn></dt>
         <dd>Definition</dd>
         <!-- Add other as needed -->
+      </dl>
+    </section>
+
+    <section id="sec-terminology-tk">
+      <h2>Terminology imported by Toru Kawaguchi</h2>
+      <p>
+        This document uses the following terms as defined here.
+        The WoT prefix is used to avoid ambiguity for terms that are defined specifically for Web of Things concepts.
+      </p>
+      <dl>
+        <dt><dfn id="action">Action</dfn></dt>
+        <dd>An Interaction Pattern to invoke procedure on a Thing, potentially a long running physical process (e.g., lowering of window blinds).</dd>
+
+        <dt><dfn id="application">Application</dfn></dt>
+        <dd>A running or periodically running process that consumes one or more Things (read and processes there data, control their state) and/or exposes on or more Things (provide access to locally gathered data or computed from consumed Things, provide remote control and management interfaces). The application can be implemented using the Scripting API or native platform APIs. The application may also be distributed over multiple Things and other hosts.</dd>
+
+        <dt><dfn id="binding-templates">Binding Templates</dfn></dt>
+        <dd>A re-usable collection of blueprints for the communication with different IoT platforms. The blueprints includes the required vocabulary for the Thing Description to map Interactions to platform-specific messages as well as implementation notes for the required protocol stacks or dedicated communication drivers.</dd>
+        
+        <dt><dfn id="client-api">Client API</dfn></dt>
+        <dd>Programming interface that allows scripts to access remote Things over the network, local Things in a different execution environment, or directly attached hardware (which is abstracted as Things).</dd>
+
+        <dt><dfn id="to-consume-a-thing">to consume a Thing</dfn></dt>
+        <dd>To read in a Thing Description and create a Consumed Thing software object for the application in the local runtime environment.</dd>
+
+        <dt><dfn id="consumed-thing">Consumed Thing</dfn></dt>
+        <dd>A software object instance created through the WoT object of the Scripting API that represents a remote Thing used by the local application. It is defined by the ConsumedThing interface of the WoT Scripting API.</dd>
+
+        <dt><dfn id="discovery-api">Discovery API</dfn></dt>
+        <dd>Programming interface that allows scripts to discover other Things (local, nearby, or remote).</dd>
+
+        <dt><dfn id="domain-specific-vocabulary">Domain-specific vocabulary</dfn></dt>
+        <dd>Linked Data vocabulary that can be used in the WoT Thing Description, but is not defined by W3C WoT.</dd>
+        
+        <dt><dfn id="event">Event</dfn></dt>
+        <dd>An Interaction Pattern to subscribe to data pushed by a WoT Server. These can be stand-alone events such as an alarm, change-of-value notifications, or time series of data.</dd>
+
+        <dt><dfn id="execution-environment">Execution Environment</dfn></dt>
+        <dd>A sandbox within the Runtime that isolates scripts running on the same Servient.</dd>
+
+        <dt><dfn id="to-expose-a-thing">to expose a Thing</dfn></dt>
+        <dd>To create an Exposed Thing software object in the local runtime environment that enables the application to provide local state and calls as Interactions over the network.</dd>
+
+        <dt><dfn id="exposed-thing">Exposed Thing</dfn></dt>
+        <dd>A software object instance created through the Server API that is implemented locally and can be accessed over the network by remote WoT Clients. It is defined by the ExposedThing interface of the WoT Scripting API.</dd>
+
+        <dt><dfn id="interaction">Interaction</dfn></dt>
+        <dd>A functionality exposed by Thing that is defined by the TD Interaction Model.</dd>
+
+        <dt><dfn id="interaction-model">Interaction Model</dfn></dt>
+        <dd>A formal model that syntactically and semantically maps different network-facing interfaces (i.e., WoT Interfaces) to application-facing interfaces (e.g., the Scripting API -- note that these can also be proprietary APIs when not implementing the WoT Runtime). The Thing Description is built around this model and connects it to Link Data vocabularies.</dd>
+
+        <dt><dfn id="interaction-pattern">Interaction Pattern</dfn></dt>
+        <dd>A default solution to describe common Interactions: Property, Action, and Event.</dd>
+
+        <dt><dfn id="iot-platform">IoT platform</dfn></dt>
+        <dd>A specific IoT ecosystem such as OCF, oneM2M, or Mozilla Project Things with its own specifications for application-facing APIs, data model, and protocols or protocol configurations.</dd>
+
+        <dt><dfn id="local-discovery">Local Discovery</dfn></dt>
+        <dd>A discovery method that can discover Things directly connected to a Servient (e.g., sensor or actuator that is abstracted as Thing).</dd>
+
+        <dt><dfn id="manual-discovery">Manual Discovery</dfn></dt>
+        <dd>A discovery method where the URI of the used consumed Thing Descriptions is provided manually (e.g., through user configuration or hard-coding in a script).</dd>
+
+        <dt><dfn id="nearby-discovery">Nearby Discovery</dfn></dt>
+        <dd>A discovery method where the physical location is considered (e.g., BLE, Audio Watermarking, ...).</dd>
+
+        <dt><dfn id="network-discovery">Network Discovery</dfn></dt>
+        <dd>A discovery method that can discover Things in local networks (e.g. SSDP, mDNS/DNS-SD, ...).</dd>
+
+        <dt><dfn id="property">Property</dfn></dt>
+        <dd>An Interaction Pattern to read a specific value of a Thing and optionally to write it.</dd>
+
+        <dt><dfn id="protocol-binding">Protocol Binding</dfn></dt>
+        <dd>An implementation of the mapping between Interaction in the TD Interaction Model (e.g., Property read) and specific operations of a protocol (e.g., HTTP GET).</dd>
+        
+        <dt><dfn id="remote-discovery">Remote Discovery</dfn></dt>
+        <dd>A discovery method which supports lookup of remote Things also beyond network boundaries, for instance by using a directory service. The endpoint of the directory must be supported.</dd>
+        
+        <dt><dfn id="scripting-api">Scripting API</dfn></dt>
+        <dd>The application-facing programming interface provided by a Servient; comparable to the Web browser APIs.</dd>
+        
+        <dt><dfn id="server-api">Server API</dfn></dt>
+        <dd>Programming interface that allows scripts to expose local functionality as Things to WoT Clients.</dd>
+        
+        <dt><dfn id="servient">Servient</dfn></dt>
+        <dd>A software stack that implements the WoT building blocks. A Servient can host and expose Things (server role) and/or consume Things (client role). Servients usually have multiple Protocol Bindings to enable interaction with different platforms.</dd>
+        
+        <dt><dfn id="td">TD</dfn></dt>
+        <dd>Short for Thing Description.</dd>
+        
+        <dt><dfn id="td-vocabulary">TD Vocabulary</dfn></dt>
+        <dd>A controlled Linked Data vocabulary by W3C WoT to tag the metadata of Things in the WoT Thing Description including communication metadata of WoT Binding Templates.</dd>
+        
+        <dt><dfn id="thing">Thing</dfn></dt>
+        <dd>An abstraction of a physical or virtual entity whose metadata and interfaces are described by a WoT Thing Description. This entity can be an existing device augmented with a Thing Description, a logical component of a device that has a software stack that natively provides Thing Descriptions (see Servient), a local hardware component of a Servient, or a logical entity (e.g., location) that does not directly provide any software stack such as a room or building.</dd>
+        
+        <dt><dfn id="thing-description-td">Thing Description (TD)</dfn></dt>
+        <dd>Structured data describing a Thing. A TD includes metadata, domain-specific metadata, a list of offered interactions, the supported protocol bindings for each interaction, and links to related Things. The Thing Description is built around a formal Interaction Model.</dd>
+        
+        <dt><dfn id="thing-directory">Thing Directory</dfn></dt>
+        <dd>A directory service for TDs that provides a Web interface to register TDs (see <a href="https://tools.ietf.org/html/draft-ietf-core-resource-directory">draft-ietf-core-resource-directory</a>) and look them up (e.g., using SPARQL queries or CoRE Link Format).</dd>
+        
+        <dt><dfn id="wot-client">WoT Client</dfn></dt>
+        <dd>An entity that can connect with a network interface described by a WoT Thing Description (i.e., consume a Thing). WoT Clients usually implement multiple Protocol Bindings. WoT Client is also used to refer to a Servient in client role only.</dd>
+        
+        <dt><dfn id="wot-interface">WoT Interface</dfn></dt>
+        <dd>The network-facing interface of a Thing as defined by its Thing Description.</dd>
+        
+        <dt><dfn id="wot-object">WoT Object</dfn></dt>
+        <dd>The WoT object is the Scripting API entry point within a WoT Runtime. It provides methods to discover, consume, and expose Things.</dd>
+        
+        <dt><dfn id="wot-runtime">WoT Runtime</dfn></dt>
+        <dd>A runtime system for application scripts with the WoT Scripting API. Implementing a WoT Runtime is optional for Servients.</dd>
+        
+        <dt><dfn id="wot-server">WoT Server</dfn></dt>
+        <dd>An entity that exposes a network interface consistent with a WoT Thing Description. WoT Server is also used to refer to a Servient in server role only.</dd>
+        
+        <dt><dfn id="coap">CoAP</dfn></dt>
+        <dd>Acronym for Constrained Application Protocol [RFC7252]</dd>
+        
+        <dt><dfn id="cwt">CWT</dfn></dt>
+        <dd>CBOR Web Token</dd>
+        
+        <dt><dfn id="json-ld">JSON-LD</dfn></dt>
+        <dd>A JSON document that is augmented with support for Linked Data by providing an <code>@context</code> property with a defining URI <a href="https://www.w3.org/TR/json-ld/">JSON-LD</a>.</dd>
+        
+        <dt><dfn id="jwt">JWT</dfn></dt>
+        <dd>JSON Web Token [RFC7519]</dd>
+        
+        <dt><dfn id="rdf">RDF</dfn></dt>
+        <dd>The Resource Description Framework (RDF) of the Semantic Web <a href="https://www.w3.org/TR/rdf11-concepts/">rdf11-concepts</a></dd>
       </dl>
     </section>
 
