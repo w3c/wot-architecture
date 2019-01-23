@@ -67,6 +67,11 @@
                 , status:    "Internet-Draft"
                 , publisher: "IETF"
                 , date: "03 July 2017"
+                },
+                "WOT-SECURITY-CONSIDERATIONS" : {
+                  href: "https://www.w3.org/TR/wot-security/",
+                  title: "Web of Things Security and Privacy Considerations",
+                  publisher: "W3C"
                 }
               }
             };
@@ -1318,9 +1323,110 @@
         The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-binding-templates">WoT Binding Templates</a> must correctly cover the security mechanisms employed by the underlying <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-iot-platform">IoT Platform</a>.
         Due to the automation of network interactions necessary in the IoT, operators need to ensure that <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-thing">Things</a> are exposed and consumed in a way that is compliant with their security policies.
       </p>
-      <p>
-        The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-wot-runtime">WoT Runtime</a> implementation for the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-scripting-api">WoT Scripting API</a> must have mechanisms to prevent malicious access to the system and isolate scripts in multi-tenant <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-servient">Servients</a>.
-      </p>
+
+        <section id="sec-security-consideration-runtime-risks">
+         <h2>WoT Runtime Security and Privacy Risks</h2>
+         <p>
+         The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-wot-runtime">WoT Runtime</a> implementation for the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-scripting-api">WoT Scripting API</a> must at least have mechanisms to prevent malicious access to the system and isolate scripts in multi-tenant <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-servient">Servients</a>.
+        More specifically the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-wot-runtime">WoT Runtime</a> implementation for the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-scripting-api">WoT Scripting API</a> should take into account the below security and privacy risks and implement the recommended mitigations.
+        </p>
+
+        <section id="sec-security-consideration-cross-script">
+         <h5>Cross-Script Security and Privacy Risk</h5>
+         <p>
+            In basic WoT setups, all scripts running inside the
+            <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-wot-runtime">
+            WoT Runtime</a>
+            are considered trusted, and therefore there is no strong need to
+            perform strict isolation between each running script instance.
+            However, depending on device capabilities and deployment use case
+            scenario risk level it might be desirable to do so.
+            For example, if one script handles sensitive privacy-related
+            data and well-audited, it might be desirable to separate it
+            from the rest of the script instances to minimize the risk of data
+            exposure in case some other script inside WoT gets compromised during runtime.
+            Another example is mutual co-existence of different tenants on a
+            single WoT device. In this case each WoT runtime instance will
+            be hosting a different tenant, and isolation between them is required.
+          </p>
+          <dl><dt>Mitigation:</dt><dd>
+            The WoT runtime should perform isolation of script instances and
+            their data in cases when scripts handle privacy-related or other
+            critical security data. Similarly, the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-wot-runtime">WoT Runtime</a> implementation
+            should perform isolation of <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-wot-runtime">WoT Runtime</a> instances and their data
+            if a WoT device has more than one tenant.
+            Such isolation can be performed within the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-wot-runtime">WoT Runtime</a> using
+            platform security mechanisms available on the device. For more
+            information see Sections "WoT Servient Single-Tenant" and
+            "WoT Servient Multi-Tenant" of [[!WOT-SECURITY-CONSIDERATIONS#]].
+          </dd></dl>
+        </section>
+
+        <section id="sec-security-consideration-device-direct-access">
+         <h5>Physical Device Direct Access Security and Privacy Risk</h5>
+         <p>
+            In case a script is compromised or misbehaving, the underlying physical device
+            (and potentially surrounded environment) can be damaged if a script can use directly exposed
+            native device interfaces. If such interfaces lack safety checks on their inputs, they might
+            bring the underlying physical device (or environment) to an unsafe state
+            (i.e. device overheats and explodes).
+          </p>
+          <dl><dt>Mitigation:</dt><dd>
+             The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-wot-runtime">WoT Runtime</a> should avoid directly exposing the native device interfaces
+             to the script developers. Instead a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-wot-runtime">WoT Runtime</a>
+             implementation should provide a hardware abstraction
+             layer for accessing the native device interfaces. Such hardware abstraction layer should
+             refuse to execute commands that might put the device (or environment) to an unsafe state.
+             Additionally, in order to reduce the damage to a physical WoT device in cases a script
+             gets compromised, it is important to minimize the number of interfaces that are exposed
+             or accessible to a particular script based on its functionality.
+          </dd></dl>
+        </section>
+
+        <section id="sec-security-consideration-update-provisioning">
+         <h5>Provisioning and Update Security Risk</h5>
+         <p>
+            If the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-wot-runtime">
+            WoT Runtime</a> implementation supports post-manufacturing provisioning
+            or updates of itself, WoT scripts, or any related data
+            (including security credentials), it can be a major attack vector.
+            An attacker can try to modify any above described element
+            during the update or provisioning process or simply
+            provision attacker's code and data directly.
+          </p>
+          <dl><dt>Mitigation:</dt><dd>
+              Post-manufacturing provisioning or update of scripts,
+              the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-wot-runtime">
+              WoT Runtime</a> itself or any related data should be done in a secure fashion.
+              A set of recommendations for secure update and post-manufacturing
+              provisioning can be found in [[!WOT-SECURITY-CONSIDERATIONS]].
+           </dd></dl>
+        </section>
+
+       <section id="sec-security-consideration-credentials-storage">
+         <h5>Security Credentials Storage Security and Privacy Risk</h5>
+         <p>
+            Typically the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-wot-runtime">WoT Runtime</a>
+            needs to store the security credentials that are provisioned to a WoT
+            device to operate in WoT network. If an attacker can compromise the confidentiality or integrity
+            of these credentials, then it can obtain access to the WoT assets, impersonate WoT things or devices
+            or create Denial-Of-Service (DoS) attacks.
+          </p>
+          <dl><dt>Mitigation:</dt><dd>
+              The <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-wot-runtime">
+              WoT Runtime</a> should securely store the provisioned security credentials,
+              guaranteeing their integrity and confidentiality.
+              In case there are more than one tenant on a single WoT-enabled device, a
+              <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-wot-runtime">
+              WoT Runtime</a> implementation should
+              guarantee isolation of each tenant provisioned security credentials.
+              Additionally, in order to minimize a risk that provisioned security credentials get compromised,
+              the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-wot-runtime">
+              WoT Runtime</a> implementation should not expose any API for scripts to query the provisioned
+              security credentials.
+          </dd></dl>
+        </section>
+     </section>
     </section>
 
     <section>
