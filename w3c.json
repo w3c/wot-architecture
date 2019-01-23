@@ -1,5 +1,6 @@
- {
-    "group":      ["95969"]
-,   "contacts":   ["ashimura"]
-,   "shortName":  "wot-architecture"
+{
+  "group":     ["95969"],
+  "contacts":  ["ashimura"],
+  "shortName": "wot-architecture",
+  "repo-type": "rec-track"
 }
