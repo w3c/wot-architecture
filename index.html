@@ -827,7 +827,7 @@
         </p>
         <ul>
           <li><b><code>WoT</code> object</b> as API entry point to discover, consume, and expose <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-thing">Things</a></li>
-          <li><b><code>ConsumedThing</code> interface</b> as Cient API to and consume <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-thing">Things</a> over the network or locally (e.g., physically attached hardware)</li>
+          <li><b><code>ConsumedThing</code> interface</b> as Client API to consume <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-thing">Things</a> over the network or locally (e.g., physically attached hardware)</li>
           <li><b><code>ExposedThing</code> interface</b> as Server API to configure and expose <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-thing">Things</a> over the network</li>
         </ul>
       </section>
@@ -857,7 +857,7 @@
         <h2>Application</h2>
         <p>
           <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-application">Applications</a> running on a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-servient">Servient</a> are usually implemented through scripts (i.e., JavaScript).
-          These must be provided along with security metadata that defines their <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-execution-environment">Execution Environment</a> and consequently how scripts must be isolated.
+          The application scripts must be provided along with security metadata that defines their <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-execution-environment">Execution Environment</a> and consequently how scripts must be isolated.
           The security metadata also needs to include keying material or certificates to authenticate the <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-thing">Things</a> the script exposes.
         </p>
         <p>
@@ -1072,10 +1072,10 @@
         <p>
           Devices that are not powerful enough to host a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-servient">Servient</a> can still act as <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-thing">Things</a>.
           In this case, a classic firmware is providing a <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-thing-description-td">Thing Description</a> that describes the functionality and protocols implemented.
-          The right most <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-servient">Servient</a> in <a href="#wot-on-device-minimal"></a> shows an legacy device
-          has a constraint CPU and a small memory and is able to provide web server functionality connected directly to the internet.
+          The right most <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-servient">Servient</a> in <a href="#wot-on-device-minimal"></a> shows a legacy device
+          that has a constrained CPU and a small memory and is able to provide web server functionality connected directly to the internet.
           Then the leftmost browser and/or another application on the internet can
-          access the device through the internet directly like <a href="#wot-on-device"></a>.
+          access the device through the Internet directly like <a href="#wot-on-device"></a>.
         </p>
         <dl>
           <dt>Discovery</dt>
