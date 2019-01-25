@@ -390,6 +390,85 @@
         </p>
       </section>
     </section>
+    
+    <section id="sec-requirements-rm">
+      <h1>Technical Requirements (added by Ryuichi Matsukura)</h1>
+      <p>
+        The previous section delineated the Web of Things abstract architecture by showing various use cases and enumerating
+        patterns for combining architectural components. This section describes technical requirements derived from 
+        the abstract architecture.
+      </p>
+      <h2>Components consisting Web of Things and the Web of Things architecture</h2>
+      <p>
+        Observation of the use cases shows that basic components such as devices, applications that access and control 
+        those devices, proxies (e.g. gateways and platforms) that sit between devices and applications to link them together, 
+        directories that provides device search functionality are required.
+      </p>
+      <p>
+        Those components are connected to the internet or field networks in offices, factories or other facilities. 
+        Note that all components involved may be connected to a single network in some cases, however, components can be 
+        deployed across multiple networks in general.
+      </p>
+      <h2>Devices</h2>
+      <p>
+        Access to devices are made based on descriptions of their functions and interfaces (i.e. Thing Description). 
+        Those include general description about devices, information models representing functions, transport protocol 
+        description for operating on information models, and security information, and so on.
+      </p>
+      <p>
+        General descriptions are about device identifiers (URI) and other human readable information.
+        Information models defines device attributes, and represent device’s internal settings, control functionality 
+        and notification functionality. Devices that have the same functionality have the same information model regardless 
+        of the transport protocols used.
+      </p>
+      <p>
+        Because many systems based on Web of Things architecture are crossing system Domains, vocabularies and meta data 
+        (e.g. ontologies) used in information models should be commonly understood by involved parties.
+        In addition to REST transports, PubSub transports are also supported.
+      </p>
+      <p>
+        Security information includes descriptions about authentication, authorization and secure communications.
+        Devices are required to put TDs either inside them or at locations external to the devices, and to make TDs 
+        accessible so that other components can find and access them.
+      </p>
+      <h2>Applications</h2>
+      <p>
+        Applications need to generate and utilize program interfaces internally based on device descriptions (i.e. TD).
+      </p>
+      <p>
+        Applications have to be able to obtain device descriptions (i.e. TD) through the network, therefore, need to be 
+        able to conduct search operation and acquire the necessary TD over the network.
+      </p>
+      <h2>Proxies</h2>
+      <p> 
+        Proxies need to generate program interfaces internally based on device descriptions (i.e. TD), and to represent 
+        virtual devices by using those program interfaces. A proxy then has to produce a TD for the virtual device and
+        make it externally available.
+      </p>
+      <p>
+        Identifiers of virtual devices need to be newly assigned, therefore, are different from the original devices. 
+        This makes sure that virtual devices and the original devices are clearly recognized as separate entities. 
+        Transport and security mechanisms and settings of the virtual devices can be different from original devices 
+        if necessary. Virtual devices are required to have TDs put either inside the proxies or at locations external 
+        to the proxies, and to make the TDs accessible so that other components can find and access them. 
+      </p>
+      <h2>Discovery (Directory)</h2>
+      <p>
+        For TDs of devices and virtual devices to be accessible from devices, applications and proxies, there needs
+        to be  a common way to share TDs. Directories can serve this requirement by providing functionalities to allow devices 
+        and proxies themselves automatically or the users to manually register the descriptions.
+      </p>
+      <p>
+        Descriptions of the devices and virtual devices need to be searchable by external entities. Directories have to 
+        be able to process search operations with search keys such as keywords from the general description in the device 
+        description or information models.
+      </p>
+      <h2>Security Function</h2>
+      <p>
+        Security information related to devices and virtual devices needs to be described in device descriptions. 
+        This includes information for authentication/authorization and payload encryptions. 
+      </p>
+    </section>
 
     <section id="sec-building-blocks">
       <h1>WoT Building Blocks</h1>
