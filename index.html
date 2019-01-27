@@ -1072,7 +1072,8 @@ href="https://github.com/w3c/wot-security/blob/master/wot-threat-model.md">WoT
         </figure>      
       </section>
     </section>   
-    
+
+
     <section id="sec-building-blocks">
       <h1>WoT Building Blocks</h1>
       <p> This section presents the initial WoT building blocks that
@@ -1603,6 +1604,100 @@ href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-co
           and can enable access to local hardware. </p>
       </section>
     </section>
+    
+    
+    <section id="sec-deployment-scenario-rm">
+      <h1>Deployment Scenario(added by Ryuichi Matsukura</h1>
+      <p>
+        In the previous sections, how WoT servients connect to each other and their roles and basic behaviors were
+        described based on two simple structures; one with an application and a device, and the other with a proxy 
+        connecting an application and a device together. These simple structures can be used as is for use cases 
+        involving relatively small number of devices. However, they are too simple per se to describe those more 
+        complex uses cases where the number of connected devices are not small, or devices are physically located 
+        in multiple remote sites. This section illustrates more advanced structures that can be applied to those 
+        non-simple use cases.
+      </p>
+      <section id="sec-deployment-cloud-rm">
+        <h2>Devices in a Local Network Controlled from a Cloud</h2>
+        <p>
+          In smart home cloud service use cases, sensors and home appliances connected to a home network are
+          monitored as well as in some cases operated by cloud applications. There is a firewall between the home 
+          network to which the devices are connected and the cloud. The WoT servients in this case can communicate 
+          each other only if the communication successfully goes through the firewall.
+        </p>
+        <p>
+          The figure below shows a typical structure that is adopted in ITU-T Recommendation Y.2070. As described 
+          in previous sections, a proxy can aggregate multiple device servients into common ExposedThing(s), and 
+          provide the applications with a simple access interface. For example, even when the connected devices 
+          each uses a different protocol such as REST, WebSocket and CoAP, the ExposedThing can converge them into
+          a single protocol so that applications do not need to be aware of the various protocols the devices use. 
+          In the figure, there are two applications connected to a proxy. Those applications use a single protocol
+          (e.g. REST) to communicate with the proxy, which makes the development of an application much simpler.
+        </p>
+        <p>
+          There is a firewall between applications and devices. There is a proxy on each side of the firewall; one 
+          in the home network and the other in the internet. These two proxies work together to tunnel all 
+          communications to go through the firewall. The local proxy which is on the home network side aggregates 
+          all connected devices, and the remote proxy on the internet side aggregates the applications. Applications 
+          and devices need to know nothing about the firewall.
+        </p>
+        <figure id="deployment-clodu-device">
+          <img src="images/arch-deploy-cloud-device.png" />
+          <figcDevices in a locla networks and Applications on clouds.</figcaption>
+        </figure>
+        <p>
+          Note: An example structure adopted in ITU-T Recommendation Y.2070
+        </p>
+      </section>
+      <section id="sec-deployment-service-to-service-rm">
+        <h2>Service-to-Service connections across multiple Domains</h2>
+        <p>
+          Once devices can be monitored or operated by cloud applications, a variety of services can be built on top 
+          of that. For example, a cloud application can change a device’s operating condition based on analysis of 
+          collected data. When the remote proxy is a part of a cloud platform servicing applications, an application 
+          needs to be able to find device information by, for example, accessing a directory of connected devices. 
+          In the figure below, information of all devices connected to the remote proxy via a local proxy is registered 
+          in a directory. An application needs to obtain the information of the device(s) that it needs to communicate
+          with to achieve its application functionality. It can do so by querying the directory of device information.
+        </p>
+        <figure id="deployment-cloud-directory">
+          <img src="images/arch-deploy-service-directory.png" />
+          <figcaption>Cloud service with directory</figcaption>
+        </figure>
+        <p>
+          Multiple cloud eco-systems each based on a different platform can work together to make a larger, 
+          systems-of-systems eco-system. Built on the previously discussed structure of a cloud application eco-system, 
+          the figure below shows two eco-systems connected each other to make a system-of-systems. Consider a case 
+          in which an application servient in one eco-system (i.e. Application Servient A in below) uses 
+          a device servient in another eco-system (i.e. Device Servient B in below). There are more than one mechanisms 
+          to achieve this cross eco-systems application-device integration. Below, two mechanisms of doing this are 
+          explained each using a figure to help understand how it can be achieved.
+        </p>
+        <p>
+          In the first figure below, two directories synchronize device information, which makes it possible for
+          Application Servient A to obtain the information of Device Servient B through TD directory A. As described
+          in previous sections, Remote Proxy Servient B holds a shadow device of Device servient B. By obtaining 
+          the TD of this shadow device, Application servient A is able to use Device Servient B through the shadow device 
+          on Remote Proxy Servient B.
+        </p> 
+        <figure id="deployment-service-sync-directory">
+          <img src="images/arch-deploy-service-sync-directory.png" />
+          <figcaption>Multiple cloud connect through directory synchronization</figcaption>
+        </figure>
+        <p>
+          In the second figure below, two remote proxy servients synchronize device information. When a shadow of 
+          Device Servient B is created in Remote proxy servient B, the shadow’s TD is simultaneously synchronized into
+          Remote proxy servient A. Remote proxy servient A in turn creates its own shadow of Device servient B, 
+          and registers the TD to TD directory A. With this mechanism, synchronization between TD directories is 
+          not necessary.
+        </p>
+        <figure id="deployment-service-sync-proxy">
+          <img src="images/arch-deploy-service-sync-proxy.png" />
+          <figcaption>Multiple cloud connect through proxy synchronization</figcaption>
+        </figure>
+      </section>             
+    </section>
+    
     <section>
       <h1>WoT Deployment Scenarios and Guidelines</h1>
       <p> There are many possibilities for deploying the abstract WoT
