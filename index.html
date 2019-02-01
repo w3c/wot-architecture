@@ -745,6 +745,8 @@
             collection route.</p>
           <h4 id="highwaymonitoring">Highway Monitoring</h4>
           <p>Monitoring of highways and providing appropriate signage.</p>
+        </section>
+        <section>
           <h3 id="environmentmonitoring-1">Environment Monitoring</h3>
           <h4 id="airandwaterpollution">Air and water pollution</h4>
           <p>Monitoring of air pollution, water pollution and other
@@ -791,7 +793,8 @@
           </figure>
         </section>
         <section>
-          <h3>Multiple Network Interfaces</h3>
+          <h3>Remote Access</h3>
+          <p class="ednote" title="TODO">Must rewrite for remote access/control use case. Include changing uplink connectivity.</p>
           <p>The third use case is a mobile remote controller (e.g., on
             a smartphone) as shown in . When at home, the smartphone can
             use Wi-Fi or Bluetooth/BLE to control an electronic
@@ -803,7 +806,12 @@
           </figure>
         </section>
         <section>
+          <h3>Multiple Subsystems</h3>
+          <p class="ednote" title="TODO">Pattern from consumer (ZigBee, Bluetooth, and WiFi in home), industrial (multiple fieldbusses), connected car, and more.</p>
+        </section>
+        <section>
           <h3>Gateways</h3>
+          <p class="ednote" title="TODO">Must rewrite for local box/compute node use case.</p>
           <p>shows a use case based on a Smart Home gateway. It is
             placed between a home network and the Internet. The gateway
             manages electronic appliances inside the house and can
@@ -816,6 +824,7 @@
         </section>
         <section>
           <h3>Cloud Proxies</h3>
+          <p class="ednote" title="TODO">Explain cloud proxy.</p>
           <p>Cloud proxies can be realized in different ways:</p>
           <p class="ednote">The complexity of the use cases here
             increases too quickly. They will be split up to
@@ -836,6 +845,7 @@
         </section>
         <section>
           <h3>Legacy Devices</h3>
+          <p class="ednote" title="TODO">Check terminology, here agent.</p>
           <p>shows an example where legacy electronic appliances
               cannot directly connect to the cloud. Here, a gateway is
               needed to relay the connection. The gateway works as:</p>
@@ -1697,6 +1707,10 @@
               [[!RFC6749]], and ACE [[!RFC7744]].
             </li>
           </ul>
+        </section>
+        <section>
+          <h3>WoT Scripting API</h3>
+          <p class="ednote" title="TODO">Need to introdcue Scripting API under the condition that it might not become REC, but WG Note.</p>
         </section>
         <section>
           <h3>WoT Security and Privacy Guidelines</h3>
