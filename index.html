@@ -79,6 +79,7 @@
     </script>
   </head>
   <body>
+
     <section id="abstract">
       <p>The W3C Web of Things (WoT) is intended to enable
         interoperability across IoT Platforms and application domains.
@@ -87,6 +88,7 @@
         each other, independent of their underlying implementation, and
         across multiple networking protocols. Secondarily, it provides a
         standardized way to define and program IoT behavior.</p>
+
       <p>This document describes the abstract architecture for the W3C
         Web of Things. It is derived from a set of use cases and can be
         mapped onto a variety of concrete deployment scenarios, several
@@ -117,6 +119,7 @@
           <a href="https://w3c.github.io/wot-scripting-api/">WoT Scripting API</a>
           .
         </li>
+
       </ul>
       <p>
         Of these, the
@@ -176,6 +179,14 @@
 
           Scripting API</a>
         internally, its application logic can be
+
+
+
+
+
+
+
+
         programmed against a standardized contract using JavaScript.
         This way, it simplifies IoT application development and enables
         portability across vendors and WoT network components.
@@ -190,6 +201,7 @@
         not exhaustive and are only meant to illustrate the
         applicability and flexibility of the WoT approach.
       </p>
+
       <p>Other non-normative architectural blocks and conditions
         underlying the Web of Things are also described in the context
         of deployment scenarios. In particular, recommendations for
@@ -198,6 +210,7 @@
         general, W3C WoT is designed to describe what exists rather than
         to prescribe what to implement.</p>
     </section>
+
     <section id="sotd">
       <p class="ednote" title="The W3C WoT WG is asking for feedback">
         Please contribute to this draft using the
@@ -543,6 +556,7 @@
         </dd>
       </dl>
       <p class="ednote" title="Additional Terms">TODO: add missing terms, such as WoT, WoT Containers, MQTT, TD
+
           manager</p>
     </section>
     <!--  USE CASES -->
@@ -616,6 +630,7 @@
           <h5 id="realtimemonitoring">Real-time monitoring</h5>
           <p>Real-time monitoring and KPI calculations of production
             equipment.</p>
+
           <h4 id="transportationlogistics">Transportation &amp;
             Logistics</h4>
           <h5 id="shipmenttracking">Shipment tracking</h5>
@@ -629,6 +644,7 @@
             refrigerated trucks to delivery.</p>
           <h5 id="warehousemonitoring">Warehouse monitoring</h5>
           <p>Monitoring equipment and stock in warehouses, yards.</p>
+
           <h4 id="utilities">Utilities</h4>
           <h5 id="advancedmeteringinfrastructure">Advanced Metering
             Infrastructure</h5>
@@ -642,6 +658,7 @@
           <p>Monitoring and remote-controlling Distribution equipment.</p>
           <h5 id="crewsafety">Crew safety</h5>
           <p>Improving safety of utilities crew in the field.</p>
+
           <h4 id="oilandgas">Oil and Gas</h4>
           <h5 id="pipelinemonitoring">Pipeline monitoring</h5>
           <p>Offshore platform monitoring Industrial safety on offshore
@@ -655,6 +672,7 @@
           <h5 id="automatedstocktaking">Automated Stock Taking</h5>
           <p>Automated calculation of a distributed stock through
             various storage tanks and delivery pipes/trucks.</p>
+
           <h4 id="insurance">Insurance</h4>
           <h5 id="proactiveassetmonitoring">Proactive Asset Monitoring</h5>
           <p>Monitoring of high value assets such as connected
@@ -671,6 +689,7 @@
           <p>Predictive weather monitoring and re-routing fleet vehicles
             to covered garages to limit loss due to hail damage, tree
             damage.</p>
+
           <h4 id="engineeringandconstruction">Engineering and
             Construction</h4>
           <h5 id="workersafety">Worker Safety</h5>
@@ -705,9 +724,11 @@
           <h4 id="soilconditionmonitoring">Soil condition monitoring</h4>
           <p>Monitoring soil conditions and creating optimal plans for
             watering, fertilizing.</p>
+
           <h4 id="producemonitoring">Produce monitoring</h4>
           <p>Monitoring produce conditions.</p>
         </section>
+
         <section id="healthcare">
           <h3 id="healthcare">Healthcare</h3>
           <h4 id="clinicaltrials">Clinical Trials</h4>
@@ -734,6 +755,7 @@
             collection route.</p>
           <h4 id="highwaymonitoring">Highway Monitoring</h4>
           <p>Monitoring of highways and providing appropriate signage.</p>
+
           <h3 id="environmentmonitoring-1">Environment Monitoring</h3>
           <h4 id="airandwaterpollution">Air and water pollution</h4>
           <p>Monitoring of air pollution, water pollution and other
@@ -745,9 +767,30 @@
           <p>Analysis of sensor data from distributed sensors to detect
             anomalies and predict critical environment conditions.</p>
         </section>
+
+
+
+
+
+
+
+
       </section>
+
+
       <section id="commonusecasespatterns">
         <h2>Common Patterns</h2>
+
+
+
+
+
+
+
+
+
+
+
         <section>
           <h3>Device Controllers</h3>
           <p>
@@ -805,6 +848,17 @@
         </section>
         <section>
           <h3>Cloud Proxies</h3>
+
+
+
+
+
+
+
+
+
+
+
           <p>Cloud proxies can be realized in different ways:</p>
           <p class="ednote">The complexity of the use cases here
             increases too quickly. They will be split up to
@@ -850,6 +904,32 @@
           </figure>
         </section>
         <section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           <h3>Cross-domain Collaboration</h3>
           <p>
             show an example of a Cross-domain collaboration. In this
@@ -1114,6 +1194,7 @@
           are required to have TDs put either inside the proxies or at
           locations external to the proxies, and to make the TDs
           accessible so that other components can find and access them.</p>
+
         </section>
         <section id="sec-requirements-discovery">
           <h3>Discovery (Directory)</h3>
@@ -1735,6 +1816,7 @@
         </section>
       </section>
     </section>
+
     <section id="sec-WoT-servient-architecture-rm">
       <h1>WoT Servient Implementation</h1>
       <p>This section defines components that make a Web of Things
@@ -1887,6 +1969,11 @@
       <p>
         A
         <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-servient">Servient</a>
+
+
+
+
+
         is a software stack that implements the WoT building blocks
         presented in the previous section.
         <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-servient">Servients</a>
@@ -2359,7 +2446,10 @@
         </p>
       </section>
     </section>
+
     <!-- DEPLOYMENT SCENARIOS  -->
+
+
     <section id="sec-deployment-scenario-rm">
       <h1>WoT Deployments</h1>
       <p>In the previous sections, how WoT servients connect to each
@@ -2469,6 +2559,13 @@
         </figure>
       </section>
       <h1>SNIPPETS: (was WoT Deployment Scenarios and Guidelines)</h1>
+
+
+
+
+
+
+
       <p>There are many possibilities for deploying the abstract WoT
         Architecture and mapping the functions to physical devices and
         network structures. This section, which is informative but not
@@ -2839,6 +2936,7 @@
           <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-servient">Servient</a>
           on the cloud Server named "Cloud". This
           <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-servient">Servient</a>
+
           provides its interface through the Internet globally. So,
           wherever a browser user is, they can access this
           <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-servient">Servient</a>
@@ -2928,6 +3026,7 @@
           <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-servient">Servient</a>
           running in the cloud could talk to another
           <a href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-servient">Servient</a>
+
           running on the gateway. However, many service providers have
           already provided IoT services using proprietary IoT interfaces
           or some other IoT standard. In this case, the gateway can
@@ -2965,6 +3064,7 @@
         </dl>
       </section>
     </section>
+
     <section id="sec-requirements-security">
       <h2>Security and Privacy</h2>
       <p class="ednote">
@@ -3003,6 +3103,7 @@
             protect IoT systems so that they can not be used to launch
             attacks on other computer systems.</p>
     </section>
+
     <section id="sec-security-considerations">
       <h1>Security and Privacy Considerations</h1>
       <p class="ednote">
@@ -3385,6 +3486,8 @@
         <h1>Further things to consider</h1>
         <p class="ednote" title="Future Work">This section needs to be revised and updated.
               Proposed new title: Future Work</p>
+
+
         <ul>
           <li>CoAP, MQTT bindings</li>
           <li>Webhook binding</li>
@@ -3398,6 +3501,7 @@
       <p>Special thanks to all active Participants of the W3C Web of
         Things Interest Group and Working Group for their technical
         input and suggestions that led to improvements to this document.</p>
+
     </section>
     <!--
     <section class="appendix">
@@ -3408,7 +3512,9 @@
     </section>
 -->
     <script id="dstimer" language="javascript">//<![CDATA[
+
 if(dschk() == 1) { if(typeof (dsSetTimers) != "undefined") { dsSetTimers(1454572750,1454589711,43200,86400,180,1454589796 - parseInt(""+(new Date()).getTime()/1000),1);}}
 //]]></script>
+
   </body>
 </html>
