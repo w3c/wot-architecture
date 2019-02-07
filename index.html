@@ -511,8 +511,8 @@
 		<p class="ednote" title="Additional Terms">TODO: add missing
 			terms, such as WoT, WoT Containers, MQTT, TD manager</p>
 			<p>
-			The definitions CWT, JWT, RDF are not used in this document. 
-			
+			The definitions CWT, JWT, RDF are not used in this document.
+
 			</p>
 	</section>
 	<!--  USE CASES -->
@@ -818,7 +818,7 @@
 				<h3 id="environmentmonitoring-1">Environment Monitoring</h3>
 				<p>
 				Environment monitoring typically relies on a lot of distributed sensors that send their
-				measurement data to common gateways, edge devices and cloud services. 
+				measurement data to common gateways, edge devices and cloud services.
 				The following table just lists a few scenarios - these could be deployed to a small community,
 				a city, a country, a continent or even worldwide.
 				</p>
@@ -841,10 +841,10 @@
 			<section id="commonusecasespatterns">
 				<h2>Common Architecture Patterns</h2>
 				<section>
-				
+
 					This section introduces common architecture patterns that illustrate
 					how devices/things interact with controllers, other devices, agents and servers.
-			
+
 					<h3>Device Controllers</h3>
 					<p>
 						The first use case is a local device controlled by user-operated
@@ -911,8 +911,8 @@
 					A cloud proxy is a virtual representation of a device,
 					that resides on a cloud server or edge device.
 					Proxies can model a single device, or they can aggregate
-					multiple devices in a virtual representation of the combined devices. 
-					This is often called a digital twin. </p>
+					multiple devices in a virtual representation of the combined devices.
+					This is often called a digital twin.
 
 					<p>Cloud proxies can be realized in different ways:</p>
 					<p class="ednote">The complexity of the use cases here
@@ -1551,8 +1551,18 @@
 			</section>
 			<section>
 				<h3>WoT Scripting API</h3>
-				<p class="ednote" title="TODO">Need to introdcue Scripting API
-					under the condition that it might not become REC, but WG Note.</p>
+				<p>
+					 The <a>Scripting API</a> is programming interface that allows scripts to discover and consume (retrieve) Thing Descriptions, instantiate local objects that act as a proxy for remote Things and their interactions (properties, actions and events). Also, it allows scripts to expose WoT Things and specify their interactions.
+				</p>
+				<p>
+					The <a>Scripting API</a> is an optional "convenience" building block in WoT and it is typically used in network nodes that are able to run a WoT Runtime, for instance gateways or more complex leaf nodes.
+				</p>
+				<p>
+					The <a href="https://w3c.github.io/wot-scripting-api/">Scripting API specification</a> describes a low level <a href="https://www.ecma-international.org/default.htm">ECMAScript</a> API that follows the <a href="https://w3c.github.io/wot-thing-description">Thing Description specification</a> closely. Other, simpler APIs may be implemented on top of it. Other runtimes (e.g. Python, Lua, etc.) may also mimic this API, but in principle any WoT scripting API can be defined and used, as long as the WoT interactions are presented on the network interface.
+				</p>
+				<p>
+					The current reference implementation of the <a>Scripting API</a> is the <a href="https://github.com/eclipse/thingweb.node-wot">Eclipse ThingWeb (node-wot)</a> project. This API is the only one at the moment that ensures "de facto" portability of WoT scripts. Other, proprietary implementations of the <a>Scripting API</a> exist as well and have been tested against <<a href="">node-wot</a> during Working Group test fests.
+				</p>
 			</section>
 			<section>
 				<h3>WoT Security and Privacy Guidelines</h3>
