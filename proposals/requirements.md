@@ -1,4 +1,7 @@
 # 4. Requirements
+
+*Note: content of this file is transferred to index.html on 2019/01/18 for review.*
+
 ## Principles
 
 - WoT architecture should enable mutual interworking of different eco-systems using web technology.
