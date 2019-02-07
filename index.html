@@ -521,7 +521,7 @@
 		<p>
 			This section presents the application domains and use cases targeted
 			by the W3C WoT and which are used to derive the abstract architecture
-			discussed in <span style="color: red">TODO: add link</span> . While
+			discussed in <a href="#sec-building-blocks"></a>. While
 			Smart Home use cases might appear predominant in this section, they
 			should be seen as simply a vehicle to identify fundamental
 			requirements inherent to most application domains. The Smart Home
@@ -543,7 +543,7 @@
 					in the application scenarios, different verticals have similar use
 					cases.
 				</p>
-				<p>shows an example of a Smart Factory. In this case, cell
+				<p> <a href="#smart-factory"></a> shows an example of a Smart Factory. In this case, cell
 					controllers automate factory equipment with specialized
 					communication such as RS-485 or EtherCAT. Line controllers
 					orchestrate multiple cell controllers over IP-based networks. A
@@ -592,7 +592,7 @@
 				</section>
 				<section>
 					<h4 id="transportationlogistics">Transportation &amp;
-						Logistics></h4>
+						Logistics</h4>
 					<table border="1" style="width: 100%">
 						<tr>
 							<td id="shipmenttracking">Shipment tracking</td>
@@ -612,6 +612,7 @@
 						<tr>
 							<td id="warehousemonitoring">Warehouse monitoring</td>
 							<td>Monitoring equipment and stock in warehouses, yards.</td>
+						</tr>
 					</table>
 				</section>
 				<section>
@@ -728,7 +729,7 @@
 			</section>
 			<section id="connected car">
 				<h3 id="connectedcar">Connected Car</h3>
-				<p>shows an example of a Connected Car. In this case, a gateway
+				<p><a href="#connected-car"></a> shows an example of a Connected Car. In this case, a gateway
 					connects to car components through CAN and to the car navigation
 					system through a proprietary interface. Services running in the
 					cloud collect data pushed from car components and analyze the data
@@ -847,7 +848,7 @@
 					<h3>Device Controllers</h3>
 					<p>
 						The first use case is a local device controlled by user-operated
-						remote controller as depicted in <span style="color: red">TODO</span>
+						remote controller as depicted in <a href="#smart-home-deive"></a>
 						. For example, an electronic appliance such as an air conditioner
 						with Web server functionality might be connected directly to a
 						local home network. A remote controller can access the air
@@ -862,7 +863,7 @@
 				</section>
 				<section>
 					<h3>Thing-to-Thing</h3>
-					<p>shows an example of direct Thing-to-Thing interaction. The
+					<p><a href="#smart-home-t2t"></a> shows an example of direct Thing-to-Thing interaction. The
 						scenario is as follows: when a sensor detects the room temperature
 						is surpassing a set threshold (e.g., 25°C), a control agent issues
 						a "power-on" command to an air conditioner.</p>
@@ -876,7 +877,7 @@
 					<p class="ednote" title="TODO">Must rewrite for remote
 						access/control use case. Include changing uplink connectivity.</p>
 					<p>The third use case is a mobile remote controller (e.g., on a
-						smartphone) as shown in . When at home, the smartphone can use
+						smartphone) as shown in <a href="#smart-home-multi"></a>. When at home, the smartphone can use
 						Wi-Fi or Bluetooth/BLE to control an electronic appliance locally,
 						while outside, it can use the cellular network.</p>
 					<figure id="smart-home-multi">
@@ -894,7 +895,7 @@
 					<h3>Gateways</h3>
 					<p class="ednote" title="TODO">Must rewrite for local
 						box/compute node use case.</p>
-					<p>shows a use case based on a Smart Home gateway. It is placed
+					<p> <a href="#smart-home-gateway"></a> shows a use case based on a Smart Home gateway. It is placed
 						between a home network and the Internet. The gateway manages
 						electronic appliances inside the house and can receive commands
 						from a remote controller over the Internet, e.g., from a
@@ -920,7 +921,7 @@
 				</section>
 				<section>
 					<h4>Cloud-ready Devices</h4>
-					<p>shows an example where electronic appliances are connected
+					<p><a href="#smart-home-cloud1"></a> shows an example where electronic appliances are connected
 						directly to the cloud. The cloud mirrors the appliances and,
 						acting as a proxy, can receive commands from remote controllers
 						(e.g., a smartphone). Authorized controllers can be located
@@ -933,7 +934,7 @@
 				<section>
 					<h3>Legacy Devices</h3>
 					<p class="ednote" title="TODO">Check terminology, here agent.</p>
-					<p>shows an example where legacy electronic appliances cannot
+					<p><a href="#smart-home-cloud2"></a> shows an example where legacy electronic appliances cannot
 						directly connect to the cloud. Here, a gateway is needed to relay
 						the connection. The gateway works as:</p>
 					<ul>
@@ -960,7 +961,7 @@
 				<section>
 					<h3>Cross-domain Collaboration</h3>
 					<p>
-						show an example of a Cross-domain collaboration. In this case,
+						<a href="#cross-dommain"></a> show an example of a Cross-domain collaboration. In this case,
 						each system involves other systems in other domains, such as Smart
 						Factrory with Smart City, Smart City with Smart Home. This type of
 						system is called <a
@@ -1299,7 +1300,7 @@
 				<li>the cloud level.</li>
 			</ul>
 
-			<p>shows a conceptual view of how a component in the WoT
+			<p><a href="#architecture-concept"></a> shows a conceptual view of how a component in the WoT
 				Architecture makes use of the WoT building blocks. Each block is
 				described in more detail in the following sections.</p>
 			<figure id="architecture-concept">
@@ -1486,7 +1487,7 @@
 						Bindings</figcaption>
 				</figure>
 				<p>
-					shows how <a href="#user-content-binding-templates">Binding
+					<a href="#binding-templates"></a> shows how <a href="#user-content-binding-templates">Binding
 
 
 
@@ -1572,18 +1573,18 @@
 				client) is based on this dual role.
 			</p>
 			<p>
-				The previous shows how the WoT building blocks conceptionally relate
+				The previous <a href="#architecture-concept"></a> shows how the WoT building blocks conceptionally relate
 				to each other. When implementing these concepts, a more detailed
 				view is necessary that takes certain technical aspects into account.
 				The detailed architecture of a <a href="#user-content-servient">Servient</a>
-				is shown in .
+				is shown in <a href="#architecture-implementation"></a>.
 			</p>
 			<figure id="architecture-implementation">
 				<img src="images/architecture-implementation.png"
 					style="width: 640px;" />
 				<figcaption>Implementation View of a Servient</figcaption>
 			</figure>
-			<p>The role and functionality of each module shown in is as
+			<p>The role and functionality of each module shown in <a href="#architecture-implementation"></a> is as
 				follows:</p>
 
 			<section>
@@ -2028,7 +2029,7 @@
 				<figcaption>Servient Consuming Thing</figcaption>
 			</figure>
 			<p>
-				shows the basic scenario, where a <a href="#user-content-servient">Servient</a>
+				<a href="#wot-existing"></a> shows the basic scenario, where a <a href="#user-content-servient">Servient</a>
 				in client role, a <a href="#user-content-wot-client">WoT Client</a>
 				, is consuming an existing device that is augmented with a <a
 					href="#user-content-thing-description-td">Thing Description</a>
@@ -2122,7 +2123,7 @@
 			<p>
 				In this case, a <a href="#user-content-servient">Servient</a> is
 				running on the device itself. The right most <a
-					href="#user-content-servient">Servient</a> in shows an LED Light,
+					href="#user-content-servient">Servient</a> in <a href="#wot-on-device"></a> shows an LED Light,
 				whose controller has a powerful CPU and a large memory and is able
 				to provide web server functionality connected directly to the
 				Internet. Then the leftmost browser and/or another application on
@@ -2139,11 +2140,11 @@
 				firmware is providing a <a href="#user-content-thing-description-td">Thing
 					Description</a> that describes the functionality and protocols
 				implemented. The right most <a href="#user-content-servient">Servient</a>
-				in shows a legacy device that has a constrained CPU and a small
+				in <a href="#wot-on-device-minimal"></a> shows a legacy device that has a constrained CPU and a small
 				memory and is able to provide web server functionality connected
 				directly to the internet. Then the leftmost browser and/or another
 				application on the internet can access the device through the
-				Internet directly like .
+				Internet directly like <a href="#wot-on-device"></a>.
 			</p>
 			<dl>
 				<dt>Discovery</dt>
@@ -2183,7 +2184,7 @@
 				<figcaption>Servient on Smartphone</figcaption>
 			</figure>
 			<p>
-				shows an example of a <a href="#user-content-servient">Servient</a>
+				<a href="#wot-on-smartphone"></a> shows an example of a <a href="#user-content-servient">Servient</a>
 				on a smartphone, which can act as a gateway to existing devices
 				(e.g., via Bluetooth or local Wi-Fi). The Web browser with the user
 				interface can either run on the smartphone directly or remotely on a
@@ -2222,13 +2223,13 @@
 				<figcaption>Servient on Gateway</figcaption>
 			</figure>
 			<p>
-				shows an example of a <a href="#user-content-servient">Servient</a>
+				<a href="#wot-on-gateway"></a> shows an example of a <a href="#user-content-servient">Servient</a>
 				on a gateway. Gateway are often introduced as a home automation
 				and/or home energy management solution. In the case of consumer
 				electronics, there are very wide variety of physical communication
 				formats such as WiFi, 802.15.4g, Bluetooth Low Energy, HDPLC and so
 				on. In order to normalize those variations, almost all home
-				automation systems introduce a gateway. In , a <a
+				automation systems introduce a gateway. In <a href="#wot-on-gateway"></a>, a <a
 					href="#user-content-servient">Servient</a> wraps various mechanisms
 				for communicating with legacy devices and provides to other clients
 				a universal device accessing method. Inside the home,
@@ -2282,10 +2283,10 @@
 				<figcaption>Servient on Cloud Server and Gateway</figcaption>
 			</figure>
 			<p>
-				shows an example of <a href="#user-content-servient">Servient</a>
+				<a href="#wot-on-cloud"></a> shows an example of <a href="#user-content-servient">Servient</a>
 				running on a cloud server paired with another <a
 					href="#user-content-servient">Servient</a> running on a gateway. In
-				the case of , a browser accesses the <a
+				the case of <a href="#wot-on-cloud"></a>, a browser accesses the <a
 					href="#user-content-servient">Servient</a> on the cloud Server
 				named "Cloud". This <a href="#user-content-servient">Servient</a>
 				provides its interface through the Internet globally. So, wherever a
@@ -2299,7 +2300,7 @@
 				finding out the route, the <a href="#user-content-servient">Servient</a>
 				on the cloud server transfers the request from the browser to the <a
 					href="#user-content-servient">Servient</a> on the gateway. After
-				that, the gateway processes the request according the use case. The
+				that, the gateway processes the request according the <a href="#wot-on-gateway"></a> use case. The
 				<a href="#user-content-thing-description-td">Thing Description</a>
 				of the <a href="#user-content-servient">Servient</a> on the cloud
 				server can be just a mirror of that on the gateway, since it will
@@ -2341,17 +2342,17 @@
 				<figcaption>Servient on Cloud Server Only</figcaption>
 			</figure>
 			<p>
-				shows a second example of <a href="#user-content-servient">Servients</a>
+				<a href="#wot-on-cloud-legacy"></a> shows a second example of <a href="#user-content-servient">Servients</a>
 				in the cloud. In this case, a browser accesses a <a
 					href="#user-content-servient">Servient</a> on a cloud server,
-				similar to . This <a href="#user-content-servient">Servient</a>
+				similar to <a href="#wot-on-cloud"></a>. This <a href="#user-content-servient">Servient</a>
 				provides access through the global Internet. So, wherever the
 				browser user is, they can access this <a
 					href="#user-content-servient">Servient</a> . The cloud <a
 					href="#user-content-servient">Servient</a> accepts the requests of
 				the browser and/or other applications through HTTP, CoAP, etc. Then
 				it finds out the route to access a proprietry discovery service
-				running on a gateway. In , the <a href="#user-content-servient">Servient</a>
+				running on a gateway. In <a href="#wot-on-cloud"></a>, the <a href="#user-content-servient">Servient</a>
 				running in the cloud could talk to another <a
 					href="#user-content-servient">Servient</a> running on the gateway.
 				However, many service providers have already provided IoT services
