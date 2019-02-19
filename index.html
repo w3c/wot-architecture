@@ -510,10 +510,7 @@
 		</dl>
 		<p class="ednote" title="Additional Terms">TODO: add missing
 			terms, such as WoT, WoT Containers, MQTT, TD manager</p>
-			<p>
-			The definitions CWT, JWT, RDF are not used in this document.
-
-			</p>
+		<p>The definitions CWT, JWT, RDF are not used in this document.</p>
 	</section>
 	<!--  USE CASES -->
 	<section id="sec-use-cases" class="informative">
@@ -553,7 +550,8 @@
 					dashboard. Note that factories usually do not reveal the internal
 					topology of their lines and cells.</p>
 				<figure id="smart-factory">
-					<img src="images/wot-use-cases/smart-factory.png" style="width: 640px;" />
+					<img src="images/wot-use-cases/smart-factory.png"
+						style="width: 640px;" />
 					<figcaption>Smart Factory</figcaption>
 				</figure>
 				<section>
@@ -736,7 +734,8 @@
 					also consume cloud services, in this case, to get traffic data and
 					show it to the driver through the car navigation system.</p>
 				<figure id="connected-car">
-					<img src="images/wot-use-cases/connected-car.png" style="width: 500px;" />
+					<img src="images/wot-use-cases/connected-car.png"
+						style="width: 500px;" />
 					<figcaption>Connected Car</figcaption>
 				</figure>
 				<table border="1" style="width: 100%">
@@ -815,12 +814,11 @@
 			</section>
 			<section>
 				<h3 id="environmentmonitoring-1">Environment Monitoring</h3>
-				<p>
-				Environment monitoring typically relies on a lot of distributed sensors that send their
-				measurement data to common gateways, edge devices and cloud services.
-				The following table just lists a few scenarios - these could be deployed to a small community,
-				a city, a country, a continent or even worldwide.
-				</p>
+				<p>Environment monitoring typically relies on a lot of
+					distributed sensors that send their measurement data to common
+					gateways, edge devices and cloud services. The following table just
+					lists a few scenarios - these could be deployed to a small
+					community, a city, a country, a continent or even worldwide.</p>
 				<table border="1" style="width: 100%">
 					<tr>
 						<td id="airandwaterpollution">Air and water pollution</td>
@@ -837,181 +835,187 @@
 					</tr>
 				</table>
 			</section>
-			<section id="commonusecasespatterns">
-				<h2>Common Architecture Patterns</h2>
-				<section>
-
-					This section introduces common architecture patterns that illustrate
-					how devices/things interact with controllers, other devices, agents and servers.
-
-					<h3>Device Controllers</h3>
-					<p>
-						The first use case is a local device controlled by user-operated
-						remote controller as depicted in <span style="color: red">TODO</span>
-						. For example, an electronic appliance such as an air conditioner
-						with Web server functionality might be connected directly to a
-						local home network. A remote controller can access the air
-						conditioner through the local home network directly. In this case,
-						the remote controller can be realized by a browser or native
-						application.
-					</p>
-					<figure id="smart-home-device">
-						<img src="images/wot-use-cases/smart-home-device.png" style="width: 500px;" />
-						<figcaption>Device Control</figcaption>
-					</figure>
-				</section>
-				<section>
-					<h3>Thing-to-Thing</h3>
-					<p>shows an example of direct Thing-to-Thing interaction. The
-						scenario is as follows: when a sensor detects the room temperature
-						is surpassing a set threshold (e.g., 25°C), a control agent issues
-						a "power-on" command to an air conditioner.</p>
-					<figure id="smart-home-t2t">
-						<img src="images/wot-use-cases/smart-home-t2t.png" style="width: 500px;" />
-						<figcaption>Control Agent</figcaption>
-					</figure>
-				</section>
-				<section>
-					<h3>Remote Access</h3>
-					<p class="ednote" title="TODO">Must rewrite for remote
-						access/control use case. Include changing uplink connectivity.</p>
-					<p>The third use case is a mobile remote controller (e.g., on a
-						smartphone) as shown in . When at home, the smartphone can use
-						Wi-Fi or Bluetooth/BLE to control an electronic appliance locally,
-						while outside, it can use the cellular network.</p>
-					<figure id="smart-home-multi">
-						<img src="images/wot-use-cases/smart-home-multi.png" style="width: 500px;" />
-						<figcaption>Multiple Network Interfaces</figcaption>
-					</figure>
-				</section>
-				<section>
-					<h3>Multiple Subsystems</h3>
-					<p class="ednote" title="TODO">Pattern from consumer (ZigBee,
-						Bluetooth, and WiFi in home), industrial (multiple fieldbusses),
-						connected car, and more.</p>
-				</section>
-				<section>
-					<h3>Gateways</h3>
-					<p class="ednote" title="TODO">Must rewrite for local
-						box/compute node use case.</p>
-					<p>shows a use case based on a Smart Home gateway. It is placed
-						between a home network and the Internet. The gateway manages
-						electronic appliances inside the house and can receive commands
-						from a remote controller over the Internet, e.g., from a
-						smartphone as in the previous use case.</p>
-					<figure id="smart-home-gateway">
-						<img src="images/wot-use-cases/smart-home-gateway.png" style="width: 500px;" />
-						<figcaption>Smart Home Gateway</figcaption>
-					</figure>
-				</section>
-				<section>
-					<h3>Cloud Proxies</h3>
-					<p>
-					A cloud proxy is a virtual representation of a device,
-					that resides on a cloud server or edge device.
-					Proxies can model a single device, or they can aggregate
-					multiple devices in a virtual representation of the combined devices.
-					This is often called a digital twin.
-
-					<p>Cloud proxies can be realized in different ways:</p>
-					<p class="ednote">The complexity of the use cases here
-						increases too quickly. They will be split up to progressively add
-						and explain each new feature.</p>
-				</section>
-				<section>
-					<h4>Cloud-ready Devices</h4>
-					<p>shows an example where electronic appliances are connected
-						directly to the cloud. The cloud mirrors the appliances and,
-						acting as a proxy, can receive commands from remote controllers
-						(e.g., a smartphone). Authorized controllers can be located
-						anywhere, as the proxy is globally reachable.</p>
-					<figure id="smart-home-cloud1">
-						<img src="images/wot-use-cases/smart-home-cloud1a.png" style="width: 500px;" />
-						<figcaption>Proxies with Cloud-ready Devices</figcaption>
-					</figure>
-				</section>
-				<section>
-					<h3>Legacy Devices</h3>
-					<p class="ednote" title="TODO">Check terminology, here agent.</p>
-					<p>shows an example where legacy electronic appliances cannot
-						directly connect to the cloud. Here, a gateway is needed to relay
-						the connection. The gateway works as:</p>
-					<ul>
-						<li>integrator of a variety of legacy communication protocols
-							both in the physical and logical view</li>
-						<li>firewall toward the Internet</li>
-						<li>privacy filter which substitutes real image and/or
-							speech, and logs data locally</li>
-						<li>local agent in case the Internet connection is
-							interrupted</li>
-						<li>emergency services running locally when fire alarms and
-							similar events occur</li>
-					</ul>
-					<p>The cloud mirrors the gateway with all connected appliances
-						and acts as an agent that manages them in the cloud in conjunction
-						with the gateway. Furthermore, the cloud can receive commands from
-						remote controllers (e.g., a smartphone), which can be located
-						anywhere.</p>
-					<figure id="smart-home-cloud2">
-						<img src="images/wot-use-cases/smart-home-cloud2.png" style="width: 500px;" />
-						<figcaption>Proxies with Legacy Devices</figcaption>
-					</figure>
-				</section>
-				
-				<section>
-					<h3>Digital Twin</h3>
-					<p>
-					A digital twin is a virtual representation of a device or a group of devices.
-				    It can be used to represent the real-world devices which may not be continuously online
-				    or to run simulations of new applications and services, before they get deployed to the real devices.
-					</p>
-					<figure id="digital-twin">
-						<img src="images/wot-use-cases/digital-twin.png" style="width: 500px;" />
-						<figcaption>Digital Twin</figcaption>
-					</figure>
-					<p>
-					</p>
-					<figure id="digital-twin">
-						<img src="images/wot-use-cases/digital-twin-multiple-devices.png" style="width: 500px;" />
-						<figcaption>Digital Twin for multiple devices</figcaption>
-					</figure>
-				</section>
-				
-				<section>
-					<h3>Cross-domain Collaboration</h3>
-					<p>
-						show an example of a Cross-domain collaboration. In this case,
-						each system involves other systems in other domains, such as Smart
-						Factrory with Smart City, Smart City with Smart Home. This type of
-						system is called <a
-							href="https://www.iec.ch/whitepaper/pdf/iecWP-futurefactory-LR-en.pdf">"Symbiotic"
-							ecosystem</a> . There are two collaboration models: direct
-						collaboration and indirect collaboration. In the direct
-						collaboration model, systems exchange their own information
-						directly with each other in peer-to-peer manner. In the indirect
-						collaboration, systems exchange their own information via some
-						collaboration platform. In order to maintain and continue this
-						collaboration, each system provide the metadata of their ability
-						and interfaces and adopt itself to others.
-					</p>
-					<figure id="cross-domain">
-						<img src="images/cross-domain-direct.png" style="width: 500px;" />
-						<img src="images/cross-domain-indirect.png" style="width: 500px;" />
-						<figcaption>Cross-domain collaboration</figcaption>
-					</figure>
-				</section>
-			</section>
+		</section>
+		<section id="commonusecasespatterns">
+			<h1>Common Architecture Patterns</h1>
 			<section>
-				<h2>Summary</h2>
-				<p class="ednote" title="TODO">The following figure has to be
-					simplified to only show the abstract patterns without the
-					implementation and WoT details (inside the gray boxes). Instead,
-					common patterns can be listed at the corresponding places.</p>
-				<figure id="architecture-abstract">
-					<img src="images/message-flows/Architecture-abstract.png" style="width: 100%;" />
-					<figcaption>Use Case Overview</figcaption>
+
+				This section introduces common architecture patterns that illustrate
+				how devices/things interact with controllers, other devices, agents
+				and servers.
+
+				<h2>Device Controllers</h2>
+				<p>
+					The first use case is a local device controlled by user-operated
+					remote controller as depicted in <span style="color: red">TODO</span>
+					. For example, an electronic appliance such as an air conditioner
+					with Web server functionality might be connected directly to a
+					local home network. A remote controller can access the air
+					conditioner through the local home network directly. In this case,
+					the remote controller can be realized by a browser or native
+					application.
+				</p>
+				<figure id="smart-home-device">
+					<img src="images/wot-use-cases/smart-home-device.png"
+						style="width: 500px;" />
+					<figcaption>Device Control</figcaption>
 				</figure>
 			</section>
+			<section>
+				<h2>Thing-to-Thing</h2>
+				<p>shows an example of direct Thing-to-Thing interaction. The
+					scenario is as follows: when a sensor detects the room temperature
+					is surpassing a set threshold (e.g., 25°C), a control agent issues
+					a "power-on" command to an air conditioner.</p>
+				<figure id="smart-home-t2t">
+					<img src="images/wot-use-cases/smart-home-t2t.png"
+						style="width: 500px;" />
+					<figcaption>Control Agent</figcaption>
+				</figure>
+			</section>
+			<section>
+				<h2>Remote Access</h2>
+				<p class="ednote" title="TODO">Must rewrite for remote
+					access/control use case. Include changing uplink connectivity.</p>
+				<p>The third use case is a mobile remote controller (e.g., on a
+					smartphone) as shown in . When at home, the smartphone can use
+					Wi-Fi or Bluetooth/BLE to control an electronic appliance locally,
+					while outside, it can use the cellular network.</p>
+				<figure id="smart-home-multi">
+					<img src="images/wot-use-cases/smart-home-multi.png"
+						style="width: 500px;" />
+					<figcaption>Multiple Network Interfaces</figcaption>
+				</figure>
+			</section>
+			<section>
+				<h2>Multiple Subsystems</h2>
+				<p class="ednote" title="TODO">Pattern from consumer (ZigBee,
+					Bluetooth, and WiFi in home), industrial (multiple fieldbusses),
+					connected car, and more.</p>
+			</section>
+			<section>
+				<h2>Gateways</h2>
+				<p class="ednote" title="TODO">Must rewrite for local
+					box/compute node use case.</p>
+				<p>shows a use case based on a Smart Home gateway. It is placed
+					between a home network and the Internet. The gateway manages
+					electronic appliances inside the house and can receive commands
+					from a remote controller over the Internet, e.g., from a smartphone
+					as in the previous use case.</p>
+				<figure id="smart-home-gateway">
+					<img src="images/wot-use-cases/smart-home-gateway.png"
+						style="width: 500px;" />
+					<figcaption>Smart Home Gateway</figcaption>
+				</figure>
+			</section>
+			<section>
+				<h2>Cloud Proxies</h2>
+				<p>A cloud proxy is a virtual representation of a device, that
+					resides on a cloud server or edge device. Proxies can model a
+					single device, or they can aggregate multiple devices in a virtual
+					representation of the combined devices. This is often called a
+					digital twin.
+				<p>Cloud proxies can be realized in different ways:</p>
+				<p class="ednote">The complexity of the use cases here increases
+					too quickly. They will be split up to progressively add and explain
+					each new feature.</p>
+			</section>
+			<section>
+				<h3>Cloud-ready Devices</h3>
+				<p>shows an example where electronic appliances are connected
+					directly to the cloud. The cloud mirrors the appliances and, acting
+					as a proxy, can receive commands from remote controllers (e.g., a
+					smartphone). Authorized controllers can be located anywhere, as the
+					proxy is globally reachable.</p>
+				<figure id="smart-home-cloud1">
+					<img src="images/wot-use-cases/smart-home-cloud1a.png"
+						style="width: 500px;" />
+					<figcaption>Proxies with Cloud-ready Devices</figcaption>
+				</figure>
+			</section>
+			<section>
+				<h2>Legacy Devices</h2>
+				<p class="ednote" title="TODO">Check terminology, here agent.</p>
+				<p>shows an example where legacy electronic appliances cannot
+					directly connect to the cloud. Here, a gateway is needed to relay
+					the connection. The gateway works as:</p>
+				<ul>
+					<li>integrator of a variety of legacy communication protocols
+						both in the physical and logical view</li>
+					<li>firewall toward the Internet</li>
+					<li>privacy filter which substitutes real image and/or speech,
+						and logs data locally</li>
+					<li>local agent in case the Internet connection is interrupted</li>
+					<li>emergency services running locally when fire alarms and
+						similar events occur</li>
+				</ul>
+				<p>The cloud mirrors the gateway with all connected appliances
+					and acts as an agent that manages them in the cloud in conjunction
+					with the gateway. Furthermore, the cloud can receive commands from
+					remote controllers (e.g., a smartphone), which can be located
+					anywhere.</p>
+				<figure id="smart-home-cloud2">
+					<img src="images/wot-use-cases/smart-home-cloud2.png"
+						style="width: 500px;" />
+					<figcaption>Proxies with Legacy Devices</figcaption>
+				</figure>
+			</section>
+
+			<section>
+				<h2>Digital Twin</h2>
+				<p>A digital twin is a virtual representation of a device or a
+					group of devices. It can be used to represent the real-world
+					devices which may not be continuously online or to run simulations
+					of new applications and services, before they get deployed to the
+					real devices.</p>
+				<figure id="digital-twin">
+					<img src="images/wot-use-cases/digital-twin.png"
+						style="width: 500px;" />
+					<figcaption>Digital Twin</figcaption>
+				</figure>
+				<p></p>
+				<figure id="digital-twin">
+					<img src="images/wot-use-cases/digital-twin-multiple-devices.png"
+						style="width: 500px;" />
+					<figcaption>Digital Twin for multiple devices</figcaption>
+				</figure>
+			</section>
+
+			<section>
+				<h2>Cross-domain Collaboration</h2>
+				<p>
+					show an example of a Cross-domain collaboration. In this case, each
+					system involves other systems in other domains, such as Smart
+					Factrory with Smart City, Smart City with Smart Home. This type of
+					system is called <a
+						href="https://www.iec.ch/whitepaper/pdf/iecWP-futurefactory-LR-en.pdf">"Symbiotic"
+						ecosystem</a> . There are two collaboration models: direct
+					collaboration and indirect collaboration. In the direct
+					collaboration model, systems exchange their own information
+					directly with each other in peer-to-peer manner. In the indirect
+					collaboration, systems exchange their own information via some
+					collaboration platform. In order to maintain and continue this
+					collaboration, each system provide the metadata of their ability
+					and interfaces and adopt itself to others.
+				</p>
+				<figure id="cross-domain">
+					<img src="images/cross-domain-direct.png" style="width: 500px;" />
+					<img src="images/cross-domain-indirect.png" style="width: 500px;" />
+					<figcaption>Cross-domain collaboration</figcaption>
+				</figure>
+			</section>
+		</section>
+		<section>
+			<h2>Summary</h2>
+			<p class="ednote" title="TODO">The following figure has to be
+				simplified to only show the abstract patterns without the
+				implementation and WoT details (inside the gray boxes). Instead,
+				common patterns can be listed at the corresponding places.</p>
+			<figure id="architecture-abstract">
+				<img src="images/Architecture-abstract.png"
+					style="width: 100%;" />
+				<figcaption>Use Case Overview</figcaption>
+			</figure>
 		</section>
 	</section>
 	<section id="sec-requirements" class="informative">
@@ -1267,6 +1271,60 @@
 				<img src="images/Architecture-abstract.png" style="width: 100%;" />
 				<figcaption>Abstract Architecture of W3C WoT</figcaption>
 			</figure>
+		</section>
+		<section id="sec-WoT-servient-architecture-high-level">
+			<h2>High-level architecture</h2>
+			<p>Overview of WoT component’s behavior is explained using a
+				couple of system configuration diagrams. First, shown below is a
+				configuration that consists of a device and an application shown
+				below.</p>
+			<figure id="high-level-application-device">
+				<img src="images/Arch-high-level-application-device.png" />
+				<figcaption>High level architecture of appliation and
+					device</figcaption>
+			</figure>
+			<p>Functions of a device is described by a Thing Description
+				(TD). A TD describes, among other things, a device’s identifier,
+				functions and attributes of a device implemented internally,
+				communication protocols (i.e. transport layer) information. Details
+				of TD format are defined the Thing Description specification.</p>
+			<p>Each Web of Things device MUST have a corresponding TD.
+				Applications can recognize a device by obtaining a TD of the device.
+				Conceptually, a device can be thought to have an ExposedThing that
+				provides an interface that conforms to the TD. On the other hand, an
+				application can be conceptually considered to have a ConsumedThing
+				that provides an interface functionality for an application to
+				utilize. An application can generate a ConsumedThing upon a receipt
+				of a TD. Communication between an application and a device are
+				realized by ConsumedThing and ExposedThing connect to each other and
+				exchange messages.</p>
+			<p>Next, in the below configuration, an application and a device
+				connect to each other via a proxy.</p>
+			<figure id="high-level-application-proxy-device">
+				<img src="images/Arch-high-level-application-proxy-device.png" />
+				<figcaption>High level architecture with proxy</figcaption>
+			</figure>
+			<p>A proxy contains both ExposedThing and ConsumedThing
+				functionality, and relay messages that are exchanged between an
+				application and a device. In a proxy, a ConsumedThing creates a
+				shadow of the device, and an application can access the shadow
+				device through the proxy’s ExposedThing.</p>
+			<p>Proxy’s ExposedThing and ConsumedThing can communicate in
+				different protocols. For example, a device and an application can
+				use separate protocols, CoAP and HTTP, respectively. Even when there
+				are multiple devices and they use different protocols, an
+				application can communicate with those devices using a single
+				protocol through the proxy. The same is true for device
+				authentication. An application only need to handle a single
+				authentication method even when multiple devices connected to a
+				proxy use different authentication methods.</p>
+			<p>A proxy creates a ConsumedThing based on a TD and generates
+				another TD for a shadow device. The TD for a shadow device uses a
+				new identifier different from the original device TD’s, and changes
+				communication protocols if necessary. A proxy then creates an
+				ExposedThing that serves as the Thing for the TD. An application
+				communicates with a device via a proxy through a ConsumedThing that
+				works according to the TD for the shadow device.</p>
 		</section>
 		<section>
 			<h2>Architectural Constraints</h2>
@@ -1571,16 +1629,38 @@
 			<section>
 				<h3>WoT Scripting API</h3>
 				<p>
-					 The <a>Scripting API</a> is programming interface that allows scripts to discover and consume (retrieve) Thing Descriptions, instantiate local objects that act as a proxy for remote Things and their interactions (properties, actions and events). Also, it allows scripts to expose WoT Things and specify their interactions.
+					The <a>Scripting API</a> is programming interface that allows
+					scripts to discover and consume (retrieve) Thing Descriptions,
+					instantiate local objects that act as a proxy for remote Things and
+					their interactions (properties, actions and events). Also, it
+					allows scripts to expose WoT Things and specify their interactions.
 				</p>
 				<p>
-					The <a>Scripting API</a> is an optional "convenience" building block in WoT and it is typically used in network nodes that are able to run a WoT Runtime, for instance gateways or more complex leaf nodes.
+					The <a>Scripting API</a> is an optional "convenience" building
+					block in WoT and it is typically used in network nodes that are
+					able to run a WoT Runtime, for instance gateways or more complex
+					leaf nodes.
 				</p>
 				<p>
-					The <a href="https://w3c.github.io/wot-scripting-api/">Scripting API specification</a> describes a low level <a href="https://www.ecma-international.org/default.htm">ECMAScript</a> API that follows the <a href="https://w3c.github.io/wot-thing-description">Thing Description specification</a> closely. Other, simpler APIs may be implemented on top of it. Other runtimes (e.g. Python, Lua, etc.) may also mimic this API, but in principle any WoT scripting API can be defined and used, as long as the WoT interactions are presented on the network interface.
+					The <a href="https://w3c.github.io/wot-scripting-api/">Scripting
+						API specification</a> describes a low level <a
+						href="https://www.ecma-international.org/default.htm">ECMAScript</a>
+					API that follows the <a
+						href="https://w3c.github.io/wot-thing-description">Thing
+						Description specification</a> closely. Other, simpler APIs may be
+					implemented on top of it. Other runtimes (e.g. Python, Lua, etc.)
+					may also mimic this API, but in principle any WoT scripting API can
+					be defined and used, as long as the WoT interactions are presented
+					on the network interface.
 				</p>
 				<p>
-					The current reference implementation of the <a>Scripting API</a> is the <a href="https://github.com/eclipse/thingweb.node-wot">Eclipse ThingWeb (node-wot)</a> project. This API is the only one at the moment that ensures "de facto" portability of WoT scripts. Other, proprietary implementations of the <a>Scripting API</a> exist as well and have been tested against <<a href="">node-wot</a> during Working Group test fests.
+					The current reference implementation of the <a>Scripting API</a> is
+					the <a href="https://github.com/eclipse/thingweb.node-wot">Eclipse
+						ThingWeb (node-wot)</a> project. This API is the only one at the
+					moment that ensures "de facto" portability of WoT scripts. Other,
+					proprietary implementations of the <a>Scripting API</a> exist as
+					well and have been tested against <<a href="">node-wot</a> during
+					Working Group test fests.
 				</p>
 			</section>
 			<section>
@@ -1805,60 +1885,6 @@
 			web of Things as a whole works. The architecture described here is
 			derived from the Web of Things use cases as well as technical
 			requirements extracted from them.</p>
-		<section id="sec-WoT-servient-architecture-high-level">
-			<h2>High-level architecture</h2>
-			<p>Overview of WoT component’s behavior is explained using a
-				couple of system configuration diagrams. First, shown below is a
-				configuration that consists of a device and an application shown
-				below.</p>
-			<figure id="high-level-application-device">
-				<img src="images/Arch-high-level-application-device.png" />
-				<figcaption>High level architecture of appliation and
-					device</figcaption>
-			</figure>
-			<p>Functions of a device is described by a Thing Description
-				(TD). A TD describes, among other things, a device’s identifier,
-				functions and attributes of a device implemented internally,
-				communication protocols (i.e. transport layer) information. Details
-				of TD format are defined the Thing Description specification.</p>
-			<p>Each Web of Things device MUST have a corresponding TD.
-				Applications can recognize a device by obtaining a TD of the device.
-				Conceptually, a device can be thought to have an ExposedThing that
-				provides an interface that conforms to the TD. On the other hand, an
-				application can be conceptually considered to have a ConsumedThing
-				that provides an interface functionality for an application to
-				utilize. An application can generate a ConsumedThing upon a receipt
-				of a TD. Communication between an application and a device are
-				realized by ConsumedThing and ExposedThing connect to each other and
-				exchange messages.</p>
-			<p>Next, in the below configuration, an application and a device
-				connect to each other via a proxy.</p>
-			<figure id="high-level-application-proxy-device">
-				<img src="images/Arch-high-level-application-proxy-device.png" />
-				<figcaption>High level architecture with proxy</figcaption>
-			</figure>
-			<p>A proxy contains both ExposedThing and ConsumedThing
-				functionality, and relay messages that are exchanged between an
-				application and a device. In a proxy, a ConsumedThing creates a
-				shadow of the device, and an application can access the shadow
-				device through the proxy’s ExposedThing.</p>
-			<p>Proxy’s ExposedThing and ConsumedThing can communicate in
-				different protocols. For example, a device and an application can
-				use separate protocols, CoAP and HTTP, respectively. Even when there
-				are multiple devices and they use different protocols, an
-				application can communicate with those devices using a single
-				protocol through the proxy. The same is true for device
-				authentication. An application only need to handle a single
-				authentication method even when multiple devices connected to a
-				proxy use different authentication methods.</p>
-			<p>A proxy creates a ConsumedThing based on a TD and generates
-				another TD for a shadow device. The TD for a shadow device uses a
-				new identifier different from the original device TD’s, and changes
-				communication protocols if necessary. A proxy then creates an
-				ExposedThing that serves as the Thing for the TD. An application
-				communicates with a device via a proxy through a ConsumedThing that
-				works according to the TD for the shadow device.</p>
-		</section>
 		<section id="sec-WoT-servient-architecture-simple-config">
 			<h2>Simple configuration of WoT servient</h2>
 			<p>The remainder of this section discusses and clarifies the
@@ -1985,8 +2011,9 @@
 				is on the home network side aggregates all connected devices, and
 				the remote proxy on the internet side aggregates the applications.
 				Applications and devices need to know nothing about the firewall.</p>
-			<figure id="deployment-clodu-device">
-				<img src="images/message-flows/Arch-deploy-cloud-device.png" />
+			<figure id="deployment-cloud-device">
+				<img src="images/Arch-deploy-cloud-device.png" />
+				<figcaption>TODO: ADD A CAPTION</figcaption>
 			</figure>
 			<p>Note: An example structure adopted in ITU-T Recommendation
 				Y.2070</p>
@@ -2006,7 +2033,7 @@
 				to achieve its application functionality. It can do so by querying
 				the directory of device information.</p>
 			<figure id="deployment-cloud-directory">
-				<img src="images/message-flows/Arch-deploy-service-directory.png" />
+				<img src="images/Arch-deploy-service-directory.png" />
 				<figcaption>Cloud service with directory</figcaption>
 			</figure>
 			<p>Multiple cloud eco-systems each based on a different platform
@@ -2028,7 +2055,8 @@
 				shadow device, Application servient A is able to use Device Servient
 				B through the shadow device on Remote Proxy Servient B.</p>
 			<figure id="deployment-service-sync-directory">
-				<img src="images/message-flows/Arch-deploy-service-sync-directory.png" />
+				<img
+					src="images/Arch-deploy-service-sync-directory.png" />
 				<figcaption>Multiple cloud connect through directory
 					synchronization</figcaption>
 			</figure>
@@ -2040,11 +2068,320 @@
 				B, and registers the TD to TD directory A. With this mechanism,
 				synchronization between TD directories is not necessary.</p>
 			<figure id="deployment-service-sync-proxy">
-				<img src="images/message-flows/Arch-deploy-service-sync-proxy.png" />
+				<img src="images/Arch-deploy-service-sync-proxy.png" />
 				<figcaption>Multiple cloud connect through proxy
 					synchronization</figcaption>
 			</figure>
 		</section>
+	</section>
+	<section id="sec-security-considerations">
+		<h1>Security and Privacy Considerations</h1>
+		<p class="ednote">
+			This section will likely undergo significant revision and
+			reorganization. Please see the <a
+				href="https://github.com/w3c/wot-security/">WoT Security and
+				Privacy</a> repository for work in progress. In particular, the <a
+				href="https://github.com/w3c/wot-security/blob/master/wot-threat-model.md">WoT
+				Threat Model</a> defines the main WoT security stakeholders, assets,
+			attack surfaces, and threats.
+		</p>
+		<p>The functional WoT architecture should enable the use of best
+			practices in security and privacy. Generally, the WoT security
+			architecture must support the goals and mechanisms of the IoT
+			protocols and systems it connects to. These systems vary in their
+			security requirements and risk tolerance, so security mechanisms will
+			also vary based on these factors. However, the WoT architecture needs
+			to do no harm: it should support security and privacy at least as
+			well as the systems it connects to.</p>
+		<p>Security means the system should preserve its integrity and
+			functionality even when subject to attack. Privacy means that the
+			system should maintain the confidentiality of personally identifiable
+			information. In general, security and privacy cannot be guaranteed
+			but the WoT architecture should support best practices.</p>
+		<p>Security and privacy are especially important in the IoT domain
+			since IoT devices need to operate autonomously and in many cases have
+			access to both personal data and/or can be in control of
+			safety-critical systems. Compared to personal systems, IoT devices
+			are subject to different and in some cases higher risks than IT
+			systems. It is also important to protect IoT systems so that they can
+			not be used to launch attacks on other computer systems.</p>
+		<p class="ednote">
+			Security and privacy considerations are still under discussion and
+			development; the content below should be considered preliminary. Due
+			to the complexity of the subject we are considering producing a
+			separate document containing a detailed security and privacy
+			considerations discussion including a risk analysis, threat model,
+			recommended mitigations, and appropriate references to best
+			practices. A summary will be included here. Work in progress is
+			located in the <a href="https://github.com/w3c/wot-security/">WoT
+				Security and Privacy</a> repository. Please file any security or privacy
+			considerations and/or concerns using the <a
+				href="https://github.com/w3c/wot-security/issues">GitHub Issue</a>
+			feature.
+		</p>
+		<p>
+			<!-- Security requirements for the the WoT -->
+			Security is a cross-cutting issue that needs to be taken into account
+			in all <a href="#sec-building-blocks">WoT building blocks</a> . The
+			W3C WoT does not define any new security mechanisms, but provides
+			guidelines to apply the best practices from Web security, IoT
+			security, and information security for general software and hardware
+			considerations.
+		</p>
+		<p>
+			The <a href="#user-content-thing-description-td">WoT Thing
+				Description</a> must be used together with integrity protection
+			mechanisms and access control policies. Users must ensure that no
+			sensitive information is included in the <a href="#user-content-td">TDs</a>
+			themselves.
+		</p>
+		<p>
+			The <a href="#user-content-binding-templates">WoT Binding
+				Templates</a> must correctly cover the security mechanisms employed by
+			the underlying <a href="#user-content-iot-platform">IoT Platform</a>
+			. Due to the automation of network interactions necessary in the IoT,
+			operators need to ensure that <a href="#user-content-thing">Things</a>
+			are exposed and consumed in a way that is compliant with their
+			security policies.
+		</p>
+		<section id="sec-security-consideration-runtime-risks">
+			<h2>WoT Runtime Security and Privacy Risks</h2>
+			<p>
+				The <a href="#user-content-wot-runtime">WoT Runtime</a>
+				implementation for the <a href="#user-content-scripting-api">WoT
+
+
+
+
+
+					Scripting API</a> must at least have mechanisms to prevent malicious
+				access to the system and isolate scripts in multi-tenant <a
+					href="#user-content-servient">Servients</a> . More specifically the
+				<a href="#user-content-wot-runtime">WoT Runtime</a> implementation
+				for the <a href="#user-content-scripting-api">WoT Scripting API</a>
+				should take into account the below security and privacy risks and
+				implement the recommended mitigations.
+			</p>
+			<section id="sec-security-consideration-cross-script">
+				<h5>Cross-Script Security and Privacy Risk</h5>
+				<p>
+					In basic WoT setups, all scripts running inside the <a
+						href="#user-content-wot-runtime">WoT Runtime</a> are considered
+					trusted, and therefore there is no strong need to perform strict
+					isolation between each running script instance. However, depending
+					on device capabilities and deployment use case scenario risk level
+					it might be desirable to do so. For example, if one script handles
+					sensitive privacy-related data and well-audited, it might be
+					desirable to separate it from the rest of the script instances to
+					minimize the risk of data exposure in case some other script inside
+					WoT gets compromised during runtime. Another example is mutual
+					co-existence of different tenants on a single WoT device. In this
+					case each WoT runtime instance will be hosting a different tenant,
+					and isolation between them is required.
+				</p>
+				<dl>
+					<dt>Mitigation:</dt>
+					<dd>
+						The WoT runtime should perform isolation of script instances and
+						their data in cases when scripts handle privacy-related or other
+						critical security data. Similarly, the <a
+							href="#user-content-wot-runtime">WoT Runtime</a> implementation
+						should perform isolation of <a href="#user-content-wot-runtime">WoT
+							Runtime</a> instances and their data if a WoT device has more than
+						one tenant. Such isolation can be performed within the <a
+							href="#user-content-wot-runtime">WoT Runtime</a> using platform
+						security mechanisms available on the device. For more information
+						see Sections "WoT Servient Single-Tenant" and "WoT Servient
+						Multi-Tenant" of [[!WOT-SECURITY-CONSIDERATIONS#]].
+					</dd>
+				</dl>
+			</section>
+			<section id="sec-security-consideration-device-direct-access">
+				<h5>Physical Device Direct Access Security and Privacy Risk</h5>
+				<p>In case a script is compromised or misbehaving, the
+					underlying physical device (and potentially surrounded environment)
+					can be damaged if a script can use directly exposed native device
+					interfaces. If such interfaces lack safety checks on their inputs,
+					they might bring the underlying physical device (or environment) to
+					an unsafe state (i.e. device overheats and explodes).</p>
+				<dl>
+					<dt>Mitigation:</dt>
+					<dd>
+						The <a href="#user-content-wot-runtime">WoT Runtime</a> should
+						avoid directly exposing the native device interfaces to the script
+						developers. Instead a <a href="#user-content-wot-runtime">WoT
+							Runtime</a> implementation should provide a hardware abstraction
+						layer for accessing the native device interfaces. Such hardware
+						abstraction layer should refuse to execute commands that might put
+						the device (or environment) to an unsafe state. Additionally, in
+						order to reduce the damage to a physical WoT device in cases a
+						script gets compromised, it is important to minimize the number of
+						interfaces that are exposed or accessible to a particular script
+						based on its functionality.
+					</dd>
+				</dl>
+			</section>
+			<section id="sec-security-consideration-update-provisioning">
+				<h5>Provisioning and Update Security Risk</h5>
+				<p>
+					If the <a href="#user-content-wot-runtime">WoT Runtime</a>
+					implementation supports post-manufacturing provisioning or updates
+					of itself, WoT scripts, or any related data (including security
+					credentials), it can be a major attack vector. An attacker can try
+					to modify any above described element during the update or
+					provisioning process or simply provision attacker's code and data
+					directly.
+				</p>
+				<dl>
+					<dt>Mitigation:</dt>
+					<dd>
+						Post-manufacturing provisioning or update of scripts, the <a
+							href="#user-content-wot-runtime">WoT Runtime</a> itself or any
+						related data should be done in a secure fashion. A set of
+						recommendations for secure update and post-manufacturing
+						provisioning can be found in [[!WOT-SECURITY-CONSIDERATIONS]].
+					</dd>
+				</dl>
+			</section>
+			<section id="sec-security-consideration-credentials-storage">
+				<h5>Security Credentials Storage Security and Privacy Risk</h5>
+				<p>
+					Typically the <a href="#user-content-wot-runtime">WoT Runtime</a>
+					needs to store the security credentials that are provisioned to a
+					WoT device to operate in WoT network. If an attacker can compromise
+					the confidentiality or integrity of these credentials, then it can
+					obtain access to the WoT assets, impersonate WoT things or devices
+					or create Denial-Of-Service (DoS) attacks.
+				</p>
+				<dl>
+					<dt>Mitigation:</dt>
+					<dd>
+						The <a href="#user-content-wot-runtime">WoT Runtime</a> should
+						securely store the provisioned security credentials, guaranteeing
+						their integrity and confidentiality. In case there are more than
+						one tenant on a single WoT-enabled device, a <a
+							href="#user-content-wot-runtime">WoT Runtime</a> implementation
+						should guarantee isolation of each tenant provisioned security
+						credentials. Additionally, in order to minimize a risk that
+						provisioned security credentials get compromised, the <a
+							href="#user-content-wot-runtime">WoT Runtime</a> implementation
+						should not expose any API for scripts to query the provisioned
+						security credentials.
+					</dd>
+				</dl>
+			</section>
+		</section>
+	</section>
+	<section class="appendix">
+		<h1>Example Sequences of interaction patterns (Informative)</h1>
+		<p>
+			<em>This section is non-normative.</em>
+		</p>
+		<p>This section illustrates example sequences of interaction
+			patterns such as read propery, invoke action and event, among WoT
+			client and WoT server.</p>
+		<p>For the sake of simplicity, remote and local proxies between
+			client and server are omitted from following sequences.</p>
+		<section>
+			<h2>Property</h2>
+			<section>
+				<h3>Read property (binding = HTTP)</h3>
+				<p>Following sequence illustrates example sequence of read
+					property operation with HTTP binding.</p>
+				<p>
+					<img src="images/message-flows/A_1_1_readProperty.png"
+						alt="Read property               (binding = HTTP)" />
+				</p>
+			</section>
+			<section>
+				<h3>Write property (binding = HTTP)</h3>
+				<p>Following sequence illustrates example sequence of write
+					property operation with HTTP binding.</p>
+				<p>
+					<img src="images/message-flows/A_1_2_writeProperty.png"
+						alt="Write               property (binding = HTTP)" />
+				</p>
+			</section>
+			<section>
+				<h3>Observe property (binding = HTTP Long Polling)</h3>
+				<p>Following sequence illustrates example sequence of observe
+					property operation with HTTP Long Polling binding.</p>
+				<p>
+					<img src="images/message-flows/A_1_3a_observePropertyLongPoll.png"
+						alt="Observe property (binding = HTTP Long Polling)" />
+				</p>
+			</section>
+			<section>
+				<h3>Observe property (binding = HTTP Server Sent Event)</h3>
+				<p>Following sequence illustrates example sequence of observe
+					property operation with HTTP Server Sent Event binding.</p>
+				<p>
+					<img src="images/message-flows/A_1_3b_observePropertySSE.png"
+						alt="Observe property (binding = HTTP Server Sent Event)" />
+				</p>
+			</section>
+			<section>
+				<h3>Observe property (binding = Simple WebSocket)</h3>
+				<p>Following sequence illustrates example sequence of observe
+					property operation with simple WebSocket binding.</p>
+				<p>
+					<img src="images/message-flows/A_1_3c_observePropertyWebSocket.png"
+						alt="Observe property (binding = simple WebSocket)" />
+				</p>
+			</section>
+		</section>
+		<section>
+			<h2>Action</h2>
+			<section>
+				<h3>Invoke action (binding = HTTP)</h3>
+				<p>Following sequence illustrates example sequence of invoke
+					action operation with HTTP binding, where operation is synchronous
+					and the request to server is blocked until action completes.</p>
+				<p>
+					<img src="images/message-flows/A_2_1_invokeAction.png"
+						alt="Invoke action               (binding = HTTP)" />
+				</p>
+				<p>Note: Action with asynchronous operation is subject to
+					further study.</p>
+			</section>
+		</section>
+		<section>
+			<h2>Event</h2>
+			<section>
+				<h3>Subscribe, notify and unsubscribe event (binding = HTTP
+					Long Polling)</h3>
+				<p>Following sequence illustrates example sequence of subscribe,
+					notify and unsubscribe event operation with HTTP Long Polling
+					binding.</p>
+				<p>
+					<img src="images/message-flows/A_3_1a_eventLongPoll.png"
+						alt="Subscribe,               notify and unsubscribe event (binding = HTTP Long               Polling)" />
+				</p>
+			</section>
+			<section>
+				<h3>Subscribe, notify and unsubscribe event (binding = HTTP
+					Server Sent Event)</h3>
+				<p>Following sequence illustrates example sequence of subscribe,
+					notify and unsubscribe event operation with HTTP Server Sent Event.</p>
+				<p>
+					<img src="images/message-flows/A_3_1b_eventSSE.png"
+						alt="Subscribe,               notify and unsubscribe event (binding = HTTP Server Sent               Event)" />
+				</p>
+			</section>
+			<section>
+				<h3>Subscribe, notify and unsubscribe event (binding = Simple
+					WebSocket)</h3>
+				<p>Following sequence illustrates example sequence of subscribe,
+					notify and unsubscribe event operation with simple WebSocket
+					binding.</p>
+				<p>
+					<img src="images/message-flows/A_3_1c_eventWebSocket.png"
+						alt="Subscribe,               notify and unsubscribe event (binding = simple WebSocket)" />
+				</p>
+			</section>
+		</section>
+	</section>
+	<section class="appendix">
 		<h1>SNIPPETS: (was WoT Deployment Scenarios and Guidelines)</h1>
 		<p>There are many possibilities for deploying the abstract WoT
 			Architecture and mapping the functions to physical devices and
@@ -2415,314 +2752,69 @@
 				</dd>
 			</dl>
 		</section>
-	</section>
-	<section id="sec-security-considerations">
-		<h1>Security and Privacy Considerations</h1>
-		<p class="ednote">
-			This section will likely undergo significant revision and
-			reorganization. Please see the <a
-				href="https://github.com/w3c/wot-security/">WoT Security and
-				Privacy</a> repository for work in progress. In particular, the <a
-				href="https://github.com/w3c/wot-security/blob/master/wot-threat-model.md">WoT
-				Threat Model</a> defines the main WoT security stakeholders, assets,
-			attack surfaces, and threats.
-		</p>
-		<p>The functional WoT architecture should enable the use of best
-			practices in security and privacy. Generally, the WoT security
-			architecture must support the goals and mechanisms of the IoT
-			protocols and systems it connects to. These systems vary in their
-			security requirements and risk tolerance, so security mechanisms will
-			also vary based on these factors. However, the WoT architecture needs
-			to do no harm: it should support security and privacy at least as
-			well as the systems it connects to.</p>
-		<p>Security means the system should preserve its integrity and
-			functionality even when subject to attack. Privacy means that the
-			system should maintain the confidentiality of personally identifiable
-			information. In general, security and privacy cannot be guaranteed
-			but the WoT architecture should support best practices.</p>
-		<p>Security and privacy are especially important in the IoT domain
-			since IoT devices need to operate autonomously and in many cases have
-			access to both personal data and/or can be in control of
-			safety-critical systems. Compared to personal systems, IoT devices
-			are subject to different and in some cases higher risks than IT
-			systems. It is also important to protect IoT systems so that they can
-			not be used to launch attacks on other computer systems.</p>
-		<p class="ednote">
-			Security and privacy considerations are still under discussion and
-			development; the content below should be considered preliminary. Due
-			to the complexity of the subject we are considering producing a
-			separate document containing a detailed security and privacy
-			considerations discussion including a risk analysis, threat model,
-			recommended mitigations, and appropriate references to best
-			practices. A summary will be included here. Work in progress is
-			located in the <a href="https://github.com/w3c/wot-security/">WoT
-				Security and Privacy</a> repository. Please file any security or privacy
-			considerations and/or concerns using the <a
-				href="https://github.com/w3c/wot-security/issues">GitHub Issue</a>
-			feature.
-		</p>
-		<p>
-			<!-- Security requirements for the the WoT -->
-			Security is a cross-cutting issue that needs to be taken into account
-			in all <a href="#sec-building-blocks">WoT building blocks</a> . The
-			W3C WoT does not define any new security mechanisms, but provides
-			guidelines to apply the best practices from Web security, IoT
-			security, and information security for general software and hardware
-			considerations.
-		</p>
-		<p>
-			The <a href="#user-content-thing-description-td">WoT Thing
-				Description</a> must be used together with integrity protection
-			mechanisms and access control policies. Users must ensure that no
-			sensitive information is included in the <a href="#user-content-td">TDs</a>
-			themselves.
-		</p>
-		<p>
-			The <a href="#user-content-binding-templates">WoT Binding
-				Templates</a> must correctly cover the security mechanisms employed by
-			the underlying <a href="#user-content-iot-platform">IoT Platform</a>
-			. Due to the automation of network interactions necessary in the IoT,
-			operators need to ensure that <a href="#user-content-thing">Things</a>
-			are exposed and consumed in a way that is compliant with their
-			security policies.
-		</p>
-		<section id="sec-security-consideration-runtime-risks">
-			<h2>WoT Runtime Security and Privacy Risks</h2>
+
+		<section>
+			<h2>WoT in the Web Browser</h2>
+			<p class="ednote">This section is an early outline to realize WoT
+				with the existing browser APIs. More details and a native WoT
+				integration into the Web browser will be added as the WG drafts
+				progress.</p>
 			<p>
-				The <a href="#user-content-wot-runtime">WoT Runtime</a>
-				implementation for the <a href="#user-content-scripting-api">WoT
-
-
-
-
-
-					Scripting API</a> must at least have mechanisms to prevent malicious
-				access to the system and isolate scripts in multi-tenant <a
-					href="#user-content-servient">Servients</a> . More specifically the
-				<a href="#user-content-wot-runtime">WoT Runtime</a> implementation
-				for the <a href="#user-content-scripting-api">WoT Scripting API</a>
-				should take into account the below security and privacy risks and
-				implement the recommended mitigations.
+				<a href="#architecture-browser"></a> shows how a <a
+					href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-servient">Servient</a>
+				implementation for Web browsers would look like.
 			</p>
-			<section id="sec-security-consideration-cross-script">
-				<h5>Cross-Script Security and Privacy Risk</h5>
-				<p>
-					In basic WoT setups, all scripts running inside the <a
-						href="#user-content-wot-runtime">WoT Runtime</a> are considered
-					trusted, and therefore there is no strong need to perform strict
-					isolation between each running script instance. However, depending
-					on device capabilities and deployment use case scenario risk level
-					it might be desirable to do so. For example, if one script handles
-					sensitive privacy-related data and well-audited, it might be
-					desirable to separate it from the rest of the script instances to
-					minimize the risk of data exposure in case some other script inside
-					WoT gets compromised during runtime. Another example is mutual
-					co-existence of different tenants on a single WoT device. In this
-					case each WoT runtime instance will be hosting a different tenant,
-					and isolation between them is required.
-				</p>
-				<dl>
-					<dt>Mitigation:</dt>
-					<dd>
-						The WoT runtime should perform isolation of script instances and
-						their data in cases when scripts handle privacy-related or other
-						critical security data. Similarly, the <a
-							href="#user-content-wot-runtime">WoT Runtime</a> implementation
-						should perform isolation of <a href="#user-content-wot-runtime">WoT
-							Runtime</a> instances and their data if a WoT device has more than
-						one tenant. Such isolation can be performed within the <a
-							href="#user-content-wot-runtime">WoT Runtime</a> using platform
-						security mechanisms available on the device. For more information
-						see Sections "WoT Servient Single-Tenant" and "WoT Servient
-						Multi-Tenant" of [[!WOT-SECURITY-CONSIDERATIONS#]].
-					</dd>
-				</dl>
-			</section>
-			<section id="sec-security-consideration-device-direct-access">
-				<h5>Physical Device Direct Access Security and Privacy Risk</h5>
-				<p>In case a script is compromised or misbehaving, the
-					underlying physical device (and potentially surrounded environment)
-					can be damaged if a script can use directly exposed native device
-					interfaces. If such interfaces lack safety checks on their inputs,
-					they might bring the underlying physical device (or environment) to
-					an unsafe state (i.e. device overheats and explodes).</p>
-				<dl>
-					<dt>Mitigation:</dt>
-					<dd>
-						The <a href="#user-content-wot-runtime">WoT Runtime</a> should
-						avoid directly exposing the native device interfaces to the script
-						developers. Instead a <a href="#user-content-wot-runtime">WoT
-							Runtime</a> implementation should provide a hardware abstraction
-						layer for accessing the native device interfaces. Such hardware
-						abstraction layer should refuse to execute commands that might put
-						the device (or environment) to an unsafe state. Additionally, in
-						order to reduce the damage to a physical WoT device in cases a
-						script gets compromised, it is important to minimize the number of
-						interfaces that are exposed or accessible to a particular script
-						based on its functionality.
-					</dd>
-				</dl>
-			</section>
-			<section id="sec-security-consideration-update-provisioning">
-				<h5>Provisioning and Update Security Risk</h5>
-				<p>
-					If the <a href="#user-content-wot-runtime">WoT Runtime</a>
-					implementation supports post-manufacturing provisioning or updates
-					of itself, WoT scripts, or any related data (including security
-					credentials), it can be a major attack vector. An attacker can try
-					to modify any above described element during the update or
-					provisioning process or simply provision attacker's code and data
-					directly.
-				</p>
-				<dl>
-					<dt>Mitigation:</dt>
-					<dd>
-						Post-manufacturing provisioning or update of scripts, the <a
-							href="#user-content-wot-runtime">WoT Runtime</a> itself or any
-						related data should be done in a secure fashion. A set of
-						recommendations for secure update and post-manufacturing
-						provisioning can be found in [[!WOT-SECURITY-CONSIDERATIONS]].
-					</dd>
-				</dl>
-			</section>
-			<section id="sec-security-consideration-credentials-storage">
-				<h5>Security Credentials Storage Security and Privacy Risk</h5>
-				<p>
-					Typically the <a href="#user-content-wot-runtime">WoT Runtime</a>
-					needs to store the security credentials that are provisioned to a
-					WoT device to operate in WoT network. If an attacker can compromise
-					the confidentiality or integrity of these credentials, then it can
-					obtain access to the WoT assets, impersonate WoT things or devices
-					or create Denial-Of-Service (DoS) attacks.
-				</p>
-				<dl>
-					<dt>Mitigation:</dt>
-					<dd>
-						The <a href="#user-content-wot-runtime">WoT Runtime</a> should
-						securely store the provisioned security credentials, guaranteeing
-						their integrity and confidentiality. In case there are more than
-						one tenant on a single WoT-enabled device, a <a
-							href="#user-content-wot-runtime">WoT Runtime</a> implementation
-						should guarantee isolation of each tenant provisioned security
-						credentials. Additionally, in order to minimize a risk that
-						provisioned security credentials get compromised, the <a
-							href="#user-content-wot-runtime">WoT Runtime</a> implementation
-						should not expose any API for scripts to query the provisioned
-						security credentials.
-					</dd>
-				</dl>
-			</section>
+			<figure id="architecture-browser">
+				<img src="images/architecture-browser.png" style="width: 640px;">
+				<figcaption>Implementing WoT in the Web Browser</figcaption>
+			</figure>
+			<p>
+				The Web browser implicitly isolates applications in tabs using the <a
+					href="https://www.w3.org/Security/wiki/Same_Origin_Policy">same-origin
+					policy</a>. Thus, the security metadata is not mandatory. The
+				application scripts would be part of a Web page that can provide
+				visualization and user interaction.
+			</p>
+			<p>
+				The <a
+					href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-scripting-api">WoT
+					Scripting API</a> needs to be added by a WoT library loaded together
+				with the application scripts by the Web page. This library would
+				also implement <a
+					href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-td">TD</a>
+				handling (i.e., parsing for consuming <a
+					href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-thing">Things</a>
+				and generating for exposing <a
+					href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-thing">Things</a>)
+				and provide glue code to use the browser APIs. The other aspects of
+				the <a
+					href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-wot-runtime">WoT
+					Runtime</a> are provided by the browser JavaScript runtime system.
+			</p>
+			<p>
+				The <a
+					href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-protocol-binding">Protocol
+					Bindings</a> are limited to the protocols implemented by Web browsers.
+				These are:
+			</p>
+			<ul>
+				<li>HTTP(S) (1.0/1.1/2.0) [[!RFC7230]]/[[!RFC7540]] (including
+					Server-Sent Events [[!HTML5]]),</li>
+				<li>WebSockets [[!RFC6455]] (which enables the WoT library to
+					implement MQTT-over-WebSockets and CoAP-over-WebSockets)</li>
+				<li>(S)RTP of WebRTC [[!WEBRTC]], and</li>
+				<li>FTP [[!RFC765]] (which might be of limited use similar to
+					the file protocol)</li>
+			</ul>
+			<p>
+				The other browser APIs (e.g., Geolocation, Vibration, and Web
+				Storage) are comparable to the System API of normal <a
+					href="https://github.com/w3c/wot-architecture/blob/master/terminology.md#user-content-servient">Servients</a>
+				and can enable access to local hardware.
+			</p>
 		</section>
 	</section>
-	<section class="appendix">
-		<h1>Example Sequences of interaction patterns (Informative)</h1>
-		<p>
-			<em>This section is non-normative.</em>
-		</p>
-		<p>This section illustrates example sequences of interaction
-			patterns such as read propery, invoke action and event, among WoT
-			client and WoT server.</p>
-		<p>For the sake of simplicity, remote and local proxies between
-			client and server are omitted from following sequences.</p>
-		<section>
-			<h2>Property</h2>
-			<section>
-				<h3>Read property (binding = HTTP)</h3>
-				<p>Following sequence illustrates example sequence of read
-					property operation with HTTP binding.</p>
-				<p>
-					<img src="images/message-flows/A_1_1_readProperty.png"
-						alt="Read property               (binding = HTTP)" />
-				</p>
-			</section>
-			<section>
-				<h3>Write property (binding = HTTP)</h3>
-				<p>Following sequence illustrates example sequence of write
-					property operation with HTTP binding.</p>
-				<p>
-					<img src="images/message-flows/A_1_2_writeProperty.png"
-						alt="Write               property (binding = HTTP)" />
-				</p>
-			</section>
-			<section>
-				<h3>Observe property (binding = HTTP Long Polling)</h3>
-				<p>Following sequence illustrates example sequence of observe
-					property operation with HTTP Long Polling binding.</p>
-				<p>
-					<img src="images/message-flows/A_1_3a_observePropertyLongPoll.png"
-						alt="Observe property (binding = HTTP Long Polling)" />
-				</p>
-			</section>
-			<section>
-				<h3>Observe property (binding = HTTP Server Sent Event)</h3>
-				<p>Following sequence illustrates example sequence of observe
-					property operation with HTTP Server Sent Event binding.</p>
-				<p>
-					<img src="images/message-flows/A_1_3b_observePropertySSE.png"
-						alt="Observe property (binding = HTTP Server Sent Event)" />
-				</p>
-			</section>
-			<section>
-				<h3>Observe property (binding = Simple WebSocket)</h3>
-				<p>Following sequence illustrates example sequence of observe
-					property operation with simple WebSocket binding.</p>
-				<p>
-					<img src="images/message-flows/A_1_3c_observePropertyWebSocket.png"
-						alt="Observe property (binding = simple WebSocket)" />
-				</p>
-			</section>
-		</section>
-		<section>
-			<h2>Action</h2>
-			<section>
-				<h3>Invoke action (binding = HTTP)</h3>
-				<p>Following sequence illustrates example sequence of invoke
-					action operation with HTTP binding, where operation is synchronous
-					and the request to server is blocked until action completes.</p>
-				<p>
-					<img src="images/message-flows/A_2_1_invokeAction.png"
-						alt="Invoke action               (binding = HTTP)" />
-				</p>
-				<p>Note: Action with asynchronous operation is subject to
-					further study.</p>
-			</section>
-		</section>
-		<section>
-			<h2>Event</h2>
-			<section>
-				<h3>Subscribe, notify and unsubscribe event (binding = HTTP
-					Long Polling)</h3>
-				<p>Following sequence illustrates example sequence of subscribe,
-					notify and unsubscribe event operation with HTTP Long Polling
-					binding.</p>
-				<p>
-					<img src="images/message-flows/A_3_1a_eventLongPoll.png"
-						alt="Subscribe,               notify and unsubscribe event (binding = HTTP Long               Polling)" />
-				</p>
-			</section>
-			<section>
-				<h3>Subscribe, notify and unsubscribe event (binding = HTTP
-					Server Sent Event)</h3>
-				<p>Following sequence illustrates example sequence of subscribe,
-					notify and unsubscribe event operation with HTTP Server Sent Event.</p>
-				<p>
-					<img src="images/message-flows/A_3_1b_eventSSE.png"
-						alt="Subscribe,               notify and unsubscribe event (binding = HTTP Server Sent               Event)" />
-				</p>
-			</section>
-			<section>
-				<h3>Subscribe, notify and unsubscribe event (binding = Simple
-					WebSocket)</h3>
-				<p>Following sequence illustrates example sequence of subscribe,
-					notify and unsubscribe event operation with simple WebSocket
-					binding.</p>
-				<p>
-					<img src="images/message-flows/A_3_1c_eventWebSocket.png"
-						alt="Subscribe,               notify and unsubscribe event (binding = simple WebSocket)" />
-				</p>
-			</section>
-		</section>
-	</section>
+
 	<section class="appendix">
 		<h2>Acknowledgements</h2>
 		<p>Special thanks to all active Participants of the W3C Web of
