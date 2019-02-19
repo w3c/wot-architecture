@@ -88,8 +88,7 @@
 	<section id="abstract">
 		<p class="ednote" title="TODO">The text become too long for an
 			effective abstract. Text is partly copied from introduction. Needs
-			realignment between the two sections.
-		</p>
+			realignment between the two sections.</p>
 		<p>The W3C Web of Things (WoT) is intended to enable
 			interoperability across IoT Platforms and application domains.
 			Primarily, it provides mechanisms to formally describe IoT interfaces
@@ -106,9 +105,9 @@
 			explained.</p>
 		<p>
 			An abstract architecture for the Web of Things and a functional
-			architecture for <a>Servients</a>
-			has been introduced. It is based on WoT building blocks, which are
-			described by additional WoT specifications:
+			architecture for <a>Servients</a> has been introduced. It is based on
+			WoT building blocks, which are described by additional WoT
+			specifications:
 		</p>
 		<ul>
 			<li>the <a href="https://w3c.github.io/wot-thing-description/">WoT
@@ -122,24 +121,26 @@
 			</li>
 		</ul>
 		<p>
-			Of these, the <a>WoT Thing Description</a> is the primary building block, as it describes the
-			network-facing interface of a Thing (<a>WoT Interface</a>), whether or not it uses <a>WoT Binding Templates</a> 
-			or the <a>WoT	Scripting API</a> internally. The implementation of <a>WoT Binding Templates</a>
-			results in multiple possible Protocol Bindings, so that a <a>Thing</a>
-			can communicate with different <a>IoT	Platforms</a> (i.e., IoT ecosystems or standards). When a <a>Thing</a>
-			uses the <a>WoT Scripting API</a> internally, its application logic can be programmed
-			against a standardized contract using JavaScript. This way, it
-			simplifies IoT application development and enables portability across
-			vendors and WoT network components.
+			Of these, the <a>WoT Thing Description</a> is the primary building
+			block, as it describes the network-facing interface of a Thing (<a>WoT
+				Interface</a>), whether or not it uses <a>WoT Binding Templates</a> or
+			the <a>WoT Scripting API</a> internally. The implementation of <a>WoT
+				Binding Templates</a> results in multiple possible Protocol Bindings, so
+			that a <a>Thing</a> can communicate with different <a>IoT
+				Platforms</a> (i.e., IoT ecosystems or standards). When a <a>Thing</a>
+			uses the <a>WoT Scripting API</a> internally, its application logic
+			can be programmed against a standardized contract using JavaScript.
+			This way, it simplifies IoT application development and enables
+			portability across vendors and WoT network components.
 		</p>
 		<p>
 			The architecture described here applies well to a wide variety of
 			different use cases. Based on these, we have described serveral
-			scenarios where one or more <a>Servients</a>
-			were used together to overcome, for instance, limitations on the
-			reach of specific communication protocols. These examples are not
-			exhaustive and are only meant to illustrate the applicability and
-			flexibility of the WoT approach.
+			scenarios where one or more <a>Servients</a> were used together to
+			overcome, for instance, limitations on the reach of specific
+			communication protocols. These examples are not exhaustive and are
+			only meant to illustrate the applicability and flexibility of the WoT
+			approach.
 		</p>
 		<p>Other non-normative architectural blocks and conditions
 			underlying the Web of Things are also described in the context of
@@ -401,10 +402,9 @@
 			<dt>
 				<dfn>Thing Directory</dfn>
 			</dt>
-			<dd>
-				A directory service for TDs that provides a Web interface to
-				register TDs (see [[CoRE-RD]]) and look them up (e.g., using SPARQL queries or CoRE Link Format).
-			</dd>
+			<dd>A directory service for TDs that provides a Web interface to
+				register TDs (see [[CoRE-RD]]) and look them up (e.g., using SPARQL
+				queries or CoRE Link Format).</dd>
 			<dt>
 				<dfn>WoT Client</dfn>
 			</dt>
@@ -458,9 +458,8 @@
 			<dt>
 				<dfn>RDF</dfn>
 			</dt>
-			<dd>
-				The Resource Description Framework (RDF) of the Semantic Web [[rdf-concepts]]
-			</dd>
+			<dd>The Resource Description Framework (RDF) of the Semantic Web
+				[[rdf-concepts]]</dd>
 		</dl>
 		<p class="ednote" title="Additional Terms">TODO: add missing
 			terms, such as WoT, WoT Containers, MQTT, TD manager</p>
@@ -472,12 +471,12 @@
 		<p>
 			This section presents the application domains and use cases targeted
 			by the W3C WoT and which are used to derive the abstract architecture
-			discussed in <a href="#sec-building-blocks"></a>. While
-			Smart Home use cases might appear predominant in this section, they
-			should be seen as simply a vehicle to identify fundamental
-			requirements inherent to most application domains. The Smart Home
-			domain is suitable for identifying such general requirements, as most
-			stake holders can relate to it.
+			discussed in <a href="#sec-building-blocks"></a>. While Smart Home
+			use cases might appear predominant in this section, they should be
+			seen as simply a vehicle to identify fundamental requirements
+			inherent to most application domains. The Smart Home domain is
+			suitable for identifying such general requirements, as most stake
+			holders can relate to it.
 		</p>
 		<section>
 			<h2>Application Domains</h2>
@@ -494,15 +493,18 @@
 					in the application scenarios, different verticals have similar use
 					cases.
 				</p>
-				<p> <a href="#smart-factory"></a> shows an example of a Smart Factory. In this case, cell
-					controllers automate factory equipment with specialized
-					communication such as RS-485 or EtherCAT. Line controllers
-					orchestrate multiple cell controllers over IP-based networks. A
-					factory controller integrates different line controllers. A cloud
-					service collects data from the factory controller and analyzes them
-					for predictive maintenance. Users can monitor the factory through a
-					dashboard. Note that factories usually do not reveal the internal
-					topology of their lines and cells.</p>
+				<p>
+					<a href="#smart-factory"></a> shows an example of a Smart Factory.
+					In this case, cell controllers automate factory equipment with
+					specialized communication such as RS-485 or EtherCAT. Line
+					controllers orchestrate multiple cell controllers over IP-based
+					networks. A factory controller integrates different line
+					controllers. A cloud service collects data from the factory
+					controller and analyzes them for predictive maintenance. Users can
+					monitor the factory through a dashboard. Note that factories
+					usually do not reveal the internal topology of their lines and
+					cells.
+				</p>
 				<figure id="smart-factory">
 					<img src="images/wot-use-cases/smart-factory.png"
 						style="width: 640px;" />
@@ -681,13 +683,16 @@
 			</section>
 			<section id="connected car">
 				<h3 id="connectedcar">Connected Car</h3>
-				<p><a href="#connected-car"></a> shows an example of a Connected Car. In this case, a gateway
-					connects to car components through CAN and to the car navigation
-					system through a proprietary interface. Services running in the
-					cloud collect data pushed from car components and analyze the data
-					from multiple cars to determine traffic patterns. The gateway can
-					also consume cloud services, in this case, to get traffic data and
-					show it to the driver through the car navigation system.</p>
+				<p>
+					<a href="#connected-car"></a> shows an example of a Connected Car.
+					In this case, a gateway connects to car components through CAN and
+					to the car navigation system through a proprietary interface.
+					Services running in the cloud collect data pushed from car
+					components and analyze the data from multiple cars to determine
+					traffic patterns. The gateway can also consume cloud services, in
+					this case, to get traffic data and show it to the driver through
+					the car navigation system.
+				</p>
 				<figure id="connected-car">
 					<img src="images/wot-use-cases/connected-car.png"
 						style="width: 500px;" />
@@ -799,184 +804,188 @@
 				how devices/things interact with controllers, other devices, agents
 				and servers.
 
-					<h3>Device Controllers</h3>
-					<p>
-						The first use case is a local device controlled by user-operated
-						remote controller as depicted in <a href="#smart-home-device"></a>
-						. For example, an electronic appliance such as an air conditioner
-						with Web server functionality might be connected directly to a
-						local home network. A remote controller can access the air
-						conditioner through the local home network directly. In this case,
-						the remote controller can be realized by a browser or native
-						application.
-					</p>
-					<figure id="smart-home-device">
-						<img src="images/wot-use-cases/smart-home-device.png" style="width: 500px;" />
-						<figcaption>Device Control</figcaption>
-					</figure>
-				</section>
-				<section>
-					<h3>Thing-to-Thing</h3>
-					<p><a href="#smart-home-t2t"></a> shows an example of direct Thing-to-Thing interaction. The
-						scenario is as follows: when a sensor detects the room temperature
-						is surpassing a set threshold (e.g., 25°C), a control agent issues
-						a "power-on" command to an air conditioner.</p>
-					<figure id="smart-home-t2t">
-						<img src="images/wot-use-cases/smart-home-t2t.png" style="width: 500px;" />
-						<figcaption>Control Agent</figcaption>
-					</figure>
-				</section>
-				<section>
-					<h3>Remote Access</h3>
-					<p class="ednote" title="TODO">Must rewrite for remote
-						access/control use case. Include changing uplink connectivity.</p>
-					<p>The third use case is a mobile remote controller (e.g., on a
-						smartphone) as shown in <a href="#smart-home-multi"></a>. When at home, the smartphone can use
-						Wi-Fi or Bluetooth/BLE to control an electronic appliance locally,
-						while outside, it can use the cellular network.</p>
-					<figure id="smart-home-multi">
-						<img src="images/wot-use-cases/smart-home-multi.png" style="width: 500px;" />
-						<figcaption>Multiple Network Interfaces</figcaption>
-					</figure>
-				</section>
-				<section>
-					<h3>Multiple Subsystems</h3>
-					<p class="ednote" title="TODO">Pattern from consumer (ZigBee,
-						Bluetooth, and WiFi in home), industrial (multiple fieldbusses),
-						connected car, and more.</p>
-				</section>
-				<section>
-					<h3>Gateways</h3>
-					<p class="ednote" title="TODO">Must rewrite for local
-						box/compute node use case.</p>
-					<p> <a href="#smart-home-gateway"></a> shows a use case based on a Smart Home gateway. It is placed
-						between a home network and the Internet. The gateway manages
-						electronic appliances inside the house and can receive commands
-						from a remote controller over the Internet, e.g., from a
-						smartphone as in the previous use case.</p>
-					<figure id="smart-home-gateway">
-						<img src="images/wot-use-cases/smart-home-gateway.png" style="width: 500px;" />
-						<figcaption>Smart Home Gateway</figcaption>
-					</figure>
-				</section>
-				<section>
-					<h3>Cloud Proxies</h3>
-					<p>
-					A cloud proxy is a virtual representation of a device,
-					that resides on a cloud server or edge device.
-					Proxies can model a single device, or they can aggregate
-					multiple devices in a virtual representation of the combined devices.
-					This is often called a digital twin.</p>
+				<h3>Device Controllers</h3>
+				<p>
+					The first use case is a local device controlled by user-operated
+					remote controller as depicted in <a href="#smart-home-device"></a>
+					. For example, an electronic appliance such as an air conditioner
+					with Web server functionality might be connected directly to a
+					local home network. A remote controller can access the air
+					conditioner through the local home network directly. In this case,
+					the remote controller can be realized by a browser or native
+					application.
+				</p>
+				<figure id="smart-home-device">
+					<img src="images/wot-use-cases/smart-home-device.png"
+						style="width: 500px;" />
+					<figcaption>Device Control</figcaption>
+				</figure>
+			</section>
+			<section>
+				<h3>Thing-to-Thing</h3>
+				<p>
+					<a href="#smart-home-t2t"></a> shows an example of direct
+					Thing-to-Thing interaction. The scenario is as follows: when a
+					sensor detects the room temperature is surpassing a set threshold
+					(e.g., 25°C), a control agent issues a "power-on" command to an air
+					conditioner.
+				</p>
+				<figure id="smart-home-t2t">
+					<img src="images/wot-use-cases/smart-home-t2t.png"
+						style="width: 500px;" />
+					<figcaption>Control Agent</figcaption>
+				</figure>
+			</section>
+			<section>
+				<h3>Remote Access</h3>
+				<p class="ednote" title="TODO">Must rewrite for remote
+					access/control use case. Include changing uplink connectivity.</p>
+				<p>
+					The third use case is a mobile remote controller (e.g., on a
+					smartphone) as shown in <a href="#smart-home-multi"></a>. When at
+					home, the smartphone can use Wi-Fi or Bluetooth/BLE to control an
+					electronic appliance locally, while outside, it can use the
+					cellular network.
+				</p>
+				<figure id="smart-home-multi">
+					<img src="images/wot-use-cases/smart-home-multi.png"
+						style="width: 500px;" />
+					<figcaption>Multiple Network Interfaces</figcaption>
+				</figure>
+			</section>
+			<section>
+				<h3>Multiple Subsystems</h3>
+				<p class="ednote" title="TODO">Pattern from consumer (ZigBee,
+					Bluetooth, and WiFi in home), industrial (multiple fieldbusses),
+					connected car, and more.</p>
+			</section>
+			<section>
+				<h3>Gateways</h3>
+				<p class="ednote" title="TODO">Must rewrite for local
+					box/compute node use case.</p>
+				<p>
+					<a href="#smart-home-gateway"></a> shows a use case based on a
+					Smart Home gateway. It is placed between a home network and the
+					Internet. The gateway manages electronic appliances inside the
+					house and can receive commands from a remote controller over the
+					Internet, e.g., from a smartphone as in the previous use case.
+				</p>
+				<figure id="smart-home-gateway">
+					<img src="images/wot-use-cases/smart-home-gateway.png"
+						style="width: 500px;" />
+					<figcaption>Smart Home Gateway</figcaption>
+				</figure>
+			</section>
+			<section>
+				<h3>Cloud Proxies</h3>
+				<p>A cloud proxy is a virtual representation of a device, that
+					resides on a cloud server or edge device. Proxies can model a
+					single device, or they can aggregate multiple devices in a virtual
+					representation of the combined devices. This is often called a
+					digital twin.</p>
 
-					<p>Cloud proxies can be realized in different ways:</p>
-					<p class="ednote">The complexity of the use cases here
-						increases too quickly. They will be split up to progressively add
-						and explain each new feature.</p>
-				</section>
-				<section>
-					<h4>Cloud-ready Devices</h4>
-					<p><a href="#smart-home-cloud1"></a> shows an example where electronic appliances are connected
-						directly to the cloud. The cloud mirrors the appliances and,
-						acting as a proxy, can receive commands from remote controllers
-						(e.g., a smartphone). Authorized controllers can be located
-						anywhere, as the proxy is globally reachable.</p>
-					<figure id="smart-home-cloud1">
-						<img src="images/wot-use-cases/smart-home-cloud1a.png" style="width: 500px;" />
-						<figcaption>Proxies with Cloud-ready Devices</figcaption>
-					</figure>
-				</section>
-				<section>
-					<h3>Legacy Devices</h3>
-					<p class="ednote" title="TODO">Check terminology, here agent.</p>
-					<p><a href="#smart-home-cloud2"></a> shows an example where legacy electronic appliances cannot
-						directly connect to the cloud. Here, a gateway is needed to relay
-						the connection. The gateway works as:</p>
-					<ul>
-						<li>integrator of a variety of legacy communication protocols
-							both in the physical and logical view</li>
-						<li>firewall toward the Internet</li>
-						<li>privacy filter which substitutes real image and/or
-							speech, and logs data locally</li>
-						<li>local agent in case the Internet connection is
-							interrupted</li>
-						<li>emergency services running locally when fire alarms and
-							similar events occur</li>
-					</ul>
-					<p>The cloud mirrors the gateway with all connected appliances
-						and acts as an agent that manages them in the cloud in conjunction
-						with the gateway. Furthermore, the cloud can receive commands from
-						remote controllers (e.g., a smartphone), which can be located
-						anywhere.</p>
-					<figure id="smart-home-cloud2">
-						<img src="images/wot-use-cases/smart-home-cloud2.png" style="width: 500px;" />
-						<figcaption>Proxies with Legacy Devices</figcaption>
-					</figure>
-				</section>
-				
-				<section>
-					<h3>Digital Twin</h3>
-					<p>
-					A digital twin is a virtual representation of a device or a group of devices.
-				    It can be used to represent the real-world devices which may not be continuously online
-				    or to run simulations of new applications and services, before they get deployed to the real devices.
-					</p>
-					<figure id="digital-twin">
-						<img src="images/wot-use-cases/digital-twin.png" style="width: 500px;" />
-						<figcaption>Digital Twin</figcaption>
-					</figure>
-					<p>
-					</p>
-					<figure id="digital-twin">
-						<img src="images/wot-use-cases/digital-twin-multiple-devices.png" style="width: 500px;" />
-						<figcaption>Digital Twin for multiple devices</figcaption>
-					</figure>
-				</section>
-				
-				<section>
-					<h3>Cross-domain Collaboration</h3>
-					<p>
-						<a href="#cross-domain"></a> show an example of a Cross-domain collaboration. In this case,
-						each system involves other systems in other domains, such as Smart
-						Factrory with Smart City, Smart City with Smart Home. This type of
-						system is called "Symbiotic"
-							ecosystem, as shown in [[IEC-FOTF]]. There are two collaboration models: direct
-						collaboration and indirect collaboration. In the direct
-						collaboration model, systems exchange their own information
-						directly with each other in peer-to-peer manner. In the indirect
-						collaboration, systems exchange their own information via some
-						collaboration platform. In order to maintain and continue this
-						collaboration, each system provide the metadata of their ability
-						and interfaces and adopt itself to others.
-					</p>
-					<figure id="cross-domain">
-						<img src="images/cross-domain-direct.png" style="width: 500px;" />
-						<img src="images/cross-domain-indirect.png" style="width: 500px;" />
-						<figcaption>Cross-domain collaboration</figcaption>
-					</figure>
-				</section>
+				<p>Cloud proxies can be realized in different ways:</p>
+				<p class="ednote">The complexity of the use cases here increases
+					too quickly. They will be split up to progressively add and explain
+					each new feature.</p>
+			</section>
+			<section>
+				<h4>Cloud-ready Devices</h4>
+				<p>
+					<a href="#smart-home-cloud1"></a> shows an example where electronic
+					appliances are connected directly to the cloud. The cloud mirrors
+					the appliances and, acting as a proxy, can receive commands from
+					remote controllers (e.g., a smartphone). Authorized controllers can
+					be located anywhere, as the proxy is globally reachable.
+				</p>
+				<figure id="smart-home-cloud1">
+					<img src="images/wot-use-cases/smart-home-cloud1a.png"
+						style="width: 500px;" />
+					<figcaption>Proxies with Cloud-ready Devices</figcaption>
+				</figure>
+			</section>
+			<section>
+				<h3>Legacy Devices</h3>
+				<p class="ednote" title="TODO">Check terminology, here agent.</p>
+				<p>
+					<a href="#smart-home-cloud2"></a> shows an example where legacy
+					electronic appliances cannot directly connect to the cloud. Here, a
+					gateway is needed to relay the connection. The gateway works as:
+				</p>
+				<ul>
+					<li>integrator of a variety of legacy communication protocols
+						both in the physical and logical view</li>
+					<li>firewall toward the Internet</li>
+					<li>privacy filter which substitutes real image and/or speech,
+						and logs data locally</li>
+					<li>local agent in case the Internet connection is interrupted</li>
+					<li>emergency services running locally when fire alarms and
+						similar events occur</li>
+				</ul>
+				<p>The cloud mirrors the gateway with all connected appliances
+					and acts as an agent that manages them in the cloud in conjunction
+					with the gateway. Furthermore, the cloud can receive commands from
+					remote controllers (e.g., a smartphone), which can be located
+					anywhere.</p>
+				<figure id="smart-home-cloud2">
+					<img src="images/wot-use-cases/smart-home-cloud2.png"
+						style="width: 500px;" />
+					<figcaption>Proxies with Legacy Devices</figcaption>
+				</figure>
 			</section>
 
 			<section>
-				<h2>Summary</h2>
-				<p class="ednote" title="TODO">The following figure has to be
-					simplified to only show the abstract patterns without the
-					implementation and WoT details (inside the gray boxes). Instead,
-					common patterns can be listed at the corresponding places.</p>
-				<figure id="summary-architecture-abstract">
-					<img src="images/architecture-abstract.png" style="width: 100%;" />
-					<figcaption>Use Case Overview</figcaption>
+				<h3>Digital Twin</h3>
+				<p>A digital twin is a virtual representation of a device or a
+					group of devices. It can be used to represent the real-world
+					devices which may not be continuously online or to run simulations
+					of new applications and services, before they get deployed to the
+					real devices.</p>
+				<figure id="digital-twin">
+					<img src="images/wot-use-cases/digital-twin.png"
+						style="width: 500px;" />
+					<figcaption>Digital Twin</figcaption>
+				</figure>
+				<p></p>
+				<figure id="digital-twin">
+					<img src="images/wot-use-cases/digital-twin-multiple-devices.png"
+						style="width: 500px;" />
+					<figcaption>Digital Twin for multiple devices</figcaption>
+				</figure>
+			</section>
+
+			<section>
+				<h3>Cross-domain Collaboration</h3>
+				<p>
+					<a href="#cross-domain"></a> show an example of a Cross-domain
+					collaboration. In this case, each system involves other systems in
+					other domains, such as Smart Factrory with Smart City, Smart City
+					with Smart Home. This type of system is called "Symbiotic"
+					ecosystem, as shown in [[IEC-FOTF]]. There are two collaboration
+					models: direct collaboration and indirect collaboration. In the
+					direct collaboration model, systems exchange their own information
+					directly with each other in peer-to-peer manner. In the indirect
+					collaboration, systems exchange their own information via some
+					collaboration platform. In order to maintain and continue this
+					collaboration, each system provide the metadata of their ability
+					and interfaces and adopt itself to others.
+				</p>
+				<figure id="cross-domain">
+					<img src="images/cross-domain-direct.png" style="width: 500px;" />
+					<img src="images/cross-domain-indirect.png" style="width: 500px;" />
+					<figcaption>Cross-domain collaboration</figcaption>
 				</figure>
 			</section>
 		</section>
+
 		<section>
 			<h2>Summary</h2>
 			<p class="ednote" title="TODO">The following figure has to be
 				simplified to only show the abstract patterns without the
 				implementation and WoT details (inside the gray boxes). Instead,
 				common patterns can be listed at the corresponding places.</p>
-			<figure id="architecture-abstract">
-				<img src="images/Architecture-abstract.png"
-					style="width: 100%;" />
+			<figure id="summary-architecture-abstract">
+				<img src="images/architecture-abstract.png" style="width: 100%;" />
 				<figcaption>Use Case Overview</figcaption>
 			</figure>
 		</section>
@@ -1340,9 +1349,12 @@
 				<li>the cloud level.</li>
 			</ul>
 
-			<p><a href="#architecture-concept"></a> shows a conceptual view of how a component in the WoT
-				Architecture makes use of the WoT building blocks. Each block is
-				described in more detail in the following sections.</p>
+			<p>
+				<a href="#architecture-concept"></a> shows a conceptual view of how
+				a component in the WoT Architecture makes use of the WoT building
+				blocks. Each block is described in more detail in the following
+				sections.
+			</p>
 			<figure id="architecture-concept">
 				<img src="images/Architecture-concept.png" style="width: 640px;" />
 				<figcaption>Conceptional Architecture of the WoT
@@ -1351,83 +1363,80 @@
 			<section id="sec-building-blocks-thing">
 				<h3>Web Thing</h3>
 				<p>
-					A <a>Thing</a>
-					is the abstraction of a physical or virtual entity that needs to be
-					represented in IoT applications. This entity can be a device, a
-					logical component of a device, a local hardware component, or even
-					a logical entity such as a location (e.g., room or building).
+					A <a>Thing</a> is the abstraction of a physical or virtual entity
+					that needs to be represented in IoT applications. This entity can
+					be a device, a logical component of a device, a local hardware
+					component, or even a logical entity such as a location (e.g., room
+					or building).
 				</p>
 				<p>
-					<a>Things</a>
-					provide a network-facing API for interaction (<a>WoT Interface</a>) based on a formal model. These <a>WoT
-					Interfaces</a> are a superset of Web APIs, as <a>Things</a>
-					can also be available over non-Web protocols such as MQTT or
-					ZigBee. The outward-facing <a>WoT Interface</a> is not to be confused with the <a>Scripting API</a> , which is
-					optional and interfaces with application scripts inside the
-					software stack of a <a>Thing</a> .
+					<a>Things</a> provide a network-facing API for interaction (<a>WoT
+						Interface</a>) based on a formal model. These <a>WoT Interfaces</a>
+					are a superset of Web APIs, as <a>Things</a> can also be available
+					over non-Web protocols such as MQTT or ZigBee. The outward-facing <a>WoT
+						Interface</a> is not to be confused with the <a>Scripting API</a> ,
+					which is optional and interfaces with application scripts inside
+					the software stack of a <a>Thing</a> .
 				</p>
 				<p>
-					There can be <a>Things</a> , however,
-					that do not provide a <a>WoT
+					There can be <a>Things</a> , however, that do not provide a <a>WoT
 						Interface</a> and only consist of metadata that is relevant to the
 					application (e.g., the room in which devices are located). In W3C
-					WoT however, a <a>Thing</a> must have a
-					<a>Thing Description</a>
-					; therefore, everything that has a <a>Thing Description</a> is
-					a <a>Thing</a> .
+					WoT however, a <a>Thing</a> must have a <a>Thing Description</a> ;
+					therefore, everything that has a <a>Thing Description</a> is a <a>Thing</a>
+					.
 				</p>
 			</section>
 			<section id="sec-building-blocks-thing-description">
 				<h3>WoT Thing Description</h3>
 				<p>
-					The WoT <a>Thing Description</a> (TD) is structured data that adheres to a formal
-					model and closes the gap between Linked Data vocabularies and
-					functional APIs of IoT systems. It can be seen as the "HTML for
-					Things". A <a>TD</a> provides general
-					metadata of a <a>Thing</a> as well as
-					metadata about the <a>Interactions</a>
-					, data model, communication, and security mechanisms of a <a>Thing</a>. 
-					Usually, <a>TDs</a> make use of domain-specific
-					metadata for which WoT provides explicit extension points. However,
-					any <a>domain-specific vocabulary</a> is out-of-scope of the W3C standardization activity.
+					The WoT <a>Thing Description</a> (TD) is structured data that
+					adheres to a formal model and closes the gap between Linked Data
+					vocabularies and functional APIs of IoT systems. It can be seen as
+					the "HTML for Things". A <a>TD</a> provides general metadata of a <a>Thing</a>
+					as well as metadata about the <a>Interactions</a> , data model,
+					communication, and security mechanisms of a <a>Thing</a>. Usually,
+					<a>TDs</a> make use of domain-specific metadata for which WoT
+					provides explicit extension points. However, any <a>domain-specific
+						vocabulary</a> is out-of-scope of the W3C standardization activity.
 				</p>
 				<p>
-					The WoT <a>Thing Description</a> is built around a formal <a>Interaction Model</a> that
-					can support multiple messaging paradigms (i.e, request-response,
-					publish-subscribe, and message passing). The default <a>Interaction Patterns</a>
-					are <a>Property</a> , <a>Action</a> , and <a>Event</a> . These were found to be able
-					to cover the network-facing APIs provided by most IoT Platforms. <a>Properties</a> abstract data points
-					that can be read and often written. <a>Actions</a>
+					The WoT <a>Thing Description</a> is built around a formal <a>Interaction
+						Model</a> that can support multiple messaging paradigms (i.e,
+					request-response, publish-subscribe, and message passing). The
+					default <a>Interaction Patterns</a> are <a>Property</a> , <a>Action</a>
+					, and <a>Event</a> . These were found to be able to cover the
+					network-facing APIs provided by most IoT Platforms. <a>Properties</a>
+					abstract data points that can be read and often written. <a>Actions</a>
 					abstract invokable processes that may run for a certain time; yet
-					they can also abstract RPC-like interactions in general. <a>Events</a> abstract interactions where
-					the remote endpoint pushes data asynchronously.
+					they can also abstract RPC-like interactions in general. <a>Events</a>
+					abstract interactions where the remote endpoint pushes data
+					asynchronously.
 				</p>
 				<p>
-					<a>Thing Descriptions</a>
-					are serialized to JSON-LD [[!JSON-LD]] by default. More
-					serialization formats are planned in the future, in particular more
-					concise formats for resource-constrained <a>Things</a> . For now, JSON-LD offers a
-					good trade-off between machine-understandable semantics and
-					usability for developers.
+					<a>Thing Descriptions</a> are serialized to JSON-LD [[!JSON-LD]] by
+					default. More serialization formats are planned in the future, in
+					particular more concise formats for resource-constrained <a>Things</a>
+					. For now, JSON-LD offers a good trade-off between
+					machine-understandable semantics and usability for developers.
 				</p>
 				<p>
-					<a>Thing Descriptions</a>
-					can be managed in <a>Thing
+					<a>Thing Descriptions</a> can be managed in <a>Thing
 						Directories</a> , which are aligned with the CoRE Resource Directory
 					[[CoRE-RD]]. They provide a Web interface for registration,
 					registration updates, and removal, and automatic removal after a
-					given lifetime expired without registration update. <a>Thing Directories</a> also
-					provide a Web interface for lookups, usually including a SPARQL
-					endpoint for semantic queries in addition to simple CoRE Resource
-					Directory [[CoRE-RD]] lookups.
+					given lifetime expired without registration update. <a>Thing
+						Directories</a> also provide a Web interface for lookups, usually
+					including a SPARQL endpoint for semantic queries in addition to
+					simple CoRE Resource Directory [[CoRE-RD]] lookups.
 				</p>
 				<p>
-					The <a>WoT Thing
-						Description</a> fosters interoperability in two ways: First, and
-					foremost, <a>TDs</a> enable
-					machine-to-machine communication in the Web of Things. Second, <a>TDs</a> can serve as a common, uniform
-					format for developers to document and retrieve all details
-					necessary to access IoT devices and make use of their data.
+					The <a>WoT Thing Description</a> fosters interoperability in two
+					ways: First, and foremost, <a>TDs</a> enable machine-to-machine
+					communication in the Web of Things. Second, <a>TDs</a> can serve as
+					a common, uniform format for developers to document and retrieve
+					all details necessary to access IoT devices and make use of their
+					data.
 				</p>
 			</section>
 			<section id="sec-building-blocks-binding-templates">
@@ -1439,16 +1448,18 @@
 					or CoAP interface, etc.). The IoT uses a variety of protocols for
 					accessing devices, since no one protocol is appropriate in all
 					contexts. W3C WoT is tackling this variety by including
-					communication metadata in the <a>Thing Description</a> .
-					This metadata can be used to configure the communication stack to
-					produce compliant messages for a wide variety of target <a>IoT Platforms</a> and protocols.
+					communication metadata in the <a>Thing Description</a> . This
+					metadata can be used to configure the communication stack to
+					produce compliant messages for a wide variety of target <a>IoT
+						Platforms</a> and protocols.
 				</p>
 				<p>
-					The <a>WoT Binding Templates</a> are an informal collection of communication
-					metadata blueprints that explain how to interact with different <a>IoT Platforms</a> . When
-					creating a <a>Thing Description</a> for a particular device, the <a>Binding Template</a> for
-					the corresponding <a>IoT Platform</a> can be used and instantiated in the <a>Thing Description</a>
-					for that device.
+					The <a>WoT Binding Templates</a> are an informal collection of
+					communication metadata blueprints that explain how to interact with
+					different <a>IoT Platforms</a> . When creating a <a>Thing
+						Description</a> for a particular device, the <a>Binding Template</a>
+					for the corresponding <a>IoT Platform</a> can be used and
+					instantiated in the <a>Thing Description</a> for that device.
 				</p>
 				<figure id="binding-templates-fig">
 					<img src="images/binding-templates.png" style="width: 800px;" />
@@ -1456,36 +1467,35 @@
 						Bindings</figcaption>
 				</figure>
 				<p>
-					<a href="#binding-templates-fig"></a> shows how <a>Binding Templates</a> are applied. 
-					A <a>WoT Binding Template</a> is created only once for each <a>IoT Platform</a> and then
-					instantiated, and hence reused in all <a>TDs</a>
-					for its devices. The <a>WoT
-						Client</a> consuming that <a>TD</a> must
-					implement the corresponding <a>Protocol Binding</a> to be
-					able to interact with the <a>Thing</a>
-					described. The communication metadata of a Binding spans four
-					dimensions:
+					<a href="#binding-templates-fig"></a> shows how <a>Binding
+						Templates</a> are applied. A <a>WoT Binding Template</a> is created
+					only once for each <a>IoT Platform</a> and then instantiated, and
+					hence reused in all <a>TDs</a> for its devices. The <a>WoT
+						Client</a> consuming that <a>TD</a> must implement the corresponding <a>Protocol
+						Binding</a> to be able to interact with the <a>Thing</a> described.
+					The communication metadata of a Binding spans four dimensions:
 				</p>
 				<ul>
-					<li><b>IoT Platform:</b> <a>IoT
-							Platforms</a> often introduce proprietary tweaks to protocols such as
-						platform-specific HTTP header fields or CoAP options. This spans
-						another dimension within the transfer protocol used. Usually,
-						these tweaks can be described with standard <a>TD Vocabulary</a> . If not,
-						platform-specific vocabulary along with a corresponding <a>Protocol Binding</a>
+					<li><b>IoT Platform:</b> <a>IoT Platforms</a> often introduce
+						proprietary tweaks to protocols such as platform-specific HTTP
+						header fields or CoAP options. This spans another dimension within
+						the transfer protocol used. Usually, these tweaks can be described
+						with standard <a>TD Vocabulary</a> . If not, platform-specific
+						vocabulary along with a corresponding <a>Protocol Binding</a>
 						implementation is required.</li>
-					<li><b>Transfer Protocol:</b> The <a>WoT Thing
-							Description</a> comes with vocabulary to identify standard protocols
-						(e.g., HTTP, CoAP, WebSockets, or MQTT). Their configuration
-						(e.g., port or variations such as HTTP long-polling [[!RFC6202]]
-						to support event notification) is also done through <a>TD Vocabulary</a> . If a
-						transfer protocol is not covered by the <a>TD Vocabulary</a> , <a>domain-specific vocabulary</a> can be used. This, of course, needs to be backed by a
-						corresponding <a>Protocol	Binding</a> implementation in the <a >WoT
+					<li><b>Transfer Protocol:</b> The <a>WoT Thing Description</a>
+						comes with vocabulary to identify standard protocols (e.g., HTTP,
+						CoAP, WebSockets, or MQTT). Their configuration (e.g., port or
+						variations such as HTTP long-polling [[!RFC6202]] to support event
+						notification) is also done through <a>TD Vocabulary</a> . If a
+						transfer protocol is not covered by the <a>TD Vocabulary</a> , <a>domain-specific
+							vocabulary</a> can be used. This, of course, needs to be backed by a
+						corresponding <a>Protocol Binding</a> implementation in the <a>WoT
 							Client</a> .</li>
-					<li><b>Media Type:</b> <a>IoT
-							Platforms</a> often differ in the representation formats (or
-						serializations) used for exchanging data. The Internet Meda Type
-						[[!RFC6838]] identifies these formats.</li>
+					<li><b>Media Type:</b> <a>IoT Platforms</a> often differ in
+						the representation formats (or serializations) used for exchanging
+						data. The Internet Meda Type [[!RFC6838]] identifies these
+						formats.</li>
 					<li><b>Security:</b> Security can be applied at different
 						places of the communication, and hence opens another dimension of
 						variability. Examples are (D)TLS [[!RFC5246]]/[[!RFC6347]], IPSec
@@ -1538,45 +1548,47 @@
 		<section>
 			<h2>Servient Implementation</h2>
 			<p>
-				A <a>Servient</a> is a software stack
-				that implements the WoT building blocks presented in the previous
-				section. <a>Servients</a> can host and
-				expose <a>Things</a> and/or consume <a>Things</a>. Thus, <a>Servients</a> can perform in both the
-				server and client roles; the name (a portmanteau of server and
-				client) is based on this dual role.
+				A <a>Servient</a> is a software stack that implements the WoT
+				building blocks presented in the previous section. <a>Servients</a>
+				can host and expose <a>Things</a> and/or consume <a>Things</a>.
+				Thus, <a>Servients</a> can perform in both the server and client
+				roles; the name (a portmanteau of server and client) is based on
+				this dual role.
 			</p>
 			<p>
-				The previous <a href="#architecture-concept"></a> shows how the WoT building blocks conceptionally relate
-				to each other. When implementing these concepts, a more detailed
-				view is necessary that takes certain technical aspects into account.
-				The detailed architecture of a <a>Servient</a>
-				is shown in <a href="#architecture-implementation"></a>.
+				The previous <a href="#architecture-concept"></a> shows how the WoT
+				building blocks conceptionally relate to each other. When
+				implementing these concepts, a more detailed view is necessary that
+				takes certain technical aspects into account. The detailed
+				architecture of a <a>Servient</a> is shown in <a
+					href="#architecture-implementation"></a>.
 			</p>
 			<figure id="architecture-implementation">
 				<img src="images/Architecture-implementation.png"
 					style="width: 640px;" />
 				<figcaption>Implementation View of a Servient</figcaption>
 			</figure>
-			<p>The role and functionality of each module shown in <a href="#architecture-implementation"></a> is as
-				follows:</p>
+			<p>
+				The role and functionality of each module shown in <a
+					href="#architecture-implementation"></a> is as follows:
+			</p>
 
 			<section>
 				<h3>Application</h3>
 				<p>
-					<a>Applications</a> running on a <a>Servient</a> are usually implemented
-					through scripts (i.e., JavaScript). The application scripts must be
-					provided along with security metadata that defines their <a>Execution
-						Environment</a> and consequently how scripts must be isolated. The
-					security metadata also needs to include keying material or
-					certificates to authenticate the <a>Things</a>
+					<a>Applications</a> running on a <a>Servient</a> are usually
+					implemented through scripts (i.e., JavaScript). The application
+					scripts must be provided along with security metadata that defines
+					their <a>Execution Environment</a> and consequently how scripts
+					must be isolated. The security metadata also needs to include
+					keying material or certificates to authenticate the <a>Things</a>
 					the script exposes.
 				</p>
 				<p>
-					Note that the <a>WoT
-						Scripting API</a> building block is optional. There can be minimal <a>Servient</a> implementations where
+					Note that the <a>WoT Scripting API</a> building block is optional.
+					There can be minimal <a>Servient</a> implementations where
 					applications are implemented natively for the software stack. These
-					do not have the <a>Scripting
-						API</a> and <a>WoT Runtime</a>
+					do not have the <a>Scripting API</a> and <a>WoT Runtime</a>
 					modules.
 				</p>
 				<section>
@@ -1587,44 +1599,40 @@
 				<section>
 					<h4>WoT Scripting API</h4>
 					<p>
-						The standardized <a>WoT
-							Scripting API</a> is the contract between applications and the
-						runtime system of a <a>Servient</a>,
-						the so-called <a>WoT Runtime</a>.
-						The <a>WoT Scripting API</a> is
+						The standardized <a>WoT Scripting API</a> is the contract between
+						applications and the runtime system of a <a>Servient</a>, the
+						so-called <a>WoT Runtime</a>. The <a>WoT Scripting API</a> is
 						equivalent to any platform API, and hence there must be mechanisms
 						to prevent malicious access to the system. As mentioned above,
 						this building block, including the underlying WoT Runtime
 						implementation, is optional.
 					</p>
 					<p>
-						The <a>WoT
-							Scripting API</a> is an optional building block that eases IoT
-						application development. Traditionally, device logic is
+						The <a>WoT Scripting API</a> is an optional building block that
+						eases IoT application development. Traditionally, device logic is
 						implemented in firmware, which underlies the productivity
-						constraints of embedded development. The <a>WoT Scripting API</a> enables
-						having a runtime system for IoT applications similar to a Web
-						browser, and aims to improve productivity and reduce integration
-						costs. Furthermore, standardized APIs enable portability for
-						application modules, for instance, to move compute-intense logic
-						from a device up to a local gateway, or to move time-critical
-						logic from the cloud down to a gateway or edge node.
+						constraints of embedded development. The <a>WoT Scripting API</a>
+						enables having a runtime system for IoT applications similar to a
+						Web browser, and aims to improve productivity and reduce
+						integration costs. Furthermore, standardized APIs enable
+						portability for application modules, for instance, to move
+						compute-intense logic from a device up to a local gateway, or to
+						move time-critical logic from the cloud down to a gateway or edge
+						node.
 					</p>
 					<p>
-						The <a>Scripting API</a> is
-						built on top of the <a>Thing</a>
-						abstraction and the TD <a>Interaction
-							Model</a>. There are three sub APIs:
+						The <a>Scripting API</a> is built on top of the <a>Thing</a>
+						abstraction and the TD <a>Interaction Model</a>. There are three
+						sub APIs:
 					</p>
 					<ul>
 						<li><b><code>WoT</code> object</b> as API entry point to
 							discover, consume, and expose <a>Things</a></li>
 						<li><b><code>ConsumedThing</code> interface</b> as Client API
-							to consume <a>Things</a> over the
-							network or locally (e.g., physically attached hardware)</li>
+							to consume <a>Things</a> over the network or locally (e.g.,
+							physically attached hardware)</li>
 						<li><b><code>ExposedThing</code> interface</b> as Server API
-							to configure and expose <a>Things</a>
-							over the network</li>
+							to configure and expose <a>Things</a> over the network</li>
 					</ul>
 					<p>
 						See <a href="https://w3c.github.io/wot-scripting-api/">WoT
@@ -1638,48 +1646,44 @@
 					The <a>Thing</a> abstraction and <a>Interaction Model</a> is
 					implemented in a runtime system that offers the application-facing
 					<a>WoT Scripting API</a>. This <a>WoT Runtime</a> interfaces with
-					the <a>Protocol Bindings</a>
-					to access remote <a>Things</a> and with
-					the system API to access local hardware and proprietary means for
-					communication. Note that both local hardware and devices behind
-					proprietary communications protocols are also represented as <a>Things</a> in the runtime environment,
-					that is, they are also accessed through the <a>Client API</a>. The <a>WoT Runtime</a> is also tasked
-					with generating the <a>Thing
-						Description</a> based on the <a>Servient</a>
-					metadata (e.g., location), application metadata (e.g., provided <a>Interactions</a>), and available
-					<a>Protocol Bindings</a>
-					(e.g., implemented <a>WoT
+					the <a>Protocol Bindings</a> to access remote <a>Things</a> and
+					with the system API to access local hardware and proprietary means
+					for communication. Note that both local hardware and devices behind
+					proprietary communications protocols are also represented as <a>Things</a>
+					in the runtime environment, that is, they are also accessed through
+					the <a>Client API</a>. The <a>WoT Runtime</a> is also tasked with
+					generating the <a>Thing Description</a> based on the <a>Servient</a>
+					metadata (e.g., location), application metadata (e.g., provided <a>Interactions</a>),
+					and available <a>Protocol Bindings</a> (e.g., implemented <a>WoT
 						Binding Templates</a>).
 				</p>
 			</section>
 			<section>
 				<h2>Protocol Bindings</h2>
 				<p>
-					<a>Protocol Bindings</a> are
-					implementations of the <a>Binding
-						Templates</a>. They produce the messages to interact with <a>Things</a> over the network based on
-					the information given in the <a>Thing Description</a> of
-					the <a>Consumed Thing</a>. <a>Servients</a> usually have multiple
-					<a>Protocol Bindings</a> to
-					enable interaction with different <a>IoT Platforms</a>.
+					<a>Protocol Bindings</a> are implementations of the <a>Binding
+						Templates</a>. They produce the messages to interact with <a>Things</a>
+					over the network based on the information given in the <a>Thing
+						Description</a> of the <a>Consumed Thing</a>. <a>Servients</a> usually
+					have multiple <a>Protocol Bindings</a> to enable interaction with
+					different <a>IoT Platforms</a>.
 				</p>
 				<p>
 					In many cases, where standard protocols are used, generic protocol
 					stacks can be used to produce the platform-specific messages (e.g.,
 					one for HTTP(S) dialects, one for CoAP(S) dialects, and one for
 					MQTT solutions, etc.). In this case, the communication metadata
-					from the <a>Thing
-						Description</a> is used to select and configure the right stack (e.g.,
-					HTTP with the right header fields or CoAP with the right options).
-					Parsers and serializers for the expected representation format
-					identified by the Internet Media Type can also be shared across
-					these generic protocol stacks.
+					from the <a>Thing Description</a> is used to select and configure
+					the right stack (e.g., HTTP with the right header fields or CoAP
+					with the right options). Parsers and serializers for the expected
+					representation format identified by the Internet Media Type can
+					also be shared across these generic protocol stacks.
 				</p>
 				<p>
-					In some cases, where no aspects can be shared, the <a>Protocol Binding</a> is more
-					comparable to a platform-specific driver that is selected and
-					configured through the communication metadata in similar way as
-					above.
+					In some cases, where no aspects can be shared, the <a>Protocol
+						Binding</a> is more comparable to a platform-specific driver that is
+					selected and configured through the communication metadata in
+					similar way as above.
 				</p>
 				<p>
 					See <a href="https://w3c.github.io/wot-binding-templates/">WoT
@@ -1689,53 +1693,81 @@
 			<section>
 				<h2>System API</h2>
 				<p>
-					The implementation of a <a>Thing</a> may
-					access local hardware or system services (e.g. storage) through
-					proprietary APIs or other means. This block is out of scope of WoT
-					standardization.
+					The implementation of a <a>Thing</a> may access local hardware or
+					system services (e.g. storage) through proprietary APIs or other
+					means. This block is out of scope of WoT standardization.
 				</p>
 				<p>
-					A <a>WoT Runtime</a> may provide
-					local hardware or system services to application scripts through
-					the <a>Thing</a> abstraction, as if they
-					were accessible over a network protocol. In this case the
+					A <a>WoT Runtime</a> may provide local hardware or system services
+					to application scripts through the <a>Thing</a> abstraction, as if
+					they were accessible over a network protocol. In this case the
 					implementation should be optimized to avoid the overhead that would
 					be involved in a literal implementation of a network protocol while
-					maintaining a consistent <a>WoT
-						Interface</a>. The details of such "System Things" are out of the
-					scope of standardization at present, although W3C WoT will document
-					several informational examples.
+					maintaining a consistent <a>WoT Interface</a>. The details of such
+					"System Things" are out of the scope of standardization at present,
+					although W3C WoT will document several informational examples.
 				</p>
 				<p>
-					A device may be physically external to a <a>Servient</a>, but connected via
-					proprietary protocols. In this case, the implemented runtime
-					environment may access legacy devices with such protocols (e.g.,
-					Echonet Lite, X10, I2C, SPI) through proprietary APIs, but again
-					exposes them to applications as <a>Things</a>
-					through the <a>Scripting API</a>.
-					A script can then act as gateway to the legacy devices. This should
-					only be done if the legacy device cannot be described using the <a>WoT Thing
-						Description</a>.
+					A device may be physically external to a <a>Servient</a>, but
+					connected via proprietary protocols. In this case, the implemented
+					runtime environment may access legacy devices with such protocols
+					(e.g., Echonet Lite, X10, I2C, SPI) through proprietary APIs, but
+					again exposes them to applications as <a>Things</a> through the <a>Scripting
+						API</a>. A script can then act as gateway to the legacy devices. This
+					should only be done if the legacy device cannot be described using
+					the <a>WoT Thing Description</a>.
 				</p>
 			</section>
 		</section>
 	</section>
 
-	<section id="sec-WoT-servient-architecture-rm">
-		<h1>? WoT Servient Implementation ?</h1>
-		<p class="ednote" title="TODO">This section already talks about
-			cross-Servient interactions. Text most likely needs to be moved to
-			WoT Deployments section.</p>
+	<!-- DEPLOYMENT SCENARIOS  -->
+	<section id="sec-deployment-scenario">
+		<h1>WoT Deployments</h1>
+		<p>In the previous sections, how WoT servients connect to each
+			other and their roles and basic behaviors were described based on two
+			simple structures; one with an application and a device, and the
+			other with a proxy connecting an application and a device together.
+			These simple structures can be used as is for use cases involving
+			relatively small numbers of devices. However, they are too simple per
+			se to describe those more complex uses cases where the number of
+			connected devices are not small, or devices are physically located in
+			multiple remote sites. This section illustrates more advanced
+			structures that can be applied to those non-simple use cases.</p>
 
 		<p>This section defines components that make a Web of Things
 			entity, clarifies each component’s functions, and then shows how a
 			web of Things as a whole works. The architecture described here is
 			derived from the Web of Things use cases as well as technical
 			requirements extracted from them.</p>
-		<section id="sec-WoT-servient-architecture-simple-config">
+
+
+		<section>
+			<h2>Device Servients</h2>
+			<p class="ednote" title="TODO">Potentially move content from other places here.</p>			
+			<section id="sec-WoT-servient-architecture-simple-config">
 			<h2>Simple configuration of WoT servient</h2>
 			<p>The remainder of this section discusses and clarifies the
 				inner structure of a servient.</p>
+
+			<p>Below is a WoT architecture diagram that summarizes the inner
+				structure of a WoT servient. A runtime creates ExposedThing or
+				ConsumedThing based on TDs, provides an abstract interface that
+				through protocol binding can interact with other servients. Note
+				that the diagram also contains a legacy device that does not by
+				itself support WoT abstract interface. A device interface adapter
+				converts legacy interface into an abstract interface to allow them
+				to interact with the runtime.</p>
+			<figure id="simple-conf-wot-servient">
+				<img src="images/Arch-simple-conf-wot-servient.png" />
+				<figcaption>Simple configuration of WoT servient</figcaption>
+			</figure>
+		</section>
+				
+		</section>
+		<section>
+			<h2>Application Servients</h2>
+			<p class="ednote" title="TODO">Potentially move content from other places here.</p>			
 			<p>First, inner structure of a servient is explained based on the
 				structure of an application servient and a device servient. WoT
 				runtime defines an abstract interface that contains methods such as
@@ -1764,7 +1796,11 @@
 				<img src="images/Arch-simple-conf-application-device.png" />
 				<figcaption>Simple configuration of application and
 					device</figcaption>
-			</figure>
+			</figure>			
+		</section>
+		<section>
+			<h2>Proxy Servients</h2>
+			<p class="ednote" title="TODO">Potentially move content from other places here.</p>			
 			<p>Next, inner structure of a servient is explained based on the
 				structure of a proxy servient that connects a device servient and
 				application servient together.</p>
@@ -1781,50 +1817,8 @@
 				<img src="images/Arch-simple-conf-application-proxy-device.png" />
 				<figcaption>Simple configuration with proxy</figcaption>
 			</figure>
-			<p>Below is a WoT architecture diagram that summarizes the inner
-				structure of a WoT servient. A runtime creates ExposedThing or
-				ConsumedThing based on TDs, provides an abstract interface that
-				through protocol binding can interact with other servients. Note
-				that the diagram also contains a legacy device that does not by
-				itself support WoT abstract interface. A device interface adapter
-				converts legacy interface into an abstract interface to allow them
-				to interact with the runtime.</p>
-			<figure id="simple-conf-wot-servient">
-				<img src="images/Arch-simple-conf-wot-servient.png" />
-				<figcaption>Simple configuration of WoT servient</figcaption>
-			</figure>
 		</section>
-	</section>
-
-	<!-- DEPLOYMENT SCENARIOS  -->
-	<section id="sec-deployment-scenario-rm">
-		<h1>WoT Deployments</h1>
-		<p>In the previous sections, how WoT servients connect to each
-			other and their roles and basic behaviors were described based on two
-			simple structures; one with an application and a device, and the
-			other with a proxy connecting an application and a device together.
-			These simple structures can be used as is for use cases involving
-			relatively small numbers of devices. However, they are too simple per
-			se to describe those more complex uses cases where the number of
-			connected devices are not small, or devices are physically located in
-			multiple remote sites. This section illustrates more advanced
-			structures that can be applied to those non-simple use cases.</p>
-
-		<section>
-			<h2>Device Servients</h2>
-			<p class="ednote" title="TODO">Move content from sections further
-				down here and potentially other places here.</p>
-		</section>
-		<section>
-			<h2>Application Servients</h2>
-			<p class="ednote" title="TODO">Move content from sections further
-				down here and potentially other places here.</p>
-		</section>
-		<section>
-			<h2>Proxy Servients</h2>
-			<p class="ednote" title="TODO">Move content from sections further
-				down here and potentially other places here.</p>
-		</section>
+		
 		<section>
 			<h2>Thing Directories</h2>
 			<p class="ednote" title="TODO">Try to explain this component in
@@ -1902,8 +1896,7 @@
 				shadow device, Application servient A is able to use Device Servient
 				B through the shadow device on Remote Proxy Servient B.</p>
 			<figure id="deployment-service-sync-directory">
-				<img
-					src="images/Arch-deploy-service-sync-directory.png" />
+				<img src="images/Arch-deploy-service-sync-directory.png" />
 				<figcaption>Multiple cloud connect through directory
 					synchronization</figcaption>
 			</figure>
@@ -2243,42 +2236,41 @@
 			</figure>
 			<p>
 				<a href="#wot-existing"></a> shows the basic scenario, where a <a>Servient</a>
-				in client role, a <a>WoT Client</a>
-				, is consuming an existing device that is augmented with a <a>Thing Description</a>
-				(TD). The latter could be generated from digital descriptions
-				already available for the device within the corresponding <a>IoT Platform</a> . It could also
-				be written by a developer using tools or even manually.
+				in client role, a <a>WoT Client</a> , is consuming an existing
+				device that is augmented with a <a>Thing Description</a> (TD). The
+				latter could be generated from digital descriptions already
+				available for the device within the corresponding <a>IoT
+					Platform</a> . It could also be written by a developer using tools or
+				even manually.
 			</p>
 			<p>
-				The Application Script is loaded and executed by the <a>WoT Runtime</a> . Scripts can be
-				manually configured with the URI of the device <a>TD</a> located on a reachable Web server.
-				Using the <a> <code>WoT</code>
-					object
-				</a> , the Application Script retrieves the <a>TD</a>
-				and instantiates a corresponding <a>Consumed Thing</a> . The
-				Application Script can use the metadata of the <a>Thing</a> and inspect what <a>Interactions</a> it provides. The
-				communication metadata within the <a>TD</a>
-				is used by the <a>Servient</a> to
-				select the matching <a>Protocol
+				The Application Script is loaded and executed by the <a>WoT
+					Runtime</a> . Scripts can be manually configured with the URI of the
+				device <a>TD</a> located on a reachable Web server. Using the <a>
+					<code>WoT</code> object
+				</a> , the Application Script retrieves the <a>TD</a> and instantiates a
+				corresponding <a>Consumed Thing</a> . The Application Script can use
+				the metadata of the <a>Thing</a> and inspect what <a>Interactions</a>
+				it provides. The communication metadata within the <a>TD</a> is used
+				by the <a>Servient</a> to select the matching <a>Protocol
 					Binding</a> and to configure its protocol stack. These communication
 				details are hidden from the Application Script. However, the script
-				can only interact with the <a>Thing</a> ,
-				if the <a>Servient</a> implements a <a>Protocol Binding</a> that
-				matches the communication metadata given in the <a>TD</a> .
+				can only interact with the <a>Thing</a> , if the <a>Servient</a>
+				implements a <a>Protocol Binding</a> that matches the communication
+				metadata given in the <a>TD</a> .
 			</p>
 			<p>
 				Using the <a>Client API</a> (i.e.,
 				<code>ConsumedThing</code>
-				interface), the Application Script can read or write a <a>Property</a> ,
-				invoke an <a>Action</a> , or subscribe for <a>Events</a> offered by the <a>Thing</a>.
-				The selected <a>Protocol Binding</a> maps
-				these <a>Interactions</a> to the
-				low-level protocol operations and serializations understood by the
-				remote <a>Thing</a> . When a message is
-				returned by the <a>Thing</a> , the <a>Protocol Binding</a> parses
-				the response and maps it back to the <a>Interaction</a> abstraction. The <a>Interaction</a> output is
-				delivered back to the Application Script by resolving a (JavaScript)
-				Promise.
+				interface), the Application Script can read or write a <a>Property</a>
+				, invoke an <a>Action</a> , or subscribe for <a>Events</a> offered
+				by the <a>Thing</a>. The selected <a>Protocol Binding</a> maps these
+				<a>Interactions</a> to the low-level protocol operations and
+				serializations understood by the remote <a>Thing</a> . When a
+				message is returned by the <a>Thing</a> , the <a>Protocol
+					Binding</a> parses the response and maps it back to the <a>Interaction</a>
+				abstraction. The <a>Interaction</a> output is delivered back to the
+				Application Script by resolving a (JavaScript) Promise.
 			</p>
 			<p class="ednote">Each sub-section shall describe the technical
 				details to realize the scenario. They shall describe how to discover
@@ -2319,34 +2311,36 @@
 				<figcaption>Servient on Device Itself</figcaption>
 			</figure>
 			<p>
-				In this case, a <a>Servient</a> is
-				running on the device itself. The right most <a>Servient</a> in <a href="#wot-on-device"></a> shows an LED Light,
-				whose controller has a powerful CPU and a large memory and is able
-				to provide web server functionality connected directly to the
-				Internet. Then the leftmost browser and/or another application on
-				the internet can access the LED light through the Internet directly.
+				In this case, a <a>Servient</a> is running on the device itself. The
+				right most <a>Servient</a> in <a href="#wot-on-device"></a> shows an
+				LED Light, whose controller has a powerful CPU and a large memory
+				and is able to provide web server functionality connected directly
+				to the Internet. Then the leftmost browser and/or another
+				application on the internet can access the LED light through the
+				Internet directly.
 			</p>
 			<figure id="wot-on-device-minimal">
 				<img src="images/wot-on-device-minimal.png" style="width: 640px;" />
 				<figcaption>Resource-constrained Device as Thing</figcaption>
 			</figure>
 			<p>
-				Devices that are not powerful enough to host a <a>Servient</a> can still act as <a>Things</a> . In this case, a classic
-				firmware is providing a <a>Thing
-					Description</a> that describes the functionality and protocols
-				implemented. The right most <a>Servient</a>
-				in <a href="#wot-on-device-minimal"></a> shows a legacy device that has a constrained CPU and a small
-				memory and is able to provide web server functionality connected
-				directly to the internet. Then the leftmost browser and/or another
-				application on the internet can access the device through the
-				Internet directly like <a href="#wot-on-device"></a>.
+				Devices that are not powerful enough to host a <a>Servient</a> can
+				still act as <a>Things</a> . In this case, a classic firmware is
+				providing a <a>Thing Description</a> that describes the
+				functionality and protocols implemented. The right most <a>Servient</a>
+				in <a href="#wot-on-device-minimal"></a> shows a legacy device that
+				has a constrained CPU and a small memory and is able to provide web
+				server functionality connected directly to the internet. Then the
+				leftmost browser and/or another application on the internet can
+				access the device through the Internet directly like <a
+					href="#wot-on-device"></a>.
 			</p>
 			<dl>
 				<dt>Discovery</dt>
 				<dd>
 					<ul>
-						<li>WoT Client discovers <a>Servient</a>
-							on the same network [network discovery].
+						<li>WoT Client discovers <a>Servient</a> on the same network
+							[network discovery].
 						</li>
 					</ul>
 				</dd>
@@ -2368,11 +2362,11 @@
 		<section>
 			<h2>Servient on Smartphone</h2>
 			<p>
-				This example uses a <a>Servient</a>
-				running on a Smartphone. Smartphones are not only popular but have
-				enough performance to provide gateway functionality. This
-				functionality can be used to bridge between the internet and a
-				legacy device without any intermediate hardware.
+				This example uses a <a>Servient</a> running on a Smartphone.
+				Smartphones are not only popular but have enough performance to
+				provide gateway functionality. This functionality can be used to
+				bridge between the internet and a legacy device without any
+				intermediate hardware.
 			</p>
 			<figure id="wot-on-smartphone">
 				<img src="images/wot-on-smartphone.png" style="width: 640px;" />
