@@ -1316,8 +1316,7 @@
 				ExposedThing that serves as the Thing for the TD. An application
 				communicates with a device via a proxy through a ConsumedThing that
 				works according to the TD for the shadow device.</p>
-		</section>
-		<section>
+		</section><section>
 			<h2>Architectural Constraints</h2>
 			<p>
 				The WoT Architecture follows the REST architectural style [[?REST]], the underlying principles of the Web.
@@ -1345,7 +1344,7 @@
 						"'Affordance' refers to the perceived and actual properties of the thing, primarily those fundamental properties that determine just how the thing could possibly be used." [[?NORMAN]]
 					</p>
 					<p>
-						The term is also used within REST, where affordance means the simultaneous presentation of information and controls through which the user obtains choices and selects actions.
+						The term is used within REST, where affordance means the simultaneous presentation of information and controls through which the user obtains choices and selects actions.
 					</p>
 					<p>
 						The Web of Things defines Interaction Affordances as the description elements of a Thing that show the possible choices to clients, thereby suggesting how clients may interact with the Thing.
@@ -1466,7 +1465,7 @@
 							</ul>
 						</p>
 						<p>
-							A form can be viewed as a statement of "To perform a <code>form relation type</code> operation on <code>form context</code>, make a <code>request method</code> request to <code>submission target</code>" where form fields may further describe the expected request.
+							A form can be viewed as a statement of "To perform a <code>form operation type</code> operation on <code>form context</code>, make a <code>request method</code> request to <code>submission target</code>" where form fields may further describe the expected request.
 						</p>
 						<p>
 							Form contexts and submission targets are both Internationalized Resource Identifiers (IRIs) [[!RFC3987]].
@@ -1479,7 +1478,7 @@
 							The form operation type identifies the semantics of the operation.
 							Form operation types are denoted similar to link relation types:
 							<ul>
-								<li>Well-known operation types MUST follow the ABNF <code>LOALPHA *( LOALPHA / DIGIT / "." / "-" )</code> and MUST be compared character by character in a case-insensitive fashion.</li>
+								<li>Well-known operation types MUST have name following the ABNF <code>LOALPHA *( LOALPHA / DIGIT / "." / "-" )</code> and MUST be compared character by character in a case-insensitive fashion.</li>
 								<li>Extension operation types MAY be chosen by applications and MUST be absolute IRIs [[!RFC3987]] that uniquely identify the type.</li>
 							</ul>
 							The well-known operation types defined by this specification are given in Table TODO.
@@ -1495,6 +1494,26 @@
 							<tbody>
 								<tr>
 									<td>readproperty</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>writeproperty</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>observeproperty</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>invokeaction</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>subscribeevent</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>unsubscribeevent</td>
 									<td></td>
 								</tr>
 							</tbody>
@@ -1517,7 +1536,6 @@
 				</p>
 			</section>
 		</section>
-
 		<section>
 			<h2>Building Blocks</h2>
 			<p>This section presents the initial WoT building blocks that
