@@ -79,6 +79,19 @@
 				title : "Factory of the future",
 				publisher : "IEC",
 				date : "October 2015"
+			},
+			"REST" : {
+				title : "REST: Architectural Styles and the Design of Network-based Software Architectures",
+				author : "Roy Thomas Fielding",
+				status : "PhD thesis",
+				publisher : "University of California, Irvine",
+				date : "2000"
+			},
+            		"HMI" : {
+				title : "The Encyclopedia of Human-Computer Interaction, 2nd Ed",
+                		author : "Mads Soegaard, Rikke Friis Dam",
+                		publisher : "Interaction Design Foundation",
+                		date: "2013"
 			}
 		}
 	};
@@ -1300,38 +1313,138 @@
 		</section>
 		<section>
 			<h2>Architectural Constraints</h2>
-			<p class="ednote" title="TODO">URIs, media types, protocols with
-				fixed set of methods (uniform interface)</p>
-			<section>
-				<h3>Uniform Interface</h3>
-				<section>
-					<h4>URIs</h4>
-					<p>Identify protocols and resources</p>
-				</section>
-				<section>
-					<h4>Media Types and Schemas</h4>
-					<p>Identify data formats, potentially augmented by schemas</p>
-				</section>
-				<section>
-					<h4>Known Set of Methods</h4>
-					<p>Binding only for protocols with fixed set of methods</p>
-				</section>
-				<section>
-					<h4>Hypermedia Controls</h4>
-					<p>Links and Forms</p>
-				</section>
-			</section>
+			<p>
+				The WoT Architecture follows the REST architectural style [[?REST]], the underlying principles of the Web.
+				The primary goal of WoT is to allow IoT devices and services to communicate with each other.
+				This is done by formally describing their interfaces with rich metadata.
+				At the core is a simple yet common Interaction Model that adheres to the Uniform Interface constraint of REST.
+			</p>
 			<section>
 				<h3>Interaction Model</h3>
+				<p>
+					Originally, a Web resource usually represented a document on the World Wide Web that can simply be fetched by a client.
+					With the introduction of Web servives, resources became more generic interaction endpoints that can implement any kind behavior.
+					This very high level of abstraction makes it hard to describe how clients may interact with a resource.
+					As a result, typical API descriptions consist of a static mapping from an application intent to a resource address, method, request payload structure, response payload structure, and expected errors.
+				</p>
+				<p>
+					The interaction model of WoT is based on the findings of the COMPOSE project [[?COMPOSE]] and introduces an intermediate abstraction that simplifies the mapping from application intent to the concrete protocol bindings.
+					Instead of generic resources, WoT uses three types of so-called Interaction Affordances: Properties, Actions, and Events.
+					While constraining Web resources into three different behaviors, the three types are still able to cover virtually all functionality found in IoT devices and services.
+				</p>
+				<section>
+					<h4>Interaction Affordances</h4>
+					<p>
+						In the Web of Things, Interaction Affordances are description elements for a Thing that show the possible choices to clients, thereby suggesting how they may interact with that Thing.
+					</p>
+					<p>
+						The term affordance originates in ecological psychology, but was adopted in the field of Human-Computer Interaction [[?HMI]].
+						It therefore is used within the interaction design
+					</p>
+					<p>
+
+					</p>
+				</section>
 				<section>
 					<h4>Properties</h4>
+					<p>
+						A Property Affordance exposes internal state of the Thing that can be directly accessed (read) and optionally manipulated (write).
+						Things can also choose to make Properties observable by pushing the new state after a change (cf. CoAP Observe [[?RFC7641]]).
+					</p>
+					<p>
+						Examples of Property Affordances are sensor values (read-only), stateful actuators (read-write), configuration parameters (read-write), Thing status (read-only), or computation results (read-only).
+					</p>
 				</section>
 				<section>
 					<h4>Actions</h4>
+					<p>
+						An Action Affordance allows to invoke a function of the Thing that manipulates internal state that is not directly exposed (cf. Properties) based on internal logic or triggers a process on the Thing.
+					</p>
+					<p> 
+						Examples of Action Affordances are changing multiple Properties simultaneously, changing Properties over time or with a process that shall not be disclosed, or invoking a long-lasting process such as actuator control.
+					</p>
 				</section>
 				<section>
 					<h4>Events</h4>
+					<p>
+						The Event Affordance describes asynchronous push interactions initiated by the Thing.
+						Here not state, but state transitions (i.e., events) are communicated.
+						Events may betriggered through conditions that are not exposed as Properties.
+					</p>
+					<p>
+						Examples of Event Afforances are discrete events such as an alarm or samples of a timeseries that are pushed regularly.
+					</p>
 				</section>
+			</section>
+			<section>
+				<h3>Uniform Interface</h3>
+				<p>
+					Communication in the Web of Things must be described through a fixed set of information that is shared a priori among the interacting parties (i.e., between WoT Clients and WoT Servers).
+					While some systems might be capable of fetching new information (e.g., a protocol binding plugin or a parser for a certain media type) on demand,
+					they still require this information before interacting.
+				</p>
+				<section>
+					<h4>URIs</h4>
+					<p>
+						<span class="rfc2119-assertion" id="arch-uris">Interaction Affordances MUST be identified and located using Uniform Resource Identifiers [[!RFC3986]].</span>
+					</p>
+					<p>
+						The URI scheme (the first component up to ":") identifies the communication protocol to be used for interaction with the Thing.
+						<span class="rfc2119-assertion" id="arch-uri-scheme">Thus, valid protocol bindings for WoT MUST have an associated URI scheme that is registered with IANA [[!RFC4395]].</span>
+					</p>
+				</section>
+				<section>
+					<h4>Media Types and Schemas</h4>
+					<p>
+						Media Types are IANA-managed labels to identify representation formats, for instance <code>application/json</code> for JSON [[!RFC7159]],
+						<span class="rfc2119-assertion" id="arch-media-type">All data (a.k.a content) exchanged within Interaction Affordances MUST be identified by a Media Type [[!RFC6838]].</span>
+					</p>
+					<p>
+						Many Media Types only identify a generic serialisation format that does not provide further semantics for its elements (e.g., XML, JSON, CBOR).
+						<span class="rfc2119-assertion" id="arch-schema">Interaction Affordances MAY declare data schemas to provide more detailed semantic metadata for the data exchanged.</span>
+					</p>
+				</section>
+				<section>
+					<h4>Standard Set of Methods</h4>
+					<p>
+						The Uniform Interface constraint of REST demands self-scribing messages, which calls for a standard set of methods [[?REST]].
+						This is a key difference to object-oriented and RPC-based interfaces, which make use of application-specific methods that cannot be shared a priori among all interacting parties.
+					</p>
+					<p>
+						<span class="rfc2119-assertion" id="arch-methods">Thus, valid protocol bindings for WoT MUST have a standard set of methods defined within the corresponding protocol specification.</span>
+					</p>
+				</section>
+				<section>
+					<h4>Hypermedia Controls</h4>
+					<p>
+						REST defines the concept of "hypermedia as the engine of application state" (HATEOAS) as part of the Uniform Interface constraint [[?REST]].
+						HATEOAS means the simultaneous presentation of information and controls such that the information becomes the affordance through which the user obtains choices and selects actions.
+						In other words, the server itself is providing the controls, the descriptions for all possible interactions, to its clients.
+						This is opposed to out-of-band interface descriptions that need to be preinstalled or hardcoded into clients (e.g., RPC, WS-* Web services, HTTP services with fixed URI-method-response definitions).
+					</p>
+					<p>
+						To enable hypermedia controls, clients and servers need to the controls.
+						WoT makes use of two kinds of hypermedia controls: Links and Forms.
+					</p>
+					<section>
+						<h5>Links</h5>
+						<p class="ednote" title="TODO">
+							Explain Links.
+						</p>
+					</section>
+					<section>
+						<h5>Forms</h5>
+						<p class="ednote" title="TODO">
+							Explain Forms.
+						</p>
+					</section>
+				</section>
+			</section>
+			<section>
+				<h3>Layered System</h3>
+				<p class="ednote" title="TODO">
+					Explain intermediaries/proxies.
+				</p>
 			</section>
 		</section>
 
