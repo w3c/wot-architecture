@@ -92,6 +92,12 @@
                 		author : "Mads Soegaard, Rikke Friis Dam",
                 		publisher : "Interaction Design Foundation",
                 		date: "2013"
+			},
+            		"NORMAN" : {
+				title : "The Psychology of Everyday Things",
+                		author : "Donald A. Norman",
+                		publisher : "Basic Books",
+                		date: "1988"
 			}
 		}
 	};
@@ -1248,7 +1254,7 @@
 		</section>
 	</section>
 
-	<section id="sec-building-blocks">
+	<section>
 		<h1>WoT Architecture</h1>
 		<section>
 			<h2>Overview</h2>
@@ -1335,44 +1341,45 @@
 				<section>
 					<h4>Interaction Affordances</h4>
 					<p>
-						In the Web of Things, Interaction Affordances are description elements for a Thing that show the possible choices to clients, thereby suggesting how they may interact with that Thing.
+						The term affordance originates in ecological psychology, but was adopted in the field of Human-Computer Interaction [[?HMI]] based on the definition by Donald Norman:
+						"'Affordance' refers to the perceived and actual properties of the thing, primarily those fundamental properties that determine just how the thing could possibly be used." [[?NORMAN]]
 					</p>
 					<p>
-						The term affordance originates in ecological psychology, but was adopted in the field of Human-Computer Interaction [[?HMI]].
-						It therefore is used within the interaction design
+						The term is also used within REST, where affordance means the simultaneous presentation of information and controls through which the user obtains choices and selects actions.
 					</p>
 					<p>
-
+						The Web of Things defines Interaction Affordances as the description elements of a Thing that show the possible choices to clients, thereby suggesting how clients may interact with the Thing.
+						This definition is thereby aligned with HCI and interaction designers, who create physical Things, as well as the REST and microservice community working on Web services in general.
 					</p>
 				</section>
 				<section>
 					<h4>Properties</h4>
 					<p>
-						A Property Affordance exposes internal state of the Thing that can be directly accessed (read) and optionally manipulated (write).
+						A Property is an Interaction Affordance that exposes internal state of the Thing that can be directly accessed (read) and optionally manipulated (write).
 						Things can also choose to make Properties observable by pushing the new state after a change (cf. CoAP Observe [[?RFC7641]]).
 					</p>
 					<p>
-						Examples of Property Affordances are sensor values (read-only), stateful actuators (read-write), configuration parameters (read-write), Thing status (read-only), or computation results (read-only).
+						Examples of Properties are sensor values (read-only), stateful actuators (read-write), configuration parameters (read-write), Thing status (read-only), or computation results (read-only).
 					</p>
 				</section>
 				<section>
 					<h4>Actions</h4>
 					<p>
-						An Action Affordance allows to invoke a function of the Thing that manipulates internal state that is not directly exposed (cf. Properties) based on internal logic or triggers a process on the Thing.
+						An Action is an Interaction Affordance that allows to invoke a function of the Thing that manipulates internal state that is not directly exposed (cf. Properties) based on internal logic or triggers a process on the Thing.
 					</p>
 					<p> 
-						Examples of Action Affordances are changing multiple Properties simultaneously, changing Properties over time or with a process that shall not be disclosed, or invoking a long-lasting process such as actuator control.
+						Examples of Actions are changing multiple Properties simultaneously, changing Properties over time or with a process that shall not be disclosed, or invoking a long-lasting process such as actuator control.
 					</p>
 				</section>
 				<section>
 					<h4>Events</h4>
 					<p>
-						The Event Affordance describes asynchronous push interactions initiated by the Thing.
+						An Event Interaction Affordance describes asynchronous push interactions initiated by the Thing.
 						Here not state, but state transitions (i.e., events) are communicated.
 						Events may betriggered through conditions that are not exposed as Properties.
 					</p>
 					<p>
-						Examples of Event Afforances are discrete events such as an alarm or samples of a timeseries that are pushed regularly.
+						Examples of Events are discrete events such as an alarm or samples of a timeseries that are pushed regularly.
 					</p>
 				</section>
 			</section>
@@ -1423,19 +1430,82 @@
 						This is opposed to out-of-band interface descriptions that need to be preinstalled or hardcoded into clients (e.g., RPC, WS-* Web services, HTTP services with fixed URI-method-response definitions).
 					</p>
 					<p>
-						To enable hypermedia controls, clients and servers need to the controls.
-						WoT makes use of two kinds of hypermedia controls: Links and Forms.
+						WoT makes use of two kinds of hypermedia controls: links and forms.
 					</p>
 					<section>
 						<h5>Links</h5>
-						<p class="ednote" title="TODO">
-							Explain Links.
+						<p>
+							Web Links enable clients to change the current context (e.g., the set of resource representations currently rendered in the Web browser)
+							or to include further resources in the current context, depending on the relation between context and target resource.
+							Clients do so by <i>dereferencing</i> the target URI, that is, fetching the resource representation.
+						</p>
+						<p>
+							A link is comprised of a link context, relation type, target, and optionally target attributes
+							The underlying model for the relationships between resources on the Web (i.e., Links) is defined in [[!RFC8288]].
+							link relation types are either IANA-registered tokens adhering to the ABNF <code>LOALPHA *( LOALPHA / DIGIT / "." / "-" )</code> (e.g., <code>stylesheet</code>) or extension types in form of full URIs [[!RFC8288]].
+						</p>
+						<p>
+							In the Web of Things, Links are used for discovery and to express relations between Things (e.g., hierarchical or functional) and relations to other documents on the Web (e.g., manuals or alternative representations such as CAD models).
 						</p>
 					</section>
 					<section>
 						<h5>Forms</h5>
-						<p class="ednote" title="TODO">
-							Explain Forms.
+						<p>
+							Forms enable clients to perform interactions that go beyond dereferencing a URI such as manipulating resource state at the server.
+							This usually requires more detailed information about the necessary request such as the method and header fields or protocol options.
+							Forms can be seen as a request template, where the server prefilled part of the information according to its own interface and left parts blank to be filled by the client.
+						</p>
+						<p>
+							In the Web of Things, a form provides instructions to perform an operation on a resource and is comprised of:
+							<ul>
+								<li>a form context,</li>
+								<li>a submission target,</li>
+								<li>a form operation type,</li>
+								<li>a request method, and</li>
+								<li>optionally form fields</li>
+							</ul>
+						</p>
+						<p>
+							A form can be viewed as a statement of "To perform a <code>form relation type</code> operation on <code>form context</code>, make a <code>request method</code> request to <code>submission target</code>" where form fields may further describe the expected request.
+						</p>
+						<p>
+							Form contexts and submission targets are both Internationalized Resource Identifiers (IRIs) [[!RFC3987]].
+							However, in the common case, thay will also be URIs [[!RFC3986]], because many protocols (such as HTTP) do not support IRIs.
+						</p>
+						<p>
+							Form context and submission target MAY point to the same resource or different resources, where the submission target resource implements the operation for the context resource.
+						</p>
+						<p>
+							The form operation type identifies the semantics of the operation.
+							Form operation types are denoted similar to link relation types:
+							<ul>
+								<li>Well-known operation types MUST follow the ABNF <code>LOALPHA *( LOALPHA / DIGIT / "." / "-" )</code> and MUST be compared character by character in a case-insensitive fashion.</li>
+								<li>Extension operation types MAY be chosen by applications and MUST be absolute IRIs [[!RFC3987]] that uniquely identify the type.</li>
+							</ul>
+							The well-known operation types defined by this specification are given in Table TODO.
+						</p>
+						<table class="def">
+							<caption>Well-known FOrm Operation Types</caption>
+							<thead>
+								<tr>
+									<th>Operation Name</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>readproperty</td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+						<p>
+							The request method MUST identify one method of the standard set of the protocol identified by the submission target URI scheme.
+						</p>
+						<p>
+							Form fields MAY further specify the request expected by the server for the given operation.
+							Form fields MAY depend on the protocol used for the submission target.
+							Examples are HTTP header fields, CoAP options, the protocol-independent Media Type(s) for the submission payload, or information about the expected response.
 						</p>
 					</section>
 				</section>
