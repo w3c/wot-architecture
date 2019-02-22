@@ -98,6 +98,12 @@
                 		author : "Donald A. Norman",
                 		publisher : "Basic Books",
                 		date: "1988"
+			},
+			"MQTT" : {
+				title : "MQTT Version 3.1.1",
+				author : "Andrew Banks, Rahul Gupta",
+				publisher : "OASIS Standard",
+				date : "2014"
 			}
 		}
 	};
@@ -1316,223 +1322,224 @@
 				ExposedThing that serves as the Thing for the TD. An application
 				communicates with a device via a proxy through a ConsumedThing that
 				works according to the TD for the shadow device.</p>
-		</section><section>
-			<h2>Architectural Constraints</h2>
+		</section>
+		<section>
+			<h2>Interaction Model</h2>
 			<p>
-				The WoT Architecture follows the REST architectural style [[?REST]], the underlying principles of the Web.
-				The primary goal of WoT is to allow IoT devices and services to communicate with each other.
-				This is done by formally describing their interfaces with rich metadata.
-				At the core is a simple yet common Interaction Model that adheres to the Uniform Interface constraint of REST.
+				Originally, a Web resource usually represented a document on the World Wide Web that can simply be fetched by a client.
+				With the introduction of Web servives, resources became more generic interaction endpoints that can implement any kind behavior.
+				This very high level of abstraction makes it hard to provide a loose coupling between applications and the manifold interaction possibilities of resources.
+				As a result, typical API descriptions consist of a static mapping from an application intent to a resource address, method, request payload structure, response payload structure, and expected errors.
+			</p>
+			<p>
+				The interaction model of WoT introduces an intermediate abstraction that simplifies the mapping from application intent to concrete protocol bindings, which are used to interact with resources.
+				Instead of generic resources, WoT applications use three types of so-called Interaction Affordances: Properties, Actions, and Events.
+				While constraining Web resources into three different behaviors, the three types are still able to cover virtually all functionality found in IoT devices and services.
 			</p>
 			<section>
-				<h3>Interaction Model</h3>
+				<h3>Interaction Affordances</h3>
 				<p>
-					Originally, a Web resource usually represented a document on the World Wide Web that can simply be fetched by a client.
-					With the introduction of Web servives, resources became more generic interaction endpoints that can implement any kind behavior.
-					This very high level of abstraction makes it hard to describe how clients may interact with a resource.
-					As a result, typical API descriptions consist of a static mapping from an application intent to a resource address, method, request payload structure, response payload structure, and expected errors.
+					The term affordance originates in ecological psychology, but was adopted in the field of Human-Computer Interaction [[?HMI]] based on the definition by Donald Norman:
+					"'Affordance' refers to the perceived and actual properties of the thing, primarily those fundamental properties that determine just how the thing could possibly be used." [[?NORMAN]]
 				</p>
 				<p>
-					The interaction model of WoT is based on the findings of the COMPOSE project [[?COMPOSE]] and introduces an intermediate abstraction that simplifies the mapping from application intent to the concrete protocol bindings.
-					Instead of generic resources, WoT uses three types of so-called Interaction Affordances: Properties, Actions, and Events.
-					While constraining Web resources into three different behaviors, the three types are still able to cover virtually all functionality found in IoT devices and services.
+					The term is also used within the REST architectural style [[?REST]], where affordance means the simultaneous presentation of information and controls through which the user obtains choices and selects actions.
 				</p>
-				<section>
-					<h4>Interaction Affordances</h4>
-					<p>
-						The term affordance originates in ecological psychology, but was adopted in the field of Human-Computer Interaction [[?HMI]] based on the definition by Donald Norman:
-						"'Affordance' refers to the perceived and actual properties of the thing, primarily those fundamental properties that determine just how the thing could possibly be used." [[?NORMAN]]
-					</p>
-					<p>
-						The term is used within REST, where affordance means the simultaneous presentation of information and controls through which the user obtains choices and selects actions.
-					</p>
-					<p>
-						The Web of Things defines Interaction Affordances as the description elements of a Thing that show the possible choices to clients, thereby suggesting how clients may interact with the Thing.
-						This definition is thereby aligned with HCI and interaction designers, who create physical Things, as well as the REST and microservice community working on Web services in general.
-					</p>
-				</section>
-				<section>
-					<h4>Properties</h4>
-					<p>
-						A Property is an Interaction Affordance that exposes internal state of the Thing that can be directly accessed (read) and optionally manipulated (write).
-						Things can also choose to make Properties observable by pushing the new state after a change (cf. CoAP Observe [[?RFC7641]]).
-					</p>
-					<p>
-						Examples of Properties are sensor values (read-only), stateful actuators (read-write), configuration parameters (read-write), Thing status (read-only), or computation results (read-only).
-					</p>
-				</section>
-				<section>
-					<h4>Actions</h4>
-					<p>
-						An Action is an Interaction Affordance that allows to invoke a function of the Thing that manipulates internal state that is not directly exposed (cf. Properties) based on internal logic or triggers a process on the Thing.
-					</p>
-					<p> 
-						Examples of Actions are changing multiple Properties simultaneously, changing Properties over time or with a process that shall not be disclosed, or invoking a long-lasting process such as actuator control.
-					</p>
-				</section>
-				<section>
-					<h4>Events</h4>
-					<p>
-						An Event Interaction Affordance describes asynchronous push interactions initiated by the Thing.
-						Here not state, but state transitions (i.e., events) are communicated.
-						Events may betriggered through conditions that are not exposed as Properties.
-					</p>
-					<p>
-						Examples of Events are discrete events such as an alarm or samples of a timeseries that are pushed regularly.
-					</p>
-				</section>
+				<p>
+					The Web of Things defines Interaction Affordances as the description elements of a Thing that show the possible choices to clients, thereby suggesting how clients may interact with the Thing.
+					This definition is thereby aligned with HCI and interaction designers, who create physical Things, as well as the REST and microservice community working on Web services in general.
+				</p>
 			</section>
 			<section>
-				<h3>Uniform Interface</h3>
+				<h3>Properties</h3>
 				<p>
-					Communication in the Web of Things must be described through a fixed set of information that is shared a priori among the interacting parties (i.e., between WoT Clients and WoT Servers).
-					While some systems might be capable of fetching new information (e.g., a protocol binding plugin or a parser for a certain media type) on demand,
-					they still require this information before interacting.
+					A Property is an Interaction Affordance that exposes internal state of the Thing that can be directly accessed (read) and optionally manipulated (write).
+					Things can also choose to make Properties observable by pushing the new state after a change (cf. CoAP Observe [[?RFC7641]]).
 				</p>
-				<section>
-					<h4>URIs</h4>
-					<p>
-						<span class="rfc2119-assertion" id="arch-uris">Interaction Affordances MUST be identified and located using Uniform Resource Identifiers [[!RFC3986]].</span>
-					</p>
-					<p>
-						The URI scheme (the first component up to ":") identifies the communication protocol to be used for interaction with the Thing.
-						<span class="rfc2119-assertion" id="arch-uri-scheme">Thus, valid protocol bindings for WoT MUST have an associated URI scheme that is registered with IANA [[!RFC4395]].</span>
-					</p>
-				</section>
-				<section>
-					<h4>Media Types and Schemas</h4>
-					<p>
-						Media Types are IANA-managed labels to identify representation formats, for instance <code>application/json</code> for JSON [[!RFC7159]],
-						<span class="rfc2119-assertion" id="arch-media-type">All data (a.k.a content) exchanged within Interaction Affordances MUST be identified by a Media Type [[!RFC6838]].</span>
-					</p>
-					<p>
-						Many Media Types only identify a generic serialisation format that does not provide further semantics for its elements (e.g., XML, JSON, CBOR).
-						<span class="rfc2119-assertion" id="arch-schema">Interaction Affordances MAY declare data schemas to provide more detailed semantic metadata for the data exchanged.</span>
-					</p>
-				</section>
-				<section>
-					<h4>Standard Set of Methods</h4>
-					<p>
-						The Uniform Interface constraint of REST demands self-scribing messages, which calls for a standard set of methods [[?REST]].
-						This is a key difference to object-oriented and RPC-based interfaces, which make use of application-specific methods that cannot be shared a priori among all interacting parties.
-					</p>
-					<p>
-						<span class="rfc2119-assertion" id="arch-methods">Thus, valid protocol bindings for WoT MUST have a standard set of methods defined within the corresponding protocol specification.</span>
-					</p>
-				</section>
-				<section>
-					<h4>Hypermedia Controls</h4>
-					<p>
-						REST defines the concept of "hypermedia as the engine of application state" (HATEOAS) as part of the Uniform Interface constraint [[?REST]].
-						HATEOAS means the simultaneous presentation of information and controls such that the information becomes the affordance through which the user obtains choices and selects actions.
-						In other words, the server itself is providing the controls, the descriptions for all possible interactions, to its clients.
-						This is opposed to out-of-band interface descriptions that need to be preinstalled or hardcoded into clients (e.g., RPC, WS-* Web services, HTTP services with fixed URI-method-response definitions).
-					</p>
-					<p>
-						WoT makes use of two kinds of hypermedia controls: links and forms.
-					</p>
-					<section>
-						<h5>Links</h5>
-						<p>
-							Web Links enable clients to change the current context (e.g., the set of resource representations currently rendered in the Web browser)
-							or to include further resources in the current context, depending on the relation between context and target resource.
-							Clients do so by <i>dereferencing</i> the target URI, that is, fetching the resource representation.
-						</p>
-						<p>
-							A link is comprised of a link context, relation type, target, and optionally target attributes
-							The underlying model for the relationships between resources on the Web (i.e., Links) is defined in [[!RFC8288]].
-							link relation types are either IANA-registered tokens adhering to the ABNF <code>LOALPHA *( LOALPHA / DIGIT / "." / "-" )</code> (e.g., <code>stylesheet</code>) or extension types in form of full URIs [[!RFC8288]].
-						</p>
-						<p>
-							In the Web of Things, Links are used for discovery and to express relations between Things (e.g., hierarchical or functional) and relations to other documents on the Web (e.g., manuals or alternative representations such as CAD models).
-						</p>
-					</section>
-					<section>
-						<h5>Forms</h5>
-						<p>
-							Forms enable clients to perform interactions that go beyond dereferencing a URI such as manipulating resource state at the server.
-							This usually requires more detailed information about the necessary request such as the method and header fields or protocol options.
-							Forms can be seen as a request template, where the server prefilled part of the information according to its own interface and left parts blank to be filled by the client.
-						</p>
-						<p>
-							In the Web of Things, a form provides instructions to perform an operation on a resource and is comprised of:
-							<ul>
-								<li>a form context,</li>
-								<li>a submission target,</li>
-								<li>a form operation type,</li>
-								<li>a request method, and</li>
-								<li>optionally form fields</li>
-							</ul>
-						</p>
-						<p>
-							A form can be viewed as a statement of "To perform a <code>form operation type</code> operation on <code>form context</code>, make a <code>request method</code> request to <code>submission target</code>" where form fields may further describe the expected request.
-						</p>
-						<p>
-							Form contexts and submission targets are both Internationalized Resource Identifiers (IRIs) [[!RFC3987]].
-							However, in the common case, thay will also be URIs [[!RFC3986]], because many protocols (such as HTTP) do not support IRIs.
-						</p>
-						<p>
-							Form context and submission target MAY point to the same resource or different resources, where the submission target resource implements the operation for the context resource.
-						</p>
-						<p>
-							The form operation type identifies the semantics of the operation.
-							Form operation types are denoted similar to link relation types:
-							<ul>
-								<li>Well-known operation types MUST have name following the ABNF <code>LOALPHA *( LOALPHA / DIGIT / "." / "-" )</code> and MUST be compared character by character in a case-insensitive fashion.</li>
-								<li>Extension operation types MAY be chosen by applications and MUST be absolute IRIs [[!RFC3987]] that uniquely identify the type.</li>
-							</ul>
-							The well-known operation types defined by this specification are given in Table TODO.
-						</p>
-						<table class="def">
-							<caption>Well-known FOrm Operation Types</caption>
-							<thead>
-								<tr>
-									<th>Operation Name</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>readproperty</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>writeproperty</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>observeproperty</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>invokeaction</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>subscribeevent</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>unsubscribeevent</td>
-									<td></td>
-								</tr>
-							</tbody>
-						</table>
-						<p>
-							The request method MUST identify one method of the standard set of the protocol identified by the submission target URI scheme.
-						</p>
-						<p>
-							Form fields MAY further specify the request expected by the server for the given operation.
-							Form fields MAY depend on the protocol used for the submission target.
-							Examples are HTTP header fields, CoAP options, the protocol-independent Media Type(s) for the submission payload, or information about the expected response.
-						</p>
-					</section>
-				</section>
+				<p>
+					Examples of Properties are sensor values (read-only), stateful actuators (read-write), configuration parameters (read-write), Thing status (read-only), or computation results (read-only).
+				</p>
 			</section>
 			<section>
-				<h3>Layered System</h3>
-				<p class="ednote" title="TODO">
-					Explain intermediaries/proxies.
+				<h3>Actions</h3>
+				<p>
+					An Action is an Interaction Affordance that allows to invoke a function of the Thing that manipulates internal state that is not directly exposed (cf. Properties) based on internal logic or triggers a process on the Thing.
+				</p>
+				<p> 
+					Examples of Actions are changing multiple Properties simultaneously, changing Properties over time or with a process that shall not be disclosed, or invoking a long-lasting process such as actuator control.
+				</p>
+			</section>
+			<section>
+				<h3>Events</h3>
+				<p>
+					An Event Interaction Affordance describes asynchronous push interactions initiated by the Thing.
+					Here not state, but state transitions (i.e., events) are communicated.
+					Events may betriggered through conditions that are not exposed as Properties.
+				</p>
+				<p>
+					Examples of Events are discrete events such as an alarm or samples of a timeseries that are pushed regularly.
+				</p>
+			</section>
+		</section>
+		<section id="hypermedia-controls">
+			<h2>Hypermedia Controls</h2>
+			<p>
+				Interaction Affordances showing the possible choices to clients must originate from the Thing itself and are shared during discovery or in-band during the interaction with the Thing.
+				This is opposed to out-of-band interface descriptions that need to be preinstalled or hardcoded into clients (e.g., RPC, WS-* Web services, HTTP services with fixed URI-method-response definitions).
+			</p>
+			<p>
+				To suggest how clients may interact with the Thing, WoT makes use of hypermedia controls known from REST.
+				Besides the well-established Web links [[!RFC8288]], WoT defines the concept of Web forms.
+				They allow to adapt to the diverse choices with which clients are faced in the Internet of Things [[?FORMS]].
+			</p>
+			<section id="hypermedia-links">
+				<h3>Links</h3>
+				<p>
+					Web links enable clients to change the current context (e.g., the set of resource representations currently rendered in the Web browser)
+					or to include further resources in the current context, depending on the relation between context and link target.
+					Clients do so by <i>dereferencing</i> the target URI, that is, fetching the resource representation.
+				</p>
+				<p>
+					A link is comprised of a link context, relation type, target, and optionally target attributes
+					The underlying model for the relationships between resources on the Web (i.e., links) is defined in [[!RFC8288]].
+					link relation types are either IANA-registered tokens adhering to the ABNF <code style="white-space: nowrap;">LOALPHA *( LOALPHA / DIGIT / "." / "-" )</code> (e.g., <code>stylesheet</code>) or extension types in form of absolute URIs. [[!RFC8288]]
+				</p>
+				<p>
+					In the Web of Things, links are used for discovery and to express relations between Things (e.g., hierarchical or functional) and relations to other documents on the Web (e.g., manuals or alternative representations such as CAD models).
+				</p>
+			</section>
+			<section id="hypermedia-forms">
+				<h3>Forms</h3>
+				<p>
+					Forms enable clients to perform interactions that go beyond dereferencing a URI such as manipulating resource state at the server.
+					This usually requires more detailed information about the necessary request such as the method and header fields or protocol options.
+					Forms can be seen as a request template, where the server prefilled part of the information according to its own interface and left parts blank to be filled by the client.
+				</p>
+				<p>
+					In the Web of Things, a form provides instructions to perform an operation on a resource and is comprised of:
+					<ul>
+						<li>a form context,</li>
+						<li>a submission target,</li>
+						<li>a form operation type,</li>
+						<li>a request method, and</li>
+						<li>optionally form fields</li>
+					</ul>
+				</p>
+				<p>
+					A form can be viewed as a statement of "To perform a <code>form operation type</code> operation on <code>form context</code>, make a <code>request method</code> request to <code>submission target</code>" where form fields may further describe the required request.
+				</p>
+				<p>
+					Form contexts and submission targets are both Internationalized Resource Identifiers (IRIs) [[!RFC3987]].
+					However, in the common case, thay will also be URIs [[!RFC3986]], because many protocols (such as HTTP) do not support IRIs.
+				</p>
+				<p>
+					Form context and submission target may point to the same resource or different resources, where the submission target resource implements the operation for the context resource.
+				</p>
+				<p>
+					The form operation type identifies the semantics of the operation.
+					Form operation types are denoted similar to link relation types:
+					<ul>
+						<li>
+							<span class="rfc2119-assertion" id="arch-op-wellknown">Well-known operation types MUST have a name that follows the ABNF <code style="white-space: nowrap;">LOALPHA *( LOALPHA / DIGIT / "." / "-" )</code>.</span>
+							<span class="rfc2119-assertion" id="arch-op-wellknown-compare">Names MUST be compared character by character in a case-insensitive fashion.</span>
+							The well-known operation types for the Web of Things defined by this specification are given in the following table.
+						</li>
+						<li>
+							<span class="rfc2119-assertion" id="arch-op-extension">Extension operation types MAY be chosen by applications.</span>
+							<span class="rfc2119-assertion" id="arch-op-extension-iri">Extension operation type names MUST be absolute URIs [[!RFC3986]] that uniquely identify the type.</span>
+						</li>
+					</ul>
+				</p>
+				<table class="def">
+					<caption>Well-known Form Operation Types for the Web of Things</caption>
+					<thead>
+						<tr>
+							<th>Operation Name</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>readproperty</td>
+							<td>Identifies the read operation on Property Affordances to retrieve the corresponding data.</td>
+						</tr>
+						<tr>
+							<td>writeproperty</td>
+							<td>Identifies the write operation on Property Affordances to update the corresponding data.</td>
+						</tr>
+						<tr>
+							<td>observeproperty</td>
+							<td>Identifies the observe operation on Property Affordances to be notified with the new data when the Property was updated.</td>
+						</tr>
+						<tr>
+							<td>invokeaction</td>
+							<td>Identifies the invoke operation on Action Affordances to perform the corresponding action.</td>
+						</tr>
+						<tr>
+							<td>subscribeevent</td>
+							<td>Identifies the subscribe operation on Event Affordances to be notified by the Thing when the event occurs.</td>
+						</tr>
+						<tr>
+							<td>unsubscribeevent</td>
+							<td>Identifies the unsubscribe operation on Event Affordances to stop the corresponding notifications.</td>
+						</tr>
+					</tbody>
+				</table>
+				<p class="ednote">
+					As of this specification, the well-known operation types form a fixed set that results from the WoT interaction model.
+					Other specifications may define further well-known operation types that are valid for their respective document format or form serialization.
+					Updates to this specification may set up an IANA registry in the future to enable extensibility and a more generic Web form model that may be applied beyond WoT specifications.
+				</p>
+				<p>
+					The request method MUST identify one method of the standard set of the protocol identified by the submission target URI scheme.
+				</p>
+				<p>
+					Form fields may further specify the request expected by the server for the given operation.
+					Form fields may depend on the protocol used for the submission target.
+					Examples are HTTP header fields, CoAP options, the protocol-independent Media Type(s) for the submission payload, or information about the expected response.
+				</p>
+			</section>
+		</section>
+		<section>
+			<h2>Protocol Bindings</h2>
+			<p>
+				A Protocol Binding is the mapping rule from an Interaction Affordance to concrete protocol messages, for instance over HTTP [[!RFC7231]], CoAP [[!RFC7252]], or MQTT [[!MQTT]].
+				Protocol Bindings must follow the Uniform Interface constraint of REST [[?REST]].
+			</p>
+			<section>
+				<h3>Hypermedia-driven</h3>
+				<p>
+					<span class="rfc2119-assertion" id="arch-hypermedia">Interaction Affordances MUST use hypermedia controls (see <a href="#hypermedia-controls"></a>) to describe their usage.</span>
+					<span class="rfc2119-assertion" id="arch-hypermedia-origin">The hypermedia controls MUST originate from the Thing providing the corresponding Interaction Affordance.</span>
+					This enables a loose coupling between Things and clients, allowing for an independent lifecycle and evolution.
+					<span class="rfc2119-assertion" id="arch-hypermedia-caching">The hypermedia controls MAY be cached outside the Thing and used for offline processing if correspoding cacheing metadata is available to determine the freshness.</span>
+				</p>
+			</section>
+			<section>
+				<h3>URIs</h3>
+				<p>
+					<span class="rfc2119-assertion" id="arch-uri-scheme">Eligible protocols for the Web of Things MUST have an associated URI scheme that is registered with IANA [[!RFC4395]].</span>
+					Hypermedia controls rely on URIs to identify target resources and submission targets.
+					Thereby, the URI scheme (the first component up to ":") identifies the communication protocol to be used for interaction with the Thing.
+				</p>
+			</section>
+			<section>
+				<h4>Standard Set of Methods</h4>
+				<p>
+					<span class="rfc2119-assertion" id="arch-methods">Eligible protocols for the Web of Things MUST be based on a standard set of methods that can be shared a priori.</span>
+					The standard set of methods makes messages self-descriptive to enable intermediate processing of interactions, for instance by proxies or to translate between Protocol Bindings [[?REST]].
+					Furthermore, it allows clients to have application-agnostic protocol stack, avoiding Thing-specific code or plugins.
+				</p>
+			</section>
+			<section>
+				<h3>Media Types and Schemas</h3>
+				<p>
+					Media Types are IANA-managed labels to identify representation formats, for instance <code>application/json</code> for JSON [[!RFC7159]],
+					<span class="rfc2119-assertion" id="arch-media-type">All data (a.k.a. content) exchanged within Interaction Affordances MUST be identified by a Media Type [[!RFC6838]].</span>
+				</p>
+				<p>
+					Many Media Types only identify a generic serialisation format that does not provide further semantics for its elements (e.g., XML, JSON, CBOR).
+					<span class="rfc2119-assertion" id="arch-schema">Interaction Affordances MAY declare data schemas to provide more detailed semantic metadata for the data exchanged.</span>
 				</p>
 			</section>
 		</section>
