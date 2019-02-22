@@ -238,9 +238,7 @@
 			<dt>
 				<dfn>Action</dfn>
 			</dt>
-			<dd>An Interaction Pattern to invoke procedure on a Thing,
-				potentially a long running physical process (e.g., lowering of
-				window blinds).</dd>
+			<dd>An Interaction Affordance that allows to invoke a function of the Thing, which manipulates internal state that is not directly exposed (cf. Properties) based on internal logic or triggers a process on the Thing.</dd>
 			<dt>
 				<dfn>Application</dfn>
 			</dt>
@@ -293,9 +291,7 @@
 			<dt>
 				<dfn>Event</dfn>
 			</dt>
-			<dd>An Interaction Pattern to subscribe to data pushed by a WoT
-				Server. These can be stand-alone events such as an alarm,
-				change-of-value notifications, or time series of data.</dd>
+			<dd>An Interaction Affordance that describes asynchronous push interactions initiated by the Thing.</dd>
 			<dt>
 				<dfn>Execution Environment</dfn>
 			</dt>
@@ -315,24 +311,13 @@
 				remote WoT Clients. It is defined by the ExposedThing interface of
 				the WoT Scripting API.</dd>
 			<dt>
-				<dfn>Interaction</dfn>
+				<dfn>Interaction Affordance</dfn>
 			</dt>
-			<dd>A functionality exposed by Thing that is defined by the TD
-				Interaction Model.</dd>
+			<dd>A description element of a Thing that show the possible choices to clients, thereby suggesting how clients may interact with the Thing.</dd>
 			<dt>
 				<dfn>Interaction Model</dfn>
 			</dt>
-			<dd>A formal model that syntactically and semantically maps
-				different network-facing interfaces (i.e., WoT Interfaces) to
-				application-facing interfaces (e.g., the Scripting API -- note that
-				these can also be proprietary APIs when not implementing the WoT
-				Runtime). The Thing Description is built around this model and
-				connects it to Link Data vocabularies.</dd>
-			<dt>
-				<dfn>Interaction Pattern</dfn>
-			</dt>
-			<dd>A default solution to describe common Interactions:
-				Property, Action, and Event.</dd>
+			<dd>An intermediate abstraction that formalizes the mapping from application intent to concrete protocol bindings, which are used to interact with Web resources.</dd>
 			<dt>
 				<dfn>IoT platform</dfn>
 			</dt>
@@ -364,14 +349,11 @@
 			<dt>
 				<dfn>Property</dfn>
 			</dt>
-			<dd>An Interaction Pattern to read a specific value of a Thing
-				and optionally to write it.</dd>
+			<dd>An Interaction Affordance that exposes internal state of the Thing that can be directly accessed (read) and optionally manipulated (write).Things can also choose to make Properties observable by pushing the new state after a change.</dd>
 			<dt>
 				<dfn data-lt="WoT Protocol Binding">Protocol Binding</dfn>
 			</dt>
-			<dd>An implementation of the mapping between Interaction in the
-				TD Interaction Model (e.g., Property read) and specific operations
-				of a protocol (e.g., HTTP GET).</dd>
+			<dd>The set of mapping rules from an Interaction Affordance to concrete messages of a specific protocol.</dd>
 			<dt>
 				<dfn>Remote Discovery</dfn>
 			</dt>
@@ -408,14 +390,7 @@
 			<dt>
 				<dfn>Thing</dfn>
 			</dt>
-			<dd>An abstraction of a physical or virtual entity whose
-				metadata and interfaces are described by a WoT Thing Description.
-				This entity can be an existing device augmented with a Thing
-				Description, a logical component of a device that has a software
-				stack that natively provides Thing Descriptions (see Servient), a
-				local hardware component of a Servient, or a logical entity (e.g.,
-				location) that does not directly provide any software stack such as
-				a room or building.</dd>
+			<dd>An abstraction of a physical or a virtual entity whose metadata and interfaces are described by a WoT Thing Description, whereas a virtual entity is the composition of one or more Things.</dd>
 			<dt>
 				<dfn data-lt="WoT Thing Description">Thing Description</dfn>
 			</dt>
@@ -1323,6 +1298,7 @@
 				communicates with a device via a proxy through a ConsumedThing that
 				works according to the TD for the shadow device.</p>
 		</section>
+		
 		<section>
 			<h2>Interaction Model</h2>
 			<p>
@@ -1332,7 +1308,7 @@
 				As a result, typical API descriptions consist of a static mapping from an application intent to a resource address, method, request payload structure, response payload structure, and expected errors.
 			</p>
 			<p>
-				The interaction model of WoT introduces an intermediate abstraction that simplifies the mapping from application intent to concrete protocol bindings, which are used to interact with resources.
+				The interaction model of WoT introduces an intermediate abstraction that formalizes the mapping from application intent to concrete protocol bindings, which are used to interact with Web resources.
 				Instead of generic resources, WoT applications use three types of so-called Interaction Affordances: Properties, Actions, and Events.
 				While constraining Web resources into three different behaviors, the three types are still able to cover virtually all functionality found in IoT devices and services.
 			</p>
@@ -1363,7 +1339,7 @@
 			<section>
 				<h3>Actions</h3>
 				<p>
-					An Action is an Interaction Affordance that allows to invoke a function of the Thing that manipulates internal state that is not directly exposed (cf. Properties) based on internal logic or triggers a process on the Thing.
+					An Action is an Interaction Affordance that allows to invoke a function of the Thing, which manipulates internal state that is not directly exposed (cf. Properties) based on internal logic or triggers a process on the Thing.
 				</p>
 				<p> 
 					Examples of Actions are changing multiple Properties simultaneously, changing Properties over time or with a process that shall not be disclosed, or invoking a long-lasting process such as actuator control.
@@ -1503,8 +1479,8 @@
 		<section>
 			<h2>Protocol Bindings</h2>
 			<p>
-				A Protocol Binding is the mapping rule from an Interaction Affordance to concrete protocol messages, for instance over HTTP [[!RFC7231]], CoAP [[!RFC7252]], or MQTT [[!MQTT]].
-				Protocol Bindings must follow the Uniform Interface constraint of REST [[?REST]].
+				A Protocol Binding is set of mapping rules from an Interaction Affordance to concrete messages of a specific protocol such as HTTP [[!RFC7231]], CoAP [[!RFC7252]], or MQTT [[!MQTT]].
+				The Protocol Bindings follow the Uniform Interface constraint of REST [[?REST]].
 			</p>
 			<section>
 				<h3>Hypermedia-driven</h3>
@@ -1543,6 +1519,7 @@
 				</p>
 			</section>
 		</section>
+	
 		<section>
 			<h2>Building Blocks</h2>
 			<p>This section presents the initial WoT building blocks that
