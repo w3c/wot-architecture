@@ -1644,7 +1644,8 @@
 				<li>
 					<b>Media Type:</b>
 					<a>IoT Platforms</a> often differ in the representation formats (or serializations) used for exchanging data.
-					The Media Type [[!RFC6838]] identifies these formats.
+					The Media Type [[!RFC6838]] identifies these formats, while parameters may specify them further.
+					Forms may contain the Media Type and optional parameters in additional form fields.
 				</li>
 				<li>
 					<b>Transfer Protocol:</b>
@@ -1656,7 +1657,7 @@
 					Transfer protocols may have extension mechanisms that must be known to interact successfully.
 					Such <a>subprotocols</a> cannot be identified from the URI scheme and must be declared explicitly.
 					Examples are the push notification workarounds for HTTP such as long polling [[?RFC6202]] or Server-Sent Events [[!EVENTSOURCE]].
-					Forms (see <a href="sec-hypermedia-forms"></a>) may contain the necessary information to identify the subprotocol in additional form fields.
+					Forms may contain the necessary information to identify the subprotocol in additional form fields.
 				</li>
 				<li>
 					<b>Security:</b>
