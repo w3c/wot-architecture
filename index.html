@@ -104,6 +104,14 @@
 				author : "Andrew Banks, Rahul Gupta",
 				publisher : "OASIS Standard",
 				date : "2014"
+			},
+			"FORMS" : {
+				href : "https://tools.ietf.org/html/draft-hartke-t2trg-coral",
+				title : "The Constrained RESTful Application Language (CoRAL)",
+				author : "Klaus Hartke",
+				publisher : "IETF",
+				status : "Internet-Draft",
+				date : "2019"
 			}
 		}
 	};
@@ -1310,10 +1318,10 @@
 		</section>
 		
 		<section>
+			<h2>Web Thing</h2>
 			<p class="ednote">
 				Should the WoT documents consistently refer to <i>Web Thing</i> instead of just <i>Thing</i>?
 			</p>
-			<h2>Web Thing</h2>
 			<p>
 				A <a>Thing</a> in the Web of Things is the abstraction of a physical or a virtual entity whose metadata and interfaces are described by a WoT Thing Description.
 				A virtual entity is the composition of one or more Things.
@@ -1634,6 +1642,11 @@
 					Forms (see <a href="sec-hypermedia-forms"></a>) may contain the necessary information to apply these tweaks in additional form fields defined for the application-layer protocol used.
 				</li>
 				<li>
+					<b>Media Type:</b>
+					<a>IoT Platforms</a> often differ in the representation formats (or serializations) used for exchanging data.
+					The Media Type [[!RFC6838]] identifies these formats.
+				</li>
+				<li>
 					<b>Transfer Protocol:</b>
 					The Web of Things uses the term <a>transfer protocol</a> for the underlying, standardized application layer protocol without application-specific options or subprotocol mechanisms.
 					The URI scheme of the form submission target contains the necessary information to identify the transfer protocol, e.g., HTTP, CoAP, or WebSockets.
@@ -1644,11 +1657,6 @@
 					Such <a>subprotocols</a> cannot be identified from the URI scheme and must be declared explicitly.
 					Examples are the push notification workarounds for HTTP such as long polling [[?RFC6202]] or Server-Sent Events [[!EVENTSOURCE]].
 					Forms (see <a href="sec-hypermedia-forms"></a>) may contain the necessary information to identify the subprotocol in additional form fields.
-				</li>
-				<li>
-					<b>Media Type:</b>
-					<a>IoT Platforms</a> often differ in the representation formats (or serializations) used for exchanging data.
-					The Media Type [[!RFC6838]] identifies these formats.
 				</li>
 				<li>
 					<b>Security:</b>
@@ -1677,7 +1685,7 @@
 			<p>
 				The current reference implementation of the <a>Scripting API</a> is the <a href="https://github.com/eclipse/thingweb.node-wot">Eclipse ThingWeb (node-wot)</a> project.
 				This API is the only one at the moment that ensures "de facto" portability of WoT scripts.
-				Other, proprietary implementations of the <a>Scripting API</a> exist as well and have been tested against <a>node-wot</a> during Working Group PlugFests.
+				Other, proprietary implementations of the <a>Scripting API</a> exist as well and have been tested against node-wot during Working Group PlugFests.
 			</p>
 		</section>
 		<section>
@@ -1798,7 +1806,7 @@
 				in the runtime environment, that is, they are also accessed through
 				the <a>Client API</a>. The <a>WoT Runtime</a> is also tasked with
 				generating the <a>Thing Description</a> based on the <a>Servient</a>
-				metadata (e.g., location), application metadata (e.g., provided <a>Interactions</a>),
+				metadata (e.g., location), application metadata (e.g., <a>Interaction Affordance</a>),
 				and available <a>Protocol Bindings</a> (e.g., implemented <a>WoT
 					Binding Templates</a>).
 			</p>
@@ -2394,7 +2402,7 @@
 					<code>WoT</code> object
 				</a> , the Application Script retrieves the <a>TD</a> and instantiates a
 				corresponding <a>Consumed Thing</a> . The Application Script can use
-				the metadata of the <a>Thing</a> and inspect what <a>Interactions</a>
+				the metadata of the <a>Thing</a> and inspect what Interactions
 				it provides. The communication metadata within the <a>TD</a> is used
 				by the <a>Servient</a> to select the matching <a>Protocol
 					Binding</a> and to configure its protocol stack. These communication
@@ -2409,11 +2417,11 @@
 				interface), the Application Script can read or write a <a>Property</a>
 				, invoke an <a>Action</a> , or subscribe for <a>Events</a> offered
 				by the <a>Thing</a>. The selected <a>Protocol Binding</a> maps these
-				<a>Interactions</a> to the low-level protocol operations and
+				Interactions to the low-level protocol operations and
 				serializations understood by the remote <a>Thing</a> . When a
 				message is returned by the <a>Thing</a> , the <a>Protocol
-					Binding</a> parses the response and maps it back to the <a>Interaction</a>
-				abstraction. The <a>Interaction</a> output is delivered back to the
+					Binding</a> parses the response and maps it back to the Interaction
+				abstraction. The Interaction output is delivered back to the
 				Application Script by resolving a (JavaScript) Promise.
 			</p>
 			<p class="ednote">Each sub-section shall describe the technical
