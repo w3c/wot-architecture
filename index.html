@@ -1712,15 +1712,15 @@
 				HTTP methods such as PUT and GET are assigned to implement the
 				abstract methods. WoT clients can retrieve and change device
 				settings or device attributes defined in TDs through those abstract
-				methods. In a device servient, TD manager creates an ExposedThing
-				based on TD. TD manager also advertises a TD to other servients, or
-				provides other servients with a TD upon request. A device servient’s
+				methods. In a device servient, WoT Servient Life Cycle Management (S-LCM)
+				creates an ExposedThing based on TD. S-LCM also advertises a TD to other servients, or
+				provides other servients with a TD upon request. A device servient's
 				functions are usually implemented as hardware, and those functions
-				are accessible through its firmware. An ExposedThing’s abstract
+				are accessible through its firmware. An ExposedThing's abstract
 				interface is translated into hardware commands by a device interface
 				adapter. A device interface adapter is a custom software developed
 				for each specific type of hardware. In an application servient, on
-				the other hand, a TD manager obtains TDs by getting one from
+				the other hand, a S-LCM obtains TDs by getting one from
 				location advertised by other servients or requesting other servients
 				of TDs, and creates a ConsumedThing based on the obtained TD.
 				Functions of an application servient are usually implemented as an
@@ -1739,13 +1739,13 @@
 				structure of a proxy servient that connects a device servient and
 				application servient together.</p>
 				<p>A runtime in a proxy servient has both ExposedThing and
-				ConsumedThing functionality. A TD manager, similar to that of an
+				ConsumedThing functionality. A S-LCM, similar to that of an
 				application servient, obtains a TD of a device servient, and creates
-				a ConsumedThing. At the same time, a TD manager creates a shadow of
+				a ConsumedThing. At the same time, a S-LCM creates a shadow of
 				the device as well as a TD for the shadow device where the
 				identifier is a new one and protocol bindings are appropriately
 				described to serve for the application. An ExposedThing is created
-				based on this TD, and a TD manager notifies other servients of the
+				based on this TD, and a S-LCM notifies other servients of the
 				TD.</p>
 				<figure id="simple-conf-application-proxy-device">
 					<img src="images/arch-simple-conf-application-proxy-device.png" />
