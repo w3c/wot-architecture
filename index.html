@@ -322,7 +322,8 @@
 			<dt>
 				<dfn>Interaction Affordance</dfn>
 			</dt>
-			<dd>Metadata of a Thing that shows the possible choices to clients, thereby suggesting how clients may interact with the Thing.</dd>
+			<dd>
+Metadata of a Thing that links to resources providing a representation of (parts of) the Thing's state to show the possible choices to clients, thereby suggesting how clients may interact with the Thing.</dd>
 			<dt>
 				<dfn>Interaction Model</dfn>
 			</dt>
@@ -1360,7 +1361,9 @@
 					The term is also used within the REST architectural style [[?REST]], where affordance means the simultaneous presentation of information and controls through which the user obtains choices and selects actions.
 				</p>
 				<p>
-					The Web of Things defines Interaction Affordances as metadata of a Thing that shows the possible choices to clients, thereby suggesting how clients may interact with the Thing.
+                                        The hypermedia principle that is one of the bedrock foundations of the REST principle demands that any piece of information available on the Web be linked to other pieces of information so that the consumer of the information gets explicit knowledge about how to navigate the Web and control Web applications. The simultaneous presentation to Web clients of information and control, provided in the form of hyperlinks, is a mechanism that affords clients the means to drive Web applications. In this context, an affordance is the description of a hyperlink (e.g. via a link relation type or link target attributes) suggesting clients how to act on the linked resource. Drawn from this hypermedia principle, the Web of Things defines Interaction Affordances as metadata of a Thing that links to resources providing a representation of (parts of) the Thing's state to show the possible choices to clients, thereby suggesting how clients may interact with the Thing.
+				</p>
+				<p>
 					This definition is thereby aligned with HCI and interaction designers, who create physical Things, as well as the REST and microservice community working on Web services in general.
 				</p>
 			</section>
