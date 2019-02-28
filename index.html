@@ -826,12 +826,16 @@
 				<p>
 					The first use case is a local device controlled by user-operated
 					remote controller as depicted in <a href="#smart-home-device"></a>
-					. For example, an electronic appliance such as an air conditioner
-					with Web server functionality might be connected directly to a
-					local home network. A remote controller can access the air
-					conditioner through the local home network directly. In this case,
-					the remote controller can be realized by a browser or native
-					application.
+					. For example, A remote controller can access an electronic appliance through 
+					the local home network directly. In this case, the remote controller can be realized 
+					by a browser or native application.
+				</p>
+				<p>
+					In this pattern, at least one device like the electronic appliance have a server role 
+					that can accept the request from the other devices and respond them, and sometimes start 
+					to initiate mechanical function of it. The another device like the remote controller 
+					have a client role that can issue a message to the other with some requests, like to get 
+					sensor value or to turn it on.
 				</p>
 				<figure id="smart-home-device">
 					<img src="images/wot-use-cases/smart-home-device.png"
@@ -843,10 +847,14 @@
 				<h3>Thing-to-Thing</h3>
 				<p>
 					<a href="#smart-home-t2t"></a> shows an example of direct
-					Thing-to-Thing interaction. The scenario is as follows: when a
-					sensor detects the room temperature is surpassing a set threshold
-					(e.g., 25°C), a control agent issues a "power-on" command to an air
-					conditioner.
+					Thing-to-Thing interaction. The scenario is as follows:
+					a sensor detects the change of the room condition, for example the temperature 
+					surpassing a set threshold, and issues a control message like "turn on" to the 
+					electronic appliance. The sensor unit can issue some trigger messages to other devices.
+				</p>
+				<p>
+					In this case, when two devices that have server roles are connected, at least one device 
+					must have also a client role that issues a message to the other to actuate.
 				</p>
 				<figure id="smart-home-t2t">
 					<img src="images/wot-use-cases/smart-home-t2t.png"
@@ -860,10 +868,14 @@
 					access/control use case. Include changing uplink connectivity.</p>
 				<p>
 					The third use case is a mobile remote controller (e.g., on a
-					smartphone) as shown in <a href="#smart-home-multi"></a>. When at
-					home, the smartphone can use Wi-Fi or Bluetooth/BLE to control an
-					electronic appliance locally, while outside, it can use the
-					cellular network.
+					smartphone) as shown in <a href="#smart-home-multi"></a>. 
+					The remote controller can switch communication media between cellular network 
+					and home network such as Wi-Fi and Bluetooth. The controller choose the home 
+					network when it's at home, and the cellular while outside.
+				</p>
+				<p>
+					In this pattern, the remote controller and the electronic appliance have a client role 
+					and a server role respectively as the same as 3.2.1 device controllers.	
 				</p>
 				<figure id="smart-home-multi">
 					<img src="images/wot-use-cases/smart-home-multi.png"
@@ -871,22 +883,23 @@
 					<figcaption>Multiple Network Interfaces</figcaption>
 				</figure>
 			</section>
-			<section>
-				<h3>Multiple Subsystems</h3>
-				<p class="ednote" title="TODO">Pattern from consumer (ZigBee,
-					Bluetooth, and WiFi in home), industrial (multiple fieldbusses),
-					connected car, and more.</p>
-			</section>
+
 			<section>
 				<h3>Gateways</h3>
 				<p class="ednote" title="TODO">Must rewrite for local
 					box/compute node use case.</p>
 				<p>
 					<a href="#smart-home-gateway"></a> shows a use case based on a
-					Smart Home gateway. It is placed between a home network and the
-					Internet. The gateway manages electronic appliances inside the
-					house and can receive commands from a remote controller over the
-					Internet, e.g., from a smartphone as in the previous use case.
+					Smart Home gateway. A smart home gateway is placed between a home network 
+					and the Internet. The gateway manages electronic appliances inside the house 
+					and can receive commands from a remote controller over the Internet, e.g., 
+					from a smartphone as in the previous use case. It is also is a virtual representation 
+					of a device. The gateways sometimes are called the proxies.
+				</p>
+				<p>
+					In this pattern, the home gateway have both of client and server roles. That is, 
+					it can connect to the electronic appliance with the client role and to the remote 
+					controller with the server role.
 				</p>
 				<figure id="smart-home-gateway">
 					<img src="images/wot-use-cases/smart-home-gateway.png"
@@ -895,63 +908,82 @@
 				</figure>
 			</section>
 			<section>
-				<h3>Cloud Proxies</h3>
-				<p>A cloud proxy is a virtual representation of a device, that
-					resides on a cloud server or edge device. Proxies can model a
-					single device, or they can aggregate multiple devices in a virtual
-					representation of the combined devices. This is often called a
-					digital twin.</p>
+				<h3>Cloud-ready Devices</h3>
+				<p>
+					An electronic appliance can be directly connected to the cloud. The cloud mirrors 
+					the appliance and, acting as a proxy, can receive commands from remote controllers. 
+					Authorized controllers can be located anywhere, as the proxy is globally reachable.
+				</p>
+				<p>
+					In this pattern, the proxy is deployed on the cloud because the electronic appliance 
+					can connect to the cloud directly. the proxy provide a function to aggregate devices 
+					and to expose their interfaces to the remote controllers. The proxy also have both roles.
+				</p>
+				<figure id="smart-home-cloud-ready">
+					<img src="images/wot-use-cases/smart-home-cloud-ready.png"
+						style="width: 500px;" />
+					<figcaption>Cloud-ready Devices</figcaption>
+				</figure>
 
-				<p>Cloud proxies can be realized in different ways:</p>
-				<p class="ednote">The complexity of the use cases here increases
-					too quickly. They will be split up to progressively add and explain
-					each new feature.</p>
 			</section>
 			<section>
-				<h4>Cloud-ready Devices</h4>
+				<h4>Cloud Proxies</h4>
 				<p>
-					<a href="#smart-home-cloud1"></a> shows an example where electronic
-					appliances are connected directly to the cloud. The cloud mirrors
-					the appliances and, acting as a proxy, can receive commands from
-					remote controllers (e.g., a smartphone). Authorized controllers can
-					be located anywhere, as the proxy is globally reachable.
+					A cloud proxy is a virtual representation of a device, that resides on a cloud server
+					or edge device. Proxies can model a single device, or they can aggregate multiple devices 
+					in a virtual representation of the combined devices. This is often called a digital twin.
 				</p>
-				<figure id="smart-home-cloud1">
-					<img src="images/wot-use-cases/smart-home-cloud1a.png"
+				<p>
+					In this pattern, two proxies located in the different places relay between the remote
+					controller as the client role and the electronic appliances as the server. They can often 
+					provide the firewall or NAT traversal capability to connection of the local network and 
+					the Internet.
+				</p>
+				<figure id="smart-home-cloud-proxy">
+					<img src="images/wot-use-cases/smart-home-cloud-proxy.png"
 						style="width: 500px;" />
-					<figcaption>Proxies with Cloud-ready Devices</figcaption>
+					<figcaption>Cloud Proxies</figcaption>
 				</figure>
 			</section>
 			<section>
 				<h3>Legacy Devices</h3>
-				<p class="ednote" title="TODO">Check terminology, here agent.</p>
 				<p>
-					<a href="#smart-home-cloud2"></a> shows an example where legacy
-					electronic appliances cannot directly connect to the cloud. Here, a
-					gateway is needed to relay the connection. The gateway works as:
+					An existing home appliance often needs to convert the interface to the standard
+					interface to connect to the other ecosystems. The gateway has a function that 
+					exposes the standard interface instead of the existing device to the cloud. 
+					If the devices have different interfaces for each, the gateway can behave as 
+					the protocol adapters and expose them as the devices with the standard interfaces.
 				</p>
-				<ul>
-					<li>integrator of a variety of legacy communication protocols
-						both in the physical and logical view</li>
-					<li>firewall toward the Internet</li>
-					<li>privacy filter which substitutes real image and/or speech,
-						and logs data locally</li>
-					<li>local agent in case the Internet connection is interrupted</li>
-					<li>emergency services running locally when fire alarms and
-						similar events occur</li>
-				</ul>
-				<p>The cloud mirrors the gateway with all connected appliances
-					and acts as an agent that manages them in the cloud in conjunction
-					with the gateway. Furthermore, the cloud can receive commands from
-					remote controllers (e.g., a smartphone), which can be located
-					anywhere.</p>
-				<figure id="smart-home-cloud2">
-					<img src="images/wot-use-cases/smart-home-cloud2.png"
+				<p>
+					In this pattern, the gateway act as the server because the existing device can't support 
+					the standard interface and the gateway exposed this instead of the device.
+				</p>
+				<figure id="smart-home-legacy-device">
+					<img src="images/wot-use-cases/smart-home-legacy-device.png"
 						style="width: 500px;" />
 					<figcaption>Proxies with Legacy Devices</figcaption>
 				</figure>
 			</section>
-
+			<section>
+				<h3>Multiple Subsystems</h3>
+				<p>
+					A cloud proxy can aggregate some local proxies that connect domain dependent devices 
+					in each field. The devices can support a variety of interfaces dependent to the fields 
+					such as home, factories and connected cars. Each gateway/proxy can convert their interfaces 
+					into standard interface and the proxy on the cloud exposes the standard interface 
+					to the remote controller.
+				</p>
+				<p>
+					In this pattern, the local gateway or proxy act as the servers instead of the devices 
+					such as electronic appliances, factory facilities and car sensors.
+				</p>
+				<figure id="multiple-subsystem">
+					<img src="images/wot-use-cases/multiple-subsystem.png"
+						style="width: 500px;" />
+					<figcaption>Multiple Subsystem</figcaption>
+				</figure>
+				
+			</section>
 			<section>
 				<h3>Digital Twin</h3>
 				<p>A digital twin is a virtual representation of a device or a
