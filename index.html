@@ -1579,6 +1579,44 @@
 			The Web of Things provides more concrete building blocks that allow to implement the abstract WoT Architecture.
 			As, they are defined in separate documents, this document provides the overview and a summary.
 		</p>
+		
+		<p>
+			<figure id="arch-new-building-blocks">
+				<img src="https://github.com/mryuichi/documents/blob/master/images/arch-new-building-blocks.png" />
+				<figcaption>Building Blocks</figcaption>
+			</figure>
+			As already discussed, consideration of the use cases and the requirements derived therefrom resulted
+			in noting that there are three types of entities. The figure shows the functional architecture that 
+			commonly applies to those three entity types.
+			The “WoT Runtime” functionally realizes operations based on interaction model described in Thing Descriptions,
+			and is the central functionality of a WoT Servient. Based on a Thing Description, the WoT Runtime 
+			instantiates ExposedThing and ConsumedThings in a WoT Servient, and they provide functions used 
+			by applications, proxies and devices to serve as server’s and/or client’s roles. For example, 
+			when a WoT Servient is a device, an ExposedThing gets instantiated based on the device’s Thing Description. 
+			Regarding those operations to manage the lifecycle of an ExposedThing such as retrieving and/or serving 
+			Thing Descriptions, instantiating an ExposedThing based on the Thing Descriptions and terminating 
+			an ExposedThing, the details of the operation vary among different kind of devices. The WoT Servient 
+			Life Cycle Management (LCM) encapsulates those lifecycle operations. It uses internal interfaces to realize 
+			the lifecycle management of ExposedThings. The LCM is an application that runs on top of the WoT Runtime.
+			The WoT Scripting API is one implementation of such an internal interface that includes functionality 
+			to realize the lifecycle management of ExposedThings. When a WoT Servient is an application or a proxy, 
+			the lifecycle management of ConsumedThings are realized in the same manner as that of ExposedThings. 
+			The WoT Runtime provides an interface to operate on the interaction model. This interface is defined 
+			as an abstract interface (the “Abstract Interface” in the figure [TDB?]). For this abstract interface 
+			to be used to interact with other WoT Servients or Web Server/Clients in practice, concrete bindings 
+			to underlying protocols need to be selected and used. It is the REST protocol that is most commonly 
+			used as the WoT interface on the Web. Other protocols such as CoAP, MQTT and WebSocket are also 
+			commonly used, and the protocol bindings enable the use of those protocols to interact with other Web Servients
+			and Web Servers/Clients. Note that Web Servers and Clients are “Web Objects” that can directly interact 
+			with WoT Servients through the WoT interface even though they are not designed on the WoT interaction model. 
+			The overwhelming majority of existing sensors and devices are not implemented as Web Objects. The Device 
+			interface adapter represents the functionality to translate the native interface of those diverse kind of 
+			devices to/from the Abstract interface. As for the interfaces to existing devices, there are standards			
+			in each domain such as Home, Building and Factory. Moreover, the standards adopted by nations and even 
+			regions are often different, adding more complexity. Although in the future a framework for native protocol 
+			translation may be considered that eases the development of such translation work, it is not in the scope
+			of the current WoT charter, therefore, the translation functionality is just called “Device interface adapter”.
+		</p>
 
 		<section id="sec-thing-description">
 			<h2>WoT Thing Description</h2>
