@@ -1002,8 +1002,19 @@
 				simplified to only show the abstract patterns without the
 				implementation and WoT details (inside the gray boxes). Instead,
 				common patterns can be listed at the corresponding places.</p>
-			<figure id="summary-architecture-abstract">
-				<img src="images/architecture-abstract.png" style="width: 100%;" />
+			<p>
+				The possible architecture patterns are described in the previous section. In these patterns, 
+				some entities such as the devices including the existing devices, the controllers, the gateways,
+				and the clouds are located on some places such as inside building, outside buildings, and data 
+				centers. <a href="#usecase-overview"></a> is an integrated overview. To specify the differences of the entities, 
+				each entities shown in the patters is tied to each of functional roles such as a server, a client 
+				and a proxy/gateway. That is, the client corresponds to the application or the controller, 
+				and the server dose to the device. The proxy/gateway is an entity that relays the connection 
+				of the client and the server. The gateway is sometime distinguished with the proxy because of
+				having the protocol converter functionality when it's connected to the existing devices.
+			</p>
+			<figure id="usecase-overview">
+				<img src="images/arch-use-case-overview.png" />
 				<figcaption>Use Case Overview</figcaption>
 			</figure>
 		</section>
