@@ -1615,18 +1615,57 @@ a[href].internalDFN {
 	<section id="sec-building-blocks">
 		<h1>WoT Building Blocks</h1>
 		<p>
-			The Web of Things provides more concrete building blocks that allow to implement the abstract WoT Architecture.
-			As, they are defined in separate documents, this document provides the overview and a summary.
+			The Web of Things provides specific building blocks to allow the implementation of systems that
+                        conform with the abstract WoT Architecture.
+			The specfics of these building blocks are defined in separate documents; 
+                        this document provides an overview and a summary.
 		</p>
-		
-		<p>
 			<figure id="arch-new-building-blocks">
-				<img src="images/arch-new-building-blocks.png" />
-				<figcaption>Building Blocks</figcaption>
+				<img src="images/wot-building-blocks.png" />
+				<figcaption>Architectural Aspects of a Thing</figcaption>
 			</figure>
-			As already discussed, consideration of the use cases and the requirements derived therefrom resulted
-			in noting that there are three types of entities. The figure shows the functional architecture that 
-			commonly applies to those three entity types.
+		<p>
+                        The use cases and the requirements discussed result in an abstract model of 
+                        a Thing that has four architectural aspects of interest: its behavior, its interaction affordances,
+                        the mapping of those affordances to concrete protocols (what we will call the protocol binding),
+                        and its security configuration.  
+                        The behavior aspect includes both lifecycle management (onboarding, updating, decommissioning, etc) but
+                        also the operational behavior of the Thing, which can include both autonomous behavior and support 
+                        for the affordances.  The interaction affordances are an abstract model of the network API in terms
+                        of properties, actions, and events, but without reference to a specific network protocol or
+                        payload encoding.  The protocol binding adds the additional detail needed to map each
+                        affordance to a particular concrete protocol; not that different affordances may be supported
+                        by different protocols.  The security configuration aspect represents the mechanisms used to
+                        control access to the affordances and the management of related public and private metadata.
+                        <a href="#arch-new-building-blocks"></a> shows these aspects diagrammatically.
+                </p>
+			<figure id="arch-thing-with-scripting">
+				<img src="images/wot-thing-with-scripting.png" />
+				<figcaption>Thing with WoT Building Blocks, including the WoT Scripting API</figcaption>
+			</figure>
+			<figure id="arch-thing-without-scripting">
+				<img src="images/wot-thing-without-scripting.png" />
+				<figcaption>Thing with WoT Building Blocks, without the WoT Scripting API</figcaption>
+			</figure>
+                <p>
+                        The WoT Building Blocks support each of these aspects, as shown in  
+                        <a href="#arch-thing-with-scripting"></a>.
+                        The WoT Thing Description contains metadata describing the affordances of the Thing, the mapping
+                        of these affordances onto concrete network protocols, and the public security metadata needed
+                        by authorized users to access the Thing.
+                        For specifying behavior, an optional WoT Scripting
+                        API is provided which supports the definition and consumption of WoT Thing Descriptions.
+                        This is useful when the application behavior is defined in a scripting language.
+                        However, it is also possible, as shown in 
+                        <a href="#arch-thing-without-scripting"></a>, to use the WoT Thing Description with a device that
+                        does not use the WoT Scripting API.  There are two cases where this may be important: pre-existing
+                        "brownfield" devices for which we are providing a Thing Description in order to allow them to 
+                        interoperate with other elements of a WoT system, and devices which need to use a programming
+                        language not supported by the WoT Scripting API.
+                </p>
+
+		<h1>OLD</h1>
+                <p>
 			The "WoT Runtime" functionally realizes operations based on interaction model described in Thing Descriptions,
 			and is the central functionality of a WoT Servient. Based on a Thing Description, the WoT Runtime 
 			instantiates ExposedThing and ConsumedThings in a WoT Servient, and they provide functions used 
