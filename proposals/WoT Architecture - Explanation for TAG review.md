@@ -16,9 +16,8 @@
 
 ## What is being standardized? (MMC)
 
-	- Thing description
-	- Binding templates
-	- scripting
+This document defines a common WoT Architecture and serves as an entry point and
+introduction to several other documents defining WoT Building Blocks.
 
 ### Common Architecture
 Based on the application domains and use cases, and the requirements derived from these,
@@ -148,8 +147,38 @@ WoT is tackling this variety by supporting the encoding of protocol
 binding details in the WoT Thing Description but also
 by publishing an informational document,
 the WoT Binding Templates [[?wot-binding-templates]].
-This document provides a collection of communication metadata blueprints 
+This building block provides a collection of communication metadata blueprints 
 that explain how to encode the metadata needed to interact with different IoT platforms.
 in a WoT Thing Description.
 
 ### WoT Security and Privacy Considerations
+The final building block is security, which is a cross-cutting concern.
+IoT devices and services generally have strong security and privacy requirements,
+and the WoT Architecture deals with this aspect of WoT systems in several ways.
+
+First, the WoT Thing Description itself supports the description of public
+security metadata so that consumers of a WoT Thing know what mechanisms they
+need to support to gain access.  Notice that this follows security best practices
+of documenting security mechanisms and controlling access through specific 
+private information (eg keys) rather than depending on security through obscurity.
+
+Second, the WoT Scripting API is designed to not have direct access to
+private keying information.  This must be provisioned separately.
+
+Third, we have done an analysis of the threats and risks to a WoT system
+and published this analysis in the WoT Security and Privacy Considerations
+document [[?wot-security]].  In addition to a set of risks common to all
+IoT systems, this document also considers the additional risks and opportunities
+afforded by the other WoT Building Blocks, and how to mitigate them.  
+For example, a WoT Thing
+Description gives a potential attacker information that may help in
+identifying and attacking a vulnerable system... but it also helps a 
+system integrator or user manage that information and identify the same
+vulnerable systems and mitigate their vulnerabilities.
+Each normative document also includes a set of security and privacy
+considerations specific to that document.
+
+Fourth, we have developed a WoT Security Testing Plan [[?wot-security-testing-plan]]
+and a set of WoT Best Practices [[?wot-security-best-practices]].
+These informational documents are intended to help developers 
+secure WoT system implementations.
