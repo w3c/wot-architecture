@@ -857,12 +857,16 @@ a[href].internalDFN {
 				<p>
 					The first use case is a local device controlled by user-operated
 					remote controller as depicted in <a href="#smart-home-device"></a>
-					. For example, an electronic appliance such as an air conditioner
-					with Web server functionality might be connected directly to a
-					local home network. A remote controller can access the air
-					conditioner through the local home network directly. In this case,
-					the remote controller can be realized by a browser or native
-					application.
+					. For example, A remote controller can access an electronic appliance through 
+					the local home network directly. In this case, the remote controller can be realized 
+					by a browser or native application.
+				</p>
+				<p>
+					In this pattern, at least one device like the electronic appliance have a server role 
+					that can accept the request from the other devices and respond them, and sometimes start 
+					to initiate mechanical function of it. The another device like the remote controller 
+					have a client role that can issue a message to the other with some requests, like to get 
+					sensor value or to turn it on.
 				</p>
 				<figure id="smart-home-device">
 					<img src="images/wot-use-cases/smart-home-device.png"
@@ -874,10 +878,14 @@ a[href].internalDFN {
 				<h3>Thing-to-Thing</h3>
 				<p>
 					<a href="#smart-home-t2t"></a> shows an example of direct
-					Thing-to-Thing interaction. The scenario is as follows: when a
-					sensor detects the room temperature is surpassing a set threshold
-					(e.g., 25°C), a control agent issues a "power-on" command to an air
-					conditioner.
+					Thing-to-Thing interaction. The scenario is as follows:
+					a sensor detects the change of the room condition, for example the temperature 
+					surpassing a set threshold, and issues a control message like "turn on" to the 
+					electronic appliance. The sensor unit can issue some trigger messages to other devices.
+				</p>
+				<p>
+					In this case, when two devices that have server roles are connected, at least one device 
+					must have also a client role that issues a message to the other to actuate.
 				</p>
 				<figure id="smart-home-t2t">
 					<img src="images/wot-use-cases/smart-home-t2t.png"
@@ -891,10 +899,14 @@ a[href].internalDFN {
 					access/control use case. Include changing uplink connectivity.</p>
 				<p>
 					The third use case is a mobile remote controller (e.g., on a
-					smartphone) as shown in <a href="#smart-home-multi"></a>. When at
-					home, the smartphone can use Wi-Fi or Bluetooth/BLE to control an
-					electronic appliance locally, while outside, it can use the
-					cellular network.
+					smartphone) as shown in <a href="#smart-home-multi"></a>. 
+					The remote controller can switch communication media between cellular network 
+					and home network such as Wi-Fi and Bluetooth. The controller choose the home 
+					network when it's at home, and the cellular while outside.
+				</p>
+				<p>
+					In this pattern, the remote controller and the electronic appliance have a client role 
+					and a server role respectively as the same as 3.2.1 device controllers.	
 				</p>
 				<figure id="smart-home-multi">
 					<img src="images/wot-use-cases/smart-home-multi.png"
@@ -903,21 +915,21 @@ a[href].internalDFN {
 				</figure>
 			</section>
 			<section>
-				<h3>Multiple Subsystems</h3>
-				<p class="ednote" title="TODO">Pattern from consumer (ZigBee,
-					Bluetooth, and WiFi in home), industrial (multiple fieldbusses),
-					connected car, and more.</p>
-			</section>
-			<section>
 				<h3>Gateways</h3>
 				<p class="ednote" title="TODO">Must rewrite for local
 					box/compute node use case.</p>
 				<p>
 					<a href="#smart-home-gateway"></a> shows a use case based on a
-					Smart Home gateway. It is placed between a home network and the
-					Internet. The gateway manages electronic appliances inside the
-					house and can receive commands from a remote controller over the
-					Internet, e.g., from a smartphone as in the previous use case.
+					Smart Home gateway. A smart home gateway is placed between a home network 
+					and the Internet. The gateway manages electronic appliances inside the house 
+					and can receive commands from a remote controller over the Internet, e.g., 
+					from a smartphone as in the previous use case. It is also is a virtual representation 
+					of a device. The gateways sometimes are called the proxies.
+				</p>
+				<p>
+					In this pattern, the home gateway have both of client and server roles. That is, 
+					it can connect to the electronic appliance with the client role and to the remote 
+					controller with the server role.
 				</p>
 				<figure id="smart-home-gateway">
 					<img src="images/wot-use-cases/smart-home-gateway.png"
@@ -927,7 +939,7 @@ a[href].internalDFN {
 			</section>
 			<section>
 				<h3>Digital Twins</h3>
-				<p>A digital twin is a virtual representation of a device or a
+				<p>A digital twin is a virtual representation, i.e. a model of a device or a
 					group of devices that resides on a cloud server or edge device. It
 					can be used to represent real-world devices which may not be
 					continuously online, or to run simulations of new applications and
@@ -943,7 +955,7 @@ a[href].internalDFN {
 				<figure id="digital-twin-multiple-devices">
 					<img src="images/wot-use-cases/digital-twin-multiple-devices.png"
 						style="width: 500px;" />
-					<figcaption>Digital Twin for multiple devices</figcaption>
+					<figcaption>Digital Twin for Multiple Devices</figcaption>
 				</figure>
 
 				<p>Digital twins can be realized in different ways, depending on whether a device
@@ -990,9 +1002,30 @@ a[href].internalDFN {
 					<figure id="smart-home-cloud2">
 						<img src="images/wot-use-cases/smart-home-cloud2.png"
 							style="width: 500px;" />
-						<figcaption>Proxies with Legacy Devices</figcaption>
+						<figcaption>A Digital Twin for a Legacy Device</figcaption>
 					</figure>
 				</section>
+			</section>
+
+			<section>
+				<h3>Multi-Cloud</h3>
+				<p>
+					Typical IoT deployments consist of multiple (thousands) of devices.
+					Without a standardized mechanism, the management of firmware updates 
+					for specific clouds require a lot of effort and hinders wider scale IoT adoption.
+				</p>
+				<p>The primary benefit of a standardized mechanism for describing				
+					devices and device types is the capability of deploying devices to
+					different cloud environments without the need of doing
+					customization at device software / firmware level, i.e. installing
+					cloud specific code to a device. This implies that the solution is
+					flexible enough to describe devices in a way that allows
+					on-boarding and using devices in multiple IoT cloud environments.</p>
+				<p>
+					This drives adoption of Web of Things devices, since it enables easy
+					usage of new devices in an existing deployment, as well as 
+					migration of existing devices from one cloud to the other.
+				</p>
 			</section>
 
 			<section>
@@ -1389,6 +1422,14 @@ a[href].internalDFN {
 				Should the WoT documents consistently refer to <i>Web Thing</i>
 				instead of just <i>Thing</i>?
 			</p>
+			<p>A simple example is a Thing being the digital representation
+				of a physical IoT devices, which also directly provides the
+				interface for interaction. A Thing may also be hosted on a gateway
+				or the cloud, representing a physical entity with which clients
+				cannot communicate diretly (e.g., a legacy device) or not all (e.g.,
+				a room or table). Virtual entities like a room are often represented
+				by a composition of one or more sensors and actuators, each of which
+				may also be available as an individual Thing.</p>
 			<p>
 				A <a>Thing</a> in the Web of Things is the abstraction of a physical
 				or a virtual entity whose metadata and interfaces are described by a
@@ -2020,12 +2061,12 @@ a[href].internalDFN {
 			name (a portmanteau of server and client) is based on this dual role.
 		</p>
 		<p>
-			The previous <a href="#architecture-concept">(TODO: add a
-				reference to Architecture Concept)</a> shows how the WoT building blocks
-			conceptionally relate to each other. When implementing these
-			concepts, a more detailed view is necessary that takes certain
-			technical aspects into account. The detailed architecture of a <a>Servient</a>
-			is shown in <a href="#architecture-implementation"></a>.
+			The chapter <a href="#sec-wot-architecture"></a> shows how the WoT
+			building blocks conceptionally relate to each other. When
+			implementing these concepts, a more detailed view is necessary that
+			takes certain technical aspects into account. The detailed
+			architecture of a <a>Servient</a> is shown in <a
+				href="#architecture-implementation"></a>.
 		</p>
 		<figure id="architecture-implementation">
 			<img src="images/architecture-implementation.png"
