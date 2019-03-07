@@ -126,27 +126,27 @@ a[href].internalDFN {
 </head>
 <body>
 	<section id="abstract">
-		<p class="ednote" title="TODO">The text become too long for an
-			effective abstract. Text is partly copied from introduction. Needs
-			realignment between the two sections.</p>
-		<p>The W3C Web of Things (WoT) is intended to enable
+		<p>The W3C Web of Things (WoT) was created to enable
 			interoperability across IoT Platforms and application domains.
-			Primarily, it provides mechanisms to formally describe IoT interfaces
+		</p>
+		<p>
+			WoT provides mechanisms to formally describe IoT interfaces
 			to allow IoT devices and services to communicate with each other,
 			independent of their underlying implementation, and across multiple
-			networking protocols. Secondarily, it provides a standardized way to
-			define and program IoT behavior.</p>
-		<p>This document describes the abstract architecture for the W3C
-			Web of Things. It is derived from a set of use cases and can be
-			mapped onto a variety of concrete deployment scenarios, several
-			examples of which are given. This document is focused on the
-			standardization scope of W3C WoT, which consists of three initial
-			building blocks that are briefly introduced and their interplay
-			explained.</p>
+			networking protocols. 
+			
+			In addition WoT offers a standardized way to define and program IoT behavior.</p>
+
+		<p>This WoT Architecture document describes the abstract architecture for the W3C
+			Web of Things. It is derived from a set of requirements that were derived
+			from use cases for multiple application domains.
+			The architecture can be mapped onto a variety of concrete deployment scenarios, 
+			several examples of which are given. 
+		</p>
 		<p>
-			An abstract architecture for the Web of Things and a functional
-			architecture for <a>Servients</a> has been introduced. It is based on
-			WoT building blocks, which are described by additional WoT
+			The document is focused on the
+			scope of W3C WoT standardization, which consists of three initial
+			building blocks. These are described by additional WoT
 			specifications:
 		</p>
 		<ul>
@@ -160,35 +160,33 @@ a[href].internalDFN {
 					Scripting API</a> .
 			</li>
 		</ul>
+
 		<p>
-			Of these, the <a>WoT Thing Description</a> is the primary building
-			block, as it describes the network-facing interface of a Thing (<a>WoT
-				Interface</a>), whether or not it uses <a>WoT Binding Templates</a> or
-			the <a>WoT Scripting API</a> internally. The implementation of <a>WoT
-				Binding Templates</a> results in multiple possible Protocol Bindings, so
-			that a <a>Thing</a> can communicate with different <a>IoT
-				Platforms</a> (i.e., IoT ecosystems or standards). When a <a>Thing</a>
-			uses the <a>WoT Scripting API</a> internally, its application logic
-			can be programmed against a standardized contract using JavaScript.
-			This way, it simplifies IoT application development and enables
-			portability across vendors and WoT network components.
+			The <a>WoT Thing Description</a> is the primary building block, 
+			as it describes the network-facing interface of a Thing (<a>WoT
+			Interface</a>).
 		</p>
 		<p>
-			The architecture described here applies well to a wide variety of
-			different use cases. Based on these, we have described serveral
-			scenarios where one or more <a>Servients</a> were used together to
-			overcome, for instance, limitations on the reach of specific
-			communication protocols. These examples are not exhaustive and are
-			only meant to illustrate the applicability and flexibility of the WoT
-			approach.
+			The optional <a>WoT Binding Templates</a> can be used to describe 
+			multiple protocol bindings, sothat a <a>Thing</a> can communicate 
+			with different <a>IoT Platforms</a> (i.e., IoT ecosystems or standards).
 		</p>
+		<p>
+			The optional <a>WoT Scripting API</a> enables to implement the application logic
+			of a Thing using a standardized contract for JavaScript. 
+			This simplifies IoT application development and enables
+			portability across vendors and WoT network components.		
+		</p>
+
 		<p>Other non-normative architectural blocks and conditions
 			underlying the Web of Things are also described in the context of
 			deployment scenarios. In particular, recommendations for security and
 			privacy are included, while the goal is to preserve and support
 			existing device mechanisms and properties. In general, W3C WoT is
 			designed to describe what exists rather than to prescribe what to
-			implement.</p>
+			implement.
+		</p>
+
 	</section>
 	<section id="sotd">
 		<p class="ednote" title="The W3C WoT WG is asking for feedback">
@@ -215,7 +213,7 @@ a[href].internalDFN {
 				href="https://www.w3.org/WoT/IG/">Interest Group</a> in 2015 to
 			identify technological building blocks for Recommendation Track
 			standardization. With the WoT <a href="https://www.w3.org/WoT/WG/">Working
-				Group</a> chartered end of 2016, the first set of WoT building blocks is
+				Group</a> chartered end of 2016, the first set of WoT building blocks has
 			now being standardized:
 		</p>
 		<ul>
@@ -229,6 +227,7 @@ a[href].internalDFN {
 					Scripting API</a>.
 			</li>
 		</ul>
+		
 		<p>This document serves as an umbrella for the W3C WoT draft
 			specifications and defines the basics such as terminology and the
 			underlying abstract architecture of the W3C Web of Things. In
@@ -287,7 +286,7 @@ a[href].internalDFN {
 			<dt>
 				<dfn>to consume a Thing</dfn>
 			</dt>
-			<dd>To read in a Thing Description and create a Consumed Thing
+			<dd>To read a Thing Description and create a Consumed Thing
 				software object for the application in the local runtime
 				environment.</dd>
 			<dt>
