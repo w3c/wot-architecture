@@ -297,6 +297,15 @@ a[href].internalDFN {
 				the Scripting API that represents a remote Thing used by the local
 				application. It is defined by the ConsumedThing interface of the WoT
 				Scripting API.</dd>
+
+			<dt>
+				<dfn>Digital Twin</dfn>
+			</dt>
+			<dd>A digital twin is a virtual representation of a device or a
+				group of devices that resides on a cloud server or edge device. It
+				can be used to represent real-world devices which may not be
+				continuously online, or to run simulations of new applications and
+				services, before they get deployed to the real devices.</dd>
 			<dt>
 				<dfn>Discovery API</dfn>
 			</dt>
@@ -929,100 +938,73 @@ a[href].internalDFN {
 				</figure>
 			</section>
 			<section>
-				<h3>Cloud-ready Devices</h3>
-				<p>
-					An electronic appliance can be directly connected to the cloud. The cloud mirrors 
-					the appliance and, acting as a proxy, can receive commands from remote controllers. 
-					Authorized controllers can be located anywhere, as the proxy is globally reachable.
-				</p>
-				<p>
-					In this pattern, the proxy is deployed on the cloud because the electronic appliance 
-					can connect to the cloud directly. the proxy provide a function to aggregate devices 
-					and to expose their interfaces to the remote controllers. The proxy also have both roles.
-				</p>
-				<figure id="smart-home-cloud-ready">
-					<img src="images/wot-use-cases/smart-home-cloud1a.png"
-						style="width: 500px;" />
-					<figcaption>Cloud-ready Devices</figcaption>
-				</figure>
-			</section>
-			<section>
-				<h4>Cloud Proxies</h4>
-				<p>
-					A cloud proxy is a virtual representation of a device, that resides on a cloud server
-					or edge device. Proxies can model a single device, or they can aggregate multiple devices 
-					in a virtual representation of the combined devices. This is often called a digital twin.
-				</p>
-				<p>
-					In this pattern, two proxies located in the different places relay between the remote
-					controller as the client role and the electronic appliances as the server. They can often 
-					provide the firewall or NAT traversal capability to connection of the local network and 
-					the Internet.
-				</p>
-				<figure id="smart-home-cloud-proxy">
-					<img src="images/wot-use-cases/smart-home-cloud-proxy.png"
-						style="width: 500px;" />
-					<figcaption>Appliance twin for a Cloud-ready Devices</figcaption>
-				</figure>
-			</section>
-			<section>
-				<h3>Legacy Devices</h3>
-				<p class="ednote" title="TODO">Check terminology, here agent.</p>
-				<p>
-					An existing home appliance often needs to convert the interface to the standard
-					interface to connect to the other ecosystems. The gateway has a function that 
-					exposes the standard interface instead of the existing device to the cloud. 
-					If the devices have different interfaces for each, the gateway can behave as 
-					the protocol adapters and expose them as the devices with the standard interfaces.
-				</p>
-				<p>
-					In this pattern, the gateway act as the server because the existing device can't support 
-					the standard interface and the gateway exposed this instead of the device.
-				</p>
-				<figure id="smart-home-legacy-device">
-					<img src="images/wot-use-cases/smart-home-legacy-device.png"
-						style="width: 500px;" />
-					<figcaption>Proxies with Legacy Devices</figcaption>
-				</figure>
-			</section>
-			<section>
-				<h3>Multiple Subsystems</h3>
-				<p>
-					A cloud proxy can aggregate some local proxies that connect domain dependent devices 
-					in each field. The devices can support a variety of interfaces dependent to the fields 
-					such as home, factories and connected cars. Each gateway/proxy can convert their interfaces 
-					into standard interface and the proxy on the cloud exposes the standard interface 
-					to the remote controller.
-				</p>
-				<p>
-					In this pattern, the local gateway or proxy act as the servers instead of the devices 
-					such as electronic appliances, factory facilities and car sensors.
-				</p>
-				<figure id="multiple-subsystem">
-					<img src="images/wot-use-cases/multiple-subsystem.png"
-						style="width: 500px;" />
-					<figcaption>Multiple Subsystem</figcaption>
-				</figure>
-			</section>
-
-			<section>
-				<h3>Digital Twin</h3>
-				<p>A digital twin is a virtual representation of a device or a
-					group of devices. It can be used to represent the real-world
-					devices which may not be continuously online or to run simulations
-					of new applications and services, before they get deployed to the
-					real devices.</p>
+				<h3>Digital Twins</h3>
+				<p>A digital twin is a virtual representation, i.e. a model of a device or a
+					group of devices that resides on a cloud server or edge device. It
+					can be used to represent real-world devices which may not be
+					continuously online, or to run simulations of new applications and
+					services, before they get deployed to the real devices.</p>
 				<figure id="digital-twin">
 					<img src="images/wot-use-cases/digital-twin.png"
 						style="width: 500px;" />
 					<figcaption>Digital Twin</figcaption>
 				</figure>
-				<p></p>
+				<p>Digital twins can model a single device, or they can
+					aggregate multiple devices in a virtual representation of the
+					combined devices.</p>
 				<figure id="digital-twin-multiple-devices">
 					<img src="images/wot-use-cases/digital-twin-multiple-devices.png"
 						style="width: 500px;" />
-					<figcaption>Digital Twin for multiple devices</figcaption>
+					<figcaption>Digital Twin for Multiple Devices</figcaption>
 				</figure>
+
+				<p>Digital twins can be realized in different ways, depending on whether a device
+				is already connected to the cloud, or whether it is connected to a gateway,
+				which itself is connected to the cloud.</p>
+				<section>
+					<h4>Cloud-ready Devices</h4>
+					<p>
+						<a href="#smart-home-cloud1"></a> shows an example where
+						electronic appliances are connected directly to the cloud. The
+						cloud mirrors the appliances and, acting as a digital twin, can
+						receive commands from remote controllers (e.g., a smartphone).
+						Authorized controllers can be located anywhere, as the digital
+						twin is globally reachable.
+					</p>
+					<figure id="smart-home-cloud1">
+						<img src="images/wot-use-cases/smart-home-cloud1a.png"
+							style="width: 500px;" />
+						<figcaption>Appliance twin for a Cloud-ready Devices</figcaption>
+					</figure>
+				</section>
+				<section>
+					<h3>Legacy Devices</h3>
+					<a href="#smart-home-cloud2"></a> shows an example where legacy
+					electronic appliances cannot directly connect to the cloud. Here, a
+					gateway is needed to relay the connection. The gateway works as:
+					</p>
+					<ul>
+						<li>integrator of a variety of legacy communication protocols
+							both in the physical and logical view</li>
+						<li>firewall toward the Internet</li>
+						<li>privacy filter which substitutes real image and/or
+							speech, and logs data locally</li>
+						<li>local agent in case the Internet connection is
+							interrupted</li>
+						<li>emergency services running locally when fire alarms and
+							similar events occur</li>
+					</ul>
+					<p>The cloud mirrors the gateway with all connected appliances
+						and acts as a digital twin that manages them in the cloud in
+						conjunction with the gateway. Furthermore, the cloud can receive
+						commands from remote controllers (e.g., a smartphone), which can
+						be located anywhere.</p>
+					<figure id="smart-home-cloud2">
+						<img src="images/wot-use-cases/smart-home-cloud2.png"
+							style="width: 500px;" />
+						<figcaption>A Digital Twin for a Legacy Device</figcaption>
+					</figure>
+				</section>
 			</section>
 
 			<section>
@@ -1088,7 +1070,7 @@ a[href].internalDFN {
 				That is, the client corresponds to the application or the
 				controller, and the server dose to the device. The proxy/gateway is
 				an entity that relays the connection of the client and the server.
-				The gateway is sometime distinguished with the proxy because of
+				The gateway is sometimes distinguished from the proxy because of
 				having the protocol converter functionality when it's connected to
 				the existing devices.
 			</p>
@@ -1315,27 +1297,27 @@ a[href].internalDFN {
 					network.</p>
 			</section>
 			<section>
-				<h3>Proxying</h3>
-				<p>Proxies need to generate program interfaces internally based
+				<h3>Twins</h3>
+				<p>Twins need to generate program interfaces internally based
 					on device descriptions (i.e. TD), and to represent virtual devices
-					by using those program interfaces. A proxy then has to produce a TD
+					by using those program interfaces. A twin has to produce a TD
 					for the virtual device and make it externally available.</p>
 				<p>Identifiers of virtual devices need to be newly assigned,
 					therefore, are different from the original devices. This makes sure
 					that virtual devices and the original devices are clearly
 					recognized as separate entities. Transport and security mechanisms
 					and settings of the virtual devices can be different from original
-					devices if necessary. Virtual devices are required to have TDs put
-					either inside the proxies or at locations external to the proxies,
-					and to make the TDs accessible so that other components can find
-					and access them.</p>
+					devices if necessary. Virtual devices are required to have TDs provided
+					either directly by the twin or to have them available at external locations.
+					In either case it is required to make the TDs available so that other components can find
+					and use the devices associated with them.</p>
 			</section>
 			<section>
 				<h3>Discovery</h3>
 				<p>For TDs of devices and virtual devices to be accessible from
-					devices, applications and proxies, there needs to be a common way
+					devices, applications and twins, there needs to be a common way
 					to share TDs. Directories can serve this requirement by providing
-					functionalities to allow devices and proxies themselves
+					functionalities to allow devices and twins themselves
 					automatically or the users to manually register the descriptions.</p>
 				<p>Descriptions of the devices and virtual devices need to be
 					searchable by external entities. Directories have to be able to
@@ -1398,6 +1380,11 @@ a[href].internalDFN {
 				exchange messages.</p>
 			<p>Next, in the below configuration, an application and a device
 				connect to each other via a proxy.</p>
+				<section class="ednote">
+				<p>
+				Need to adapt this chapter to use digital twin terminology instead of proxy.
+				</p>
+				</section>
 			<figure id="high-level-application-proxy-device">
 				<img src="images/arch-high-level-application-proxy-device.png" />
 				<figcaption>High level architecture with proxy</figcaption>
@@ -1435,6 +1422,14 @@ a[href].internalDFN {
 				Should the WoT documents consistently refer to <i>Web Thing</i>
 				instead of just <i>Thing</i>?
 			</p>
+			<p>A simple example is a Thing being the digital representation
+				of a physical IoT devices, which also directly provides the
+				interface for interaction. A Thing may also be hosted on a gateway
+				or the cloud, representing a physical entity with which clients
+				cannot communicate diretly (e.g., a legacy device) or not all (e.g.,
+				a room or table). Virtual entities like a room are often represented
+				by a composition of one or more sensors and actuators, each of which
+				may also be available as an individual Thing.</p>
 			<p>
 				A <a>Thing</a> in the Web of Things is the abstraction of a physical
 				or a virtual entity whose metadata and interfaces are described by a
@@ -1998,7 +1993,7 @@ a[href].internalDFN {
 				servients.</p>
 
 			<section>
-				<h3>Inter connection between appcation and device servients</h3>
+				<h3>Inter connection between application and device servients</h3>
 				<p>First, inner structure of a servient is explained based on
 					the structure of an application servient and a device servient. WoT
 					runtime defines an abstract interface that contains methods such as
