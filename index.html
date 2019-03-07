@@ -347,11 +347,21 @@ a[href].internalDFN {
 				that is implemented locally and can be accessed over the network by
 				remote WoT Clients. It is defined by the ExposedThing interface of
 				the WoT Scripting API.</dd>
-			<dt>
+				<dt>
+						<dfn>Hypermedia Controls</dfn>
+					</dt>
+					<dd><i>Hypermedia controls</i> are request templates, 
+						which can be seen as forms to fill in and to send to servers.
+					</dd>
+				<dt>
 				<dfn>Interaction Affordance</dfn>
 			</dt>
-			<dd>Metadata of a Thing that shows the possible choices to
-				clients, thereby suggesting how clients may interact with the Thing.</dd>
+			<dd>Metadata of a Thing exposing hypermedia controls that describe the 
+					possible protocol-level choices to clients, thereby suggesting how 
+					clients may interact with the Thing. 
+					Examples of affordances include, but are not limited to getting and 
+					setting properties, invoking actions, and subscribing to events.	
+					</dd>
 			<dt>
 				<dfn>Interaction Model</dfn>
 			</dt>
@@ -415,7 +425,8 @@ a[href].internalDFN {
 				<dfn data-lt="WoT Protocol Binding">Protocol Binding</dfn>
 			</dt>
 			<dd>The set of mapping rules from an Interaction Affordance to
-				concrete messages of a specific protocol.</dd>
+				concrete messages of a specific protocol. 
+				These rules are encoded into the TD using forms.</dd>
 			<dt>
 				<dt>
 					<dfn>RDF</dfn>
@@ -427,11 +438,6 @@ a[href].internalDFN {
 			<dd>A discovery method which supports lookup of remote Things
 				also beyond network boundaries, for instance by using a directory
 				service. The endpoint of the directory must be supported.</dd>
-			<dt>
-				<dfn data-lt="WoT Scripting API">Scripting API</dfn>
-			</dt>
-			<dd>The application-facing programming interface provided by a
-				Servient; comparable to the Web browser APIs.</dd>
 			<dt>
 				<dfn>Server API</dfn>
 			</dt>
@@ -487,7 +493,7 @@ a[href].internalDFN {
 				<dt>
 					<dfn>WoT</dfn>
 				</dt>
-				<dd>The Web of Things initiatiove in the W3C.</dd>
+				<dd>The Web of Things initiative and family of specifications in the W3C.</dd>
 				<dt>
 				<dfn>WoT Client</dfn>
 			</dt>
@@ -498,8 +504,9 @@ a[href].internalDFN {
 			<dt>
 				<dfn>WoT Interface</dfn>
 			</dt>
-			<dd>The network-facing interface of a Thing as defined by its
-				Thing Description.</dd>
+			<dd>The WoT Interface is the network-facing interface that is described by a TD. 
+				This requires the mapping rules of Protocol Bindings between the abstract 
+				WoT Runtime (Thing level) to a network-facing interface (protocol level).</dd>
 			<dt>
 				<dfn>WoT Object</dfn>
 			</dt>
@@ -517,6 +524,13 @@ a[href].internalDFN {
 				manages their state, and generates the TDs. 
 				It communicates with other components such as the Binding implementations 
 				and application scripts (the WoT Scripting API being one way).</dd>
+				<dt>
+						<dfn data-lt="WoT Scripting API">Scripting API</dfn>
+					</dt>
+					<dd>The application-facing programming interface provided by a
+						Servient; comparable to the Web browser APIs. It is an API 
+						provided to ease the implementation of, 
+						or to extend a WoT Runtime.</dd>
 			<dt>
 				<dfn>WoT Server</dfn>
 			</dt>
