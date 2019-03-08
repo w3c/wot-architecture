@@ -7,12 +7,105 @@
 - work started in ... 
 - Status as of today
 
-## Application domains and use cases (ML)
+## Application domains and use cases
 
-- home
-- industrial
-- connected cars
-- smart cities and buildings
+The Web of Things architecture does not put any limitations on use cases and application domains. Various application domains have been considered to collect common patterns that have to be satisfied by the abstract architecture. 
+
+The following sections are not exhaustive. Rather they serve as illustrations, where connected things can provide additional benefit or enable new scenarios.
+
+### Consumer
+
+In the consumer space there are multiple assets that benefit from being connected. Lights and air conditioners can be turned off based on room occupancy. Window blinds can be closed automatically based on weather conditions and presence.
+Energy and other resource consumption can be optimized based on usage patterns and predictions.
+
+### Industrial
+
+The industrial use cases in this section are applicable to different industry verticals. 
+Due to the nature of overlaps in the application scenarios, different verticals have similar use cases.
+
+#### Manufacturing
+Smart factories require advanced monitoring of the connected manufacturing equipment as well of the manufactured products. They benefit from predictions of machine failures and early discovery of anomalies to prevent costly downtime and maintenance efforts.
+
+Additionally, monitoring of connected manufacturing equipment and the environment at the production facility for the presence of poisonous gases, excessive nois or heat increases the safety of the workers and reduces the risks of incidents or accidents.
+
+Real-time monitoring and KPI calculations of production equipment  helps to detect productivity problems and optimize the supply chain.
+
+#### Transportation & Logistics
+
+Monitoring of vehicles, fuel costs, maintenance needs and assignments helps to optimize the full utilization of the vehicle fleet.
+
+Shipments can be tracked to be en-route to ensure consistent quality and condition of the transported goods. This is especially useful to assert the integrity of the cold-chain from warehouses to refrigerated trucks to delivery.
+
+Centralized monitoring and management of stock in warehouses and yards can prevent out of stock and excessive stock situations.
+
+#### Utilities
+
+Automated reading of residential and C&I (Commercial and Industrial) meters, and billing offers continuous insights into
+resource consumption and potential bottlenecks.
+
+Monitoring the condition and output of distributed renewable energy generation equipment enables optimisation of distributed energy resources.
+
+Monitoring and remote-controlling of distribution equipment
+helps to automate the distribution process.
+
+Continuous monitoring of generation and distribution infrastructure is improving safety of utilities crew in the field.
+
+#### Oil and Gas
+
+Offshore platform monitoring, leakage detection and predicition of pipelines as well as monitoring and controlling the levels in tanks and reservoirs helps to improve the industrial safety for the workforce as well as for the environment.
+
+Automated calculation of a distributed stock through various storage tanks and delivery pipes/trucks allows for improved planning and resource optimisation.
+
+#### Insurance
+
+Proactive Asset Monitoring	of high value assets such as connected structures, fleet vehicles, etc. mitigates the risk of severe damage and high costs due to predictions and early detection of incidents.
+
+Usage based insurance can be offered with usage tracking and customized insurance policies.
+	
+Predictive weather monitoring and re-routing fleet vehicles to covered garages can limit loss due to hail damage, tree damage.
+
+#### Engineering and Construction
+
+Monitoring for industrial safety reduces the risks of security hazards.
+Monitoring of assets at construction site can prevent damage and loss.
+
+### Agriculture
+
+Soil condition monitoring and creating optimal plans for watering, fertilizing as well as monitoring the produce conditions optimize the quality and output of agricultural produce.
+
+### Healthcare
+
+Data collection and analytics of clinical trial data helps to gain insights into new areas.
+
+Remote patient monitoring mitigates the risk of undetected critical situations for elderly people and patients after hospitalization.
+
+### Environment
+
+Environment monitoring typically relies on a lot of distributed sensors that send their measurement data to common gateways, edge devices and cloud services.
+
+Monitoring of air pollution, water pollution and other environmental risk factors such as fine dust, ozone, volatile organic compound, radioactivity, temperature, humidity to detect critical environment conditions can prevent unrecoverable health or environment damages.
+
+### Smart cities
+
+Monitoring of Bridges, Dams, Levees, Canals for material condition, deterioration, vibrations discovers maintenance repair work and prevents significant damage.
+Monitoring of highways and providing appropriate signage ensures optimized traffic flow.
+
+Smart Parking	 is optimizing and tracking the usage and availability of parking spaces and automates billing/reservations.
+
+Smart control of street lights based on presence detection, weather predictions, etc reduced cost.
+
+Garbage containers can be monitored to optimize the waste management and the trash collection route.
+
+### Smart buildings
+
+Monitoring the energy usage throughout the building helps to optimize resource consumption and reduce waste.
+
+Monitoring the equipment in the buildings such as HVAC, Elevators, etc. and fixing problems early improves the satisfaction of occupants.
+
+### Connected Car
+
+Monitoring of operation status, prediction of service needs optimizes maintenance needs and costs.
+Driver safety is enhanced with notifications of an early warning system for critical road and traffic conditions.
 
 ## What is being standardized? (MMC)
 
