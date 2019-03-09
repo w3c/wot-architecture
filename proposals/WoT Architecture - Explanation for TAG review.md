@@ -1,15 +1,177 @@
-# Web of Things Architecture
-## Explanation document for TAG review
+# Web of Things Architecture Explained
+[7.3.2019]
 
-## Background 
+## What’s all this then?
+[A brief, 4-5 paragraph explanation of the feature’s value. Outline what the feature does and how it accomplishes those goals (in prose). If your feature creates UI, this is a great place to show mocks and user flows.]
+
+The W3C Web of Things (WoT) was created to enable
+interoperability across IoT Platforms and application domains using Web technology.
+
+WoT provides mechanisms to formally describe IoT interfaces
+to allow IoT devices and services to communicate with each other,
+independent of their underlying implementation, and across multiple
+networking protocols. 
+In addition WoT offers a standardized way to define and program IoT behavior.
+
+The WoT Architecture Document describes the abstract architecture for the W3C
+Web of Things. It is derived from a set of requirements that were derived
+from use cases for multiple application domains.
+The architecture can be mapped onto a variety of concrete deployment scenarios, 
+several examples of which are given. 
+
+The Architecture Document serves as an umbrella for the W3C WoT 
+specifications and defines the basics such as terminology and the
+underlying abstract architecture of the W3C Web of Things. 
+In particular, the purpose of this document is to provide
+
+- a set of use cases that lead to the W3C WoT Architecture,
+- a set of requirements for WoT implementations,
+- an overview of the WoT building blocks being standardized
+	and their interplay,
+- a guideline to map the abstract architecture to software
+	stacks and hardware components,
+- and security considerations to be aware of when implementing
+	WoT building blocks.
+
+The architecture document is complemented by the building block
+specifications:
+
+- the <a href="https://w3c.github.io/wot-thing-description/">WoT
+					Thing Description</a> ,
+
+- the <a href="https://w3c.github.io/wot-binding-templates/">WoT
+					Binding Templates</a> , and
+- the <a href="https://w3c.github.io/wot-scripting-api/">WoT
+					Scripting API</a> .
+
+Other non-normative architectural blocks and conditions
+underlying the Web of Things are also described in the context of
+deployment scenarios. In particular, recommendations for security and
+privacy are included, while the goal is to preserve and support
+existing device mechanisms and properties. 
+
+## Goals
+[How will the web be better when this feature launches? And who will it help?]
+
+
+## Non-goals
+[You’re not going to solve every problem so enumerate the attractive, nearby problems that are out of scope for this effort. This may include details on the tradeoffs made due to architectural limitations made due to implementation details, and features left out either due to interoperability concerns or other hurdles, and how you plan to improve on this. This can often be the single most important part of your document, so give it careful thought.]
+
+The Web of Things architecture does not put any limitations on use cases and application domains. 
+It complements existing IoT standards and bridges between them.
+In general, W3C WoT is designed to describe what exists rather than to prescribe what to
+implement.
+
+
+## Getting started / example code
+[Provide a terse example for the most common use case of the feature. If you need to show how to get the feature set up (initialized, or using permissions, etc.), include that tool here]
+
+## Application domains
+The following sections are not exhaustive. Rather they serve as illustrations, where connected things using WoT can provide additional benefit or enable new scenarios.
+
+### Consumer
+
+In the consumer space there are multiple assets that benefit from being connected. Lights and air conditioners can be turned off based on room occupancy. Window blinds can be closed automatically based on weather conditions and presence.
+Energy and other resource consumption can be optimized based on usage patterns and predictions.
+
+### Industrial
+
+Smart factories require advanced monitoring of the connected manufacturing equipment as well of the manufactured products. They benefit from predictions of machine failures and early discovery of anomalies to prevent costly downtime and maintenance efforts. Monitoring of connected manufacturing equipment and the environment at the production facility for the presence of poisonous gases, excessive nois or heat increases the safety of the workers and reduces the risks of incidents or accidents.
+
+Monitoring of vehicles, fuel costs, maintenance needs and assignments helps to optimize the full utilization of the vehicle fleet. Shipments can be tracked to be en-route to ensure consistent quality and condition of the transported goods. This is especially useful to assert the integrity of the cold-chain from warehouses to refrigerated trucks to delivery.
+
+Automated reading of residential and C&I (Commercial and Industrial) meters, and billing offers continuous insights into
+resource consumption and potential bottlenecks. Monitoring the condition and output of distributed renewable energy generation equipment enables optimisation of distributed energy resources.
+
+Offshore platform monitoring, leakage detection and predicition of pipelines as well as monitoring and controlling the levels in tanks and reservoirs helps to improve the industrial safety for the workforce as well as for the environment.
+Automated calculation of a distributed stock through various storage tanks and delivery pipes/trucks allows for improved planning and resource optimisation.
+
+### Insurance
+
+Usage based insurance can be offered with usage tracking and customized insurance policies.
+Predictive weather monitoring and re-routing fleet vehicles to covered garages can limit loss due to hail damage, tree damage.
+
+### Agriculture
+
+Soil condition monitoring and creating optimal plans for watering, fertilizing as well as monitoring the produce conditions optimize the quality and output of agricultural produce.
+
+### Healthcare
+
+Data collection and analytics of clinical trial data helps to gain insights into new areas.
+Remote patient monitoring mitigates the risk of undetected critical situations for elderly people and patients after hospitalization.
+
+### Environment
+
+Monitoring of air pollution, water pollution and other environmental risk factors such as fine dust, ozone, volatile organic compound, radioactivity, temperature, humidity to detect critical environment conditions can prevent unrecoverable health or environment damages.
+
+### Smart cities and buildings
+
+Monitoring of Bridges, Dams, Levees, Canals for material condition, deterioration, vibrations discovers maintenance repair work and prevents significant damage. Monitoring of highways and providing appropriate signage ensures optimized traffic flow.
+Smart control of street lights based on presence detection, weather predictions, etc reduced cost.
+Monitoring the energy usage throughout the building helps to optimize resource consumption and reduce waste.
+
+### Connected Car
+
+Monitoring of operation status, prediction of service needs optimizes maintenance needs and costs.
+Driver safety is enhanced with notifications of an early warning system for critical road and traffic conditions.
+
+## Key scenarios
+Next, discuss the key scenarios which move beyond the most canonical example, showing how they are addressed using example code:
+
+Scenario 1
+Outline the scenario, then provide:
+
+[sample code that demonstrates the feature]
+
+Scenario 2
+Outline the scenario, then provide:
+
+[sample code that demonstrates the feature]
+
+…
+
+
+
+## Detailed design discussion
+Tricky design choice #1
+Talk through the tradeoffs in coming to the specific design point you want to make, hopefully:
+
+[illustrated with example code]
+
+…
+
+Tricky design choice N
+…
+
+## Considered alternatives
+[One of the most important things you can do in your design process is to catalog the set of roads not taken. As you iterate on your design, you may find that major choices in your approach or API style will be revisited and enumerating the full space of alternatives can help you apply one (or more) of them later, may serve as a “graveyard” for u-turns in your design, and can give reviewers and potential users confidence that you’ve got your ducks in a row.]
+
+## References & acknowledgements
+[Your design will change and be informed by many people; acknowledge them in an ongoing way! It helps build community and, as we only get by through the contributions of many, is only fair.]
+
 The "Web of Things" (WoT) started as an academic initiative in the
 form of publications and, starting in 2010, a yearly International Workshop on
-	the Web of Things. Its goal is to improve interoperability as well
+the Web of Things. Its goal is to improve interoperability as well
 as usability in the Internet of Things (IoT). With the increasing
 role of IoT services using other web standards in commercial and
 industrial applications, the W3C chartered an Interest Group in 2015 to
 identify technological building blocks for Recommendation Track
-standardization. With the WoT Working Group which started working at the end of 2016, 
+standardization. 
+
+Many thanks to Kazuyuki Ashimura, Dave Raggett, Matthias Kovatsch, 
+Michael McCool, Michael Lagally, Ryuichi Matsukura, Toru Kawaguchi, 
+and Kazuo Kajimoto for their contributions to this document.
+
+Numerous other people have contributed with input, discussions and review feedback,
+and it is impossible to acknowledge them all - Many thanks for all comments and discussions
+that helped to create the WoT architecture.
+
+
+
+-------------
+
+## Background 
+With the WoT Working Group which started working at the end of 2016, 
 the first set of WoT building blocks has now being standardized:
 	
 - the <a href="https://w3c.github.io/wot-thing-description/">WoT
@@ -33,157 +195,7 @@ particular, the purpose of this document is to provide
 - and security considerations to be aware of when implementing
 	WoT building blocks.
 
-## Abstract
 
-The W3C Web of Things (WoT) was created to enable
-interoperability across IoT Platforms and application domains.
-
-WoT provides mechanisms to formally describe IoT interfaces
-to allow IoT devices and services to communicate with each other,
-independent of their underlying implementation, and across multiple
-networking protocols. 
-
-In addition WoT offers a standardized way to define and program IoT behavior.
-
-This WoT Architecture document describes the abstract architecture for the W3C
-Web of Things. It is derived from a set of requirements that were derived
-from use cases for multiple application domains.
-The architecture can be mapped onto a variety of concrete deployment scenarios, 
-several examples of which are given. 
-
-The document is focused on the
-scope of W3C WoT standardization, which consists of three initial
-building blocks. These are described by additional WoT
-specifications:
-
-- the <a href="https://w3c.github.io/wot-thing-description/">WoT
-					Thing Description</a> ,
-
-- the <a href="https://w3c.github.io/wot-binding-templates/">WoT
-					Binding Templates</a> , and
-- the <a href="https://w3c.github.io/wot-scripting-api/">WoT
-					Scripting API</a> .
-
-The *WoT Thing Description* is the primary building block, 
-as it describes the network-facing interface of a Thing (_WoT
-Interface_).
-
-The optional *WoT Binding Templates* can be used to describe 
-multiple protocol bindings, sothat a _Thing_ can communicate 
-with different _IoT Platforms_ (i.e., IoT ecosystems or standards).
-
-The optional *WoT Scripting API* enables to implement the application logic
-of a Thing using a standardized contract for JavaScript. 
-This simplifies IoT application development and enables
-portability across vendors and WoT network components.		
-
-Other non-normative architectural blocks and conditions
-underlying the Web of Things are also described in the context of
-deployment scenarios. In particular, recommendations for security and
-privacy are included, while the goal is to preserve and support
-existing device mechanisms and properties. In general, W3C WoT is
-designed to describe what exists rather than to prescribe what to
-implement.
-
-## Application domains and use cases
-
-The Web of Things architecture does not put any limitations on use cases and application domains. Various application domains have been considered to collect common patterns that have to be satisfied by the abstract architecture. 
-
-The following sections are not exhaustive. Rather they serve as illustrations, where connected things can provide additional benefit or enable new scenarios.
-
-### Consumer
-
-In the consumer space there are multiple assets that benefit from being connected. Lights and air conditioners can be turned off based on room occupancy. Window blinds can be closed automatically based on weather conditions and presence.
-Energy and other resource consumption can be optimized based on usage patterns and predictions.
-
-### Industrial
-
-The industrial use cases in this section are applicable to different industry verticals. 
-Due to the nature of overlaps in the application scenarios, different verticals have similar use cases.
-
-#### Manufacturing
-Smart factories require advanced monitoring of the connected manufacturing equipment as well of the manufactured products. They benefit from predictions of machine failures and early discovery of anomalies to prevent costly downtime and maintenance efforts.
-
-Additionally, monitoring of connected manufacturing equipment and the environment at the production facility for the presence of poisonous gases, excessive nois or heat increases the safety of the workers and reduces the risks of incidents or accidents.
-
-Real-time monitoring and KPI calculations of production equipment  helps to detect productivity problems and optimize the supply chain.
-
-#### Transportation & Logistics
-
-Monitoring of vehicles, fuel costs, maintenance needs and assignments helps to optimize the full utilization of the vehicle fleet.
-
-Shipments can be tracked to be en-route to ensure consistent quality and condition of the transported goods. This is especially useful to assert the integrity of the cold-chain from warehouses to refrigerated trucks to delivery.
-
-Centralized monitoring and management of stock in warehouses and yards can prevent out of stock and excessive stock situations.
-
-#### Utilities
-
-Automated reading of residential and C&I (Commercial and Industrial) meters, and billing offers continuous insights into
-resource consumption and potential bottlenecks.
-
-Monitoring the condition and output of distributed renewable energy generation equipment enables optimisation of distributed energy resources.
-
-Monitoring and remote-controlling of distribution equipment
-helps to automate the distribution process.
-
-Continuous monitoring of generation and distribution infrastructure is improving safety of utilities crew in the field.
-
-#### Oil and Gas
-
-Offshore platform monitoring, leakage detection and predicition of pipelines as well as monitoring and controlling the levels in tanks and reservoirs helps to improve the industrial safety for the workforce as well as for the environment.
-
-Automated calculation of a distributed stock through various storage tanks and delivery pipes/trucks allows for improved planning and resource optimisation.
-
-#### Insurance
-
-Proactive Asset Monitoring	of high value assets such as connected structures, fleet vehicles, etc. mitigates the risk of severe damage and high costs due to predictions and early detection of incidents.
-
-Usage based insurance can be offered with usage tracking and customized insurance policies.
-	
-Predictive weather monitoring and re-routing fleet vehicles to covered garages can limit loss due to hail damage, tree damage.
-
-#### Engineering and Construction
-
-Monitoring for industrial safety reduces the risks of security hazards.
-Monitoring of assets at construction site can prevent damage and loss.
-
-### Agriculture
-
-Soil condition monitoring and creating optimal plans for watering, fertilizing as well as monitoring the produce conditions optimize the quality and output of agricultural produce.
-
-### Healthcare
-
-Data collection and analytics of clinical trial data helps to gain insights into new areas.
-
-Remote patient monitoring mitigates the risk of undetected critical situations for elderly people and patients after hospitalization.
-
-### Environment
-
-Environment monitoring typically relies on a lot of distributed sensors that send their measurement data to common gateways, edge devices and cloud services.
-
-Monitoring of air pollution, water pollution and other environmental risk factors such as fine dust, ozone, volatile organic compound, radioactivity, temperature, humidity to detect critical environment conditions can prevent unrecoverable health or environment damages.
-
-### Smart cities
-
-Monitoring of Bridges, Dams, Levees, Canals for material condition, deterioration, vibrations discovers maintenance repair work and prevents significant damage.
-Monitoring of highways and providing appropriate signage ensures optimized traffic flow.
-
-Smart Parking	 is optimizing and tracking the usage and availability of parking spaces and automates billing/reservations.
-
-Smart control of street lights based on presence detection, weather predictions, etc reduced cost.
-
-Garbage containers can be monitored to optimize the waste management and the trash collection route.
-
-### Smart buildings
-
-Monitoring the energy usage throughout the building helps to optimize resource consumption and reduce waste.
-
-Monitoring the equipment in the buildings such as HVAC, Elevators, etc. and fixing problems early improves the satisfaction of occupants.
-
-### Connected Car
-
-Monitoring of operation status, prediction of service needs optimizes maintenance needs and costs.
-Driver safety is enhanced with notifications of an early warning system for critical road and traffic conditions.
 
 ## What is being standardized?
 
