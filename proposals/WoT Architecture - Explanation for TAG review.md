@@ -1,11 +1,89 @@
 # Web of Things Architecture
 ## Explanation document for TAG review
 
-## Background (MK?)
-- objectives
-- contributors
-- work started in ... 
-- Status as of today
+## Background 
+The "Web of Things" (WoT) started as an academic initiative in the
+form of publications and, starting in 2010, a yearly International Workshop on
+	the Web of Things. Its goal is to improve interoperability as well
+as usability in the Internet of Things (IoT). With the increasing
+role of IoT services using other web standards in commercial and
+industrial applications, the W3C chartered an Interest Group in 2015 to
+identify technological building blocks for Recommendation Track
+standardization. With the WoT Working Group which started working at the end of 2016, 
+the first set of WoT building blocks has now being standardized:
+	
+- the <a href="https://w3c.github.io/wot-thing-description/">WoT
+		Thing Description</a>,
+- the <a href="https://w3c.github.io/wot-binding-templates/">WoT
+		Binding Templates</a>, and
+- the <a href="https://w3c.github.io/wot-scripting-api/">WoT
+		Scripting API</a>.
+		
+The architecture document serves as an umbrella for the W3C WoT 
+specifications and defines the basics such as terminology and the
+underlying abstract architecture of the W3C Web of Things. In
+particular, the purpose of this document is to provide
+
+- a set of use cases that lead to the W3C WoT Architecture,
+- a set of requirements for WoT implementations,
+- an overview of the WoT building blocks being standardized
+	and their interplay,
+- a guideline to map the abstract architecture to software
+	stacks and hardware components,
+- and security considerations to be aware of when implementing
+	WoT building blocks.
+
+## Abstract
+
+The W3C Web of Things (WoT) was created to enable
+interoperability across IoT Platforms and application domains.
+
+WoT provides mechanisms to formally describe IoT interfaces
+to allow IoT devices and services to communicate with each other,
+independent of their underlying implementation, and across multiple
+networking protocols. 
+
+In addition WoT offers a standardized way to define and program IoT behavior.
+
+This WoT Architecture document describes the abstract architecture for the W3C
+Web of Things. It is derived from a set of requirements that were derived
+from use cases for multiple application domains.
+The architecture can be mapped onto a variety of concrete deployment scenarios, 
+several examples of which are given. 
+
+The document is focused on the
+scope of W3C WoT standardization, which consists of three initial
+building blocks. These are described by additional WoT
+specifications:
+
+- the <a href="https://w3c.github.io/wot-thing-description/">WoT
+					Thing Description</a> ,
+
+- the <a href="https://w3c.github.io/wot-binding-templates/">WoT
+					Binding Templates</a> , and
+- the <a href="https://w3c.github.io/wot-scripting-api/">WoT
+					Scripting API</a> .
+
+The *WoT Thing Description* is the primary building block, 
+as it describes the network-facing interface of a Thing (_WoT
+Interface_).
+
+The optional *WoT Binding Templates* can be used to describe 
+multiple protocol bindings, sothat a _Thing_ can communicate 
+with different _IoT Platforms_ (i.e., IoT ecosystems or standards).
+
+The optional *WoT Scripting API* enables to implement the application logic
+of a Thing using a standardized contract for JavaScript. 
+This simplifies IoT application development and enables
+portability across vendors and WoT network components.		
+
+Other non-normative architectural blocks and conditions
+underlying the Web of Things are also described in the context of
+deployment scenarios. In particular, recommendations for security and
+privacy are included, while the goal is to preserve and support
+existing device mechanisms and properties. In general, W3C WoT is
+designed to describe what exists rather than to prescribe what to
+implement.
 
 ## Application domains and use cases
 
@@ -107,7 +185,7 @@ Monitoring the equipment in the buildings such as HVAC, Elevators, etc. and fixi
 Monitoring of operation status, prediction of service needs optimizes maintenance needs and costs.
 Driver safety is enhanced with notifications of an early warning system for critical road and traffic conditions.
 
-## What is being standardized? (MMC)
+## What is being standardized?
 
 This document defines a common WoT Architecture and serves as an entry point and
 introduction to several other documents defining WoT Building Blocks.
