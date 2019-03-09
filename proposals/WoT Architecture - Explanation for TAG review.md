@@ -50,11 +50,11 @@ deployment scenarios. In particular, recommendations for security and
 privacy are included, while the goal is to preserve and support
 existing device mechanisms and properties. 
 
-## Goals
+## Goals (MK)
 [How will the web be better when this feature launches? And who will it help?]
 
 
-## Non-goals
+## Non-goals (MK)
 [You’re not going to solve every problem so enumerate the attractive, nearby problems that are out of scope for this effort. This may include details on the tradeoffs made due to architectural limitations made due to implementation details, and features left out either due to interoperability concerns or other hurdles, and how you plan to improve on this. This can often be the single most important part of your document, so give it careful thought.]
 
 The Web of Things architecture does not put any limitations on use cases and application domains. 
@@ -63,7 +63,7 @@ In general, W3C WoT is designed to describe what exists rather than to prescribe
 implement.
 
 
-## Getting started / example code
+## Getting started / example code (MK)
 [Provide a terse example for the most common use case of the feature. If you need to show how to get the feature set up (initialized, or using permissions, etc.), include that tool here]
 
 ## Application domains
@@ -115,7 +115,7 @@ Monitoring the energy usage throughout the building helps to optimize resource c
 Monitoring of operation status, prediction of service needs optimizes maintenance needs and costs.
 Driver safety is enhanced with notifications of an early warning system for critical road and traffic conditions.
 
-## Key scenarios
+## Key scenarios (MK)
 Next, discuss the key scenarios which move beyond the most canonical example, showing how they are addressed using example code:
 
 Scenario 1
@@ -132,7 +132,7 @@ Outline the scenario, then provide:
 
 
 
-## Detailed design discussion
+## Detailed design discussion (MK)
 [Tricky design choice #1
 Talk through the tradeoffs in coming to the specific design point you want to make, hopefully:
 
@@ -203,8 +203,6 @@ The security configuration aspect represents the mechanisms used to control acce
 management of related public and private metadata.  WoT Things in general also need to maintain their own integrity
 and the integrity and confidentiality of the data they manage, and limit access to interactions to authenticated
 and authorized users, devices, and services.
-
-
 
 ## Considered alternatives
 [One of the most important things you can do in your design process is to catalog the set of roads not taken. As you iterate on your design, you may find that major choices in your approach or API style will be revisited and enumerating the full space of alternatives can help you apply one (or more) of them later, may serve as a “graveyard” for u-turns in your design, and can give reviewers and potential users confidence that you’ve got your ducks in a row.]
