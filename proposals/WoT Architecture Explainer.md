@@ -219,9 +219,10 @@ industrial applications, the W3C chartered an Interest Group in 2015 to
 identify technological building blocks for Recommendation Track
 standardization. 
 
-Many thanks to Kazuyuki Ashimura, Dave Raggett, Matthias Kovatsch, 
+Many thanks to Kazuyuki Ashimura, Matthias Kovatsch, 
 Michael McCool, Michael Lagally, Ryuichi Matsukura, Toru Kawaguchi, 
-and Kazuo Kajimoto for their contributions to this document.
+Kazuaki Nimura, Kunihiko Toumura, Elena Reshetova, Zoltan Kis and Kazuo Kajimoto 
+for their contributions to this document.
 
 Numerous other people have contributed with input, discussions and review feedback,
 and it is impossible to acknowledge them all - Many thanks for all comments and discussions
