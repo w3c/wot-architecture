@@ -132,7 +132,7 @@ Outline the scenario, then provide:
 
 
 
-## Detailed design discussion (MK)
+## Detailed design discussion
 [Tricky design choice #1
 Talk through the tradeoffs in coming to the specific design point you want to make, hopefully:
 
@@ -204,7 +204,7 @@ management of related public and private metadata.  WoT Things in general also n
 and the integrity and confidentiality of the data they manage, and limit access to interactions to authenticated
 and authorized users, devices, and services.
 
-## Considered alternatives
+## Considered alternatives (MK)
 [One of the most important things you can do in your design process is to catalog the set of roads not taken. As you iterate on your design, you may find that major choices in your approach or API style will be revisited and enumerating the full space of alternatives can help you apply one (or more) of them later, may serve as a “graveyard” for u-turns in your design, and can give reviewers and potential users confidence that you’ve got your ducks in a row.]
 
 ## References & acknowledgements
