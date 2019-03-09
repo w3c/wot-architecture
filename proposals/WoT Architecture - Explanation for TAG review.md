@@ -133,7 +133,7 @@ Outline the scenario, then provide:
 
 
 ## Detailed design discussion
-Tricky design choice #1
+[Tricky design choice #1
 Talk through the tradeoffs in coming to the specific design point you want to make, hopefully:
 
 [illustrated with example code]
@@ -141,7 +141,70 @@ Talk through the tradeoffs in coming to the specific design point you want to ma
 …
 
 Tricky design choice N
-…
+…]
+
+This architecture document defines a common WoT Architecture and serves as an entry point and
+introduction to several other documents defining WoT Building Blocks.
+
+### Common Architecture
+Based on the application domains and use cases, and the requirements derived from these,
+a common abstract architecture is defined for WoT systems.  
+This abstract architecture is broad enough to include many existing IoT systems and standards.
+This is intentional since, in order to combat fragmentation,
+the WoT approach is designed to allow the construction of IoT
+systems composed of devices and services supporting many other standards and protocols
+in multiple verticals.
+However, the abstract architecture defines a set of reference patterns and terminology that can
+be used to avoid confusion when describing a WoT system.
+
+The main requirement for an IoT device or service to operate as part of a WoT system 
+(and be considered a "WoT Thing") is that it must be described in a WoT Thing Description.
+The WoT Thing Description provides basic metadata about a WoT Thing, such as a name, description, and 
+id, and also provides all the metadata needed to interact with a device.
+
+### Building Blocks:
+The Web of Things defines specific building blocks to allow the implementation of systems that
+conform with the abstract WoT Architecture.
+The specifics of these building blocks are defined in separate documents; 
+this document provides an overview and a summary.
+
+<img src="../images/wot-building-blocks.png"/>
+
+### Architectural Aspects of a Thing
+
+A WoT Thing has four architectural aspects of interest: 
+its behavior, its interactions, the specific additional information needed by a client to implement each interaction in a concrete protocol 
+(what we will call the protocol binding), and its security configuration.  The security configuration
+includes both public and private (secret) information, as well as mechanisms to support the integrity of the WoT Thing and 
+protect and control access to its interactions.
+
+The behavior aspect of a WoT Thing 
+includes both lifecycle management (onboarding, updating, decommissioning, etc) and
+its operational behavior.
+Operational behaviour includes autonomous activity and computation, network interactions, sensing, and actuation.
+
+The interaction aspect of a Thing can be described in terms
+of generic and abstract operations like setting and getting a property, 
+invoking an action, or subscribing to an event notification, among others.  
+The WoT architecture separates these abstract interactions from their implementation in 
+particular protocols in order to enhance interoperability.
+A single WoT Thing may, in general, use multiple protocols, including but not limited to HTTP, CoAP, and MQTT.
+These protocols are used both to support its own interactions (as a server) and to connect to other WoT Things (as a client).
+Some of these protocols use the client-server model, others support a subscribe-publish model.
+The latter is especially important for low-power devices and use cases requiring timely event notifications.
+Our main constraint on protocols is that they must support the use of URLs to describe access addresses.
+We define the term "servient" for devices or services,
+such as WoT Things, that can be either a server/publisher, a client/subscriber, or both. 
+
+Protocol bindings augment each interaction with the additional detail needed to implement it
+with a particular concrete protocol.
+
+The security configuration aspect represents the mechanisms used to control access to the affordances and the 
+management of related public and private metadata.  WoT Things in general also need to maintain their own integrity
+and the integrity and confidentiality of the data they manage, and limit access to interactions to authenticated
+and authorized users, devices, and services.
+
+
 
 ## Considered alternatives
 [One of the most important things you can do in your design process is to catalog the set of roads not taken. As you iterate on your design, you may find that major choices in your approach or API style will be revisited and enumerating the full space of alternatives can help you apply one (or more) of them later, may serve as a “graveyard” for u-turns in your design, and can give reviewers and potential users confidence that you’ve got your ducks in a row.]
@@ -169,6 +232,7 @@ that helped to create the WoT architecture.
 
 
 -------------
+# OLD content 
 
 ## Background 
 With the WoT Working Group which started working at the end of 2016, 
