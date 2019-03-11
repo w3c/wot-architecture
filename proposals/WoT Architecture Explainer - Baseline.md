@@ -3,7 +3,8 @@
 [//]: # (7.3.2019)
 
 ## What’s all this then?
-[A brief, 4-5 paragraph explanation of the feature’s value. Outline what the feature does and how it accomplishes those goals (in prose). If your feature creates UI, this is a great place to show mocks and user flows.]
+
+[//]: # (A brief, 4-5 paragraph explanation of the feature’s value. Outline what the feature does and how it accomplishes those goals in prose. If your feature creates UI, this is a great place to show mocks and user flows.)
 
 The W3C Web of Things (WoT) was created to enable
 interoperability across IoT Platforms and application domains using Web technology.
@@ -52,20 +53,21 @@ privacy are included, while the goal is to preserve and support
 existing device mechanisms and properties. 
 
 ## Goals (MK)
-[How will the web be better when this feature launches? And who will it help?]
 
+[//]: # (How will the web be better when this feature launches? And who will it help?)
 
 ## Non-goals (MK)
-[You’re not going to solve every problem so enumerate the attractive, nearby problems that are out of scope for this effort. This may include details on the tradeoffs made due to architectural limitations made due to implementation details, and features left out either due to interoperability concerns or other hurdles, and how you plan to improve on this. This can often be the single most important part of your document, so give it careful thought.]
+
+[//]: # (You’re not going to solve every problem so enumerate the attractive, nearby problems that are out of scope for this effort. This may include details on the tradeoffs made due to architectural limitations made due to implementation details, and features left out either due to interoperability concerns or other hurdles, and how you plan to improve on this. This can often be the single most important part of your document, so give it careful thought.)
 
 The Web of Things architecture does not put any limitations on use cases and application domains. 
 It complements existing IoT standards and bridges between them.
 In general, W3C WoT is designed to describe what exists rather than to prescribe what to
 implement.
 
-
 ## Getting started / example code (MK)
-[Provide a terse example for the most common use case of the feature. If you need to show how to get the feature set up (initialized, or using permissions, etc.), include that tool here]
+
+[//]: # (Provide a terse example for the most common use case of the feature. If you need to show how to get the feature set up [initialized, or using permissions, etc.], include that tool here)
 
 ## Application domains
 The following sections are not exhaustive.
@@ -169,15 +171,15 @@ Outline the scenario, then provide:
 
 
 ## Detailed design discussion
-[Tricky design choice #1
-Talk through the tradeoffs in coming to the specific design point you want to make, hopefully:
 
-[illustrated with example code]
+[//]: # (Tricky design choice #1
+Talk through the tradeoffs in coming to the specific design point you want to make, hopefully:)
+
+[//]: # (illustrated with example code)
 
 …
 
-Tricky design choice N
-…]
+[//]: # (Tricky design choice N …)
 
 This architecture document defines a common WoT Architecture and serves as an entry point and
 introduction to several other documents defining WoT Building Blocks.
@@ -257,10 +259,12 @@ and limit access to interactions to authenticated
 and authorized users, devices, and services.
 
 ## Considered alternatives (MK)
-[One of the most important things you can do in your design process is to catalog the set of roads not taken. As you iterate on your design, you may find that major choices in your approach or API style will be revisited and enumerating the full space of alternatives can help you apply one (or more) of them later, may serve as a “graveyard” for u-turns in your design, and can give reviewers and potential users confidence that you’ve got your ducks in a row.]
+
+[//]: # (One of the most important things you can do in your design process is to catalog the set of roads not taken. As you iterate on your design, you may find that major choices in your approach or API style will be revisited and enumerating the full space of alternatives can help you apply one [or more] of them later, may serve as a “graveyard” for u-turns in your design, and can give reviewers and potential users confidence that you’ve got your ducks in a row.)
 
 ## References & acknowledgements
-[Your design will change and be informed by many people; acknowledge them in an ongoing way! It helps build community and, as we only get by through the contributions of many, is only fair.]
+
+[//]: # (Your design will change and be informed by many people; acknowledge them in an ongoing way! It helps build community and, as we only get by through the contributions of many, is only fair.)
 
 The "Web of Things" (WoT) started as an academic initiative in the
 form of publications and, starting in 2010, a yearly International Workshop on
