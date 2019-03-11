@@ -244,6 +244,7 @@ Examples include:
 
 ### Connected Car
 
+Examples include:
 * Monitoring of operation status and prediction of service needs optimizes 
   maintenance needs and costs.
 * Driver safety can be enhanced with notifications from an early warning system 
@@ -303,11 +304,12 @@ The WoT Thing Description provides basic metadata about a WoT Thing,
 such as a name, description, and 
 id, and also provides all the metadata needed to interact with a device.
 
-### Building Blocks:
 The Web of Things defines specific building blocks to allow the implementation of systems that
 conform with the abstract WoT Architecture.
 The specifics of these building blocks are defined in separate documents; 
 this document provides an overview and a summary.
+However, first we will define the abstract architectural aspects that
+these building blocks cover.
 
 ### Architectural Aspects of a Thing
 

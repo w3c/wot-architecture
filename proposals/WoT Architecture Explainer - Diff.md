@@ -309,25 +309,26 @@
 >   to reduce energy costs.
 > * Monitoring the energy usage throughout a building to help optimize resource consumption
 >   and reduce waste.
-156,157c247,252
+156,157c247,253
 < Monitoring of operation status, prediction of service needs optimizes maintenance needs and costs.
 < Driver safety is enhanced with notifications of an early warning system for critical road and traffic conditions.
 ---
+> Examples include:
 > * Monitoring of operation status and prediction of service needs optimizes 
 >   maintenance needs and costs.
 > * Driver safety can be enhanced with notifications from an early warning system 
 >   of critical road and traffic conditions.
 > 
 > ## Key scenarios and common patterns
-159c254
+159c255
 < ## Key scenarios (MK)
 ---
 > [//]: # (McCool: The purpose of this section is the same as the "common patterns" section of the architecture doc, so let's summarize that here; I have modified the title to capture both ideas)
-161c256
+161c257
 < [//]: # (Next, discuss the key scenarios which move beyond the most canonical example,
 ---
 > [//]: # (MK: Next, discuss the key scenarios which move beyond the most canonical example,
-175c270,275
+175c271,276
 < TODO
 ---
 > 
@@ -336,46 +337,51 @@
 > ## Requirements
 > 
 > **TODO.   This is NOT one of the sections in the template but should be included to follow the process we have defined and the progression from use cases through to architectural definitions.**
-186,187c286,287
+186,187c287,288
 < This architecture document defines a common WoT Architecture and serves as an entry point and
 < introduction to several other documents defining WoT Building Blocks.
 ---
 > The architecture document defines a common WoT Architecture and serves as an entry point and
 > introduction to several other documents defining the WoT Building Blocks.
-191c291
+191c292
 < a common abstract architecture is defined for WoT systems.  
 ---
 > a common abstract architecture has been defined for WoT systems.  
-195c295
+195c296
 < systems composed of devices and services supporting many other standards and protocols
 ---
 > systems composed of devices and services supporting many standards, platforms, and protocols
-197c297
+197c298
 < However, the abstract architecture defines a set of reference patterns and terminology that can
 ---
 > The abstract architecture also defines a set of reference patterns and terminology that can
-201,202c301,303
+201,202c302,304
 < (and be considered a "WoT Thing") is that it must be described in a WoT Thing Description.
 < The WoT Thing Description provides basic metadata about a WoT Thing, such as a name, description, and 
 ---
 > (and be considered a "WoT Thing") is that _it must be described in a WoT Thing Description_.
 > The WoT Thing Description provides basic metadata about a WoT Thing, 
 > such as a name, description, and 
-211,212d311
-< <img src="../images/wot-building-blocks.png"/>
+205d306
+< ### Building Blocks:
+210,211c311,312
 < 
-215,216c314,316
+< <img src="../images/wot-building-blocks.png"/>
+---
+> However, first we will define the abstract architectural aspects that
+> these building blocks cover.
+215,216c316,318
 < A WoT Thing has four architectural aspects of interest: 
 < its behavior, its interactions,
 ---
 > A WoT Thing has four architectural aspects of interest:
 > its behavior,
 > its interactions,
-218c318
+218c320
 < to implement each interaction in a concrete protocol 
 ---
 > to implement each interaction in a concrete protocol
-221,224c321,322
+221,224c323,324
 < The security configuration
 < includes both public and private (secret) information,
 < as well as mechanisms to support the integrity of the WoT Thing and 
@@ -383,29 +389,29 @@
 ---
 > 
 > <img src="../images/wot-building-blocks.png"/>
-231c329
+231c331
 < network interactions, sensing, and actuation.
 ---
 > network interactions, sensing, and actuation during "normal operation".
-240c338
+240c340
 < These protocols are used both to support its own interactions
 ---
 > These protocols are used both to support a WoT Thing's own interactions 
-242c340
+242c342
 < Some of these protocols use the client-server model,
 ---
 > Some of these protocols use the request-response model,
-246,247c344,345
+246,247c346,347
 < Our main constraint on protocols is that they must support 
 < the use of URLs to describe access addresses.
 ---
 > 
 > [//]: # (McCool: I took this out, as we won't really need it here...
-250c348
+250c350
 < a client/subscriber, or both. 
 ---
 > a client/subscriber, or both.) 
-262a361,456
+262a363,458
 > ### Building Blocks
 > 
 > [//]: # (McCool: this was previously taken out as being "OLD" but it is
@@ -502,13 +508,13 @@
 > Second, the WoT Scripting API is designed to not have direct access to
 > private keying information.  This must be provisioned separately.
 > 
-266a461,462
+266a463,464
 > **TODO**
 > 
-270a467,468
+270a469,470
 > [//]: # (McCool: Perhaps link to the various github repos as well?)
 > 
-272,274c470,472
+272,274c472,474
 < form of publications and, starting in 2010, a yearly International Workshop on
 < the Web of Things. Its goal is to improve interoperability as well
 < as usability in the Internet of Things (IoT). With the increasing
@@ -516,7 +522,7 @@
 > form of publications and, from 2010 to 2017, 
 > a yearly [International Workshop on the Web of Things](https://webofthings.org/events/wot/). 
 > With the increasing
-278a477,486
+278a479,488
 > The first <a href="https://www.w3.org/2014/02/wot/">W3C Web of Things Workshop</a>
 > was held in 2014 with the goal of further examining the potential for open standards
 > as a basis for IoT services.
