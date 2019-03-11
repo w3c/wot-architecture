@@ -138,7 +138,7 @@ in favor of another section later on common usage patterns, which connect the
 use cases to the abstract architecture)
 
 **TODO.  Maybe Omit?  An example TD _might_ be useful here, but on the other hand,
-that really belows in the TD spec.**
+that really belongs in the TD spec.**
 
 ## Application domains and use cases
 
@@ -330,7 +330,7 @@ network interactions, sensing, and actuation during "normal operation".
 
 The interaction aspect of a Thing can be described in terms
 of generic and abstract operations like setting and getting a property, 
-invoking an action, or subscribing to an event notification, among others.  
+invoking an action, or subscribing to an event notification, among others.
 The WoT architecture separates these abstract interactions from their implementation in 
 particular protocols in order to enhance interoperability.
 A single WoT Thing may, in general, use multiple protocols,
@@ -445,7 +445,7 @@ private information (eg keys) rather than depending on security through obscurit
 Second, the WoT Scripting API is designed to not have direct access to
 private keying information.  This must be provisioned separately.
 
-General security and privacy considerations, testing,
+Third, general security and privacy considerations, testing,
 and best practices are covered in separate publications.
 
 ## Considered alternatives (MK)

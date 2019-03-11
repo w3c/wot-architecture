@@ -158,7 +158,7 @@
 > use cases to the abstract architecture)
 > 
 > **TODO.  Maybe Omit?  An example TD _might_ be useful here, but on the other hand,
-> that really belows in the TD spec.**
+> that really belongs in the TD spec.**
 > 
 > ## Application domains and use cases
 > 
@@ -394,6 +394,10 @@
 < network interactions, sensing, and actuation.
 ---
 > network interactions, sensing, and actuation during "normal operation".
+235c333
+< invoking an action, or subscribing to an event notification, among others.  
+---
+> invoking an action, or subscribing to an event notification, among others.
 240c338
 < These protocols are used both to support its own interactions
 ---
@@ -500,7 +504,7 @@
 > Second, the WoT Scripting API is designed to not have direct access to
 > private keying information.  This must be provisioned separately.
 > 
-> General security and privacy considerations, testing,
+> Third, general security and privacy considerations, testing,
 > and best practices are covered in separate publications.
 > 
 266a455,456
