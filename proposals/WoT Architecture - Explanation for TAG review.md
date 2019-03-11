@@ -334,6 +334,11 @@ and authorized users, devices, and services.
 The WoT Building Blocks support each of these aspects, 
 and are the focus of our standardization effort.
 Each of these building blocks is defined in a separate document.
+The following figure outlines how these building blocks relate to
+each of the architectural aspects discussed above.  Note that
+building block do not map 1:1 to these architectural aspects.
+The WoT Thing Description in particular connects in some
+way to all the aspects.
 
 <img src="../images/wot-thing-with-scripting.png"/>
 
