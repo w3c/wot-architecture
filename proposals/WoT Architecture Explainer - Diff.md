@@ -150,7 +150,7 @@
 > However, we do provide a mechanism to include semantic contexts and
 > annotations and a well-defined process to convert WoT Thing Descriptions to JSON-LD 1.0,
 > and are aligning WoT Thing Descriptions with the work in progress on JSON-LD 1.1.
-74c136,143
+74c136,145
 < TODO
 ---
 > [//]: # (McCool: I'm not convinced we need this section.  I suggest removing it
@@ -161,13 +161,13 @@
 > that really belows in the TD spec.**
 > 
 > ## Application domains and use cases
-76,78c145,150
+> 
+> [//]: # (McCool: This takes a lot of space; perhaps we can condense it somehow, perhaps using bulleted lists rather than subsections?  I also added "use cases" to the title because that's really what the contents of each subsection below are)
+76,78c147,150
 < ## Application domains
 < The following sections are not exhaustive.
 < Rather they serve as illustrations,
 ---
-> [//]: # (McCool: This takes a lot of space; perhaps we can condense it somehow, perhaps using bulleted lists rather than subsections?  I also added "use cases" to the title because that's really what the contents of each subsection below are)
-> 
 > The following sections describe a set of use cases that were used to drive the 
 > requirements for the WoT architecture.
 > These are not exhaustive. 
@@ -364,24 +364,25 @@
 > such as a name, description, and 
 205d306
 < ### Building Blocks:
-210,211c311,312
-< 
-< <img src="../images/wot-building-blocks.png"/>
----
+209a311,312
 > However, first we will define the abstract architectural aspects that
 > these building blocks cover.
-215,216c316,318
+211,216c314,316
+< <img src="../images/wot-building-blocks.png"/>
+< 
+< ### Architectural Aspects of a Thing
+< 
 < A WoT Thing has four architectural aspects of interest: 
 < its behavior, its interactions,
 ---
 > A WoT Thing has four architectural aspects of interest:
 > its behavior,
 > its interactions,
-218c320
+218c318
 < to implement each interaction in a concrete protocol 
 ---
 > to implement each interaction in a concrete protocol
-221,224c323,324
+221,224c321,322
 < The security configuration
 < includes both public and private (secret) information,
 < as well as mechanisms to support the integrity of the WoT Thing and 
@@ -389,37 +390,38 @@
 ---
 > 
 > <img src="../images/wot-building-blocks.png"/>
-231c331
+231c329
 < network interactions, sensing, and actuation.
 ---
 > network interactions, sensing, and actuation during "normal operation".
-240c340
+240c338
 < These protocols are used both to support its own interactions
 ---
 > These protocols are used both to support a WoT Thing's own interactions 
-242c342
+242c340
 < Some of these protocols use the client-server model,
 ---
 > Some of these protocols use the request-response model,
-246,247c346,347
+246,247c344,345
 < Our main constraint on protocols is that they must support 
 < the use of URLs to describe access addresses.
 ---
 > 
 > [//]: # (McCool: I took this out, as we won't really need it here...
-250c350
+250c348
 < a client/subscriber, or both. 
 ---
 > a client/subscriber, or both.) 
-262a363,451
+262a361,450
 > ### Building Blocks
 > 
 > [//]: # (McCool: this was previously taken out as being "OLD" but it is
 > actually important to include since the previous section only talks about
 > architectural aspects to consider, NOT the actual building blocks!)
 > 
-> The WoT Building Blocks support each of these aspects,
-> and are the focus of our standardization effort.
+> The WoT Building Blocks support each of the architectural aspects discussed
+> in the previous section
+> and are the actual focus of our standardization effort.
 > Each of these building blocks is defined in a separate document.
 > The following figure outlines how these building blocks relate to
 > each of the architectural aspects discussed above.  Note that
@@ -466,7 +468,7 @@
 > and is consistent with both browser and server use cases,
 > although the focus is on its use in devices and services.
 > 
-> ### WoT Binding Templates
+> #### WoT Binding Templates
 > The IoT uses a variety of protocols for accessing devices, since no
 > one protocol is appropriate in all contexts. Thus, a central
 > challenge for the Web of Things is to enable interactions with the
@@ -483,7 +485,7 @@
 > that explain how to encode the metadata needed to interact with different IoT platforms.
 > in a WoT Thing Description.
 > 
-> ### WoT Security and Privacy Considerations
+> #### WoT Security and Privacy Considerations
 > The final building block is security, which is a cross-cutting concern.
 > IoT devices and services generally have strong security and privacy requirements,
 > and the WoT Architecture deals with this aspect of WoT systems in several ways.
@@ -501,13 +503,13 @@
 > General security and privacy considerations, testing,
 > and best practices are covered in separate publications.
 > 
-266a456,457
+266a455,456
 > **TODO**
 > 
-270a462,463
+270a461,462
 > [//]: # (McCool: Perhaps link to the various github repos as well?)
 > 
-272,274c465,467
+272,274c464,466
 < form of publications and, starting in 2010, a yearly International Workshop on
 < the Web of Things. Its goal is to improve interoperability as well
 < as usability in the Internet of Things (IoT). With the increasing
@@ -515,7 +517,7 @@
 > form of publications and, from 2010 to 2017, 
 > a yearly [International Workshop on the Web of Things](https://webofthings.org/events/wot/). 
 > With the increasing
-278a472,481
+278a471,480
 > The first <a href="https://www.w3.org/2014/02/wot/">W3C Web of Things Workshop</a>
 > was held in 2014 with the goal of further examining the potential for open standards
 > as a basis for IoT services.

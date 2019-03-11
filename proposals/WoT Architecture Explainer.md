@@ -311,8 +311,6 @@ this document provides an overview and a summary.
 However, first we will define the abstract architectural aspects that
 these building blocks cover.
 
-### Architectural Aspects of a Thing
-
 A WoT Thing has four architectural aspects of interest:
 its behavior,
 its interactions,
@@ -366,8 +364,9 @@ and authorized users, devices, and services.
 actually important to include since the previous section only talks about
 architectural aspects to consider, NOT the actual building blocks!)
 
-The WoT Building Blocks support each of these aspects,
-and are the focus of our standardization effort.
+The WoT Building Blocks support each of the architectural aspects discussed
+in the previous section
+and are the actual focus of our standardization effort.
 Each of these building blocks is defined in a separate document.
 The following figure outlines how these building blocks relate to
 each of the architectural aspects discussed above.  Note that
@@ -414,7 +413,7 @@ The WoT Scripting API specification targets implementation in JavaScript
 and is consistent with both browser and server use cases,
 although the focus is on its use in devices and services.
 
-### WoT Binding Templates
+#### WoT Binding Templates
 The IoT uses a variety of protocols for accessing devices, since no
 one protocol is appropriate in all contexts. Thus, a central
 challenge for the Web of Things is to enable interactions with the
@@ -431,7 +430,7 @@ This building block provides a collection of communication metadata blueprints
 that explain how to encode the metadata needed to interact with different IoT platforms.
 in a WoT Thing Description.
 
-### WoT Security and Privacy Considerations
+#### WoT Security and Privacy Considerations
 The final building block is security, which is a cross-cutting concern.
 IoT devices and services generally have strong security and privacy requirements,
 and the WoT Architecture deals with this aspect of WoT systems in several ways.
