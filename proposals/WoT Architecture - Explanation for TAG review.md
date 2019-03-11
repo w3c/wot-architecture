@@ -276,6 +276,11 @@ conform with the abstract WoT Architecture.
 The specifics of these building blocks are defined in separate documents; 
 this document provides an overview and a summary.
 
+## Common Patterns
+TO DO
+
+## Requirements
+TO DO
 
 ## Architectural Aspects of a Thing
 
@@ -296,9 +301,9 @@ Operational behaviour includes autonomous activity and computation,
 network interactions, sensing, and actuation.
 
 The interaction aspect of a Thing can be described in terms
-of generic and abstract operations like setting and getting a property, 
-invoking an action, or subscribing to an event notification, among others.  
-The WoT architecture separates these abstract interactions from their implementation in 
+of generic and abstract operations like setting and getting a property,
+invoking an action, or subscribing to an event notification, among others.
+The WoT architecture separates these abstract interactions from their implementation in
 particular protocols in order to enhance interoperability.
 A single WoT Thing may, in general, use multiple protocols, i
 including but not limited to HTTP, CoAP, and MQTT.
