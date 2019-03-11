@@ -249,6 +249,12 @@ different verticals have similar use cases.
 * Monitoring of operation status and prediction of service needs optimizes maintenance costs.
 * Driver safety is enhanced with notifications from an early warning system for critical road and traffic conditions.
 
+## Common Patterns
+TO DO
+
+## Requirements
+TO DO
+
 ## What is being standardized?
 
 This document defines a common "WoT Architecture" and serves as an entry point and
@@ -275,12 +281,6 @@ The Web of Things defines specific building blocks to allow the implementation o
 conform with the abstract WoT Architecture.
 The specifics of these building blocks are defined in separate documents; 
 this document provides an overview and a summary.
-
-## Common Patterns
-TO DO
-
-## Requirements
-TO DO
 
 ## Architectural Aspects of a Thing
 
