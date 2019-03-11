@@ -129,25 +129,12 @@ However, we do provide a mechanism to include semantic contexts and
 annotations and a well-defined process to convert WoT Thing Descriptions to JSON-LD 1.0,
 and are aligning WoT Thing Descriptions with the work in progress on JSON-LD 1.1.
 
-## Getting started / example code (MK)
-
-[//]: # (Provide a terse example for the most common use case of the feature. If you need to show how to get the feature set up [initialized, or using permissions, etc.], include that tool here)
-
-[//]: # (McCool: I'm not convinced we need this section.  I suggest removing it
-in favor of another section later on common usage patterns, which connect the 
-use cases to the abstract architecture)
-
-**TODO.  Maybe Omit?  An example TD _might_ be useful here, but on the other hand,
-that really belongs in the TD spec.**
-
 ## Application domains and use cases
-
-[//]: # (McCool: This takes a lot of space; perhaps we can condense it somehow, perhaps using bulleted lists rather than subsections?  I also added "use cases" to the title because that's really what the contents of each subsection below are)
 
 A set of use cases in a set of IoT application domains were used to drive the 
 requirements for the WoT architecture.
 These use cases were chosen to be typical of IoT applications but were not meant
-to be exhaustive.  
+to be exhaustive.
 Rather, the use cases served as concrete illustrations or exemplars,
 where connected things using WoT could provide additional benefit or enable new scenarios.
 
