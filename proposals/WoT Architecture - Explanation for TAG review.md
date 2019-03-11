@@ -145,119 +145,118 @@ Due to the nature of overlaps in the application scenarios,
 different verticals have similar use cases.
 
 #### Manufacturing
-Smart factories require advanced monitoring of the connected manufacturing equipment 
-as well of the manufactured products. 
-They benefit from predictions of machine failures and 
-early discovery of anomalies to prevent costly downtime and maintenance efforts.
+* Smart factories require advanced monitoring of the connected manufacturing equipment 
+  as well of the manufactured products.  They benefit from predictions of machine failures and 
+  early discovery of anomalies to prevent costly downtime and maintenance efforts.
 
-Additionally, 
-monitoring of connected manufacturing equipment and the environment at the production facility 
-for the presence of poisonous gases, 
-excessive noise or heat increases the safety of the workers and reduces the risks of incidents or accidents.
+* Monitoring of connected manufacturing equipment and the environment at the production facility 
+  for the presence of poisonous gases, 
+  excessive noise or heat increases the safety of the workers and reduces the risks of incidents or accidents.
 
-Real-time monitoring and KPI calculations of production equipment 
-helps to detect productivity problems and optimize the supply chain.
+* Real-time monitoring and KPI calculations of production equipment 
+  helps to detect productivity problems and optimize the supply chain.
 
 #### Transportation & Logistics
 
-Monitoring of vehicles, fuel costs, maintenance needs and assignments 
-helps to optimize the full utilization of the vehicle fleet.
+* Monitoring of vehicles, fuel costs, maintenance needs and assignments 
+  helps to optimize the full utilization of the vehicle fleet.
 
-Shipments can be tracked en-route to ensure consistent quality and condition of 
-transported goods. 
-This is especially useful to assert the integrity of the cold-chain from warehouses 
-to refrigerated trucks to delivery.
+* Shipments can be tracked en-route to ensure consistent quality and condition of 
+  transported goods. 
+  This is especially useful to assert the integrity of the cold-chain from warehouses 
+  to refrigerated trucks to delivery.
 
-Centralized monitoring and management of stock in warehouses and yards 
-can prevent out of stock and excessive stock situations.
+* Centralized monitoring and management of stock in warehouses and yards 
+  can prevent out of stock and excessive stock situations.
 
 #### Utilities
 
-Automated reading of residential and C&I (Commercial and Industrial) meters 
-integrated with billing offers continuous insights into
-resource consumption and potential bottlenecks.
+* Automated reading of residential and C&I (Commercial and Industrial) meters 
+  integrated with billing offers continuous insights into
+  resource consumption and potential bottlenecks.
 
-Monitoring the condition and output of distributed renewable energy generation 
-equipment enables optimisation of distributed energy resources.
+* Monitoring the condition and output of distributed renewable energy generation 
+  equipment enables optimisation of distributed energy resources.
 
-Monitoring and remote control of distribution equipment
-helps to automate distribution.
+* Monitoring and remote control of distribution equipment
+  helps to automate distribution.
 
-Continuous monitoring of generation and distribution infrastructure 
-can improve the safety of utilities crews in the field.
+* Continuous monitoring of generation and distribution infrastructure 
+  can improve the safety of utilities crews in the field.
 
 #### Oil and Gas
 
-Offshore platform monitoring, leakage detection and prediction 
-of pipeline usage as well as monitoring and controlling the levels 
-in tanks and reservoirs helps to improve the industrial safety for 
-the workforce as well as avoiding damage to the environment.
+* Offshore platform monitoring, leakage detection and prediction 
+  of pipeline usage as well as monitoring and controlling the levels 
+  in tanks and reservoirs helps to improve the industrial safety for 
+  the workforce as well as avoiding damage to the environment.
 
-Automated calculation of a distributed stock through various storage tanks 
-and delivery pipes/trucks allows for improved planning and resource usage.
+* Automated calculation of a distributed stock through various storage tanks 
+  and delivery pipes/trucks allows for improved planning and resource usage.
 
 #### Insurance
 
-Proactive asset monitoring of high value assets such as connected structures, 
-fleet vehicles, etc. mitigates the risk of severe damage and high costs 
-through use of predictions and early detection of incidents.
+* Proactive asset monitoring of high value assets such as connected structures, 
+  fleet vehicles, etc. mitigates the risk of severe damage and high costs 
+  through use of predictions and early detection of incidents.
 
-Usage based insurance can be offered with usage tracking and customized insurance policies.
+* Usage based insurance can be offered with usage tracking and customized insurance policies.
 	
-Predictive weather monitoring and re-routing of fleet vehicles to covered garages 
-can limit loss due to hail and tree damage in the case of severe weather.
+* Predictive weather monitoring and re-routing of fleet vehicles to covered garages 
+  can limit loss due to hail and tree damage in the case of severe weather.
 
 #### Engineering and Construction
 
-Industrial safety monitoring reduces the risks of security hazards.
-Monitoring of assets at construction sites can prevent damage and loss.
+* Industrial safety monitoring reduces the risks of security hazards.
+* Asset monitoring at construction sites can prevent damage and loss.
 
 ### Agriculture
 
-Soil condition monitoring and creating optimal plans for watering, fertilizing, 
-and monitoring production conditions optimizes the quality and output of agricultural processes.
+* Soil condition monitoring and creation of optimal plans for watering, fertilizing, 
+  and monitoring production conditions optimizes the quality and output of agricultural processes.
 
 ### Healthcare
 
-Data collection and analytics of clinical trial data helps to gain insights into new areas.
+* Data collection and analytics of clinical trial data helps to gain insights into new areas.
 
-Remote patient monitoring mitigates the risk of undetected critical situations 
-for elderly people and patients after hospitalization.
+* Remote patient monitoring mitigates the risk of undetected critical situations 
+  for elderly people and patients after hospitalization.
 
 ### Environment
 
-Environmental monitoring typically relies on a lot of distributed sensors 
-that send their measurement data to common gateways, edge devices and cloud services.
+* Environmental monitoring typically relies on a lot of distributed sensors 
+  that send their measurement data to common gateways, edge devices and cloud services.
 
-Monitoring of air pollution, water pollution and other environmental risk factors 
-such as fine dust, ozone, volatile organic compounds, radioactivity, temperature, and humidity
-can be used to detect critical environment conditions 
-and can help prevent unrecoverable health or environment damages.
+* Monitoring of air pollution, water pollution and other environmental risk factors 
+  such as fine dust, ozone, volatile organic compounds, radioactivity, temperature, and humidity
+  can be used to detect critical environment conditions 
+  and can help prevent unrecoverable health or environment damages.
 
 ### Smart cities
 
-Monitoring of bridges, dams, levees, and canals for material condition, deterioration, and
-vibrations can discover needed maintenance repair work and help prevent significant damage.
-Monitoring of highways and providing appropriate signage ensures optimized traffic flow.
+* Monitoring of bridges, dams, levees, and canals for material condition, deterioration, and
+  vibrations can discover needed maintenance repair work and help prevent significant damage.
 
-Smart parking optimizes and tracks the usage and availability of parking spaces and automates billing/reservations.
+* Monitoring of highways and providing appropriate signage ensures optimized traffic flow.
 
-Smart control of street lights based on presence detection and weather predictions can 
-reduce energy costs.
+* Smart parking optimizes and tracks the usage and availability of parking spaces and automates billing/reservations.
 
-Garbage containers can be monitored to optimize waste management and the trash collection route.
+* Smart control of street lights based on presence detection and weather predictions can 
+  reduce energy costs.
+
+* Garbage containers can be monitored to optimize waste management and the trash collection route.
 
 ### Smart buildings
 
-Monitoring the energy usage throughout buildings helps to optimize resource consumption and reduce waste.
+* Monitoring energy usage throughout buildings helps to optimize resource consumption and reduce waste.
 
-Monitoring equipment in buildings such as HVAC, elevators, lighting etc. 
-and fixing problems early improves the satisfaction of occupants.
+* Monitoring equipment in buildings such as HVAC, elevators, lighting etc. 
+  and fixing problems early improves the satisfaction of occupants.
 
 ### Connected Car
 
-Monitoring of operation status and prediction of service needs optimizes maintenance costs.
-Driver safety is enhanced with notifications from an early warning system for critical road and traffic conditions.
+* Monitoring of operation status and prediction of service needs optimizes maintenance costs.
+* Driver safety is enhanced with notifications from an early warning system for critical road and traffic conditions.
 
 ## What is being standardized?
 
