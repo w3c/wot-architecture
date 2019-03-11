@@ -73,28 +73,19 @@ networking protocols.
 In addition WoT offers a standardized way to define and program IoT behavior.
 
 This WoT Architecture document describes the abstract architecture for the W3C
-Web of Things. It is derived from a set of requirements that were derived
+Web of Things. It is derived from a set of requirements that were in turn derived
 from use cases for multiple application domains.
 The architecture can be mapped onto a variety of concrete deployment scenarios, 
 several examples of which are given. 
 
 The document is focused on the
 scope of W3C WoT standardization, which consists of three initial
-building blocks. These are described by additional WoT
-specifications:
-
-- the <a href="https://w3c.github.io/wot-thing-description/">WoT
-					Thing Description</a> ,
-
-- the <a href="https://w3c.github.io/wot-binding-templates/">WoT
-					Binding Templates</a> , and
-- the <a href="https://w3c.github.io/wot-scripting-api/">WoT
-					Scripting API</a> .
+building blocks: the _WoT Thing Description_,
+the _WoT Binding Templates_, and the _WoT Scripting API_.
 
 The *WoT Thing Description* is the primary building block, 
 as it describes the network-facing interface of a Thing (_WoT
 Interface_).
-
 The informative *WoT Binding Templates* document demonstrates
 how a _WoT Thing Description_ can be used to describe 
 multiple protocol bindings, so that a _Thing_ can communicate 
@@ -108,15 +99,14 @@ portability across vendors and WoT network components.
 Other non-normative architectural blocks and conditions
 underlying the Web of Things are also described in the context of
 deployment scenarios. 
-
 In particular, general recommendations for security and
 privacy are included in the 
-<a href="https://w3c.github.io/wot-security/">WoT Security and Privacy Considerations</a>
-document.
-Discussions of more specfic security and privacy considerations are also given in each document.
-
+_WoT Security and Privacy Considerations_ document.
+Discussions of more specfic security and privacy considerations 
+are also given in each document.
 The goal of WoT security is to preserve and support
-existing device mechanisms and properties. 
+existing device mechanisms and properties, not define new mechanisms. 
+
 In general, W3C WoT is
 designed to describe what exists rather than to prescribe what to
 implement.
