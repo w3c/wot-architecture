@@ -158,7 +158,7 @@ network and device configuration summarized in the following figure, which
 combines many of the patterns.  IoT services are often composed of services 
 running in the cloud and on gateways as well as on the actual devices.
 User interfaces are often exposed via the web or through applications on
-mobile devices such as phones.  
+mobile devices such as phones.
 Devices themselves might be mobile and so their network location should
 not be tied to their physical location nor should such devices be
 treated as being continuously connected; an example is the connected car.
@@ -174,7 +174,47 @@ on pure request/response patterns driven by the client.
 
 ## Requirements
 
-**TODO.   This is NOT one of the sections in the template but should be included to follow the process we have defined and the progression from use cases through to architectural definitions.**
+Functional and technical requirements were then derived from the use case 
+and common pattern analysis.  A summary of these requirements is given below.
+
+Functional requirements include the need to:
+* support the mutual interworking of different ecosystems using web technology, including RESTful APIs;
+* support multiple payload formats including those commonly used on the web;
+* be flexible enough to support a wide variety of physical device configurations;
+* be compatible with as many other IoT standards as possible;
+* be scalable to thousands to millions of devices;
+* provide interoperability between devices from multiple manufacturers;
+* support common functionalities such as reading and writing properties,
+  invoking actions,
+  and subscribing/unsubscribing to event notifications;
+* support a common metadata description mechanism that is both human and
+  machine readable, that supports a mechanism for extensible semantic annotation,
+  and supports internationalization;
+* support the network protocols in use for both the web and IoT devices;
+* support devices with resource restrictions;
+* support services running on gateways or in the cloud;
+* support multilevel and segmented networks (proxies, gateways, NAT traversal, etc);
+* support application orchestration; and
+* support legacy devices, either directly (if IP-based protocols) 
+  or by mapping them through adaptation layers (is using non-IP protocols).
+
+Technical requirements include the need for:
+* proxy services to act as intermediaries between sections of segmented networks;
+* twins to act as intermediaries for devices that may not be continuously online;
+* discovery mechanisms to find devices and recover their metadata;
+* directories to manage metadata and provide it for devices that may not be continuously online;
+* unique identifiers for devices;
+* internationalized human-readable metadata for devices;
+* descriptions of the available interactions of devices;
+* information models for the data payloads and arguments for all interactions;
+* semantic annotations for devices, their interactions, and their data, using extensible
+  domain-specific vocabulary;
+* details of the binding of each interaction to specific network protocols;
+* details of the security mechanisms used for each interaction, including
+  information about the necessary authorization, authentication, and confidentiality measures
+  (this is of course limited to public information; private keying material is NOT 
+  to be included in the metadata); and
+* support for pub/sub protocols in addition to RESTful web protocols.
 
 ## Detailed design discussion
 
