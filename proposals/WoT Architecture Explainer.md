@@ -385,29 +385,19 @@ links to related entities,
 its set of interactions,
 data schemas and protocol bindings for those interactions,
 and public security metadata.
-We define the term Interaction Affordances to refer to the metadata describing the interactions supported by a WoT Thing.
+
+[//]: # (McCool: Do we need this?
+We define the term Interaction Affordances to refer to the metadata describing the interactions supported by a WoT Thing.)
+
 A WoT Thing Description also supports but does not require RDF/JSON-LD
 (<a href="https://www.w3.org/standards/semanticweb/data">Linked Data</a>)
 processing and semantic annotation and inteferencing.
 
-The WoT Thing Description building block fosters interoperability in two ways:
-* First, it enables machine-to-machine communication, as devices can
-  read WoT Thing Descriptions and use the information contained in them
-  to automatically adapt to details of a particular protocol, using
-  the interaction/protocol binding abstraction.
-* Second, it can serve as a common, uniform format for developers to document and
-  retrieve all details necessary to access an IoT service and make use of that service's data.
-To better support semantic interoperability, WoT Thing Descriptions may
-optionally make use of domain-specific vocabularies,
-for which explicit extension points are provided.
-However domain-specific vocabularies themselves are out of scope of the
-current WoT standardization activity.
-
 #### WoT Scripting API
 A second (optional) building block is the WoT Scripting API.
 This building block allows the definition of the behavior
-of a WoT Thing (responses to interactions)
-and the Consumption (parsing and use)
+of a WoT Thing (responses to interactions) as well as
+the Consumption (parsing and use)
 and Exposure (construction and publication) of
 WoT Thing Descriptions.
 This building block is optional because devices can choose to
@@ -455,6 +445,9 @@ private information (eg keys) rather than depending on security through obscurit
 
 Second, the WoT Scripting API is designed to not have direct access to
 private keying information.  This must be provisioned separately.
+
+General security and privacy considerations, testing,
+and best practices are covered in separate publications.
 
 ## Considered alternatives (MK)
 

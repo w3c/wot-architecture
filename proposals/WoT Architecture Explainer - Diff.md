@@ -411,7 +411,7 @@
 < a client/subscriber, or both. 
 ---
 > a client/subscriber, or both.) 
-262a363,458
+262a363,451
 > ### Building Blocks
 > 
 > [//]: # (McCool: this was previously taken out as being "OLD" but it is
@@ -437,29 +437,19 @@
 > its set of interactions,
 > data schemas and protocol bindings for those interactions,
 > and public security metadata.
-> We define the term Interaction Affordances to refer to the metadata describing the interactions supported by a WoT Thing.
+> 
+> [//]: # (McCool: Do we need this?
+> We define the term Interaction Affordances to refer to the metadata describing the interactions supported by a WoT Thing.)
+> 
 > A WoT Thing Description also supports but does not require RDF/JSON-LD
 > (<a href="https://www.w3.org/standards/semanticweb/data">Linked Data</a>)
 > processing and semantic annotation and inteferencing.
 > 
-> The WoT Thing Description building block fosters interoperability in two ways:
-> * First, it enables machine-to-machine communication, as devices can
->   read WoT Thing Descriptions and use the information contained in them
->   to automatically adapt to details of a particular protocol, using
->   the interaction/protocol binding abstraction.
-> * Second, it can serve as a common, uniform format for developers to document and
->   retrieve all details necessary to access an IoT service and make use of that service's data.
-> To better support semantic interoperability, WoT Thing Descriptions may
-> optionally make use of domain-specific vocabularies,
-> for which explicit extension points are provided.
-> However domain-specific vocabularies themselves are out of scope of the
-> current WoT standardization activity.
-> 
 > #### WoT Scripting API
 > A second (optional) building block is the WoT Scripting API.
 > This building block allows the definition of the behavior
-> of a WoT Thing (responses to interactions)
-> and the Consumption (parsing and use)
+> of a WoT Thing (responses to interactions) as well as
+> the Consumption (parsing and use)
 > and Exposure (construction and publication) of
 > WoT Thing Descriptions.
 > This building block is optional because devices can choose to
@@ -508,13 +498,16 @@
 > Second, the WoT Scripting API is designed to not have direct access to
 > private keying information.  This must be provisioned separately.
 > 
-266a463,464
+> General security and privacy considerations, testing,
+> and best practices are covered in separate publications.
+> 
+266a456,457
 > **TODO**
 > 
-270a469,470
+270a462,463
 > [//]: # (McCool: Perhaps link to the various github repos as well?)
 > 
-272,274c472,474
+272,274c465,467
 < form of publications and, starting in 2010, a yearly International Workshop on
 < the Web of Things. Its goal is to improve interoperability as well
 < as usability in the Internet of Things (IoT). With the increasing
@@ -522,7 +515,7 @@
 > form of publications and, from 2010 to 2017, 
 > a yearly [International Workshop on the Web of Things](https://webofthings.org/events/wot/). 
 > With the increasing
-278a479,488
+278a472,481
 > The first <a href="https://www.w3.org/2014/02/wot/">W3C Web of Things Workshop</a>
 > was held in 2014 with the goal of further examining the potential for open standards
 > as a basis for IoT services.
