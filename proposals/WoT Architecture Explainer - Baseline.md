@@ -1,5 +1,6 @@
 # Web of Things Architecture Explained
-[7.3.2019]
+
+[//]: # [7.3.2019]
 
 ## What’s all this then?
 [A brief, 4-5 paragraph explanation of the feature’s value. Outline what the feature does and how it accomplishes those goals (in prose). If your feature creates UI, this is a great place to show mocks and user flows.]
