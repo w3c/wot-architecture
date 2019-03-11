@@ -56,6 +56,8 @@ existing device mechanisms and properties.
 
 [//]: # (How will the web be better when this feature launches? And who will it help?)
 
+TODO
+
 ## Non-goals (MK)
 
 [//]: # (You’re not going to solve every problem so enumerate the attractive, nearby problems that are out of scope for this effort. This may include details on the tradeoffs made due to architectural limitations made due to implementation details, and features left out either due to interoperability concerns or other hurdles, and how you plan to improve on this. This can often be the single most important part of your document, so give it careful thought.)
@@ -68,6 +70,8 @@ implement.
 ## Getting started / example code (MK)
 
 [//]: # (Provide a terse example for the most common use case of the feature. If you need to show how to get the feature set up [initialized, or using permissions, etc.], include that tool here)
+
+TODO
 
 ## Application domains
 The following sections are not exhaustive.
@@ -153,7 +157,8 @@ Monitoring of operation status, prediction of service needs optimizes maintenanc
 Driver safety is enhanced with notifications of an early warning system for critical road and traffic conditions.
 
 ## Key scenarios (MK)
-Next, discuss the key scenarios which move beyond the most canonical example,
+
+[//]: # (Next, discuss the key scenarios which move beyond the most canonical example,
 showing how they are addressed using example code:
 
 Scenario 1
@@ -165,21 +170,21 @@ Scenario 2
 Outline the scenario, then provide:
 
 [sample code that demonstrates the feature]
+)
 
-…
-
-
+TODO
 
 ## Detailed design discussion
 
 [//]: # (Tricky design choice #1
-Talk through the tradeoffs in coming to the specific design point you want to make, hopefully:)
+Talk through the tradeoffs in coming to the specific design point you want to make, hopefully:
 
-[//]: # (illustrated with example code)
+[illustrated with example code]
 
 …
 
-[//]: # (Tricky design choice N …)
+[Tricky design choice N …]
+)
 
 This architecture document defines a common WoT Architecture and serves as an entry point and
 introduction to several other documents defining WoT Building Blocks.
