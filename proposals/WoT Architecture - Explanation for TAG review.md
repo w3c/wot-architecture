@@ -359,8 +359,8 @@ The WoT Thing Description building block fosters interoperability in two ways:
   read WoT Thing Descriptions and use the information contained in them
   to automatically adapt to details of a particular protocol, using
   the interaction/protocol binding abstraction.
-* Second, they can serve as a common, uniform format for developers to document and
-  retrieve all details necessary to access IoT devices and make use of their data.
+* Second, it can serve as a common, uniform format for developers to document and
+  retrieve all details necessary to access an IoT service and make use of that service's data.
 To better support semantic interoperability, WoT Thing Descriptions may 
 optionally make use of domain-specific vocabularies, 
 for which explicit extension points are provided. 
