@@ -104,13 +104,15 @@ and for which the structure of data payloads is consistent with JSON
 (this includes XML and CBOR) and/or can be identified with an IANA media type,
 and where the interaction style is either request/response, pub/sub, or
 a hybrid of these two (eg CRUDN, REST+an event notification mechanism).
-The WoT Protocol Bindings target specifically HTTP, CoAP, and MQTT, and
-security testing and analysis has also focused on these specific protocols.
+The WoT Protocol Bindings targets HTTP, CoAP, and MQTT in particular and
+security testing and analysis has also focused on these specific protocols,
+although in theory the WoT Thing Description could be extended to other
+protocols with the properties noted above.
 
-In general, we do not claim that the WoT can be used to describe the
+In general, however, we do not claim that the WoT can be used to describe the
 interaction affordances for _any_ IoT protocol.  Instead we have identified
 a set of use cases and application domains and have 
-the targetted the protocols and common patterns in those use cases and
+then targeted the protocols and common patterns in those use cases and
 application domains.
 
 Although the WoT supports Linked Data and domain-specific vocabularies
@@ -120,7 +122,8 @@ current WoT standardization activity.
 
 The WoT Thing Description is a JSON document designed to be 
 generated and processed in a lightweight manner (an important requirement
-for IoT devices) with a syntax familiar to web developers. 
+for IoT devices) with uncomplicated JSON usage patterns designed to
+be comfortable and familiar to web developers. 
 A WoT Thing Description is not itself a JSON-LD document.
 However, we do provide a mechanism to include semantic contexts and
 annotations and a well-defined process to convert WoT Thing Descriptions to JSON-LD 1.0,
@@ -134,11 +137,12 @@ and are aligning WoT Thing Descriptions with the work in progress on JSON-LD 1.1
 in favor of another section later on common usage patterns, which connect the 
 use cases to the abstract architecture)
 
-**TODO.  Maybe Omit?**
+**TODO.  Maybe Omit?  An example TD _might_ be useful here, but on the other hand,
+that really belows in the TD spec.**
 
-## Application domains
+## Application domains and use cases
 
-[//]: # (McCool: This takes a lot of space; perhaps we can condense it somehow, perhaps using bulleted lists rather than subsections?)
+[//]: # (McCool: This takes a lot of space; perhaps we can condense it somehow, perhaps using bulleted lists rather than subsections?  I also added "use cases" to the title because that's really what the contents of each subsection below are)
 
 The following sections describe a set of use cases that were used to drive the 
 requirements for the WoT architecture.
@@ -156,10 +160,11 @@ Typical examples include:
 
 ### Industrial
 
-Smart factories require advanced monitoring of the connected manufacturing equipment 
-as well of the manufactured products.
-They benefit from predictions of machine failures and early discovery of anomalies
-to prevent costly downtime and maintenance efforts.
+Examples from smart factories include:
+* Advanced monitoring of the status of connected manufacturing equipment 
+  as well of the manufactured products.
+* Predictions of machine failures and early discovery of anomalies
+  to prevent costly downtime and maintenance efforts.
 
 Typical examples aimed at enhancing safety or protecting the environment include:
 * Monitoring of connected manufacturing equipment and the environment
@@ -175,8 +180,8 @@ hazards are identified.
 
 Additional examples aimed at optimizing costs or processing include:
 * Monitoring of vehicles, fuel costs,
-  maintenance needs and assignments helps to optimize the full utilization
-  of the vehicle fleet.
+  maintenance needs and assignments to optimize the utilization
+  of a vehicle fleet.
 * Tracking shipments en-route to ensure consistent quality
   and condition of transported goods.
   This is especially useful to assert the integrity of the cold-chain
@@ -278,23 +283,24 @@ Talk through the tradeoffs in coming to the specific design point you want to ma
 [Tricky design choice N …]
 )
 
-This architecture document defines a common WoT Architecture and serves as an entry point and
-introduction to several other documents defining WoT Building Blocks.
+The architecture document defines a common WoT Architecture and serves as an entry point and
+introduction to several other documents defining the WoT Building Blocks.
 
 ### Common Architecture
 Based on the application domains and use cases, and the requirements derived from these,
-a common abstract architecture is defined for WoT systems.  
+a common abstract architecture has been defined for WoT systems.  
 This abstract architecture is broad enough to include many existing IoT systems and standards.
 This is intentional since, in order to combat fragmentation,
 the WoT approach is designed to allow the construction of IoT
-systems composed of devices and services supporting many other standards and protocols
+systems composed of devices and services supporting many standards, platforms, and protocols
 in multiple verticals.
-However, the abstract architecture defines a set of reference patterns and terminology that can
+The abstract architecture also defines a set of reference patterns and terminology that can
 be used to avoid confusion when describing a WoT system.
 
 The main requirement for an IoT device or service to operate as part of a WoT system 
-(and be considered a "WoT Thing") is that it must be described in a WoT Thing Description.
-The WoT Thing Description provides basic metadata about a WoT Thing, such as a name, description, and 
+(and be considered a "WoT Thing") is that _it must be described in a WoT Thing Description_.
+The WoT Thing Description provides basic metadata about a WoT Thing, 
+such as a name, description, and 
 id, and also provides all the metadata needed to interact with a device.
 
 ### Building Blocks:
@@ -303,27 +309,24 @@ conform with the abstract WoT Architecture.
 The specifics of these building blocks are defined in separate documents; 
 this document provides an overview and a summary.
 
-<img src="../images/wot-building-blocks.png"/>
-
 ### Architectural Aspects of a Thing
 
-A WoT Thing has four architectural aspects of interest: 
-its behavior, its interactions,
+A WoT Thing has four architectural aspects of interest:
+its behavior,
+its interactions,
 the specific additional information needed by a client
-to implement each interaction in a concrete protocol 
+to implement each interaction in a concrete protocol
 (what we will call the protocol binding),
 and its security configuration.
-The security configuration
-includes both public and private (secret) information,
-as well as mechanisms to support the integrity of the WoT Thing and 
-protect and control access to its interactions.
+
+<img src="../images/wot-building-blocks.png"/>
 
 The behavior aspect of a WoT Thing 
 includes both lifecycle management
 (onboarding, updating, decommissioning, etc) and
 its operational behavior.
 Operational behaviour includes autonomous activity and computation,
-network interactions, sensing, and actuation.
+network interactions, sensing, and actuation during "normal operation".
 
 The interaction aspect of a Thing can be described in terms
 of generic and abstract operations like setting and getting a property, 
@@ -332,17 +335,17 @@ The WoT architecture separates these abstract interactions from their implementa
 particular protocols in order to enhance interoperability.
 A single WoT Thing may, in general, use multiple protocols,
 including but not limited to HTTP, CoAP, and MQTT.
-These protocols are used both to support its own interactions
+These protocols are used both to support a WoT Thing's own interactions 
 (as a server) and to connect to other WoT Things (as a client).
-Some of these protocols use the client-server model,
+Some of these protocols use the request-response model,
 others support a subscribe-publish model.
 The latter is especially important for low-power devices
 and use cases requiring timely event notifications.
-Our main constraint on protocols is that they must support 
-the use of URLs to describe access addresses.
+
+[//]: # (McCool: I took this out, as we won't really need it here...
 We define the term "servient" for devices or services,
 such as WoT Things, that can be either a server/publisher,
-a client/subscriber, or both. 
+a client/subscriber, or both.) 
 
 Protocol bindings augment each interaction with the additional detail needed to implement it
 with a particular concrete protocol.
@@ -355,22 +358,132 @@ and the integrity and confidentiality of the data they manage,
 and limit access to interactions to authenticated
 and authorized users, devices, and services.
 
+### Building Blocks
+
+[//]: # (McCool: this was previously taken out as being "OLD" but it is
+actually important to include since the previous section only talks about
+architectural aspects to consider, NOT the actual building blocks!)
+
+The WoT Building Blocks support each of these aspects,
+and are the focus of our standardization effort.
+Each of these building blocks is defined in a separate document.
+The following figure outlines how these building blocks relate to
+each of the architectural aspects discussed above.  Note that
+building blocks do not map 1:1 to these architectural aspects.
+The WoT Thing Description in particular connects in some
+way to all the aspects.
+
+<img src="../images/wot-thing-with-scripting.png"/>
+
+#### WoT Thing Description
+The primary building block is the
+<a href="https://w3c.github.io/wot-thing-description/">WoT Thing Description</a>,
+which encodes metadata about the WoT Thing (name, identifier, version, etc.),
+links to related entities,
+its set of interactions,
+data schemas and protocol bindings for those interactions,
+and public security metadata.
+We define the term Interaction Affordances to refer to the metadata describing the interactions supported by a WoT Thing.
+A WoT Thing Description also supports but does not require RDF/JSON-LD
+(<a href="https://www.w3.org/standards/semanticweb/data">Linked Data</a>)
+processing and semantic annotation and inteferencing.
+
+The WoT Thing Description building block fosters interoperability in two ways:
+* First, it enables machine-to-machine communication, as devices can
+  read WoT Thing Descriptions and use the information contained in them
+  to automatically adapt to details of a particular protocol, using
+  the interaction/protocol binding abstraction.
+* Second, it can serve as a common, uniform format for developers to document and
+  retrieve all details necessary to access an IoT service and make use of that service's data.
+To better support semantic interoperability, WoT Thing Descriptions may
+optionally make use of domain-specific vocabularies,
+for which explicit extension points are provided.
+However domain-specific vocabularies themselves are out of scope of the
+current WoT standardization activity.
+
+#### WoT Scripting API
+A second (optional) building block is the WoT Scripting API.
+This building block allows the definition of the behavior
+of a WoT Thing (responses to interactions)
+and the Consumption (parsing and use)
+and Exposure (construction and publication) of
+WoT Thing Descriptions.
+This building block is optional because devices can choose to
+implement behaviors and construct or consume WoT Thing Descriptions by other
+means than using the WoT Scripting API.
+In particular, WoT Thing Descriptions do not need to be be provided
+by the device itself, but can be provided separately (for example by
+a web service or database).
+This is necessary for supporting brownfield (pre-existing)
+devices and services.
+However, the WoT Scripting API can be used to simplify and support the development of
+*new* WoT Things or services that need to connect to WoT Things.
+The WoT Scripting API specification targets implementation in JavaScript
+and is consistent with both browser and server use cases,
+although the focus is on its use in devices and services.
+
+### WoT Binding Templates
+The IoT uses a variety of protocols for accessing devices, since no
+one protocol is appropriate in all contexts. Thus, a central
+challenge for the Web of Things is to enable interactions with the
+plethora of different _IoT Platforms_ (e.g., OCF, oneM2M, OMA
+LWM2M, OPC-UA, etc.) and RESTful devices that do not follow any
+particular standard, but provide an interface over standardized protocols
+such as HTTP, CoAP, or MQTT.
+
+WoT is tackling this variety by supporting the encoding of protocol
+binding details in the WoT Thing Description but also
+by publishing an informational document, the
+<a href="https://w3c.github.io/wot-binding-templates/">WoT Binding Templates</a>.
+This building block provides a collection of communication metadata blueprints
+that explain how to encode the metadata needed to interact with different IoT platforms.
+in a WoT Thing Description.
+
+### WoT Security and Privacy Considerations
+The final building block is security, which is a cross-cutting concern.
+IoT devices and services generally have strong security and privacy requirements,
+and the WoT Architecture deals with this aspect of WoT systems in several ways.
+
+First, the WoT Thing Description itself supports the description of public
+security metadata so that consumers of a WoT Thing know what mechanisms they
+need to support to gain access.
+This follows security best practices
+of documenting security mechanisms and controlling access through specific
+private information (eg keys) rather than depending on security through obscurity.
+
+Second, the WoT Scripting API is designed to not have direct access to
+private keying information.  This must be provisioned separately.
+
 ## Considered alternatives (MK)
 
 [//]: # (One of the most important things you can do in your design process is to catalog the set of roads not taken. As you iterate on your design, you may find that major choices in your approach or API style will be revisited and enumerating the full space of alternatives can help you apply one [or more] of them later, may serve as a “graveyard” for u-turns in your design, and can give reviewers and potential users confidence that you’ve got your ducks in a row.)
+
+**TODO**
 
 ## References & acknowledgements
 
 [//]: # (Your design will change and be informed by many people; acknowledge them in an ongoing way! It helps build community and, as we only get by through the contributions of many, is only fair.)
 
+[//]: # (McCool: Perhaps link to the various github repos as well?)
+
 The "Web of Things" (WoT) started as an academic initiative in the
-form of publications and, starting in 2010, a yearly International Workshop on
-the Web of Things. Its goal is to improve interoperability as well
-as usability in the Internet of Things (IoT). With the increasing
+form of publications and, from 2010 to 2017, 
+a yearly [International Workshop on the Web of Things](https://webofthings.org/events/wot/). 
+With the increasing
 role of IoT services using other web standards in commercial and
 industrial applications, the W3C chartered an Interest Group in 2015 to
 identify technological building blocks for Recommendation Track
 standardization. 
+The first <a href="https://www.w3.org/2014/02/wot/">W3C Web of Things Workshop</a>
+was held in 2014 with the goal of further examining the potential for open standards
+as a basis for IoT services.
+Based on the interest generated by this workshop, the
+W3C chartered a Web of Things Interest Group in 2015 to
+identify technological building blocks for Recommendation Track
+standardization.
+The current proposal was tested with a focus on enhanced interoperability over the 
+course of multiple plugfests over the several years since the creation of the IG and WG.
+Dozens of companies have been involved and have produced and tested numerous implementations.
 
 Many thanks to Kazuyuki Ashimura, Matthias Kovatsch, 
 Michael McCool, Michael Lagally, Ryuichi Matsukura, Toru Kawaguchi, 
