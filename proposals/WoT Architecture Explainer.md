@@ -144,111 +144,25 @@ that really belongs in the TD spec.**
 
 [//]: # (McCool: This takes a lot of space; perhaps we can condense it somehow, perhaps using bulleted lists rather than subsections?  I also added "use cases" to the title because that's really what the contents of each subsection below are)
 
-The following sections describe a set of use cases that were used to drive the 
+A set of use cases in a set of IoT application domains were used to drive the 
 requirements for the WoT architecture.
-These are not exhaustive. 
-Rather they serve as illustrations or exemplars,
-where connected things using WoT can provide additional benefit or enable new scenarios.
+These use cases were chosen to be typical of IoT applications but were not meant
+to be exhaustive.  
+Rather, the use cases served as concrete illustrations or exemplars,
+where connected things using WoT could provide additional benefit or enable new scenarios.
 
-### Consumer
-
-In the consumer space there are multiple assets that could benefit from being connected.
-Typical examples include:
-* Lights and air conditioners can be turned off based on room occupancy.
-* Window blinds can be closed automatically based on weather conditions and presence.
-* Energy and other resource consumption can be optimized based on usage patterns and predictions.
-
-### Industrial
-
-Examples from smart factories include:
-* Advanced monitoring of the status of connected manufacturing equipment 
-  as well of the manufactured products.
-* Predictions of machine failures and early discovery of anomalies
-  to prevent costly downtime and maintenance efforts.
-
-Typical examples aimed at enhancing safety or protecting the environment include:
-* Monitoring of connected manufacturing equipment and the environment
-  at production facilities for the presence of poisonous gases.
-* Monitoring excessive noise or heat.
-* Leakage detection and prediction of pipeline usage in offshore platforms.
-* Monitoring and controlling the levels of chemicals in tanks and reservoirs.
-The goals of these use cases are to identify risk to the safety of workers 
-or the environment and reduce the risks of incidents or accidents.
-Therefore there should also be 
-a mechanism to raise alerts or invoke safety failsafes in a timely manner when
-hazards are identified.
-
-Additional examples aimed at optimizing costs or processing include:
-* Monitoring of vehicles, fuel costs,
-  maintenance needs and assignments to optimize the utilization
-  of a vehicle fleet.
-* Tracking shipments en-route to ensure consistent quality
-  and condition of transported goods.
-  This is especially useful to assert the integrity of the cold-chain
-  from warehouses to refrigerated trucks to delivery.
-* Automated reading of residential and C&I (Commercial and Industrial) meters,
-  coordinatd with billing, offers continuous insights into
-  resource consumption and potential bottlenecks.
-* Monitoring the condition and output of distributed renewable energy generation
-  equipment enables optimisation of distributed energy resources.
-* Automated calculation of a distributed stock through various storage tanks
-  and delivery pipes/trucks allows for improved planning and resource optimisation.
-
-### Insurance
-
-Examples include:
-* Usage based insurance can be offered with usage tracking and customized insurance policies.
-* Predictive weather monitoring and re-routing of fleet vehicles to covered garages
-  can limit loss due to hail and tree damage.
-
-### Agriculture
-
-Examples include:
-* Soil condition monitoring and creation of optimal plans for watering,
-  and fertilizing.
-* Monitoring production conditions to optimize 
-  the quality and output of agricultural produce.
-
-### Healthcare
-
-Examples include:
-* Data collection and analytics of clinical trial data to gain insights into 
-  treatment effectiveness.
-* Remote patient monitoring to mitigate  the risk of undetected critical situations
-  for elderly people and patients after hospitalization.
-
-### Environment
-
-[//]: # (McCool: What about earthquake, landslide, or high winds alerts, which might require a more urgent response, eg. shutting down trains?)
-
-Examples include:
-* Monitoring of air pollution,
-  water pollution and other environmental risk factors such as fine dust,
-  ozone, volatile organic compounds, radioactivity, temperature, and humidity
-The goal is to detect critical environment conditions in order 
-to prevent unrecoverable health or environment damages.
-Such monitoring should be combined with a mechanism to raise alerts when
-hazardous conditions are detected.
-
-### Smart cities and buildings
-
-Examples include:
-* Monitoring of bridges, dams, levees, and canals for material condition,
-  deterioration, and vibration with the goal of identifing needed maintenance or repair 
-  work and preventing significant damage.
-* Monitoring of highways and providing appropriate signage that ensures optimized traffic flow.
-* Smart control of street lights based on presence detection and weather predictions 
-  to reduce energy costs.
-* Monitoring the energy usage throughout a building to help optimize resource consumption
-  and reduce waste.
-
-### Connected Car
-
-Examples include:
-* Monitoring of operation status and prediction of service needs optimizes 
-  maintenance needs and costs.
-* Driver safety can be enhanced with notifications from an early warning system 
-  of critical road and traffic conditions.
+Application domains and use considered included 
+consumer (lights, window blinds, energy management), 
+smart factory (equipment monitoring, failure prediction, poisonous gas detection,
+vehicle tracking, shipment tracking, meter reading, distributed energy resource (DER)
+management, storage tank monitoring), 
+insurance (usage tracking, predictive weather monitoring),
+agriculture (soil condition monitoring and planning, production monitoring),
+healthcare (clinical trial data collection, remote patient monitoring),
+environment (pollution monitoring),
+smart cities and buildings (infrastructure monitoring, traffic monitoring and signage, street lights, building energy optimization),
+and 
+connected car (service prediction, road condition early warning).
 
 ## Key scenarios and common patterns
 
