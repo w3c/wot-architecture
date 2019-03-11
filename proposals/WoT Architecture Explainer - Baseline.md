@@ -160,15 +160,15 @@ Driver safety is enhanced with notifications of an early warning system for crit
 
 [//]: # (Next, discuss the key scenarios which move beyond the most canonical example,
 showing how they are addressed using example code:
-
+…
 Scenario 1
 Outline the scenario, then provide:
-
+…
 [sample code that demonstrates the feature]
-
+…
 Scenario 2
 Outline the scenario, then provide:
-
+…
 [sample code that demonstrates the feature]
 )
 
@@ -178,11 +178,8 @@ TODO
 
 [//]: # (Tricky design choice #1
 Talk through the tradeoffs in coming to the specific design point you want to make, hopefully:
-
 [illustrated with example code]
-
 …
-
 [Tricky design choice N …]
 )
 
