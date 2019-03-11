@@ -153,24 +153,24 @@ connected car (service prediction, road condition early warning).
 
 ## Key scenarios and common patterns
 
-[//]: # (McCool: The purpose of this section is the same as the "common patterns" section of the architecture doc, so let's summarize that here; I have modified the title to capture both ideas)
+Analysis of the use cases resulted in a set of common patterns of
+network and device configuration summarized in the following figure, which
+combines many of the patterns.  IoT services are often composed of services 
+running in the cloud and on gateways as well as on the actual devices.
+User interfaces are often exposed via the web or through applications on
+mobile devices such as phones.  
+Devices themselves might be mobile and so their network location should
+not be tied to their physical location nor should such devices be
+treated as being continuously connected; an example is the connected car.
+Devices are often located behind firewalls and
+NATs in which case proxies may be required for traversal and visibility
+outside the local network.  Digital twins may be required to mirror state
+for devices that are not continuously online for power-saving, mobility, or other reasons.
+Many usage scenarios involving timely action in the case of alerts
+require the use of "push" event notification and cannot rely
+on pure request/response patterns driven by the client.
 
-[//]: # (MK: Next, discuss the key scenarios which move beyond the most canonical example,
-showing how they are addressed using example code:
-…
-Scenario 1
-Outline the scenario, then provide:
-…
-[sample code that demonstrates the feature]
-…
-Scenario 2
-Outline the scenario, then provide:
-…
-[sample code that demonstrates the feature]
-)
-
-
-**TODO; really, this is the "Common Patterns"**
+<img src="../images/arch-use-case-overview.png"/>
 
 ## Requirements
 
@@ -178,19 +178,12 @@ Outline the scenario, then provide:
 
 ## Detailed design discussion
 
-[//]: # (Tricky design choice #1
-Talk through the tradeoffs in coming to the specific design point you want to make, hopefully:
-[illustrated with example code]
-…
-[Tricky design choice N …]
-)
-
 The architecture document defines a common WoT Architecture and serves as an entry point and
 introduction to several other documents defining the WoT Building Blocks.
 
 ### Common Architecture
 Based on the application domains and use cases, and the requirements derived from these,
-a common abstract architecture has been defined for WoT systems.  
+a common abstract architecture has been defined for WoT systems.
 This abstract architecture is broad enough to include many existing IoT systems and standards.
 This is intentional since, in order to combat fragmentation,
 the WoT approach is designed to allow the construction of IoT
