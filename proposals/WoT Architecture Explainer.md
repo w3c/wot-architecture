@@ -72,12 +72,12 @@ and make them easier to use and integrate.
 
 The WoT consolidates IoT metadata in WoT Thing Descriptions
 to foster interoperability in two ways:
-* First, by enabling and enhancing machine-to-machine communication, as devices can
-  read WoT Thing Descriptions and use the information contained in them
-  to automatically adapt to details of a particular protocol, using
-  the interaction/protocol binding abstraction.
-* Second, by serving as a common, uniform format for developers to document and
-  retrieve all details necessary to access an IoT service and make use of that service's data.
+1. By enabling and enhancing machine-to-machine communication, as devices can
+   read WoT Thing Descriptions and use the information contained in them
+   to automatically adapt to details of a particular protocol, using
+   the interaction/protocol binding abstraction.
+2. By serving as a common, uniform format for developers to document and
+   retrieve all details necessary to access an IoT service and make use of that service's data.
 
 To better support semantic interoperability, WoT Thing Descriptions may
 optionally make use of domain-specific vocabularies,
