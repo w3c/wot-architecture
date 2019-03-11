@@ -344,15 +344,16 @@ way to all the aspects.
 
 #### WoT Thing Description
 The primary building block is the 
-<a>WoT Thing Description</a>,
+<a href="https://w3c.github.io/wot-thing-description/">WoT Thing Description</a>,
 which encodes metadata about the WoT Thing (name, identifier, version, etc.),
 links to related entities,
 its set of interactions, 
 data schemas and protocol bindings for those interactions, 
 and public security metadata.
 We define the term Interaction Affordances to refer to the metadata describing the interactions supported by a WoT Thing. 
-A WoT Thing Description also supports but does not require RDF/JSON-LD (Linked Data) 
-processing and semantic annotation and inteferencing [[?LINKED-DATA]].
+A WoT Thing Description also supports but does not require RDF/JSON-LD 
+(<a href="https://www.w3.org/standards/semanticweb/data">Linked Data</a>) 
+processing and semantic annotation and inteferencing.
 
 The WoT Thing Description building block fosters interoperability in two ways: 
 * First, it enables machine-to-machine communication, as devices can
@@ -399,8 +400,8 @@ such as HTTP, CoAP, or MQTT.
 
 WoT is tackling this variety by supporting the encoding of protocol
 binding details in the WoT Thing Description but also
-by publishing an informational document,
-the WoT Binding Templates [[?wot-binding-templates]].
+by publishing an informational document, the 
+<a href="https://w3c.github.io/wot-binding-templates/">WoT Binding Templates</a>.
 This building block provides a collection of communication metadata blueprints 
 that explain how to encode the metadata needed to interact with different IoT platforms.
 in a WoT Thing Description.
@@ -421,7 +422,8 @@ Second, the WoT Scripting API is designed to not have direct access to
 private keying information.  This must be provisioned separately.
 
 Third, we have done an analysis of the threats and risks to a WoT system
-and published this analysis in the <a>WoT Security and Privacy Considerations</a>
+and published this analysis in the 
+<a href="https://w3c.github.io/wot-security/">WoT Security and Privacy Considerations</a>
 document.  In addition to a set of risks common to all
 IoT systems, this document also considers the additional risks and opportunities
 afforded by the other WoT Building Blocks, and how to mitigate them.  
@@ -433,7 +435,9 @@ vulnerable systems and mitigate their vulnerabilities.
 Each normative document also includes a set of security and privacy
 considerations specific to that document.
 
-Fourth, we have developed a <a>WoT Security Testing Plan</a>
-and a set of <a>WoT Best Practices</a>.
+Fourth, we have developed a 
+<a href="https://w3c.github.io/wot-security-testing-plan/">WoT Security Testing Plan</a>
+and a set of 
+<a href="https://w3c.github.io/wot-security-best-practices/">WoT Security Best Practices</a>.
 These informational documents are intended to help developers 
 secure WoT system implementations.
