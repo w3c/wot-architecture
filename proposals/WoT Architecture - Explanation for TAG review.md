@@ -256,7 +256,7 @@ introduction to several other documents defining the WoT Building Blocks.
 
 ### Common Architecture
 Based on the application domains and use cases, and the requirements derived from these,
-a common abstract architecture has been defined for WoT systems.  
+a common abstract architecture has been defined for WoT systems.
 This abstract architecture is broad enough to include many existing IoT systems and standards.
 This is intentional since, in order to combat fragmentation,
 the WoT approach is designed to allow the construction of IoT
@@ -270,13 +270,12 @@ The main requirement for an IoT device or service to operate as part of a WoT sy
 The WoT Thing Description provides basic metadata about a WoT Thing, such as a name, description, and 
 id, and also provides all the metadata needed to interact with a device.
 
-### Building Blocks:
+### Building Blocks
 The Web of Things defines specific building blocks to allow the implementation of systems that
 conform with the abstract WoT Architecture.
 The specifics of these building blocks are defined in separate documents; 
 this document provides an overview and a summary.
 
-<img src="../images/wot-building-blocks.png"/>
 
 ## Architectural Aspects of a Thing
 
@@ -287,10 +286,8 @@ the specific additional information needed by a client
 to implement each interaction in a concrete protocol 
 (what we will call the protocol binding), 
 and its security configuration.  
-The security configuration
-includes both public and private (secret) information, 
-as well as mechanisms to support the integrity of the WoT Thing and 
-protect and control access to its interactions.
+
+<img src="../images/wot-building-blocks.png"/>
 
 The behavior aspect of a WoT Thing 
 includes both lifecycle management (onboarding, updating, decommissioning, etc) and
@@ -322,7 +319,7 @@ with a particular concrete protocol.
 
 The security configuration aspect represents the mechanisms 
 used to control access to the affordances and the 
-management of related public and private metadata.  i
+management of related public and private metadata.
 WoT Things in general also need to maintain their own integrity
 and the integrity and confidentiality of the data they manage, 
 and limit access to interactions to authenticated
@@ -332,6 +329,8 @@ and authorized users, devices, and services.
 The WoT Building Blocks support each of these aspects, 
 and are the focus of our standardization effort.
 Each of these building blocks is defined in a separate document.
+
+<img src="../images/wot-thing-with-scripting.png"/>
 
 #### WoT Thing Description
 The primary building block is the 
