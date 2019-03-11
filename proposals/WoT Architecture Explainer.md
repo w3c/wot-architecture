@@ -382,11 +382,16 @@ private keying information.  This must be provisioned separately.
 Third, general security and privacy considerations, testing,
 and best practices are covered in separate publications.
 
-## Considered alternatives (MK)
+## Considered alternatives
 
 [//]: # (One of the most important things you can do in your design process is to catalog the set of roads not taken. As you iterate on your design, you may find that major choices in your approach or API style will be revisited and enumerating the full space of alternatives can help you apply one [or more] of them later, may serve as a “graveyard” for u-turns in your design, and can give reviewers and potential users confidence that you’ve got your ducks in a row.)
 
-**TODO**
+One of the original designs for the WoT limited interactions to HTTP and RESTful interfaces.
+However, there are many IoT devices that use other protocols, such as CoAP or MQTT.
+There are many reasons for this, but to fully support the IoT a broader perspective on
+acceptable protocols is needed.  
+This also differentiates the WoT Thing Description from Web API descriptions such
+as Swagger/OpenAPI, which are focused on defining APIs that are based on HTTP.
 
 ## References & acknowledgements
 
