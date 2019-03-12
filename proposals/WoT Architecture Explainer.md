@@ -7,7 +7,7 @@ This section header seems chatty and redundant.  The opening can just be the ope
 
 [//]: # (A brief, 4-5 paragraph explanation of the feature’s value. Outline what the feature does and how it accomplishes those goals in prose. If your feature creates UI, this is a great place to show mocks and user flows.)
 
-The W3C Web of Things (WoT) was created to enable
+The W3C Web of Things (WoT) is intended to enable
 interoperability across IoT Platforms and application domains using Web technology.
 This is a crucial issue as the specialized needs of IoT services
 and the variety of pre-existing standards in the various verticals (application domains)
