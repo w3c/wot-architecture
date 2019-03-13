@@ -2115,10 +2115,34 @@ a[href].internalDFN {
 				applications are implemented natively for the software stack. These
 				do not have the <a>Scripting API</a> and <a>WoT Runtime</a> modules.
 			</p>
-			<section>
-				<h3>Native</h3>
-				<p class="ednote" title="TODO">Explain native implementation
-					against custom API in programming language of choice.</p>
+			<section id="native-impl">
+				<h3>Native platform API</h3>
+				<!--<p class="ednote" title="TODO">Explain native implementation
+					against custom API in programming language of choice.</p>-->
+				<p>
+					There are necessities for implement an application
+					without using <a>Scripting API</a>.  For example:
+				</p>
+				<ul>
+					<li>
+						From lack of computing resources, developer can't use a rich
+						software stack or fully-featured scripting engine.
+					</li>
+					<li>
+						To cooperate with other functions or applications,
+						developer must use language specific functions or libraries.
+					</li>
+					<li>
+            Developer want to interact Things on the top of existing applications.
+					</li>
+				</ul>
+				<p>
+					Because semantics of <a>Thing Description</a> are well-defined,
+					developers can make own application by parsing a <a>TD</a> and
+					interact with things by native platform API.  Moreover, developer can
+					use an existing application by creating proper configuration
+					for the application based on the <a>TD</a>.
+				</p>	
 			</section>
 			<section>
 				<h3>WoT Scripting API</h3>
