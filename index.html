@@ -246,6 +246,10 @@ a[href].internalDFN {
 	<section id="conformance"></section>
 	<section>
 		<h1>Terminology</h1>
+				<p>
+			<em>This section is normative.</em>
+		</p>
+
 		<p>This document uses the following terms as defined here. The WoT
 			prefix is used to avoid ambiguity for terms that are defined
 			specifically for Web of Things concepts.</p>
@@ -545,22 +549,61 @@ a[href].internalDFN {
 	<!--  USE CASES -->
 	<section id="sec-use-cases" class="informative">
 		<h1>Use Cases</h1>
+
 		<p>
 			This section presents the application domains and use cases targeted
 			by the W3C WoT and which are used to derive the abstract architecture
-			discussed in <a href="#sec-building-blocks"></a>. While Smart Home
-			use cases might appear predominant in this section, they should be
-			seen as simply a vehicle to identify fundamental requirements
-			inherent to most application domains. The Smart Home domain is
-			suitable for identifying such general requirements, as most stake
-			holders can relate to it.
+			discussed in <a href="#sec-building-blocks"></a>.
 		</p>
+		<p>The Web of Things architecture does not put any limitations on
+			use cases and application domains. Various application domains have
+			been considered to collect common patterns that have to be satisfied
+			by the abstract architecture.</p>
+		<p>The following sections are not exhaustive. Rather they serve as
+			illustrations, where connected things can provide additional benefit
+			or enable new scenarios.</p>
 		<section>
 			<h2>Application Domains</h2>
-			<section>
+			<section id="consumerusecases">
 				<h3>Consumer</h3>
-				<p class="ednote" title="Home Application Domain">TODO: add
-					language describing scenarios of the consumer domain</p>
+				<p>
+					In the consumer space there are multiple assets that benefit from
+					being connected. Lights and air conditioners can be turned off based
+					on room occupancy. Window blinds can be closed automatically based
+					on weather conditions and presence. Energy and other resource
+					consumption can be optimized based on usage patterns and
+					predictions.
+				</p>
+				<p>
+					The consumer use cases in this section includes Smart Home use case.
+				</p>
+				<p>
+					<a href="#smart-home"></a> shows an example of a Smart Home.
+					In this case, gateways are connected to edge devices such
+					as sensors, cameras and home appliances through corresponding
+					local communication protocols such as KNX, ECHONET, ZigBee,
+					DECT ULE and Wi-SUN. Multiple gateways can exist in one home,
+					while each gateway can support multiple local protocols.
+				</p>
+				<p>
+					Gateways can be connected to the cloud through the internet, 
+					while some appliances can be connected to the cloud directly.
+					Services running in the cloud collect data from edge devices and
+					analyze the data, then provide value to users through the edge
+					devices and other UX devices.
+				</p>
+				<figure id="smart-home">
+					<img src="images/wot-use-cases/smart-home.png"
+						style="width: 640px;" />
+					<figcaption>Smart Home</figcaption>
+				</figure>
+				<p>
+					Smart home provides consumer benefits such as remote access and
+					control, voice control and home automation. Smart home also enables
+					device manufacturers to monitor and maintain devices remotely. Smart
+					home can realizes added value services such as energy management and
+					security surveilance.
+				</p>
 			</section>
 			<section id="industrialiotusecases">
 				<h3>Industrial</h3>
@@ -570,196 +613,149 @@ a[href].internalDFN {
 					in the application scenarios, different verticals have similar use
 					cases.
 				</p>
-				<p>
-					<a href="#smart-factory"></a> shows an example of a Smart Factory.
-					In this case, cell controllers automate factory equipment with
-					specialized communication such as RS-485 or EtherCAT. Line
-					controllers orchestrate multiple cell controllers over IP-based
-					networks. A factory controller integrates different line
-					controllers. A cloud service collects data from the factory
-					controller and analyzes them for predictive maintenance. Users can
-					monitor the factory through a dashboard. Note that factories
-					usually do not reveal the internal topology of their lines and
-					cells.
+				<section>
+					<h4>Example: Smart Factory</h4>
+					<p>
+						<a href="#smart-factory"></a> shows an example of a Smart Factory.
+						In this case, cell controllers automate factory equipment with
+						specialized communication such as RS-485 or EtherCAT. Line
+						controllers orchestrate multiple cell controllers over IP-based
+						networks. A factory controller integrates different line
+						controllers. A cloud service collects data from the factory
+						controller and analyzes them for predictive maintenance. Users can
+						monitor the factory through a dashboard. Note that factories
+						usually do not reveal the internal topology of their lines and
+						cells.
+					</p>
+					<figure id="smart-factory">
+						<img src="images/wot-use-cases/smart-factory.png"
+							style="width: 640px;" />
+						<figcaption>Smart Factory</figcaption>
+					</figure>
+				</section>
+				<p>Smart factories require advanced monitoring of the connected
+					manufacturing equipment as well of the manufactured products. They
+					benefit from predictions of machine failures and early discovery of
+					anomalies to prevent costly downtime and maintenance efforts.</p>
+				<p>Additionally, monitoring of connected manufacturing equipment
+					and the environment at the production facility for the presence of
+					poisonous gases, excessive nois or heat increases the safety of the
+					workers and reduces the risks of incidents or accidents.</p>
+				<p>Real-time monitoring and KPI calculations of production
+					equipment helps to detect productivity problems and optimize the
+					supply chain.</p>
+			</section>
+			<section>
+				<h4 id="transportationlogistics">Transportation &amp; Logistics</h4>
+				<p>Monitoring of vehicles, fuel costs, maintenance needs and
+					assignments helps to optimize the full utilization of the vehicle
+					fleet.</p>
+				<p>Shipments can be tracked to be en-route to ensure consistent
+					quality and condition of the transported goods. This is especially
+					useful to assert the integrity of the cold-chain from warehouses to
+					refrigerated trucks to delivery.</p>
+				<p>Centralized monitoring and management of stock in warehouses
+					and yards can prevent out of stock and excessive stock situations.
 				</p>
-				<figure id="smart-factory">
-					<img src="images/wot-use-cases/smart-factory.png"
-						style="width: 640px;" />
-					<figcaption>Smart Factory</figcaption>
-				</figure>
-				<section>
-					<h4 id="manufacturing">Manufacturing</h4>
-					<table border="1" style="width: 100%">
-						<tr>
-							<td>Predictive Maintenance</td>
-							<td>Monitoring and predicting machine failures and
-								anomalies.</td>
-						</tr>
-						<tr>
-							<td id="maintenanceautomation">Maintenance automation</td>
-							<td>Automating the process of creating a maintenance/service
-								ticket based on reactive or predictive detection of problems.</td>
-						</tr>
-						<tr>
-							<td id="qualityimprovements">Quality Improvements</td>
-							<td>Improving quality through monitoring the condition of
-								manufacturing equipment.</td>
-						</tr>
-						<tr>
-							<td id="industrialsafety">Industrial safety</td>
-							<td>Reducing industrial safety incidents/accidents.</td>
-						</tr>
-						<tr>
-							<td id="environmentmonitoring">Environment monitoring</td>
-							<td>Monitoring environment in the manufacturing plant for
-								presence of poisonous gases, excessive noise/heat, etc.</td>
-						</tr>
-						<tr>
-							<td id="realtimemonitoring">Real-time monitoring</td>
-							<td>Real-time monitoring and KPI calculations of production
-								equipment.</td>
-						</tr>
-					</table>
-				</section>
-				<section>
-					<h4 id="transportationlogistics">Transportation &amp;
-						Logistics</h4>
-					<table border="1" style="width: 100%">
-						<tr>
-							<td id="shipmenttracking">Shipment tracking</td>
-							<td>Tracking of shipment en-route - condition, quality and
-								location monitoring.</td>
-						</tr>
-						<tr>
-							<td id="fleettracking">Fleet tracking</td>
-							<td>Monitoring fleet vehicles, fuel costs, maintenance
-								needs, assignments.</td>
-						</tr>
-						<tr>
-							<td id="coldchainmonitoring">Cold chain monitoring</td>
-							<td>Ensuring integrity of the cold chain - from warehouses
-								to refrigerated trucks to delivery.</td>
-						</tr>
-						<tr>
-							<td id="warehousemonitoring">Warehouse monitoring</td>
-							<td>Monitoring equipment and stock in warehouses, yards.</td>
-						</tr>
-					</table>
-				</section>
-				<section>
-					<h4 id="utilities">Utilities</h4>
-					<table border="1" style="width: 100%">
-						<tr>
-							<td id="advancedmeteringinfrastructure">Advanced Metering
-								Infrastructure</td>
-							<td>Automated reading of residential and C&amp;I (Commercial
-								and Industrial) meters, and billing.</td>
-						</tr>
-						<tr>
-							<td id="distributedenergyresourcemanagement">Distributed
-								Energy Resource management</td>
-							<td>Monitoring the condition and output of distributed
-								renewable energy generation equipment.</td>
-						</tr>
-						<tr>
-							<td id="distributionautomation">Distribution Automation</td>
-							<td>Monitoring and remote-controlling Distribution
-								equipment.</td>
-						</tr>
-						<tr>
-							<td id="crewsafety">Crew safety</td>
-							<td>Improving safety of utilities crew in the field.</td>
-						</tr>
-					</table>
-				</section>
-				<section>
-					<h4 id="oilandgas">Oil and Gas</h4>
-					<table border="1" style="width: 100%">
-						<tr>
-							<td id="pipelinemonitoring">Pipeline monitoring</td>
-							<td>Offshore platform monitoring Industrial safety on
-								offshore platforms.</td>
-						</tr>
-						<tr>
-							<td id="leakagedetection">Leakage detection</td>
-							<td>Detecting/Predicting leakage through the pipelines.</td>
-						</tr>
-						<tr>
-							<td id="tankreservoirlevelmonitoring">Tank/Reservoir level
-								monitoring</td>
-							<td>Monitoring and Controlling the levels in tanks and
-								reservoirs.</td>
-						</tr>
-						<tr>
-							<td id="automatedstocktaking">Automated Stock Taking</td>
-							<td>Automated calculation of a distributed stock through
-								various storage tanks and delivery pipes/trucks.</td>
-						</tr>
-					</table>
-				</section>
-				<section>
-					<h4 id="insurance">Insurance</h4>
-					<table border="1" style="width: 100%">
-						<tr>
-							<td id="proactiveassetmonitoring">Proactive Asset Monitoring</td>
-							<td>Monitoring of high value assets such as connected
-								structures, fleet vehicles, etc.</td>
-						</tr>
-						<tr>
-							<td id="usagebasedinsurance">Usage based insurance</td>
-							<td>Usage tracking and customized insurance policies.</td>
-						</tr>
-						<tr>
-							<td id="safetymonitoring">Safety monitoring</td>
-							<td>Employee/Occupant safety monitoring.</td>
-						</tr>
-						<tr>
-							<td id="lossreductionleakagedetection">Loss reduction -
-								leakage detection</td>
-							<td>Detecting leakages to limit the losses.</td>
-						</tr>
-						<tr>
-							<td id="losspreventiongaragingfleetvehicles">Loss prevention
-								- garaging fleet vehicles</td>
-							<td>Predictive weather monitoring and re-routing fleet
-								vehicles to covered garages to limit loss due to hail damage,
-								tree damage.</td>
-						</tr>
-					</table>
-				</section>
-				<section>
-					<h4 id="engineeringandconstruction">Engineering and
-						Construction</h4>
-					<table border="1" style="width: 100%">
-						<tr>
-							<td id="workersafety">Worker Safety</td>
-							<td>Worker monitoring for industrial safety.</td>
-						</tr>
-						<tr>
-							<td id="constructionassetmonitoring">Construction Asset
-								Monitoring</td>
-							<td>Monitoring assets at construction site.</td>
-						</tr>
-					</table>
-				</section>
 			</section>
-			<section id="smart buildings">
-				<h3 id="smartbuildings">Smart Buildings</h3>
-				<table border="1" style="width: 100%">
-					<tr>
-						<td id="energymanagement">Energy management</td>
-						<td>Monitoring energy usage throughout the building.</td>
-					</tr>
-					<tr>
-						<td id="equipmentmonitoringoccupantsatisfaction">Equipment
-							monitoring, Occupant satisfaction</td>
-						<td>Monitoring equipment in the buildings such as HVAC,
-							Elevators, etc. Monitoring satisfaction of occupants.</td>
-					</tr>
-				</table>
+			<section>
+				<h4 id="utilities">Utilities</h4>
+				<p>Automated reading of residential and C&I (Commercial and
+					Industrial) meters, and billing offers continuous insights into
+					resource consumption and potential bottlenecks.</p>
+				<p>Monitoring the condition and output of distributed renewable
+					energy generation equipment enables optimisation of distributed
+					energy resources.</p>
+				<p>Monitoring and remote-controlling of distribution equipment
+					helps to automate the distribution process.</p>
+				<p>Continuous monitoring of generation and distribution
+					infrastructure is improving safety of utilities crew in the field.
+				</p>
 			</section>
-			<section id="connected car">
-				<h3 id="connectedcar">Connected Car</h3>
+			<section>
+				<h4 id="oilandgas">Oil and Gas</h4>
+				<p>Offshore platform monitoring, leakage detection and
+					predicition of pipelines as well as monitoring and controlling the
+					levels in tanks and reservoirs helps to improve the industrial
+					safety for the workforce as well as for the environment.</p>
+				<p>Automated calculation of a distributed stock through various
+					storage tanks and delivery pipes/trucks allows for improved
+					planning and resource optimisation.</p>
+			</section>
+			<section>
+				<h4 id="insurance">Insurance</h4>
+				<p>Proactive Asset Monitoring of high value assets such as
+					connected structures, fleet vehicles, etc. mitigates the risk of
+					severe damage and high costs due to predictions and early detection
+					of incidents.</p>
+				<p>Usage based insurance can be offered with usage tracking and
+					customized insurance policies.</p>
+				<p>Predictive weather monitoring and re-routing fleet vehicles
+					to covered garages can limit loss due to hail damage, tree damage.
+				</p>
+			</section>
+			<section>
+				<h4 id="engineeringandconstruction">Engineering and
+					Construction</h4>
+				<p>Monitoring for industrial safety reduces the risks of
+					security hazards. Monitoring of assets at construction site can
+					prevent damage and loss.</p>
+			</section>
+		</section>
+		<section id="sec-agriculture">
+			<h3 id="agriculture">Agriculture</h3>
+			<p>Soil condition monitoring and creating optimal plans for
+				watering, fertilizing as well as monitoring the produce conditions
+				optimize the quality and output of agricultural produce.</p>
+		</section>
+		<section id="sec-healthcare">
+			<h3 id="healthcare">Healthcare</h3>
+			<p>Data collection and analytics of clinical trial data helps to
+				gain insights into new areas.</p>
+			<p>Remote patient monitoring mitigates the risk of undetected
+				critical situations for elderly people and patients after
+				hospitalization.</p>
+		</section>
+		<section>
+			<h3 id="environmentmonitoring-1">Environment Monitoring</h3>
+			<p>Environment monitoring typically relies on a lot of
+				distributed sensors that send their measurement data to common
+				gateways, edge devices and cloud services.</p>
+			<p>Monitoring of air pollution, water pollution and other
+				environmental risk factors such as fine dust, ozone, volatile
+				organic compound, radioactivity, temperature, humidity to detect
+				critical environment conditions can prevent unrecoverable health or
+				environment damages.</p>
+		</section>
+		<section id="smart cities">
+			<h3 id="smartcities">Smart Cities</h3>
+			<p>Monitoring of Bridges, Dams, Levees, Canals for material
+				condition, deterioration, vibrations discovers maintenance repair
+				work and prevents significant damage. Monitoring of highways and
+				providing appropriate signage ensures optimized traffic flow.</p>
+			<p>Smart Parking is optimizing and tracking the usage and
+				availability of parking spaces and automates billing/reservations.</p>
+			<p>Smart control of street lights based on presence detection,
+				weather predictions, etc reduced cost.</p>
+			<p>Garbage containers can be monitored to optimize the waste
+				management and the trash collection route.</p>
+		</section>
+		<section id="smart buildings">
+			<h3 id="smartbuildings">Smart Buildings</h3>
+			<p>Monitoring the energy usage throughout the building helps to
+				optimize resource consumption and reduce waste.</p>
+			<p>Monitoring the equipment in the buildings such as HVAC,
+				Elevators, etc. and fixing problems early improves the satisfaction
+				of occupants.</p>
+		</section>
+		<section id="connected car">
+			<h3 id="connectedcar">Connected Car</h3>
+			<p>Monitoring of operation status, prediction of service needs
+				optimizes maintenance needs and costs. Driver safety is enhanced
+				with notifications of an early warning system for critical road and
+				traffic conditions.</p>
+			<section id="connected car example">
+				<h4 id="connectedcar">Connected Car Example</h4>
 				<p>
 					<a href="#connected-car"></a> shows an example of a Connected Car.
 					In this case, a gateway connects to car components through CAN and
@@ -775,337 +771,240 @@ a[href].internalDFN {
 						style="width: 500px;" />
 					<figcaption>Connected Car</figcaption>
 				</figure>
-				<table border="1" style="width: 100%">
-					<tr>
-						<td id="operationmonitoring">Operation monitoring</td>
-						<td>Monitoring of operation status, prediction of service
-							needs, optimisation of maintenance.</td>
-					</tr>
-					<tr>
-						<td id="driversafety">Driver Safety</td>
-						<td>Enhance driver safety with notifications of an early
-							warning system for critical road and traffic conditions.</td>
-					</tr>
-				</table>
 			</section>
-			<section id="sec-agriculture">
-				<h3 id="agriculture">Agriculture</h3>
-				<table border="1" style="width: 100%">
-					<tr>
-						<td id="soilconditionmonitoring">Soil condition monitoring</td>
-						<td>Monitoring soil conditions and creating optimal plans for
-							watering, fertilizing.</td>
-					</tr>
-					<tr>
-						<td id="producemonitoring">Produce monitoring</td>
-						<td>Monitoring produce conditions.</td>
-					</tr>
-				</table>
-			</section>
-			<section id="sec-healthcare">
-				<h3 id="healthcare">Healthcare</h3>
-				<table border="1" style="width: 100%">
-					<tr>
-						<td id="clinicaltrials">Clinical Trials</td>
-						<td>Data collection and analytics of clinical trial data.</td>
-					</tr>
-					<tr>
-						<td id="pharmaceuticalmonitoring">Pharmaceutical monitoring</td>
-						<td>Monitoring of medicines and totes throughout the supply
-							chain.</td>
-					</tr>
-					<tr>
-						<td id="remotepatientmonitoring">Remote Patient Monitoring</td>
-						<td>Monitoring of patients after hospitalization.</td>
-					</tr>
-				</table>
-			</section>
-			<section id="smart cities">
-				<h3 id="smartcities">Smart Cities</h3>
-				<table border="1" style="width: 100%">
-					<tr>
-						<td id="infrastructuremonitoring">Infrastructure monitoring</td>
-						<td>Monitoring of Bridges, Dams, Levees, Canals - material
-							condition, deterioration, vibrations monitoring.</td>
-					</tr>
-					<tr>
-						<td id="smartparking">Smart Parking</td>
-						<td>Tracking usage, availability of parking spaces and
-							automating billing/reservations.</td>
-					</tr>
-					<tr>
-						<td id="smartlighting">Smart Lighting</td>
-						<td>Smart control of street lights based on presence
-							detection, weather predictions, etc.</td>
-					</tr>
-					<tr>
-						<td id="wastemanagement">Waste Management</td>
-						<td>Monitoring of garbage containers to optimize the trash
-							collection route.</td>
-					</tr>
-					<tr>
-						<td id="highwaymonitoring">Highway Monitoring</td>
-						<td>Monitoring of highways and providing appropriate signage.</td>
-					</tr>
-				</table>
-			</section>
-			<section>
-				<h3 id="environmentmonitoring-1">Environment Monitoring</h3>
-				<p>Environment monitoring typically relies on a lot of
-					distributed sensors that send their measurement data to common
-					gateways, edge devices and cloud services. The following table just
-					lists a few scenarios - these could be deployed to a small
-					community, a city, a country, a continent or even worldwide.</p>
-				<table border="1" style="width: 100%">
-					<tr>
-						<td id="airandwaterpollution">Air and water pollution</td>
-						<td>Monitoring of air pollution, water pollution and other
-							environmental risk factors such as fine dust, ozone, volatile
-							organic compound, radioactivity, temperature, humidity to detect
-							critical environment conditions.</td>
-					</tr>
-					<tr>
-						<td id="disasterpredictionandprevention">Disaster prediction
-							and prevention</td>
-						<td>Analysis of sensor data from distributed sensors to
-							detect anomalies and predict critical environment conditions.</td>
-					</tr>
-				</table>
-			</section>
+			<p>Monitoring of operation status, prediction of service needs
+				optimizes maintenance needs and costs. Driver safety is enhanced
+				with notifications of an early warning system for critical road and
+				traffic conditions.</p>
 		</section>
-		<section id="commonusecasespatterns">
-			<h1>Common Patterns</h1>
-			<section>
 
-				This section introduces common use case patterns that illustrate how
-				devices/things interact with controllers, other devices, agents and
-				servers.
+	</section>
+	<section id="commonusecasespatterns">
+		<h1>Common Patterns</h1>
+		<section>
+			This section introduces common use case patterns that illustrate how
+			devices/things interact with controllers, other devices, agents and
+			servers.
 
-				<h3>Device Controllers</h3>
-				<p>
-					The first use case is a local device controlled by user-operated
-					remote controller as depicted in <a href="#smart-home-device"></a>
-					. For example, A remote controller can access an electronic
-					appliance through the local home network directly. In this case,
-					the remote controller can be realized by a browser or native
-					application.
-				</p>
-				<p>In this pattern, at least one device like the electronic
-					appliance have a server role that can accept the request from the
-					other devices and respond them, and sometimes start to initiate
-					mechanical function of it. The another device like the remote
-					controller have a client role that can issue a message to the other
-					with some requests, like to get sensor value or to turn it on.</p>
-				<figure id="smart-home-device">
-					<img src="images/wot-use-cases/smart-home-device.png"
-						style="width: 500px;" />
-					<figcaption>Device Control</figcaption>
-				</figure>
-			</section>
-			<section>
-				<h3>Thing-to-Thing</h3>
-				<p>
-					<a href="#smart-home-t2t"></a> shows an example of direct
-					Thing-to-Thing interaction. The scenario is as follows: a sensor
-					detects the change of the room condition, for example the
-					temperature surpassing a set threshold, and issues a control
-					message like "turn on" to the electronic appliance. The sensor unit
-					can issue some trigger messages to other devices.
-				</p>
-				<p>In this case, when two devices that have server roles are
-					connected, at least one device must have also a client role that
-					issues a message to the other to actuate.</p>
-				<figure id="smart-home-t2t">
-					<img src="images/wot-use-cases/smart-home-t2t.png"
-						style="width: 500px;" />
-					<figcaption>Control Agent</figcaption>
-				</figure>
-			</section>
-			<section>
-				<h3>Remote Access</h3>
-				<p class="ednote" title="TODO">Must rewrite for remote
-					access/control use case. Include changing uplink connectivity.</p>
-				<p>
-					The third use case is a mobile remote controller (e.g., on a
-					smartphone) as shown in <a href="#smart-home-multi"></a>. The
-					remote controller can switch communication media between cellular
-					network and home network such as Wi-Fi and Bluetooth. The
-					controller choose the home network when it's at home, and the
-					cellular while outside.
-				</p>
-				<p>In this pattern, the remote controller and the electronic
-					appliance have a client role and a server role respectively as the
-					same as 3.2.1 device controllers.</p>
-				<figure id="smart-home-multi">
-					<img src="images/wot-use-cases/smart-home-multi.png"
-						style="width: 500px;" />
-					<figcaption>Multiple Network Interfaces</figcaption>
-				</figure>
-			</section>
-			<section>
-				<h3>Gateways</h3>
-				<p class="ednote" title="TODO">Must rewrite for local
-					box/compute node use case.</p>
-				<p>
-					<a href="#smart-home-gateway"></a> shows a use case based on a
-					Smart Home gateway. A smart home gateway is placed between a home
-					network and the Internet. The gateway manages electronic appliances
-					inside the house and can receive commands from a remote controller
-					over the Internet, e.g., from a smartphone as in the previous use
-					case. It is also is a virtual representation of a device. The
-					gateways sometimes are called the proxies.
-				</p>
-				<p>In this pattern, the home gateway have both of client and
-					server roles. That is, it can connect to the electronic appliance
-					with the client role and to the remote controller with the server
-					role.</p>
-				<figure id="smart-home-gateway">
-					<img src="images/wot-use-cases/smart-home-gateway.png"
-						style="width: 500px;" />
-					<figcaption>Smart Home Gateway</figcaption>
-				</figure>
-			</section>
-			<section>
-				<h3>Digital Twins</h3>
-				<p>A digital twin is a virtual representation, i.e. a model of a
-					device or a group of devices that resides on a cloud server or edge
-					device. It can be used to represent real-world devices which may
-					not be continuously online, or to run simulations of new
-					applications and services, before they get deployed to the real
-					devices.</p>
-				<figure id="digital-twin">
-					<img src="images/wot-use-cases/digital-twin.png"
-						style="width: 500px;" />
-					<figcaption>Digital Twin</figcaption>
-				</figure>
-				<p>Digital twins can model a single device, or they can
-					aggregate multiple devices in a virtual representation of the
-					combined devices.</p>
-				<figure id="digital-twin-multiple-devices">
-					<img src="images/wot-use-cases/digital-twin-multiple-devices.png"
-						style="width: 500px;" />
-					<figcaption>Digital Twin for Multiple Devices</figcaption>
-				</figure>
+			<h3>Device Controllers</h3>
+			<p>
+				The first use case is a local device controlled by user-operated
+				remote controller as depicted in <a href="#smart-home-device"></a> .
+				For example, A remote controller can access an electronic appliance
+				through the local home network directly. In this case, the remote
+				controller can be realized by a browser or native application.
+			</p>
+			<p>In this pattern, at least one device like the electronic
+				appliance have a server role that can accept the request from the
+				other devices and respond them, and sometimes start to initiate
+				mechanical function of it. The another device like the remote
+				controller have a client role that can issue a message to the other
+				with some requests, like to get sensor value or to turn it on.</p>
+			<figure id="smart-home-device">
+				<img src="images/wot-use-cases/smart-home-device.png"
+					style="width: 500px;" />
+				<figcaption>Device Control</figcaption>
+			</figure>
+		</section>
+		<section>
+			<h3>Thing-to-Thing</h3>
+			<p>
+				<a href="#smart-home-t2t"></a> shows an example of direct
+				Thing-to-Thing interaction. The scenario is as follows: a sensor
+				detects the change of the room condition, for example the
+				temperature surpassing a set threshold, and issues a control message
+				like "turn on" to the electronic appliance. The sensor unit can
+				issue some trigger messages to other devices.
+			</p>
+			<p>In this case, when two devices that have server roles are
+				connected, at least one device must have also a client role that
+				issues a message to the other to actuate.</p>
+			<figure id="smart-home-t2t">
+				<img src="images/wot-use-cases/smart-home-t2t.png"
+					style="width: 500px;" />
+				<figcaption>Control Agent</figcaption>
+			</figure>
+		</section>
+		<section>
+			<h3>Remote Access</h3>
+			<p class="ednote" title="TODO">Must rewrite for remote
+				access/control use case. Include changing uplink connectivity.</p>
+			<p>
+				The third use case is a mobile remote controller (e.g., on a
+				smartphone) as shown in <a href="#smart-home-multi"></a>. The remote
+				controller can switch communication media between cellular network
+				and home network such as Wi-Fi and Bluetooth. The controller choose
+				the home network when it's at home, and the cellular while outside.
+			</p>
+			<p>In this pattern, the remote controller and the electronic
+				appliance have a client role and a server role respectively as the
+				same as 3.2.1 device controllers.</p>
+			<figure id="smart-home-multi">
+				<img src="images/wot-use-cases/smart-home-multi.png"
+					style="width: 500px;" />
+				<figcaption>Multiple Network Interfaces</figcaption>
+			</figure>
+		</section>
+		<section>
+			<h3>Gateways</h3>
+			<p class="ednote" title="TODO">Must rewrite for local box/compute
+				node use case.</p>
+			<p>
+				<a href="#smart-home-gateway"></a> shows a use case based on a Smart
+				Home gateway. A smart home gateway is placed between a home network
+				and the Internet. The gateway manages electronic appliances inside
+				the house and can receive commands from a remote controller over the
+				Internet, e.g., from a smartphone as in the previous use case. It is
+				also is a virtual representation of a device. The gateways sometimes
+				are called the proxies.
+			</p>
+			<p>In this pattern, the home gateway have both of client and
+				server roles. That is, it can connect to the electronic appliance
+				with the client role and to the remote controller with the server
+				role.</p>
+			<figure id="smart-home-gateway">
+				<img src="images/wot-use-cases/smart-home-gateway.png"
+					style="width: 500px;" />
+				<figcaption>Smart Home Gateway</figcaption>
+			</figure>
+		</section>
+		<section>
+			<h3>Digital Twins</h3>
+			<p>A digital twin is a virtual representation, i.e. a model of a
+				device or a group of devices that resides on a cloud server or edge
+				device. It can be used to represent real-world devices which may not
+				be continuously online, or to run simulations of new applications
+				and services, before they get deployed to the real devices.</p>
+			<figure id="digital-twin">
+				<img src="images/wot-use-cases/digital-twin.png"
+					style="width: 500px;" />
+				<figcaption>Digital Twin</figcaption>
+			</figure>
+			<p>Digital twins can model a single device, or they can aggregate
+				multiple devices in a virtual representation of the combined
+				devices.</p>
+			<figure id="digital-twin-multiple-devices">
+				<img src="images/wot-use-cases/digital-twin-multiple-devices.png"
+					style="width: 500px;" />
+				<figcaption>Digital Twin for Multiple Devices</figcaption>
+			</figure>
 
-				<p>Digital twins can be realized in different ways, depending on
-					whether a device is already connected to the cloud, or whether it
-					is connected to a gateway, which itself is connected to the cloud.</p>
-				<section>
-					<h4>Cloud-ready Devices</h4>
-					<p>
-						<a href="#smart-home-cloud1"></a> shows an example where
-						electronic appliances are connected directly to the cloud. The
-						cloud mirrors the appliances and, acting as a digital twin, can
-						receive commands from remote controllers (e.g., a smartphone).
-						Authorized controllers can be located anywhere, as the digital
-						twin is globally reachable.
-					</p>
-					<figure id="smart-home-cloud1">
-						<img src="images/wot-use-cases/smart-home-cloud1a.png"
-							style="width: 500px;" />
-						<figcaption>Appliance twin for a Cloud-ready Devices</figcaption>
-					</figure>
-				</section>
-				<section>
-					<h3>Legacy Devices</h3>
-					<a href="#smart-home-cloud2"></a> shows an example where legacy
-					electronic appliances cannot directly connect to the cloud. Here, a
-					gateway is needed to relay the connection. The gateway works as:
-					</p>
-					<ul>
-						<li>integrator of a variety of legacy communication protocols
-							both in the physical and logical view</li>
-						<li>firewall toward the Internet</li>
-						<li>privacy filter which substitutes real image and/or
-							speech, and logs data locally</li>
-						<li>local agent in case the Internet connection is
-							interrupted</li>
-						<li>emergency services running locally when fire alarms and
-							similar events occur</li>
-					</ul>
-					<p>The cloud mirrors the gateway with all connected appliances
-						and acts as a digital twin that manages them in the cloud in
-						conjunction with the gateway. Furthermore, the cloud can receive
-						commands from remote controllers (e.g., a smartphone), which can
-						be located anywhere.</p>
-					<figure id="smart-home-cloud2">
-						<img src="images/wot-use-cases/smart-home-cloud2.png"
-							style="width: 500px;" />
-						<figcaption>A Digital Twin for a Legacy Device</figcaption>
-					</figure>
-				</section>
-			</section>
-
+			<p>Digital twins can be realized in different ways, depending on
+				whether a device is already connected to the cloud, or whether it is
+				connected to a gateway, which itself is connected to the cloud.</p>
 			<section>
-				<h3>Multi-Cloud</h3>
-				<p>Typical IoT deployments consist of multiple (thousands) of
-					devices. Without a standardized mechanism, the management of
-					firmware updates for specific clouds require a lot of effort and
-					hinders wider scale IoT adoption.</p>
-				<p>The primary benefit of a standardized mechanism for
-					describing devices and device types is the capability of deploying
-					devices to different cloud environments without the need of doing
-					customization at device software / firmware level, i.e. installing
-					cloud specific code to a device. This implies that the solution is
-					flexible enough to describe devices in a way that allows
-					on-boarding and using devices in multiple IoT cloud environments.</p>
-				<p>This drives adoption of Web of Things devices, since it
-					enables easy usage of new devices in an existing deployment, as
-					well as migration of existing devices from one cloud to the other.
-				</p>
-			</section>
-
-			<section>
-				<h3>Cross-domain Collaboration</h3>
+				<h4>Cloud-ready Devices</h4>
 				<p>
-					<a href="#cross-domain"></a> show an example of a Cross-domain
-					collaboration. In this case, each system involves other systems in
-					other domains, such as Smart Factrory with Smart City, Smart City
-					with Smart Home. This type of system is called "Symbiotic"
-					ecosystem, as shown in [[IEC-FOTF]]. There are two collaboration
-					models: direct collaboration and indirect collaboration. In the
-					direct collaboration model, systems exchange their own information
-					directly with each other in peer-to-peer manner. In the indirect
-					collaboration, systems exchange their own information via some
-					collaboration platform. In order to maintain and continue this
-					collaboration, each system provide the metadata of their ability
-					and interfaces and adopt itself to others.
+					<a href="#smart-home-cloud1"></a> shows an example where electronic
+					appliances are connected directly to the cloud. The cloud mirrors
+					the appliances and, acting as a digital twin, can receive commands
+					from remote controllers (e.g., a smartphone). Authorized
+					controllers can be located anywhere, as the digital twin is
+					globally reachable.
 				</p>
-				<figure id="cross-domain">
-					<img src="images/cross-domain-direct.png" style="width: 500px;" />
-					<img src="images/cross-domain-indirect.png" style="width: 500px;" />
-					<figcaption>Cross-domain collaboration</figcaption>
+				<figure id="smart-home-cloud1">
+					<img src="images/wot-use-cases/smart-home-cloud1a.png"
+						style="width: 500px;" />
+					<figcaption>Appliance twin for a Cloud-ready Devices</figcaption>
+				</figure>
+			</section>
+			<section>
+				<h3>Legacy Devices</h3>
+				<a href="#smart-home-cloud2"></a> shows an example where legacy
+				electronic appliances cannot directly connect to the cloud. Here, a
+				gateway is needed to relay the connection. The gateway works as:
+				</p>
+				<ul>
+					<li>integrator of a variety of legacy communication protocols
+						both in the physical and logical view</li>
+					<li>firewall toward the Internet</li>
+					<li>privacy filter which substitutes real image and/or speech,
+						and logs data locally</li>
+					<li>local agent in case the Internet connection is interrupted</li>
+					<li>emergency services running locally when fire alarms and
+						similar events occur</li>
+				</ul>
+				<p>The cloud mirrors the gateway with all connected appliances
+					and acts as a digital twin that manages them in the cloud in
+					conjunction with the gateway. Furthermore, the cloud can receive
+					commands from remote controllers (e.g., a smartphone), which can be
+					located anywhere.</p>
+				<figure id="smart-home-cloud2">
+					<img src="images/wot-use-cases/smart-home-cloud2.png"
+						style="width: 500px;" />
+					<figcaption>A Digital Twin for a Legacy Device</figcaption>
 				</figure>
 			</section>
 		</section>
 
 		<section>
-			<h2>Summary</h2>
-			<p class="ednote" title="TODO">The following figure has to be
-				simplified to only show the abstract patterns without the
-				implementation and WoT details (inside the gray boxes). Instead,
-				common patterns can be listed at the corresponding places.</p>
+			<h3>Multi-Cloud</h3>
+			<p>Typical IoT deployments consist of multiple (thousands) of
+				devices. Without a standardized mechanism, the management of
+				firmware updates for specific clouds require a lot of effort and
+				hinders wider scale IoT adoption.</p>
+			<p>The primary benefit of a standardized mechanism for describing
+				devices and device types is the capability of deploying devices to
+				different cloud environments without the need of doing customization
+				at device software / firmware level, i.e. installing cloud specific
+				code to a device. This implies that the solution is flexible enough
+				to describe devices in a way that allows on-boarding and using
+				devices in multiple IoT cloud environments.</p>
+			<p>This drives adoption of Web of Things devices, since it
+				enables easy usage of new devices in an existing deployment, as well
+				as migration of existing devices from one cloud to the other.</p>
+		</section>
+
+		<section>
+			<h3>Cross-domain Collaboration</h3>
 			<p>
-				The possible architecture patterns are described in the previous
-				section. In these patterns, some entities such as the devices
-				including the existing devices, the controllers, the gateways, and
-				the clouds are located on some places such as inside building,
-				outside buildings, and data centers. <a href="#usecase-overview"></a>
-				is an integrated overview. To specify the differences of the
-				entities, each entities shown in the patters is tied to each of
-				functional roles such as a server, a client and a proxy/gateway.
-				That is, the client corresponds to the application or the
-				controller, and the server dose to the device. The proxy/gateway is
-				an entity that relays the connection of the client and the server.
-				The gateway is sometimes distinguished from the proxy because of
-				having the protocol converter functionality when it's connected to
-				the existing devices.
+				<a href="#cross-domain"></a> show an example of a Cross-domain
+				collaboration. In this case, each system involves other systems in
+				other domains, such as Smart Factrory with Smart City, Smart City
+				with Smart Home. This type of system is called "Symbiotic"
+				ecosystem, as shown in [[IEC-FOTF]]. There are two collaboration
+				models: direct collaboration and indirect collaboration. In the
+				direct collaboration model, systems exchange their own information
+				directly with each other in peer-to-peer manner. In the indirect
+				collaboration, systems exchange their own information via some
+				collaboration platform. In order to maintain and continue this
+				collaboration, each system provide the metadata of their ability and
+				interfaces and adopt itself to others.
 			</p>
-			<figure id="usecase-overview">
-				<img src="images/arch-use-case-overview.png" />
-				<figcaption>Use Case Overview</figcaption>
+			<figure id="cross-domain">
+				<img src="images/cross-domain-direct.png" style="width: 500px;" />
+				<img src="images/cross-domain-indirect.png" style="width: 500px;" />
+				<figcaption>Cross-domain collaboration</figcaption>
 			</figure>
 		</section>
+	</section>
+
+	<section>
+		<h2>Summary</h2>
+		<p class="ednote" title="TODO">The following figure has to be
+			simplified to only show the abstract patterns without the
+			implementation and WoT details (inside the gray boxes). Instead,
+			common patterns can be listed at the corresponding places.</p>
+		<p>
+			The possible architecture patterns are described in the previous
+			section. In these patterns, some entities such as the devices
+			including the existing devices, the controllers, the gateways, and
+			the clouds are located on some places such as inside building,
+			outside buildings, and data centers. <a href="#usecase-overview"></a>
+			is an integrated overview. To specify the differences of the
+			entities, each entities shown in the patters is tied to each of
+			functional roles such as a server, a client and a proxy/gateway. That
+			is, the client corresponds to the application or the controller, and
+			the server dose to the device. The proxy/gateway is an entity that
+			relays the connection of the client and the server. The gateway is
+			sometimes distinguished from the proxy because of having the protocol
+			converter functionality when it's connected to the existing devices.
+		</p>
+		<figure id="usecase-overview">
+			<img src="images/arch-use-case-overview.png" />
+			<figcaption>Use Case Overview</figcaption>
+		</figure>
+	</section>
 	</section>
 	<section id="sec-requirements" class="informative">
 		<h1>Requirements</h1>
@@ -1369,6 +1268,9 @@ a[href].internalDFN {
 	<section id="sec-wot-architecture">
 		<h1>WoT Architecture</h1>
 		<section>
+			<p>
+			<em>This section is normative.</em>
+			</p>
 			<h2>Overview</h2>
 			<figure id="architecture-abstract">
 				<img src="images/architecture-abstract.png" style="width: 100%;" />
@@ -1797,6 +1699,10 @@ a[href].internalDFN {
 
 	<section id="sec-building-blocks">
 		<h1>WoT Building Blocks</h1>
+		<p>
+			<em>This section is normative.</em>
+		</p>
+
 		<p>The Web of Things provides more concrete building blocks that
 			allow to implement the abstract WoT Architecture. As, they are
 			defined in separate documents, this document provides the overview
@@ -1915,7 +1821,7 @@ a[href].internalDFN {
 				must meet a number of constraints (see <a href="#protocol-bindings"></a>).
 			</p>
 			<p>
-				The informal WoT Binding Templates document
+				The non-normative WoT Binding Templates document
 				[[?wot-binding-templates]] provides a collection of communication
 				metadata blueprints that explain how to interact with different <a>IoT
 					platforms</a>. When describing a particular device, the <a>Binding
@@ -1974,7 +1880,7 @@ a[href].internalDFN {
 		</section>
 		<section>
 			<h3>WoT Scripting API</h3>
-			<p>The informational WoT Scripting API document proposes a
+			<p>The non-normative WoT Scripting API document proposes a
 				programming interface that allows scripts to discover and consume
 				(retrieve) Thing Descriptions, instantiate local objects that act as
 				a proxy for remote Things and their Interaction Affordances
@@ -2010,6 +1916,10 @@ a[href].internalDFN {
 		</section>
 		<section>
 			<h3>WoT Security and Privacy Guidelines</h3>
+			<p>
+				<em>This section contains recommendations and is non-normative.</em>
+			</p>
+
 			<p class="ednote" title="TODO">Explain how to use and apply
 				guidelines.</p>
 		</section>
@@ -2017,6 +1927,10 @@ a[href].internalDFN {
 
 	<section>
 		<h1>Servient Implementation</h1>
+		<p>
+			<em>This section describes an implementation and is non-normative.</em>
+		</p>
+
 		<p class="ednote" title="TODO">
 			This section needs to be revised and aligned with the new <a
 				href="#sec-wot-architecture"></a>.
@@ -2063,10 +1977,34 @@ a[href].internalDFN {
 				applications are implemented natively for the software stack. These
 				do not have the <a>Scripting API</a> and <a>WoT Runtime</a> modules.
 			</p>
-			<section>
-				<h3>Native</h3>
-				<p class="ednote" title="TODO">Explain native implementation
-					against custom API in programming language of choice.</p>
+			<section id="native-impl">
+				<h3>Native platform API</h3>
+				<!--<p class="ednote" title="TODO">Explain native implementation
+					against custom API in programming language of choice.</p>-->
+				<p>
+					There are necessities for implement an application
+					without using <a>Scripting API</a>.  For example:
+				</p>
+				<ul>
+					<li>
+						From lack of computing resources, developer can't use a rich
+						software stack or fully-featured scripting engine.
+					</li>
+					<li>
+						To cooperate with other functions or applications,
+						developer must use language specific functions or libraries.
+					</li>
+					<li>
+            Developer want to interact Things on the top of existing applications.
+					</li>
+				</ul>
+				<p>
+					Because semantics of <a>Thing Description</a> are well-defined,
+					developers can make own application by parsing a <a>TD</a> and
+					interact with things by native platform API.  Moreover, developer can
+					use an existing application by creating proper configuration
+					for the application based on the <a>TD</a>.
+				</p>	
 			</section>
 			<section>
 				<h3>WoT Scripting API</h3>
@@ -2195,6 +2133,10 @@ a[href].internalDFN {
 	<!-- DEPLOYMENT SCENARIOS  -->
 	<section id="sec-deployment-scenario">
 		<h1>WoT Deployments</h1>
+		<p>
+			<em>This section is non-normative.</em>
+		</p>
+
 		<p>In the previous sections, how WoT servients connect to each
 			other and their roles and basic behaviors were described based on two
 			simple structures; one with an application and a device, and the
@@ -2361,6 +2303,10 @@ a[href].internalDFN {
 	</section>
 	<section id="sec-security-considerations">
 		<h1>Security and Privacy Considerations</h1>
+		<p>
+			<em>This section is non-normative.</em>
+		</p>
+
 		<p class="ednote">
 			This section will likely undergo significant revision and
 			reorganization. Please see the <a
@@ -2540,7 +2486,7 @@ a[href].internalDFN {
 		</section>
 	</section>
 	<section class="appendix">
-		<h1>Example Sequences of interaction patterns (Informative)</h1>
+		<h1>Example Sequences of interaction patterns</h1>
 		<p>
 			<em>This section is non-normative.</em>
 		</p>
@@ -2651,6 +2597,9 @@ a[href].internalDFN {
 	</section>
 	<section class="appendix">
 		<h1>SNIPPETS: (was WoT Deployment Scenarios and Guidelines)</h1>
+		<p class="ednote">This section contains text that became obsolete
+			and will be removed before the document will be published.</p>
+
 		<p>There are many possibilities for deploying the abstract WoT
 			Architecture and mapping the functions to physical devices and
 			network structures. This section, which is informative but not
