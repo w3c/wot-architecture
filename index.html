@@ -247,7 +247,7 @@ a[href].internalDFN {
 	<section id="conformance"></section>
 	<section>
 		<h1>Terminology</h1>
-				<p>
+		<p>
 			<em>This section is normative.</em>
 		</p>
 
@@ -862,17 +862,17 @@ a[href].internalDFN {
 				<p>
 					The first use case is a local device controlled by user-operated
 					remote controller as depicted in <a href="#smart-home-device"></a>
-					. For example, A remote controller can access an electronic appliance through 
-					the local home network directly. In this case, the remote controller can be realized 
-					by a browser or native application.
+					. For example, A remote controller can access an electronic
+					appliance through the local home network directly. In this case,
+					the remote controller can be realized by a browser or native
+					application.
 				</p>
-				<p>
-					In this pattern, at least one device like the electronic appliance have a server role 
-					that can accept the request from the other devices and respond them, and sometimes start 
-					to initiate mechanical function of it. The another device like the remote controller 
-					have a client role that can issue a message to the other with some requests, like to get 
-					sensor value or to turn it on.
-				</p>
+				<p>In this pattern, at least one device like the electronic
+					appliance have a server role that can accept the request from the
+					other devices and respond them, and sometimes start to initiate
+					mechanical function of it. The another device like the remote
+					controller have a client role that can issue a message to the other
+					with some requests, like to get sensor value or to turn it on.</p>
 				<figure id="smart-home-device">
 					<img src="images/wot-use-cases/smart-home-device.png"
 						style="width: 500px;" />
@@ -883,15 +883,15 @@ a[href].internalDFN {
 				<h3>Thing-to-Thing</h3>
 				<p>
 					<a href="#smart-home-t2t"></a> shows an example of direct
-					Thing-to-Thing interaction. The scenario is as follows:
-					a sensor detects the change of the room condition, for example the temperature 
-					surpassing a set threshold, and issues a control message like "turn on" to the 
-					electronic appliance. The sensor unit can issue some trigger messages to other devices.
+					Thing-to-Thing interaction. The scenario is as follows: a sensor
+					detects the change of the room condition, for example the
+					temperature surpassing a set threshold, and issues a control
+					message like "turn on" to the electronic appliance. The sensor unit
+					can issue some trigger messages to other devices.
 				</p>
-				<p>
-					In this case, when two devices that have server roles are connected, at least one device 
-					must have also a client role that issues a message to the other to actuate.
-				</p>
+				<p>In this case, when two devices that have server roles are
+					connected, at least one device must have also a client role that
+					issues a message to the other to actuate.</p>
 				<figure id="smart-home-t2t">
 					<img src="images/wot-use-cases/smart-home-t2t.png"
 						style="width: 500px;" />
@@ -904,15 +904,15 @@ a[href].internalDFN {
 					access/control use case. Include changing uplink connectivity.</p>
 				<p>
 					The third use case is a mobile remote controller (e.g., on a
-					smartphone) as shown in <a href="#smart-home-multi"></a>. 
-					The remote controller can switch communication media between cellular network 
-					and home network such as Wi-Fi and Bluetooth. The controller choose the home 
-					network when it's at home, and the cellular while outside.
+					smartphone) as shown in <a href="#smart-home-multi"></a>. The
+					remote controller can switch communication media between cellular
+					network and home network such as Wi-Fi and Bluetooth. The
+					controller choose the home network when it's at home, and the
+					cellular while outside.
 				</p>
-				<p>
-					In this pattern, the remote controller and the electronic appliance have a client role 
-					and a server role respectively as the same as 3.2.1 device controllers.	
-				</p>
+				<p>In this pattern, the remote controller and the electronic
+					appliance have a client role and a server role respectively as the
+					same as 3.2.1 device controllers.</p>
 				<figure id="smart-home-multi">
 					<img src="images/wot-use-cases/smart-home-multi.png"
 						style="width: 500px;" />
@@ -925,17 +925,17 @@ a[href].internalDFN {
 					box/compute node use case.</p>
 				<p>
 					<a href="#smart-home-gateway"></a> shows a use case based on a
-					Smart Home gateway. A smart home gateway is placed between a home network 
-					and the Internet. The gateway manages electronic appliances inside the house 
-					and can receive commands from a remote controller over the Internet, e.g., 
-					from a smartphone as in the previous use case. It is also is a virtual representation 
-					of a device. The gateways sometimes are called the proxies.
+					Smart Home gateway. A smart home gateway is placed between a home
+					network and the Internet. The gateway manages electronic appliances
+					inside the house and can receive commands from a remote controller
+					over the Internet, e.g., from a smartphone as in the previous use
+					case. It is also is a virtual representation of a device. The
+					gateways sometimes are called the proxies.
 				</p>
-				<p>
-					In this pattern, the home gateway have both of client and server roles. That is, 
-					it can connect to the electronic appliance with the client role and to the remote 
-					controller with the server role.
-				</p>
+				<p>In this pattern, the home gateway have both of client and
+					server roles. That is, it can connect to the electronic appliance
+					with the client role and to the remote controller with the server
+					role.</p>
 				<figure id="smart-home-gateway">
 					<img src="images/wot-use-cases/smart-home-gateway.png"
 						style="width: 500px;" />
@@ -944,11 +944,12 @@ a[href].internalDFN {
 			</section>
 			<section>
 				<h3>Digital Twins</h3>
-				<p>A digital twin is a virtual representation, i.e. a model of a device or a
-					group of devices that resides on a cloud server or edge device. It
-					can be used to represent real-world devices which may not be
-					continuously online, or to run simulations of new applications and
-					services, before they get deployed to the real devices.</p>
+				<p>A digital twin is a virtual representation, i.e. a model of a
+					device or a group of devices that resides on a cloud server or edge
+					device. It can be used to represent real-world devices which may
+					not be continuously online, or to run simulations of new
+					applications and services, before they get deployed to the real
+					devices.</p>
 				<figure id="digital-twin">
 					<img src="images/wot-use-cases/digital-twin.png"
 						style="width: 500px;" />
@@ -963,9 +964,9 @@ a[href].internalDFN {
 					<figcaption>Digital Twin for Multiple Devices</figcaption>
 				</figure>
 
-				<p>Digital twins can be realized in different ways, depending on whether a device
-				is already connected to the cloud, or whether it is connected to a gateway,
-				which itself is connected to the cloud.</p>
+				<p>Digital twins can be realized in different ways, depending on
+					whether a device is already connected to the cloud, or whether it
+					is connected to a gateway, which itself is connected to the cloud.</p>
 				<section>
 					<h4>Cloud-ready Devices</h4>
 					<p>
@@ -1014,22 +1015,20 @@ a[href].internalDFN {
 
 			<section>
 				<h3>Multi-Cloud</h3>
-				<p>
-					Typical IoT deployments consist of multiple (thousands) of devices.
-					Without a standardized mechanism, the management of firmware updates 
-					for specific clouds require a lot of effort and hinders wider scale IoT adoption.
-				</p>
-				<p>The primary benefit of a standardized mechanism for describing				
-					devices and device types is the capability of deploying devices to
-					different cloud environments without the need of doing
+				<p>Typical IoT deployments consist of multiple (thousands) of
+					devices. Without a standardized mechanism, the management of
+					firmware updates for specific clouds require a lot of effort and
+					hinders wider scale IoT adoption.</p>
+				<p>The primary benefit of a standardized mechanism for
+					describing devices and device types is the capability of deploying
+					devices to different cloud environments without the need of doing
 					customization at device software / firmware level, i.e. installing
 					cloud specific code to a device. This implies that the solution is
 					flexible enough to describe devices in a way that allows
 					on-boarding and using devices in multiple IoT cloud environments.</p>
-				<p>
-					This drives adoption of Web of Things devices, since it enables easy
-					usage of new devices in an existing deployment, as well as 
-					migration of existing devices from one cloud to the other.
+				<p>This drives adoption of Web of Things devices, since it
+					enables easy usage of new devices in an existing deployment, as
+					well as migration of existing devices from one cloud to the other.
 				</p>
 			</section>
 
@@ -1303,27 +1302,28 @@ a[href].internalDFN {
 			</section>
 			<section>
 				<h3>Twins</h3>
-				<p>Twins need to generate program interfaces internally based
-					on device descriptions (i.e. TD), and to represent virtual devices
-					by using those program interfaces. A twin has to produce a TD
-					for the virtual device and make it externally available.</p>
+				<p>Twins need to generate program interfaces internally based on
+					device descriptions (i.e. TD), and to represent virtual devices by
+					using those program interfaces. A twin has to produce a TD for the
+					virtual device and make it externally available.</p>
 				<p>Identifiers of virtual devices need to be newly assigned,
 					therefore, are different from the original devices. This makes sure
 					that virtual devices and the original devices are clearly
 					recognized as separate entities. Transport and security mechanisms
 					and settings of the virtual devices can be different from original
-					devices if necessary. Virtual devices are required to have TDs provided
-					either directly by the twin or to have them available at external locations.
-					In either case it is required to make the TDs available so that other components can find
-					and use the devices associated with them.</p>
+					devices if necessary. Virtual devices are required to have TDs
+					provided either directly by the twin or to have them available at
+					external locations. In either case it is required to make the TDs
+					available so that other components can find and use the devices
+					associated with them.</p>
 			</section>
 			<section>
 				<h3>Discovery</h3>
 				<p>For TDs of devices and virtual devices to be accessible from
-					devices, applications and twins, there needs to be a common way
-					to share TDs. Directories can serve this requirement by providing
-					functionalities to allow devices and twins themselves
-					automatically or the users to manually register the descriptions.</p>
+					devices, applications and twins, there needs to be a common way to
+					share TDs. Directories can serve this requirement by providing
+					functionalities to allow devices and twins themselves automatically
+					or the users to manually register the descriptions.</p>
 				<p>Descriptions of the devices and virtual devices need to be
 					searchable by external entities. Directories have to be able to
 					process search operations with search keys such as keywords from
@@ -1347,7 +1347,7 @@ a[href].internalDFN {
 		<h1>WoT Architecture</h1>
 		<section>
 			<p>
-			<em>This section is normative.</em>
+				<em>This section is normative.</em>
 			</p>
 			<h2>Overview</h2>
 			<figure id="architecture-abstract">
@@ -1362,12 +1362,7 @@ a[href].internalDFN {
 				configuration that consists of a device and an application shown
 				below.</p>
 			<figure id="high-level-application-device">
-				<img src="images/arch-high-level-application-device.png" />
-				<figcaption>High level architecture of application and
-					device</figcaption>
-			</figure>
-			<figure id="high-level-application-device-new">
-				<img src="images/arch-high-level-application-device-new.png" />
+				<img src="images/arch-high-level-application-device-alt.png" />
 				<figcaption>High level architecture of application and
 					device</figcaption>
 			</figure>
@@ -1388,17 +1383,12 @@ a[href].internalDFN {
 				exchange messages.</p>
 			<p>Next, in the below configuration, an application and a device
 				connect to each other via a proxy.</p>
-				<section class="ednote">
-				<p>
-				Need to adapt this chapter to use digital twin terminology instead of proxy.
-				</p>
-				</section>
-			<figure id="high-level-application-proxy-device">
-				<img src="images/arch-high-level-application-proxy-device.png" />
-				<figcaption>High level architecture with proxy</figcaption>
-			</figure>
+			<section class="ednote">
+				<p>Need to adapt this chapter to use digital twin terminology
+					instead of proxy.</p>
+			</section>
 			<figure id="high-level-application-proxy-device-new">
-				<img src="images/arch-high-level-application-proxy-device-new.png" />
+				<img src="images/arch-high-level-application-proxy-device-alt.png" />
 				<figcaption>High level architecture with proxy</figcaption>
 			</figure>
 			<p>A proxy contains both ExposedThing and ConsumedThing
@@ -1789,7 +1779,7 @@ a[href].internalDFN {
 
 		<p>
 		<figure id="arch-new-building-blocks">
-			<img src="images/arch-new-building-blocks.png" />
+			<img src="images/arch-new-building-blocks-alt.png" />
 			<figcaption>Building Blocks</figcaption>
 		</figure>
 		As already discussed, consideration of the use cases and the
@@ -2036,7 +2026,7 @@ a[href].internalDFN {
 					JavaScript) interface, and the application achieves its functions
 					by using this interface.</p>
 				<figure id="simple-conf-application-device">
-					<img src="images/arch-simple-conf-application-device.png" />
+					<img src="images/arch-simple-conf-application-device-alt.png" />
 					<figcaption>Simple configuration of application and
 						device</figcaption>
 				</figure>
@@ -2055,7 +2045,7 @@ a[href].internalDFN {
 					described to serve for the application. An ExposedThing is created
 					based on this TD, and a S-LCM notifies other servients of the TD.</p>
 				<figure id="simple-conf-application-proxy-device">
-					<img src="images/arch-simple-conf-application-proxy-device.png" />
+					<img src="images/arch-simple-conf-application-proxy-device-alt.png" />
 					<figcaption>Simple configuration with proxy</figcaption>
 				</figure>
 			</section>
@@ -2066,7 +2056,8 @@ a[href].internalDFN {
 	<section>
 		<h1>Servient Implementation</h1>
 		<p>
-			<em>This section describes an implementation and is non-normative.</em>
+			<em>This section describes an implementation and is
+				non-normative.</em>
 		</p>
 
 		<p class="ednote" title="TODO">
@@ -2296,7 +2287,7 @@ a[href].internalDFN {
 				the remote proxy on the internet side aggregates the applications.
 				Applications and devices need to know nothing about the firewall.</p>
 			<figure id="deployment-cloud-device">
-				<img src="images/arch-deploy-cloud-device.png" />
+				<img src="images/arch-deploy-cloud-device-alt.png" />
 				<figcaption>TODO: ADD A CAPTION</figcaption>
 			</figure>
 			<p>Note: An example structure adopted in ITU-T Recommendation
@@ -2317,7 +2308,7 @@ a[href].internalDFN {
 				to achieve its application functionality. It can do so by querying
 				the directory of device information.</p>
 			<figure id="deployment-cloud-directory">
-				<img src="images/arch-deploy-service-directory.png" />
+				<img src="images/arch-deploy-service-directory-alt.png" />
 				<figcaption>Cloud service with directory</figcaption>
 			</figure>
 			<p>Multiple cloud eco-systems each based on a different platform
@@ -2339,7 +2330,7 @@ a[href].internalDFN {
 				shadow device, Application servient A is able to use Device Servient
 				B through the shadow device on Remote Proxy Servient B.</p>
 			<figure id="deployment-service-sync-directory">
-				<img src="images/arch-deploy-service-sync-directory.png" />
+				<img src="images/arch-deploy-service-sync-directory-alt.png" />
 				<figcaption>Multiple cloud connect through directory
 					synchronization</figcaption>
 			</figure>
@@ -2351,7 +2342,7 @@ a[href].internalDFN {
 				B, and registers the TD to TD directory A. With this mechanism,
 				synchronization between TD directories is not necessary.</p>
 			<figure id="deployment-service-sync-proxy">
-				<img src="images/arch-deploy-service-sync-proxy.png" />
+				<img src="images/arch-deploy-service-sync-proxy-alt.png" />
 				<figcaption>Multiple cloud connect through proxy
 					synchronization</figcaption>
 			</figure>
