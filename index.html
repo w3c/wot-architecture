@@ -127,28 +127,21 @@ a[href].internalDFN {
 <body>
 	<section id="abstract">
 		<p>The W3C Web of Things (WoT) was created to enable
-			interoperability across IoT Platforms and application domains.
-		</p>
-		<p>
-			WoT provides mechanisms to formally describe IoT interfaces
-			to allow IoT devices and services to communicate with each other,
+			interoperability across IoT Platforms and application domains.</p>
+		<p>WoT provides mechanisms to formally describe IoT interfaces to
+			allow IoT devices and services to communicate with each other,
 			independent of their underlying implementation, and across multiple
-			networking protocols. 
-			
-			In addition WoT offers a standardized way to define and program IoT behavior.</p>
+			networking protocols. In addition WoT offers a standardized way to
+			define and program IoT behavior.</p>
 
-		<p>This WoT Architecture document describes the abstract architecture for the W3C
-			Web of Things. It is derived from a set of requirements that were derived
-			from use cases for multiple application domains.
-			The architecture can be mapped onto a variety of concrete deployment scenarios, 
-			several examples of which are given. 
-		</p>
-		<p>
-			The document is focused on the
-			scope of W3C WoT standardization, which consists of three initial
-			building blocks. These are described by additional WoT
-			specifications:
-		</p>
+		<p>This WoT Architecture document describes the abstract
+			architecture for the W3C Web of Things. It is derived from a set of
+			requirements that were derived from use cases for multiple
+			application domains. The architecture can be mapped onto a variety of
+			concrete deployment scenarios, several examples of which are given.</p>
+		<p>The document is focused on the scope of W3C WoT
+			standardization, which consists of three initial building blocks.
+			These are described by additional WoT specifications:</p>
 		<ul>
 			<li>the <a href="https://w3c.github.io/wot-thing-description/">WoT
 					Thing Description</a> ,
@@ -162,20 +155,21 @@ a[href].internalDFN {
 		</ul>
 
 		<p>
-			The <a>WoT Thing Description</a> is the primary building block, 
-			as it describes the network-facing interface of a Thing (<a>WoT
-			Interface</a>).
+			The <a>WoT Thing Description</a> is the primary building block, as it
+			describes the network-facing interface of a Thing (<a>WoT
+				Interface</a>).
 		</p>
 		<p>
-			The optional <a>WoT Binding Templates</a> can be used to describe 
-			multiple protocol bindings, sothat a <a>Thing</a> can communicate 
-			with different <a>IoT Platforms</a> (i.e., IoT ecosystems or standards).
+			The optional <a>WoT Binding Templates</a> can be used to describe
+			multiple protocol bindings, sothat a <a>Thing</a> can communicate
+			with different <a>IoT Platforms</a> (i.e., IoT ecosystems or
+			standards).
 		</p>
 		<p>
-			The optional <a>WoT Scripting API</a> enables to implement the application logic
-			of a Thing using a standardized contract for JavaScript. 
-			This simplifies IoT application development and enables
-			portability across vendors and WoT network components.		
+			The optional <a>WoT Scripting API</a> enables to implement the
+			application logic of a Thing using a standardized contract for
+			JavaScript. This simplifies IoT application development and enables
+			portability across vendors and WoT network components.
 		</p>
 
 		<p>Other non-normative architectural blocks and conditions
@@ -184,8 +178,7 @@ a[href].internalDFN {
 			privacy are included, while the goal is to preserve and support
 			existing device mechanisms and properties. In general, W3C WoT is
 			designed to describe what exists rather than to prescribe what to
-			implement.
-		</p>
+			implement.</p>
 
 	</section>
 	<section id="sotd">
@@ -213,8 +206,8 @@ a[href].internalDFN {
 				href="https://www.w3.org/WoT/IG/">Interest Group</a> in 2015 to
 			identify technological building blocks for Recommendation Track
 			standardization. With the WoT <a href="https://www.w3.org/WoT/WG/">Working
-				Group</a> chartered end of 2016, the first set of WoT building blocks has
-			now being standardized:
+				Group</a> chartered end of 2016, the first set of WoT building blocks
+			has now being standardized:
 		</p>
 		<ul>
 			<li>the <a href="https://w3c.github.io/wot-thing-description/">WoT
@@ -227,7 +220,7 @@ a[href].internalDFN {
 					Scripting API</a>.
 			</li>
 		</ul>
-		
+
 		<p>This document serves as an umbrella for the W3C WoT draft
 			specifications and defines the basics such as terminology and the
 			underlying abstract architecture of the W3C Web of Things. In
@@ -353,18 +346,19 @@ a[href].internalDFN {
 			<dt>
 				<dfn>Hypermedia Control</dfn>
 			</dt>
-			<dd>Hypermedia controls are Web links [[!RFC8288]] and request 
-				templates where the latter can be seen as forms to fill in 
-				and to send to servers.</dd>
+			<dd>Hypermedia controls are Web links [[!RFC8288]] and request
+				templates where the latter can be seen as forms to fill in and to
+				send to servers.</dd>
 			<dt>
 				<dfn>Interaction Affordance</dfn>
 			</dt>
-			<dd>Metadata of a Thing exposing <a>hypermedia controls</a> that describe 
-				the possible protocol-level choices to clients, thereby 
-				suggesting how clients may interact with the Thing. 
-				Examples use of affordances includes, but are not limited, 
-				getting and setting <a>properties</a>, invoking <a>actions</a>, 
-				and subscribing to <a>events</a>.</dd>
+			<dd>
+				Metadata of a Thing exposing <a>hypermedia controls</a> that
+				describe the possible protocol-level choices to clients, thereby
+				suggesting how clients may interact with the Thing. Examples use of
+				affordances includes, but are not limited, getting and setting <a>properties</a>,
+				invoking <a>actions</a>, and subscribing to <a>events</a>.
+			</dd>
 			<dt>
 				<dfn>Interaction Model</dfn>
 			</dt>
@@ -566,44 +560,37 @@ a[href].internalDFN {
 			<h2>Application Domains</h2>
 			<section id="consumerusecases">
 				<h3>Consumer</h3>
-				<p>
-					In the consumer space there are multiple assets that benefit from
-					being connected. Lights and air conditioners can be turned off based
-					on room occupancy. Window blinds can be closed automatically based
-					on weather conditions and presence. Energy and other resource
+				<p>In the consumer space there are multiple assets that benefit
+					from being connected. Lights and air conditioners can be turned off
+					based on room occupancy. Window blinds can be closed automatically
+					based on weather conditions and presence. Energy and other resource
 					consumption can be optimized based on usage patterns and
-					predictions.
-				</p>
+					predictions.</p>
+				<p>The consumer use cases in this section includes Smart Home
+					use case.</p>
 				<p>
-					The consumer use cases in this section includes Smart Home use case.
+					<a href="#smart-home"></a> shows an example of a Smart Home. In
+					this case, gateways are connected to edge devices such as sensors,
+					cameras and home appliances through corresponding local
+					communication protocols such as KNX, ECHONET, ZigBee, DECT ULE and
+					Wi-SUN. Multiple gateways can exist in one home, while each gateway
+					can support multiple local protocols.
 				</p>
-				<p>
-					<a href="#smart-home"></a> shows an example of a Smart Home.
-					In this case, gateways are connected to edge devices such
-					as sensors, cameras and home appliances through corresponding
-					local communication protocols such as KNX, ECHONET, ZigBee,
-					DECT ULE and Wi-SUN. Multiple gateways can exist in one home,
-					while each gateway can support multiple local protocols.
-				</p>
-				<p>
-					Gateways can be connected to the cloud through the internet, 
+				<p>Gateways can be connected to the cloud through the internet,
 					while some appliances can be connected to the cloud directly.
 					Services running in the cloud collect data from edge devices and
 					analyze the data, then provide value to users through the edge
-					devices and other UX devices.
-				</p>
+					devices and other UX devices.</p>
 				<figure id="smart-home">
 					<img src="images/wot-use-cases/smart-home.png"
 						style="width: 640px;" />
 					<figcaption>Smart Home</figcaption>
 				</figure>
-				<p>
-					Smart home provides consumer benefits such as remote access and
-					control, voice control and home automation. Smart home also enables
-					device manufacturers to monitor and maintain devices remotely. Smart
-					home can realizes added value services such as energy management and
-					security surveilance.
-				</p>
+				<p>Smart home provides consumer benefits such as remote access
+					and control, voice control and home automation. Smart home also
+					enables device manufacturers to monitor and maintain devices
+					remotely. Smart home can realizes added value services such as
+					energy management and security surveilance.</p>
 			</section>
 			<section id="industrialiotusecases">
 				<h3>Industrial</h3>
@@ -702,219 +689,222 @@ a[href].internalDFN {
 					prevent damage and loss.</p>
 			</section>
 
-		<section id="sec-agriculture">
-			<h3 id="agriculture">Agriculture</h3>
-			<p>Soil condition monitoring and creating optimal plans for
-				watering, fertilizing as well as monitoring the produce conditions
-				optimize the quality and output of agricultural produce.</p>
-		</section>
-		<section id="sec-healthcare">
-			<h3 id="healthcare">Healthcare</h3>
-			<p>Data collection and analytics of clinical trial data helps to
-				gain insights into new areas.</p>
-			<p>Remote patient monitoring mitigates the risk of undetected
-				critical situations for elderly people and patients after
-				hospitalization.</p>
-		</section>
-		<section>
-			<h3 id="environmentmonitoring-1">Environment Monitoring</h3>
-			<p>Environment monitoring typically relies on a lot of
-				distributed sensors that send their measurement data to common
-				gateways, edge devices and cloud services.</p>
-			<p>Monitoring of air pollution, water pollution and other
-				environmental risk factors such as fine dust, ozone, volatile
-				organic compound, radioactivity, temperature, humidity to detect
-				critical environment conditions can prevent unrecoverable health or
-				environment damages.</p>
-		</section>
-		<section id="smart cities">
-			<h3 id="smartcities">Smart Cities</h3>
-			<p>Monitoring of Bridges, Dams, Levees, Canals for material
-				condition, deterioration, vibrations discovers maintenance repair
-				work and prevents significant damage. Monitoring of highways and
-				providing appropriate signage ensures optimized traffic flow.</p>
-			<p>Smart Parking is optimizing and tracking the usage and
-				availability of parking spaces and automates billing/reservations.</p>
-			<p>Smart control of street lights based on presence detection,
-				weather predictions, etc reduced cost.</p>
-			<p>Garbage containers can be monitored to optimize the waste
-				management and the trash collection route.</p>
-		</section>
-		<section id="smart buildings">
-			<h3 id="smartbuildings">Smart Buildings</h3>
-			<p>Monitoring the energy usage throughout the building helps to
-				optimize resource consumption and reduce waste.</p>
-			<p>Monitoring the equipment in the buildings such as HVAC,
-				Elevators, etc. and fixing problems early improves the satisfaction
-				of occupants.</p>
-		</section>
-		<section id="connected car">
-			<h3 id="connectedcar">Connected Car</h3>
-			<p>Monitoring of operation status, prediction of service needs
-				optimizes maintenance needs and costs. Driver safety is enhanced
-				with notifications of an early warning system for critical road and
-				traffic conditions.</p>
-			<section id="connected car example">
-				<h4 id="connectedcar-example">Connected Car Example</h4>
-				<p>
-					<a href="#connected-car"></a> shows an example of a Connected Car.
-					In this case, a gateway connects to car components through CAN and
-					to the car navigation system through a proprietary interface.
-					Services running in the cloud collect data pushed from car
-					components and analyze the data from multiple cars to determine
-					traffic patterns. The gateway can also consume cloud services, in
-					this case, to get traffic data and show it to the driver through
-					the car navigation system.
-				</p>
-				<figure id="connected-car">
-					<img src="images/wot-use-cases/connected-car.png"
-						style="width: 500px;" />
-					<figcaption>Connected Car</figcaption>
-				</figure>
+			<section id="sec-agriculture">
+				<h3 id="agriculture">Agriculture</h3>
+				<p>Soil condition monitoring and creating optimal plans for
+					watering, fertilizing as well as monitoring the produce conditions
+					optimize the quality and output of agricultural produce.</p>
 			</section>
-			<p>Monitoring of operation status, prediction of service needs
-				optimizes maintenance needs and costs. Driver safety is enhanced
-				with notifications of an early warning system for critical road and
-				traffic conditions.</p>
+			<section id="sec-healthcare">
+				<h3 id="healthcare">Healthcare</h3>
+				<p>Data collection and analytics of clinical trial data helps to
+					gain insights into new areas.</p>
+				<p>Remote patient monitoring mitigates the risk of undetected
+					critical situations for elderly people and patients after
+					hospitalization.</p>
+			</section>
+			<section>
+				<h3 id="environmentmonitoring-1">Environment Monitoring</h3>
+				<p>Environment monitoring typically relies on a lot of
+					distributed sensors that send their measurement data to common
+					gateways, edge devices and cloud services.</p>
+				<p>Monitoring of air pollution, water pollution and other
+					environmental risk factors such as fine dust, ozone, volatile
+					organic compound, radioactivity, temperature, humidity to detect
+					critical environment conditions can prevent unrecoverable health or
+					environment damages.</p>
+			</section>
+			<section id="smart cities">
+				<h3 id="smartcities">Smart Cities</h3>
+				<p>Monitoring of Bridges, Dams, Levees, Canals for material
+					condition, deterioration, vibrations discovers maintenance repair
+					work and prevents significant damage. Monitoring of highways and
+					providing appropriate signage ensures optimized traffic flow.</p>
+				<p>Smart Parking is optimizing and tracking the usage and
+					availability of parking spaces and automates billing/reservations.</p>
+				<p>Smart control of street lights based on presence detection,
+					weather predictions, etc reduced cost.</p>
+				<p>Garbage containers can be monitored to optimize the waste
+					management and the trash collection route.</p>
+			</section>
+			<section id="smart buildings">
+				<h3 id="smartbuildings">Smart Buildings</h3>
+				<p>Monitoring the energy usage throughout the building helps to
+					optimize resource consumption and reduce waste.</p>
+				<p>Monitoring the equipment in the buildings such as HVAC,
+					Elevators, etc. and fixing problems early improves the satisfaction
+					of occupants.</p>
+			</section>
+			<section id="connected car">
+				<h3 id="connectedcar">Connected Car</h3>
+				<p>Monitoring of operation status, prediction of service needs
+					optimizes maintenance needs and costs. Driver safety is enhanced
+					with notifications of an early warning system for critical road and
+					traffic conditions.</p>
+				<section id="connected car example">
+					<h4 id="connectedcar-example">Connected Car Example</h4>
+					<p>
+						<a href="#connected-car"></a> shows an example of a Connected Car.
+						In this case, a gateway connects to car components through CAN and
+						to the car navigation system through a proprietary interface.
+						Services running in the cloud collect data pushed from car
+						components and analyze the data from multiple cars to determine
+						traffic patterns. The gateway can also consume cloud services, in
+						this case, to get traffic data and show it to the driver through
+						the car navigation system.
+					</p>
+					<figure id="connected-car">
+						<img src="images/wot-use-cases/connected-car.png"
+							style="width: 500px;" />
+						<figcaption>Connected Car</figcaption>
+					</figure>
+				</section>
+				<p>Monitoring of operation status, prediction of service needs
+					optimizes maintenance needs and costs. Driver safety is enhanced
+					with notifications of an early warning system for critical road and
+					traffic conditions.</p>
+			</section>
 		</section>
-  </section>
-	<section id="commonusecasespatterns">
-		<h1>Common Patterns</h1>
-		<section>
-			This section introduces common use case patterns that illustrate how
-			devices/things interact with controllers, other devices, agents and
-			servers.
+		<section id="commonusecasespatterns">
+			<h1>Common Patterns</h1>
+			<section>
+				This section introduces common use case patterns that illustrate how
+				devices/things interact with controllers, other devices, agents and
+				servers.
 
-			<h3>Device Controllers</h3>
-			<p>
-				The first use case is a local device controlled by user-operated
-				remote controller as depicted in <a href="#smart-home-device"></a> .
-				For example, A remote controller can access an electronic appliance
-				through the local home network directly. In this case, the remote
-				controller can be realized by a browser or native application.
-			</p>
-			<p>In this pattern, at least one device like the electronic
-				appliance have a server role that can accept the request from the
-				other devices and respond them, and sometimes start to initiate
-				mechanical function of it. The another device like the remote
-				controller have a client role that can issue a message to the other
-				with some requests, like to get sensor value or to turn it on.</p>
-			<figure id="smart-home-device">
-				<img src="images/wot-use-cases/smart-home-device.png"
-					style="width: 500px;" />
-				<figcaption>Device Control</figcaption>
-			</figure>
-		</section>
-		<section>
-			<h3>Thing-to-Thing</h3>
-			<p>
-				<a href="#smart-home-t2t"></a> shows an example of direct
-				Thing-to-Thing interaction. The scenario is as follows: a sensor
-				detects the change of the room condition, for example the
-				temperature surpassing a set threshold, and issues a control message
-				like "turn on" to the electronic appliance. The sensor unit can
-				issue some trigger messages to other devices.
-			</p>
-			<p>In this case, when two devices that have server roles are
-				connected, at least one device must have also a client role that
-				issues a message to the other to actuate.</p>
-			<figure id="smart-home-t2t">
-				<img src="images/wot-use-cases/smart-home-t2t.png"
-					style="width: 500px;" />
-				<figcaption>Control Agent</figcaption>
-			</figure>
-		</section>
-		<section>
-			<h3>Remote Access</h3>
-			<p class="ednote" title="TODO">Must rewrite for remote
-				access/control use case. Include changing uplink connectivity.</p>
-			<p>
-				The third use case is a mobile remote controller (e.g., on a
-				smartphone) as shown in <a href="#smart-home-multi"></a>. The remote
-				controller can switch communication media between cellular network
-				and home network such as Wi-Fi and Bluetooth. The controller choose
-				the home network when it's at home, and the cellular while outside.
-			</p>
-			<p>In this pattern, the remote controller and the electronic
-				appliance have a client role and a server role respectively as the
-				same as 3.2.1 device controllers.</p>
-			<figure id="smart-home-multi">
-				<img src="images/wot-use-cases/smart-home-multi.png"
-					style="width: 500px;" />
-				<figcaption>Multiple Network Interfaces</figcaption>
-			</figure>
-		</section>
-		<section>
-			<h3>Gateways</h3>
-			<p class="ednote" title="TODO">Must rewrite for local box/compute
-				node use case.</p>
-			<p>
-				<a href="#smart-home-gateway"></a> shows a use case based on a Smart
-				Home gateway. A smart home gateway is placed between a home network
-				and the Internet. The gateway manages electronic appliances inside
-				the house and can receive commands from a remote controller over the
-				Internet, e.g., from a smartphone as in the previous use case. It is
-				also is a virtual representation of a device. The gateways sometimes
-				are called the proxies.
-			</p>
-			<p>In this pattern, the home gateway have both of client and
-				server roles. That is, it can connect to the electronic appliance
-				with the client role and to the remote controller with the server
-				role.</p>
-			<figure id="smart-home-gateway">
-				<img src="images/wot-use-cases/smart-home-gateway.png"
-					style="width: 500px;" />
-				<figcaption>Smart Home Gateway</figcaption>
-			</figure>
-		</section>
-		<section>
-			<h3>Digital Twins</h3>
-			<p>A digital twin is a virtual representation, i.e. a model of a
-				device or a group of devices that resides on a cloud server or edge
-				device. It can be used to represent real-world devices which may not
-				be continuously online, or to run simulations of new applications
-				and services, before they get deployed to the real devices.</p>
-			<figure id="digital-twin">
-				<img src="images/wot-use-cases/digital-twin.png"
-					style="width: 500px;" />
-				<figcaption>Digital Twin</figcaption>
-			</figure>
-			<p>Digital twins can model a single device, or they can aggregate
-				multiple devices in a virtual representation of the combined
-				devices.</p>
-			<figure id="digital-twin-multiple-devices">
-				<img src="images/wot-use-cases/digital-twin-multiple-devices.png"
-					style="width: 500px;" />
-				<figcaption>Digital Twin for Multiple Devices</figcaption>
-			</figure>
-
-<<<<<<< HEAD
-			<p>Digital twins can be realized in different ways, depending on
-				whether a device is already connected to the cloud, or whether it is
-				connected to a gateway, which itself is connected to the cloud.</p>
-=======
-				<h3 id="device-controllers">Device Controllers</h3>
+				<h3>Device Controllers</h3>
 				<p>
 					The first use case is a local device controlled by user-operated
 					remote controller as depicted in <a href="#smart-home-device"></a>
-					. For example, A remote controller can access an electronic appliance through 
-					the local home network directly. In this case, the remote controller can be realized 
-					by a browser or native application.
+					. For example, A remote controller can access an electronic
+					appliance through the local home network directly. In this case,
+					the remote controller can be realized by a browser or native
+					application.
 				</p>
-				<p>
-					In this pattern, at least one device like the electronic appliance have a server role 
-					that can accept the request from the other devices and respond them, and sometimes start 
-					to initiate mechanical function of it. The another device like the remote controller 
-					have a client role that can issue a message to the other with some requests, like to get 
-					sensor value or to turn it on.
-				</p>
+				<p>In this pattern, at least one device like the electronic
+					appliance have a server role that can accept the request from the
+					other devices and respond them, and sometimes start to initiate
+					mechanical function of it. The another device like the remote
+					controller have a client role that can issue a message to the other
+					with some requests, like to get sensor value or to turn it on.</p>
 				<figure id="smart-home-device">
 					<img src="images/wot-use-cases/smart-home-device.png"
 						style="width: 500px;" />
 					<figcaption>Device Control</figcaption>
 				</figure>
 			</section>
->>>>>>> fe4246e1e07a58f0eca512cfa87e878db3a9a1db
+			<section>
+				<h3>Thing-to-Thing</h3>
+				<p>
+					<a href="#smart-home-t2t"></a> shows an example of direct
+					Thing-to-Thing interaction. The scenario is as follows: a sensor
+					detects the change of the room condition, for example the
+					temperature surpassing a set threshold, and issues a control
+					message like "turn on" to the electronic appliance. The sensor unit
+					can issue some trigger messages to other devices.
+				</p>
+				<p>In this case, when two devices that have server roles are
+					connected, at least one device must have also a client role that
+					issues a message to the other to actuate.</p>
+				<figure id="smart-home-t2t">
+					<img src="images/wot-use-cases/smart-home-t2t.png"
+						style="width: 500px;" />
+					<figcaption>Control Agent</figcaption>
+				</figure>
+			</section>
+			<section>
+				<h3>Remote Access</h3>
+				<p class="ednote" title="TODO">Must rewrite for remote
+					access/control use case. Include changing uplink connectivity.</p>
+				<p>
+					The third use case is a mobile remote controller (e.g., on a
+					smartphone) as shown in <a href="#smart-home-multi"></a>. The
+					remote controller can switch communication media between cellular
+					network and home network such as Wi-Fi and Bluetooth. The
+					controller choose the home network when it's at home, and the
+					cellular while outside.
+				</p>
+				<p>In this pattern, the remote controller and the electronic
+					appliance have a client role and a server role respectively as the
+					same as 3.2.1 device controllers.</p>
+				<figure id="smart-home-multi">
+					<img src="images/wot-use-cases/smart-home-multi.png"
+						style="width: 500px;" />
+					<figcaption>Multiple Network Interfaces</figcaption>
+				</figure>
+			</section>
+			<section>
+				<h3>Gateways</h3>
+				<p class="ednote" title="TODO">Must rewrite for local
+					box/compute node use case.</p>
+				<p>
+					<a href="#smart-home-gateway"></a> shows a use case based on a
+					Smart Home gateway. A smart home gateway is placed between a home
+					network and the Internet. The gateway manages electronic appliances
+					inside the house and can receive commands from a remote controller
+					over the Internet, e.g., from a smartphone as in the previous use
+					case. It is also is a virtual representation of a device. The
+					gateways sometimes are called the proxies.
+				</p>
+				<p>In this pattern, the home gateway have both of client and
+					server roles. That is, it can connect to the electronic appliance
+					with the client role and to the remote controller with the server
+					role.</p>
+				<figure id="smart-home-gateway">
+					<img src="images/wot-use-cases/smart-home-gateway.png"
+						style="width: 500px;" />
+					<figcaption>Smart Home Gateway</figcaption>
+				</figure>
+			</section>
+			<section>
+				<h3>Digital Twins</h3>
+				<p>A digital twin is a virtual representation, i.e. a model of a
+					device or a group of devices that resides on a cloud server or edge
+					device. It can be used to represent real-world devices which may
+					not be continuously online, or to run simulations of new
+					applications and services, before they get deployed to the real
+					devices.</p>
+				<figure id="digital-twin">
+					<img src="images/wot-use-cases/digital-twin.png"
+						style="width: 500px;" />
+					<figcaption>Digital Twin</figcaption>
+				</figure>
+				<p>Digital twins can model a single device, or they can
+					aggregate multiple devices in a virtual representation of the
+					combined devices.</p>
+				<figure id="digital-twin-multiple-devices">
+					<img src="images/wot-use-cases/digital-twin-multiple-devices.png"
+						style="width: 500px;" />
+					<figcaption>Digital Twin for Multiple Devices</figcaption>
+				</figure>
+
+				<<<<<<< HEAD
+				<p>Digital twins can be realized in different ways, depending on
+					whether a device is already connected to the cloud, or whether it
+					is connected to a gateway, which itself is connected to the cloud.</p>
+				=======
+				<h3 id="device-controllers">Device Controllers</h3>
+				<p>
+					The first use case is a local device controlled by user-operated
+					remote controller as depicted in <a href="#smart-home-device"></a>
+					. For example, A remote controller can access an electronic
+					appliance through the local home network directly. In this case,
+					the remote controller can be realized by a browser or native
+					application.
+				</p>
+				<p>In this pattern, at least one device like the electronic
+					appliance have a server role that can accept the request from the
+					other devices and respond them, and sometimes start to initiate
+					mechanical function of it. The another device like the remote
+					controller have a client role that can issue a message to the other
+					with some requests, like to get sensor value or to turn it on.</p>
+				<figure id="smart-home-device">
+					<img src="images/wot-use-cases/smart-home-device.png"
+						style="width: 500px;" />
+					<figcaption>Device Control</figcaption>
+				</figure>
+			</section>
+			>>>>>>> fe4246e1e07a58f0eca512cfa87e878db3a9a1db
 			<section>
 				<h4>Cloud-ready Devices</h4>
 				<p>
@@ -932,7 +922,7 @@ a[href].internalDFN {
 				</figure>
 			</section>
 			<section>
-<<<<<<< HEAD
+				<<<<<<< HEAD
 				<h3>Legacy Devices</h3>
 				<p>
 					The third use case is a mobile remote controller (e.g., on a
@@ -940,23 +930,24 @@ a[href].internalDFN {
 					remote controller can switch communication media between cellular
 					network and home network such as Wi-Fi and Bluetooth. The
 					controller choose the home network when it's at home, and the
-					cellular while outside.
-=======
+					cellular while outside. =======
 				<h3>Remote Access</h3>
-					This use case contains a mobile remote controller (e.g., on a
-					smartphone) as shown in <a href="#smart-home-multi"></a>. 
-					The remote controller can switch communication media between cellular network 
-					and home network such as Wi-Fi and Bluetooth. When the controller is in the 
-					home network it is a trusted device and no additional security or access control 
-					is required.When it is outside of the trusted network, additional access control
-					and security mechanisms must be applied to ensure a trusted relationship.
-					Note that in this scenario the network connectivity may change due to switching between
-					different network access points or cellular base stations.
+				This use case contains a mobile remote controller (e.g., on a
+				smartphone) as shown in <a href="#smart-home-multi"></a>. The remote
+				controller can switch communication media between cellular network
+				and home network such as Wi-Fi and Bluetooth. When the controller is
+				in the home network it is a trusted device and no additional
+				security or access control is required.When it is outside of the
+				trusted network, additional access control and security mechanisms
+				must be applied to ensure a trusted relationship. Note that in this
+				scenario the network connectivity may change due to switching
+				between different network access points or cellular base stations.
 				</p>
 				<p>
-					In this pattern, the remote controller and the electronic appliance have a client role 
-					and a server role as in the related scenario in <a href="#smart-home-device"></a>.	
->>>>>>> fe4246e1e07a58f0eca512cfa87e878db3a9a1db
+					In this pattern, the remote controller and the electronic appliance
+					have a client role and a server role as in the related scenario in
+					<a href="#smart-home-device"></a>. >>>>>>>
+					fe4246e1e07a58f0eca512cfa87e878db3a9a1db
 				</p>
 				<p>In this pattern, the remote controller and the electronic
 					appliance have a client role and a server role respectively as the
@@ -971,36 +962,32 @@ a[href].internalDFN {
 				<h3>Smart Home Gateways</h3>
 				<p>
 					<a href="#smart-home-gateway"></a> shows a use case based on a
-<<<<<<< HEAD
+					<<<<<<< HEAD Smart Home gateway. A smart home gateway is placed
+					between a home network and the Internet. The gateway manages
+					electronic appliances inside the house and can receive commands
+					from a remote controller over the Internet, e.g., from a smartphone
+					as in the previous use case. It is also is a virtual representation
+					of a device. The gateways sometimes are called the proxies. =======
 					Smart Home gateway. A smart home gateway is placed between a home
 					network and the Internet. The gateway manages electronic appliances
 					inside the house and can receive commands from a remote controller
 					over the Internet, e.g., from a smartphone as in the previous use
-					case. It is also is a virtual representation of a device. The
-					gateways sometimes are called the proxies.
-=======
-					Smart Home gateway. A smart home gateway is placed between a home network 
-					and the Internet. The gateway manages electronic appliances inside the house 
-					and can receive commands from a remote controller over the Internet, e.g., 
-					from a smartphone as in the previous use case. It is also is a virtual representation 
-					of a device. The smart home gateway typically offers proxy and firewall functionality.
+					case. It is also is a virtual representation of a device. The smart
+					home gateway typically offers proxy and firewall functionality.
 				</p>
-				<p>
-					In this pattern, the home gateway have both of client and server roles. That is, 
-					it can connect to the electronic appliance with the client role and to the remote 
-					controller with the server role.
->>>>>>> fe4246e1e07a58f0eca512cfa87e878db3a9a1db
-				</p>
+				<p>In this pattern, the home gateway have both of client and
+					server roles. That is, it can connect to the electronic appliance
+					with the client role and to the remote controller with the server
+					role. >>>>>>> fe4246e1e07a58f0eca512cfa87e878db3a9a1db</p>
 				<p>In this pattern, the home gateway have both of client and
 					server roles. That is, it can connect to the electronic appliance
 					with the client role and to the remote controller with the server
 					role.</p>
 				<figure id="smart-home-gateway">
 					<img src="images/wot-use-cases/smart-home-gateway.png"
-						style="width: 500px;" />
-<<<<<<< HEAD
+						style="width: 500px;" /> <<<<<<< HEAD
 					<figcaption>A Digital Twin for a Legacy Device</figcaption>
-=======
+					=======
 					<figcaption>Smart Home Gateway</figcaption>
 				</figure>
 			</section>
@@ -1008,13 +995,14 @@ a[href].internalDFN {
 				<h3>Edge Devices</h3>
 				<p>
 					An Edge Device or Edge Gateway is similar to a Smart Home gateway.
-					We use the term to indicate additional tasks that are carried out by the edge gateway.
-					Whereas the home gateway in <a href="#smart-home-gateway"></a>
-					primarily just bridges between the public and the trusted network,
-					the edge device has local compute capabilities and typically bridges 
-					between different protocols. Edge devices are typically used
-					in industrial solutions, where they can provide preprocessing,
-					filtering and aggregation of data provided by connected devices and sensors.
+					We use the term to indicate additional tasks that are carried out
+					by the edge gateway. Whereas the home gateway in <a
+						href="#smart-home-gateway"></a> primarily just bridges between the
+					public and the trusted network, the edge device has local compute
+					capabilities and typically bridges between different protocols.
+					Edge devices are typically used in industrial solutions, where they
+					can provide preprocessing, filtering and aggregation of data
+					provided by connected devices and sensors.
 				</p>
 				<figure id="smart-home-multi">
 					<img src="images/wot-use-cases/edge-device.png"
@@ -1024,11 +1012,12 @@ a[href].internalDFN {
 			</section>
 			<section>
 				<h3>Digital Twins</h3>
-				<p>A digital twin is a virtual representation, i.e. a model of a device or a
-					group of devices that resides on a cloud server or edge device. It
-					can be used to represent real-world devices which may not be
-					continuously online, or to run simulations of new applications and
-					services, before they get deployed to the real devices.</p>
+				<p>A digital twin is a virtual representation, i.e. a model of a
+					device or a group of devices that resides on a cloud server or edge
+					device. It can be used to represent real-world devices which may
+					not be continuously online, or to run simulations of new
+					applications and services, before they get deployed to the real
+					devices.</p>
 				<figure id="digital-twin">
 					<img src="images/wot-use-cases/digital-twin.png"
 						style="width: 500px;" />
@@ -1043,9 +1032,9 @@ a[href].internalDFN {
 					<figcaption>Digital Twin for Multiple Devices</figcaption>
 				</figure>
 
-				<p>Digital twins can be realized in different ways, depending on whether a device
-				is already connected to the cloud, or whether it is connected to a gateway,
-				which itself is connected to the cloud.</p>
+				<p>Digital twins can be realized in different ways, depending on
+					whether a device is already connected to the cloud, or whether it
+					is connected to a gateway, which itself is connected to the cloud.</p>
 				<section>
 					<h4>Cloud-ready Devices</h4>
 					<p>
@@ -1094,22 +1083,20 @@ a[href].internalDFN {
 
 			<section>
 				<h3>Multi-Cloud</h3>
-				<p>
-					Typical IoT deployments consist of multiple (thousands) of devices.
-					Without a standardized mechanism, the management of firmware updates 
-					for specific clouds require a lot of effort and hinders wider scale IoT adoption.
-				</p>
-				<p>The primary benefit of a standardized mechanism for describing				
-					devices and device types is the capability of deploying devices to
-					different cloud environments without the need of doing
+				<p>Typical IoT deployments consist of multiple (thousands) of
+					devices. Without a standardized mechanism, the management of
+					firmware updates for specific clouds require a lot of effort and
+					hinders wider scale IoT adoption.</p>
+				<p>The primary benefit of a standardized mechanism for
+					describing devices and device types is the capability of deploying
+					devices to different cloud environments without the need of doing
 					customization at device software / firmware level, i.e. installing
 					cloud specific code to a device. This implies that the solution is
 					flexible enough to describe devices in a way that allows
 					on-boarding and using devices in multiple IoT cloud environments.</p>
-				<p>
-					This drives adoption of Web of Things devices, since it enables easy
-					usage of new devices in an existing deployment, as well as 
-					migration of existing devices from one cloud to the other.
+				<p>This drives adoption of Web of Things devices, since it
+					enables easy usage of new devices in an existing deployment, as
+					well as migration of existing devices from one cloud to the other.
 				</p>
 			</section>
 
@@ -1133,7 +1120,7 @@ a[href].internalDFN {
 					<img src="images/cross-domain-direct.png" style="width: 500px;" />
 					<img src="images/cross-domain-indirect.png" style="width: 500px;" />
 					<figcaption>Cross-domain collaboration</figcaption>
->>>>>>> fe4246e1e07a58f0eca512cfa87e878db3a9a1db
+					>>>>>>> fe4246e1e07a58f0eca512cfa87e878db3a9a1db
 				</figure>
 			</section>
 		</section>
@@ -1179,32 +1166,33 @@ a[href].internalDFN {
 			</figure>
 		</section>
 
-	<section>
-		<h2>Summary</h2>
-		<p class="ednote" title="TODO">The following figure has to be
-			simplified to only show the abstract patterns without the
-			implementation and WoT details (inside the gray boxes). Instead,
-			common patterns can be listed at the corresponding places.</p>
-		<p>
-			The possible architecture patterns are described in the previous
-			section. In these patterns, some entities such as the devices
-			including the existing devices, the controllers, the gateways, and
-			the clouds are located on some places such as inside building,
-			outside buildings, and data centers. <a href="#usecase-overview"></a>
-			is an integrated overview. To specify the differences of the
-			entities, each entities shown in the patters is tied to each of
-			functional roles such as a server, a client and a proxy/gateway. That
-			is, the client corresponds to the application or the controller, and
-			the server dose to the device. The proxy/gateway is an entity that
-			relays the connection of the client and the server. The gateway is
-			sometimes distinguished from the proxy because of having the protocol
-			converter functionality when it's connected to the existing devices.
-		</p>
-		<figure id="usecase-overview">
-			<img src="images/arch-use-case-overview.png" />
-			<figcaption>Use Case Overview</figcaption>
-		</figure>
-	</section>
+		<section>
+			<h2>Summary</h2>
+			<p class="ednote" title="TODO">The following figure has to be
+				simplified to only show the abstract patterns without the
+				implementation and WoT details (inside the gray boxes). Instead,
+				common patterns can be listed at the corresponding places.</p>
+			<p>
+				The possible architecture patterns are described in the previous
+				section. In these patterns, some entities such as the devices
+				including the existing devices, the controllers, the gateways, and
+				the clouds are located on some places such as inside building,
+				outside buildings, and data centers. <a href="#usecase-overview"></a>
+				is an integrated overview. To specify the differences of the
+				entities, each entities shown in the patters is tied to each of
+				functional roles such as a server, a client and a proxy/gateway.
+				That is, the client corresponds to the application or the
+				controller, and the server dose to the device. The proxy/gateway is
+				an entity that relays the connection of the client and the server.
+				The gateway is sometimes distinguished from the proxy because of
+				having the protocol converter functionality when it's connected to
+				the existing devices.
+			</p>
+			<figure id="usecase-overview">
+				<img src="images/arch-use-case-overview.png" />
+				<figcaption>Use Case Overview</figcaption>
+			</figure>
+		</section>
 	</section>
 	<section id="sec-requirements" class="informative">
 		<h1>Requirements</h1>
@@ -1573,32 +1561,35 @@ a[href].internalDFN {
 				the WoT Architecture. However, <a>Things</a> may only consist of
 				metadata without offering an interface for interaction.
 			</p>
-		</p>
+			</p>
 		</section>
 		<section id="sec-arch-aspects">
 			<h2>Architectural Aspects of a Web Thing</h2>
-		<p>
-                        The use cases and the requirements discussed result in an abstract model of 
-                        a Thing that has four architectural aspects of interest: its behavior, its interaction affordances,
-                        the mapping of those affordances to concrete protocols (what we call the Protocol Binding),
-                        and its security configuration.  
-                        The behavior aspect includes both lifecycle management (onboarding, updating, decommissioning, etc) but
-                        also the operational behavior of the Thing, which can include both autonomous behavior and support 
-                        for interactions.  The interaction affordances are an abstract model of the network API in terms
-                        of properties, actions, and events, but without reference to a specific network protocol or
-                        payload encoding.  The protocol binding adds the additional detail needed to map each
-                        affordance to a particular concrete protocol.
-                        In general, different protocols may be used to support different subsets of affordances
-                        even within a single Thing.
-                        The security configuration aspect represents the mechanisms used to
-                        control access to the affordances and the management of related public and private metadata.
-                        <a href="#arch-aspects"></a> shows these aspects in a diagram.
-
+			<p>
+				The use cases and the requirements discussed result in an abstract
+				model of a Thing that has four architectural aspects of interest:
+				its behavior, its interaction affordances, the mapping of those
+				affordances to concrete protocols (what we call the Protocol
+				Binding), and its security configuration. The behavior aspect
+				includes both lifecycle management (onboarding, updating,
+				decommissioning, etc) but also the operational behavior of the
+				Thing, which can include both autonomous behavior and support for
+				interactions. The interaction affordances are an abstract model of
+				the network API in terms of properties, actions, and events, but
+				without reference to a specific network protocol or payload
+				encoding. The protocol binding adds the additional detail needed to
+				map each affordance to a particular concrete protocol. In general,
+				different protocols may be used to support different subsets of
+				affordances even within a single Thing. The security configuration
+				aspect represents the mechanisms used to control access to the
+				affordances and the management of related public and private
+				metadata. <a href="#arch-aspects"></a> shows these aspects in a
+				diagram.
 			<figure id="arch-aspects">
 				<img src="images/wot-building-blocks.png" />
 				<figcaption>Architectural Aspects of a Thing</figcaption>
 			</figure>
-                </p>
+			</p>
 		</section>
 		<section>
 			<h2>Interaction Model</h2>
@@ -1628,28 +1619,29 @@ a[href].internalDFN {
 					the perceived and actual properties of the thing, primarily those
 					fundamental properties that determine just how the thing could
 					possibly be used." [[?NORMAN]]</p>
-				<p>The hypermedia principle that is one of the bedrock foundations of 
-					the REST [[?REST]] principle demands that any piece of information 
-					available on the Web be linked to other pieces of information so that 
-					the consumer of the information gets explicit knowledge about how to 
-					navigate the Web and control Web applications. The simultaneous 
-					presentation to Web clients of information and control, provided in 
-					the form of hyperlinks, is a mechanism that affords clients the means 
-					to drive Web applications. In this context, an affordance is the 
-					description of a hyperlink (e.g. via a link relation type or link 
-					target attributes) suggesting clients how to act on the linked resource.</p>
-				<p>Drawn from this hypermedia principle, the Web of Things defines 
-					Interaction Affordances as metadata of a Thing exposing 
-					<a>hypermedia control</a>s that describe the possible protocol-level 
-					choices to clients, thereby suggesting how clients may interact 
-					with the Thing. 
-					Examples use of affordances includes, but are not limited, 
-					getting and setting <a>properties</a>, invoking <a>actions</a>, 
-					and subscribing to <a>events</a>.</p>
-				<p>This definition
-					is thereby aligned with HCI and interaction designers, who create
-					physical Things, as well as the REST and microservice community
-					working on Web services in general.</p>
+				<p>The hypermedia principle that is one of the bedrock
+					foundations of the REST [[?REST]] principle demands that any piece
+					of information available on the Web be linked to other pieces of
+					information so that the consumer of the information gets explicit
+					knowledge about how to navigate the Web and control Web
+					applications. The simultaneous presentation to Web clients of
+					information and control, provided in the form of hyperlinks, is a
+					mechanism that affords clients the means to drive Web applications.
+					In this context, an affordance is the description of a hyperlink
+					(e.g. via a link relation type or link target attributes)
+					suggesting clients how to act on the linked resource.</p>
+				<p>
+					Drawn from this hypermedia principle, the Web of Things defines
+					Interaction Affordances as metadata of a Thing exposing <a>hypermedia
+						control</a>s that describe the possible protocol-level choices to
+					clients, thereby suggesting how clients may interact with the
+					Thing. Examples use of affordances includes, but are not limited,
+					getting and setting <a>properties</a>, invoking <a>actions</a>, and
+					subscribing to <a>events</a>.
+				</p>
+				<p>This definition is thereby aligned with HCI and interaction
+					designers, who create physical Things, as well as the REST and
+					microservice community working on Web services in general.</p>
 			</section>
 			<p class="ednote">Please comment if the Interaction Affordances
 				should be defined using normative langauge. Note that this document
@@ -1935,43 +1927,43 @@ a[href].internalDFN {
 		<p>
 			<em>This section is normative.</em>
 		</p>
+		<p>The Web of Things building blocks allow the implementation of
+			systems that conform with the abstract WoT Architecture. The
+			specifics of these building blocks are defined in separate documents;
+			this chapter provides an overview and a summary.
 		<p>
-			The Web of Things building blocks allow the implementation of systems that
-                        conform with the abstract WoT Architecture.
-			The specifics of these building blocks are defined in separate documents; 
-                        this chapter provides an overview and a summary.
-                <p>
-                        The WoT Building Blocks support each of the architectural aspects of a Thing 
-                        discussed in <a href="#sec-arch-aspects"></a>
-                        and diagrammed in <a href="#arch-aspects"></a>.
-                        The building blocks themselves are shown in  
-                        <a href="#arch-thing-with-scripting"></a>.
-			<figure id="arch-thing-with-scripting">
-				<img src="images/wot-thing-with-scripting.png" />
-				<figcaption>Thing with WoT Building Blocks, including the WoT Scripting API</figcaption>
-			</figure>
-                 </p>
-                 <p>
-                        The WoT Thing Description contains metadata describing the affordances of the Thing, the mapping
-                        of these affordances onto concrete network protocols, and the public security metadata needed
-                        by authorized users to access the Thing.
-                        For specifying behavior, an optional WoT Scripting
-                        API is provided which supports the definition and consumption of WoT Thing Descriptions.
-                        This is useful when the application behavior is defined in a scripting language.
-                 </p>
-                 <p>
-                        It is also possible, as shown in 
-                        <a href="#arch-thing-without-scripting"></a>, to use the WoT Thing Description to
-                        described a device or service that
-                        does not use the WoT Scripting API.  There are two cases where this may be important: pre-existing
-                        "brownfield" devices for which we are providing a Thing Description in order to allow them to 
-                        interoperate with other elements of a WoT system; and devices which need to use a programming
-                        language not supported by the WoT Scripting API.
-			<figure id="arch-thing-without-scripting">
-				<img src="images/wot-thing-without-scripting.png" />
-				<figcaption>Thing with WoT Building Blocks, without the WoT Scripting API</figcaption>
-			</figure>
-    </p>
+			The WoT Building Blocks support each of the architectural aspects of
+			a Thing discussed in <a href="#sec-arch-aspects"></a> and diagrammed
+			in <a href="#arch-aspects"></a>. The building blocks themselves are
+			shown in <a href="#arch-thing-with-scripting"></a>.
+		<figure id="arch-thing-with-scripting">
+			<img src="images/wot-thing-with-scripting.png" />
+			<figcaption>Thing with WoT Building Blocks, including
+				the WoT Scripting API</figcaption>
+		</figure>
+		</p>
+		<p>The WoT Thing Description contains metadata describing the
+			affordances of the Thing, the mapping of these affordances onto
+			concrete network protocols, and the public security metadata needed
+			by authorized users to access the Thing. For specifying behavior, an
+			optional WoT Scripting API is provided which supports the definition
+			and consumption of WoT Thing Descriptions. This is useful when the
+			application behavior is defined in a scripting language.</p>
+		<p>
+			It is also possible, as shown in <a
+				href="#arch-thing-without-scripting"></a>, to use the WoT Thing
+			Description to described a device or service that does not use the
+			WoT Scripting API. There are two cases where this may be important:
+			pre-existing "brownfield" devices for which we are providing a Thing
+			Description in order to allow them to interoperate with other
+			elements of a WoT system; and devices which need to use a programming
+			language not supported by the WoT Scripting API.
+		<figure id="arch-thing-without-scripting">
+			<img src="images/wot-thing-without-scripting.png" />
+			<figcaption>Thing with WoT Building Blocks, without the
+				WoT Scripting API</figcaption>
+		</figure>
+		</p>
 
 		<section id="sec-thing-description">
 			<h2>WoT Thing Description</h2>
@@ -2194,29 +2186,24 @@ a[href].internalDFN {
 				<!--<p class="ednote" title="TODO">Explain native implementation
 					against custom API in programming language of choice.</p>-->
 				<p>
-					There are necessities for implement an application
-					without using <a>Scripting API</a>.  For example:
+					There are necessities for implement an application without using <a>Scripting
+						API</a>. For example:
 				</p>
 				<ul>
-					<li>
-						From lack of computing resources, developer can't use a rich
-						software stack or fully-featured scripting engine.
-					</li>
-					<li>
-						To cooperate with other functions or applications,
-						developer must use language specific functions or libraries.
-					</li>
-					<li>
-            Developer want to interact Things on the top of existing applications.
-					</li>
+					<li>From lack of computing resources, developer can't use a
+						rich software stack or fully-featured scripting engine.</li>
+					<li>To cooperate with other functions or applications,
+						developer must use language specific functions or libraries.</li>
+					<li>Developer want to interact Things on the top of existing
+						applications.</li>
 				</ul>
 				<p>
 					Because semantics of <a>Thing Description</a> are well-defined,
 					developers can make own application by parsing a <a>TD</a> and
-					interact with things by native platform API.  Moreover, developer can
-					use an existing application by creating proper configuration
+					interact with things by native platform API. Moreover, developer
+					can use an existing application by creating proper configuration
 					for the application based on the <a>TD</a>.
-				</p>	
+				</p>
 			</section>
 			<section>
 				<h3>WoT Scripting API</h3>
@@ -2279,65 +2266,59 @@ a[href].internalDFN {
 					Affordance</a>), and available <a>Protocol Bindings</a> (e.g.,
 				implemented <a>WoT Binding Templates</a>).
 			</p>
-			<p>
-                The "WoT Runtime"
-		functionally realizes operations based on interaction model described
-		in Thing Descriptions, and is the central functionality of a WoT
-		Servient. Based on a Thing Description, the WoT Runtime instantiates
-		ExposedThing and ConsumedThings in a WoT Servient, and they provide
-		functions used by applications, proxies and devices to serve as
-		server's and/or client's roles. For example, when a WoT Servient is a
-		device, an ExposedThing gets instantiated based on the device's Thing
-		Description. 
-			</p>
+			<p>The "WoT Runtime" functionally realizes operations based on
+				interaction model described in Thing Descriptions, and is the
+				central functionality of a WoT Servient. Based on a Thing
+				Description, the WoT Runtime instantiates ExposedThing and
+				ConsumedThings in a WoT Servient, and they provide functions used by
+				applications, proxies and devices to serve as server's and/or
+				client's roles. For example, when a WoT Servient is a device, an
+				ExposedThing gets instantiated based on the device's Thing
+				Description.</p>
 		</section>
 		<section>
 			<h2>Life Cycle Management</h2>
+			<p>Regarding the operations to manage the lifecycle of an
+				ExposedThing such as retrieving and/or serving Thing Descriptions,
+				instantiating an ExposedThing based on the Thing Descriptions and
+				terminating an ExposedThing, the details of the operation vary among
+				different kind of devices. The WoT Servient Life Cycle Management
+				(LCM) encapsulates those lifecycle operations. It uses internal
+				interfaces to realize the lifecycle management of ExposedThings. The
+				LCM is an application that runs on top of the WoT Runtime. The WoT
+				Scripting API is one implementation of such an internal interface
+				that includes functionality to realize the lifecycle management of
+				ExposedThings.</p>
 			<p>
-                Regarding the operations to manage the lifecycle of an
-		ExposedThing such as retrieving and/or serving Thing Descriptions,
-		instantiating an ExposedThing based on the Thing Descriptions and
-		terminating an ExposedThing, the details of the operation vary among
-		different kind of devices. The WoT Servient Life Cycle Management
-		(LCM) encapsulates those lifecycle operations. It uses internal
-		interfaces to realize the lifecycle management of ExposedThings. The
-		LCM is an application that runs on top of the WoT Runtime. The WoT
-		Scripting API is one implementation of such an internal interface that
-		includes functionality to realize the lifecycle management of
-		ExposedThings. 
+				When a WoT Servient is an application or a proxy, the lifecycle
+				management of ConsumedThings are realized in the same manner as that
+				of ExposedThings. The WoT Runtime provides an interface to operate
+				on the interaction model. This interface is defined as an abstract
+				interface.
+				<!-- (the "Abstract Interface" in the figure [TDB?]). -->
+				For this abstract interface to be used to interact with other WoT
+				Servients or Web Server/Clients in practice, concrete bindings to
+				underlying protocols need to be selected and used. It is the REST
+				protocol that is most commonly used as the WoT interface on the Web.
+				Other protocols such as CoAP, MQTT and WebSocket are also commonly
+				used, and the protocol bindings enable the use of those protocols to
+				interact with other Web Servients and Web Servers/Clients.
 			</p>
-			<p>
-                When a WoT Servient is an application or a proxy, the
-		lifecycle management of ConsumedThings are realized in the same manner
-		as that of ExposedThings. The WoT Runtime provides an interface to
-		operate on the interaction model. This interface is defined as an
-		abstract interface. 
-                <!-- (the "Abstract Interface" in the figure [TDB?]). -->
-		For this abstract interface to be used to interact with other WoT
-		Servients or Web Server/Clients in practice, concrete bindings to
-		underlying protocols need to be selected and used. It is the REST
-		protocol that is most commonly used as the WoT interface on the Web.
-		Other protocols such as CoAP, MQTT and WebSocket are also commonly
-		used, and the protocol bindings enable the use of those protocols to
-		interact with other Web Servients and Web Servers/Clients. 
-			</p>
-			<p>
-                Note that
-		Web Servers and Clients are "Web Objects" that can directly interact
-		with WoT Servients through the WoT interface even though they are not
-		designed on the WoT interaction model. The overwhelming majority of
-		existing sensors and devices are not implemented as Web Objects. The
-		Device interface adapter represents the functionality to translate the
-		native interface of those diverse kind of devices to/from the Abstract
-		interface. As for the interfaces to existing devices, there are
-		standards in each domain such as Home, Building and Factory. Moreover,
-		the standards adopted by nations and even regions are often different,
-		adding more complexity. Although in the future a framework for native
-		protocol translation may be considered that eases the development of
-		such translation work, it is not in the scope of the current WoT
-		charter, therefore, the translation functionality is just called the
-		"Device interface adapter".
-		</p>
+			<p>Note that Web Servers and Clients are "Web Objects" that can
+				directly interact with WoT Servients through the WoT interface even
+				though they are not designed on the WoT interaction model. The
+				overwhelming majority of existing sensors and devices are not
+				implemented as Web Objects. The Device interface adapter represents
+				the functionality to translate the native interface of those diverse
+				kind of devices to/from the Abstract interface. As for the
+				interfaces to existing devices, there are standards in each domain
+				such as Home, Building and Factory. Moreover, the standards adopted
+				by nations and even regions are often different, adding more
+				complexity. Although in the future a framework for native protocol
+				translation may be considered that eases the development of such
+				translation work, it is not in the scope of the current WoT charter,
+				therefore, the translation functionality is just called the "Device
+				interface adapter".</p>
 		</section>
 		<section>
 			<h2>Protocol Bindings</h2>
