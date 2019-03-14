@@ -858,7 +858,7 @@ a[href].internalDFN {
 				devices/things interact with controllers, other devices, agents and
 				servers.
 
-				<h3>Device Controllers</h3>
+				<h3 id="device-controllers">Device Controllers</h3>
 				<p>
 					The first use case is a local device controlled by user-operated
 					remote controller as depicted in <a href="#smart-home-device"></a>
@@ -900,18 +900,19 @@ a[href].internalDFN {
 			</section>
 			<section>
 				<h3>Remote Access</h3>
-				<p class="ednote" title="TODO">Must rewrite for remote
-					access/control use case. Include changing uplink connectivity.</p>
-				<p>
-					The third use case is a mobile remote controller (e.g., on a
+					This use case contains a mobile remote controller (e.g., on a
 					smartphone) as shown in <a href="#smart-home-multi"></a>. 
 					The remote controller can switch communication media between cellular network 
-					and home network such as Wi-Fi and Bluetooth. The controller choose the home 
-					network when it's at home, and the cellular while outside.
+					and home network such as Wi-Fi and Bluetooth. When the controller is in the 
+					home network it is a trusted device and no additional security or access control 
+					is required.When it is outside of the trusted network, additional access control
+					and security mechanisms must be applied to ensure a trusted relationship.
+					Note that in this scenario the network connectivity may change due to switching between
+					different network access points or cellular base stations.
 				</p>
 				<p>
 					In this pattern, the remote controller and the electronic appliance have a client role 
-					and a server role respectively as the same as 3.2.1 device controllers.	
+					and a server role as in the related scenario in <a href="#smart-home-device"></a>.	
 				</p>
 				<figure id="smart-home-multi">
 					<img src="images/wot-use-cases/smart-home-multi.png"
@@ -920,16 +921,14 @@ a[href].internalDFN {
 				</figure>
 			</section>
 			<section>
-				<h3>Gateways</h3>
-				<p class="ednote" title="TODO">Must rewrite for local
-					box/compute node use case.</p>
+				<h3>Smart Home Gateways</h3>
 				<p>
 					<a href="#smart-home-gateway"></a> shows a use case based on a
 					Smart Home gateway. A smart home gateway is placed between a home network 
 					and the Internet. The gateway manages electronic appliances inside the house 
 					and can receive commands from a remote controller over the Internet, e.g., 
 					from a smartphone as in the previous use case. It is also is a virtual representation 
-					of a device. The gateways sometimes are called the proxies.
+					of a device. The smart home gateway typically offers proxy and firewall functionality.
 				</p>
 				<p>
 					In this pattern, the home gateway have both of client and server roles. That is, 
@@ -940,6 +939,24 @@ a[href].internalDFN {
 					<img src="images/wot-use-cases/smart-home-gateway.png"
 						style="width: 500px;" />
 					<figcaption>Smart Home Gateway</figcaption>
+				</figure>
+			</section>
+			<section>
+				<h3>Edge Devices</h3>
+				<p>
+					An Edge Device or Edge Gateway is similar to a Smart Home gateway.
+					We use the term to indicate additional tasks that are carried out by the edge gateway.
+					Whereas the home gateway in <a href="#smart-home-gateway"></a>
+					primarily just bridges between the public and the trusted network,
+					the edge device has local compute capabilities and typically bridges 
+					between different protocols. Edge devices are typically used
+					in industrial solutions, where they can provide preprocessing,
+					filtering and aggregation of data provided by connected devices and sensors.
+				</p>
+				<figure id="smart-home-multi">
+					<img src="images/wot-use-cases/edge-device.png"
+						style="width: 500px;" />
+					<figcaption>Edge device</figcaption>
 				</figure>
 			</section>
 			<section>
