@@ -765,255 +765,233 @@ a[href].internalDFN {
 					traffic conditions.</p>
 			</section>
 		</section>
+
+
+
 		<section id="commonusecasespatterns">
-			<h1>Common Patterns</h1>
-			<section>
-				This section introduces common use case patterns that illustrate how
-				devices/things interact with controllers, other devices, agents and
-				servers.
-
-				<h3>Device Controllers</h3>
-				<p>
-					The first use case is a local device controlled by user-operated
-					remote controller as depicted in <a href="#smart-home-device"></a>
-					. For example, A remote controller can access an electronic
-					appliance through the local home network directly. In this case,
-					the remote controller can be realized by a browser or native
-					application.
-				</p>
-				<p>In this pattern, at least one device like the electronic
-					appliance have a server role that can accept the request from the
-					other devices and respond them, and sometimes start to initiate
-					mechanical function of it. The another device like the remote
-					controller have a client role that can issue a message to the other
-					with some requests, like to get sensor value or to turn it on.</p>
-				<figure id="smart-home-device">
-					<img src="images/wot-use-cases/smart-home-device.png"
-						style="width: 500px;" />
-					<figcaption>Device Control</figcaption>
-				</figure>
-			</section>
-			<section>
-				<h3>Thing-to-Thing</h3>
-				<p>
-					<a href="#smart-home-t2t"></a> shows an example of direct
-					Thing-to-Thing interaction. The scenario is as follows: a sensor
-					detects the change of the room condition, for example the
-					temperature surpassing a set threshold, and issues a control
-					message like "turn on" to the electronic appliance. The sensor unit
-					can issue some trigger messages to other devices.
-				</p>
-				<p>In this case, when two devices that have server roles are
-					connected, at least one device must have also a client role that
-					issues a message to the other to actuate.</p>
-				<figure id="smart-home-t2t">
-					<img src="images/wot-use-cases/smart-home-t2t.png"
-						style="width: 500px;" />
-					<figcaption>Control Agent</figcaption>
-				</figure>
-			</section>
-			<section>
-				<h3>Remote Access</h3>
-				<p class="ednote" title="TODO">Must rewrite for remote
-					access/control use case. Include changing uplink connectivity.</p>
-				<p>
-					The third use case is a mobile remote controller (e.g., on a
-					smartphone) as shown in <a href="#smart-home-multi"></a>. The
-					remote controller can switch communication media between cellular
-					network and home network such as Wi-Fi and Bluetooth. The
-					controller choose the home network when it's at home, and the
-					cellular while outside.
-				</p>
-				<p>In this pattern, the remote controller and the electronic
-					appliance have a client role and a server role respectively as the
-					same as 3.2.1 device controllers.</p>
-				<figure id="smart-home-multi">
-					<img src="images/wot-use-cases/smart-home-multi.png"
-						style="width: 500px;" />
-					<figcaption>Multiple Network Interfaces</figcaption>
-				</figure>
-			</section>
-			<section>
-				<h3>Gateways</h3>
-				<p class="ednote" title="TODO">Must rewrite for local
-					box/compute node use case.</p>
-				<p>
-					<a href="#smart-home-gateway"></a> shows a use case based on a
-					Smart Home gateway. A smart home gateway is placed between a home
-					network and the Internet. The gateway manages electronic appliances
-					inside the house and can receive commands from a remote controller
-					over the Internet, e.g., from a smartphone as in the previous use
-					case. It is also is a virtual representation of a device. The
-					gateways sometimes are called the proxies.
-				</p>
-				<p>In this pattern, the home gateway have both of client and
-					server roles. That is, it can connect to the electronic appliance
-					with the client role and to the remote controller with the server
-					role.</p>
-				<figure id="smart-home-gateway">
-					<img src="images/wot-use-cases/smart-home-gateway.png"
-						style="width: 500px;" />
-					<figcaption>Smart Home Gateway</figcaption>
-				</figure>
-			</section>
-			<section>
-				<h3>Digital Twins</h3>
-				<p>A digital twin is a virtual representation, i.e. a model of a
-					device or a group of devices that resides on a cloud server or edge
-					device. It can be used to represent real-world devices which may
-					not be continuously online, or to run simulations of new
-					applications and services, before they get deployed to the real
-					devices.</p>
-				<figure id="digital-twin">
-					<img src="images/wot-use-cases/digital-twin.png"
-						style="width: 500px;" />
-					<figcaption>Digital Twin</figcaption>
-				</figure>
-				<p>Digital twins can model a single device, or they can
-					aggregate multiple devices in a virtual representation of the
-					combined devices.</p>
-				<figure id="digital-twin-multiple-devices">
-					<img src="images/wot-use-cases/digital-twin-multiple-devices.png"
-						style="width: 500px;" />
-					<figcaption>Digital Twin for Multiple Devices</figcaption>
-				</figure>
-
-				<p>Digital twins can be realized in different ways, depending on
-					whether a device is already connected to the cloud, or whether it
-					is connected to a gateway, which itself is connected to the cloud.</p>
-			<section>
-				<h4>Cloud-ready Devices</h4>
-				<p>
-					<a href="#smart-home-cloud1"></a> shows an example where electronic
-					appliances are connected directly to the cloud. The cloud mirrors
-					the appliances and, acting as a digital twin, can receive commands
-					from remote controllers (e.g., a smartphone). Authorized
-					controllers can be located anywhere, as the digital twin is
-					globally reachable.
-				</p>
-				<figure id="smart-home-cloud1">
-					<img src="images/wot-use-cases/smart-home-cloud1a.png"
-						style="width: 500px;" />
-					<figcaption>Appliance twin for a Cloud-ready Devices</figcaption>
-				</figure>
-			</section>
-			<section>
-				<h3>Remote Access</h3>
-				This use case contains a mobile remote controller (e.g., on a
-				smartphone) as shown in <a href="#smart-home-multi"></a>. The remote
-				controller can switch communication media between cellular network
-				and home network such as Wi-Fi and Bluetooth. When the controller is
-				in the home network it is a trusted device and no additional
-				security or access control is required.When it is outside of the
-				trusted network, additional access control and security mechanisms
-				must be applied to ensure a trusted relationship. Note that in this
-				scenario the network connectivity may change due to switching
-				between different network access points or cellular base stations.
-				</p>
-				<p>
-					In this pattern, the remote controller and the electronic appliance
-					have a client role and a server role as in the related scenario in
-					<a href="#smart-home-device"></a>. 
-				</p>
-				<p>In this pattern, the remote controller and the electronic
-					appliance have a client role and a server role respectively as the
-					same as 3.2.1 device controllers.</p>
-				<figure id="smart-home-multi">
-					<img src="images/wot-use-cases/smart-home-multi.png"
-						style="width: 500px;" />
-					<figcaption>Multiple Network Interfaces</figcaption>
-				</figure>
-			</section>
-			<section>
-				<h3>Smart Home Gateways</h3>
-				<p>
-					<a href="#smart-home-gateway"></a> shows a use case based on a
-					Smart Home gateway. A smart home gateway is placed between a home
-					network and the Internet. The gateway manages electronic appliances
-					inside the house and can receive commands from a remote controller
-					over the Internet, e.g., from a smartphone as in the previous use
-					case. It is also is a virtual representation of a device. The smart
-					home gateway typically offers proxy and firewall functionality.
-				</p>
-				<p>In this pattern, the home gateway have both of client and
-					server roles. That is, it can connect to the electronic appliance
-					with the client role and to the remote controller with the server
-					role. 
-				</p>
-				<p>In this pattern, the home gateway have both of client and
-					server roles. That is, it can connect to the electronic appliance
-					with the client role and to the remote controller with the server
-					role.</p>
-				<figure id="smart-home-gateway">
-					<img src="images/wot-use-cases/smart-home-gateway.png"
-						style="width: 500px;" /> 
-					<figcaption>A Digital Twin for a Legacy Device</figcaption>
-					<figcaption>Smart Home Gateway</figcaption>
-				</figure>
-			</section>
-			<section>
-				<h3>Edge Devices</h3>
-				<p>
-					An Edge Device or Edge Gateway is similar to a Smart Home gateway.
-					We use the term to indicate additional tasks that are carried out
-					by the edge gateway. Whereas the home gateway in <a
-						href="#smart-home-gateway"></a> primarily just bridges between the
-					public and the trusted network, the edge device has local compute
-					capabilities and typically bridges between different protocols.
-					Edge devices are typically used in industrial solutions, where they
-					can provide preprocessing, filtering and aggregation of data
-					provided by connected devices and sensors.
-				</p>
-				<figure id="smart-home-multi">
-					<img src="images/wot-use-cases/edge-device.png"
-						style="width: 500px;" />
-					<figcaption>Edge device</figcaption>
-				</figure>
+				<h1>Common Patterns</h1>
+				<section>
+	
+					This section introduces common use case patterns that illustrate how
+					devices/things interact with controllers, other devices, agents and
+					servers.
+	
+					<h3 id="device-controllers">Device Controllers</h3>
+					<p>
+						The first use case is a local device controlled by user-operated
+						remote controller as depicted in <a href="#smart-home-device"></a>
+						. For example, A remote controller can access an electronic appliance through 
+						the local home network directly. In this case, the remote controller can be realized 
+						by a browser or native application.
+					</p>
+					<p>
+						In this pattern, at least one device like the electronic appliance have a server role 
+						that can accept the request from the other devices and respond them, and sometimes start 
+						to initiate mechanical function of it. The another device like the remote controller 
+						have a client role that can issue a message to the other with some requests, like to get 
+						sensor value or to turn it on.
+					</p>
+					<figure id="smart-home-device">
+						<img src="images/wot-use-cases/smart-home-device.png"
+							style="width: 500px;" />
+						<figcaption>Device Control</figcaption>
+					</figure>
+				</section>
+				<section>
+					<h3>Thing-to-Thing</h3>
+					<p>
+						<a href="#smart-home-t2t"></a> shows an example of direct
+						Thing-to-Thing interaction. The scenario is as follows:
+						a sensor detects the change of the room condition, for example the temperature 
+						surpassing a set threshold, and issues a control message like "turn on" to the 
+						electronic appliance. The sensor unit can issue some trigger messages to other devices.
+					</p>
+					<p>
+						In this case, when two devices that have server roles are connected, at least one device 
+						must have also a client role that issues a message to the other to actuate.
+					</p>
+					<figure id="smart-home-t2t">
+						<img src="images/wot-use-cases/smart-home-t2t.png"
+							style="width: 500px;" />
+						<figcaption>Control Agent</figcaption>
+					</figure>
+				</section>
+				<section>
+					<h3>Remote Access</h3>
+						This use case contains a mobile remote controller (e.g., on a
+						smartphone) as shown in <a href="#smart-home-multi"></a>. 
+						The remote controller can switch communication media between cellular network 
+						and home network such as Wi-Fi and Bluetooth. When the controller is in the 
+						home network it is a trusted device and no additional security or access control 
+						is required.When it is outside of the trusted network, additional access control
+						and security mechanisms must be applied to ensure a trusted relationship.
+						Note that in this scenario the network connectivity may change due to switching between
+						different network access points or cellular base stations.
+					</p>
+					<p>
+						In this pattern, the remote controller and the electronic appliance have a client role 
+						and a server role as in the related scenario in <a href="#smart-home-device"></a>.	
+					</p>
+					<figure id="smart-home-multi">
+						<img src="images/wot-use-cases/smart-home-multi.png"
+							style="width: 500px;" />
+						<figcaption>Multiple Network Interfaces</figcaption>
+					</figure>
+				</section>
+				<section>
+					<h3>Smart Home Gateways</h3>
+					<p>
+						<a href="#smart-home-gateway"></a> shows a use case based on a
+						Smart Home gateway. A smart home gateway is placed between a home network 
+						and the Internet. The gateway manages electronic appliances inside the house 
+						and can receive commands from a remote controller over the Internet, e.g., 
+						from a smartphone as in the previous use case. It is also is a virtual representation 
+						of a device. The smart home gateway typically offers proxy and firewall functionality.
+					</p>
+					<p>
+						In this pattern, the home gateway have both of client and server roles. That is, 
+						it can connect to the electronic appliance with the client role and to the remote 
+						controller with the server role.
+					</p>
+					<figure id="smart-home-gateway">
+						<img src="images/wot-use-cases/smart-home-gateway.png"
+							style="width: 500px;" />
+						<figcaption>Smart Home Gateway</figcaption>
+					</figure>
+				</section>
+				<section>
+					<h3>Edge Devices</h3>
+					<p>
+						An Edge Device or Edge Gateway is similar to a Smart Home gateway.
+						We use the term to indicate additional tasks that are carried out by the edge gateway.
+						Whereas the home gateway in <a href="#smart-home-gateway"></a>
+						primarily just bridges between the public and the trusted network,
+						the edge device has local compute capabilities and typically bridges 
+						between different protocols. Edge devices are typically used
+						in industrial solutions, where they can provide preprocessing,
+						filtering and aggregation of data provided by connected devices and sensors.
+					</p>
+					<figure id="smart-home-multi">
+						<img src="images/wot-use-cases/edge-device.png"
+							style="width: 500px;" />
+						<figcaption>Edge device</figcaption>
+					</figure>
+				</section>
+				<section>
+					<h3>Digital Twins</h3>
+					<p>A digital twin is a virtual representation, i.e. a model of a device or a
+						group of devices that resides on a cloud server or edge device. It
+						can be used to represent real-world devices which may not be
+						continuously online, or to run simulations of new applications and
+						services, before they get deployed to the real devices.</p>
+					<figure id="digital-twin">
+						<img src="images/wot-use-cases/digital-twin.png"
+							style="width: 500px;" />
+						<figcaption>Digital Twin</figcaption>
+					</figure>
+					<p>Digital twins can model a single device, or they can
+						aggregate multiple devices in a virtual representation of the
+						combined devices.</p>
+					<figure id="digital-twin-multiple-devices">
+						<img src="images/wot-use-cases/digital-twin-multiple-devices.png"
+							style="width: 500px;" />
+						<figcaption>Digital Twin for Multiple Devices</figcaption>
+					</figure>
+	
+					<p>Digital twins can be realized in different ways, depending on whether a device
+					is already connected to the cloud, or whether it is connected to a gateway,
+					which itself is connected to the cloud.</p>
+					<section>
+						<h4>Cloud-ready Devices</h4>
+						<p>
+							<a href="#smart-home-cloud1"></a> shows an example where
+							electronic appliances are connected directly to the cloud. The
+							cloud mirrors the appliances and, acting as a digital twin, can
+							receive commands from remote controllers (e.g., a smartphone).
+							Authorized controllers can be located anywhere, as the digital
+							twin is globally reachable.
+						</p>
+						<figure id="smart-home-cloud1">
+							<img src="images/wot-use-cases/smart-home-cloud1a.png"
+								style="width: 500px;" />
+							<figcaption>Appliance twin for a Cloud-ready Devices</figcaption>
+						</figure>
+					</section>
+					<section>
+						<h3>Legacy Devices</h3>
+						<a href="#smart-home-cloud2"></a> shows an example where legacy
+						electronic appliances cannot directly connect to the cloud. Here, a
+						gateway is needed to relay the connection. The gateway works as:
+						</p>
+						<ul>
+							<li>integrator of a variety of legacy communication protocols
+								both in the physical and logical view</li>
+							<li>firewall toward the Internet</li>
+							<li>privacy filter which substitutes real image and/or
+								speech, and logs data locally</li>
+							<li>local agent in case the Internet connection is
+								interrupted</li>
+							<li>emergency services running locally when fire alarms and
+								similar events occur</li>
+						</ul>
+						<p>The cloud mirrors the gateway with all connected appliances
+							and acts as a digital twin that manages them in the cloud in
+							conjunction with the gateway. Furthermore, the cloud can receive
+							commands from remote controllers (e.g., a smartphone), which can
+							be located anywhere.</p>
+						<figure id="smart-home-cloud2">
+							<img src="images/wot-use-cases/smart-home-cloud2.png"
+								style="width: 500px;" />
+							<figcaption>A Digital Twin for a Legacy Device</figcaption>
+						</figure>
+					</section>
+				</section>
+	
+				<section>
+					<h3>Multi-Cloud</h3>
+					<p>
+						Typical IoT deployments consist of multiple (thousands) of devices.
+						Without a standardized mechanism, the management of firmware updates 
+						for specific clouds require a lot of effort and hinders wider scale IoT adoption.
+					</p>
+					<p>The primary benefit of a standardized mechanism for describing				
+						devices and device types is the capability of deploying devices to
+						different cloud environments without the need of doing
+						customization at device software / firmware level, i.e. installing
+						cloud specific code to a device. This implies that the solution is
+						flexible enough to describe devices in a way that allows
+						on-boarding and using devices in multiple IoT cloud environments.</p>
+					<p>
+						This drives adoption of Web of Things devices, since it enables easy
+						usage of new devices in an existing deployment, as well as 
+						migration of existing devices from one cloud to the other.
+					</p>
+				</section>
+	
+				<section>
+					<h3>Cross-domain Collaboration</h3>
+					<p>
+						<a href="#cross-domain"></a> show an example of a Cross-domain
+						collaboration. In this case, each system involves other systems in
+						other domains, such as Smart Factrory with Smart City, Smart City
+						with Smart Home. This type of system is called "Symbiotic"
+						ecosystem, as shown in [[IEC-FOTF]]. There are two collaboration
+						models: direct collaboration and indirect collaboration. In the
+						direct collaboration model, systems exchange their own information
+						directly with each other in peer-to-peer manner. In the indirect
+						collaboration, systems exchange their own information via some
+						collaboration platform. In order to maintain and continue this
+						collaboration, each system provide the metadata of their ability
+						and interfaces and adopt itself to others.
+					</p>
+					<figure id="cross-domain">
+						<img src="images/cross-domain-direct.png" style="width: 500px;" />
+						<img src="images/cross-domain-indirect.png" style="width: 500px;" />
+						<figcaption>Cross-domain collaboration</figcaption>
+					</figure>
+				</section>
 			</section>
 	
-			<section>
-				<h3>Multi-Cloud</h3>
-				<p>Typical IoT deployments consist of multiple (thousands) of
-					devices. Without a standardized mechanism, the management of
-					firmware updates for specific clouds require a lot of effort and
-					hinders wider scale IoT adoption.</p>
-				<p>The primary benefit of a standardized mechanism for
-					describing devices and device types is the capability of deploying
-					devices to different cloud environments without the need of doing
-					customization at device software / firmware level, i.e. installing
-					cloud specific code to a device. This implies that the solution is
-					flexible enough to describe devices in a way that allows
-					on-boarding and using devices in multiple IoT cloud environments.</p>
-				<p>This drives adoption of Web of Things devices, since it
-					enables easy usage of new devices in an existing deployment, as
-					well as migration of existing devices from one cloud to the other.
-				</p>
-			</section>
-
-			<section>
-				<h3>Cross-domain Collaboration</h3>
-				<p>
-					<a href="#cross-domain"></a> show an example of a Cross-domain
-					collaboration. In this case, each system involves other systems in
-					other domains, such as Smart Factrory with Smart City, Smart City
-					with Smart Home. This type of system is called "Symbiotic"
-					ecosystem, as shown in [[IEC-FOTF]]. There are two collaboration
-					models: direct collaboration and indirect collaboration. In the
-					direct collaboration model, systems exchange their own information
-					directly with each other in peer-to-peer manner. In the indirect
-					collaboration, systems exchange their own information via some
-					collaboration platform. In order to maintain and continue this
-					collaboration, each system provide the metadata of their ability
-					and interfaces and adopt itself to others.
-				</p>
-				<figure id="cross-domain">
-					<img src="images/cross-domain-direct.png" style="width: 500px;" />
-					<img src="images/cross-domain-indirect.png" style="width: 500px;" />
-					<figcaption>Cross-domain collaboration</figcaption>
-				</figure>
-			</section>
-		</section>
-
 		<section>
 			<h2>Summary</h2>
 			<p class="ednote" title="TODO">The following figure has to be
