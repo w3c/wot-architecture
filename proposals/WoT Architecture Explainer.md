@@ -129,167 +129,101 @@ However, we do provide a mechanism to include semantic contexts and
 annotations and a well-defined process to convert WoT Thing Descriptions to JSON-LD 1.0,
 and are aligning WoT Thing Descriptions with the work in progress on JSON-LD 1.1.
 
-## Getting started / example code (MK)
-
-[//]: # (Provide a terse example for the most common use case of the feature. If you need to show how to get the feature set up [initialized, or using permissions, etc.], include that tool here)
-
-[//]: # (McCool: I'm not convinced we need this section.  I suggest removing it
-in favor of another section later on common usage patterns, which connect the 
-use cases to the abstract architecture)
-
-**TODO.  Maybe Omit?  An example TD _might_ be useful here, but on the other hand,
-that really belongs in the TD spec.**
-
 ## Application domains and use cases
 
-[//]: # (McCool: This takes a lot of space; perhaps we can condense it somehow, perhaps using bulleted lists rather than subsections?  I also added "use cases" to the title because that's really what the contents of each subsection below are)
-
-The following sections describe a set of use cases that were used to drive the 
+A set of use cases in a set of IoT application domains were used to drive the 
 requirements for the WoT architecture.
-These are not exhaustive. 
-Rather they serve as illustrations or exemplars,
-where connected things using WoT can provide additional benefit or enable new scenarios.
+These use cases were chosen to be typical of IoT applications but were not meant
+to be exhaustive.
+Rather, the use cases served as concrete illustrations or exemplars,
+where connected things using WoT could provide additional benefit or enable new scenarios.
 
-### Consumer
-
-In the consumer space there are multiple assets that could benefit from being connected.
-Typical examples include:
-* Lights and air conditioners can be turned off based on room occupancy.
-* Window blinds can be closed automatically based on weather conditions and presence.
-* Energy and other resource consumption can be optimized based on usage patterns and predictions.
-
-### Industrial
-
-Examples from smart factories include:
-* Advanced monitoring of the status of connected manufacturing equipment 
-  as well of the manufactured products.
-* Predictions of machine failures and early discovery of anomalies
-  to prevent costly downtime and maintenance efforts.
-
-Typical examples aimed at enhancing safety or protecting the environment include:
-* Monitoring of connected manufacturing equipment and the environment
-  at production facilities for the presence of poisonous gases.
-* Monitoring excessive noise or heat.
-* Leakage detection and prediction of pipeline usage in offshore platforms.
-* Monitoring and controlling the levels of chemicals in tanks and reservoirs.
-The goals of these use cases are to identify risk to the safety of workers 
-or the environment and reduce the risks of incidents or accidents.
-Therefore there should also be 
-a mechanism to raise alerts or invoke safety failsafes in a timely manner when
-hazards are identified.
-
-Additional examples aimed at optimizing costs or processing include:
-* Monitoring of vehicles, fuel costs,
-  maintenance needs and assignments to optimize the utilization
-  of a vehicle fleet.
-* Tracking shipments en-route to ensure consistent quality
-  and condition of transported goods.
-  This is especially useful to assert the integrity of the cold-chain
-  from warehouses to refrigerated trucks to delivery.
-* Automated reading of residential and C&I (Commercial and Industrial) meters,
-  coordinatd with billing, offers continuous insights into
-  resource consumption and potential bottlenecks.
-* Monitoring the condition and output of distributed renewable energy generation
-  equipment enables optimisation of distributed energy resources.
-* Automated calculation of a distributed stock through various storage tanks
-  and delivery pipes/trucks allows for improved planning and resource optimisation.
-
-### Insurance
-
-Examples include:
-* Usage based insurance can be offered with usage tracking and customized insurance policies.
-* Predictive weather monitoring and re-routing of fleet vehicles to covered garages
-  can limit loss due to hail and tree damage.
-
-### Agriculture
-
-Examples include:
-* Soil condition monitoring and creation of optimal plans for watering,
-  and fertilizing.
-* Monitoring production conditions to optimize 
-  the quality and output of agricultural produce.
-
-### Healthcare
-
-Examples include:
-* Data collection and analytics of clinical trial data to gain insights into 
-  treatment effectiveness.
-* Remote patient monitoring to mitigate  the risk of undetected critical situations
-  for elderly people and patients after hospitalization.
-
-### Environment
-
-[//]: # (McCool: What about earthquake, landslide, or high winds alerts, which might require a more urgent response, eg. shutting down trains?)
-
-Examples include:
-* Monitoring of air pollution,
-  water pollution and other environmental risk factors such as fine dust,
-  ozone, volatile organic compounds, radioactivity, temperature, and humidity
-The goal is to detect critical environment conditions in order 
-to prevent unrecoverable health or environment damages.
-Such monitoring should be combined with a mechanism to raise alerts when
-hazardous conditions are detected.
-
-### Smart cities and buildings
-
-Examples include:
-* Monitoring of bridges, dams, levees, and canals for material condition,
-  deterioration, and vibration with the goal of identifing needed maintenance or repair 
-  work and preventing significant damage.
-* Monitoring of highways and providing appropriate signage that ensures optimized traffic flow.
-* Smart control of street lights based on presence detection and weather predictions 
-  to reduce energy costs.
-* Monitoring the energy usage throughout a building to help optimize resource consumption
-  and reduce waste.
-
-### Connected Car
-
-Examples include:
-* Monitoring of operation status and prediction of service needs optimizes 
-  maintenance needs and costs.
-* Driver safety can be enhanced with notifications from an early warning system 
-  of critical road and traffic conditions.
+Application domains and use considered included 
+consumer (lights, window blinds, energy management), 
+smart factory (equipment monitoring, failure prediction, poisonous gas detection,
+vehicle tracking, shipment tracking, meter reading, distributed energy resource (DER)
+management, storage tank monitoring), 
+insurance (usage tracking, predictive weather monitoring),
+agriculture (soil condition monitoring and planning, production monitoring),
+healthcare (clinical trial data collection, remote patient monitoring),
+environment (pollution monitoring),
+smart cities and buildings (infrastructure monitoring, traffic monitoring and signage, street lights, building energy optimization),
+and 
+connected car (service prediction, road condition early warning).
 
 ## Key scenarios and common patterns
 
-[//]: # (McCool: The purpose of this section is the same as the "common patterns" section of the architecture doc, so let's summarize that here; I have modified the title to capture both ideas)
+Analysis of the use cases resulted in a set of common patterns of
+network and device configuration summarized in the following figure, which
+combines many of the patterns.  IoT services are often composed of services 
+running in the cloud and on gateways as well as on the actual devices.
+User interfaces are often exposed via the web or through applications on
+mobile devices such as phones.
+Devices themselves might be mobile and so their network location should
+not be tied to their physical location nor should such devices be
+treated as being continuously connected; an example is the connected car.
+Devices are often located behind firewalls and
+NATs in which case proxies may be required for traversal and visibility
+outside the local network.  Digital twins may be required to mirror state
+for devices that are not continuously online for power-saving, mobility, or other reasons.
+Many usage scenarios involving timely action in the case of alerts
+require the use of "push" event notification and cannot rely
+on pure request/response patterns driven by the client.
 
-[//]: # (MK: Next, discuss the key scenarios which move beyond the most canonical example,
-showing how they are addressed using example code:
-…
-Scenario 1
-Outline the scenario, then provide:
-…
-[sample code that demonstrates the feature]
-…
-Scenario 2
-Outline the scenario, then provide:
-…
-[sample code that demonstrates the feature]
-)
-
-
-**TODO; really, this is the "Common Patterns"**
+<img src="../images/arch-use-case-overview.png"/>
 
 ## Requirements
 
-**TODO.   This is NOT one of the sections in the template but should be included to follow the process we have defined and the progression from use cases through to architectural definitions.**
+Functional and technical requirements were then derived from the use case 
+and common pattern analysis.  A summary of these requirements is given below.
+
+Functional requirements include the need to:
+* support the mutual interworking of different ecosystems using web technology, including RESTful APIs;
+* support multiple payload formats including those commonly used on the web;
+* be flexible enough to support a wide variety of physical device configurations;
+* be compatible with as many other IoT standards as possible;
+* be scalable to thousands to millions of devices;
+* provide interoperability between devices from multiple manufacturers;
+* support common functionalities such as reading and writing properties,
+  invoking actions,
+  and subscribing/unsubscribing to event notifications;
+* support a common metadata description mechanism that is both human and
+  machine readable, that supports a mechanism for extensible semantic annotation,
+  and supports internationalization;
+* support the network protocols in use for both the web and IoT devices;
+* support devices with resource restrictions;
+* support services running on gateways or in the cloud;
+* support multilevel and segmented networks (proxies, gateways, NAT traversal, etc);
+* support application orchestration; and
+* support legacy devices, either directly (if IP-based protocols) 
+  or by mapping them through adaptation layers (is using non-IP protocols).
+
+Technical requirements include the need for:
+* proxy services to act as intermediaries between sections of segmented networks;
+* twins to act as intermediaries for devices that may not be continuously online;
+* discovery mechanisms to find devices and recover their metadata;
+* directories to manage metadata and provide it for devices that may not be continuously online;
+* unique identifiers for devices;
+* internationalized human-readable metadata for devices;
+* descriptions of the available interactions of devices;
+* information models for the data payloads and arguments for all interactions;
+* semantic annotations for devices, their interactions, and their data, using extensible
+  domain-specific vocabulary;
+* details of the binding of each interaction to specific network protocols;
+* details of the security mechanisms used for each interaction, including
+  information about the necessary authorization, authentication, and confidentiality measures
+  (this is of course limited to public information; private keying material is NOT 
+  to be included in the metadata); and
+* support for pub/sub protocols in addition to RESTful web protocols.
 
 ## Detailed design discussion
-
-[//]: # (Tricky design choice #1
-Talk through the tradeoffs in coming to the specific design point you want to make, hopefully:
-[illustrated with example code]
-…
-[Tricky design choice N …]
-)
 
 The architecture document defines a common WoT Architecture and serves as an entry point and
 introduction to several other documents defining the WoT Building Blocks.
 
 ### Common Architecture
 Based on the application domains and use cases, and the requirements derived from these,
-a common abstract architecture has been defined for WoT systems.  
+a common abstract architecture has been defined for WoT systems.
 This abstract architecture is broad enough to include many existing IoT systems and standards.
 This is intentional since, in order to combat fragmentation,
 the WoT approach is designed to allow the construction of IoT
@@ -448,11 +382,24 @@ private keying information.  This must be provisioned separately.
 Third, general security and privacy considerations, testing,
 and best practices are covered in separate publications.
 
-## Considered alternatives (MK)
+## Considered alternatives
 
 [//]: # (One of the most important things you can do in your design process is to catalog the set of roads not taken. As you iterate on your design, you may find that major choices in your approach or API style will be revisited and enumerating the full space of alternatives can help you apply one [or more] of them later, may serve as a “graveyard” for u-turns in your design, and can give reviewers and potential users confidence that you’ve got your ducks in a row.)
 
-**TODO**
+One of the original designs for the WoT limited interactions to HTTP and RESTful interfaces.
+However, there are many IoT devices that use other protocols, such as CoAP or MQTT.
+There are many reasons for this, but to fully support the IoT, with direct access to
+IoT devices without protocol translation services, a broader perspective on
+acceptable protocols is needed.  
+This also differentiates the WoT Thing Description from Web API descriptions such
+as Swagger/OpenAPI, which are focused on defining APIs that are based on HTTP.
+
+Another design considered for the WoT Thing Description was based directly on JSON-LD.
+Unfortunately the syntax of JSON-LD is fairly restrictive and this led to a
+syntax which was verbose and was considered confusing by many web developers we consulted with.
+The current proposal uses a more straightforward and "natural" JSON syntax
+which however still allows semantic annotation and can be easily converted
+to JSON-LD, and is designed to align with the current JSON-LD 1.1 proposal.
 
 ## References & acknowledgements
 
