@@ -246,7 +246,7 @@ a[href].internalDFN {
 	<section id="conformance"></section>
 	<section>
 		<h1>Terminology</h1>
-				<p>
+		<p>
 			<em>This section is normative.</em>
 		</p>
 
@@ -910,27 +910,41 @@ a[href].internalDFN {
 			<section>
 				<h3>Legacy Devices</h3>
 				<p>
-				<a href="#smart-home-cloud2"></a> shows an example where legacy
-				electronic appliances cannot directly connect to the cloud. Here, a
-				gateway is needed to relay the connection. The gateway works as:
+					The third use case is a mobile remote controller (e.g., on a
+					smartphone) as shown in <a href="#smart-home-multi"></a>. The
+					remote controller can switch communication media between cellular
+					network and home network such as Wi-Fi and Bluetooth. The
+					controller choose the home network when it's at home, and the
+					cellular while outside.
 				</p>
-				<ul>
-					<li>integrator of a variety of legacy communication protocols
-						both in the physical and logical view</li>
-					<li>firewall toward the Internet</li>
-					<li>privacy filter which substitutes real image and/or speech,
-						and logs data locally</li>
-					<li>local agent in case the Internet connection is interrupted</li>
-					<li>emergency services running locally when fire alarms and
-						similar events occur</li>
-				</ul>
-				<p>The cloud mirrors the gateway with all connected appliances
-					and acts as a digital twin that manages them in the cloud in
-					conjunction with the gateway. Furthermore, the cloud can receive
-					commands from remote controllers (e.g., a smartphone), which can be
-					located anywhere.</p>
-				<figure id="smart-home-cloud2">
-					<img src="images/wot-use-cases/smart-home-cloud2.png"
+				<p>In this pattern, the remote controller and the electronic
+					appliance have a client role and a server role respectively as the
+					same as 3.2.1 device controllers.</p>
+				<figure id="smart-home-multi">
+					<img src="images/wot-use-cases/smart-home-multi.png"
+						style="width: 500px;" />
+					<figcaption>Multiple Network Interfaces</figcaption>
+				</figure>
+			</section>
+			<section>
+				<h3>Gateways</h3>
+				<p class="ednote" title="TODO">Must rewrite for local
+					box/compute node use case.</p>
+				<p>
+					<a href="#smart-home-gateway"></a> shows a use case based on a
+					Smart Home gateway. A smart home gateway is placed between a home
+					network and the Internet. The gateway manages electronic appliances
+					inside the house and can receive commands from a remote controller
+					over the Internet, e.g., from a smartphone as in the previous use
+					case. It is also is a virtual representation of a device. The
+					gateways sometimes are called the proxies.
+				</p>
+				<p>In this pattern, the home gateway have both of client and
+					server roles. That is, it can connect to the electronic appliance
+					with the client role and to the remote controller with the server
+					role.</p>
+				<figure id="smart-home-gateway">
+					<img src="images/wot-use-cases/smart-home-gateway.png"
 						style="width: 500px;" />
 					<figcaption>A Digital Twin for a Legacy Device</figcaption>
 				</figure>
@@ -1269,7 +1283,7 @@ a[href].internalDFN {
 		<h1>WoT Architecture</h1>
 		<section>
 			<p>
-			<em>This section is normative.</em>
+				<em>This section is normative.</em>
 			</p>
 			<h2>Overview</h2>
 			<figure id="architecture-abstract">
@@ -1284,12 +1298,7 @@ a[href].internalDFN {
 				configuration that consists of a device and an application shown
 				below.</p>
 			<figure id="high-level-application-device">
-				<img src="images/arch-high-level-application-device.png" />
-				<figcaption>High level architecture of application and
-					device</figcaption>
-			</figure>
-			<figure id="high-level-application-device-new">
-				<img src="images/arch-high-level-application-device-new.png" />
+				<img src="images/arch-high-level-application-device-alt.png" />
 				<figcaption>High level architecture of application and
 					device</figcaption>
 			</figure>
@@ -1319,7 +1328,7 @@ a[href].internalDFN {
 				<figcaption>High level architecture with proxy</figcaption>
 			</figure>
 			<figure id="high-level-application-proxy-device-new">
-				<img src="images/arch-high-level-application-proxy-device-new.png" />
+				<img src="images/arch-high-level-application-proxy-device-alt.png" />
 				<figcaption>High level architecture with proxy</figcaption>
 			</figure>
 			<p>A proxy contains both ExposedThing and ConsumedThing
@@ -1776,7 +1785,7 @@ a[href].internalDFN {
 				<img src="images/wot-thing-without-scripting.png" />
 				<figcaption>Thing with WoT Building Blocks, without the WoT Scripting API</figcaption>
 			</figure>
-                </p>
+    </p>
 
 		<section id="sec-thing-description">
 			<h2>WoT Thing Description</h2>
@@ -1944,7 +1953,8 @@ a[href].internalDFN {
 	<section>
 		<h1>Servient Implementation</h1>
 		<p>
-			<em>This section describes an implementation and is non-normative.</em>
+			<em>This section describes an implementation and is
+				non-normative.</em>
 		</p>
 
 		<p class="ednote" title="TODO">
@@ -2314,7 +2324,7 @@ a[href].internalDFN {
 				the remote proxy on the internet side aggregates the applications.
 				Applications and devices need to know nothing about the firewall.</p>
 			<figure id="deployment-cloud-device">
-				<img src="images/arch-deploy-cloud-device.png" />
+				<img src="images/arch-deploy-cloud-device-alt.png" />
 				<figcaption>TODO: ADD A CAPTION</figcaption>
 			</figure>
 			<p>Note: An example structure adopted in ITU-T Recommendation
@@ -2335,7 +2345,7 @@ a[href].internalDFN {
 				to achieve its application functionality. It can do so by querying
 				the directory of device information.</p>
 			<figure id="deployment-cloud-directory">
-				<img src="images/arch-deploy-service-directory.png" />
+				<img src="images/arch-deploy-service-directory-alt.png" />
 				<figcaption>Cloud service with directory</figcaption>
 			</figure>
 			<p>Multiple cloud eco-systems each based on a different platform
@@ -2357,7 +2367,7 @@ a[href].internalDFN {
 				shadow device, Application servient A is able to use Device Servient
 				B through the shadow device on Remote Proxy Servient B.</p>
 			<figure id="deployment-service-sync-directory">
-				<img src="images/arch-deploy-service-sync-directory.png" />
+				<img src="images/arch-deploy-service-sync-directory-alt.png" />
 				<figcaption>Multiple cloud connect through directory
 					synchronization</figcaption>
 			</figure>
@@ -2369,7 +2379,7 @@ a[href].internalDFN {
 				B, and registers the TD to TD directory A. With this mechanism,
 				synchronization between TD directories is not necessary.</p>
 			<figure id="deployment-service-sync-proxy">
-				<img src="images/arch-deploy-service-sync-proxy.png" />
+				<img src="images/arch-deploy-service-sync-proxy-alt.png" />
 				<figcaption>Multiple cloud connect through proxy
 					synchronization</figcaption>
 			</figure>
