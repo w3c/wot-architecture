@@ -524,14 +524,16 @@ a[href].internalDFN {
 			<dt>
 				<dfn>WoT Runtime</dfn>
 			</dt>
-			<dd>A runtime system for application scripts with the WoT
-				Scripting API. Implementing a WoT Runtime is optional for Servients.
+			<dd>A system implementing a Thing's application logic using the WoT Scripting API.
+                                Implementing a full WoT Runtime is optional for Servients.
+                                However, if it is omitted equivalent functionality
+                                needs to be provided by custom application logic.
 
-				The WoT Runtime should be the component that instantiates Consumed
-				Things and Exposed Things as software objects, manages their state,
-				and generates the TDs. It communicates with other components such as
-				the Binding implementations and application scripts (the WoT
-				Scripting API being one way).</dd>
+				The WoT Runtime should instantiate Consumed
+				Things and Exposed Things as software objects, manage their public and private state,
+				and generate and expose TDs. It communicates with other components such as
+				protocol binding implementations and application scripts.
+			</dd>
 			<dt>
 				<dfn data-lt="WoT Scripting API">Scripting API</dfn>
 			</dt>
@@ -1926,7 +1928,7 @@ a[href].internalDFN {
 			<p>
 				The <a>Scripting API</a> is an optional "convenience" building block
 				in WoT and it is typically used in network nodes that are able to
-				host a WoT Runtime, for instance gateways or more powerful IoT
+				host a full WoT Runtime, for instance gateways or more powerful IoT
 				devices.
 			</p>
 			<p>
@@ -1988,8 +1990,9 @@ a[href].internalDFN {
 			takes certain technical aspects into account. The detailed
 			architecture of a <a>Servient</a> shown in 
                         <a href="#architecture-implementation"></a> 
-                        diagrams some additional considerations, such as the Runtime
-                        (a container for executing the application logic and maintaining private state)
+                        diagrams some additional details, such as the WoT Runtime
+                        (a container for executing the application logic and maintaining private state
+                        using the WoT Scripting API)
                         and the possible presence of system APIs.
 		</p>
 		<figure id="architecture-implementation">
@@ -2005,9 +2008,9 @@ a[href].internalDFN {
 		<section>
 			<h2>Application</h2>
 			<p>
-				<a>Applications</a> running on a <a>Servient</a> are usually
-				implemented through scripts (i.e., JavaScript). The application
-				scripts must be provided along with private data,
+				<a>Applications</a> running on a <a>Servient</a> may be
+				implemented through scripts and the WoT Scripting API.
+                                The application scripts must be provided along with private data,
                                 including security metadata that defines
 				their <a>Execution Environment</a> and consequently how scripts must
 				be isolated. The security metadata also needs to include keying
@@ -2015,35 +2018,40 @@ a[href].internalDFN {
 				script exposes.
 			</p>
 			<p>
-				Note that the <a>WoT Scripting API</a> building block is optional.
-				There can be minimal <a>Servient</a> implementations where
-				applications are implemented natively for the software stack. These
-				do not have the <a>Scripting API</a> but still need 
-                                a "custom" <a>Runtime</a> to manage application logic and private state.
-                                Conceptually in this case the application logic is built into the Runtime.
+				However, the <a>WoT Scripting API</a> building block is optional.
+				There can be alternative <a>Servient</a> implementations where
+				applications are implemented natively for the software stack. 
+                                These alternative implementations do not have the <a>Scripting API</a> but still need 
+                                a custom "application logic" component in place of the WoT Runtime
+                                to manage application logic and private state.
+                                Such custom application logic may or may not be able to expose or consume TDs.
+                                If such an implementation cannot itself expose a TD,
+                                it may still be able for it to participate in the WoT
+                                if a TD can be provided for it via an external mechanism.
+                                Such a use case will be typical of "brownfield" IoT devices retro-fitted with TDs.
 			</p>
 			<section id="native-impl">
 				<h3>Native platform API</h3>
 				<!--<p class="ednote" title="TODO">Explain native implementation
 					against custom API in programming language of choice.</p>-->
 				<p>
-					There are necessities for implement an application without using <a>Scripting
-						API</a>. For example:
+                                A servient's application logic may also be implemented using a custom (native) API.
+				There are various reasons why application might be implemented without 
+                                using <a>Scripting API</a>, includig but not limited to:
 				</p>
 				<ul>
-					<li>From lack of computing resources, developer can't use a
-						rich software stack or fully-featured scripting engine.</li>
+					<li>Due to limited computing resources, a developer can't use a
+						rich software stack or a fully-featured scripting engine.</li>
 					<li>To cooperate with other functions or applications,
-						developer must use language specific functions or libraries.</li>
-					<li>Developer want to interact Things on the top of existing
-						applications.</li>
+						the developer may have to use platform specific functions or libraries.</li>
+					<li>The developer may need to build on top of an existing implementation.</li>
 				</ul>
 				<p>
-					Because semantics of <a>Thing Description</a> are well-defined,
-					developers can make own application by parsing a <a>TD</a> and
-					interact with things by native platform API. Moreover, developer
-					can use an existing application by creating proper configuration
-					for the application based on the <a>TD</a>.
+					Because the semantics of <a>Thing Description</a> are well-defined,
+					developers can still develop their own application by parsing <a>TDs</a> and
+					interacting with other WoT Things as specified using their own native platform API.
+                                        Moreover, developers can reuse existing services
+                                        by creating TDs in the proper configuration for those services.
 				</p>
 			</section>
 			<section>
@@ -2051,9 +2059,13 @@ a[href].internalDFN {
 				<p>
 					The standardized <a>WoT Scripting API</a> is the contract between
 					applications and the runtime system of a <a>Servient</a>, the
-					so-called <a>WoT Runtime</a>. The <a>WoT Scripting API</a> is
+					so-called <a>WoT Runtime</a>. 
+<!-- Let's discuss this later under Security Considerations? 
+                                        The <a>WoT Scripting API</a> is
 					equivalent to any platform API, and hence there must be mechanisms
-					to prevent malicious access to the system. As mentioned above, this
+					to prevent malicious access to the system. 
+-->
+                                        As mentioned above, this
 					building block, including the underlying WoT Runtime
 					implementation, is optional.
 				</p>
