@@ -539,7 +539,13 @@ a[href].internalDFN {
 			<dt>
 				<dfn>WoT Runtime</dfn>
 			</dt>
-			<dd>A runtime system for application scripts supporting the 
+                        <dd>A runtime system that maintains an execution environment for applications,
+                        and is able to expose and optionally consume TDs, 
+                        offers a protocol binding to one or more protocols, 
+                        and maintains private security metadata.
+                        </dd>
+<!-- OLD DEFINITION
+			<dd>A runtime system for applications supporting the 
                                 implementation of WoT Thing behavior. 
                                 Implementing a WoT Runtime is optional for Servients but is 
                                 mandatory when the WoT Scripting API is used.
@@ -550,12 +556,13 @@ a[href].internalDFN {
 				the Binding implementations and application scripts or programs through
                                 an API, the WoT Scripting API being one instance of such an API.
                         </dd>
+-->
 			<dt>
 				<dfn data-lt="WoT Scripting API">Scripting API</dfn>
 			</dt>
 			<dd>The application-facing programming interface provided by a
 				Servient; comparable to the Web browser APIs. It is an API provided
-				to ease the implementation of, or to extend a WoT Runtime.</dd>
+				to ease the implementation of appliations on top of WoT Runtime.</dd>
 			<dt>
 				<dfn>WoT Server</dfn>
 			</dt>
