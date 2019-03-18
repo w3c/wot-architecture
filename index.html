@@ -1829,7 +1829,7 @@ a[href].internalDFN {
 				Thing, meaning that they are able to fetch a fresh TD represenation
 				in case the Thing is updated.</p>
 			<p>
-				For semantic interoperatbility, <a>TDs</a> must make use of a
+				For semantic interoperability, <a>TDs</a> must make use of a
 				domain-specific vocabulary, for which explicit extension points are
 				provided. However, any domain-specific vocabulary is out-of-scope of
 				the W3C standardization activity.
@@ -1943,7 +1943,7 @@ a[href].internalDFN {
 			</p>
 			<p>
 				The current reference implementation of the <a>Scripting API</a> is
-				the <a href="https://github.com/eclipse/thingweb.node-wot">Eclipse
+				the open-source <a href="https://github.com/eclipse/thingweb.node-wot">Eclipse
 					ThingWeb (node-wot)</a> project. This API is the only one at the moment
 				that ensures "de facto" portability of WoT scripts. Other,
 				proprietary implementations of the <a>Scripting API</a> exist as
@@ -1981,12 +1981,16 @@ a[href].internalDFN {
 			name (a portmanteau of server and client) is based on this dual role.
 		</p>
 		<p>
-			The chapter <a href="#sec-wot-architecture"></a> shows how the WoT
-			building blocks conceptionally relate to each other. When
-			implementing these concepts, a more detailed view is necessary that
+			The chapter <a href="#sec-building-blocks"></a> shows how the WoT
+			building blocks conceptionally relate to each other and to the 
+                        key architectural aspects introduced in chapter <a href="sec-arch-aspects"></a>.
+                        When implementing these concepts, an even more detailed view is necessary that
 			takes certain technical aspects into account. The detailed
-			architecture of a <a>Servient</a> is shown in <a
-				href="#architecture-implementation"></a>.
+			architecture of a <a>Servient</a> shown in 
+                        <a href="#architecture-implementation"></a> 
+                        diagrams some additional considerations, such as the Runtime
+                        (a container for executing the application logic and maintaining private state)
+                        and the possible presence of system APIs.
 		</p>
 		<figure id="architecture-implementation">
 			<img src="images/architecture-implementation.png"
@@ -2003,7 +2007,8 @@ a[href].internalDFN {
 			<p>
 				<a>Applications</a> running on a <a>Servient</a> are usually
 				implemented through scripts (i.e., JavaScript). The application
-				scripts must be provided along with security metadata that defines
+				scripts must be provided along with private data,
+                                including security metadata that defines
 				their <a>Execution Environment</a> and consequently how scripts must
 				be isolated. The security metadata also needs to include keying
 				material or certificates to authenticate the <a>Things</a> the
@@ -2013,7 +2018,9 @@ a[href].internalDFN {
 				Note that the <a>WoT Scripting API</a> building block is optional.
 				There can be minimal <a>Servient</a> implementations where
 				applications are implemented natively for the software stack. These
-				do not have the <a>Scripting API</a> and <a>WoT Runtime</a> modules.
+				do not have the <a>Scripting API</a> but still need 
+                                a "custom" <a>Runtime</a> to manage application logic and private state.
+                                Conceptually in this case the application logic is built into the Runtime.
 			</p>
 			<section id="native-impl">
 				<h3>Native platform API</h3>
