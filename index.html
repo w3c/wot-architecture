@@ -74,6 +74,16 @@
 				title : "Web of Things Security and Privacy Considerations",
 				publisher : "W3C"
 			},
+			"WOT-SECURITY-BEST-PRACTICES" : {
+				href : "https://www.w3.org/TR/wot-security-best-practices/",
+				title : "Web of Things Security Best Practices",
+				publisher : "W3C"
+			},
+			"WOT-SECURITY-TESTING-PLAN" : {
+				href : "https://www.w3.org/TR/wot-security-testing-plan/",
+				title : "Web of Things Security Best Practices",
+				publisher : "W3C"
+			},
 			"IEC-FOTF" : {
 				href : "https://www.iec.ch/whitepaper/pdf/iecWP-futurefactory-LR-en.pdf",
 				title : "Factory of the future",
@@ -517,14 +527,17 @@ a[href].internalDFN {
 			<dt>
 				<dfn>WoT Runtime</dfn>
 			</dt>
-			<dd>A runtime system for application scripts with the WoT
-				Scripting API. Implementing a WoT Runtime is optional for Servients.
+			<dd>A runtime system for application scripts supporting the 
+                                implementation of WoT Thing behavior. 
+                                Implementing a WoT Runtime is optional for Servients but is 
+                                mandatory when the WoT Scripting API is used.
 
-				The WoT Runtime should be the component that instantiates Consumed
+				The WoT Runtime instantiates Consumed
 				Things and Exposed Things as software objects, manages their state,
 				and generates the TDs. It communicates with other components such as
-				the Binding implementations and application scripts (the WoT
-				Scripting API being one way).</dd>
+				the Binding implementations and application scripts or programs through
+                                an API, the WoT Scripting API being one instance of such an API.
+                        </dd>
 			<dt>
 				<dfn data-lt="WoT Scripting API">Scripting API</dfn>
 			</dt>
@@ -1765,37 +1778,59 @@ a[href].internalDFN {
 			The WoT Building Blocks support each of the architectural aspects of
 			a Thing discussed in <a href="#sec-arch-aspects"></a> and diagrammed
 			in <a href="#arch-aspects"></a>. The building blocks themselves are
-			shown in the context of a single Thing in <a href="#arch-thing-with-scripting"></a>.
-		<figure id="arch-thing-with-scripting">
-			<img src="images/wot-thing-runtime-scripting.png" />
-			<figcaption>Thing with WoT Building Blocks, including
-				the WoT Runtime and the WoT Scripting API</figcaption>
+			shown in the context of a Thing in <a href="#arch-building-blocks"></a>.
+                        This is an abstract view and is not meant to represent any
+                        particular implementation.
+		<figure id="arch-building-blocks">
+			<img src="images/wot-building-blocks-abstract.png" />
+			<figcaption>WoT Building Blocks and an Abstract Thing</figcaption>
 		</figure>
 		</p>
 		<p>The WoT Thing Description contains metadata describing the
-			interaction affordances of the Thing, the mapping of these affordances onto
+			interaction affordances of the Thing, 
+                        the mapping of these affordances onto
 			concrete network protocols (the communication metadata), 
-                        the public security data needed
-			by authorized users to access the Thing,
+                        the <em>public</em> security data needed
+			by authorized users to understand how to access the Thing,
                         and other general metadata such as IDs, names, and descriptions.
-                        A Binding Template provides guidance for providing the correct communications metadata
-                        in a Thing Description to support a specific target protocol.
-                        For specifying behavior, an
+                        The Binding Templates are another WoT building block that
+                        provides guidance on how to provide the correct communications metadata
+                        in a Thing Description to support specific target protocols.
+                </p>        
+		<p>
+                        The interaction implemention specifies how a Thing actually responds to
+                        an interaction, including how state is stored and modified.  The behavior
+                        implementation specifies how other behavior of a Thing is implemented, which
+                        may or may not be directly related to an interaction.  For example,
+                        a thermostat may need to execute a control loop to control a furnace based
+                        on a sensor reading.  This does not directly relate to a specific interaction,
+                        although it might be controlled by a property (such as target temperature)
+                        that can be modified by an interaction.
+                </p>
+                <p>
+                        For specifying behavior and interaction implementations, an
 			optional WoT Scripting API building block is provided which supports the definition
 			and consumption of WoT Thing Descriptions. This is useful to define
-			application behavior using and easy-to-use scripting language.</p>
-		<p>
-                <p>It is however possible to implement a WoT Thing <em>without</em> using the WoT Runtime
-                and WoT Scripting API as shown in <a href="#arch-thing-without-scripting"></a>.
-                In this case the external functionality and behavior still needs to be consistent with
-                the Thing Description defined for the Thing.  In general such a Thing may still be able
-                to consume TDs for other Things and implement protocol bindings to communicate with them.
-		<figure id="arch-thing-without-scripting">
-			<img src="images/wot-thing-agent-native.png" />
-			<figcaption>Thing with WoT Building Blocks, but using a native implementation
-				of behavior in place of the WoT Runtime and the WoT Scripting API</figcaption>
-		</figure>
+			application behavior using an easy-to-use scripting language.
+                It is however possible to implement a WoT Thing <em>without</em> using the
+                WoT Scripting API.
+                In this case the externally visible interactions and network interface still needs to be consistent with
+                the Thing Description defined for the Thing. 
 		</p>
+                <p>
+			Internally to a Thing, it is also generally important to provide secure
+                        storage for <em>private</em> security data such as keying and identity material.
+                        This information is never shared with entities outside the Thing, and ideally
+                        should not even be available to the behavior and interaction implementations.
+                        Instead an abstract set of operations should support security functions such as
+                        signing, authorization, certificate validation, and encryption and decryption.
+                        Technology such as asymmetric public encryption schemes are generally used to
+                        provide these functions without disclosing the secret private security data.
+                        In general, explicitly managing secrets in a form that can be easily
+                        updated if necessary and keeping them clearly separated from public information
+                        is considered a security best practice.
+		</p>
+<!--
 			It is also possible, as shown in <a
 				href="#arch-thing-foreign"></a>, to use preexisting
 			"brownfield" devices as WoT Things.
@@ -1810,14 +1845,17 @@ a[href].internalDFN {
 			<figcaption>A pre-existing device provided with a Thing Description</figcaption>
 		</figure>
 		</p>
-                <p>In the following sections we will provide additional information on each building
-                block: the WoT Thing Description, the WoT Binding Templates, and the WoT Scripting API.</p>
+-->
+                <p>In the following sections we will provide additional information on each WoT Building
+                Block: the WoT Thing Description, the WoT Binding Templates, and the WoT Scripting API.
+                Security is a cross-cutting concern which can be considered a fourth building block.</b>
 
 		<section id="sec-thing-description">
 			<h2>WoT Thing Description</h2>
 			<p>The WoT Thing Description (TD) document [[?wot-thing-description]]
 				defines an information model based on a semantic vocabulary and a
-				JSON-based representation format to provide rich metadata for Things
+				serialized representation based on JSON.
+                                TDs provide rich metadata for Things
 				in a way that is both human-readable and machine-understandable. 
                                 Both the information model and the
 				representation format of TDs are aligned with Linked Data [[?LINKED-DATA]],
@@ -1826,8 +1864,9 @@ a[href].internalDFN {
 				powerful semantic processing of the metadata.</p>
 			<p>
 				A <a>Thing Description</a> (TD) describes Thing instances with
-				general metadata such as name, id, descriptions, and 
-				relation metadata through links to related Things or other documents; 
+				general metadata such as name, ID, descriptions, and also can provide
+				relation metadata through links to related Things or other documents.
+                                TDs also provide
                                 interaction affordance metadata based on
 				the interaction model defined in <a href="#interaction-model"></a>;
                                 public security configuration metadata;
@@ -1851,16 +1890,17 @@ a[href].internalDFN {
 				For semantic interoperatbility, <a>TDs</a> may make use of a
 				domain-specific vocabulary, for which explicit extension points are
 				provided. 
-                                However, any particular domain-specific vocabulary is out-of-scope of
+                                However, development of 
+                                any particular domain-specific vocabulary is currently out-of-scope of
 				the W3C WoT standardization activity.
 			</p>
 			<p class="ednote">This document should point to iot.schema.org,
 				but would need a good reference.</p>
 			<p>
 				Overall, the WoT Thing Description building block fosters
-				interoperability in two ways: First, <a>TDs</a> enable
-				machine-to-machine communication in the Web of Things. Second, <a>TDs</a>
-				can serve as a common, uniform format for developers to document and
+				interoperability in two ways: 
+                                First, <a>TDs</a> enable machine-to-machine communication in the Web of Things.
+                                Second, <a>TDs</a> can serve as a common, uniform format for developers to document and
 				retrieve all the details necessary to access IoT devices and make use of
 				their data.
 			</p>
@@ -1884,7 +1924,7 @@ a[href].internalDFN {
 					platforms</a>. When describing a particular device, the <a>Binding
 					Template</a> for the corresponding <a>IoT Platform</a> can be used to
 				look up the necessary information that must be provided in the <a>Thing
-					Description</a>.
+					Description</a> to support that platform.
 			</p>
 			<figure id="fig-binding-templates">
 				<img src="images/binding-templates.png" style="width: 800px;" />
@@ -1896,7 +1936,7 @@ a[href].internalDFN {
 				only once for each <a>IoT Platform</a> and can then be reused in all
 				<a>TDs</a> for devices of that platform. Clients consuming a <a>TD</a>
 				must implement the corresponding <a>Protocol Binding</a> by
-				including a corresponding protocol stack and configuring the stack
+				including a corresponding protocol stack and by configuring the stack
 				(or its messages) according to the information given in the <a>TD</a>.
 				The communication metadata of Protocol Bindings spans five
 				dimensions:
@@ -1947,7 +1987,7 @@ a[href].internalDFN {
 			<p>
 				The <a>Scripting API</a> is an optional "convenience" building block
 				in WoT.  It is used in combination with a WoT Runtime
-                                which also allows the specfication of a user-defined script and maintains
+                                which also allows the specification of a user-defined script and maintains
                                 local state for the Thing.
 			</p>
 			<p>
@@ -1957,31 +1997,46 @@ a[href].internalDFN {
 				API that follows the <a
 					href="https://w3c.github.io/wot-thing-description">Thing
 					Description specification</a> closely. Other, simpler APIs may be
-				implemented on top of it. Other runtime systems (e.g., Python, Lua,
-				etc.) may also mimic this API.
-                                In principle however any programming language and API can be used,
+				implemented on top of it. 
+                         </p>
+                         <p>
+                                In principle any programming language and API can be used
                                 to define the behavior of a Thing, as long as the Interaction Affordances
-				are presented through valid Protocol Bindings.
+				are presented externally through valid Protocol Bindings and (ideally)
+                                access to the information encoded in Thing Descriptions is provided.
 			</p>
-			<p>
+			<p class="ednote" title="The node-wot Reference Implementation">
 				The current reference implementation of the <a>Scripting API</a> is
 				the open-source <a href="https://github.com/eclipse/thingweb.node-wot">Eclipse
-					ThingWeb (node-wot)</a> project. This API is the only one at the moment
-				that ensures "de facto" portability of WoT scripts. Other,
+					ThingWeb (node-wot)</a> project. 
+                                This API is the only one at the moment
+				that currently ensures "de facto" portability of WoT scripts. Other,
 				proprietary implementations of the <a>Scripting API</a> exist as
 				well and have been tested against node-wot during Working Group
 				PlugFests.
 			</p>
 		</section>
 		<section>
-			<h3>WoT Security and Privacy Guidelines</h3>
-			<p>
+			<h3>WoT Security and Privacy</h3>
+			<p class="ednote" title="TODO">
+                               Does this belong here?   Why not in the other sections that are non-normative,
+                               such as the Binding Templates?  After all, there are normative components to 
+                               security (metadata in TDs) as well as informative components (best practices, etc).
 				<em>This section contains recommendations and is non-normative.</em>
 			</p>
 
-			<p class="ednote" title="TODO">Explain how to use and apply
-				guidelines.</p>
-		</section>
+                       <p>Security is a cross-cutting concern and should be considered in all aspects
+                       of system design.  
+                       In the WoT architecture, security is supported by certain explicit features,
+                       such as support for security metadata in TDs and by
+                       separation of concerns in the design of the Scripting API.
+                       The documents defining each building block also include a discussion of particular security and
+                       privacy considerations for each building block.
+                       Another set of documents, the
+		       the [[?WOT-SECURITY-CONSIDERATIONS]], 
+		       the [[?WOT-SECURITY-BEST-PRACTICES]], and  
+		       the [[?WOT-SECURITY-TESTING-PLAN]],   
+                       provide additional non-normative security and privacy guidance.
 	</section>
 
 	<section>
