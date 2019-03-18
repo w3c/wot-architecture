@@ -2024,7 +2024,7 @@ a[href].internalDFN {
                          <p>
                                 In principle any programming language and API can be used
                                 to define the behavior of a Thing, as long as the Interaction Affordances
-				are presented externally through valid Protocol Bindings and (ideally)
+				are presented externally through valid Protocol Bindings and (optionally)
                                 access to the information encoded in Thing Descriptions is provided.
 			</p>
 			<p class="ednote" title="The node-wot Reference Implementation">
@@ -2032,20 +2032,12 @@ a[href].internalDFN {
 				the open-source <a href="https://github.com/eclipse/thingweb.node-wot">Eclipse
 					ThingWeb (node-wot)</a> project. 
                                 This API is the only one at the moment
-				that currently ensures "de facto" portability of WoT scripts. Other,
-				proprietary implementations of the <a>Scripting API</a> exist as
-				well and have been tested against node-wot during Working Group
-				PlugFests.
+				that currently ensures "de facto" portability of WoT scripts.
 			</p>
 		</section>
 		<section>
 			<h3>WoT Security and Privacy</h3>
-			<p class="ednote" title="TODO">
-                               Does this belong here?   Why not in the other sections that are non-normative,
-                               such as the Binding Templates?  After all, there are normative components to 
-                               security (metadata in TDs) as well as informative components (best practices, etc).
-				<em>This section contains recommendations and is non-normative.</em>
-			</p>
+			<em>This section is non-normative.</em>
 
                        <p>Security is a cross-cutting concern and should be considered in all aspects
                        of system design.  
@@ -2059,6 +2051,7 @@ a[href].internalDFN {
 		       the WoT Security Best Practices [[?WOT-SECURITY-BEST-PRACTICES]], and  
 		       the WoT Security Testing Plan [[?WOT-SECURITY-TESTING-PLAN]],   
                        provide additional non-normative security and privacy guidance.
+	         </section>
 	</section>
 
 	<section>
