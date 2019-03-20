@@ -419,7 +419,7 @@ Dozens of companies have been involved and have produced and tested numerous imp
 
 Many thanks to Kazuyuki Ashimura, Matthias Kovatsch, 
 Michael McCool, Michael Lagally, Ryuichi Matsukura, Toru Kawaguchi, 
-Kazuaki Nimura, Kunihiko Toumura, Elena Reshetova, Zoltan Kis and Kazuo Kajimoto 
+Kazuaki Nimura, Kunihiko Toumura, Elena Reshetova, Zoltan Kis, Kazuo Kajimoto, Sebastian Käbisch and Dave Raggett 
 for their contributions to this document.
 
 Numerous other people have contributed with input, discussions and review feedback,
