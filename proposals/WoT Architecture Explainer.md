@@ -7,7 +7,7 @@ This section header seems chatty and redundant.  The opening can just be the ope
 
 [//]: # (A brief, 4-5 paragraph explanation of the feature’s value. Outline what the feature does and how it accomplishes those goals in prose. If your feature creates UI, this is a great place to show mocks and user flows.)
 
-The W3C Web of Things (WoT) was created to enable
+The W3C Web of Things (WoT) is intended to enable
 interoperability across IoT Platforms and application domains using Web technology.
 This is a crucial issue as the specialized needs of IoT services
 and the variety of pre-existing standards in the various verticals (application domains)
@@ -387,19 +387,12 @@ and best practices are covered in separate publications.
 [//]: # (One of the most important things you can do in your design process is to catalog the set of roads not taken. As you iterate on your design, you may find that major choices in your approach or API style will be revisited and enumerating the full space of alternatives can help you apply one [or more] of them later, may serve as a “graveyard” for u-turns in your design, and can give reviewers and potential users confidence that you’ve got your ducks in a row.)
 
 One of the original designs for the WoT limited interactions to HTTP and RESTful interfaces.
-However, there are many IoT devices that use other protocols, such as CoAP or MQTT.
+However, there are many IoT ecosystems that use other protocols, such as CoAP or MQTT.
 There are many reasons for this, but to fully support the IoT, with direct access to
 IoT devices without protocol translation services, a broader perspective on
 acceptable protocols is needed.  
 This also differentiates the WoT Thing Description from Web API descriptions such
 as Swagger/OpenAPI, which are focused on defining APIs that are based on HTTP.
-
-Another design considered for the WoT Thing Description was based directly on JSON-LD.
-Unfortunately the syntax of JSON-LD is fairly restrictive and this led to a
-syntax which was verbose and was considered confusing by many web developers we consulted with.
-The current proposal uses a more straightforward and "natural" JSON syntax
-which however still allows semantic annotation and can be easily converted
-to JSON-LD, and is designed to align with the current JSON-LD 1.1 proposal.
 
 ## References & acknowledgements
 
@@ -426,7 +419,7 @@ Dozens of companies have been involved and have produced and tested numerous imp
 
 Many thanks to Kazuyuki Ashimura, Matthias Kovatsch, 
 Michael McCool, Michael Lagally, Ryuichi Matsukura, Toru Kawaguchi, 
-Kazuaki Nimura, Kunihiko Toumura, Elena Reshetova, Zoltan Kis and Kazuo Kajimoto 
+Kazuaki Nimura, Kunihiko Toumura, Elena Reshetova, Zoltan Kis, Kazuo Kajimoto, Sebastian Käbisch and Dave Raggett 
 for their contributions to this document.
 
 Numerous other people have contributed with input, discussions and review feedback,
