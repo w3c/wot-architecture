@@ -1362,44 +1362,46 @@ a[href].internalDFN {
 
 		<section id="sec-architecture-overview">
 			<h2>Overview</h2>
-			A WoT system conceptually consists of things that communicate with
-			each other over network connections. These things can take different
-			logical roles in the communication:
+			<p>A WoT system conceptually consists of things that communicate
+				with each other over network connections. These things can take
+				different logical roles in the communication:</p>
 			<ul>
-				<li><em>WoT Client:</em> A thing can behave as a client, which is
-					an active component and issues requests to other things. Requests
-					use the functionalities that are provided by the other things, we
-					call this interaction <em>to consume a thing</em>.</li>
-				<li><em>WoT Server:</em> A thing can behave as a server, which is a
-					component that reacts to requests from other things. Requests query
-					or modify the state of a thing, we call this interaction <em>to
+				<li><em>WoT Client:</em> A thing can behave as a client, which
+					is an active component and issues requests to other things.
+					Requests use the functionalities that are provided by the other
+					things, we call this interaction <em>to consume a thing</em>.</li>
+				<li><em>WoT Server:</em> A thing can behave as a server, which
+					is a component that reacts to requests from other things. Requests
+					query or modify the state of a thing, we call this interaction <em>to
 						expose a thing</em>. Note that the server, is not purely a passive
 					reactive component, since it can offer a subscribe/notify
 					mechanism, which allows clients to be notified about state changes
 					of a thing.</li>
-				<li><em>WoT Servient:</em> A thing can behave both as a client and
-					a server, i.e. it can <em>expose</em> functionality to other things
-					and it can <em>consume</em> functionalities that are provided by
-					other things.</li>
+				<li><em>WoT Servient:</em> A thing can behave both as a client
+					and a server, i.e. it can <em>expose</em> functionality to other
+					things and it can <em>consume</em> functionalities that are
+					provided by other things.</li>
 			</ul>
-			
-			Note that these concepts are logical definitions based on the tasks of a thing.
-			They do not require that an exposed thing must be implemented with a (Web) server and 
-			a consumed thing as a (Web) client. 
-			
-			A <em>thing description (TD)</em> contains information about the structure, capabilities, functions and interfaces 
-			of an exposed thing. Each Web of Things device MUST have a corresponding TD.
-			The thing description is used by the consumer of a thing to
-			interact with it by obtaining and interpreting a TD of the device.
- 			A TD contains, among other things, a device’s identifier,
-			functions and attributes of a device and
-			communication protocols (i.e. transport layer) information. 
-			More information about the TD can be found in <a href="#sec-thing-description"></a>
-			 
-			
-			<a href="#architecture-abstract"></a> shows an overview of how these WoT concepts can be 
-			mapped to various components and devices in a connected system.
-			
+
+			<p>Note that these concepts are logical definitions based on the
+				tasks of a thing. They do not require that an exposed thing must be
+				implemented with a (Web) server and a consumed thing as a (Web)
+				client.</p>
+			<p>
+				A <a>WoT Thing Description</a> (TD) contains information about the
+				structure, capabilities, functions and interfaces of an exposed
+				thing. Each Web of Things device MUST have a corresponding TD. The
+				thing description is used by the consumer of a thing to interact
+				with it by obtaining and interpreting a TD of the device. A TD
+				contains, among other things, a device’s identifier, functions and
+				attributes of a device and communication protocols (i.e. transport
+				layer) information. More information about the TD can be found in <a
+					href="#sec-thing-description"></a>.
+			</p>
+			<p>
+				<a href="#architecture-abstract"></a> shows an overview of how these
+				WoT concepts can be mapped to various components and devices in a
+				connected system.
 			<figure id="architecture-abstract">
 				<img src="images/architecture-abstract.png" style="width: 100%;" />
 				<figcaption>Abstract Architecture of W3C WoT</figcaption>
@@ -1409,62 +1411,75 @@ a[href].internalDFN {
 			<h2>System Configurations</h2>
 
 			<p>This section illustrates the behavior of WoT components using
-				system configuration diagrams. 
-				</p><p>
-				In <a href="#high-level-application-device"></a> shows direct 
-				communication between a WoT server, that is exposing a thing
-				and a WoT client that is using it. Direct communication applies when 
-				both components use the same network protocol(s) and are accessible to each other.</p>
-			<figure id="high-level-application-device">
-				<img src="images/arch-high-level-application-device-alt.png" />
-				<figcaption>High level architecture of application and
-					device</figcaption>
-			</figure>
-				
-				Conceptually, a WoT server can be thought to have an <em>ExposedThing</em> that
-				provides an interface that conforms to the TD. 
-				A WoT client can be considered to contain a ConsumedThing
-				that provides a programming interface that can be used by applications.
-				A WoT client can generate a ConsumedThing instance by interpreting a TD.
-				Communication between the WoT client and the WoT server is performed 
-				by exchanging messages over a direct network 
-				connection between a ConsumedThing and an ExposedThing.
-				
-				
-			<p>In the following configuration, a WoT client and a WoT server
-				connect to each other via a proxy. A proxy is required as an
-				intermediary if the components use different protocols (gateway) 
-				or if they are on different networks that require authentication 
-				and provide access control (e.g. firewalls).</p>
+				system configuration diagrams.</p>
 
-			<figure id="high-level-application-proxy-device-new">
-				<img src="images/arch-high-level-application-proxy-device-alt.png" />
-				<figcaption>High level architecture with proxy</figcaption>
-			</figure>
-			
-			<p>A proxy combines ExposedThing and ConsumedThing
-				functionality, and relay messages that are exchanged between an
-				WoT client and a WoT server. In a proxy, a ConsumedThing creates a
-				<em>shadow thing instance</em> of the ExposeThing of a WoT server, 
-				and a WoT client can access the shadow instance
-				through the ExposedThing of the proxy.</p>
-			<p>The ExposedThing and ConsumedThing of a proxy can communicate with 
-				the WoT client and the WoT server in different protocols. 
-				For example, a proxy can provide a bridge between a device that 
-				uses CoAP and an application that uses HTTP. Even when there
-				are multiple devices and they use different protocols, an
-				application can communicate with those devices using a single
-				protocol through the proxy. The same is true for device
-				authentication. A client only needs to handle a single
-				authentication method even when multiple devices connected to a
-				proxy use different authentication methods.</p>
-			<p>A proxy creates a ConsumedThing based on a TD and generates
-				another TD for a shadow thing instance. The TD for a shadow device uses a
-				new identifier different from the original device TD’s, and contains
-				interfaces for other communication protocols if necessary. 
-				A proxy then creates an ExposedThing that implements the bridge to the originating thing.
-				A client communicates with a device via a proxy through a ConsumedThing that
-				conforms to the TD for the shadow thing instance.</p>
+			<section>
+				<h3>Direct Communication</h3>
+				<p>
+					<a href="#high-level-application-device"></a> shows direct
+					communication between a WoT server, that is exposing a thing and a
+					WoT client that is using it. Direct communication applies when both
+					components use the same network protocol(s) and are accessible to
+					each other.
+				</p>
+				<figure id="high-level-application-device">
+					<img src="images/arch-high-level-application-device-alt.png" />
+					<figcaption>High level architecture of application and
+						device</figcaption>
+				</figure>
+
+				Conceptually, a WoT server can be thought to have an <em>ExposedThing</em>
+				that provides an interface that conforms to the TD. A WoT client can
+				be considered to contain a ConsumedThing that provides a programming
+				interface that can be used by applications. A WoT client can
+				generate a ConsumedThing instance by interpreting a TD.
+				Communication between the WoT client and the WoT server is performed
+				by exchanging messages over a direct network connection between a
+				ConsumedThing and an ExposedThing.
+
+			</section>
+			<section>
+				<h3>Indirect Communication</h3>
+
+				<p>
+					In <a href="#high-level-application-proxy-device-new"></a> a WoT
+					client and a WoT server connect to each other via a proxy. A proxy
+					is required as an intermediary if the components use different
+					protocols (gateway) or if they are on different networks that
+					require authentication and provide access control (e.g. firewalls).
+				</p>
+
+				<figure id="high-level-application-proxy-device-new">
+					<img src="images/arch-high-level-application-proxy-device-alt.png" />
+					<figcaption>High level architecture with proxy</figcaption>
+				</figure>
+
+				<p>
+					A proxy combines ExposedThing and ConsumedThing functionality, and
+					relay messages that are exchanged between an WoT client and a WoT
+					server. In a proxy, a ConsumedThing creates a <em>shadow thing
+						instance</em> of the ExposeThing of a WoT server, and a WoT client can
+					access the shadow instance through the ExposedThing of the proxy.
+				</p>
+				<p>The ExposedThing and ConsumedThing of a proxy can communicate
+					with the WoT client and the WoT server in different protocols. For
+					example, a proxy can provide a bridge between a device that uses
+					CoAP and an application that uses HTTP. Even when there are
+					multiple devices and they use different protocols, an application
+					can communicate with those devices using a single protocol through
+					the proxy. The same is true for device authentication. A client
+					only needs to handle a single authentication method even when
+					multiple devices connected to a proxy use different authentication
+					methods.</p>
+				<p>A proxy creates a ConsumedThing based on a TD and generates
+					another TD for a shadow thing instance. The TD for a shadow device
+					uses a new identifier different from the original device TD’s, and
+					contains interfaces for other communication protocols if necessary.
+					A proxy then creates an ExposedThing that implements the bridge to
+					the originating thing. A client communicates with a device via a
+					proxy through a ConsumedThing that conforms to the TD for the
+					shadow thing instance.</p>
+			</section>
 		</section>
 		<section id="sec-web-thing">
 			<h2>Web Thing</h2>
@@ -1892,7 +1907,7 @@ a[href].internalDFN {
 			provide the correct communications metadata in a Thing Description to
 			support specific target protocols.
 		</p>
-		<p>The interaction implemention specifies how a Thing actually
+		<p>The interaction implementation specifies how a Thing actually
 			responds to an interaction, including how state is stored and
 			modified. The behavior implementation specifies how other behavior of
 			a Thing is implemented, which may or may not be directly related to
@@ -2059,13 +2074,13 @@ a[href].internalDFN {
 					cannot be identified from the URI scheme and must be declared
 					explicitly. Examples are the push notification workarounds for HTTP
 					such as long polling [[?RFC6202]] or Server-Sent Events
-					[[!EVENTSOURCE]]. Forms may contain the necessary information to
+					[[?EVENTSOURCE]]. Forms may contain the necessary information to
 					identify the subprotocol in additional form fields.</li>
 				<li><b>Security:</b> Security mechanisms can be applied at
 					different layers of the communication stack and might be used
 					together, often to complement each other. Examples are (D)TLS
-					[[!RFC5246]]/[[!RFC6347]], IPSec [[!RFC6071]], OAuth [[!RFC6749]],
-					and ACE [[!RFC7744]]. Due to the cross-cutting nature of security,
+					[[?RFC5246]]/[[?RFC6347]], IPSec [[?RFC6071]], OAuth [[?RFC6749]],
+					and ACE [[?RFC7744]]. Due to the cross-cutting nature of security,
 					the necessary information to apply the right mechanism may be given
 					within the general metadata of the Thing.</li>
 			</ul>
@@ -2080,7 +2095,7 @@ a[href].internalDFN {
 				and implement Interaction Affordances and expose Things (that is,
 				define and publish a Thing Description).</p>
 			<p>
-				The <a>Scripting API</a> is an optional "convenience" building block
+				The <a>WoT Scripting API</a> is an optional "convenience" building block
 				in WoT. It is used in combination with a WoT Runtime which also
 				allows the specification of a user-defined script and maintains
 				local state for the Thing.
@@ -2100,7 +2115,7 @@ a[href].internalDFN {
 				and (optionally) access to the information encoded in Thing
 				Descriptions is provided.</p>
 			<p class="ednote" title="The node-wot Reference Implementation">
-				The current reference implementation of the <a>Scripting API</a> is
+				The current reference implementation of the <a>WoT Scripting API</a> is
 				the open-source <a
 					href="https://github.com/eclipse/thingweb.node-wot">Eclipse
 					ThingWeb (node-wot)</a> project. This API is the only one at the moment
@@ -2221,7 +2236,7 @@ a[href].internalDFN {
 				from the cloud down to a gateway or edge node.
 			</p>
 			<p>
-				The <a>Scripting API</a> is built on top of the <a>Thing</a>
+				The <a>WoT Scripting API</a> is built on top of the <a>Thing</a>
 				abstraction and the TD <a>Interaction Model</a>. There are three sub
 				APIs:
 			</p>
@@ -2386,7 +2401,7 @@ a[href].internalDFN {
 				<h3>Native WoT API</h3>
 				<p>
 					There are various reasons why a developer may choose to implement a
-					<a>Servient</a> without using <a>Scripting API</a>. This may be due
+					<a>Servient</a> without using <a>WoT Scripting API</a>. This may be due
 					to a lack of computing resources, so the developer can't use a rich
 					software stack or fully-featured scripting engine. Alternatively,
 					the developer may have to use specific functions or libraries only
