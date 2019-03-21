@@ -211,7 +211,7 @@ building blocks do not map 1:1 to these architectural aspects.
 The WoT Thing Description in particular connects in some
 way to all the aspects.
 
-<img src="https://github.com/w3c/wot-architecture/blob/master/images/wot-thing-scripting.png"/>
+<img src="https://github.com/w3c/wot-architecture/blob/master/images/wot-building-blocks-abstract.png"/>
 
 #### WoT Thing Description
 The primary building block is the
