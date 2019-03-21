@@ -165,7 +165,7 @@ to implement each interaction in a concrete protocol
 (what we will call the protocol binding),
 and its security configuration.
 
-<img src="https://github.com/w3c/wot-architecture/blob/master/images/wot-building-blocks-abstract.png"/>
+<img src="https://github.com/w3c/wot-architecture/blob/master/images/wot-abstract-arch.png"/>
 
 The behavior aspect of a WoT Thing 
 includes both lifecycle management
