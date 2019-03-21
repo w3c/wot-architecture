@@ -35,8 +35,6 @@ Of these, the WoT Security and Privacy Considerations provide a general analysis
 * Allow for IP-based IoT protocols other than HTTP (given they fulfill the Uniform Interface constraint of REST).
 * Allow for different integration patterns: at the device level, gateway/edge node, and the cloud.
 
-[//]: # MK: Leaving out Semantic Web aspects such as Linked Data vocabularies for now -- needs to be aligned with spec content.
-
 ## Non-goals
 
 * Not trying to establish a new vertical solution for the IoT.
@@ -84,7 +82,7 @@ Many usage scenarios involving timely action in the case of alerts
 require the use of "push" event notification and cannot rely
 on pure request/response patterns driven by the client.
 
-<img src="../images/arch-use-case-overview.png"/>
+<img src="https://github.com/w3c/wot-architecture/blob/master/images/arch-use-case-overview.png"/>
 
 ## Requirements
 
@@ -167,7 +165,7 @@ to implement each interaction in a concrete protocol
 (what we will call the protocol binding),
 and its security configuration.
 
-<img src="../images/wot-building-blocks.png"/>
+<img src="https://github.com/w3c/wot-architecture/blob/master/images/wot-building-blocks-abstract.png"/>
 
 The behavior aspect of a WoT Thing 
 includes both lifecycle management
@@ -190,11 +188,6 @@ others support a subscribe-publish model.
 The latter is especially important for low-power devices
 and use cases requiring timely event notifications.
 
-[//]: # (McCool: I took this out, as we won't really need it here...
-We define the term "servient" for devices or services,
-such as WoT Things, that can be either a server/publisher,
-a client/subscriber, or both.) 
-
 Protocol bindings augment each interaction with the additional detail needed to implement it
 with a particular concrete protocol.
 
@@ -208,10 +201,6 @@ and authorized users, devices, and services.
 
 ### Building Blocks
 
-[//]: # (McCool: this was previously taken out as being "OLD" but it is
-actually important to include since the previous section only talks about
-architectural aspects to consider, NOT the actual building blocks!)
-
 The WoT Building Blocks support each of the architectural aspects discussed
 in the previous section
 and are the actual focus of our standardization effort.
@@ -222,7 +211,7 @@ building blocks do not map 1:1 to these architectural aspects.
 The WoT Thing Description in particular connects in some
 way to all the aspects.
 
-<img src="../images/wot-thing-with-scripting.png"/>
+<img src="https://github.com/w3c/wot-architecture/blob/master/images/wot-thing-scripting.png"/>
 
 #### WoT Thing Description
 The primary building block is the
@@ -233,7 +222,6 @@ its set of interactions,
 data schemas and protocol bindings for those interactions,
 and public security metadata.
 
-[//]: # (McCool: Do we need this?
 We define the term Interaction Affordances to refer to the metadata describing the interactions supported by a WoT Thing.)
 
 A WoT Thing Description also supports but does not require RDF/JSON-LD
@@ -298,8 +286,6 @@ and best practices are covered in separate publications.
 
 ## Considered alternatives
 
-[//]: # (One of the most important things you can do in your design process is to catalog the set of roads not taken. As you iterate on your design, you may find that major choices in your approach or API style will be revisited and enumerating the full space of alternatives can help you apply one [or more] of them later, may serve as a “graveyard” for u-turns in your design, and can give reviewers and potential users confidence that you’ve got your ducks in a row.)
-
 One of the original designs for the WoT limited interactions to HTTP and RESTful interfaces.
 However, there are many IoT ecosystems that use other protocols, such as CoAP or MQTT.
 There are many reasons for this, but to fully support the IoT, with direct access to
@@ -309,10 +295,6 @@ This also differentiates the WoT Thing Description from Web API descriptions suc
 as Swagger/OpenAPI, which are focused on defining APIs that are based on HTTP.
 
 ## References & acknowledgements
-
-[//]: # (Your design will change and be informed by many people; acknowledge them in an ongoing way! It helps build community and, as we only get by through the contributions of many, is only fair.)
-
-[//]: # (McCool: Perhaps link to the various github repos as well?)
 
 The "Web of Things" (WoT) started as an academic initiative in the
 form of publications and, from 2010 to 2017, 
