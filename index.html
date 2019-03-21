@@ -1410,52 +1410,61 @@ a[href].internalDFN {
 
 			<p>This section illustrates the behavior of WoT components using
 				system configuration diagrams. 
-				In <a href="#high-level-application-device"></a> shows the simplest
-				form of communication between a server, that is exposing a thing
-				and a client that is using it.</p>
+				</p><p>
+				In <a href="#high-level-application-device"></a> shows direct 
+				communication between a WoT server, that is exposing a thing
+				and a WoT client that is using it. Direct communication applies when 
+				both components use the same network protocol(s) and are accessible to each other.</p>
 			<figure id="high-level-application-device">
 				<img src="images/arch-high-level-application-device-alt.png" />
 				<figcaption>High level architecture of application and
 					device</figcaption>
 			</figure>
 				
-				Conceptually, a device can be thought to have an <em>ExposedThing</em> that
+				Conceptually, a WoT server can be thought to have an <em>ExposedThing</em> that
 				provides an interface that conforms to the TD. 
-				A client can be considered to contain a ConsumedThing
+				A WoT client can be considered to contain a ConsumedThing
 				that provides a programming interface that can be used by applications.
-				A client can generate a ConsumedThing instance by interpreting a TD.
-				Communication between a client and a device is performed over a network 
-				connection by exchanging messages between a ConsumedThing and an ExposedThing.
+				A WoT client can generate a ConsumedThing instance by interpreting a TD.
+				Communication between the WoT client and the WoT server is performed 
+				by exchanging messages over a direct network 
+				connection between a ConsumedThing and an ExposedThing.
 				
 				
-			<p>Next, in the below configuration, an application and a device
-				connect to each other via a proxy.</p>
+			<p>In the following configuration, a WoT client and a WoT server
+				connect to each other via a proxy. A proxy is required as an
+				intermediary if the components use different protocols (gateway) 
+				or if they are on different networks that require authentication 
+				and provide access control (e.g. firewalls).</p>
 
 			<figure id="high-level-application-proxy-device-new">
 				<img src="images/arch-high-level-application-proxy-device-alt.png" />
 				<figcaption>High level architecture with proxy</figcaption>
 			</figure>
-			<p>A proxy contains both ExposedThing and ConsumedThing
+			
+			<p>A proxy combines ExposedThing and ConsumedThing
 				functionality, and relay messages that are exchanged between an
-				application and a device. In a proxy, a ConsumedThing creates a
-				shadow of the device, and an application can access the shadow
-				device through the proxy’s ExposedThing.</p>
-			<p>Proxy’s ExposedThing and ConsumedThing can communicate in
-				different protocols. For example, a device and an application can
-				use separate protocols, CoAP and HTTP, respectively. Even when there
+				WoT client and a WoT server. In a proxy, a ConsumedThing creates a
+				<em>shadow thing instance</em> of the ExposeThing of a WoT server, 
+				and a WoT client can access the shadow instance
+				through the ExposedThing of the proxy.</p>
+			<p>The ExposedThing and ConsumedThing of a proxy can communicate with 
+				the WoT client and the WoT server in different protocols. 
+				For example, a proxy can provide a bridge between a device that 
+				uses CoAP and an application that uses HTTP. Even when there
 				are multiple devices and they use different protocols, an
 				application can communicate with those devices using a single
 				protocol through the proxy. The same is true for device
-				authentication. An application only need to handle a single
+				authentication. A client only needs to handle a single
 				authentication method even when multiple devices connected to a
 				proxy use different authentication methods.</p>
 			<p>A proxy creates a ConsumedThing based on a TD and generates
-				another TD for a shadow device. The TD for a shadow device uses a
-				new identifier different from the original device TD’s, and changes
-				communication protocols if necessary. A proxy then creates an
-				ExposedThing that serves as the Thing for the TD. An application
-				communicates with a device via a proxy through a ConsumedThing that
-				works according to the TD for the shadow device.</p>
+				another TD for a shadow thing instance. The TD for a shadow device uses a
+				new identifier different from the original device TD’s, and contains
+				interfaces for other communication protocols if necessary. 
+				A proxy then creates an ExposedThing that implements the bridge to the originating thing.
+				A client communicates with a device via a proxy through a ConsumedThing that
+				conforms to the TD for the shadow thing instance.</p>
 		</section>
 		<section id="sec-web-thing">
 			<h2>Web Thing</h2>
