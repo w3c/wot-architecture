@@ -2866,16 +2866,17 @@ a[href].internalDFN {
                 a sensor or actuator.  However, the client/server relationship could easily be reversed;
                 the client could be a device in the <a>WoT Client</a> role accesses
                 a service running as a <a>WoT Server</a> on a gateway or in the cloud.
-                If the <a>WoT Server</a> is in the cloud and the <a>WoT Client</a> is on a local network
-                (for example, in a Smart Home use case) the actual network topology may be more complex, 
-                for example requiring NAT traversal and disallowing certain forms of discovery.  
-                In such cases one of the more complex
-                topologies discussed later may be more appropriate.
             </p>
             <figure id="simple-conf-application-device">
                 <img src="images/arch-simple-conf-application-device.png" />
                 <figcaption>Client and Server on the Same Network</figcaption>
             </figure>
+            <p> If the <a>WoT Server</a> is in the cloud and the <a>WoT Client</a> is on a local network
+                (for example, in a Smart Home use case) the actual network topology may be more complex, 
+                for example requiring NAT traversal and disallowing certain forms of discovery.  
+                In such cases one of the more complex
+                topologies discussed later may be more appropriate.
+            </p>
         </section>
         <section id="sec-deployment-app-proxy-dev">
             <h2>Servient Acting as a Proxy</h2>
@@ -2995,6 +2996,11 @@ a[href].internalDFN {
                 The paired <a>Servients</a> also protect the home devices by providing
                 access control and traffic management.
             </p>
+            <figure id="deployment-cloud-device">
+                <img src="images/arch-deploy-cloud-device.png" />
+                <figcaption>Cloud Applications Implemented as WoT Clients Connected to
+                    Local Devices implemented as WoT Servers via Paired Servients</figcaption>
+            </figure>
             <p> In more difficult cases the NAT and firewall traversal may not work exactly as
                 shown. In particular, an ISP may not support publically accessible addresses,
                 or STUN/TURN and/or DyDNS may not be supported or available.  
@@ -3020,11 +3026,6 @@ a[href].internalDFN {
                 This however also requires a bidirectional tunnel to be established between
                 the two <a>Servients</a>.
             </p>
-            <figure id="deployment-cloud-device">
-                <img src="images/arch-deploy-cloud-device.png" />
-                <figcaption>Cloud Applications Implemented as WoT Clients Connected to
-                    Local Devices implemented as WoT Servers via Paired Servients</figcaption>
-            </figure>
         </section>
         <section id="sec-deployment-discovery-with-directory-rm">
             <h2>Discovery using with Thing Directory</h2>
