@@ -2,11 +2,11 @@ Góðan dag TAG！
 
 I'm requesting a TAG review of:
 
-  - Name: WoT Architecture
+  - Name: _WoT Architecture_
   - Specification URL: http://w3c.github.io/wot-architecture/
   - Explainer, Requirements Doc, or Example code: https://github.com/w3c/wot-architecture/blob/master/proposals/WoT%20Architecture%20Explainer.md
   - Tests: N/A
-  - Primary contacts: mlagally, mmccool, mkovatc
+  - Primary contacts: @mlagally, @mmccool, @mkovatc
 
 Further details (optional):
 
