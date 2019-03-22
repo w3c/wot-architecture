@@ -2,17 +2,23 @@ Góðan dag TAG！
 
 I'm requesting a TAG review of:
 
-  - Name: [feature or document name]
-  - Specification URL: [spec url]
-  - Explainer, Requirements Doc, or Example code: [url]
-  - Tests: [wpt folder(s), if available]
-  - Primary contacts: [github usernames]
+  - Name: WoT Architecture
+  - Specification URL: http://w3c.github.io/wot-architecture/
+  - Explainer, Requirements Doc, or Example code: https://github.com/w3c/wot-architecture/blob/master/proposals/WoT%20Architecture%20Explainer.md
+  - Tests: N/A
+  - Primary contacts: mlagally, mmccool, mkovatc
 
 Further details (optional):
 
-  - Relevant time constraints or deadlines: [please provide]
+  - Relevant time constraints or deadlines: 
+  * TAG review feedback expected by April 5th
+  * CR transition April 9th
+  
+  Additional schedule: https://www.w3.org/WoT/IG/wiki/Main_WoT_WebConf
+  
+  
   - [ ] I have read and filled out the [Self-Review Questionnare on Security and Privacy](https://www.w3.org/TR/security-privacy-questionnaire/). The [assessment is here](url).
-  - [ ] I have reviewed the TAG's [API Design Principles](https://w3ctag.github.io/design-principles/)
+  - [X] I have reviewed the TAG's [API Design Principles](https://w3ctag.github.io/design-principles/)
 
 You should also know that...
 
@@ -21,7 +27,7 @@ You should also know that...
 We'd prefer the TAG provide feedback as (please select one):
 
   - [ ] open issues in our Github repo for each point of feedback
-  - [ ] open a single issue in our Github repo for the entire review
+  - [X] open a single issue in our Github repo for the entire review
   - [ ] leave review feedback as a comment in this issue and @-notify [github usernames]
 
 --------------------------
