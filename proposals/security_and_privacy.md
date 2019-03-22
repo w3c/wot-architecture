@@ -82,7 +82,7 @@ current mechanisms (cookies, etc).
 WoT Things can also act as clients, however, accessing
 web services and other WoT Things acting as servers.
 It is also possible that the same device could instantiate
-multiple WoT Runtimes.  However, there is noi explicit mechanism
+multiple WoT Runtimes.  However, there is no explicit mechanism
 for sharing state between such instances, and each instance
 can be considered a single origin.
 
@@ -140,28 +140,39 @@ However, a mechanism for loading new scripts is not defined
 and is currently considered to be out of scope.
 Our architecture assumes the scripts running inside a WoT Thing
 are trusted implementations provided by the manufacturer
-of the device and installed using a suitable OTA update
+of the device and installed using a suitable update
 mechanism; but this update mechanism is not defined in our
 architecture and is also currently considered to be out of scope.
 
 ### Does this specification allow an origin access to a user’s location?
 
-As noted above in the PII response, in theory a device
-location could be encoded in a WoT Thing Description using
-an extension vocabulary, and this could in some cases be
-associated with a user.
+As noted above in the PII response, a device
+location may be encoded in a WoT Thing Description using
+an extension vocabulary, 
+and this could in some cases such a device location could be
+associated with a user's location.
 Location information, however, is neither a standard nor
 a required part of the architecture.
+It is, however, common in institutional IoT applications,
+but in this case the devices are typically not
+associated with a particular user's location, and in fact
+placement of location information in the TD is useful
+mostly for devices installed in a static location.
 
 A manufacturer of a device could also define an
 interaction that returns the
 location of the device.
+This is more likely in dynamic location use cases.
 We do not provide constraints on this, since it is usually
 the _purpose_ of IoT devices to provide access to sensor data.
 
-However, we do provide mechanisms to control access to
+To mitigate this risk,
+we do provide mechanisms to control access to
 interactions and a manufacturer can use these to
-prevent accidental disclosure to unauthorized users.
+prevent accidental disclosure to unauthorized users,
+and recommend that these mechanisms be used when PII
+can be inferred from device information, this being one example
+of that.
 A user can also inspect the WoT Thing Description to
 determine whether the device returns location information,
 assuming the manufacturer has not obfuscated the purpose
@@ -195,12 +206,32 @@ to support via its exposed interactions (network API).
 
 Yes, as discussed above.  A WoT Thing can act as a gateway to 
 other WoT Things or to other non-IP protocols.
+In fact, access to other devices is one of the primary use cases of WoT.
 
 The situation is unavoidably more complex than the client-server
-architecture of broswers.  A better analogy than browsers
+architecture of browsers.  A better analogy than browsers
 would be the microservice architecture used by many web services.
 The WoT Architecture supports best practices there, such
 as Zero-Trust networks.
+
+However, to be more specific, here "origin" in the usual
+web meaning means content from a specific web server,
+and "access to other devices" would mean from the browser.
+In the WoT context, "origin" could be interpreted as 
+a WoT Server (WoT Thing in server role) and "browser" would
+be a WoT Client.  In that specific case, there is no
+way for an arbitrary server to force an arbitrary client
+to access another device.  The WoT Client is in control,
+initiates messages, and decides what to do with the
+responses.  Even if we reverse the roles, which is
+common in the IoT (IoT endpoint devices are often servers) a WoT Server
+is never forced to do what a WoT Client requests.
+
+That said, an "gateway" Servient might be developed by
+a manufacturer that allows broad access to other devices.
+In this case, such a gateway service should be protected
+by access controls (in the Zero-Trust approach, _every_ service
+uses access controls, encryption, and authentication).
 
 ### Does this specification allow an origin some measure of control over a user agent’s native UI? 
 
@@ -241,11 +272,29 @@ This concept is not applicable to the WoT context, as there is no user agent.
 
 ### Does this specification persist data to a user’s local device? 
 
-Potentially, as a WoT Thing may include interactions that
-support POST requests.  IoT devices can act like web servers that 
-can of course retain state posted to them.
+A WoT Thing may be either a client or server.  Therefore we 
+have to consider this question from both the client and server 
+point of view.
 
-Note that scripts cannot be sent, only data.  So devices
+A WoT Thing in a server role may support interactions that
+support POST requests.  Such can of course retain state posted to them.
+If this state is too general (for example, a property that allows
+a client to POST and GET arbitrary string data) and is not 
+protected with access controls, _and_ if the device can be 
+associated with a particular user, _and_ the network protocol
+allows accesses to be tied to physical location, then this is 
+a potential physical tracking risk.  However, providing access
+controls on interactions (which is strongly recommended for
+all personal devices) mitigates this issue.
+
+In the client role, a WoT Thing could be programmed to 
+retreive data provided by a server and then post it back to that
+server later.  This could also be enabled by a webhook pattern.
+This can be mitigated by establishing a trust relationship
+and providing explicit access controls between any pair of
+devices before allowing data to be exchanged.
+
+Note that scripts cannot be included in TDs, only data.  So devices
 always have local control over what data they retain.  WoT Things
 are never _forced_ to retain state and return it later.
 
