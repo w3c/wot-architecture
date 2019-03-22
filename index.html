@@ -90,6 +90,10 @@
 				publisher : "IEC",
 				date : "October 2015"
 			},
+			"iot-schema-org" : {
+				href : "https://iot.schema.org/",
+				title : "iot.schema.org"
+			},
 			"REST" : {
 				title : "REST: Architectural Styles and the Design of Network-based Software Architectures",
 				author : "Roy Thomas Fielding",
@@ -97,6 +101,18 @@
 				publisher : "University of California, Irvine",
 				date : "2000"
 			},
+			"SAREF" : {
+                                href : "https://sites.google.com/site/smartappliancesproject/ontologies/reference-ontology",
+				title : "Smart Appliances REFerence (SAREF) ontology",
+				publisher : "ETSI",
+				date : "November 2015"
+                        },
+                        "SSN" : {
+                                href : "https://www.w3.org/TR/vocab-ssn/",
+				title : "Semantic Sensor Ontology",
+				publisher : "W3C",
+				date : "October 2017"
+                        },
 			"HMI" : {
 				title : "The Encyclopedia of Human-Computer Interaction, 2nd Ed",
 				author : "Mads Soegaard, Rikke Friis Dam",
@@ -325,10 +341,11 @@ a[href].internalDFN {
 			<dt>
 				<dfn>Consumed Thing</dfn>
 			</dt>
-			<dd>A software object instance created through the WoT object of
-				the Scripting API that represents a remote Thing used by the local
-				application. It is defined by the ConsumedThing interface of the WoT
-				Scripting API.</dd>
+			<dd>
+				A software object instance that represents a remote Thing used by the
+			  local application. The object might created by a native WoT Runtime, or
+			  by a Scripting API implementation.
+		  </dd>
 
 			<dt>
 				<dfn>Digital Twin</dfn>
@@ -367,10 +384,12 @@ a[href].internalDFN {
 			<dt>
 				<dfn>Exposed Thing</dfn>
 			</dt>
-			<dd>A software object instance created through the Server API
-				that is implemented locally and can be accessed over the network by
-				remote WoT Clients. It is defined by the ExposedThing interface of
-				the WoT Scripting API.</dd>
+			<dd>
+				A software object instance that is implemented locally and can be
+				accessed over the network by remote WoT Clients.
+				The object might created by a native WoT Runtime, or
+			  by a Scripting API implementation.
+			</dd>
 			<dt>
 				<dfn>Hypermedia Control</dfn>
 			</dt>
@@ -423,7 +442,7 @@ a[href].internalDFN {
 			</dt>
 			<dd>A discovery method where the URI of the used consumed Thing
 				Descriptions is provided manually (e.g., through user configuration
-				or hard-coding in a script).</dd>
+				or API call parameter in a script).</dd>
 			<dt>
 				<dfn>MQTT</dfn>
 			<dd>
@@ -568,11 +587,12 @@ a[href].internalDFN {
                         </dd>
 -->
 			<dt>
-				<dfn>WoT Scripting API</dfn>
+				<dfn>WoT Scripting API</dfn> or the <dfn>Scripting API</dfn>
 			</dt>
-			<dd>The application-facing programming interface provided by a
-				Servient; comparable to the Web browser APIs. It is an API provided
-				to ease the implementation of appliations on top of WoT Runtime.</dd>
+			<dd>The application-facing programming interface optionally provided by a
+				Servient in order to to ease the implementation of appliations running
+				in a WoT Runtime. It is comparable to the Web browser APIs.
+			</dd>
 			<dt>
 				<dfn>WoT Server</dfn>
 			</dt>
@@ -954,6 +974,7 @@ a[href].internalDFN {
 						receive commands from remote controllers (e.g., a smartphone).
 						Authorized controllers can be located anywhere, as the digital
 						twin is globally reachable.
+
 					</p>
 					<figure id="smart-home-cloud1">
 						<img src="images/wot-use-cases/smart-home-cloud1a.png"
@@ -990,7 +1011,6 @@ a[href].internalDFN {
 					</figure>
 				</section>
 			</section>
-
 			<section>
 				<h3>Multi-Cloud</h3>
 				<p>Typical IoT deployments consist of multiple (thousands) of
@@ -1033,7 +1053,6 @@ a[href].internalDFN {
 				</figure>
 			</section>
 		</section>
-
 		<section>
 			<h2>Summary</h2>
 			<p>
@@ -1894,7 +1913,11 @@ a[href].internalDFN {
 			implementation.
 		<figure id="arch-building-blocks">
 			<img src="images/wot-building-blocks-abstract.png" />
-			<figcaption>WoT Building Blocks and an Abstract Thing</figcaption>
+			<figcaption>WoT Building Blocks (highlighted with black outlines) and an abstract Thing,
+                        showing the relationship between the building blocks and the main architectural aspects of a Thing.
+                        Security, a cross-cutting concern, and is separated into public and protected private components.
+                        The WoT Scripting API is optional and the Binding Templates are informative.
+                        </figcaption>
 		</figure>
 		<p>
 			The WoT Thing Description contains metadata describing the
@@ -1944,7 +1967,7 @@ a[href].internalDFN {
 			It is also possible, as shown in <a
 				href="#arch-thing-foreign"></a>, to use preexisting
 			"brownfield" devices as WoT Things.
-                        Such devices may not themselves be able to expose a TD.  
+                        Such devices may not themselves be able to expose a TD.
                         In this cases, to allow other WoT things to use them,
                         it is necessary to supply a TD via some other
                         mechanism, for example via a directory service.
@@ -1995,19 +2018,22 @@ a[href].internalDFN {
 				device management. It is recommended that clients should use TD
 				caching combined with notifications when they are paired with a
 				Thing, meaning that they will be notified to fetch a fresh TD
-				represenation in case the Thing is updated.</p>
+				representation in case the Thing is updated.</p>
 			<p>
-				For semantic interoperatbility, <a>TDs</a> may make use of a
+				For semantic interoperability, <a>TDs</a> may make use of a
 				domain-specific vocabulary, for which explicit extension points are
 				provided. However, development of any particular domain-specific
 				vocabulary is currently out-of-scope of the W3C WoT standardization
 				activity.
 			</p>
-			<p class="ednote">This document should point to iot.schema.org,
-				but would need a good reference.</p>
+			<p>Three examples of potentially useful external IoT vocabularies are SAREF [[?SAREF]],
+                        iot.schema.org [[?iot-schema-org]], and the W3C Semantic Sensor Network ontology [[?SSN]].
+                        Use of these vocabularies in TDs is optional.  In the future additional
+                        domain-specific vocabularies may be developed and used with TDs.
+                        </p>
 			<p>
 				Overall, the WoT Thing Description building block fosters
-				interoperability in two ways: First, <a>TDs</a> enable
+				interoperability in two ways: First, <a>TDs</a> enables
 				machine-to-machine communication in the Web of Things. Second, <a>TDs</a>
 				can serve as a common, uniform format for developers to document and
 				retrieve all the details necessary to access IoT devices and make
@@ -2087,39 +2113,41 @@ a[href].internalDFN {
 		</section>
 		<section id="sec-scripting-api" class="informative">
 			<h3>WoT Scripting API</h3>
-			<p>The non-normative WoT Scripting API document defines a
-				programming interface that allows scripts to discover and consume
-				(retrieve) Thing Descriptions and instantiate local objects that act
-				as an interface to other Things and their Interaction Affordances
-				(Properties, Actions, and Events). It also allows scripts to specify
-				and implement Interaction Affordances and expose Things (that is,
-				define and publish a Thing Description).</p>
 			<p>
-				The <a>WoT Scripting API</a> is an optional "convenience" building block
-				in WoT. It is used in combination with a WoT Runtime which also
-				allows the specification of a user-defined script and maintains
-				local state for the Thing.
+				The <a>Scripting API</a> is an optional "convenience" building block
+				in WoT that	eases IoT application development and is implemented using
+				a Scripting Runtime (such as a Python, Lua or ECMAScript implementation)
+				that is used in combination with a <a>WoT Runtime</a>.
+				The Scripting API enables writing WoT applications by user-defined scripts.
+      </p>
+      <p>
+				Traditionally, IoT device logic is	implemented in firmware, which
+				results in productivity	constraints similar to that of embedded
+				development, including a relatively complex update process.
+				The <a>WoT Scripting API</a> in contrast supports enables implementing
+				device logic by reusable scripts executed in a runtime system for IoT
+				applications not dissimilar to that of a	Web browser, and aims to
+				improve productivity and reduce	integration costs.
+				Furthermore, standardized APIs enable	portability for application
+				modules, for instance, to move compute-intense logic from a device up
+				to a local gateway, or to move time-critical logic from the cloud down
+				to a gateway or edge node.
 			</p>
 			<p>
-				The <a href="https://w3c.github.io/wot-scripting-api/">Scripting
-					API specification</a> describes a low level <a
-					href="https://www.ecma-international.org/default.htm">ECMAScript</a>
-				API that follows the <a
-					href="https://w3c.github.io/wot-thing-description">Thing
-					Description specification</a> closely. Other, simpler APIs may be
-				implemented on top of it.
-			</p>
-			<p>In principle any programming language and API can be used to
-				define the behavior of a Thing, as long as the Interaction
-				Affordances are presented externally through valid Protocol Bindings
-				and (optionally) access to the information encoded in Thing
-				Descriptions is provided.</p>
-			<p class="ednote" title="The node-wot Reference Implementation">
-				The current reference implementation of the <a>WoT Scripting API</a> is
-				the open-source <a
-					href="https://github.com/eclipse/thingweb.node-wot">Eclipse
-					ThingWeb (node-wot)</a> project. This API is the only one at the moment
-				that currently ensures "de facto" portability of WoT scripts.
+				The non-normative WoT Scripting API document defines the structure and
+				algorithms of the programming interface that allows scripts to discover,
+				consume (retrieve) and produce (define) Thing Descriptions.
+				The implementation of the Scripting API instantiates local objects that
+				act as an interface to other Things and represents their
+				Interaction Affordances (Properties, Actions, and Events).
+				It also allows scripts to expose Things, i.e. to specify and implement
+				Interaction Affordances and publish a Thing Description.
+      </p>
+			<p>
+				The standardized <a>WoT Scripting API</a> provides a contract between
+				application scripts and the	<a>WoT Runtime</a> in a <a>Servient</a> and
+				is built on top of the <a>Thing</a>	abstraction and the
+				TD <a>Interaction Model</a>.
 			</p>
 		</section>
 		<section id="sec-security-guidelines" class="informative">
@@ -2142,7 +2170,6 @@ a[href].internalDFN {
 
 	<section id="servient-implementation" class="informative">
 		<h1>Servient Implementation</h1>
-
 		<p>
 			A <a>Servient</a> is a software stack that implements the WoT
 			building blocks presented in the previous section. <a>Servients</a>
@@ -2152,7 +2179,7 @@ a[href].internalDFN {
 		</p>
 		<p>
 			The previous sections and chapter <a href="#sec-wot-architecture"></a>
-			describes how the WoT building blocks conceptionally relate to each
+			describes how the WoT building blocks conceptually relate to each
 			other and to the abstract architecture. When implementing these
 			concepts, a more detailed view is necessary that takes certain
 			technical aspects into account. The detailed architecture of a <a>Servient</a>
@@ -2164,9 +2191,16 @@ a[href].internalDFN {
 			<img src="images/architecture-implementation.png"
 				style="width: 640px;" />
 -->
-			<img src="images/wot-thing-scripting.png" style="width: 640px;" />
-			<figcaption>Implementation View of a Servient using the
-				Scripting API</figcaption>
+			<img src="images/wot-thing-scripting.png"
+				style="width: 640px;" />
+			<figcaption>Implementation view of a Servient using the optional WoT Scripting API.
+                         Scripts are actually executed by a nested Scripting Runtime, while WoT-specific
+                         Servient Implementation aspects are managed by the WoT Runtime.
+                         ConsumedThing and ExposedThing objects provide abstract interfaces to the
+                         Things described in related Thing Descriptions.  Scripts can operate on Things
+                         using these abstractions by performing abstract Interactions while the Protocol Binding
+                         is managed automatically by the WoT Runtime.
+                        </figcaption>
 		</figure>
 		<p>
 			The role and functionality of each additional module shown in <a
@@ -2215,40 +2249,29 @@ a[href].internalDFN {
 		<section>
 			<h3>WoT Scripting API</h3>
 			<p>
-				The standardized <a>WoT Scripting API</a> provides a contract
-				between application scripts and the runtime system of a <a>Servient</a>,
-				the <a>WoT Runtime</a>.
+				The <a href="https://w3c.github.io/wot-scripting-api/">Scripting
+					API specification</a> describes a low level <a
+					href="https://www.ecma-international.org/default.htm">ECMAScript</a>
+				API that follows the <a
+					href="https://w3c.github.io/wot-thing-description">Thing
+					Description specification</a> closely. Other, simpler APIs may be
+				implemented on top of it.
+      </p>
+      <p>
+        In principle, any programming language and API can be used in order to
+        define the behavior of a Thing, as long as the Interaction Affordances
+				are presented externally through valid Protocol Bindings and (optionally)
+        access to the information encoded in Thing Descriptions is provided.
+			</p>
+			<p class="ednote" title="The node-wot Reference Implementation">
+				The current reference implementation of the <a>Scripting API</a> is
+				the open-source <a href="https://github.com/eclipse/thingweb.node-wot">
+				Eclipse ThingWeb (node-wot)</a> project. This API is the only one at the
+				moment that currently ensures "de facto" portability of WoT scripts.
 			</p>
 			<p>
-				The <a>WoT Scripting API</a> is an optional building block that
-				eases IoT application development. Traditionally, IoT device logic
-				is implemented in firmware, which results in productivity
-				constraints similar to that of embedded development, including a
-				relatively complex update process. The <a>WoT Scripting API</a> in
-				contrast supports a runtime system for IoT applications similar to
-				that of a Web browser, and aims to improve productivity and reduce
-				integration costs. Furthermore, standardized APIs enable portability
-				for application modules, for instance, to move compute-intense logic
-				from a device up to a local gateway, or to move time-critical logic
-				from the cloud down to a gateway or edge node.
-			</p>
-			<p>
-				The <a>WoT Scripting API</a> is built on top of the <a>Thing</a>
-				abstraction and the TD <a>Interaction Model</a>. There are three sub
-				APIs:
-			</p>
-			<ul>
-				<li><b><code>WoT</code> object</b> provides an API to discover,
-					consume, and expose <a>Things</a></li>
-				<li><b><code>ConsumedThing</code> interface</b> provides a
-					Client API to consume <a>Things</a> over the network or locally
-					(e.g., physically attached hardware)</li>
-				<li><b><code>ExposedThing</code> interface</b> provides Server
-					API to configure and expose <a>Things</a> over the network</li>
-			</ul>
-			<p>
-				See <a href="https://w3c.github.io/wot-scripting-api/">WoT
-					Scripting API</a> for details.
+				See <a href="https://w3c.github.io/wot-scripting-api/">
+				WoT	Scripting API</a> for more details.
 			</p>
 		</section>
 		<section>
@@ -2268,6 +2291,14 @@ a[href].internalDFN {
 				metadata (e.g., <a>Interaction Affordance</a>), and available <a>Protocol
 					Bindings</a> (e.g., implemented <a>WoT Binding Templates</a>).
 			</p>
+		</section>
+		<section>
+			<h2>Scripting Runtime</h2>
+		        <p>
+                        When the <a>WoT Scripting API</a> is used an additional nested <a>Scripting Runtime</a>
+                        is needed, which is a language runtime to actually manage and execute scripts.
+                        The <a>Scripting Runtime</a> runs inside of but is distinct from the <a>WoT Runtime</a>.
+		        </p>
 		</section>
 		<section>
 			<h2>Life Cycle Management</h2>
@@ -2292,7 +2323,7 @@ a[href].internalDFN {
 
 				For this abstract interface to be used to interact with other WoT
 				Servients or Web Server/Clients in practice, concrete bindings to
-				underlying protocols need to be selected and used. 
+				underlying protocols need to be selected and used.
                                 It is the REST
 				protocol that is most commonly used as the WoT interface on the Web.
 				Other protocols such as CoAP, MQTT and WebSocket are also commonly
@@ -2608,29 +2639,33 @@ a[href].internalDFN {
 	</section>
 	<section id="sec-security-considerations" class="informative">
 		<h1>Security and Privacy Considerations</h1>
-
-		<p class="ednote">
-			This section will likely undergo significant revision and
-			reorganization. Please see the <a
-				href="https://github.com/w3c/wot-security/">WoT Security and
-				Privacy</a> repository for work in progress. In particular, the <a
-				href="https://github.com/w3c/wot-security/blob/master/wot-threat-model.md">WoT
-				Threat Model</a> defines the main WoT security stakeholders, assets,
-			attack surfaces, and threats.
+		<p>Security is a cross-cutting issue that needs to be taken into account
+		   in all <a href="#sec-building-blocks">WoT building blocks</a> and WoT implementations.
+                   This chapter summarizes some general issues and guidelines to
+                   help preserve the security and privacy of WoT implementations.
+                   For a more detailed and complete analysis of security and privacy
+                   threats, risks, mitigations, and best practices, see
+	      	   the WoT Security and Privacy Considerations [[?WOT-SECURITY-CONSIDERATIONS]]
+                   and
+		   the WoT Security Best Practices [[?WOT-SECURITY-BEST-PRACTICES]]
+                   documents.
+                   Guidelines for the security testing of WoT implementations,
+                   including adversarial testing, are given in
+	           the WoT Security Testing Plan [[?WOT-SECURITY-TESTING-PLAN]].
 		</p>
-		<p>The functional WoT architecture should enable the use of best
-			practices in security and privacy. Generally, the WoT security
+		<p>
+                   Overall, the goal of the WoT is to describe the
+		   existing access mechanisms and properties of IoT devices and services,
+                   including security. 
+                   In general, 
+                   W3C WoT is designed to describe what exists rather than to prescribe what to implement.</p>
+                <p>
+		   However, the WoT architecture should <em>enable</em> the use of best
+			practices in security and privacy. The WoT security
 			architecture must support the goals and mechanisms of the IoT
 			protocols and systems it connects to. These systems vary in their
 			security requirements and risk tolerance, so security mechanisms will
-			also vary based on these factors. However, the WoT architecture needs
-			to do no harm: it should support security and privacy at least as
-			well as the systems it connects to.</p>
-		<p>Security means the system should preserve its integrity and
-			functionality even when subject to attack. Privacy means that the
-			system should maintain the confidentiality of personally identifiable
-			information. In general, security and privacy cannot be guaranteed
-			but the WoT architecture should support best practices.</p>
+			also vary based on these factors.</p>
 		<p>Security and privacy are especially important in the IoT domain
 			since IoT devices need to operate autonomously and in many cases have
 			access to both personal data and/or can be in control of
@@ -2638,151 +2673,213 @@ a[href].internalDFN {
 			are subject to different and in some cases higher risks than IT
 			systems. It is also important to protect IoT systems so that they can
 			not be used to launch attacks on other computer systems.</p>
-		<p class="ednote">
-			Security and privacy considerations are still under discussion and
-			development; the content below should be considered preliminary. Due
-			to the complexity of the subject we are considering producing a
-			separate document containing a detailed security and privacy
-			considerations discussion including a risk analysis, threat model,
-			recommended mitigations, and appropriate references to best
-			practices. A summary will be included here. Work in progress is
-			located in the <a href="https://github.com/w3c/wot-security/">WoT
-				Security and Privacy</a> repository. Please file any security or privacy
-			considerations and/or concerns using the <a
-				href="https://github.com/w3c/wot-security/issues">GitHub Issue</a>
-			feature.
-		</p>
-		<p>
-			<!-- Security requirements for the the WoT -->
-			Security is a cross-cutting issue that needs to be taken into account
-			in all <a href="#sec-building-blocks">WoT building blocks</a> . The
-			W3C WoT does not define any new security mechanisms, but provides
-			guidelines to apply the best practices from Web security, IoT
-			security, and information security for general software and hardware
-			considerations.
-		</p>
-		<p>
-			The <a>WoT Thing Description</a> must be used together with integrity
-			protection mechanisms and access control policies. Users must ensure
-			that no sensitive information is included in the <a>TDs</a>
-			themselves.
-		</p>
-		<p>
-			The <a>WoT Binding Templates</a> must correctly cover the security
-			mechanisms employed by the underlying <a>IoT Platform</a> . Due to
-			the automation of network interactions necessary in the IoT,
+                <p>In general, security and privacy cannot be guaranteed.
+                    It is not possible for the WoT to turn an insecure system into a secure one.
+                    Specifically, the WoT architecture needs
+			to do no harm: it should support security and privacy at least as
+			well as the systems it connects to.</p>
+		<section id="sec-security-consideration-definitions">
+		   <h2>Definitions</h2>
+                   <dl>
+		   <dt>Security</dt><dd>means a system should preserve its integrity and
+			functionality even when subject to attack.</dd>
+                   <dt>Personally Identifiable Information (PII)</dt><dd>means information that can
+                        be associated with a unique individual.</dd>
+                   <dt>Privacy</dt><dd>means that the
+			system should maintain the confidentiality of personally identifiable
+			information.
+                   </dl>
+                </section>
+		<section id="sec-security-consideration-td-risks">
+			<h2>WoT Thing Description Risks</h2>
+                   <p>The metadata contained in a <a>WoT Thing Description</a> (TD) is potentially sensitive.
+                   As a best practice, TDs should be used together with integrity
+		   protection mechanisms and access control policies, and should be provided
+                   only to authorized users.
+                   </p>
+                   <p>Please refer to the Security and Privacy Consideration section of the 
+                   WoT Thing Description specification for additional details and discussion.
+                   </p>
+                   <section id="sec-security-consideration-td-private">
+			<h5>Thing Description Private Security Data Risk</h5>
+		        <p>TDs are designed to carry only public security data.
+                        Producers of TDs must ensure that no private security information is included in <a>TDs</a>.
+                        There should be a strict separation of 
+                        public and private security data.
+                        A TD should contain only public security
+                        information, letting users know what they need to do to access as
+                        system if and only if they have authorization.  Authorization in turn
+                        should be based on separately managed private information.
+                        </p>
+                        <p>The built-in TD security schemes defined in the TD specification
+                        do not support the encoding of private security data.
+                        However, other fields such as human-readable descriptions might be used
+                        (incorrectly...) to encode this information, or new security schemes
+                        might be defined and deployed via the extension mechanism that encode such
+                        information.  
+                        </p>
+			<dl>
+			<dt>Mitigation:</dt>
+			<dd>TD producers must ensure that no private security data is ever stored
+                        in TDs.</dd>
+			</dl>
+                   </section>
+                   <section id="sec-security-consideration-td-pii">
+			<h5>Thing Description Personally Identifiable Information Risk</h5>
+                        <p>Thing descriptions can potentially contain personally identifiable information
+                        of various types.  Even if it is not explicit, the presence of 
+                        semantic information in a TD and its association with a person can be used
+                        to infer information about that person.  
+                        For example, the association of uniquely identifiable TDs exposed by mobile devices
+                        whose location can be determined can be a tracking risk.
+                        </p>
+                        <p>Generally, personally identifiable information in a TD should be limited 
+                        as much as possible.  In some cases, however, it cannot be avoided.
+                        The potential presence of PII in a TD means that TD should be treated like
+                        other forms of PII.  They should be stored and transmitted in a secure
+                        fashion, should only be cached for limited times, should be
+                        deleted upon request, should only be used for the purpose for which they
+                        were provided with user consent, and they should otherwise satisfy local
+                        requirements for the use of PII.
+		        </p>
+			<dl>
+			<dt>Mitigation:</dt>
+			<dd>Storage of PII in TDs should be minimized as much as possible.
+                        Even without explicit PII in TDs, a tracking and identification privacy risk may exist.
+                        To minimize this risk, TDs should be treated as if they contained
+                        PII and subject to the same management policies as other PII.
+                        They should only be provided to authorized users.
+                        </dd>
+			</dl>
+                    </section>
+                    <section id="sec-security-consideration-td-cm">
+			<h5>Thing Description Communication Metadata Risk</h5>
+		        <p>The <a>WoT Binding Templates</a> 
+                        must correctly support the security
+			mechanisms employed by the underlying <a>IoT Platform</a> for that
+                        platform to be considered eligible for use with WoT.
+                        Due to the automation of network interactions necessary to deploy IoT at scale,
 			operators need to ensure that <a>Things</a> are exposed and consumed
 			in a way that is compliant with their security policies.
-		</p>
-		<section id="sec-security-consideration-runtime-risks">
-			<h2>WoT Runtime Security and Privacy Risks</h2>
-			<p>
-				The <a>WoT Runtime</a> implementation for the <a>WoT Scripting
-					API</a> must at least have mechanisms to prevent malicious access to
-				the system and isolate scripts in multi-tenant <a>Servients</a> .
-				More specifically the <a>WoT Runtime</a> implementation for the <a>WoT
-					Scripting API</a> should take into account the below security and
-				privacy risks and implement the recommended mitigations.
+		        </p>
+			<dl>
+			<dt>Mitigation:</dt>
+			<dd>Whenever possible, use the vetted communication metadata
+                        provided in the <a>WoT Binding Templates</a>.  
+                        When using a TD for an IoT ecosystem not covered by the 
+                        <a>WoT Binding Templates</a>, ensure that all the security requirements
+                        of the <a>IoT Platform</a> are satisfied.
+                        </dd>
+			</dl>
+                    </section>
+                </section>
+		<section id="sec-security-consideration-scripting-risks">
+			<h2>WoT Scripting API Security and Privacy Risks</h2>
+			<p>The <a>WoT Runtime</a> implementation and the <a>WoT Scripting API</a> 
+                        should have mechanisms to prevent malicious access to
+			the system and isolate scripts in multi-tenant <a>Servients</a> .
+			More specifically the <a>WoT Runtime</a> implementation when used with the 
+                        <a>WoT Scripting API</a> should take into account the below security and
+			privacy risks and implement the recommended mitigations.
 			</p>
 			<section id="sec-security-consideration-cross-script">
 				<h5>Cross-Script Security and Privacy Risk</h5>
-				<p>
-					In basic WoT setups, all scripts running inside the <a>WoT
-						Runtime</a> are considered trusted, and therefore there is no strong
-					need to perform strict isolation between each running script
-					instance. However, depending on device capabilities and deployment
-					use case scenario risk level it might be desirable to do so. For
-					example, if one script handles sensitive privacy-related data and
-					well-audited, it might be desirable to separate it from the rest of
-					the script instances to minimize the risk of data exposure in case
-					some other script inside WoT gets compromised during runtime.
-					Another example is mutual co-existence of different tenants on a
-					single WoT device. In this case each WoT runtime instance will be
-					hosting a different tenant, and isolation between them is required.
+				<p>In basic WoT setups, all scripts running inside the <a>WoT Runtime</a>
+                                are considered trusted, distributed by the manufacturer,
+                                and therefore there is no strong need to perform strict isolation between each running script
+				instance. However, depending on device capabilities, deployment
+				use case scenarios, and risk level it might be desirable to do so.
+                                For example, if one script handles sensitive privacy-related PII data and
+				is well-audited, it might be desirable to separate it from the rest of
+				the script instances to minimize the risk of data exposure in case
+				some other script inside WoT gets compromised during runtime.
+				Another example is mutual co-existence of different tenants on a
+				single WoT device. In this case each WoT runtime instance will be
+				hosting a different tenant, and isolation between them is required.
 				</p>
 				<dl>
-					<dt>Mitigation:</dt>
-					<dd>
-						The WoT runtime should perform isolation of script instances and
-						their data in cases when scripts handle privacy-related or other
-						critical security data. Similarly, the <a>WoT Runtime</a>
-						implementation should perform isolation of <a>WoT Runtime</a>
-						instances and their data if a WoT device has more than one tenant.
-						Such isolation can be performed within the <a>WoT Runtime</a>
-						using platform security mechanisms available on the device. For
-						more information see Sections "WoT Servient Single-Tenant" and
-						"WoT Servient Multi-Tenant" of [[WOT-SECURITY-CONSIDERATIONS#]].
-					</dd>
+				<dt>Mitigation:</dt>
+				<dd>The WoT runtime should perform isolation of script instances and
+				their data in cases when scripts handle privacy-related or other
+				critical security data. Similarly, the <a>WoT Runtime</a>
+				implementation should perform isolation of <a>WoT Runtime</a>
+				instances and their data if a WoT device has more than one tenant.
+				Such isolation can be performed within the <a>WoT Runtime</a>
+				using platform security mechanisms available on the device. For
+				more information see Sections "WoT Servient Single-Tenant" and
+				"WoT Servient Multi-Tenant" of [[WOT-SECURITY-CONSIDERATIONS#]].</dd>
 				</dl>
 			</section>
 			<section id="sec-security-consideration-device-direct-access">
 				<h5>Physical Device Direct Access Security and Privacy Risk</h5>
 				<p>In case a script is compromised or misbehaving, the
-					underlying physical device (and potentially surrounded environment)
-					can be damaged if a script can use directly exposed native device
-					interfaces. If such interfaces lack safety checks on their inputs,
-					they might bring the underlying physical device (or environment) to
-					an unsafe state (i.e. device overheats and explodes).</p>
+				underlying physical device (and potentially surrounded environment)
+				can be damaged if a script can use directly exposed native device
+				interfaces. If such interfaces lack safety checks on their inputs,
+				they might bring the underlying physical device (or environment) to
+				an unsafe state.</p>
 				<dl>
-					<dt>Mitigation:</dt>
-					<dd>
-						The <a>WoT Runtime</a> should avoid directly exposing the native
-						device interfaces to the script developers. Instead a <a>WoT
-							Runtime</a> implementation should provide a hardware abstraction
-						layer for accessing the native device interfaces. Such hardware
-						abstraction layer should refuse to execute commands that might put
-						the device (or environment) to an unsafe state. Additionally, in
-						order to reduce the damage to a physical WoT device in cases a
-						script gets compromised, it is important to minimize the number of
-						interfaces that are exposed or accessible to a particular script
-						based on its functionality.
-					</dd>
+				<dt>Mitigation:</dt>
+				<dd>The <a>WoT Runtime</a> should avoid directly exposing the native
+				device interfaces to the script developers.
+                                Instead a <a>WoT Runtime</a> implementation should provide a hardware abstraction
+				layer for accessing the native device interfaces. Such hardware
+				abstraction layer should refuse to execute commands that might put
+				the device (or environment) to an unsafe state. Additionally, in
+				order to reduce the damage to a physical WoT device in cases a
+				script gets compromised, it is important to minimize the number of
+				interfaces that are exposed or accessible to a particular script
+				based on its functionality.
+				</dd>
 				</dl>
 			</section>
+		</section>
+		<section id="sec-security-consideration-runtime-risks">
+			<h2>WoT Runtime Security and Privacy Risks</h2>
 			<section id="sec-security-consideration-update-provisioning">
 				<h5>Provisioning and Update Security Risk</h5>
-				<p>
-					If the <a>WoT Runtime</a> implementation supports
-					post-manufacturing provisioning or updates of itself, WoT scripts,
-					or any related data (including security credentials), it can be a
-					major attack vector. An attacker can try to modify any above
-					described element during the update or provisioning process or
-					simply provision attacker's code and data directly.
+				<p>If the <a>WoT Runtime</a> implementation supports
+				post-manufacturing provisioning or updates of itself, WoT scripts,
+				or any related data (including security credentials), it can be a
+				major attack vector. An attacker can try to modify any above
+				described element during the update or provisioning process or
+				simply provision attacker's code and data directly.
 				</p>
 				<dl>
-					<dt>Mitigation:</dt>
-					<dd>
-						Post-manufacturing provisioning or update of scripts, the <a>WoT
-							Runtime</a> itself or any related data should be done in a secure
-						fashion. A set of recommendations for secure update and
-						post-manufacturing provisioning can be found in
-						[[WOT-SECURITY-CONSIDERATIONS]].
-					</dd>
+				<dt>Mitigation:</dt>
+				<dd>Post-manufacturing provisioning or update of scripts, 
+                                the <a>WoT Runtime</a> itself or any related data should be done 
+                                in a secure fashion. A set of recommendations for secure update and
+				post-manufacturing provisioning can be found in
+				[[WOT-SECURITY-CONSIDERATIONS]].
+				</dd>
 				</dl>
 			</section>
 			<section id="sec-security-consideration-credentials-storage">
 				<h5>Security Credentials Storage Security and Privacy Risk</h5>
-				<p>
-					Typically the <a>WoT Runtime</a> needs to store the security
-					credentials that are provisioned to a WoT device to operate in WoT
-					network. If an attacker can compromise the confidentiality or
-					integrity of these credentials, then it can obtain access to the
-					WoT assets, impersonate WoT things or devices or create
-					Denial-Of-Service (DoS) attacks.
+				<p>Typically the <a>WoT Runtime</a> needs to store the security
+				credentials that are provisioned to a WoT device to operate in WoT
+				network.
+                                If an attacker can compromise the confidentiality or
+				integrity of these credentials, then it can obtain access to the
+				WoT assets, impersonate WoT things or devices or create
+				Denial-Of-Service (DoS) attacks.
 				</p>
 				<dl>
-					<dt>Mitigation:</dt>
-					<dd>
-						The <a>WoT Runtime</a> should securely store the provisioned
-						security credentials, guaranteeing their integrity and
-						confidentiality. In case there are more than one tenant on a
-						single WoT-enabled device, a <a>WoT Runtime</a> implementation
-						should guarantee isolation of each tenant provisioned security
-						credentials. Additionally, in order to minimize a risk that
-						provisioned security credentials get compromised, the <a>WoT
-							Runtime</a> implementation should not expose any API for scripts to
-						query the provisioned security credentials.
-					</dd>
+				<dt>Mitigation:</dt>
+				<dd>The <a>WoT Runtime</a> should securely store any provisioned
+				security credentials, guaranteeing their integrity and
+				confidentiality. In case there are more than one tenant on a
+				single WoT-enabled device, a <a>WoT Runtime</a> implementation
+				should guarantee isolation of each tenant's provisioned security
+				credentials. Additionally, in order to minimize a risk that
+				provisioned security credentials get compromised, the <a>WoT
+				Runtime</a> implementation should not expose any API for scripts to
+				query the provisioned security credentials.
+                                Such credentials (or event better, abstract operations that use them
+                                but do not expose them) should only be accessible to the <a>Protocol
+                                Binding</a> implementation that uses them.
+			        </dd>
 				</dl>
 			</section>
 		</section>
@@ -2888,7 +2985,7 @@ a[href].internalDFN {
 					binding.</p>
 				<p>
 					<img src="images/message-flows/A_3_1c_eventWebSocket.png"
-						alt="Subscribe,               
+						alt="Subscribe,
 						notify and unsubscribe event (binding = simple WebSocket)" />
 				</p>
 			</section>
