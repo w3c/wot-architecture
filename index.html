@@ -282,16 +282,27 @@ a[href].internalDFN {
             provide</p>
         <ul>
             <li>a set of use cases that lead to the W3C WoT
-                Architecture in chapter <a href="#sec-use-cases"></a>,</li>
-            <li>a set of requirements for WoT implementations in chapter <a href="#sec-requirements"></a>,</li>
-            <li>a description of the high level architecture in chapter <a href="#sec-wot-architecture"></a>
+                Architecture in chapter <a href="#sec-use-cases"></a>,
+            </li>
+            <li>a set of requirements for WoT implementations in
+                chapter <a href="#sec-requirements"></a>,
+            </li>
+            <li>a description of the high level architecture in
+                chapter <a href="#sec-wot-architecture"></a>
             <li>an overview of the WoT building blocks being
-                standardized and their interplay in chapter <a href="#sec-building-blocks"></a>,</li>
+                standardized and their interplay in chapter <a
+                href="#sec-building-blocks"></a>,
+            </li>
             <li>a guideline to map the abstract architecture to
-                software stacks and hardware components in chapter <a href="#sec-servient-implementation"></a>,</li>
-            <li>deployment scenarios in chapter <a href="#sec-deployment-scenario"></a>,
+                software stacks and hardware components in chapter <a
+                href="#sec-servient-implementation"></a>,
+            </li>
+            <li>deployment scenarios in chapter <a
+                href="#sec-deployment-scenario"></a>,
             <li>and security considerations to be aware of when
-                implementing WoT building blocks in chapter <a href="#sec-security-considerations"></a>.</li>
+                implementing WoT building blocks in chapter <a
+                href="#sec-security-considerations"></a>.
+            </li>
         </ul>
     </section>
     <section id="conformance"></section>
@@ -301,8 +312,6 @@ a[href].internalDFN {
             <em>This section is normative.</em>
         </p>
 
-        <p class="ednote" title="TODO">Add definitions for "virtual
-            thing", "edge device", "WoT container".</p>
         <p>
         <p>This document uses the following terms as defined here.
             The WoT prefix is used to avoid ambiguity for terms that are
@@ -374,7 +383,7 @@ a[href].internalDFN {
             </dt>
             <dd>A digital twin is a virtual representation of a
                 device or a group of devices that resides on a cloud
-                server or edge device. It can be used to represent
+                server, edge device or proxy. It can be used to represent
                 real-world devices which may not be continuously online,
                 or to run simulations of new applications and services,
                 before they get deployed to the real devices.</dd>
@@ -388,6 +397,14 @@ a[href].internalDFN {
             </dt>
             <dd>Linked Data vocabulary that can be used in the WoT
                 Thing Description, but is not defined by W3C WoT.</dd>
+            <dt>
+                <dfn>Edge device</dfn>
+            </dt>
+            <dd>a device which provides an entry point into
+                enterprise or service provider core networks. Examples
+                include routers, routing switches, multiplexers, and a
+                variety of other access devices.</dd>
+            <dt>
             <dt>
                 <dfn>Event</dfn>
             </dt>
@@ -576,6 +593,11 @@ a[href].internalDFN {
             <dd>The underlying, standardized application layer
                 protocol without application-specific options or
                 subprotocol mechanisms.</dd>
+            <dt>
+                <dfn>Virtual Thing</dfn>
+            </dt>
+            <dd>An instance of a thing that represents a thing that is located 
+                on another system component.</dd>
             <dt>
                 <dfn>WoT</dfn>
             </dt>
@@ -1706,10 +1728,6 @@ a[href].internalDFN {
         </section>
         <section id="sec-web-thing">
             <h2>Web Thing</h2>
-            <p class="ednote">
-                Should the WoT documents consistently refer to <i>Web
-                    Thing</i> instead of just <i>Thing</i>?
-            </p>
             <p>A simple example is a Thing being the digital
                 representation of a physical IoT devices, which also
                 directly provides the interface for interaction. A Thing
@@ -2483,6 +2501,7 @@ a[href].internalDFN {
                 [[?WOT-SECURITY-BEST-PRACTICES]], and the WoT Security
                 Testing Plan [[?WOT-SECURITY-TESTING-PLAN]], provide
                 additional non-normative security and privacy guidance.
+
             
         </section>
     </section>
@@ -3411,444 +3430,6 @@ a[href].internalDFN {
             </section>
         </section>
     </section>
-    <section class="appendix-snippets">
-        <h1>SNIPPETS: (was WoT Deployment Scenarios and Guidelines)</h1>
-        <p class="ednote">This section contains text that became
-            obsolete and will be removed before the document will be
-            published.</p>
-
-        <p>There are many possibilities for deploying the abstract
-            WoT Architecture and mapping the functions to physical
-            devices and network structures. This section, which is
-            informative but not normative, lists a number of design
-            patterns that may be used when implementing the Web of
-            Things.</p>
-        <section>
-            <h2>WoT Client</h2>
-            <figure id="wot-existing">
-                <img src="images/wot-existing.png" style="width: 500px;" />
-                <figcaption>Servient Consuming Thing</figcaption>
-            </figure>
-            <p>
-                <a href="#wot-existing"></a> shows the basic scenario,
-                where a <a>Servient</a> in client role, a <a>WoT
-                    Client</a> , is consuming an existing device that is
-                augmented with a <a>Thing Description</a> (TD). The
-                latter could be generated from digital descriptions
-                already available for the device within the
-                corresponding <a>IoT Platform</a> . It could also be
-                written by a developer using tools or even manually.
-            </p>
-            <p>
-                The Application Script is loaded and executed by the <a>WoT
-                    Runtime</a> . Scripts can be manually configured with
-                the URI of the device <a>TD</a> located on a reachable
-                Web server. Using the <a> <code>WoT</code> object
-                </a> , the Application Script retrieves the <a>TD</a> and
-                instantiates a corresponding <a>Consumed Thing</a> . The
-                Application Script can use the metadata of the <a>Thing</a>
-                and inspect what Interactions it provides. The
-                communication metadata within the <a>TD</a> is used by
-                the <a>Servient</a> to select the matching <a>Protocol
-                    Binding</a> and to configure its protocol stack. These
-                communication details are hidden from the Application
-                Script. However, the script can only interact with the <a>Thing</a>
-                , if the <a>Servient</a> implements a <a>Protocol
-                    Binding</a> that matches the communication metadata
-                given in the <a>TD</a> .
-            </p>
-            <p>
-                Using the <a>Client API</a> (i.e.,
-                <code>ConsumedThing</code>
-                interface), the Application Script can read or write a <a>Property</a>
-                , invoke an <a>Action</a> , or subscribe for <a>Events</a>
-                offered by the <a>Thing</a>. The selected <a>Protocol
-                    Binding</a> maps these Interactions to the low-level
-                protocol operations and serializations understood by the
-                remote <a>Thing</a> . When a message is returned by the
-                <a>Thing</a> , the <a>Protocol Binding</a> parses the
-                response and maps it back to the Interaction
-                abstraction. The Interaction output is delivered back to
-                the Application Script by resolving a (JavaScript)
-                Promise.
-            </p>
-            <p class="ednote">Each sub-section shall describe the
-                technical details to realize the scenario. They shall
-                describe how to discover the involved WoT components,
-                how to realize connectivity, and what security
-                mechanisms can be used. For now, the draft only contains
-                strawman proposals and placeholders that will be
-                replaced as the draft progresses.</p>
-            <dl>
-                <dt>Discovery</dt>
-                <dd>
-                    <ul>
-                        <li>Manual (Application Script is
-                            configured with TD URI)</li>
-                    </ul>
-                </dd>
-                <dt>Connectivity</dt>
-                <dd>
-                    <ul>
-                        <li>Local over (W)LAN or LPWANs (ZigBee,
-                            Z-Wave, etc.)</li>
-                        <li>Remote over globally reachable IP
-                            address of the Thing</li>
-                    </ul>
-                </dd>
-                <dt>Security</dt>
-                <dd>
-                    <ul>
-                        <li>Security metadata to sandbox the
-                            Application Script</li>
-                        <li>Access control implemented on the Thing</li>
-                        <li>Integrity protection when retrieving
-                            the TD</li>
-                        <li>Potentially confidentiality and
-                            integrity protection when interacting with
-                            the Thing</li>
-                    </ul>
-                </dd>
-            </dl>
-        </section>
-        <section>
-            <h2>Servient on Device</h2>
-            <figure id="wot-on-device">
-                <img src="images/wot-on-device.png"
-                    style="width: 640px;" />
-                <figcaption>Servient on Device Itself</figcaption>
-            </figure>
-            <p>
-                In this case, a <a>Servient</a> is running on the device
-                itself. The right most <a>Servient</a> in <a
-                    href="#wot-on-device"></a> shows an LED Light, whose
-                controller has a powerful CPU and a large memory and is
-                able to provide web server functionality connected
-                directly to the Internet. Then the leftmost browser
-                and/or another application on the internet can access
-                the LED light through the Internet directly.
-            </p>
-            <figure id="wot-on-device-minimal">
-                <img src="images/wot-on-device-minimal.png"
-                    style="width: 640px;" />
-                <figcaption>Resource-constrained Device as
-                    Thing</figcaption>
-            </figure>
-            <p>
-                Devices that are not powerful enough to host a <a>Servient</a>
-                can still act as <a>Things</a> . In this case, a classic
-                firmware is providing a <a>Thing Description</a> that
-                describes the functionality and protocols implemented.
-                The right most <a>Servient</a> in <a
-                    href="#wot-on-device-minimal"></a> shows a legacy
-                device that has a constrained CPU and a small memory and
-                is able to provide web server functionality connected
-                directly to the internet. Then the leftmost browser
-                and/or another application on the internet can access
-                the device through the Internet directly like <a
-                    href="#wot-on-device"></a>.
-            </p>
-            <dl>
-                <dt>Discovery</dt>
-                <dd>
-                    <ul>
-                        <li>WoT Client discovers <a>Servient</a> on
-                            the same network [network discovery].
-                        </li>
-                    </ul>
-                </dd>
-                <dt>Connectivity</dt>
-                <dd>
-                    <ul>
-                        <li>(W)LAN</li>
-                        <li>LPWANs (ZigBee, Z-Wave, etc.)</li>
-                    </ul>
-                </dd>
-                <dt>Security</dt>
-                <dd>
-                    <ul>
-                        <li><span style="color: red">t.b.d.</span></li>
-                    </ul>
-                </dd>
-            </dl>
-        </section>
-        <section>
-            <h2>Servient on Smartphone</h2>
-            <p>
-                This example uses a <a>Servient</a> running on a
-                Smartphone. Smartphones are not only popular but have
-                enough performance to provide gateway functionality.
-                This functionality can be used to bridge between the
-                internet and a legacy device without any intermediate
-                hardware.
-            </p>
-            <figure id="wot-on-smartphone">
-                <img src="images/wot-on-smartphone.png"
-                    style="width: 640px;" />
-                <figcaption>Servient on Smartphone</figcaption>
-            </figure>
-            <p>
-                shows an example of a <a>Servient</a> on a smartphone,
-                which can act as a gateway to existing devices (e.g.,
-                via Bluetooth or local Wi-Fi). The Web browser with the
-                user interface can either run on the smartphone directly
-                or remotely on a separate device (such as a laptop).
-
-            </p>
-            <dl>
-                <dt>Discovery</dt>
-                <dd>
-                    <ul>
-                        <li>WoT Client discovers an electronic
-                            appliance when the remote controller is
-                            nearby [nearby discovery].</li>
-                        <li>WoT Client discovers <a>Servient</a>
-                            remotely when the remote controller is
-                            outside [remote discovery].
-                        </li>
-                    </ul>
-                </dd>
-                <dt>Connectivity</dt>
-                <dd>
-                    <ul>
-                        <li><span style="color: red">t.b.d.</span></li>
-                    </ul>
-                </dd>
-                <dt>Security</dt>
-                <dd>
-                    <ul>
-                        <li><span style="color: red">t.b.d.</span></li>
-                    </ul>
-                </dd>
-            </dl>
-        </section>
-        <section>
-            <h2>Servient on Gateway</h2>
-            <figure id="wot-on-gateway">
-                <img src="images/wot-on-gateway.png"
-                    style="width: 640px;" />
-                <figcaption>Servient on Gateway</figcaption>
-            </figure>
-            <p>
-                shows an example of a <a>Servient</a> on a gateway.
-                Gateway are often introduced as a home automation and/or
-                home energy management solution. In the case of consumer
-                electronics, there are very wide variety of physical
-                communication formats such as WiFi, 802.15.4g, Bluetooth
-                Low Energy, HDPLC and so on. In order to normalize those
-                variations, almost all home automation systems introduce
-                a gateway. In , a <a>Servient</a> wraps various
-                mechanisms for communicating with legacy devices and
-                provides to other clients a universal device accessing
-                method. Inside the home, HTTP/TCP/IP/WiFi can then be
-                used as the sole unfied communication method between the
-                <a>Servient</a> on the gateway and a user interface
-                device such as a Web broswer.
-            </p>
-            <dl>
-                <dt>Discovery</dt>
-                <dd>
-                    <ul>
-                        <li><a>Servient</a> discovers electronic
-                            appliances nearby [nearby discovery].</li>
-                        <li>WoT Client discovers <a>Servient</a>
-                            remotely [remote discovery].
-                        </li>
-                    </ul>
-                </dd>
-                <dt>Connectivity</dt>
-                <dd>
-                    <ul>
-                        <li><span style="color: red">t.b.d.</span></li>
-                    </ul>
-                </dd>
-                <dt>Security</dt>
-                <dd>
-                    <ul>
-                        <li><span style="color: red">t.b.d.</span></li>
-                    </ul>
-                </dd>
-            </dl>
-        </section>
-        <section>
-            <h2>Servient on Cloud and Gateway</h2>
-            <p>
-                Client Apps can control devices at home through a <a>Servient</a>
-                on a gateway. But in this case the location of client
-                apps is restricted to the home, because physical
-                communication path "WiFi" and/or wired Ethernet between
-                gateway and client apps such as a Web browser is limited
-                to the physical domain provided by the WiFi signal. To
-                provide for controlling devices at home from outside the
-                house, a HTTP/TCP/IP interface to a <a>Servient</a>
-                running in the cloud with a globally reachable address
-                could be used. However, in this case the <a>Servient</a>
-                in the cloud cannot generally access devices running in
-                the home through only local interfaces such as
-                Bluetooth.
-            </p>
-            <figure id="wot-on-cloud">
-                <img src="images/wot-on-cloud.png" style="width: 800px;" />
-                <figcaption>Servient on Cloud Server and
-                    Gateway</figcaption>
-            </figure>
-            <p>
-                shows an example of <a>Servient</a> running on a cloud
-                server paired with another <a>Servient</a> running on a
-                gateway. In the case of , a browser accesses the <a>Servient</a>
-                on the cloud Server named "Cloud". This <a>Servient</a>
-                provides its interface through the Internet globally.
-                So, wherever a browser user is, they can access this <a>Servient</a>
-                . The <a>Servient</a> on "Cloud" can accept the request
-                of the browser and/or other application through HTTP,
-                CoAP, and so on. Then the <a>Servient</a> on the cloud
-                server finds out the route to access another <a>Servient</a>
-                on the gateway. After finding out the route, the <a>Servient</a>
-                on the cloud server transfers the request from the
-                browser to the <a>Servient</a> on the gateway. After
-                that, the gateway processes the request according the
-                use case. The <a>Thing Description</a> of the <a>Servient</a>
-                on the cloud server can be just a mirror of that on the
-                gateway, since it will generally just pass interactions
-                directly through. More generally, though, one or both <a>Servients</a>
-                can provide services such as privacy filtering or
-                sub-setting. When the user is home, they can also access
-                the <a>Servient</a> in the gateway directly.
-            </p>
-            <dl>
-                <dt>Discovery</dt>
-                <dd>
-                    <ul>
-                        <li><a>Servient</a> discovers WoT Server
-                            remotely [remote discovery].</li>
-                        <li>WoT Client discovers <a>Servient</a>
-                            remotely [remote discovery].
-                        </li>
-                    </ul>
-                </dd>
-                <dt>Connectivity</dt>
-                <dd>
-                    <ul>
-                        <li><span style="color: red">t.b.d.</span></li>
-                    </ul>
-                </dd>
-                <dt>Security</dt>
-                <dd>
-                    <ul>
-                        <li><span style="color: red">t.b.d.</span></li>
-                    </ul>
-                </dd>
-            </dl>
-        </section>
-        <section>
-            <h2>Servient on Cloud Server</h2>
-            <figure id="wot-on-cloud-legacy">
-                <img src="images/wot-on-cloud-legacy.png"
-                    style="width: 800px;" />
-                <figcaption>Servient on Cloud Server Only</figcaption>
-            </figure>
-            <p>
-                shows a second example of <a>Servients</a> in the cloud.
-                In this case, a browser accesses a <a>Servient</a> on a
-                cloud server, similar to . This <a>Servient</a> provides
-                access through the global Internet. So, wherever the
-                browser user is, they can access this <a>Servient</a> .
-                The cloud <a>Servient</a> accepts the requests of the
-                browser and/or other applications through HTTP, CoAP,
-                etc. Then it finds out the route to access a proprietry
-                discovery service running on a gateway. In , the <a>Servient</a>
-                running in the cloud could talk to another <a>Servient</a>
-                running on the gateway. However, many service providers
-                have already provided IoT services using proprietary IoT
-                interfaces or some other IoT standard. In this case, the
-                gateway can still support the same functionalities, as
-                in the previous case, but using methods outside of the
-                WoT definitions.
-            </p>
-            <dl>
-                <dt>Discovery</dt>
-                <dd>
-                    <ul>
-                        <li>Servient1 discovers Servient2 remotely
-                            [remote discovery].</li>
-                        <li>Servient2 discovers electronic
-                            appliances nearby [nearby discovery].</li>
-                        <li>WoT Client discovers Servient1 remotely
-                            [remote discovery].</li>
-                    </ul>
-                </dd>
-                <dt>Connectivity</dt>
-                <dd>
-                    <ul>
-                        <li><span style="color: red">t.b.d.</span></li>
-                    </ul>
-                </dd>
-                <dt>Security</dt>
-                <dd>
-                    <ul>
-                        <li><span style="color: red">t.b.d.</span></li>
-                    </ul>
-                </dd>
-            </dl>
-        </section>
-
-        <section>
-            <h2>WoT in the Web Browser</h2>
-            <p class="ednote">This section is an early outline to
-                realize WoT with the existing browser APIs. More details
-                and a native WoT integration into the Web browser will
-                be added as the WG drafts progress.</p>
-            <p>
-                <a href="#architecture-browser"></a> shows how a <a>Servient</a>
-                implementation for Web browsers would look like.
-            </p>
-            <figure id="architecture-browser">
-                <img src="images/architecture-browser.png"
-                    style="width: 640px;">
-                <figcaption>Implementing WoT in the Web
-                    Browser</figcaption>
-            </figure>
-            <p>
-                The Web browser implicitly isolates applications in tabs
-                using the <a
-                    href="https://www.w3.org/Security/wiki/Same_Origin_Policy">same-origin
-                    policy</a>. Thus, the security metadata is not
-                mandatory. The application scripts would be part of a
-                Web page that can provide visualization and user
-                interaction.
-            </p>
-            <p>
-                The <a>WoT Scripting API</a> needs to be added by a WoT
-                library loaded together with the application scripts by
-                the Web page. This library would also implement <a>TD</a>
-                handling (i.e., parsing for consuming <a>Things</a> and
-                generating for exposing <a>Things</a>) and provide glue
-                code to use the browser APIs. The other aspects of the <a>WoT
-                    Runtime</a> are provided by the browser JavaScript
-                runtime system.
-            </p>
-            <p>
-                The <a>Protocol Bindings</a> are limited to the
-                protocols implemented by Web browsers. These are:
-            </p>
-            <ul>
-                <li>HTTP(S) (1.0/1.1/2.0) [[!RFC7230]]/[[!RFC7540]]
-                    (including Server-Sent Events [[!HTML5]]),</li>
-                <li>WebSockets [[!RFC6455]] (which enables the WoT
-                    library to implement MQTT-over-WebSockets and
-                    CoAP-over-WebSockets)</li>
-                <li>(S)RTP of WebRTC [[!WEBRTC]], and</li>
-                <li>FTP [[!RFC765]] (which might be of limited use
-                    similar to the file protocol)</li>
-            </ul>
-            <p>
-                The other browser APIs (e.g., Geolocation, Vibration,
-                and Web Storage) are comparable to the System API of
-                normal <a>Servients</a> and can enable access to local
-                hardware.
-            </p>
-        </section>
-    </section>
 
     <section class="appendix-acknowledgements">
         <h2>Acknowledgements</h2>
@@ -3857,13 +3438,14 @@ a[href].internalDFN {
             technical input and suggestions that led to improvements to
             this document.</p>
     </section>
-    <!--
+
     <section class="appendix-change-history">
       <h2>Change History</h2>
-      <p>
-        This is the First Public Working Draft.
-      </p>
+      <ul>
+      <li>Sept 2017: <a href="https://www.w3.org/TR/2017/WD-wot-architecture-20170914/">First Public Working Draft</a>.</li>
+      <li>March 2019: Public Working Draft for TAG review.</li>
+      </ul>
     </section>
--->
+
 </body>
 </html>
