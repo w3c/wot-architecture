@@ -2397,84 +2397,54 @@ a					general metadata about the device, information models representing
                                 </p>
 			</section>
                 </section>
-		<section>
-			<h3>Inter Connection of Servients</h3>
-			<p>This section describes below how to inter connect among the
-				servients.</p>
-
-			<section>
-				<h3>Inter connection between application and device servients</h3>
-				<p>First, inner structure of a servient is explained based on
-					the structure of an application servient and a device servient. WoT
-					runtime defines an abstract interface that contains methods such as
-					READ, WRITE, INVOKE, SUBSCRIBE, NOTIFY through which to access
-					devices. When a servient communicates over a network, those methods
-					are bound to concrete protocols. For example, in the case of HTTP,
-					HTTP methods such as PUT and GET are assigned to implement the
-					abstract methods. WoT clients can retrieve and change device
-					settings or device attributes defined in TDs through those abstract
-					methods. In a device servient, WoT Servient Life Cycle Management
-					(S-LCM) creates an ExposedThing based on TD. S-LCM also advertises
-					a TD to other servients, or provides other servients with a TD upon
-					request. A device servient's functions are usually implemented as
-					hardware, and those functions are accessible through its firmware.
-					An ExposedThing's abstract interface is translated into hardware
-					commands by a device interface adapter. A device interface adapter
-					is a custom software developed for each specific type of hardware.
-					In an application servient, on the other hand, a S-LCM obtains TDs
-					by getting one from location advertised by other servients or
-					requesting other servients of TDs, and creates a ConsumedThing
-					based on the obtained TD. Functions of an application servient are
-					usually implemented as an application. The abstract interface of a
-					ConsumedThing is provided as a programming language (such as
-					JavaScript) interface, and the application achieves its functions
-					by using this interface.</p>
-				<figure id="simple-conf-application-device">
-					<img src="images/arch-simple-conf-application-device.png" />
-					<figcaption>Simple configuration of application and
-						device</figcaption>
-				</figure>
-			</section>
-			<section>
-				<h3>Inter connection with Proxy Servient</h3>
-				<p>Next, inner structure of a servient is explained based on the
-					structure of a proxy servient that connects a device servient and
-					application servient together.</p>
-				<p>A runtime in a proxy servient has both ExposedThing and
-					ConsumedThing functionality. A S-LCM, similar to that of an
-					application servient, obtains a TD of a device servient, and
-					creates a ConsumedThing. At the same time, a S-LCM creates a shadow
-					of the device as well as a TD for the shadow device where the
-					identifier is a new one and protocol bindings are appropriately
-					described to serve for the application. An ExposedThing is created
-					based on this TD, and a S-LCM notifies other servients of the TD.</p>
-				<figure id="simple-conf-application-proxy-device">
-					<img src="images/arch-simple-conf-application-proxy-device.png" />
-					<figcaption>Simple configuration with proxy</figcaption>
-				</figure>
-			</section>
-		</section>
 	</section>
 
 	<section id="sec-deployment-scenario" class="informative">
 		<h1>WoT Deployments</h1>
-
-		<p>In the previous sections, how WoT servients connect to each
-			other and their roles and basic behaviors were described based on two
-			simple structures; one with an application and a device, and the
-			other with a proxy connecting an application and a device together.
-			These simple structures can be used as is for use cases involving
-			relatively small numbers of devices. However, they are too simple per
-			se to describe those more complex uses cases where the number of
-			connected devices are not small, or devices are physically located in
-			multiple remote sites. This section illustrates more advanced
-			structures that can be applied to those non-simple use cases.</p>
 
 		<p>This section defines components that make a Web of Things
 			entity, clarifies each component’s functions, and then shows how a
 			web of Things as a whole works. The architecture described here is
 			derived from the Web of Things use cases as well as technical
 			requirements extracted from them.</p>
+
+		<section id="sec-deployment-app-dev">
+			<h2>Application and Devince on the same network</h2>
+			<p>A device servient creates an ExposedThing based on TD. It also advertises
+				a TD to other servients, or provides other servients with a TD upon
+				request. The device servient's functions are usually implemented as
+				hardware, and those functions are accessible through its firmware.
+				An ExposedThing's abstract interface is translated into hardware
+				commands inside the device Servient. On the other hands, the application 
+				servient obtains TDs by getting one from location advertised by other servients or
+				requesting other servients of TDs, and creates a ConsumedThing
+				based on the obtained TD. Functions of an application servient are
+				usually implemented as an application. The abstract interface of a
+				ConsumedThing is provided as a programming language (such as
+				JavaScript) interface, and the application achieves its functions
+				by using this interface.</p>
+			<figure id="simple-conf-application-device">
+				<img src="images/arch-simple-conf-application-device.png" />
+				<figcaption>Appliction and Device on the same network</figcaption>
+			</figure>
+		</section>
+		<section id="sec-deployment-app-proxy-dev">
+			<h2>Integration with Proxy Servient</h2>
+			<p>Next, inner structure of a servient is explained based on the
+				structure of a proxy servient that connects a device servient and
+				application servient together.</p>
+			<p>A runtime in a proxy servient has both ExposedThing and
+				ConsumedThing functionality. The proyx servient obtains a TD of a device servient, and
+				creates a ConsumedThing. At the same time, it creates a shadow
+				of the device as well as a TD for the shadow device where the
+				identifier is a new one and protocol bindings are appropriately
+				described to serve for the application. An ExposedThing is created
+				based on this TD, and the proxy servient notifies other servients of the TD.</p>
+			<figure id="simple-conf-application-proxy-device">
+				<img src="images/arch-simple-conf-application-proxy-device.png" />
+				<figcaption>Application and Device connect with Proxy</figcaption>
+			</figure>
+		</section>
 
 		<section id="sec-deployment-cloud-rm">
 			<h2>Devices in a Local Network Controlled from a Cloud</h2>
@@ -2505,13 +2475,11 @@ a					general metadata about the device, information models representing
 				Applications and devices need to know nothing about the firewall.</p>
 			<figure id="deployment-cloud-device">
 				<img src="images/arch-deploy-cloud-device-alt.png" />
-				<figcaption>TODO: ADD A CAPTION</figcaption>
+				<figcaption>Cloud appllications controls local devices</figcaption>
 			</figure>
-			<p>Note: An example structure adopted in ITU-T Recommendation
-				Y.2070</p>
 		</section>
-		<section id="sec-deployment-service-to-service-rm">
-			<h2>Service-to-Service connections across multiple Domains</h2>
+		<section id="sec-deployment-discovery-with-directory-rm">
+			<h2>Discovery using with Thing Directory</h2>
 			<p>Once devices can be monitored or operated by cloud
 				applications, a variety of services can be built on top of that. For
 				example, a cloud application can change a device’s operating
@@ -2528,6 +2496,9 @@ a					general metadata about the device, information models representing
 				<img src="images/arch-deploy-service-directory-alt.png" />
 				<figcaption>Cloud service with directory</figcaption>
 			</figure>
+		</section>
+		<section id="sec-deployment-service-to-service-rm">
+			<h2>Service-to-Service connections across multiple Domains</h2>
 			<p>Multiple cloud eco-systems each based on a different platform
 				can work together to make a larger, systems-of-systems eco-system.
 				Built on the previously discussed structure of a cloud application
