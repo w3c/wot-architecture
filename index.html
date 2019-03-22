@@ -2468,85 +2468,52 @@ a[href].internalDFN {
 				</figure>
 			</section>
 		</section>
-		<section>
-			<h3>Inter Connection of Servients</h3>
-			<p>This section describes below how to inter connect among the
-				servients.</p>
-
-			<section>
-				<h3>Inter connection between application and device servients</h3>
-				<p>First, inner structure of a servient is explained based on
-					the structure of an application servient and a device servient. WoT
-					runtime defines an abstract interface that contains methods such as
-					READ, WRITE, INVOKE, SUBSCRIBE, NOTIFY through which to access
-					devices. When a servient communicates over a network, those methods
-					are bound to concrete protocols. For example, in the case of HTTP,
-					HTTP methods such as PUT and GET are assigned to implement the
-					abstract methods. WoT clients can retrieve and change device
-					settings or device attributes defined in TDs through those abstract
-					methods. In a device servient, WoT Servient Life Cycle Management
-					(S-LCM) creates an ExposedThing based on TD. S-LCM also advertises
-					a TD to other servients, or provides other servients with a TD upon
-					request. A device servient's functions are usually implemented as
-					hardware, and those functions are accessible through its firmware.
-					An ExposedThing's abstract interface is translated into hardware
-					commands by a device interface adapter. A device interface adapter
-					is a custom software developed for each specific type of hardware.
-					In an application servient, on the other hand, a S-LCM obtains TDs
-					by getting one from location advertised by other servients or
-					requesting other servients of TDs, and creates a ConsumedThing
-					based on the obtained TD. Functions of an application servient are
-					usually implemented as an application. The abstract interface of a
-					ConsumedThing is provided as a programming language (such as
-					JavaScript) interface, and the application achieves its functions
-					by using this interface.</p>
-				<figure id="simple-conf-application-device">
-					<img src="images/arch-simple-conf-application-device.png" />
-					<figcaption>Simple configuration of application and
-						device</figcaption>
-				</figure>
-			</section>
-			<section>
-				<h3>Inter connection with Proxy Servient</h3>
-				<p>Next, inner structure of a servient is explained based on the
-					structure of a proxy servient that connects a device servient and
-					application servient together.</p>
-				<p>A runtime in a proxy servient has both ExposedThing and
-					ConsumedThing functionality. A S-LCM, similar to that of an
-					application servient, obtains a TD of a device servient, and
-					creates a ConsumedThing. At the same time, a S-LCM creates a shadow
-					of the device as well as a TD for the shadow device where the
-					identifier is a new one and protocol bindings are appropriately
-					described to serve for the application. An ExposedThing is created
-					based on this TD, and a S-LCM notifies other servients of the TD.</p>
-				<figure id="simple-conf-application-proxy-device">
-					<img src="images/arch-simple-conf-application-proxy-device.png" />
-					<figcaption>Simple configuration with proxy</figcaption>
-				</figure>
-			</section>
-		</section>
 	</section>
 
 	<section id="sec-deployment-scenario" class="informative">
 		<h1>WoT Deployments</h1>
-
-		<p>In the previous sections, how WoT servients connect to each
-			other and their roles and basic behaviors were described based on two
-			simple structures; one with an application and a device, and the
-			other with a proxy connecting an application and a device together.
-			These simple structures can be used as is for use cases involving
-			relatively small numbers of devices. However, they are too simple per
-			se to describe those more complex uses cases where the number of
-			connected devices are not small, or devices are physically located in
-			multiple remote sites. This section illustrates more advanced
-			structures that can be applied to those non-simple use cases.</p>
 
 		<p>This section defines components that make a Web of Things
 			entity, clarifies each component’s functions, and then shows how a
 			web of Things as a whole works. The architecture described here is
 			derived from the Web of Things use cases as well as technical
 			requirements extracted from them.</p>
-
+		
+		<section id="sec-deployment-app-dev">
+			<h2>Client and Server on the same network</h2>
+			<p>A server creates an ExposedThing based on TD. It also advertises
+				a TD to other clients or servients, or provides them with a TD upon
+				request. The server's functions are usually implemented as
+				hardware, and those functions are accessible through its firmware.
+				An ExposedThing's abstract interface is translated into hardware
+				commands inside the server. On the other hands, the client obtains TDs 
+				by getting one from location advertised by other servers or servients or
+				requesting them of TDs, and creates a ConsumedThing
+				based on the obtained TD. Functions of a client are
+				usually implemented as an application. The abstract interface of a
+				ConsumedThing is provided as a programming language (such as
+				JavaScript) interface, and the application achieves its functions
+				by using this interface.</p>
+			<figure id="simple-conf-application-device">
+				<img src="images/arch-simple-conf-application-device.png" />
+				<figcaption>Appliction and Device on the same network</figcaption>
+			</figure>
+		</section>
+		<section id="sec-deployment-app-proxy-dev">
+			<h2>Integration with Servient</h2>
+			<p>A runtime in a servient has both ExposedThing and
+				ConsumedThing functionality. The servient obtains a TD of a device servient, and
+				creates a ConsumedThing. At the same time, it creates a shadow
+				of the device as well as a TD for the shadow device where the
+				identifier is a new one and protocol bindings are appropriately
+				described to serve for the client. An ExposedThing is created
+				based on this TD, and the server notifies other clients or servients of the TD.</p>
+			<figure id="simple-conf-application-proxy-device">
+				<img src="images/arch-simple-conf-application-proxy-device.png" />
+				<figcaption>Application and Device connect with Proxy</figcaption>
+			</figure>
+		</section>
+		
 		<section id="sec-deployment-cloud-rm">
 			<h2>Devices in a Local Network Controlled from a Cloud</h2>
 			<p>In smart home cloud service use cases, sensors and home
@@ -2557,80 +2524,80 @@ a[href].internalDFN {
 				only if the communication successfully goes through the firewall.</p>
 			<p>The figure below shows a typical structure that is adopted in
 				ITU-T Recommendation Y.2070. As described in previous sections, a
-				proxy can aggregate multiple device servients into common
-				ExposedThing(s), and provide the applications with a simple access
-				interface. For example, even when the connected devices each uses a
+				servient can aggregate multiple servers into common
+				ExposedThing(s), and provide the clients with a simple access
+				interface. For example, even when the connected servers each uses a
 				different protocol such as REST, WebSocket and CoAP, the
 				ExposedThing can converge them into a single protocol so that
-				applications do not need to be aware of the various protocols the
-				devices use. In the figure, there are two applications connected to
-				a proxy. Those applications use a single protocol (e.g. REST) to
-				communicate with the proxy, which makes the development of an
-				application much simpler.</p>
-			<p>There is a firewall between applications and devices. There is
-				a proxy on each side of the firewall; one in the home network and
-				the other in the internet. These two proxies work together to tunnel
-				all communications to go through the firewall. The local proxy which
-				is on the home network side aggregates all connected devices, and
-				the remote proxy on the internet side aggregates the applications.
-				Applications and devices need to know nothing about the firewall.</p>
+				clients do not need to be aware of the various protocols the
+				servers use. In the figure, there are two clients connected to
+				a servient. Those clients use a single protocol (e.g. REST) to
+				communicate with the servient, which makes the development of an
+				client much simpler.</p>
+			<p>There is a firewall between clients and servers. There is
+				a servient on each side of the firewall; one in the home network and
+				the other in the internet. These two servients work together to tunnel
+				all communications to go through the firewall. The local servient which
+				is on the home network side aggregates all connected servers, and
+				the remote servient on the internet side aggregates the clients.
+				Clients and servers need to know nothing about the firewall.</p>
 			<figure id="deployment-cloud-device">
-				<img src="images/arch-deploy-cloud-device-alt.png" />
-				<figcaption>TODO: ADD A CAPTION</figcaption>
+				<img src="images/arch-deploy-cloud-device.png" />
+				<figcaption>Cloud appllications controls local devices</figcaption>
 			</figure>
-			<p>Note: An example structure adopted in ITU-T Recommendation
-				Y.2070</p>
+		</section>
+		<section id="sec-deployment-discovery-with-directory-rm">
+			<h2>Discovery using with Thing Directory</h2>
+			<p>Once servers can be monitored or operated by clients on cloud, a variety of 
+				services can be built on top of that. For
+				example, a client can change a server’s operating
+				condition based on analysis of collected data. When the remote servient
+				is a part of a cloud platform servicing clients, an client
+				needs to be able to find server information by, for example,
+				accessing a directory of connected servers. In the figure below,
+				information of all servers connected to the remote servient via a local
+				servient is registered in a directory. A client needs to obtain
+				the information of the server(s) that it needs to communicate with
+				to achieve its client functionality. It can do so by querying
+				the directory of server information.</p>
+			<figure id="deployment-cloud-directory">
+				<img src="images/arch-deploy-service-directory.png" />
+				<figcaption>Cloud service with directory</figcaption>
+			</figure>
 		</section>
 		<section id="sec-deployment-service-to-service-rm">
 			<h2>Service-to-Service connections across multiple Domains</h2>
-			<p>Once devices can be monitored or operated by cloud
-				applications, a variety of services can be built on top of that. For
-				example, a cloud application can change a device’s operating
-				condition based on analysis of collected data. When the remote proxy
-				is a part of a cloud platform servicing applications, an application
-				needs to be able to find device information by, for example,
-				accessing a directory of connected devices. In the figure below,
-				information of all devices connected to the remote proxy via a local
-				proxy is registered in a directory. An application needs to obtain
-				the information of the device(s) that it needs to communicate with
-				to achieve its application functionality. It can do so by querying
-				the directory of device information.</p>
-			<figure id="deployment-cloud-directory">
-				<img src="images/arch-deploy-service-directory-alt.png" />
-				<figcaption>Cloud service with directory</figcaption>
-			</figure>
 			<p>Multiple cloud eco-systems each based on a different platform
 				can work together to make a larger, systems-of-systems eco-system.
 				Built on the previously discussed structure of a cloud application
 				eco-system, the figure below shows two eco-systems connected each
-				other to make a system-of-systems. Consider a case in which an
-				application servient in one eco-system (i.e. Application Servient A
-				in below) uses a device servient in another eco-system (i.e. Device
-				Servient B in below). There are more than one mechanisms to achieve
-				this cross eco-systems application-device integration. Below, two
-				mechanisms of doing this are explained each using a figure to help
-				understand how it can be achieved.</p>
+				other to make a system-of-systems. Consider a case in which a
+				client in one eco-system (i.e. Client A in below) uses a server 
+				in another eco-system (i.e. Server B in below). There are more than 
+				one mechanisms to achieve this cross eco-systems application-device 
+				integration. Below, two mechanisms of doing this are explained each 
+				using a figure to help understand how it can be achieved.</p>
 			<p>In the first figure below, two directories synchronize device
 				information, which makes it possible for Application Servient A to
-				obtain the information of Device Servient B through thing directory
-				A. As described in previous sections, Remote Proxy Servient B holds
-				a shadow device of Device servient B. By obtaining the TD of this
-				shadow device, Application servient A is able to use Device Servient
-				B through the shadow device on Remote Proxy Servient B.</p>
+				obtain the information of Server B through Thing Directory
+				A. As described in previous sections, Remote Servient B holds
+				a shadow device of Server B. By obtaining the TD of this
+				shadow device, Client A is able to use Server B through the shadow 
+				device on Remote Servient B.</p>
 			<figure id="deployment-service-sync-directory">
-				<img src="images/arch-deploy-service-sync-directory-alt.png" />
+				<img src="images/arch-deploy-service-sync-directory.png" />
 				<figcaption>Multiple cloud connect through directory
 					synchronization</figcaption>
 			</figure>
-			<p>In the second figure below, two remote proxy servients
-				synchronize device information. When a shadow of Device Servient B
-				is created in Remote proxy servient B, the shadow’s TD is
-				simultaneously synchronized into Remote proxy servient A. Remote
-				proxy servient A in turn creates its own shadow of Device servient
-				B, and registers the TD with the thing directory A. With this
-				mechanism, synchronization between TD directories is not necessary.</p>
+			<p>In the second figure below, two remote servients
+				synchronize device information. When a shadow of Server B
+				is created in Remote servient B, the shadow’s TD is
+				simultaneously synchronized into Remote servient A. Remote
+				servient A in turn creates its own shadow of Server B, and registers 
+				the TD with the thing directory A. With this mechanism, synchronization 
+				between Thing Directories is not necessary.</p>
 			<figure id="deployment-service-sync-proxy">
-				<img src="images/arch-deploy-service-sync-proxy-alt.png" />
+				<img src="images/arch-deploy-service-sync-proxy.png" />
 				<figcaption>Multiple cloud connect through proxy
 					synchronization</figcaption>
 			</figure>
