@@ -71,7 +71,7 @@ Instead, an "abstract data type" is used in the WoT Protocol Bindings
 to implement security operations such as authentication
 without revealing such private security data to WoT Applications.
 
-## Does this specification introduce new state for an origin that persists across browsing sessions? 
+### Does this specification introduce new state for an origin that persists across browsing sessions? 
 
 This is not a browser-oriented specification although
 WoT Things can be accessed through browsers as if they
@@ -86,7 +86,7 @@ multiple WoT Runtimes.  However, there is noi explicit mechanism
 for sharing state between such instances, and each instance
 can be considered a single origin.
 
-## Does this specification expose persistent, cross-origin state to the web? 
+### Does this specification expose persistent, cross-origin state to the web? 
 
 A WoT Thing may act as a server and expose interactions that 
 allow properties to be modified.  Therefore modifications by
@@ -103,7 +103,7 @@ and is related to the PII risk discussed above.
 This can be mitigated by controlling access to WoT metadata
 such as WoT Thing Descriptions.
 
-## Does this specification expose any other data to an origin that it doesn’t currently have access to?
+### Does this specification expose any other data to an origin that it doesn’t currently have access to?
 
 Yes.
 
@@ -129,7 +129,7 @@ This risk is mitigated by the fact that endpoint IoT devices
 are generally not exposed directly on the internet, but
 are mediated by gateways and cloud services.
 
-## Does this specification enable new script execution/loading mechanisms? 
+### Does this specification enable new script execution/loading mechanisms? 
 
 Yes.  It enables WoT Things to run applications based
 on ECMAScript, using a constrained API, and with suitable
@@ -144,7 +144,7 @@ of the device and installed using a suitable OTA update
 mechanism; but this update mechanism is not defined in our
 architecture and is also currently considered to be out of scope.
 
-## Does this specification allow an origin access to a user’s location?
+### Does this specification allow an origin access to a user’s location?
 
 As noted above in the PII response, in theory a device
 location could be encoded in a WoT Thing Description using
@@ -167,7 +167,7 @@ determine whether the device returns location information,
 assuming the manufacturer has not obfuscated the purpose
 of interactions.  
 
-## Does this specification allow an origin access to sensors on a user’s device?
+### Does this specification allow an origin access to sensors on a user’s device?
 
 Yes.  Many other sensors can be attached to an IoT 
 device and we do not constrain these in any way.
@@ -183,7 +183,7 @@ supported by a device can be easily inspected and,
 via semantic annotations, the type of data provided
 by the device can be determined.
 
-## Does this specification allow an origin access to aspects of a user’s local computing environment?
+### Does this specification allow an origin access to aspects of a user’s local computing environment?
 
 No.  Actually, there is no executable content
 included in data or metadata provided by WoT Things.
@@ -191,7 +191,7 @@ The only operations that a WoT Server will perform
 on behalf of a WoT Client are those that it chooses
 to support via its exposed interactions (network API).
 
-## Does this specification allow an origin access to other devices? 
+### Does this specification allow an origin access to other devices? 
 
 Yes, as discussed above.  A WoT Thing can act as a gateway to 
 other WoT Things or to other non-IP protocols.
@@ -202,7 +202,7 @@ would be the microservice architecture used by many web services.
 The WoT Architecture supports best practices there, such
 as Zero-Trust networks.
 
-## Does this specification allow an origin some measure of control over a user agent’s native UI? 
+### Does this specification allow an origin some measure of control over a user agent’s native UI? 
 
 No.  The WoT Architecture is M2M and makes no mention of direct
 user interfaces.
@@ -214,7 +214,7 @@ is at the discretion of individual device manufacturers,
 who should do an analysis of security risks as part of
 their software development process.
 
-## Does this specification expose temporary identifiers to the web?
+### Does this specification expose temporary identifiers to the web?
 
 The WoT Thing Description has a required element (not actually
 mentioned in the current document, the WoT Architecture, but
@@ -231,15 +231,15 @@ at least when the devices are reprovisioned.
 Generally, though, the identifiers in Thing Descriptions 
 are relatively long-lived.  
 
-## Does this specification distinguish between behavior in first-party and third-party contexts?
+### Does this specification distinguish between behavior in first-party and third-party contexts?
 
 This concept is not applicable to the WoT context.
 
-## How should this specification work in the context of a user agent’s "incognito" mode?
+### How should this specification work in the context of a user agent’s "incognito" mode?
 
 This concept is not applicable to the WoT context, as there is no user agent.
 
-## Does this specification persist data to a user’s local device? 
+### Does this specification persist data to a user’s local device? 
 
 Potentially, as a WoT Thing may include interactions that
 support POST requests.  IoT devices can act like web servers that 
@@ -249,7 +249,7 @@ Note that scripts cannot be sent, only data.  So devices
 always have local control over what data they retain.  WoT Things
 are never _forced_ to retain state and return it later.
 
-## Does this specification have a "Security Considerations" and "Privacy Considerations" section? 
+### Does this specification have a "Security Considerations" and "Privacy Considerations" section? 
 
 Yes, as explained above.
 This section in the WoT Architecture document is fairly high-level
@@ -257,7 +257,7 @@ however and meant to be a summary of the most important considerations.
 There are also sections in each WoT buliding block
 document and a more general document.
 
-## Does this specification allow downgrading default security characteristics? 
+### Does this specification allow downgrading default security characteristics? 
 
 No.  A WoT Thing Description describes what a WoT Thing does and
 requires, no more and no less. 
