@@ -25,7 +25,7 @@ For "new" devices written from scratch to conform to the WoT specifications,
 we define a set of 
 [WoT Security Best Practices](https://github.com/w3c/wot-security-best-practices)
 which will be updated as necessary (for example, as the WoT is extended to new
-IoT protocols or security schemes via its built-in extension mechansisms).
+IoT protocols or security schemes via its built-in extension mechanisms).
 In addition, we define a general security testing procedure for WoT implementations in the
 [WoT Security Testing Plan](https://github.com/w3c/wot-security-testing-plan).
 
@@ -39,7 +39,7 @@ with an owner, then it may be possible to infer information about the
 owner.  For example, if they have a baby monitor, they may have a baby,
 are probably in a certain age range, and so forth.
 
-The WoT Thing Description (TD) also allows extensibility via the inclusion
+The WoT Thing Description (TD) also allows extension via the inclusion
 of custom vocabularies.  Although the WoT standard itself does not
 have any requirement for PII, it is possible an extension might.  We
 consider this aspect of PII inclusion to be out of scope.
@@ -254,8 +254,8 @@ in the WoT Thing Description) which is meant to be a unique ID
 In fact, some domains, such as medical devices in the US,
 have a legal requirement to support immutable identifiers.
 
-However, we suggest that the tracking risk this poses shold
-be mitigated, whenever possible (eg if not legally disallowed
+However, we suggest that the tracking risk this poses should
+be mitigated, whenever possible (e.g. if not legally disallowed
 as discussed above) by allowing such identifiers to be modified
 at least when the devices are reprovisioned.
 
@@ -288,7 +288,7 @@ controls on interactions (which is strongly recommended for
 all personal devices) mitigates this issue.
 
 In the client role, a WoT Thing could be programmed to 
-retreive data provided by a server and then post it back to that
+retrieve data provided by a server and then post it back to that
 server later.  This could also be enabled by a webhook pattern.
 This can be mitigated by establishing a trust relationship
 and providing explicit access controls between any pair of
@@ -303,7 +303,7 @@ are never _forced_ to retain state and return it later.
 Yes, as explained above.
 This section in the WoT Architecture document is fairly high-level
 however and meant to be a summary of the most important considerations.
-There are also sections in each WoT buliding block
+There are also sections in each WoT building block
 document and a more general document.
 
 ### Does this specification allow downgrading default security characteristics? 
