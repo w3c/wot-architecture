@@ -90,6 +90,10 @@
 				publisher : "IEC",
 				date : "October 2015"
 			},
+			"iot-schema-org" : {
+				href : "https://iot.schema.org/",
+				title : "iot.schema.org"
+			},
 			"REST" : {
 				title : "REST: Architectural Styles and the Design of Network-based Software Architectures",
 				author : "Roy Thomas Fielding",
@@ -97,6 +101,18 @@
 				publisher : "University of California, Irvine",
 				date : "2000"
 			},
+			"SAREF" : {
+                                href : "https://sites.google.com/site/smartappliancesproject/ontologies/reference-ontology",
+				title : "Smart Appliances REFerence (SAREF) ontology",
+				publisher : "ETSI",
+				date : "November 2015"
+                        },
+                        "SSN" : {
+                                href : "https://www.w3.org/TR/vocab-ssn/",
+				title : "Semantic Sensor Ontology",
+				publisher : "W3C",
+				date : "October 2017"
+                        },
 			"HMI" : {
 				title : "The Encyclopedia of Human-Computer Interaction, 2nd Ed",
 				author : "Mads Soegaard, Rikke Friis Dam",
@@ -1951,8 +1967,11 @@ a					general metadata about the device, information models representing
                                 any particular domain-specific vocabulary is currently out-of-scope of
 				the W3C WoT standardization activity.
 			</p>
-			<p class="ednote">This document should point to iot.schema.org,
-				but would need a good reference.</p>
+			<p>Three examples of potentially useful external IoT vocabularies are SAREF [[?SAREF]],
+                        iot.schema.org [[?iot-schema-org]], and the W3C Semantic Sensor Network ontology [[?SSN]].
+                        Use of these vocabularies in TDs is optional.  In the future additional
+                        domain-specific vocabularies may be developed and used with TDs.
+                        </p>
 			<p>
 				Overall, the WoT Thing Description building block fosters
 				interoperability in two ways:
