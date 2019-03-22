@@ -19,7 +19,7 @@ Further details (optional):
   [Additional schedule details and constraints](https://www.w3.org/WoT/IG/wiki/Main_WoT_WebConf)
   
   
-  - [X] I have read and filled out the [Self-Review Questionnare on Security and Privacy](https://www.w3.org/TR/security-privacy-questionnaire/). The [assessment is here](https://github.com/w3c/wot-architecture/blob/master/proposals/WoT%20Architecture%20Security%20and%20Privacy.html).
+  - [X] I have read and filled out the [Self-Review Questionnare on Security and Privacy](https://www.w3.org/TR/security-privacy-questionnaire/). The [assessment is here](https://github.com/w3c/wot-architecture/blob/master/proposals/security_and_privacy.md).
   - [X] I have reviewed the TAG's [API Design Principles](https://w3ctag.github.io/design-principles/)
 
 You should also know that...
