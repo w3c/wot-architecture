@@ -2099,7 +2099,6 @@ a					general metadata about the device, information models representing
 		</section>
 		<section id="sec-security-guidelines" class="informative">
 			<h3>WoT Security and Privacy Guidelines</h3>
-			<em>This section is non-normative.</em>
 
                        <p>Security is a cross-cutting concern and should be considered in all aspects
                        of system design.
@@ -2599,29 +2598,32 @@ a					general metadata about the device, information models representing
 	</section>
 	<section id="sec-security-considerations" class="informative">
 		<h1>Security and Privacy Considerations</h1>
-
-		<p class="ednote">
-			This section will likely undergo significant revision and
-			reorganization. Please see the <a
-				href="https://github.com/w3c/wot-security/">WoT Security and
-				Privacy</a> repository for work in progress. In particular, the <a
-				href="https://github.com/w3c/wot-security/blob/master/wot-threat-model.md">WoT
-				Threat Model</a> defines the main WoT security stakeholders, assets,
-			attack surfaces, and threats.
+		<p>Security is a cross-cutting issue that needs to be taken into account
+		   in all <a href="#sec-building-blocks">WoT building blocks</a> and WoT implementations.
+                   This chapter summarizes some general issues and guidelines to
+                   help preserve the security and privacy of WoT implementations.
+                   For a more detailed and complete analysis of security and privacy
+                   threats, risks, mitigations, and best practices, see
+	      	   the WoT Security and Privacy Considerations [[?WOT-SECURITY-CONSIDERATIONS]]
+                   and
+		   the WoT Security Best Practices [[?WOT-SECURITY-BEST-PRACTICES]]
+                   documents.
+                   Guidelines for the security testing of WoT implementations,
+                   including adversarial testing, are given in
+	           the WoT Security Testing Plan [[?WOT-SECURITY-TESTING-PLAN]].
 		</p>
-		<p>The functional WoT architecture should enable the use of best
-			practices in security and privacy. Generally, the WoT security
+                   Overall, the goal of the WoT is to describe the
+		   existing access mechanisms and properties of IoT devices and services,
+                   including security. 
+                   In general, 
+                   W3C WoT is designed to describe what exists rather than to prescribe what to implement.</p>
+                <p>
+		   However, the WoT architecture should <em>enable</em> the use of best
+			practices in security and privacy. The WoT security
 			architecture must support the goals and mechanisms of the IoT
 			protocols and systems it connects to. These systems vary in their
 			security requirements and risk tolerance, so security mechanisms will
-			also vary based on these factors. However, the WoT architecture needs
-			to do no harm: it should support security and privacy at least as
-			well as the systems it connects to.</p>
-		<p>Security means the system should preserve its integrity and
-			functionality even when subject to attack. Privacy means that the
-			system should maintain the confidentiality of personally identifiable
-			information. In general, security and privacy cannot be guaranteed
-			but the WoT architecture should support best practices.</p>
+			also vary based on these factors.</p>
 		<p>Security and privacy are especially important in the IoT domain
 			since IoT devices need to operate autonomously and in many cases have
 			access to both personal data and/or can be in control of
@@ -2629,151 +2631,213 @@ a					general metadata about the device, information models representing
 			are subject to different and in some cases higher risks than IT
 			systems. It is also important to protect IoT systems so that they can
 			not be used to launch attacks on other computer systems.</p>
-		<p class="ednote">
-			Security and privacy considerations are still under discussion and
-			development; the content below should be considered preliminary. Due
-			to the complexity of the subject we are considering producing a
-			separate document containing a detailed security and privacy
-			considerations discussion including a risk analysis, threat model,
-			recommended mitigations, and appropriate references to best
-			practices. A summary will be included here. Work in progress is
-			located in the <a href="https://github.com/w3c/wot-security/">WoT
-				Security and Privacy</a> repository. Please file any security or privacy
-			considerations and/or concerns using the <a
-				href="https://github.com/w3c/wot-security/issues">GitHub Issue</a>
-			feature.
-		</p>
-		<p>
-			<!-- Security requirements for the the WoT -->
-			Security is a cross-cutting issue that needs to be taken into account
-			in all <a href="#sec-building-blocks">WoT building blocks</a> . The
-			W3C WoT does not define any new security mechanisms, but provides
-			guidelines to apply the best practices from Web security, IoT
-			security, and information security for general software and hardware
-			considerations.
-		</p>
-		<p>
-			The <a>WoT Thing Description</a> must be used together with integrity
-			protection mechanisms and access control policies. Users must ensure
-			that no sensitive information is included in the <a>TDs</a>
-			themselves.
-		</p>
-		<p>
-			The <a>WoT Binding Templates</a> must correctly cover the security
-			mechanisms employed by the underlying <a>IoT Platform</a> . Due to
-			the automation of network interactions necessary in the IoT,
+                <p>In general, security and privacy cannot be guaranteed.
+                    It is not possible for the WoT to turn an insecure system into a secure one.
+                    Specifically, the WoT architecture needs
+			to do no harm: it should support security and privacy at least as
+			well as the systems it connects to.</p>
+		<section id="sec-security-consideration-definitions">
+		   <h2>Definitions</h2>
+                   <dl>
+		   <dt>Security</dt><dd>means a system should preserve its integrity and
+			functionality even when subject to attack.</dd>
+                   <dt>Personally Identifiable Information (PII)</dt><dd>means information that can
+                        be associated with a unique individual.</dd>
+                   <dt>Privacy</dt><dd>means that the
+			system should maintain the confidentiality of personally identifiable
+			information.
+                   </dl>
+                </section>
+		<section id="sec-security-consideration-td-risks">
+			<h2>WoT Thing Description Risks</h2>
+                   <p>The metadata contained in a <a>WoT Thing Description</a> (TD) is potentially sensitive.
+                   As a best practice, TDs should be used together with integrity
+		   protection mechanisms and access control policies, and should be provided
+                   only to authorized users.
+                   </p>
+                   <p>Please refer to the Security and Privacy Consideration section of the 
+                   WoT Thing Description specification for additional details and discussion.
+                   </p>
+                   <section id="sec-security-consideration-td-private">
+			<h5>Thing Description Private Security Data Risk</h5>
+		        <p>TDs are designed to carry only public security data.
+                        Producers of TDs must ensure that no private security information is included in <a>TDs</a>.
+                        There should be a strict separation of 
+                        public and private security data.
+                        A TD should contain only public security
+                        information, letting users know what they need to do to access as
+                        system if and only if they have authorization.  Authorization in turn
+                        should be based on separately managed private information.
+                        </p>
+                        <p>The built-in TD security schemes defined in the TD specification
+                        do not support the encoding of private security data.
+                        However, other fields such as human-readable descriptions might be used
+                        (incorrectly...) to encode this information, or new security schemes
+                        might be defined and deployed via the extension mechanism that encode such
+                        information.  
+                        </p>
+			<dl>
+			<dt>Mitigation:</dt>
+			<dd>TD producers must ensure that no private security data is ever stored
+                        in TDs.</dd>
+			</dl>
+                   </section>
+                   <section id="sec-security-consideration-td-pii">
+			<h5>Thing Description Personally Identifiable Information Risk</h5>
+                        <p>Thing descriptions can potentially contain personally identifiable information
+                        of various types.  Even if it is not explicit, the presence of 
+                        semantic information in a TD and its association with a person can be used
+                        to infer information about that person.  
+                        For example, the association of uniquely identifiable TDs exposed by mobile devices
+                        whose location can be determined can be a tracking risk.
+                        </p>
+                        <p>Generally, personally identifiable information in a TD should be limited 
+                        as much as possible.  In some cases, however, it cannot be avoided.
+                        The potential presence of PII in a TD means that TD should be treated like
+                        other forms of PII.  They should be stored and transmitted in a secure
+                        fashion, should only be cached for limited times, should be
+                        deleted upon request, should only be used for the purpose for which they
+                        were provided with user consent, and they should otherwise satisfy local
+                        requirements for the use of PII.
+		        </p>
+			<dl>
+			<dt>Mitigation:</dt>
+			<dd>Storage of PII in TDs should be minimized as much as possible.
+                        Even without explicit PII in TDs, a tracking and identification privacy risk may exist.
+                        To minimize this risk, TDs should be treated as if they contained
+                        PII and subject to the same management policies as other PII.
+                        They should only be provided to authorized users.
+                        </dd>
+			</dl>
+                    </section>
+                    <section id="sec-security-consideration-td-cm">
+			<h5>Thing Description Communication Metadata Risk</h5>
+		        <p>The <a>WoT Binding Templates</a> 
+                        must correctly support the security
+			mechanisms employed by the underlying <a>IoT Platform</a> for that
+                        platform to be considered eligible for use with WoT.
+                        Due to the automation of network interactions necessary to deploy IoT at scale,
 			operators need to ensure that <a>Things</a> are exposed and consumed
 			in a way that is compliant with their security policies.
-		</p>
-		<section id="sec-security-consideration-runtime-risks">
-			<h2>WoT Runtime Security and Privacy Risks</h2>
-			<p>
-				The <a>WoT Runtime</a> implementation for the <a>WoT Scripting
-					API</a> must at least have mechanisms to prevent malicious access to
-				the system and isolate scripts in multi-tenant <a>Servients</a> .
-				More specifically the <a>WoT Runtime</a> implementation for the <a>WoT
-					Scripting API</a> should take into account the below security and
-				privacy risks and implement the recommended mitigations.
+		        </p>
+			<dl>
+			<dt>Mitigation:</dt>
+			<dd>Whenever possible, use the vetted communication metadata
+                        provided in the <a>WoT Binding Templates</a>.  
+                        When using a TD for an IoT ecosystem not covered by the 
+                        <a>WoT Binding Templates</a>, ensure that all the security requirements
+                        of the <a>IoT Platform</a> are satisfied.
+                        </dd>
+			</dl>
+                    </section>
+                </section>
+		<section id="sec-security-consideration-scripting-risks">
+			<h2>WoT Scripting API Security and Privacy Risks</h2>
+			<p>The <a>WoT Runtime</a> implementation and the <a>WoT Scripting API</a> 
+                        should have mechanisms to prevent malicious access to
+			the system and isolate scripts in multi-tenant <a>Servients</a> .
+			More specifically the <a>WoT Runtime</a> implementation when used with the 
+                        <a>WoT Scripting API</a> should take into account the below security and
+			privacy risks and implement the recommended mitigations.
 			</p>
 			<section id="sec-security-consideration-cross-script">
 				<h5>Cross-Script Security and Privacy Risk</h5>
-				<p>
-					In basic WoT setups, all scripts running inside the <a>WoT
-						Runtime</a> are considered trusted, and therefore there is no strong
-					need to perform strict isolation between each running script
-					instance. However, depending on device capabilities and deployment
-					use case scenario risk level it might be desirable to do so. For
-					example, if one script handles sensitive privacy-related data and
-					well-audited, it might be desirable to separate it from the rest of
-					the script instances to minimize the risk of data exposure in case
-					some other script inside WoT gets compromised during runtime.
-					Another example is mutual co-existence of different tenants on a
-					single WoT device. In this case each WoT runtime instance will be
-					hosting a different tenant, and isolation between them is required.
+				<p>In basic WoT setups, all scripts running inside the <a>WoT Runtime</a>
+                                are considered trusted, distributed by the manufacturer,
+                                and therefore there is no strong need to perform strict isolation between each running script
+				instance. However, depending on device capabilities, deployment
+				use case scenarios, and risk level it might be desirable to do so.
+                                For example, if one script handles sensitive privacy-related PII data and
+				is well-audited, it might be desirable to separate it from the rest of
+				the script instances to minimize the risk of data exposure in case
+				some other script inside WoT gets compromised during runtime.
+				Another example is mutual co-existence of different tenants on a
+				single WoT device. In this case each WoT runtime instance will be
+				hosting a different tenant, and isolation between them is required.
 				</p>
 				<dl>
-					<dt>Mitigation:</dt>
-					<dd>
-						The WoT runtime should perform isolation of script instances and
-						their data in cases when scripts handle privacy-related or other
-						critical security data. Similarly, the <a>WoT Runtime</a>
-						implementation should perform isolation of <a>WoT Runtime</a>
-						instances and their data if a WoT device has more than one tenant.
-						Such isolation can be performed within the <a>WoT Runtime</a>
-						using platform security mechanisms available on the device. For
-						more information see Sections "WoT Servient Single-Tenant" and
-						"WoT Servient Multi-Tenant" of [[WOT-SECURITY-CONSIDERATIONS#]].
-					</dd>
+				<dt>Mitigation:</dt>
+				<dd>The WoT runtime should perform isolation of script instances and
+				their data in cases when scripts handle privacy-related or other
+				critical security data. Similarly, the <a>WoT Runtime</a>
+				implementation should perform isolation of <a>WoT Runtime</a>
+				instances and their data if a WoT device has more than one tenant.
+				Such isolation can be performed within the <a>WoT Runtime</a>
+				using platform security mechanisms available on the device. For
+				more information see Sections "WoT Servient Single-Tenant" and
+				"WoT Servient Multi-Tenant" of [[WOT-SECURITY-CONSIDERATIONS#]].</dd>
 				</dl>
 			</section>
 			<section id="sec-security-consideration-device-direct-access">
 				<h5>Physical Device Direct Access Security and Privacy Risk</h5>
 				<p>In case a script is compromised or misbehaving, the
-					underlying physical device (and potentially surrounded environment)
-					can be damaged if a script can use directly exposed native device
-					interfaces. If such interfaces lack safety checks on their inputs,
-					they might bring the underlying physical device (or environment) to
-					an unsafe state (i.e. device overheats and explodes).</p>
+				underlying physical device (and potentially surrounded environment)
+				can be damaged if a script can use directly exposed native device
+				interfaces. If such interfaces lack safety checks on their inputs,
+				they might bring the underlying physical device (or environment) to
+				an unsafe state.</p>
 				<dl>
-					<dt>Mitigation:</dt>
-					<dd>
-						The <a>WoT Runtime</a> should avoid directly exposing the native
-						device interfaces to the script developers. Instead a <a>WoT
-							Runtime</a> implementation should provide a hardware abstraction
-						layer for accessing the native device interfaces. Such hardware
-						abstraction layer should refuse to execute commands that might put
-						the device (or environment) to an unsafe state. Additionally, in
-						order to reduce the damage to a physical WoT device in cases a
-						script gets compromised, it is important to minimize the number of
-						interfaces that are exposed or accessible to a particular script
-						based on its functionality.
-					</dd>
+				<dt>Mitigation:</dt>
+				<dd>The <a>WoT Runtime</a> should avoid directly exposing the native
+				device interfaces to the script developers.
+                                Instead a <a>WoT Runtime</a> implementation should provide a hardware abstraction
+				layer for accessing the native device interfaces. Such hardware
+				abstraction layer should refuse to execute commands that might put
+				the device (or environment) to an unsafe state. Additionally, in
+				order to reduce the damage to a physical WoT device in cases a
+				script gets compromised, it is important to minimize the number of
+				interfaces that are exposed or accessible to a particular script
+				based on its functionality.
+				</dd>
 				</dl>
 			</section>
+		</section>
+		<section id="sec-security-consideration-runtime-risks">
+			<h2>WoT Runtime Security and Privacy Risks</h2>
 			<section id="sec-security-consideration-update-provisioning">
 				<h5>Provisioning and Update Security Risk</h5>
-				<p>
-					If the <a>WoT Runtime</a> implementation supports
-					post-manufacturing provisioning or updates of itself, WoT scripts,
-					or any related data (including security credentials), it can be a
-					major attack vector. An attacker can try to modify any above
-					described element during the update or provisioning process or
-					simply provision attacker's code and data directly.
+				<p>If the <a>WoT Runtime</a> implementation supports
+				post-manufacturing provisioning or updates of itself, WoT scripts,
+				or any related data (including security credentials), it can be a
+				major attack vector. An attacker can try to modify any above
+				described element during the update or provisioning process or
+				simply provision attacker's code and data directly.
 				</p>
 				<dl>
-					<dt>Mitigation:</dt>
-					<dd>
-						Post-manufacturing provisioning or update of scripts, the <a>WoT
-							Runtime</a> itself or any related data should be done in a secure
-						fashion. A set of recommendations for secure update and
-						post-manufacturing provisioning can be found in
-						[[WOT-SECURITY-CONSIDERATIONS]].
-					</dd>
+				<dt>Mitigation:</dt>
+				<dd>Post-manufacturing provisioning or update of scripts, 
+                                the <a>WoT Runtime</a> itself or any related data should be done 
+                                in a secure fashion. A set of recommendations for secure update and
+				post-manufacturing provisioning can be found in
+				[[WOT-SECURITY-CONSIDERATIONS]].
+				</dd>
 				</dl>
 			</section>
 			<section id="sec-security-consideration-credentials-storage">
 				<h5>Security Credentials Storage Security and Privacy Risk</h5>
-				<p>
-					Typically the <a>WoT Runtime</a> needs to store the security
-					credentials that are provisioned to a WoT device to operate in WoT
-					network. If an attacker can compromise the confidentiality or
-					integrity of these credentials, then it can obtain access to the
-					WoT assets, impersonate WoT things or devices or create
-					Denial-Of-Service (DoS) attacks.
+				<p>Typically the <a>WoT Runtime</a> needs to store the security
+				credentials that are provisioned to a WoT device to operate in WoT
+				network.
+                                If an attacker can compromise the confidentiality or
+				integrity of these credentials, then it can obtain access to the
+				WoT assets, impersonate WoT things or devices or create
+				Denial-Of-Service (DoS) attacks.
 				</p>
 				<dl>
-					<dt>Mitigation:</dt>
-					<dd>
-						The <a>WoT Runtime</a> should securely store the provisioned
-						security credentials, guaranteeing their integrity and
-						confidentiality. In case there are more than one tenant on a
-						single WoT-enabled device, a <a>WoT Runtime</a> implementation
-						should guarantee isolation of each tenant provisioned security
-						credentials. Additionally, in order to minimize a risk that
-						provisioned security credentials get compromised, the <a>WoT
-							Runtime</a> implementation should not expose any API for scripts to
-						query the provisioned security credentials.
-					</dd>
+				<dt>Mitigation:</dt>
+				<dd>The <a>WoT Runtime</a> should securely store any provisioned
+				security credentials, guaranteeing their integrity and
+				confidentiality. In case there are more than one tenant on a
+				single WoT-enabled device, a <a>WoT Runtime</a> implementation
+				should guarantee isolation of each tenant's provisioned security
+				credentials. Additionally, in order to minimize a risk that
+				provisioned security credentials get compromised, the <a>WoT
+				Runtime</a> implementation should not expose any API for scripts to
+				query the provisioned security credentials.
+                                Such credentials (or event better, abstract operations that use them
+                                but do not expose them) should only be accessible to the <a>Protocol
+                                Binding</a> implementation that uses them.
+			        </dd>
 				</dl>
 			</section>
 		</section>
