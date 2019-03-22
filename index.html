@@ -1851,7 +1851,11 @@ a					general metadata about the device, information models representing
                         particular implementation.
 		<figure id="arch-building-blocks">
 			<img src="images/wot-building-blocks-abstract.png" />
-			<figcaption>WoT Building Blocks and an Abstract Thing</figcaption>
+			<figcaption>WoT Building Blocks (highlighted with black outlines) and an abstract Thing,
+                        showing the relationship between the building blocks and the main architectural aspects of a Thing.
+                        Security, a cross-cutting concern, and is separated into public and protected private components.
+                        The WoT Scripting API is optional and the Binding Templates are informative.
+                        </figcaption>
 		</figure>
 		<p>The WoT Thing Description contains metadata describing the
 			interaction affordances of the Thing, 
@@ -2105,10 +2109,6 @@ a					general metadata about the device, information models representing
 	<section id="servient-implementation" class="informative">
 		<h1>Servient Implementation</h1>
 		<p>
-			<em>This section describes an implementation and is
-				non-normative.</em>
-		</p>
-		<p>
 			A <a>Servient</a> is a software stack that implements the WoT
 			building blocks presented in the previous section. <a>Servients</a>
 			can host and expose <a>Things</a> and/or consume <a>Things</a>. Thus,
@@ -2122,8 +2122,8 @@ a					general metadata about the device, information models representing
                         When implementing these concepts, a more detailed view is necessary that
 			takes certain technical aspects into account. The detailed
 			architecture of a <a>Servient</a> implementation 
-                        using the (optional) WoT Scripting API is shown in <a
-				href="#architecture-implementation"></a>.
+                        using the (optional) <a>WoT Scripting API</a> is shown in <a
+			href="#architecture-implementation"></a>.
 		</p>
 		<figure id="architecture-implementation">
 <!--
@@ -2132,7 +2132,14 @@ a					general metadata about the device, information models representing
 -->
 			<img src="images/wot-thing-scripting.png"
 				style="width: 640px;" />
-			<figcaption>Implementation View of a Servient using the Scripting API</figcaption>
+			<figcaption>Implementation view of a Servient using the optional WoT Scripting API.
+                         Scripts are actually executed by a nested Scripting Runtime, while WoT-specific
+                         Servient Implementation aspects are managed by the WoT Runtime.
+                         ConsumedThing and ExposedThing objects provide abstract interfaces to the
+                         Things described in related Thing Descriptions.  Scripts can operate on Things
+                         using these abstractions by performing abstract Interactions while the Protocol Binding
+                         is managed automatically by the WoT Runtime.
+                        </figcaption>
 		</figure>
 		<p>
 			The role and functionality of each additional module shown in <a
@@ -2244,6 +2251,14 @@ a					general metadata about the device, information models representing
                                 and available <a>Protocol Bindings</a> (e.g.,
 				implemented <a>WoT Binding Templates</a>).
 			</p>
+		</section>
+		<section>
+			<h2>Scripting Runtime</h2>
+		        <p>
+                        When the <a>WoT Scripting API</a> is used an additional nested <a>Scripting Runtime</a>
+                        is needed, which is a language runtime to actually manage and execute scripts.
+                        The <a>Scripting Runtime</a> runs inside of but is distinct from the <a>WoT Runtime</a>.
+		        </p>
 		</section>
 		<section>
 			<h2>Life Cycle Management</h2>
