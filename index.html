@@ -1245,6 +1245,9 @@ a[href].internalDFN {
                     <li>WoT architecture should allow to use
                         multiple payload formats which are commonly used
                         in the web.</li>
+                    <li>WoT architecture must enable different device 
+                        architectures and must not force a client or server 
+                        implementation of system components.</li>
                     <li>Flexibility
                         <p>There are a wide variety of physical
                             device configurations for WoT
@@ -1302,8 +1305,6 @@ a[href].internalDFN {
                                 unsubscribing to event notifications 
                                 that are more general than just reports 
                                 of state transitions.
-                                <p class="ednote">Need to clarify
-                                    this requirement</p>
                             </li>
                         </ul>
                     </li>
@@ -1448,11 +1449,11 @@ a[href].internalDFN {
                 <h3>Components consisting Web of Things and the Web
                     of Things architecture</h3>
                 <p>The use cases help to identify basic components
-                    such as devices, applications that access and
+                    such as devices, WoT clients and applications, that access and
                     control those devices, proxies (i.e. gateways and
-                    edge devices) that are located between devices and
-                    applications to link them togetheran directories
-                    that provide device search functionality.</p>
+                    edge devices) that are located between devices.
+                    Additional components are thing directories,
+                    that provide search functionality.</p>
                 <p>Those components are connected to the internet or
                     field networks in offices, factories or other
                     facilities. Note that all components involved may be
@@ -1498,10 +1499,10 @@ a[href].internalDFN {
             <section>
                 <h3>Applications</h3>
                 <p>Applications need to generate and utilize program
-                    interfaces that are internally based on device
-                    descriptions (i.e. TD).</p>
-                <p>Applications have to be able to obtain device
-                    descriptions (i.e. TD) through the network,
+                    interfaces that are internally based on thing
+                    descriptions (TDs).</p>
+                <p>Applications have to be able to obtain these thing
+                    descriptions through the network,
                     therefore, need to be able to conduct search
                     operations and acquire the necessary TD over the
                     network.</p>
@@ -1509,7 +1510,7 @@ a[href].internalDFN {
             <section>
                 <h3>Digital Twins</h3>
                 <p>Digital Twins need to generate program interfaces
-                    internally based on device descriptions (i.e. TD),
+                    internally based on thing descriptions (TDs),
                     and to represent virtual devices by using those
                     program interfaces. A twin has to produce a TD for
                     the virtual device and make it externally available.</p>
