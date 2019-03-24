@@ -1429,9 +1429,10 @@ a[href].internalDFN {
                         translation, which follow RESTful architecture.</li>
                         
                     <li>WoT architecture must not enforce client or server 
-                        roles on devices and services. Devices can
-                        be clients that communicate with servers which are 
-                        hosting digital twins or virtual things.
+                        roles on devices and services. 
+                        An IoT device can be either a client or a server, 
+                        or both, depending on the system architecture; 
+                        the same is true of edge and cloud services.
                 </ul>
             </section>
         </section>
@@ -1449,11 +1450,11 @@ a[href].internalDFN {
                 <h3>Components consisting Web of Things and the Web
                     of Things architecture</h3>
                 <p>The use cases help to identify basic components
-                    such as devices, WoT clients and applications, that access and
+                    such as devices and applications, that access and
                     control those devices, proxies (i.e. gateways and
                     edge devices) that are located between devices.
-                    Additional components are thing directories,
-                    that provide search functionality.</p>
+                    An additional component useful in some use cases 
+                    is the directory, which assists with discovery.</p>
                 <p>Those components are connected to the internet or
                     field networks in offices, factories or other
                     facilities. Note that all components involved may be
@@ -1498,21 +1499,20 @@ a[href].internalDFN {
             </section>
             <section>
                 <h3>Applications</h3>
-                <p>Applications need to generate and utilize program
-                    interfaces that are internally based on thing
-                    descriptions (TDs).</p>
-                <p>Applications have to be able to obtain these thing
+                <p>Applications need to be able to generate and use network 
+                    and program interfaces based on metadata (descriptions).</p>
+                <p>Applications have to be able to obtain these 
                     descriptions through the network,
                     therefore, need to be able to conduct search
-                    operations and acquire the necessary TD over the
+                    operations and acquire the necessary descriptions over the
                     network.</p>
             </section>
             <section>
                 <h3>Digital Twins</h3>
                 <p>Digital Twins need to generate program interfaces
-                    internally based on thing descriptions (TDs),
+                    internally based on metadata (descriptions),
                     and to represent virtual devices by using those
-                    program interfaces. A twin has to produce a TD for
+                    program interfaces. A twin has to produce a description for
                     the virtual device and make it externally available.</p>
                 <p>Identifiers of virtual devices need to be newly
                     assigned, therefore, are different from the original
@@ -1521,10 +1521,10 @@ a[href].internalDFN {
                     separate entities. Transport and security mechanisms
                     and settings of the virtual devices can be different
                     from original devices if necessary. Virtual devices
-                    are required to have TDs provided either directly by
+                    are required to have descriptions provided either directly by
                     the twin or to have them available at external
                     locations. In either case it is required to make the
-                    TDs available so that other components can find and
+                    descriptions available so that other components can find and
                     use the devices associated with them.</p>
             </section>
             <section>
@@ -2881,7 +2881,7 @@ a[href].internalDFN {
                 nothing about the firewall.</p>
             <figure id="deployment-cloud-device">
                 <img src="images/arch-deploy-cloud-device.png" />
-                <figcaption>Cloud applications controls
+                <figcaption>Cloud application controls
                     local devices</figcaption>
             </figure>
         </section>
