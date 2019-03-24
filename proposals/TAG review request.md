@@ -1,11 +1,12 @@
 Góðan dag TAG！
 
-I'm requesting a TAG review of:
+I am requesting a TAG review of:
 
-  - Name: _WoT Architecture_
+  - Name: **WoT Architecture**
   - Specification URL: http://w3c.github.io/wot-architecture/
   - Explainer, Requirements Doc, or Example code: https://github.com/w3c/wot-architecture/blob/master/proposals/WoT%20Architecture%20Explainer.md
   - Tests: N/A
+  - Github repo: https://github.com/w3c/wot-architecture
   - Primary contacts: @mlagally, @mmccool, @mkovatc
 
 Further details (optional):
@@ -36,9 +37,3 @@ We'd prefer the TAG provide feedback as (please select one):
   - [ ] open issues in our Github repo for each point of feedback
   - [X] open a single issue in our Github repo for the entire review
   - [ ] leave review feedback as a comment in this issue and @-notify [github usernames]
-
---------------------------
-
-_Please preview the issue and check that the links work before submitting_
-
-For background, see our [explanation of how to write a good explainer](https://w3ctag.github.io/explainers).
