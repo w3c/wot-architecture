@@ -654,7 +654,7 @@ a[href].internalDFN {
             </dt>
             <dd>The application-facing programming interface
                 optionally provided by a Servient in order to to ease
-                the implementation of appliations running in a WoT
+                the implementation of applications running in a WoT
                 Runtime. It is comparable to the Web browser APIs.</dd>
             <dt>
                 <dfn>WoT Server</dfn>
@@ -722,7 +722,7 @@ a[href].internalDFN {
                     manufacturers to monitor and maintain devices
                     remotely. Smart home can realizes added value
                     services such as energy management and security
-                    surveilance.</p>
+                    surveillance.</p>
             </section>
             <section id="industrial-iot-usecases">
                 <h3>Industrial</h3>
@@ -763,7 +763,7 @@ a[href].internalDFN {
                 <p>Additionally, monitoring of connected
                     manufacturing equipment and the environment at the
                     production facility for the presence of poisonous
-                    gases, excessive nois or heat increases the safety
+                    gases, excessive noise or heat increases the safety
                     of the workers and reduces the risks of incidents or
                     accidents.</p>
                 <p>Real-time monitoring and KPI calculations of
@@ -793,7 +793,7 @@ a[href].internalDFN {
                     and potential bottlenecks.</p>
                 <p>Monitoring the condition and output of
                     distributed renewable energy generation equipment
-                    enables optimisation of distributed energy
+                    enables optimization of distributed energy
                     resources.</p>
                 <p>Monitoring and remote-controlling of distribution
                     equipment helps to automate the distribution
@@ -805,14 +805,14 @@ a[href].internalDFN {
             <section id="sec-oilandgas">
                 <h4 id="oilandgas">Oil and Gas</h4>
                 <p>Offshore platform monitoring, leakage detection
-                    and predicition of pipelines as well as monitoring
+                    and prediction of pipelines as well as monitoring
                     and controlling the levels in tanks and reservoirs
                     helps to improve the industrial safety for the
                     workforce as well as for the environment.</p>
                 <p>Automated calculation of a distributed stock
                     through various storage tanks and delivery
                     pipes/trucks allows for improved planning and
-                    resource optimisation.</p>
+                    resource optimization.</p>
             </section>
             <section id="sec-insurance">
                 <h4 id="insurance">Insurance</h4>
@@ -990,7 +990,7 @@ a[href].internalDFN {
                         href="#smart-home-multi"></a>. The remote
                     controller can switch between different network
                     connections and protocols, e.g. between a cellular
-                    network and a home network, which is using protcols
+                    network and a home network, which is using protocols
                     such as Wi-Fi and Bluetooth. When the controller is
                     in the home network it is a trusted device and no
                     additional security or access control is required.
@@ -1270,7 +1270,7 @@ a[href].internalDFN {
                         <p>WoT must be able to scale for IoT
                             solutions that incorporate thousands to
                             millions of devices. These devices may offer
-                            the same capabilites even though they are
+                            the same capabilities even though they are
                             created by different manufacturers.</p>
                     </li>
                     <li>Interoperability
@@ -1549,7 +1549,7 @@ a[href].internalDFN {
                     virtual devices needs to be described in device
                     descriptions. This includes information for
                     authentication/authorization and payload
-                    encryptions.</p>
+                    encryption.</p>
                 <p>WoT architecture should support multiple security
                     mechanism commonly used in the web, such as Basic,
                     Digest, Bearer and OAuth2.0.</p>
@@ -2088,7 +2088,7 @@ a[href].internalDFN {
                     operation types that are valid for their respective
                     document format or form serialization. Updates to
                     this specification may set up an IANA registry in
-                    the future to enable extensibility and a more
+                    the future to enable extension and a more
                     generic Web form model that may be applied beyond
                     WoT specifications.</p>
                 <p>The request method MUST identify one method of
@@ -2129,7 +2129,7 @@ a[href].internalDFN {
                         id="arch-hypermedia-caching">The
                         hypermedia controls MAY be cached outside the
                         Thing and used for offline processing if
-                        corresponding cacheing metadata is available to
+                        corresponding caching metadata is available to
                         determine the freshness.</span>
                 </p>
             </section>
@@ -2178,7 +2178,7 @@ a[href].internalDFN {
             </p>
             <p>
                 Note that many Media Types only identify a generic
-                serialisation format that does not provide further
+                serialization format that does not provide further
                 semantics for its elements (e.g., XML, JSON, CBOR). <span
                     class="rfc2119-assertion" id="arch-schema">Thus,
                     the corresponding Interaction Affordances SHOULD
@@ -2712,7 +2712,7 @@ a[href].internalDFN {
             </p>
             <p> A device may also be physically external to a <a>Servient</a>,
                 but connected via a proprietary protocols or a protocol
-                not eligble for direct support as part of the WoT. In
+                not eligible for direct support as part of the WoT. In
                 this case, the implemented runtime environment may
                 access legacy devices with such protocols (e.g., Echonet
                 Lite, BACNET, X10, I2C, SPI, etc.) through proprietary APIs,
@@ -2782,7 +2782,7 @@ a[href].internalDFN {
                     Using such a device in the <a>WoT Client</a> role
                     may also be possible if the device can be modified to
                     consume <a>Thing Descriptions</a> itself or if a separate
-                    managment system can be used to configure it using
+                    management system can be used to configure it using
                     information found in <a>Thing Descriptions</a>.
                 </p>
                 <figure id="architecture-implementation-existing">
@@ -2987,7 +2987,7 @@ a[href].internalDFN {
                 protect the client from excess traffic.
                 Those clients also will use a 
                 single protocol suitable for the open Internet (e.g. HTTPS) to communicate with the
-                servient, which makes the development of clients much
+                <a>Servient</a>, which makes the development of clients much
                 simpler.
             </p>
             <p> In this topology there is a NAT and a firewall between the clients and servers,
@@ -3003,7 +3003,7 @@ a[href].internalDFN {
                     Local Devices implemented as WoT Servers via Paired Servients</figcaption>
             </figure>
             <p> In more difficult cases the NAT and firewall traversal may not work exactly as
-                shown. In particular, an ISP may not support publically accessible addresses,
+                shown. In particular, an ISP may not support publicly accessible addresses,
                 or STUN/TURN and/or DyDNS may not be supported or available.  
                 In this case the <a>Servients</a>
                 may alternative reverse the client/server roles between then to set up an initial
@@ -3032,13 +3032,13 @@ a[href].internalDFN {
             <h2>Discovery Using a Thing Directory</h2>
 <!-- "application" and "device" are used intentionally here instead of client or server, since they
      might be either! -->
-            <p> Once local devices (and possibily services) 
+            <p> Once local devices (and possibly services) 
                 can be monitored or controlled by services
                 on cloud, a variety of additional services can be built on top.
-                For example, a cloud application could change a devices’s
+                For example, a cloud application could change a device's
                 operating condition based on an analysis of collected data.
             </p>
-            <p> However when the remote servient is a part of a cloud platform
+            <p> However when the remote <a>Servient</a> is a part of a cloud platform
                 servicing client applications, the clients need to be able to find
                 device information by, for example, accessing a
                 directory of connected devices.  For simplicity in the figure below
@@ -3048,7 +3048,7 @@ a[href].internalDFN {
                 available to the cloud applications,
                 their metadata
                 can be registered with a <a>Thing Directory</a> service.
-                This metadata is specifically the TDs of the local devices modifed to 
+                This metadata is specifically the TDs of the local devices modified to 
                 reflect the security configuration and communication metadata
                 provided by the remote <a>Servient</a>.
                 A client application then can obtain the metadata
@@ -3067,7 +3067,7 @@ a[href].internalDFN {
                 and its interface can even be provided with its own TD.  
                 Local devices acting as <a>WoT Clients</a> can then
                 connect to the <a>Thing Directory</a> either directly or via the local
-                <a>Servient</a> if proxying (eg protocol translation) is needed.
+                <a>Servient</a> if proxying (e.g. protocol translation) is needed.
             </p>
         </section>
         <section id="sec-deployment-service-to-service-rm">
@@ -3085,7 +3085,7 @@ a[href].internalDFN {
                 achieve this cross eco-systems application-device
                 integration. 
                 Below, two mechanisms are
-                explained, each using a figure, to show how this can be acheived.
+                explained, each using a figure, to show how this can be achieved.
             <section id="sec-deployment-service-to-service-rm-synchronized">
                 <h3>Connection Through Thing Directory Synchronization</h3>
                 <p> In <a href="#deployment-service-sync-directory"></a>,
@@ -3433,7 +3433,7 @@ a[href].internalDFN {
     <section class="appendix-example-sequences" class="informative">
         <h1>Example Sequences of interaction patterns</h1>
         <p>This section illustrates example sequences of interaction
-            patterns such as read propery, invoke action and event,
+            patterns such as read property, invoke action and event,
             among <a>WoT Clients</a> and <a>WoT Servers</a>.</p>
         <p>For the sake of simplicity, remote and local proxies
             between client and server are omitted from the following
@@ -3554,7 +3554,7 @@ a[href].internalDFN {
     </section>
 
     <section class="appendix-acknowledgements">
-        <h2>Acknowledgements</h2>
+        <h2>Acknowledgments</h2>
         <p>Special thanks to all active Participants of the W3C Web
             of Things Interest Group and Working Group for their
             technical input and suggestions that led to improvements to
