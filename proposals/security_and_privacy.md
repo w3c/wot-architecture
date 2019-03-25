@@ -348,7 +348,11 @@ document and a more general document.
 ### Does this specification allow downgrading default security characteristics? 
 
 No.  A WoT Thing Description describes what a WoT Thing does and
-requires, no more and no less. 
+requires, no more and no less.
+There is however an option in the WoT Thing Description to specify
+alternative mechanisms to access a resource.
+The designer of a WoT Server needs to ensure that the least secure alternative
+is sufficiently secure.
 
 ## Mitigations
 
