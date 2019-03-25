@@ -29,7 +29,7 @@ You should also know that...
 - The related [WoT Thing Description](https://github.com/w3c/wot-thing-description) document is being submitted for TAG review at the same time.
     - Tests of implementations will be associated with this document
 - The [WoT Binding Templates](https://github.com/w3c/wot-binding-templates) informative WG note describing an optional WoT building block.
-- The [WoT Scripting API](https://github.com/w3c/wot-binding-templates) informative WG note describing an optional WoT building block.
+- The [WoT Scripting API](https://github.com/w3c/wot-scripting-api) informative WG note describing an optional WoT building block.
 
 
 We'd prefer the TAG provide feedback as (please select one):
