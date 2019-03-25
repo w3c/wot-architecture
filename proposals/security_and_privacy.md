@@ -29,36 +29,32 @@ IoT protocols or security schemes via its built-in extension mechanisms).
 In addition, we define a general security testing procedure for WoT implementations in the
 [WoT Security Testing Plan](https://github.com/w3c/wot-security-testing-plan).
 
-Security in the IoT is unavoidably more complex as it involves general networks of communication rather 
-than just the client-server architecture of browsers. A better analogy than browsers would be the
-microservice architecture used by many web services. The WoT Architecture supports best practices there,
-such as Zero-Trust networks.
+In the documents above we address the threats and attack surfaces of the
+WoT in detail.  In the following we have answered the questions posed by the
+W3C Security and Privacy Questionnaire as best as we could... but please take into consideration
+that most of these questions are not fully applicable to our situation.
 
-For example, the "same origin policy" is considered a cornerstone of web security.  
+Security in the IoT is unavoidably more complex than in the web as it involves
+general networks of communication rather
+than just the client-server architecture of web servers and browsers.
+For example, the "same origin policy" is considered a cornerstone of web security.
 In addition,
-security is often concerned with the "user's device" or the "user agent", which is
-always a client (the browser).
-However, the IoT is often concerned with machine-to-machine communication.
-If an IoT device is associated with a user, it is may be a client, or
-a server---or even both at the same time.  Finally, an IoT device may have
-a "user interface" but it will be more varied than that of the browser.
+security on the web is often concerned with the "user's device" or the "user agent",
+which is always a client (the browser).
+However, the IoT is often more concerned with machine-to-machine communication;
+there is no "user".
+If an IoT device _is_ associated with a user, it may be a client, or
+a server---or even both at the same time.
+Finally, even if an IoT device has
+a "user interface" it will be more varied than that of the browser,
+and under control of the device manufacturer, not the proposed WoT standard.
 
-On the web, the "origin" means content from a specific web server, and 
-we usually worry about protecting the user and the client, which is a browser.
-In the WoT context, "origin" could be interpreted as a WoT Server (WoT Thing in server role)
-and "browser" would be a WoT Client.
-
-The kinds of risks we have to deal with in the WoT are different than 
+The kinds of risks we have to deal with in the WoT are also different than
 those in the Web.  For example, the WoT does not support downloading
 and executing arbitrary scripts from other devices.  So many risks having
 to deal with such execution are not relevant.  On the other hand, the types
 of sensors and actuators supported by IoT devices are much broader and
 can even include systems whose compromise would have safety implications.
-
-In the documents above we address the threats and attack surfaces of the 
-WoT in detail.  In the following we have answered the questions posed by the
-Web Security group as best as we could... but please take into consideration
-that most of these questions are not fully applicable to our situation.
 
 ## Questions and Answers
 
