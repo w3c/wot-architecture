@@ -8,6 +8,11 @@
     src="https://www.w3.org/Tools/respec/respec-w3c-common"></script>
 <script class="remove">
 	var respecConfig = {
+        lint: {
+            "check-punctuation": true,
+            "local-refs-exist": true,
+            "no-http-props": true
+        },
 		specStatus : "ED",
 		processVersion : 2017,
 		shortName : "wot-architecture",
@@ -209,7 +214,7 @@ a[href].internalDFN {
         <p>Other non-normative architectural blocks and conditions
             underlying the Web of Things are also described in the
             context of deployment scenarios. In particular,
-            recommendations for security and privacy are included in
+            recommendations for security and privacy are included in:
         <ul>
             <li>the <a href="https://w3c.github.io/wot-security/">WoT
                     Security and Privacy Considerations</a> ,
@@ -279,7 +284,7 @@ a[href].internalDFN {
             specifications and defines the basics such as terminology
             and the underlying abstract architecture of the W3C Web of
             Things. In particular, the purpose of this document is to
-            provide</p>
+            provide:</p>
         <ul>
             <li>a set of use cases that lead to the W3C WoT
                 Architecture in chapter <a href="#sec-use-cases"></a>,
@@ -1602,7 +1607,7 @@ a[href].internalDFN {
                     functionalities that are provided by the other
                     things, we call this interaction <em>to consume
                         a thing</em>.</li>
-                <li><a>WoT Server:</a> A thing can behave as a
+                <li><a>WoT Server</a>: A thing can behave as a
                     server, which is a component that reacts to requests
                     from other things. Requests query or modify the
                     state of a thing, we call this interaction <em>to
@@ -1705,7 +1710,7 @@ a[href].internalDFN {
                 <p>
                     A proxy combines <a>Exposed Thing</a> and <a>Consumed Thing</a>
                     functionality, and relays messages that are exchanged
-                    between a <a>WoT Client</a> and a <a>WoT Server.</a> In a proxy,
+                    between a <a>WoT Client</a> and a <a>WoT Server</a>. In a proxy,
                     a <a>Consumed Thing</a> creates a <em>shadow thing
                         instance</em> of the <a>Exposed Thing</a> of a <a>WoT Server</a>, and
                     a <a>WoT Client</a> can access the shadow instance through
@@ -3091,7 +3096,7 @@ a[href].internalDFN {
                 achieve this cross eco-systems application-device
                 integration. 
                 Below, two mechanisms are
-                explained, each using a figure, to show how this can be achieved.
+                explained, each using a figure, to show how this can be achieved.</p>
             <section id="sec-deployment-service-to-service-rm-synchronized">
                 <h3>Connection Through Thing Directory Synchronization</h3>
                 <p> In <a href="#deployment-service-sync-directory"></a>,
@@ -3129,6 +3134,7 @@ a[href].internalDFN {
                 </figure>
             </section>
         </section>
+    </section>
     </section>
 
     <section id="sec-security-considerations" class="informative">
@@ -3436,7 +3442,7 @@ a[href].internalDFN {
             </section>
         </section>
     </section>
-    <section class="appendix-example-sequences" class="informative">
+    <section class="appendix-example-sequences" class="appendix informative">
         <h1>Example Sequences of interaction patterns</h1>
         <p>This section illustrates example sequences of interaction
             patterns such as read property, invoke action and event,
