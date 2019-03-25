@@ -544,11 +544,7 @@ a[href].internalDFN {
             <dt>
                 <dfn>Servient</dfn>
             </dt>
-            <dd>A software stack that implements the WoT building
-                blocks. A Servient can host and expose Things (server
-                role) and/or consume Things (client role). Servients
-                usually have multiple Protocol Bindings to enable
-                interaction with different platforms.</dd>
+            <dd>Synonym for WoT Servient.</dd>
             <dt>
                 <dfn>Subprotocol</dfn>
             </dt>
@@ -654,7 +650,7 @@ a[href].internalDFN {
             </dt>
             <dd>The application-facing programming interface
                 optionally provided by a Servient in order to to ease
-                the implementation of appliations running in a WoT
+                the implementation of applications running in a WoT
                 Runtime. It is comparable to the Web browser APIs.</dd>
             <dt>
                 <dfn>WoT Server</dfn>
@@ -662,6 +658,16 @@ a[href].internalDFN {
             <dd>An entity that exposes a network interface
                 consistent with a WoT Thing Description. WoT Server is
                 also used to refer to a Servient in server role only.</dd>
+            <dt>
+                <dfn>WoT Servient</dfn>
+            </dt>
+            <dd>A software stack that implements the WoT building
+                blocks. A WoT Servient can host and expose Things (server
+                role) and/or consume Things (client role). WoT Servients
+                usually have multiple Protocol Bindings to enable
+                interaction with different platforms.</dd>
+            <dt>
+                
         </dl>
     </section>
 
@@ -722,7 +728,7 @@ a[href].internalDFN {
                     manufacturers to monitor and maintain devices
                     remotely. Smart home can realizes added value
                     services such as energy management and security
-                    surveilance.</p>
+                    surveillance.</p>
             </section>
             <section id="industrial-iot-usecases">
                 <h3>Industrial</h3>
@@ -763,7 +769,7 @@ a[href].internalDFN {
                 <p>Additionally, monitoring of connected
                     manufacturing equipment and the environment at the
                     production facility for the presence of poisonous
-                    gases, excessive nois or heat increases the safety
+                    gases, excessive noise or heat increases the safety
                     of the workers and reduces the risks of incidents or
                     accidents.</p>
                 <p>Real-time monitoring and KPI calculations of
@@ -793,7 +799,7 @@ a[href].internalDFN {
                     and potential bottlenecks.</p>
                 <p>Monitoring the condition and output of
                     distributed renewable energy generation equipment
-                    enables optimisation of distributed energy
+                    enables optimization of distributed energy
                     resources.</p>
                 <p>Monitoring and remote-controlling of distribution
                     equipment helps to automate the distribution
@@ -805,14 +811,14 @@ a[href].internalDFN {
             <section id="sec-oilandgas">
                 <h4 id="oilandgas">Oil and Gas</h4>
                 <p>Offshore platform monitoring, leakage detection
-                    and predicition of pipelines as well as monitoring
+                    and prediction of pipelines as well as monitoring
                     and controlling the levels in tanks and reservoirs
                     helps to improve the industrial safety for the
                     workforce as well as for the environment.</p>
                 <p>Automated calculation of a distributed stock
                     through various storage tanks and delivery
                     pipes/trucks allows for improved planning and
-                    resource optimisation.</p>
+                    resource optimization.</p>
             </section>
             <section id="sec-insurance">
                 <h4 id="insurance">Insurance</h4>
@@ -990,7 +996,7 @@ a[href].internalDFN {
                         href="#smart-home-multi"></a>. The remote
                     controller can switch between different network
                     connections and protocols, e.g. between a cellular
-                    network and a home network, which is using protcols
+                    network and a home network, which is using protocols
                     such as Wi-Fi and Bluetooth. When the controller is
                     in the home network it is a trusted device and no
                     additional security or access control is required.
@@ -1270,7 +1276,7 @@ a[href].internalDFN {
                         <p>WoT must be able to scale for IoT
                             solutions that incorporate thousands to
                             millions of devices. These devices may offer
-                            the same capabilites even though they are
+                            the same capabilities even though they are
                             created by different manufacturers.</p>
                     </li>
                     <li>Interoperability
@@ -1549,7 +1555,7 @@ a[href].internalDFN {
                     virtual devices needs to be described in device
                     descriptions. This includes information for
                     authentication/authorization and payload
-                    encryptions.</p>
+                    encryption.</p>
                 <p>WoT architecture should support multiple security
                     mechanism commonly used in the web, such as Basic,
                     Digest, Bearer and OAuth2.0.</p>
@@ -1590,13 +1596,13 @@ a[href].internalDFN {
                 These things can take different logical roles in the
                 communication:</p>
             <ul>
-                <li><em>WoT Client:</em> A thing can behave as a
+                <li><a>WoT Client</a>: A thing can behave as a
                     client, which is an active component and issues
                     requests to other things. Requests use the
                     functionalities that are provided by the other
                     things, we call this interaction <em>to consume
                         a thing</em>.</li>
-                <li><em>WoT Server:</em> A thing can behave as a
+                <li><a>WoT Server:</a> A thing can behave as a
                     server, which is a component that reacts to requests
                     from other things. Requests query or modify the
                     state of a thing, we call this interaction <em>to
@@ -1605,7 +1611,7 @@ a[href].internalDFN {
                     offer a subscribe/notify mechanism, which allows
                     clients to be notified about state changes of a
                     thing.</li>
-                <li><em>WoT Servient:</em> A thing can behave both
+                <li><a>WoT Servient</a>: A thing can behave both
                     as a client and a server, i.e. it can <em>expose</em>
                     functionality to other things and it can <em>consume</em>
                     functionalities that are provided by other things.</li>
@@ -1649,8 +1655,8 @@ a[href].internalDFN {
                 <h3>Direct Communication</h3>
                 <p>
                     <a href="#high-level-application-device"></a> shows
-                    direct communication between a WoT server, that is
-                    exposing a thing and a WoT client that is using it.
+                    direct communication between a <a>WoT Server</a>, that is
+                    exposing a thing and a <a>WoT Client</a> that is using it.
                     Direct communication applies when both components
                     use the same network protocol(s) and are accessible
                     to each other.
@@ -1662,16 +1668,17 @@ a[href].internalDFN {
                         application and device</figcaption>
                 </figure>
 
-                Conceptually, a WoT server can be thought to have an <em>ExposedThing</em>
+                Conceptually, a <a>WoT Server</a> can be thought to have an <a>Exposed Thing</a>
                 that provides an interface that conforms to the TD. A
-                WoT client can be considered to contain a ConsumedThing
+                <a>WoT Client</a> can be considered to contain a <a>Consumed Thing</a>
+                for each of the <a>WoT Servers</a> it connects to
                 that provides a programming interface that can be used
-                by applications. A WoT client can generate a
-                ConsumedThing instance by interpreting a TD.
-                Communication between the WoT client and the WoT server
+                by applications. A <a>WoT Client</a> can generate a
+                <a>Consumed Thing</a> instance by interpreting a TD.
+                Communication between the <a>WoT Client</a> and the <a>WoT Server</a>
                 is performed by exchanging messages over a direct
-                network connection between a ConsumedThing and an
-                ExposedThing.
+                network connection between a <a>Consumed Thing</a> and an
+                <a>Exposed Thing</a>.
 
             </section>
             <section>
@@ -1680,7 +1687,7 @@ a[href].internalDFN {
                 <p>
                     In <a
                         href="#high-level-application-proxy-device-new"></a>
-                    a WoT client and a WoT server connect to each other
+                    a <a>WoT Client</a> and a <a>WoT Server</a> connect to each other
                     via a proxy. A proxy is required as an intermediary
                     if the components use different protocols (gateway)
                     or if they are on different networks that require
@@ -1696,16 +1703,16 @@ a[href].internalDFN {
                 </figure>
 
                 <p>
-                    A proxy combines ExposedThing and ConsumedThing
-                    functionality, and relay messages that are exchanged
-                    between an WoT client and a WoT server. In a proxy,
-                    a ConsumedThing creates a <em>shadow thing
-                        instance</em> of the ExposeThing of a WoT server, and
-                    a WoT client can access the shadow instance through
-                    the ExposedThing of the proxy.
+                    A proxy combines <a>Exposed Thing</a> and <a>Consumed Thing</a>
+                    functionality, and relays messages that are exchanged
+                    between a <a>WoT Client</a> and a <a>WoT Server.</a> In a proxy,
+                    a <a>Consumed Thing</a> creates a <em>shadow thing
+                        instance</em> of the <a>Exposed Thing</a> of a <a>WoT Server</a>, and
+                    a <a>WoT Client</a> can access the shadow instance through
+                    the <a>Exposed Thing</a> of the proxy.
                 </p>
-                <p>The ExposedThing and ConsumedThing of a proxy can
-                    communicate with the WoT client and the WoT server
+                <p>The <a>Exposed Thing</a> and <a>Consumed Thing</a> of a proxy can
+                    communicate with the <a>WoT Client</a> and the <a>WoT Server</a>
                     in different protocols. For example, a proxy can
                     provide a bridge between a device that uses CoAP and
                     an application that uses HTTP. Even when there are
@@ -1716,15 +1723,15 @@ a[href].internalDFN {
                     needs to handle a single authentication method even
                     when multiple devices connected to a proxy use
                     different authentication methods.</p>
-                <p>A proxy creates a ConsumedThing based on a TD and
+                <p>A proxy creates a <a>Consumed Thing</a> based on a TD and
                     generates another TD for a shadow thing instance.
                     The TD for a shadow device uses a new identifier
                     different from the original device TD’s, and
                     contains interfaces for other communication
                     protocols if necessary. A proxy then creates an
-                    ExposedThing that implements the bridge to the
+                    <a>Exposed Thing</a> that implements the bridge to the
                     originating thing. A client communicates with a
-                    device via a proxy through a ConsumedThing that
+                    device via a proxy through a <a>Consumed Thing</a> that
                     conforms to the TD for the shadow thing instance.</p>
             </section>
         </section>
@@ -2087,7 +2094,7 @@ a[href].internalDFN {
                     operation types that are valid for their respective
                     document format or form serialization. Updates to
                     this specification may set up an IANA registry in
-                    the future to enable extensibility and a more
+                    the future to enable extension and a more
                     generic Web form model that may be applied beyond
                     WoT specifications.</p>
                 <p>The request method MUST identify one method of
@@ -2128,7 +2135,7 @@ a[href].internalDFN {
                         id="arch-hypermedia-caching">The
                         hypermedia controls MAY be cached outside the
                         Thing and used for offline processing if
-                        corresponding cacheing metadata is available to
+                        corresponding caching metadata is available to
                         determine the freshness.</span>
                 </p>
             </section>
@@ -2177,7 +2184,7 @@ a[href].internalDFN {
             </p>
             <p>
                 Note that many Media Types only identify a generic
-                serialisation format that does not provide further
+                serialization format that does not provide further
                 semantics for its elements (e.g., XML, JSON, CBOR). <span
                     class="rfc2119-assertion" id="arch-schema">Thus,
                     the corresponding Interaction Affordances SHOULD
@@ -2711,7 +2718,7 @@ a[href].internalDFN {
             </p>
             <p> A device may also be physically external to a <a>Servient</a>,
                 but connected via a proprietary protocols or a protocol
-                not eligble for direct support as part of the WoT. In
+                not eligible for direct support as part of the WoT. In
                 this case, the implemented runtime environment may
                 access legacy devices with such protocols (e.g., Echonet
                 Lite, BACNET, X10, I2C, SPI, etc.) through proprietary APIs,
@@ -2781,7 +2788,7 @@ a[href].internalDFN {
                     Using such a device in the <a>WoT Client</a> role
                     may also be possible if the device can be modified to
                     consume <a>Thing Descriptions</a> itself or if a separate
-                    managment system can be used to configure it using
+                    management system can be used to configure it using
                     information found in <a>Thing Descriptions</a>.
                 </p>
                 <figure id="architecture-implementation-existing">
@@ -2797,160 +2804,333 @@ a[href].internalDFN {
     <section id="sec-deployment-scenario" class="informative">
         <h1>WoT Deployments</h1>
 
-        <p>This section defines components that make a Web of Things
-            entity, clarifies each component’s functions, and then shows
-            how a web of Things as a whole works. The architecture
-            described here is derived from the Web of Things use cases
-            as well as technical requirements extracted from them.</p>
+        <p> This section discusses how the Web of Things as a whole works
+            when <a>Things</a> implementing IoT devices and services are 
+            connected together in various topologies and deployment scenarios.
+            These are only examples and other interconnection topologies are possible. 
+            The interconnection topologies 
+            described here are derived from the Web of Things use cases 
+            (<a href="#sec-use-cases"></a>)
+            as well as the technical requirements extracted from them
+            (<a href="#sec-requirements"></a>).
+            Before discussing specific topologies, we will
+            first review the roles that WoT <a>Things</a> can
+            play in a network and the relationship of these roles to the 
+            <a>Consumed Thing</a> and <a>Exposed Thing</a> abstractions
+            presented internally to each <a>Thing</a>'s internal
+            behavior implementation.
+        </p>
 
         <section id="sec-deployment-app-dev">
-            <h2>Client and Server on the same network</h2>
-            <p>A server creates an ExposedThing based on TD. It also
-                advertises a TD to other clients or servients, or
-                provides them with a TD upon request. The server's
-                functions are usually implemented as hardware, and those
-                functions are accessible through its firmware. An
-                ExposedThing's abstract interface is translated into
-                hardware commands inside the server. On the other hands,
-                the client obtains TDs by getting one from location
-                advertised by other servers or servients or requesting
-                them of TDs, and creates a ConsumedThing based on the
-                obtained TD. Functions of a client are usually
-                implemented as an application. The abstract interface of
-                a ConsumedThing is provided as a programming language
-                (such as JavaScript) interface, and the application
-                achieves its functions by using this interface.</p>
+            <h2>Client and Server Roles</h2>
+            <p> A <a>WoT Server</a> creates an <a>Exposed Thing</a> abstraction based on a TD. 
+                The TD is published to make it available to 
+                other <a>WoT Clients</a> or <a>Servients</a>.
+                Such publication can be done in various ways: the TD
+                might be registered with a directory service, or the <a>WoT Server</a>
+                may provide requesters with the TD upon receiving a discovery request.
+                It is also possible in some application scenarios for TDs to be associated with
+                <a>WoT Servers</a> statically or via a management system.
+            </p>
+            <p> A <a>WoT Client</a> obtains the TDs of <a>WoT Servers</a> 
+                via a discovery process appropriate to the deployment scenario
+                in which it is used (directory service, discovery protocol,
+                static assignment, management system, etc.)
+                and creates <a>Consumed Thing</a> abstractions for each based on the
+                obtained TDs. 
+                Internal system functions of a device such as attached sensors and actuators
+                can also optionally be represented as <a>Consumed Thing</a> abstractions.
+            </p>
+            <p> The functions supported by the 
+                <a>Exposed Thing</a> and <a>Consumed Thing</a> abstractions
+                are provided internally to the <a>Thing</a>'s behavior implementation
+                via a programming language interface.
+                In the <a>WoT Scripting API</a>, these abstractions are represented by objects.
+                The behavior implementation (that is, the application logic)
+                running in the <a>Thing</a> can then
+                achieve its functions, such as appropriately responding to
+                interactions, by using this interface.
+            </p>
+            <p> A <a>WoT Server</a> may or may not be a device associated with physical
+                sensors and actuators; 
+                it may also be a service running in a gateway 
+                or in the cloud.  
+                Likewise a <a>WoT Client</a> may or may not be 
+                an application service running on a gateway or cloud, it
+                may in some cases be necessary to implement <a>WoT Client</a>
+                functionality on edge devices.  
+                In some cases a single <a>Thing</a>
+                simultaneously performs both roles using a single <a>WoT Runtime</a>,
+                in which case we call it a <a>Servient</a>.
+            </p>
+        <section id="sec-deployment-app-dev">
+            <h2>Client and Server on the Same Network</h2>
+            <p> In the simplest interconnection topology, illustrated by <a href="#simple-conf-application-device"></a>,
+                the <a>WoT Client</a> and <a>WoT Server</a> are on the same network and can communicate
+                directly with each other without any intermediaries.
+                One use case where this topology arises is when the <a>WoT Client</a> is an orchestration
+                service running on a gateway and the <a>WoT Server</a> is a device interfacing to 
+                a sensor or actuator.  However, the client/server relationship could easily be reversed;
+                the client could be a device in the <a>WoT Client</a> role accesses
+                a service running as a <a>WoT Server</a> on a gateway or in the cloud.
+            </p>
             <figure id="simple-conf-application-device">
-                <img
-                    src="images/arch-simple-conf-application-device.png" />
-                <figcaption>Appliction and Device on the
-                    same network</figcaption>
+                <img src="images/arch-simple-conf-application-device.png" />
+                <figcaption>Client and Server on the Same Network</figcaption>
             </figure>
+            <p> If the <a>WoT Server</a> is in the cloud and the <a>WoT Client</a> is on a local network
+                (for example, in a Smart Home use case) the actual network topology may be more complex, 
+                for example requiring NAT traversal and disallowing certain forms of discovery.  
+                In such cases one of the more complex
+                topologies discussed later may be more appropriate.
+            </p>
         </section>
         <section id="sec-deployment-app-proxy-dev">
-            <h2>Integration with Servient</h2>
-            <p>A runtime in a servient has both ExposedThing and
-                ConsumedThing functionality. The servient obtains a TD
-                of a device servient, and creates a ConsumedThing. At
-                the same time, it creates a shadow of the device as well
-                as a TD for the shadow device where the identifier is a
-                new one and protocol bindings are appropriately
-                described to serve for the client. An ExposedThing is
-                created based on this TD, and the server notifies other
-                clients or servients of the TD.</p>
+            <h2>Servient Acting as a Proxy</h2>
+            <p> A <a>Servient</a> plays both <a>WoT Server</a> and
+                <a>WoT Client</a> roles on the network and supports
+                both the <a>Exposed Thing</a> and <a>Consumed Thing</a>
+                abstractions within its <a>WoT Runtime</a>. 
+            </p>
+            <p> One simple application of a <a>Servient</a> is as a proxy.  
+                When functioning as a proxy,
+                the <a>Servient</a> generally interfaces with two separate
+                networks or protocols.  This may involve 
+                the implementation of additional security mechanisms
+                such as providing TLS endpoints.  Generally proxies
+                do not modify the set of interactions so the TD exposed
+                by the <a>Servient</a> will have the same interactions
+                as the consumed TD but with the connection metadata modified.
+            </p>
+            <p> To implement this pattern, the proxy <a>Servient</a> obtains a TD
+                of a <a>WoT Server</a> and creates a <a>Consumed Thing</a>. 
+                It creates a "shadow" of the <a>WoT Server</a> as a software
+                implementation that has the same interactions.
+                It then creates a TD for the shadow device with a new identifier 
+                and possibly with new communications metadata (protocol bindings)
+                and/or new public security configuration metadata.
+                Finally an <a>Exposed Thing</a> is
+                created based on this TD, and the <a>Servient</a> notifies other
+                <a>WoT Clients</a> or <a>Servients</a> of the TD via
+                an appropriate publication mechanism.
+            </p>
             <figure id="simple-conf-application-proxy-device">
                 <img
                     src="images/arch-simple-conf-application-proxy-device.png" />
-                <figcaption>Application and Device connect
-                    with Proxy</figcaption>
+                <figcaption>Client and Server Connect via a Servient Acting as a Proxy</figcaption>
             </figure>
+            <p> More complex intermediaries may be known as digital twins.
+                A digital twin may or may not modify the protocols or
+                translate between networks, but they provide additional
+                services, such as state caching, deferred updates, 
+                or even predictive simulation of the behavior of the target device.
+                For example, if an IoT device has limited power, it 
+                may choose to wake up relatively infrequently, synchronize
+                with a digital twin, and then immediately go to sleep again.
+                In this case the digital twin runs on a less power-constrained
+                device (such as in the cloud or on a gateway) 
+                and is able to respond to interactions on the 
+                constrained device's behalf.
+                Requests for the current state of properties
+                may also be satisfied by the digital twin using cached state.
+                Requests that arrive when the target IoT device is sleeping
+                may be queued and sent to it when it wakes.
+                One complication with implementing this pattern is that the 
+                digital twin <a>Servient</a> needs to know when the device is awake if it
+                is implemented as a <a>WoT Server</a>.  The actual implementation
+                may need to be augmented with a notification mechanism (which could
+                be implemented using a separate <a>WoT Client</a>/<a>WoT Server</a> pair),
+                although it may also be possible to use event interactions for this
+                purpose.
+            </p>
         </section>
 
         <section id="sec-deployment-cloud-rm">
-            <h2>Devices in a Local Network Controlled from a Cloud</h2>
-            <p>In smart home cloud service use cases, sensors and
-                home appliances connected to a home network are
-                monitored as well as in some cases operated by cloud
-                applications. There is a firewall between the home
-                network to which the devices are connected and the
-                cloud. The WoT servients in this case can communicate
-                each other only if the communication successfully goes
-                through the firewall.</p>
-            <p>The figure below shows a typical structure that is
-                adopted in ITU-T Recommendation Y.2070. As described in
-                previous sections, a servient can aggregate multiple
-                servers into common ExposedThing(s), and provide the
-                clients with a simple access interface. For example,
-                even when the connected servers each uses a different
-                protocol such as REST, WebSocket and CoAP, the
-                ExposedThing can converge them into a single protocol so
+            <h2>Devices in a Local Network Controlled from a Cloud Service</h2>
+            <p> In Smart Home use cases, devices (sensors and home appliances)
+                connected to a home network are often
+                monitored and, in some cases, also controlled by cloud
+                services. There is usually a NAT between the home
+                network to which the devices are connected and the cloud.
+                The NAT translates IP addresses as well as often providing
+                firewall services, which block connections selectively.
+                The local devices and cloud services can only communicate
+                with each other if the communication can successfully
+                traverse the NAT. 
+            </p>
+            <p> A typical structure,
+                adopted in ITU-T Recommendation Y.2070,
+                is shown in <a href="#deployment-cloud-device"></a>.
+                In this structure there is both a local and a remote <a>Servient</a>.
+                The local <a>Servient</a> aggregates the interaction affordances from multiple
+                <a>WoT Servers</a> into a (set of) <a>Exposed Things</a>, 
+                which can all be mapped onto a common protocol 
+                (for example, HTTP, with all interactions mapped to a single
+                URL namespace with a common base server and using a single port).
+                This provides the remote <a>Servient</a> with a simple way to
+                access all the <a>WoT Servers</a> behind the NAT,
+                assuming the local <a>Servient</a>
+                has used a converged protocol that can traverse the NAT
+                and has some way to expose this service to the Internet (STUN, TURN, DyDNS, etc).
+                In addition, the local <a>Servient</a> can function as a proxy, so
+                even when the connected <a>WoT Servers</a> each use a different
+                protocol (HTTP, MQTT, CoAP, etc.) and/or a different set of
+                ecosystem conventions, the
+                <a>Exposed Thing</a> can converge them into a single protocol so
                 that clients do not need to be aware of the various
-                protocols the servers use. In the figure, there are two
-                clients connected to a servient. Those clients use a
-                single protocol (e.g. REST) to communicate with the
-                servient, which makes the development of an client much
-                simpler.</p>
-            <p>There is a firewall between clients and servers.
-                There is a servient on each side of the firewall; one in
-                the home network and the other in the internet. These
-                two servients work together to tunnel all communications
-                to go through the firewall. The local servient which is
-                on the home network side aggregates all connected
-                servers, and the remote servient on the internet side
-                aggregates the clients. Clients and servers need to know
-                nothing about the firewall.</p>
+                protocols the servers use.  
+            </p>
+            <p> In the figure, there are two
+                clients connected to the remote <a>Servient</a>, which
+                has disaggregated the services available behind the NAT and may
+                provide additional protocol translation or security services.
+                In particular, the local <a>Servient</a> may be on a network
+                with limited capacity and making that service directly available to all
+                users may not be feasible.  In this case access to the local 
+                <a>Servient</a> is _only_ provided to the remote <a>Servient</a>.
+                The remote <a>Servient</a> then implements a more general access
+                control mechanism and may also perform caching or throttling to
+                protect the client from excess traffic.
+                Those clients also will use a 
+                single protocol suitable for the open Internet (e.g. HTTPS) to communicate with the
+                <a>Servient</a>, which makes the development of clients much
+                simpler.
+            </p>
+            <p> In this topology there is a NAT and a firewall between the clients and servers,
+                but the local and remote <a>Servients</a> work together to tunnel all communications
+                through the firewall, so the clients and servers need to know
+                nothing about the firewall.
+                The paired <a>Servients</a> also protect the home devices by providing
+                access control and traffic management.
+            </p>
             <figure id="deployment-cloud-device">
                 <img src="images/arch-deploy-cloud-device.png" />
-                <figcaption>Cloud application controls
-                    local devices</figcaption>
+                <figcaption>Cloud Applications Implemented as WoT Clients Connected to
+                    Local Devices implemented as WoT Servers via Paired Servients</figcaption>
             </figure>
+            <p> In more difficult cases the NAT and firewall traversal may not work exactly as
+                shown. In particular, an ISP may not support publicly accessible addresses,
+                or STUN/TURN and/or DyDNS may not be supported or available.  
+                In this case the <a>Servients</a>
+                may alternative reverse the client/server roles between then to set up an initial
+                connection (with the local <a>Servient</a> first connecting to the remote <a>Servient</a>
+                in the cloud), then the pair of <a>Servients</a>
+                may establish a tunnel (using for example, a Secure Web Socket, which uses TLS
+                to protect the connection).
+                The tunnel can then be used to encode all communications between the 
+                <a>Servients</a> using a custom protocol.  
+                In this case the initial connection can still be made over HTTPS using standard
+                ports, and from the local <a>Servient</a> to the remote <a>Servient</a> identically
+                to a normal browser/web server interaction.  
+                This should be able to traverse most home firewalls, and since the connection
+                is outgoing, network address translation will not cause any problems.  
+                However, even though a custom tunneling protocol is needed, the 
+                remote <a>Servient</a> can still translate this custom protocol back into
+                standard external protocols.  The connected <a>WoT Clients</a> and <a>WoT Servers</a>
+                do not need to know about it.  
+                It is also possible to extend this example to use cases where both <a>WoT Servers</a>
+                and <a>WoT Clients</a> can connect on either side of the NAT boundary.
+                This however also requires a bidirectional tunnel to be established between
+                the two <a>Servients</a>.
+            </p>
         </section>
         <section id="sec-deployment-discovery-with-directory-rm">
-            <h2>Discovery using with Thing Directory</h2>
-            <p>Once servers can be monitored or operated by clients
-                on cloud, a variety of services can be built on top of
-                that. For example, a client can change a server’s
-                operating condition based on analysis of collected data.
-                When the remote servient is a part of a cloud platform
-                servicing clients, an client needs to be able to find
-                server information by, for example, accessing a
-                directory of connected servers. In the figure below,
-                information of all servers connected to the remote
-                servient via a local servient is registered in a
-                directory. A client needs to obtain the information of
-                the server(s) that it needs to communicate with to
-                achieve its client functionality. It can do so by
-                querying the directory of server information.</p>
+            <h2>Discovery Using a Thing Directory</h2>
+<!-- "application" and "device" are used intentionally here instead of client or server, since they
+     might be either! -->
+            <p> Once local devices (and possibly services) 
+                can be monitored or controlled by services
+                on cloud, a variety of additional services can be built on top.
+                For example, a cloud application could change a device's
+                operating condition based on an analysis of collected data.
+            </p>
+            <p> However when the remote <a>Servient</a> is a part of a cloud platform
+                servicing client applications, the clients need to be able to find
+                device information by, for example, accessing a
+                directory of connected devices.  For simplicity in the figure below
+                we have assumed all local devices are implemented as <a>WoT Servers</a> and
+                all cloud applications as <a>WoT Clients</a>.
+                To make the metadata of local devices implemented as <a>WoT Servers</a>
+                available to the cloud applications,
+                their metadata
+                can be registered with a <a>Thing Directory</a> service.
+                This metadata is specifically the TDs of the local devices modified to 
+                reflect the security configuration and communication metadata
+                provided by the remote <a>Servient</a>.
+                A client application then can obtain the metadata
+                it needs to communicate with local devices to
+                achieve its functionality by querying the <a>Thing Directory</a>.
+            </p>
             <figure id="deployment-cloud-directory">
                 <img src="images/arch-deploy-service-directory.png" />
-                <figcaption>Cloud service with directory</figcaption>
+                <figcaption>Cloud Service with Thing Directory</figcaption>
             </figure>
+            <p> In more complex situations, not shown in the figure, there
+                may also be cloud services that act as <a>WoT Servers</a>.
+                These can also register themselves with the <a>Thing Directory</a>.
+                Since a <a>Thing Directory</a> is a web service, it should be visible
+                to the local devices through the NAT/firewall 
+                and its interface can even be provided with its own TD.  
+                Local devices acting as <a>WoT Clients</a> can then
+                connect to the <a>Thing Directory</a> either directly or via the local
+                <a>Servient</a> if proxying (e.g. protocol translation) is needed.
+            </p>
         </section>
         <section id="sec-deployment-service-to-service-rm">
-            <h2>Service-to-Service connections across multiple
-                Domains</h2>
-            <p>Multiple cloud eco-systems each based on a different
-                platform can work together to make a larger,
-                systems-of-systems eco-system. Built on the previously
+            <h2>Service-to-Service Connections Across Multiple Domains</h2>
+            <p> Multiple cloud eco-systems each based on different
+                IoT platforms can work together to make a larger,
+                system-of-systems eco-system. Building on the previously
                 discussed structure of a cloud application eco-system,
-                the figure below shows two eco-systems connected each
-                other to make a system-of-systems. Consider a case in
-                which a client in one eco-system (i.e. Client A in
-                below) uses a server in another eco-system (i.e. Server
-                B in below). There are more than one mechanisms to
+                the figure below shows two eco-systems connected to each
+                other to make a system-of-systems. Consider the case in
+                which a client in one eco-system (i.e. <a>WoT Client</a> A 
+                below) needs to use a server in another eco-system 
+                (i.e. <a>WoT Server</a> B below). 
+                There is more than one mechanism to
                 achieve this cross eco-systems application-device
-                integration. Below, two mechanisms of doing this are
-                explained each using a figure to help understand how it
-                can be achieved.</p>
-            <p>In <a href="#deployment-service-sync-directory"></a>, two directories
-                synchronize device information, which makes it possible
-                for Application Servient A to obtain the information of
-                Server B through Thing Directory A. As described in
-                previous sections, Remote Servient B holds a shadow
-                device of Server B. By obtaining the TD of this shadow
-                device, Client A is able to use Server B through the
-                shadow device on Remote Servient B.</p>
-            <figure id="deployment-service-sync-directory">
-                <img src="images/arch-deploy-service-sync-directory.png" />
-                <figcaption>Multiple cloud connect through
-                    directory synchronization</figcaption>
-            </figure>
-            <p>In <a href="#deployment-service-sync-proxy"></a>, two remote servients
-                synchronize device information. When a shadow of Server
-                B is created in Remote servient B, the shadow’s TD is
-                simultaneously synchronized into Remote servient A.
-                Remote servient A in turn creates its own shadow of
-                Server B, and registers the TD with the thing directory
-                A. With this mechanism, synchronization between Thing
-                Directories is not necessary.</p>
-            <figure id="deployment-service-sync-proxy">
-                <img src="images/arch-deploy-service-sync-proxy.png" />
-                <figcaption>Multiple cloud connect through
-                    proxy synchronization</figcaption>
-            </figure>
+                integration. 
+                Below, two mechanisms are
+                explained, each using a figure, to show how this can be achieved.
+            <section id="sec-deployment-service-to-service-rm-synchronized">
+                <h3>Connection Through Thing Directory Synchronization</h3>
+                <p> In <a href="#deployment-service-sync-directory"></a>,
+                    two <a>Thing Directories</a>
+                    synchronize information, which makes it possible
+                    for <a>WoT Client</a> A to obtain the information of
+                    <a>WoT Server</a> B through <a>Thing Directory</a> A. As described in
+                    previous sections, remote <a>Servient</a> B maintains a shadow
+                    implementation of <a>WoT Server</a> B. 
+                    By obtaining the TD of this shadow
+                    device, <a>WoT Client</a> A is able to use <a>WoT Server</a> B through the
+                    remote <a>Servient</a> B.
+                </p>
+                <figure id="deployment-service-sync-directory">
+                    <img src="images/arch-deploy-service-sync-directory.png" />
+                    <figcaption>Multiple Cloud Connections Through Thing
+                        Directory Synchronization</figcaption>
+                </figure>
+            </section>
+            <section id="sec-deployment-service-to-service-rm">
+                <h3>Connection Through Proxy Synchronization</h3>
+                <p> In <a href="#deployment-service-sync-proxy"></a>, two remote <a>Servients</a>
+                    synchronize device information. When a shadow of <a>WoT Server</a>
+                    B is created in remote <a>Servient</a> B, the shadow’s TD is
+                    simultaneously synchronized into remote <a>Servient</a> A.
+                    Remote <a>Servient</a> A in turn creates its own shadow of
+                    <a>WoT Server</a> B, and registers the TD with <a>Thing Directory</a>
+                    A. With this mechanism, synchronization between 
+                    <a>Thing Directories</a> is not necessary.
+                </p>
+                <figure id="deployment-service-sync-proxy">
+                    <img src="images/arch-deploy-service-sync-proxy.png" />
+                    <figcaption>Multiple Cloud Connections Through
+                        Proxy Synchronization</figcaption>
+                </figure>
+            </section>
         </section>
-
     </section>
+
     <section id="sec-security-considerations" class="informative">
         <h1>Security and Privacy Considerations</h1>
         <p>
@@ -3259,10 +3439,10 @@ a[href].internalDFN {
     <section class="appendix-example-sequences" class="informative">
         <h1>Example Sequences of interaction patterns</h1>
         <p>This section illustrates example sequences of interaction
-            patterns such as read propery, invoke action and event,
-            among WoT client and WoT server.</p>
+            patterns such as read property, invoke action and event,
+            among <a>WoT Clients</a> and <a>WoT Servers</a>.</p>
         <p>For the sake of simplicity, remote and local proxies
-            between client and server are omitted from following
+            between client and server are omitted from the following
             sequences.</p>
         <section>
             <h2>Property</h2>
@@ -3380,7 +3560,7 @@ a[href].internalDFN {
     </section>
 
     <section class="appendix-acknowledgements">
-        <h2>Acknowledgements</h2>
+        <h2>Acknowledgments</h2>
         <p>Special thanks to all active Participants of the W3C Web
             of Things Interest Group and Working Group for their
             technical input and suggestions that led to improvements to
