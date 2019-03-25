@@ -63,7 +63,8 @@ The WoT architecture deals with the operational phase of IoT devices
 and does not specify how credentials are provisioned to devices.
 The WoT Architecture document does use a strict separation
 of private security data from public data and metadata, and
-recommends the use of an isolated private security data subsystem.
+recommends the use of an isolated private security data subsystem,
+such as TPM (Trusted Platform Module).
 
 The WoT Runtime and WoT Scripting API are defined in such a way
 that they do not have direct access to private credentials.
