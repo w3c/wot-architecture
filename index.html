@@ -3028,14 +3028,14 @@ a[href].internalDFN {
             </p>
         </section>
         <section id="sec-deployment-discovery-with-directory-rm">
-            <h2>Discovery using with Thing Directory</h2>
+            <h2>Discovery Using a Thing Directory</h2>
 <!-- "application" and "device" are used intentionally here instead of client or server, since they
      might be either! -->
             <p> Once local devices (and possibily services) 
                 can be monitored or controlled by services
                 on cloud, a variety of additional services can be built on top.
                 For example, a cloud application could change a devices’s
-                operating condition based on analysis of collected data.
+                operating condition based on an analysis of collected data.
             </p>
             <p> However when the remote servient is a part of a cloud platform
                 servicing client applications, the clients need to be able to find
@@ -3045,34 +3045,35 @@ a[href].internalDFN {
                 all cloud applications as <a>WoT Clients</a>.
                 To make the metadata of local devices implemented as <a>WoT Servers</a>
                 available to the cloud applications,
-                the metadata can be registered in a directory service.
-                This metadata can be the TDs of the local devices modifed to 
+                their metadata
+                can be registered with a <a>Thing Directory</a> service.
+                This metadata is specifically the TDs of the local devices modifed to 
                 reflect the security configuration and communication metadata
                 provided by the remote <a>Servient</a>.
                 A client application then can obtain the metadata
                 it needs to communicate with local devices to
-                achieve its functionality by querying the directory.
+                achieve its functionality by querying the <a>Thing Directory</a>.
             </p>
             <figure id="deployment-cloud-directory">
                 <img src="images/arch-deploy-service-directory.png" />
-                <figcaption>Cloud service with directory</figcaption>
+                <figcaption>Cloud Service with Thing Directory</figcaption>
             </figure>
             <p> In more complex situations, not shown in the figure, there
                 may also be cloud services that act as <a>WoT Servers</a>.
-                These can also register themselves with the directory.
-                Since the directory is a web service, it should be visible
+                These can also register themselves with the <a>Thing Directory</a>.
+                Since a <a>Thing Directory</a> is a web service, it should be visible
                 to the local devices through the NAT/firewall 
                 and its interface can even be provided with its own TD.  
                 Local devices acting as <a>WoT Clients</a> can then
-                connect to the directory either directly or via the local
+                connect to the <a>Thing Directory</a> either directly or via the local
                 <a>Servient</a> if proxying (eg protocol translation) is needed.
             </p>
         </section>
         <section id="sec-deployment-service-to-service-rm">
             <h2>Service-to-Service Connections Across Multiple Domains</h2>
-            <p> Multiple cloud eco-systems each based on a different
-                IoT platform can work together to make a larger,
-                systems-of-systems eco-system. Building on the previously
+            <p> Multiple cloud eco-systems each based on different
+                IoT platforms can work together to make a larger,
+                system-of-systems eco-system. Building on the previously
                 discussed structure of a cloud application eco-system,
                 the figure below shows two eco-systems connected to each
                 other to make a system-of-systems. Consider the case in
@@ -3085,11 +3086,12 @@ a[href].internalDFN {
                 Below, two mechanisms are
                 explained, each using a figure, to show how this can be acheived.
             <section id="sec-deployment-service-to-service-rm-synchronized">
-                <h3>Connection Through Directory Synchronization</h3>
-                <p> In <a href="#deployment-service-sync-directory"></a>, two directories
+                <h3>Connection Through Thing Directory Synchronization</h3>
+                <p> In <a href="#deployment-service-sync-directory"></a>,
+                    two <a>Thing Directories</a>
                     synchronize information, which makes it possible
-                    for Application <a>WoT Client</a> A to obtain the information of
-                    <a>WoT Server</a> B through directory A. As described in
+                    for <a>WoT Client</a> A to obtain the information of
+                    <a>WoT Server</a> B through <a>Thing Directory</a> A. As described in
                     previous sections, remote <a>Servient</a> B maintains a shadow
                     implementation of <a>WoT Server</a> B. 
                     By obtaining the TD of this shadow
@@ -3098,7 +3100,7 @@ a[href].internalDFN {
                 </p>
                 <figure id="deployment-service-sync-directory">
                     <img src="images/arch-deploy-service-sync-directory.png" />
-                    <figcaption>Multiple Cloud Connections Through
+                    <figcaption>Multiple Cloud Connections Through Thing
                         Directory Synchronization</figcaption>
                 </figure>
             </section>
@@ -3109,9 +3111,9 @@ a[href].internalDFN {
                     B is created in remote <a>Servient</a> B, the shadow’s TD is
                     simultaneously synchronized into remote <a>Servient</a> A.
                     Remote <a>Servient</a> A in turn creates its own shadow of
-                    <a>WoT Server</a> B, and registers the TD with directory
+                    <a>WoT Server</a> B, and registers the TD with <a>Thing Directory</a>
                     A. With this mechanism, synchronization between 
-                    directories is not necessary.
+                    <a>Thing Directories</a> is not necessary.
                 </p>
                 <figure id="deployment-service-sync-proxy">
                     <img src="images/arch-deploy-service-sync-proxy.png" />
