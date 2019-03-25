@@ -2728,7 +2728,7 @@ a[href].internalDFN {
                 access legacy devices with such protocols (e.g., Echonet
                 Lite, BACNET, X10, I2C, SPI, etc.) through proprietary APIs,
                 but may again choose to expose them to applications via
-                a <a>Thing</a> abstraction. A WoT Servient can then act
+                a <a>Thing</a> abstraction. A <a>Servient</a> can then act
                 as gateway to the legacy devices. This should only be
                 done if the legacy device cannot be described directly
                 using a <a>WoT Thing Description</a>.
@@ -2832,14 +2832,15 @@ a[href].internalDFN {
                 The TD is published to make it available to 
                 other <a>WoT Clients</a> or <a>Servients</a>.
                 Such publication can be done in various ways: the TD
-                might be registered with a directory service, or the <a>WoT Server</a>
+                might be registered with a <a>Thing Directory</a> service, 
+                or the <a>WoT Server</a>
                 may provide requesters with the TD upon receiving a discovery request.
                 It is also possible in some application scenarios for TDs to be associated with
                 <a>WoT Servers</a> statically or via a management system.
             </p>
             <p> A <a>WoT Client</a> obtains the TDs of <a>WoT Servers</a> 
                 via a discovery process appropriate to the deployment scenario
-                in which it is used (directory service, discovery protocol,
+                in which it is used (<a>Thing Directory</a>, discovery protocol,
                 static assignment, management system, etc.)
                 and creates <a>Consumed Thing</a> abstractions for each based on the
                 obtained TDs. 
@@ -2874,7 +2875,7 @@ a[href].internalDFN {
                 the <a>WoT Client</a> and <a>WoT Server</a> are on the same network and can communicate
                 directly with each other without any intermediaries.
                 One use case where this topology arises is when the <a>WoT Client</a> is an orchestration
-                service running on a gateway and the <a>WoT Server</a> is a device interfacing to 
+                service or some other IoT application running on a gateway and the <a>WoT Server</a> is a device interfacing to 
                 a sensor or actuator.  However, the client/server relationship could easily be reversed;
                 the client could be a device in the <a>WoT Client</a> role accesses
                 a service running as a <a>WoT Server</a> on a gateway or in the cloud.
@@ -3132,9 +3133,9 @@ a[href].internalDFN {
                     <figcaption>Multiple Cloud Connections Through
                         Proxy Synchronization</figcaption>
                 </figure>
+                </section>
             </section>
         </section>
-    </section>
     </section>
 
     <section id="sec-security-considerations" class="informative">
