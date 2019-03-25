@@ -8,6 +8,11 @@
     src="https://www.w3.org/Tools/respec/respec-w3c-common"></script>
 <script class="remove">
 	var respecConfig = {
+        lint: {
+            "check-punctuation": true,
+            "local-refs-exist": true,
+            "no-http-props": true
+        },
 		specStatus : "ED",
 		processVersion : 2017,
 		shortName : "wot-architecture",
@@ -209,7 +214,7 @@ a[href].internalDFN {
         <p>Other non-normative architectural blocks and conditions
             underlying the Web of Things are also described in the
             context of deployment scenarios. In particular,
-            recommendations for security and privacy are included in
+            recommendations for security and privacy are included in:
         <ul>
             <li>the <a href="https://w3c.github.io/wot-security/">WoT
                     Security and Privacy Considerations</a> ,
@@ -279,7 +284,7 @@ a[href].internalDFN {
             specifications and defines the basics such as terminology
             and the underlying abstract architecture of the W3C Web of
             Things. In particular, the purpose of this document is to
-            provide</p>
+            provide:</p>
         <ul>
             <li>a set of use cases that lead to the W3C WoT
                 Architecture in chapter <a href="#sec-use-cases"></a>,
@@ -544,11 +549,7 @@ a[href].internalDFN {
             <dt>
                 <dfn>Servient</dfn>
             </dt>
-            <dd>A software stack that implements the WoT building
-                blocks. A Servient can host and expose Things (server
-                role) and/or consume Things (client role). Servients
-                usually have multiple Protocol Bindings to enable
-                interaction with different platforms.</dd>
+            <dd>Synonym for WoT Servient.</dd>
             <dt>
                 <dfn>Subprotocol</dfn>
             </dt>
@@ -662,6 +663,16 @@ a[href].internalDFN {
             <dd>An entity that exposes a network interface
                 consistent with a WoT Thing Description. WoT Server is
                 also used to refer to a Servient in server role only.</dd>
+            <dt>
+                <dfn>WoT Servient</dfn>
+            </dt>
+            <dd>A software stack that implements the WoT building
+                blocks. A WoT Servient can host and expose Things (server
+                role) and/or consume Things (client role). WoT Servients
+                usually have multiple Protocol Bindings to enable
+                interaction with different platforms.</dd>
+            <dt>
+                
         </dl>
     </section>
 
@@ -1605,7 +1616,7 @@ a[href].internalDFN {
                     offer a subscribe/notify mechanism, which allows
                     clients to be notified about state changes of a
                     thing.</li>
-                <li><a>Servient</a>: A thing can behave both
+                <li><a>WoT Servient</a>: A thing can behave both
                     as a client and a server, i.e. it can <em>expose</em>
                     functionality to other things and it can <em>consume</em>
                     functionalities that are provided by other things.</li>
@@ -3086,7 +3097,7 @@ a[href].internalDFN {
                 achieve this cross eco-systems application-device
                 integration. 
                 Below, two mechanisms are
-                explained, each using a figure, to show how this can be achieved.
+                explained, each using a figure, to show how this can be achieved.</p>
             <section id="sec-deployment-service-to-service-rm-synchronized">
                 <h3>Connection Through Thing Directory Synchronization</h3>
                 <p> In <a href="#deployment-service-sync-directory"></a>,
@@ -3432,7 +3443,7 @@ a[href].internalDFN {
             </section>
         </section>
     </section>
-    <section class="appendix-example-sequences" class="informative">
+    <section class="appendix-example-sequences" class="appendix informative">
         <h1>Example Sequences of interaction patterns</h1>
         <p>This section illustrates example sequences of interaction
             patterns such as read property, invoke action and event,
