@@ -1590,13 +1590,13 @@ a[href].internalDFN {
                 These things can take different logical roles in the
                 communication:</p>
             <ul>
-                <li><em>WoT Client:</em> A thing can behave as a
+                <li><a>WoT Client:</a> A thing can behave as a
                     client, which is an active component and issues
                     requests to other things. Requests use the
                     functionalities that are provided by the other
                     things, we call this interaction <em>to consume
                         a thing</em>.</li>
-                <li><em>WoT Server:</em> A thing can behave as a
+                <li><a>WoT Server:</a> A thing can behave as a
                     server, which is a component that reacts to requests
                     from other things. Requests query or modify the
                     state of a thing, we call this interaction <em>to
@@ -1605,7 +1605,7 @@ a[href].internalDFN {
                     offer a subscribe/notify mechanism, which allows
                     clients to be notified about state changes of a
                     thing.</li>
-                <li><em>WoT Servient:</em> A thing can behave both
+                <li><a>WoT Servient:</a> A thing can behave both
                     as a client and a server, i.e. it can <em>expose</em>
                     functionality to other things and it can <em>consume</em>
                     functionalities that are provided by other things.</li>
@@ -1649,8 +1649,8 @@ a[href].internalDFN {
                 <h3>Direct Communication</h3>
                 <p>
                     <a href="#high-level-application-device"></a> shows
-                    direct communication between a WoT server, that is
-                    exposing a thing and a WoT client that is using it.
+                    direct communication between a <a>WoT Server</a>, that is
+                    exposing a thing and a <a>WoT Client</a> that is using it.
                     Direct communication applies when both components
                     use the same network protocol(s) and are accessible
                     to each other.
@@ -1662,16 +1662,17 @@ a[href].internalDFN {
                         application and device</figcaption>
                 </figure>
 
-                Conceptually, a WoT server can be thought to have an <em>ExposedThing</em>
+                Conceptually, a <a>WoT Server</a> can be thought to have an <a>Exposed Thing</a>
                 that provides an interface that conforms to the TD. A
-                WoT client can be considered to contain a ConsumedThing
+                <a>WoT Client</a> can be considered to contain a <a>Consumed Thing</a>
+                for each of the <a>WoT Servers</a> it connects to
                 that provides a programming interface that can be used
-                by applications. A WoT client can generate a
-                ConsumedThing instance by interpreting a TD.
-                Communication between the WoT client and the WoT server
+                by applications. A <a>WoT Client</a> can generate a
+                <a>Consumed Thing</a> instance by interpreting a TD.
+                Communication between the <a>WoT Client</a> and the <a>WoT Server</a>
                 is performed by exchanging messages over a direct
-                network connection between a ConsumedThing and an
-                ExposedThing.
+                network connection between a <a>Consumed Thing</a> and an
+                <a>Exposed Thing</a>.
 
             </section>
             <section>
@@ -1680,7 +1681,7 @@ a[href].internalDFN {
                 <p>
                     In <a
                         href="#high-level-application-proxy-device-new"></a>
-                    a WoT client and a WoT server connect to each other
+                    a <a>WoT Client</a> and a <a>WoT Server</a> connect to each other
                     via a proxy. A proxy is required as an intermediary
                     if the components use different protocols (gateway)
                     or if they are on different networks that require
@@ -1696,16 +1697,16 @@ a[href].internalDFN {
                 </figure>
 
                 <p>
-                    A proxy combines ExposedThing and ConsumedThing
-                    functionality, and relay messages that are exchanged
-                    between an WoT client and a WoT server. In a proxy,
-                    a ConsumedThing creates a <em>shadow thing
-                        instance</em> of the ExposeThing of a WoT server, and
-                    a WoT client can access the shadow instance through
-                    the ExposedThing of the proxy.
+                    A proxy combines <a>Exposed Thing</a> and <a>Consumed Thing</a>
+                    functionality, and relays messages that are exchanged
+                    between a <a>WoT Client</a> and a <a>WoT Server.</a> In a proxy,
+                    a <a>Consumed Thing</a> creates a <em>shadow thing
+                        instance</em> of the <a>Exposed Thing</a> of a <a>WoT Server</a>, and
+                    a <a>WoT Client</a> can access the shadow instance through
+                    the <a>Exposed Thing</a> of the proxy.
                 </p>
-                <p>The ExposedThing and ConsumedThing of a proxy can
-                    communicate with the WoT client and the WoT server
+                <p>The <a>Exposed Thing</a> and <a>Consumed Thing</a> of a proxy can
+                    communicate with the <a>WoT Client</a> and the <a>WoT Server</a>
                     in different protocols. For example, a proxy can
                     provide a bridge between a device that uses CoAP and
                     an application that uses HTTP. Even when there are
@@ -1716,15 +1717,15 @@ a[href].internalDFN {
                     needs to handle a single authentication method even
                     when multiple devices connected to a proxy use
                     different authentication methods.</p>
-                <p>A proxy creates a ConsumedThing based on a TD and
+                <p>A proxy creates a <a>Consumed Thing</a> based on a TD and
                     generates another TD for a shadow thing instance.
                     The TD for a shadow device uses a new identifier
                     different from the original device TD’s, and
                     contains interfaces for other communication
                     protocols if necessary. A proxy then creates an
-                    ExposedThing that implements the bridge to the
+                    <a>Exposed Thing</a> that implements the bridge to the
                     originating thing. A client communicates with a
-                    device via a proxy through a ConsumedThing that
+                    device via a proxy through a <a>Consumed Thing</a> that
                     conforms to the TD for the shadow thing instance.</p>
             </section>
         </section>
@@ -3433,9 +3434,9 @@ a[href].internalDFN {
         <h1>Example Sequences of interaction patterns</h1>
         <p>This section illustrates example sequences of interaction
             patterns such as read propery, invoke action and event,
-            among WoT client and WoT server.</p>
+            among <a>WoT Clients</a> and <a>WoT Servers</a>.</p>
         <p>For the sake of simplicity, remote and local proxies
-            between client and server are omitted from following
+            between client and server are omitted from the following
             sequences.</p>
         <section>
             <h2>Property</h2>
