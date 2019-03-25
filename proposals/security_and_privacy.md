@@ -224,11 +224,22 @@ by the device can be determined.
 
 ### Does this specification allow an origin access to aspects of a user’s local computing environment?
 
-No.  Actually, there is no executable content
-included in data or metadata provided by WoT Things.
+No, in general, if we interpret the origin as a WoT Server, the
+user's local computing environment a WoT Client that
+retreives content from that WoT Server.
+There is no executable content
+expected in data or required in the metadata (Thing Description) provided by WoT Things.
+
+If we reverse the definitions, and let the origin be a WoT Client
+and the user be a WoT Server, which is possible in some WoT topologies,
+in general the answer is still no under reasonable constraints on system design,
+such as not exposing a capability to execute scripts on the WoT Server.
 The only operations that a WoT Server will perform
 on behalf of a WoT Client are those that it chooses
 to support via its exposed interactions (network API).
+In fact the correct answer to this question in this case is
+that the designer of a WoT Server can ensure that there is
+no _unintended_ access to the WoT Server's local computing environment.
 
 ### Does this specification allow an origin access to other devices? 
 
