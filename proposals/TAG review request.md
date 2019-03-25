@@ -4,7 +4,7 @@ I am requesting a TAG review of:
 
   - Name: _Web of Things (WoT) Architecture_
   - Specification URL: https://github.com/w3c/wot-architecture/tree/TAG-review
-  - Explainer, Requirements Doc, or Example code: https://github.com/w3c/wot-architecture/blob/master/proposals/WoT%20Architecture%20Explainer.md
+  - Explainer, Requirements Doc, or Example code: https://github.com/w3c/wot-architecture/blob/TAG-review/proposals/WoT%20Architecture%20Explainer.md
   - Tests: N/A
   - Github repo: https://github.com/w3c/wot-architecture
   - Primary contacts: @mlagally, @mmccool, @mkovatsc
