@@ -9,6 +9,7 @@ These responses are related to both the
 [WoT Architecture](https://github.com/w3c/wot-architecture) document
 and the
 [WoT Thing Description](https://github.com/w3c/wot-architecture) document.
+When a response is specific to one or the other, this will be indicated in the text.
 
 Please raise issues specific to the WoT Architecture document on the
 [WoT Architecture GitHub Issue page](https://github.com/w3c/wot-architecture/issues)
@@ -38,25 +39,29 @@ WoT in detail.  In the following we have answered the questions posed by the
 W3C Security and Privacy Questionnaire as best as we could... but please take into consideration
 that most of these questions are not fully applicable to our situation.
 
-Security in the IoT is unavoidably more complex than in the web as it involves
-general networks of communication rather
-than just the client-server architecture of web servers and browsers.
+Security in the IoT is unavoidably more complex than in the web.
+IoT systems often use patterns of communication that are more general
+than the relatively straightforward client-server architecture of web servers and browsers.
 For example, the "same origin policy" is considered a cornerstone of web security.
+However, a single IoT device may connect and integrate information from several other
+IoT devices (and even send commands to them) as a fundamental part of its operation.
 In addition,
 security on the web is often concerned with the "user's device" or the "user agent",
-which is always a client (the browser).
-However, the IoT is often more concerned with machine-to-machine communication;
-there is no "user".
-If an IoT device _is_ associated with a user, it may be a client, or
+which is always a single client (the browser).
+The IoT is often more concerned with machine-to-machine communication;
+there is frequently not even a human "user" directly associated with a device.
+If an IoT device _is_ associated with a user, such as in a Smart Home context,
+the device may be a client, or
 a server---or even both at the same time.
+Devices may also be associated with many users, not just one.
 Finally, even if an IoT device has
 a "user interface" it will be more varied than that of the browser,
-and under control of the device manufacturer, not the proposed WoT standard.
+and this UI will be under control of the device manufacturer, not the proposed WoT standard.
 
 The kinds of risks we have to deal with in the WoT are also different than
-those in the Web.  For example, the WoT does not support downloading
-and executing arbitrary scripts from other devices.  So many risks having
-to deal with such execution are not relevant.  On the other hand, the types
+those in the Web.  For example, unlike HTML the WoT does not directly support downloading
+and executing scripts from other network services.  So many risks having
+to deal with such execution are not relevant.  On the other hand, among other risks, the types
 of sensors and actuators supported by IoT devices are much broader and
 can even include systems whose compromise would have safety implications.
 
@@ -64,46 +69,54 @@ can even include systems whose compromise would have safety implications.
 
 ### 1. [Does this specification deal with personally-identifiable information?](https://www.w3.org/TR/security-privacy-questionnaire/#pii)
 
-Indirectly.  The WoT Thing Description describes IoT devices and may include
+**Yes, Indirectly.**  The WoT Thing Description describes IoT devices and may include
 information such as location and type.  If these devices can be associated
 with an owner, then it may be possible to infer information about the
-owner.  For example, if they have a baby monitor, they may have a baby,
-are probably in a certain age range, and so forth.
+owner.  For example, if a user is associated with a device as an owner,
+and that device is a baby monitor, then the user may have a baby,
+the user is probably in a certain age range, and so forth.
 
 The WoT Thing Description (TD) also allows extension via the inclusion
 of custom vocabularies.  Although the WoT standard itself does not
 have any requirement for PII, it is possible an extension might.  We
 consider this aspect of PII inclusion to be out of scope.
 
-As for the indirect risk, we recommend that as a precaution a 
+As for the indirect risk, in our Security Considerations
+we recommend that as a precaution a 
 WoT Thing Description should be treated _as if_ it contained PII
 and be stored, cached, and transmitted accordingly.  For example,
-we recommend that it only be distributed to authorized and authenticated
-users (for example, via a directory service or to a registered owner)
+we recommend that TDs only be distributed to authorized and authenticated
+users (for example, via a directory service protected by access controls or to a registered owner)
 and only be cached for a limited time.
 
 ### 2. [Does this specification deal with high-value data?](https://www.w3.org/TR/security-privacy-questionnaire/#credentials)
 
-Yes.  A WoT Thing may both require credentials to be accessed and
+**Yes.**  A WoT Thing may both require credentials to be accessed and
 use credentials to access other devices.  However, these are generally
-to secure M2M communication and are not user credentials.  We 
+to secure M2M communication and are not (or should not be) tied directly to
+user credentials used for other services.  We also
 define an architecture for managing sensitive credentials
 securely.
 
 The WoT architecture deals with the operational phase of IoT devices
-and does not specify how credentials are provisioned to devices.
-The WoT Architecture document does use a strict separation
+and does not itself specify how credentials are provisioned to devices.
+The WoT Architecture document does however recommend a strict separation
 of private security data from public data and metadata, and
-recommends the use of an isolated private security data subsystem,
-such as TPM (Trusted Platform Module).
+recommends the use of an isolated private security data subsystem
+in the implementation of IoT devices,
+such as a TPM (Trusted Platform Module).
 
 The WoT Runtime and WoT Scripting API are defined in such a way
 that they do not have direct access to private credentials.
 Instead, an "abstract data type" is used in the WoT Protocol Bindings 
-to implement security operations such as authentication
-without revealing such private security data to WoT Applications.
+to implement security operations such as authentication and encryption.
+These operations can be implemented in such a way that they do not
+reveal private security data to WoT Applications or to other devices.
 
 ### 3. [Does this specification introduce new state for an origin that persists across browsing sessions?](https://www.w3.org/TR/security-privacy-questionnaire/#persistent-origin-specific-state) 
+
+**No**, for both the interpretation of "session" as a browser session
+and as a WoT Runtime instance.
 
 This is not a browser-oriented specification although
 WoT Things can be accessed through browsers as if they
@@ -114,61 +127,71 @@ current mechanisms (cookies, etc).
 WoT Things can also act as clients, however, accessing
 web services and other WoT Things acting as servers.
 It is also possible that the same device could instantiate
-multiple WoT Runtimes.  However, there is no explicit mechanism
-for sharing state between such instances, and each instance
-can be considered a single origin.
+multiple WoT Runtimes.  However, there is no mechanism provided
+for sharing state between such instances. Therefore if we consider each instance
+to be a session, then no state can be shared across such "sessions", 
+at least via implicit internal mechanisms.
+Of course these instances could define and engage in explicit network interactions
+and share information that way.
 
 ### 4. [Does this specification expose persistent, cross-origin state to the web?](https://www.w3.org/TR/security-privacy-questionnaire/#persistent-identifiers) 
 
-A WoT Thing may act as a server and expose interactions that 
-allow properties to be modified.  Therefore modifications by
-one client may be visible to another.
+**No**, when a WoT Thing acts in the client role.
 
-This risk of this, if any, is mitigated by the fact that
-WoT Things support various mechanisms to limit access to 
-authorized users, like any other web service.
+**Yes**, in the case that a WoT Thing is acting as a server and exposes interactions that
+allow properties to be modified.  Modifications by
+one client may be visible to another in this case.
 
-When acting as a client, each WoT Thing is in effect single-origin.
+This risk of this is mitigated by the fact that
+WoT Things support various mechanisms to limit access to
+authorized users, in the same way as web services.
+Interactions that modify state should be protected in both cases
+by access controls.
 
-There is a potential fingerprinting risk, which is discussed,
+There is a potential fingerprinting risk, which is discussed in the Security Considerations,
 and is related to the PII risk discussed above.
 This can be mitigated by controlling access to WoT metadata
-such as WoT Thing Descriptions.
+such as WoT Thing Descriptions using access controls as well.
 
 ### 5. [Does this specification expose any other data to an origin that it doesn’t currently have access to?](https://www.w3.org/TR/security-privacy-questionnaire/#other-data)
 
-Yes.
+**Yes.**
 
-WoT Things by nature will be connected into a network of
-devices.  A single "WoT Network" application may involve
+WoT Things by nature will be connected into a network of devices.
+A distributed application running across a WoT System may involve
 communications between many WoT Things, some acting as
 servers, some acting as clients, some acting as both.
 
 In addition, WoT Things may act as gateways to other
 non-HTTP devices using other network protocols, such
 as MQTT or CoAP, or to interface to a variety of non-IP
-devices using BACNET, ECHONET, X10, SPI, I2C, and many
-other possibilities.
+devices using BACNET, ECHONET, CAN, X10, SPI, I2C, Bluetooth, LoRA,
+among many many other possibilities.
 
-Unfortunately, the single-origin model used in 
+Unfortunately, the single-origin model used in
 web servers and browsers does not scale well to this model.
+Instead, security strategies developed for microservice
+architectures, such as Zero-Trust models, may be more appropriate.
 
-In practice, securing an IoT Application in general is
-out of scope.  We do however discuss several common connection
+Securing a distributed IoT application in general is out of scope of this
+specification.  We do however discuss several common connection
 patterns (client-server, proxy, etc) and how they can be secured.
 
 This risk is mitigated by the fact that endpoint IoT devices
 are generally not exposed directly on the internet, but
-are mediated by gateways and cloud services.
+are mediated by gateways and cloud services, and are often
+managed explicitly by organizations (e.g. in a Smart Factory
+or Smart City) rather than by individuals.
 
 ### 6. [Does this specification enable new script execution/loading mechanisms?](https://www.w3.org/TR/security-privacy-questionnaire/#string-to-script)
 
-Yes.  It enables WoT Things to run applications based
+**Yes, to execution.**
+The WoT architecture enables WoT Things to run applications based
 on ECMAScript, using a constrained API, and with suitable
-restrictions, such as no direct access to private
-security data.
+restrictions, such as no direct access to private security data.
 
-However, a mechanism for loading new scripts is not defined
+**No, to loading.**
+A mechanism for loading new scripts is not defined
 and is currently considered to be out of scope.
 Our architecture assumes the scripts running inside a WoT Thing
 are trusted implementations provided by the manufacturer
@@ -178,16 +201,21 @@ architecture and is also currently considered to be out of scope.
 
 ### 7. [Does this specification allow an origin access to a user’s location?](https://www.w3.org/TR/security-privacy-questionnaire/#location)
 
+**No**, if the origin is considered to be a WoT Server and the user is a WoT Client.
+
+**Yes, possibly**, if the origin is a WoT Client or is a WoT Servient (both client and server)
+and the "user" device is a WoT Server or WoT Servient, which is possible in some configurations.
+
 As noted above in the PII response, a device
 location may be encoded in a WoT Thing Description using
 an extension vocabulary, 
-and this could in some cases such a device location could be
+and in some cases such a device location could be
 associated with a user's location.
 Location information, however, is neither a standard nor
 a required part of the architecture.
 It is, however, common in institutional IoT applications,
 but in this case the devices are typically not
-associated with a particular user's location, and in fact
+associated with a particular user's location.  In fact
 placement of location information in the TD is useful
 mostly for devices installed in a static location.
 
@@ -203,8 +231,8 @@ we do provide mechanisms to control access to
 interactions and a manufacturer can use these to
 prevent accidental disclosure to unauthorized users,
 and recommend that these mechanisms be used when PII
-can be inferred from device information, this being one example
-of that.
+can be inferred from device information,
+location data being just one example of that.
 A user can also inspect the WoT Thing Description to
 determine whether the device returns location information,
 assuming the manufacturer has not obfuscated the purpose
@@ -212,7 +240,7 @@ of interactions.
 
 ### 8. [Does this specification allow an origin access to sensors on a user’s device?](https://www.w3.org/TR/security-privacy-questionnaire/#sensors)
 
-Yes.  Many other sensors can be attached to an IoT 
+**Yes.**  Many other sensors can be attached to an IoT 
 device and we do not constrain these in any way.
 
 It is the responsibility of the user to only connect and
@@ -228,7 +256,7 @@ by the device can be determined.
 
 ### 9. [Does this specification allow an origin access to aspects of a user’s local computing environment?](https://www.w3.org/TR/security-privacy-questionnaire/#local-device)
 
-No, in general, if we interpret the origin as a WoT Server, the
+**No**, in general, if we interpret the origin as a WoT Server, the
 user's local computing environment a WoT Client that
 retreives content from that WoT Server.
 There is no executable content
@@ -238,16 +266,16 @@ If we reverse the definitions, and let the origin be a WoT Client
 and the user be a WoT Server, which is possible in some WoT topologies,
 in general the answer is still no under reasonable constraints on system design,
 such as not exposing a capability to execute scripts on the WoT Server.
-The only operations that a WoT Server will perform
+The only operations that a WoT Server should perform
 on behalf of a WoT Client are those that it chooses
 to support via its exposed interactions (network API).
 In fact the correct answer to this question in this case is
-that the designer of a WoT Server can ensure that there is
+that the developer of a WoT Server can ensure that there is
 no _unintended_ access to the WoT Server's local computing environment.
 
 ### 10. [Does this specification allow an origin access to other devices?](https://www.w3.org/TR/security-privacy-questionnaire/#remote-device) 
 
-Yes, as discussed above.  A WoT Thing can act as a gateway to 
+**Yes**, as discussed above.  A WoT Thing can act as a gateway to 
 other WoT Things or to other non-IP protocols.
 In fact, access to other devices is one of the primary use cases of WoT.
 
@@ -258,7 +286,7 @@ The WoT Architecture supports best practices there, such
 as Zero-Trust networks.
 
 However, to be more specific, here "origin" in the usual
-web meaning means content from a specific web server,
+web meaning assumed by the question means content from a specific web server,
 and "access to other devices" would mean from the browser.
 In the WoT context, "origin" could be interpreted as 
 a WoT Server (WoT Thing in server role) and "browser" would
@@ -270,30 +298,36 @@ responses.  Even if we reverse the roles, which is
 common in the IoT (IoT endpoint devices are often servers) a WoT Server
 is never forced to do what a WoT Client requests.
 
-That said, an "gateway" Servient might be developed by
+However, a "gateway" WoT Servient (Client/Server hybrid) _might_ be developed by
 a manufacturer that allows broad access to other devices.
 In this case, such a gateway service should be protected
-by access controls (in the Zero-Trust approach, _every_ service
-uses access controls, encryption, and authentication).
+by strict access controls,
+such as in the Zero-Trust approach, where _every_ service
+uses access controls, encryption, and authentication.
 
 ### 11. [Does this specification allow an origin some measure of control over a user agent’s native UI?](https://www.w3.org/TR/security-privacy-questionnaire/#native-ui) 
 
-No.  The WoT Architecture is M2M and makes no mention of direct
+**No**.  The WoT Architecture is M2M and makes no mention of direct
 user interfaces.
 
-That said, some devices connected via the WoT may have
-local user interfaces which might be exposed to control
-over network interactions.  Exposure of such controls
+However, some devices connected via the WoT may have
+local user interfaces of various kinds (buttons, speakers, displays, etc.)
+which might be exposed to control
+over network interactions.
+Exposure of such controls
 is at the discretion of individual device manufacturers,
 who should do an analysis of security risks as part of
 their software development process.
 
 ### 12. [Does this specification expose temporary identifiers to the web?](https://www.w3.org/TR/security-privacy-questionnaire/#temporary-id)
 
+**Yes**.  In fact _permanent_ identifiers may be exposed.
+
 The WoT Thing Description has a required element (not actually
 mentioned in the current document, the WoT Architecture, but
 in the WoT Thing Description) which is meant to be a unique ID
-(a URN, actually).  This is necessary to support Linked Data.
+(a URN, actually).
+This is necessary to support Linked Data.
 In fact, some domains, such as medical devices in the US,
 have a legal requirement to support immutable identifiers.
 
@@ -301,39 +335,46 @@ However, we suggest that the tracking risk this poses should
 be mitigated, whenever possible (e.g. if not legally disallowed
 as discussed above) by allowing such identifiers to be modified
 at least when the devices are reprovisioned.
-
 Generally, though, the identifiers in Thing Descriptions 
-are relatively long-lived.  
+are relatively long-lived.
+
+A further mitigation recommendation therefore is one already discussed:
+always treating Thing Descriptions as if they included PII
+and controlling access to them via strict access controls.
+
+Finally, even without explicit IDs,
+it might be possible to use fingerprinting to uniquely identify TDs.
 
 ### 13. [Does this specification distinguish between behavior in first-party and third-party contexts?](https://www.w3.org/TR/security-privacy-questionnaire/#first-third-party)
 
-This concept is not applicable to the WoT context.
+**N/A**.  This concept is not applicable to the WoT context.
 
 ### 14. [How should this specification work in the context of a user agent’s "incognito" mode?](https://www.w3.org/TR/security-privacy-questionnaire/#incognito)
 
-This concept is not applicable to the WoT context, as there is no user agent.
+**N/A**.  This concept is not applicable to the WoT context, as there is no user agent.
 
 ### 15. [Does this specification persist data to a user’s local device?](https://www.w3.org/TR/security-privacy-questionnaire/#storage) 
 
-A WoT Thing may be either a client or server.  Therefore we 
-have to consider this question from both the client and server 
-point of view.
+**Yes**, in both the client and server roles.
 
-A WoT Thing in a server role may support interactions that
-support POST requests.  Such can of course retain state posted to them.
+If the "user's device" is acting in a server role it may support interactions that
+support POST requests.  Servers can of course retain state posted to them.
 If this state is too general (for example, a property that allows
-a client to POST and GET arbitrary string data) and is not 
+a client to POST and GET arbitrary string data or a large number), _and_ is not 
 protected with access controls, _and_ if the device can be 
 associated with a particular user, _and_ the network protocol
 allows accesses to be tied to physical location, then this is 
-a potential physical tracking risk.  However, providing access
+a potential physical tracking risk. However, providing access
 controls on interactions (which is strongly recommended for
 all personal devices) mitigates this issue.
 
-In the client role, a WoT Thing could be programmed to 
-retrieve data provided by a server and then post it back to that
-server later.  This could also be enabled by a webhook pattern.
-This can be mitigated by establishing a trust relationship
+This is also true in some cases, but under the developer's control,
+when a user's devices are acting in the client role.
+Even if the user's device is acting as a client,
+it could theoretically be programmed to
+retrieve data provided by a server and then post it back to that server later.
+This could also be enabled by a webhook pattern in an event notification, for example.
+This can be mitigated by establishing explicit trust relationships
 and providing explicit access controls between any pair of
 devices before allowing data to be exchanged.
 
@@ -343,7 +384,8 @@ are never _forced_ to retain state and return it later.
 
 ### 16. [Does this specification have a "Security Considerations" and "Privacy Considerations" section?](https://www.w3.org/TR/security-privacy-questionnaire/#considerations)
 
-Yes, as explained above.
+**Yes**.
+
 This section in the WoT Architecture document is fairly high-level
 however and meant to be a summary of the most important considerations.
 This section in the WoT Thing Description document is more detailed and
@@ -354,7 +396,7 @@ document, as noted in the introduction.
 
 ### 17. [Does this specification allow downgrading default security characteristics?](https://www.w3.org/TR/security-privacy-questionnaire/#relaxed-sop) 
 
-No.  A WoT Thing Description describes what a WoT Thing does and
+**No**.  A WoT Thing Description describes what a WoT Thing does and
 requires, no more and no less.
 There is however an option in the WoT Thing Description to specify
 use of one of several different alternative security mechanisms to access a resource.
