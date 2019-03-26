@@ -1,19 +1,23 @@
-# Web of Things (WoT) Architecture
-## Responses to Security and Privacy Questionnaire
+# W3C Web of Things
+# Responses to the W3C Security and Privacy Questionnaire
 
 This document was prepared by the Web of Things Working Group,
 responding to the questions raised in the
 [Self-Review Questionnaire: Security and Privacy](https://www.w3.org/TR/security-privacy-questionnaire/) 
-published by the W3C TAG 
-related to the 
-[WoT Architecture](https://github.com/w3c/wot-architecture) document.
+document published by the W3C TAG. 
+These responses are related to both the 
+[WoT Architecture](https://github.com/w3c/wot-architecture) document
+and the
+[WoT Thing Description](https://github.com/w3c/wot-architecture) document.
 
-Please raise issues on the
-[WoT Architecture GitHub Issue page](https://github.com/w3c/wot-architecture/issues).
+Please raise issues specific to the WoT Architecture document on the
+[WoT Architecture GitHub Issue page](https://github.com/w3c/wot-architecture/issues)
+and to the WoT Thing Description document on the
+[WoT Thing Description GitHub Issue page](https://github.com/w3c/wot-thing-description/issues).
 
 ## Background
 
-The [WoT Security and Privacy Considerations](https://github.com/w3c/wot-security)
+The [WoT Security and Privacy Considerations](https://github.com/w3c/wot-security) document
 includes an extensive threat model,
 and considers both passive and active attacks to
 both data (payload transactions) and metadata (Thing Descriptions).
