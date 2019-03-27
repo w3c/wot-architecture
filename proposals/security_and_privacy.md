@@ -8,7 +8,7 @@ document published by the W3C TAG.
 These responses are related to both the 
 [WoT Architecture](https://github.com/w3c/wot-architecture) document
 and the
-[WoT Thing Description](https://github.com/w3c/wot-architecture) document.
+[WoT Thing Description](https://github.com/w3c/wot-thing-description) document.
 When a response is specific to one or the other, this will be indicated in the text.
 
 Please raise issues specific to the WoT Architecture document on the
