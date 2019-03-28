@@ -263,7 +263,7 @@ binding details in the WoT Thing Description but also
 by publishing an informational document, the
 <a href="https://w3c.github.io/wot-binding-templates/">WoT Binding Templates</a>.
 This building block provides a collection of communication metadata blueprints
-that explain how to encode the metadata needed to interact with different IoT platforms.
+that explain how to encode the metadata needed to interact with different IoT platforms
 in a WoT Thing Description.
 
 #### WoT Security and Privacy Considerations
@@ -290,7 +290,7 @@ One of the original designs for the WoT limited interactions to HTTP and RESTful
 However, there are many IoT ecosystems that use other protocols, such as CoAP or MQTT.
 There are many reasons for this, but to fully support the IoT, with direct access to
 IoT devices without protocol translation services, a broader perspective on
-acceptable protocols is needed.  
+acceptable protocols is needed.
 This also differentiates the WoT Thing Description from Web API descriptions such
 as Swagger/OpenAPI, which are focused on defining APIs that are based on HTTP.
 
