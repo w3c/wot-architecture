@@ -74,19 +74,34 @@
 				publisher : "IETF",
 				date : "03 July 2017"
 			},
-			"WOT-SECURITY-CONSIDERATIONS" : {
+/* ReSpec will pick up the citation it is officially published
+			"wot-security" : {
 				href : "https://www.w3.org/TR/wot-security/",
-				title : "Web of Things Security and Privacy Considerations",
+                                // href: "https://cdn.staticaly.com/gh/w3c/wot-security/master/index.html?env=dev",
+				title : "Web of Things (WoT) Security and Privacy Considerations",
+                                // status: "Editor's Draft (will be W3C NOTE in final version)",
+                                status: "W3C Note",
+				publisher : "W3C"
+			},
+*/
+			"TAG-REVIEW-WOT-THING-DESCRIPTION" : {
+                                href: "https://cdn.staticaly.com/gh/w3c/wot-thing-description/TD-TAG-review/index.html?env=dev",
+				title : "Web of Things (WoT) Thing Description",
+                                status: "Editor's Draft for TAG Review",
 				publisher : "W3C"
 			},
 			"WOT-SECURITY-BEST-PRACTICES" : {
-				href : "https://www.w3.org/TR/wot-security-best-practices/",
-				title : "Web of Things Security Best Practices",
+				// href : "https://www.w3.org/TR/wot-security-best-practices/",
+                                href: "https://cdn.staticaly.com/gh/w3c/wot-security-best-practices/master/index.html?env=dev",
+				title : "Web of Things (WoT) Security Best Practices",
+                                status: "Editor's Draft (will be W3C NOTE in final version)",
 				publisher : "W3C"
 			},
 			"WOT-SECURITY-TESTING-PLAN" : {
-				href : "https://www.w3.org/TR/wot-security-testing-plan/",
-				title : "Web of Things Security Best Practices",
+				// href : "https://www.w3.org/TR/wot-security-testing-plan/",
+                                href: "https://cdn.staticaly.com/gh/w3c/wot-security-testing-plan/master/index.html?env=dev",
+				title : "Web of Things (WoT) Security Best Practices",
+                                status: "Editor's Draft (will be W3C NOTE in final version)",
 				publisher : "W3C"
 			},
 			"IEC-FOTF" : {
@@ -178,19 +193,21 @@ a[href].internalDFN {
             blocks. These are described by additional WoT
             specifications:</p>
         <ul>
-            <li>the <a
-                href="https://w3c.github.io/wot-thing-description/">WoT
-                    Thing Description</a> ,
+            <li>the <em>Web of Things (WoT)
+                    Thing Description</em> [[wot-thing-description]],
             </li>
-            <li>the <a
-                href="https://w3c.github.io/wot-binding-templates/">WoT
-                    Binding Templates</a> , and
+            <li>the <em>Web of Things (WoT)
+                    Binding Templates</em> [[wot-binding-templates]], and
             </li>
-            <li>the <a
-                href="https://w3c.github.io/wot-scripting-api/">WoT
-                    Scripting API</a> .
+            <li>the <em>Web of Things (WoT)
+                    Scripting API</em> [[wot-scripting-api]].
             </li>
         </ul>
+
+        <p class="ednote">The TAG review version of the 
+            the <em>Web of Things (WoT) Thing Description</em> 
+            can be found here: [[TAG-REVIEW-WOT-THING-DESCRIPTION]].
+        </p>
 
         <p>
             The <a>WoT Thing Description</a> is the primary building
@@ -216,16 +233,14 @@ a[href].internalDFN {
             context of deployment scenarios. In particular,
             recommendations for security and privacy are included in:
         <ul>
-            <li>the <a href="https://w3c.github.io/wot-security/">WoT
-                    Security and Privacy Considerations</a> ,
+            <li>the <em>Web of Things (WoT)
+                    Security and Privacy Considerations</em> [[wot-security]],
             </li>
-            <li>the <a
-                href="https://w3c.github.io/wot-security-best-practices/">WoT
-                    Security Best Practices</a> , and
+            <li>the <em>Web of Things (WoT)
+                    Security Best Practices</em> [[WOT-SECURITY-BEST-PRACTICES]], and
             </li>
-            <li>the <a
-                href="https://w3c.github.io/wot-security-testing-plan/">WoT
-                    Security Testing Plan</a> .
+            <li>the <em>Web of Things (WoT)
+                    Security Testing Plan</em> [[WOT-SECURITY-TESTING-PLAN]].
             </li>
         </ul>
         <p>Overall, the goal is to preserve and support existing
@@ -266,19 +281,21 @@ a[href].internalDFN {
             has now being standardized:
         </p>
         <ul>
-            <li>the <a
-                href="https://w3c.github.io/wot-thing-description/">WoT
-                    Thing Description</a>,
+            <li>the <em>Web of Things (WoT)
+                    Thing Description</em> [[wot-thing-description]],
             </li>
-            <li>the <a
-                href="https://w3c.github.io/wot-binding-templates/">WoT
-                    Binding Templates</a>, and
+            <li>the <em>Web of Things (WoT)
+                    Binding Templates</em> [[wot-binding-templates]], and
             </li>
-            <li>the <a
-                href="https://w3c.github.io/wot-scripting-api/">WoT
-                    Scripting API</a>.
+            <li>the <em>Web of Things (WoT)
+                    Scripting API</em> [[wot-scripting-api]].
             </li>
         </ul>
+
+        <p class="ednote">The TAG review version of the 
+            the <em>Web of Things (WoT) Thing Description</em> 
+            can be found here: [[TAG-REVIEW-WOT-THING-DESCRIPTION]].
+        </p>
 
         <p>This document serves as an umbrella for the W3C WoT draft
             specifications and defines the basics such as terminology
@@ -2490,7 +2507,7 @@ a[href].internalDFN {
                 block also include a discussion of particular security
                 and privacy considerations for each building block.
                 Another set of documents, the WoT Security and Privacy
-                Considerations [[?WOT-SECURITY-CONSIDERATIONS]], the WoT
+                Considerations [[?wot-security]], the WoT
                 Security Best Practices
                 [[?WOT-SECURITY-BEST-PRACTICES]], and the WoT Security
                 Testing Plan [[?WOT-SECURITY-TESTING-PLAN]], provide
@@ -3149,7 +3166,7 @@ a[href].internalDFN {
             For a more detailed and complete analysis of security and
             privacy threats, risks, mitigations, and best practices, see
             the WoT Security and Privacy Considerations
-            [[?WOT-SECURITY-CONSIDERATIONS]] and the WoT Security Best
+            [[?wot-security]] and the WoT Security Best
             Practices [[?WOT-SECURITY-BEST-PRACTICES]] documents.
             Guidelines for the security testing of WoT implementations,
             including adversarial testing, are given in the WoT Security
@@ -3345,7 +3362,7 @@ a[href].internalDFN {
                         the device. For more information see Sections
                         "WoT Servient Single-Tenant" and "WoT Servient
                         Multi-Tenant" of
-                        [[WOT-SECURITY-CONSIDERATIONS#]].
+                        [[wot-security]].
                     </dd>
                 </dl>
             </section>
@@ -3403,7 +3420,7 @@ a[href].internalDFN {
                         related data should be done in a secure fashion.
                         A set of recommendations for secure update and
                         post-manufacturing provisioning can be found in
-                        [[WOT-SECURITY-CONSIDERATIONS]].
+                        [[wot-security]].
                     </dd>
                 </dl>
             </section>
