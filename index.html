@@ -326,9 +326,9 @@ a[href].internalDFN {
                 <dfn>Action</dfn>
             </dt>
             <dd>An Interaction Affordance that allows to invoke a
-                function of the Thing, which manipulates internal state
-                that is not directly exposed (cf. Properties) based on
-                internal logic or triggers a process on the Thing.</dd>
+                function of the Thing, which manipulates state
+                (e.g., toggling a lamp on or off)
+                or triggers a process on the Thing (e.g., dimm a lamp over time).</dd>
             <dt>
                 <dfn>Application</dfn>
             </dt>
@@ -353,28 +353,11 @@ a[href].internalDFN {
                 notes for the required protocol stacks or dedicated
                 communication drivers.</dd>
             <dt>
-                <dfn>Client API</dfn>
-            </dt>
-            <dd>Programming interface that allows scripts to access
-                remote Things over the network, local Things in a
-                different execution environment, or directly attached
-                hardware (which is abstracted as Things).</dd>
-            <dt>
                 <dfn>to consume a Thing</dfn>
             </dt>
             <dd>To read a Thing Description and create a Consumed
                 Thing software object for the application in the local
                 runtime environment.</dd>
-            <dt>
-            <dt>
-                <dfn>CoAP</dfn>
-            </dt>
-            <dd>Acronym for Constrained Application Protocol
-                [[RFC7252]].</dd>
-            <dt>
-                <dfn>CWT</dfn>
-            </dt>
-            <dd>CBOR Web Token.</dd>
             <dt>
                 <dfn>Consumed Thing</dfn>
             </dt>
@@ -387,15 +370,10 @@ a[href].internalDFN {
             </dt>
             <dd>A digital twin is a virtual representation of a
                 device or a group of devices that resides on a cloud
-                server, edge device or proxy. It can be used to represent
+                server, edge device, or proxy. It can be used to represent
                 real-world devices which may not be continuously online,
                 or to run simulations of new applications and services,
                 before they get deployed to the real devices.</dd>
-            <dt>
-                <dfn>Discovery API</dfn>
-            </dt>
-            <dd>Programming interface that allows scripts to
-                discover other Things (local, nearby, or remote).</dd>
             <dt>
                 <dfn>Domain-specific vocabulary</dfn>
             </dt>
@@ -406,18 +384,19 @@ a[href].internalDFN {
             </dt>
             <dd>a device which provides an entry point into
                 enterprise or service provider core networks. Examples
-                include routers, routing switches, multiplexers, and a
+                include gateways, routers, switches, multiplexers, and a
                 variety of other access devices.</dd>
             <dt>
             <dt>
                 <dfn>Event</dfn>
             </dt>
-            <dd>An Interaction Affordance that describes
-                asynchronous push interactions initiated by the Thing.</dd>
+            <dd>An Interaction Affordance that describes an event source,
+                which asynchronously pushes event data to clients
+                (e.g., overheating alerts).</dd>
             <dt>
                 <dfn>Execution Environment</dfn>
             </dt>
-            <dd>A sandbox within the Runtime that isolates scripts
+            <dd>A sandbox within the WoT Runtime that isolates scripts
                 running on the same Servient.</dd>
             <dt>
                 <dfn>to expose a Thing</dfn>
@@ -438,20 +417,18 @@ a[href].internalDFN {
             <dt>
                 <dfn>Hypermedia Control</dfn>
             </dt>
-            <dd>Hypermedia controls are Web links [[!RFC8288]] and
-                request templates where the latter can be seen as forms
-                to fill in and to send to servers.</dd>
+            <dd>A serialization of a Protocol Binding in hypermedia, that is,
+                either a Web link [[!RFC8288]] for navigation or a Web form for
+                performing other operations. Forms can be seen as request templates
+                provided by the server to be completeted and sent by the client.</dd>
             <dt>
                 <dfn>Interaction Affordance</dfn>
             </dt>
             <dd>
-                Metadata of a Thing exposing <a>hypermedia controls</a>
-                that describe the possible protocol-level choices to
-                clients, thereby suggesting how clients may interact
-                with the Thing. Examples use of affordances includes,
-                but are not limited, getting and setting <a>properties</a>,
-                invoking <a>actions</a>, and subscribing to <a>events</a>.
-            </dd>
+                Metadata of a Thing that shows the possible choices to clients,
+                thereby suggesting how clients may interact with the Thing.
+                W3C WoT defines three types of Interaction Affordances:
+                Properties, Actions, and Events.</dd>
             <dt>
                 <dfn>Interaction Model</dfn>
             </dt>
@@ -466,75 +443,18 @@ a[href].internalDFN {
                 application-facing APIs, data model, and protocols or
                 protocol configurations.</dd>
             <dt>
-                <dfn>JSON-LD</dfn>
-            </dt>
-            <dd>
-                A JSON document that is augmented with support for
-                Linked Data by providing an
-                <code>@context</code>
-                property with a defining URI [[json-ld]].
-            </dd>
-            <dt>
-                <dfn>JWT</dfn>
-            </dt>
-            <dd>JSON Web Token [[RFC7519]].</dd>
-            <dt>
-                <dfn>Local Discovery</dfn>
-            </dt>
-            <dd>A discovery method that can discover Things
-                directly connected to a Servient (e.g., sensor or
-                actuator that is abstracted as Thing).</dd>
-            <dt>
-                <dfn>Manual Discovery</dfn>
-            </dt>
-            <dd>A discovery method where the URI of the used
-                consumed Thing Descriptions is provided manually (e.g.,
-                through user configuration or API call parameter in a
-                script).</dd>
-            <dt>
-                <dfn>MQTT</dfn>
-            <dd>
-                <i>Message Queuing Telemetry Transport</i> is a
-                publish-subscribe-based messaging protocol.[[!MQTT]]
-            </dd>
-            <dt>
-                <dfn>Nearby Discovery</dfn>
-            </dt>
-            <dd>A discovery method where the physical location is
-                considered (e.g., BLE, Audio Watermarking, ...).</dd>
-            <dt>
-                <dfn>Network Discovery</dfn>
-            </dt>
-            <dd>A discovery method that can discover Things in
-                local networks (e.g. SSDP, mDNS/DNS-SD, ...).</dd>
-            <dt>
                 <dfn>Property</dfn>
             </dt>
-            <dd>An Interaction Affordance that exposes internal
-                state of the Thing that can be directly accessed (read)
-                and optionally manipulated (write).Things can also
-                choose to make Properties observable by pushing the new
+            <dd>An Interaction Affordance that exposes state of the Thing.
+                This state can then be retrieved (read) and optionally updated (write).
+                Things can also choose to make Properties observable by pushing the new
                 state after a change.</dd>
             <dt>
-                <dfn data-lt="WoT Protocol Binding">Protocol
-                    Binding</dfn>
+                <dfn data-lt="WoT Protocol Binding">Protocol Binding</dfn>
             </dt>
-            <dd>The set of mapping rules from an Interaction
-                Affordance to concrete messages of a specific protocol.
-                These rules are encoded into the TD using forms.</dd>
-            <dt>
-            <dt>
-                <dfn>RDF</dfn>
-            </dt>
-            <dd>The Resource Description Framework (RDF) of the
-                Semantic Web [[rdf-concepts]],</dd>
-            <dt>
-                <dfn>Remote Discovery</dfn>
-            </dt>
-            <dd>A discovery method which supports lookup of remote
-                Things also beyond network boundaries, for instance by
-                using a directory service. The endpoint of the directory
-                must be supported.</dd>
+            <dd>The mapping from an Interaction Affordance to concrete messages of a specific protocol,
+                thereby informing clients how to activate the Interaction Affordance.
+                W3C WoT serializes Protocol Bindings as hypermedia controls.</dd>
             <dt>
                 <dfn>Scripting Runtime</dfn>
             </dt>
@@ -542,14 +462,13 @@ a[href].internalDFN {
                 API in a scripting language (e.g. using ECMAScript, LUA,
                 Python etc.).</dd>
             <dt>
-                <dfn>Server API</dfn>
-            </dt>
-            <dd>Programming interface that allows scripts to expose
-                local functionality as Things to WoT Clients.</dd>
-            <dt>
                 <dfn>Servient</dfn>
             </dt>
-            <dd>Synonym for WoT Servient.</dd>
+            <dd>A software stack that implements the WoT building
+                blocks. A Servient can host and expose Things (server
+                role) and/or consume Things (client role). Servients
+                often support multiple Protocol Bindings to enable
+                interaction with different platforms.</dd>
             <dt>
                 <dfn>Subprotocol</dfn>
             </dt>
@@ -598,13 +517,8 @@ a[href].internalDFN {
             <dt>
                 <dfn>Virtual Thing</dfn>
             </dt>
-            <dd>An instance of a thing that represents a thing that is located 
+            <dd>An instance of a Thing that represents a Thing that is located 
                 on another system component.</dd>
-            <dt>
-                <dfn>WoT</dfn>
-            </dt>
-            <dd>The Web of Things initiative and family of
-                specifications in the W3C.</dd>
             <dt>
                 <dfn>WoT Client</dfn>
             </dt>
@@ -621,12 +535,6 @@ a[href].internalDFN {
                 rules of Protocol Bindings between the abstract WoT
                 Runtime (Thing level) to a network-facing interface
                 (protocol level).</dd>
-            <dt>
-                <dfn>WoT Object</dfn>
-            </dt>
-            <dd>The WoT object is the Scripting API entry point
-                within a WoT Runtime. It provides methods to discover,
-                consume, and expose Things.</dd>
             <dt>
                 <dfn>WoT Runtime</dfn>
             </dt>
@@ -662,17 +570,7 @@ a[href].internalDFN {
             </dt>
             <dd>An entity that exposes a network interface
                 consistent with a WoT Thing Description. WoT Server is
-                also used to refer to a Servient in server role only.</dd>
-            <dt>
-                <dfn>WoT Servient</dfn>
-            </dt>
-            <dd>A software stack that implements the WoT building
-                blocks. A WoT Servient can host and expose Things (server
-                role) and/or consume Things (client role). WoT Servients
-                usually have multiple Protocol Bindings to enable
-                interaction with different platforms.</dd>
-            <dt>
-                
+                also used to refer to a Servient in server role only.</dd>                
         </dl>
     </section>
 
