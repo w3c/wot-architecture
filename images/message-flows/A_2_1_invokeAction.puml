@@ -1,30 +1,30 @@
 @startuml
 hide footbox
 
-box "Client"
+box "WoT Client"
 participant "Application" as AP
-participant "Scripting API" as SA
+participant "Consumed Thing" as SA
 end box
 
-box "Server(Thing)"
-participant "WoT Server" as WS
-participant "Device" as DC
+box "WoT Server"
+participant "Exposed Thing" as WS
+participant "Application" as DC
 end box
 
-AP  -> SA: calls \n thing.invokeAction()
+AP  -> SA: invokes\n"invokeaction"\noperation
 activate SA
 SA  -> AP: returns Promise
-SA  -> WS: sends HTTP POST Request to href of form \n (body: inputSchema data)
+SA  -> WS: send HTTP POST Request\nto href of form\n (body: input data)
 
 activate WS
-WS  -> DC: operates corresponding \n device and waits completion
-...(certain time erapsed)...
+WS  -> DC: perform corresponding\n action and awaits completion
+...(certain time elapsed)...
 DC  -> WS: finished
 
-WS  -> SA: sends back HTTP POST Response \n (body: outputSchema data)
+WS  -> SA: send HTTP POST Response\n (body: output data)
 
 deactivate WS
-SA  -> AP: calls back Promise \n resolving to \n outputSchema data
+SA  -> AP: Promise callback\n (resolves to: output data)
 
 deactivate SA
 

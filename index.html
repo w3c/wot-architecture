@@ -7,151 +7,151 @@
 <script class="remove"
     src="https://www.w3.org/Tools/respec/respec-w3c-common"></script>
 <script class="remove">
-	var respecConfig = {
+        var respecConfig = {
         lint: {
             "check-punctuation": true,
             "local-refs-exist": true,
             "no-http-props": true
         },
-		specStatus : "ED",
-		processVersion : 2017,
-		shortName : "wot-architecture",
-		copyrightStart : 2017,
-		wg : "Web of Things Working Group",
-		wgURI : "https://www.w3.org/WoT/WG/",
-		wgPublicList : "public-wot-wg",
-		edDraftURI : "https://w3c.github.io/wot-architecture/",
-		githubAPI : "https://api.github.com/repos/w3c/wot-architecture",
-		issueBase : "https://www.github.com/w3c/wot-architecture/issues",
-		editors : [ {
-			name : "Matthias Kovatsch",
-			w3cid : "75998",
-			company : "Huawei",
-			companyURL : "https://www.huawei.com/"
-		}, {
-			name : "Kazuo Kajimoto",
-			w3cid : "74112",
-			company : "Panasonic Corp.",
-			companyURL : "https://www.panasonic.com/"
-		}, {
-			name : "Ryuichi Matsukura",
-			w3cid : "64284",
-			company : "Fujitsu Ltd.",
-			companyURL : "https://www.fujitsu.com/"
-		}, {
-			name : "Michael Lagally",
-			w3cid : "47166",
-			company : "Oracle Corp.",
-			companyURL : "https://www.oracle.com/"
-		}, {
-			name : "Toru Kawaguchi",
-			w3cid : "79307",
-			company : "Panasonic Corp.",
-			companyURL : "https://www.panasonic.com/"
-		} ],
-		otherLinks : [
-				{
-					key : "Contributors",
-					data : [ {
-						value : "In the GitHub repository",
-						href : "https://github.com/w3c/wot-architecture/graphs/contributors"
-					} ]
-				}, {
-					key : "Repository",
-					data : [ {
-						value : "We are on GitHub",
-						href : "https://github.com/w3c/wot-architecture/"
-					}, {
-						value : "File a bug",
-						href : "https://github.com/w3c/wot-architecture/issues"
-					} ]
-				} ],
-		localBiblio : {
-			"CoRE-RD" : {
-				href : "https://tools.ietf.org/html/draft-ietf-core-resource-directory-11",
-				title : "CoRE Resource Directory",
-				status : "Internet-Draft",
-				publisher : "IETF",
-				date : "03 July 2017"
-			},
-			"WOT-SECURITY-CONSIDERATIONS" : {
-				href : "https://www.w3.org/TR/wot-security/",
-				title : "Web of Things Security and Privacy Considerations",
-				publisher : "W3C"
-			},
-			"WOT-SECURITY-BEST-PRACTICES" : {
-				href : "https://www.w3.org/TR/wot-security-best-practices/",
-				title : "Web of Things Security Best Practices",
-				publisher : "W3C"
-			},
-			"WOT-SECURITY-TESTING-PLAN" : {
-				href : "https://www.w3.org/TR/wot-security-testing-plan/",
-				title : "Web of Things Security Best Practices",
-				publisher : "W3C"
-			},
-			"IEC-FOTF" : {
-				href : "https://www.iec.ch/whitepaper/pdf/iecWP-futurefactory-LR-en.pdf",
-				title : "Factory of the future",
-				publisher : "IEC",
-				date : "October 2015"
-			},
-			"iot-schema-org" : {
-				href : "https://iot.schema.org/",
-				title : "iot.schema.org"
-			},
-			"REST" : {
-				title : "REST: Architectural Styles and the Design of Network-based Software Architectures",
-				author : "Roy Thomas Fielding",
-				status : "PhD thesis",
-				publisher : "University of California, Irvine",
-				date : "2000"
-			},
-			"SAREF" : {
-				href : "https://sites.google.com/site/smartappliancesproject/ontologies/reference-ontology",
-				title : "Smart Appliances REFerence (SAREF) ontology",
-				publisher : "ETSI",
-				date : "November 2015"
-			},
-			"SSN" : {
-				href : "https://www.w3.org/TR/vocab-ssn/",
-				title : "Semantic Sensor Ontology",
-				publisher : "W3C",
-				date : "October 2017"
-			},
-			"HMI" : {
-				title : "The Encyclopedia of Human-Computer Interaction, 2nd Ed",
-				author : "Mads Soegaard, Rikke Friis Dam",
-				publisher : "Interaction Design Foundation",
-				date : "2013"
-			},
-			"NORMAN" : {
-				title : "The Psychology of Everyday Things",
-				author : "Donald A. Norman",
-				publisher : "Basic Books",
-				date : "1988"
-			},
-			"MQTT" : {
-				title : "MQTT Version 3.1.1",
-				author : "Andrew Banks, Rahul Gupta",
-				publisher : "OASIS Standard",
-				date : "2014"
-			},
-			"FORMS" : {
-				href : "https://tools.ietf.org/html/draft-hartke-t2trg-coral",
-				title : "The Constrained RESTful Application Language (CoRAL)",
-				author : "Klaus Hartke",
-				publisher : "IETF",
-				status : "Internet-Draft",
-				date : "2019"
-			}
-		}
-	};
+                specStatus : "ED",
+                processVersion : 2017,
+                shortName : "wot-architecture",
+                copyrightStart : 2017,
+                wg : "Web of Things Working Group",
+                wgURI : "https://www.w3.org/WoT/WG/",
+                wgPublicList : "public-wot-wg",
+                edDraftURI : "https://w3c.github.io/wot-architecture/",
+                githubAPI : "https://api.github.com/repos/w3c/wot-architecture",
+                issueBase : "https://www.github.com/w3c/wot-architecture/issues",
+                editors : [ {
+                        name : "Matthias Kovatsch",
+                        w3cid : "75998",
+                        company : "Huawei",
+                        companyURL : "https://www.huawei.com/"
+                }, {
+                        name : "Kazuo Kajimoto",
+                        w3cid : "74112",
+                        company : "Panasonic Corp.",
+                        companyURL : "https://www.panasonic.com/"
+                }, {
+                        name : "Ryuichi Matsukura",
+                        w3cid : "64284",
+                        company : "Fujitsu Ltd.",
+                        companyURL : "https://www.fujitsu.com/"
+                }, {
+                        name : "Michael Lagally",
+                        w3cid : "47166",
+                        company : "Oracle Corp.",
+                        companyURL : "https://www.oracle.com/"
+                }, {
+                        name : "Toru Kawaguchi",
+                        w3cid : "79307",
+                        company : "Panasonic Corp.",
+                        companyURL : "https://www.panasonic.com/"
+                } ],
+                otherLinks : [
+                                {
+                                        key : "Contributors",
+                                        data : [ {
+                                                value : "In the GitHub repository",
+                                                href : "https://github.com/w3c/wot-architecture/graphs/contributors"
+                                        } ]
+                                }, {
+                                        key : "Repository",
+                                        data : [ {
+                                                value : "We are on GitHub",
+                                                href : "https://github.com/w3c/wot-architecture/"
+                                        }, {
+                                                value : "File a bug",
+                                                href : "https://github.com/w3c/wot-architecture/issues"
+                                        } ]
+                                } ],
+                localBiblio : {
+                        "CoRE-RD" : {
+                                href : "https://tools.ietf.org/html/draft-ietf-core-resource-directory-11",
+                                title : "CoRE Resource Directory",
+                                status : "Internet-Draft",
+                                publisher : "IETF",
+                                date : "03 July 2017"
+                        },
+                        "WOT-SECURITY-CONSIDERATIONS" : {
+                                href : "https://www.w3.org/TR/wot-security/",
+                                title : "Web of Things Security and Privacy Considerations",
+                                publisher : "W3C"
+                        },
+                        "WOT-SECURITY-BEST-PRACTICES" : {
+                                href : "https://www.w3.org/TR/wot-security-best-practices/",
+                                title : "Web of Things Security Best Practices",
+                                publisher : "W3C"
+                        },
+                        "WOT-SECURITY-TESTING-PLAN" : {
+                                href : "https://www.w3.org/TR/wot-security-testing-plan/",
+                                title : "Web of Things Security Best Practices",
+                                publisher : "W3C"
+                        },
+                        "IEC-FOTF" : {
+                                href : "https://www.iec.ch/whitepaper/pdf/iecWP-futurefactory-LR-en.pdf",
+                                title : "Factory of the future",
+                                publisher : "IEC",
+                                date : "October 2015"
+                        },
+                        "iot-schema-org" : {
+                                href : "https://iot.schema.org/",
+                                title : "iot.schema.org"
+                        },
+                        "REST" : {
+                                title : "REST: Architectural Styles and the Design of Network-based Software Architectures",
+                                author : "Roy Thomas Fielding",
+                                status : "PhD thesis",
+                                publisher : "University of California, Irvine",
+                                date : "2000"
+                        },
+                        "SAREF" : {
+                                href : "https://sites.google.com/site/smartappliancesproject/ontologies/reference-ontology",
+                                title : "Smart Appliances REFerence (SAREF) ontology",
+                                publisher : "ETSI",
+                                date : "November 2015"
+                        },
+                        "SSN" : {
+                                href : "https://www.w3.org/TR/vocab-ssn/",
+                                title : "Semantic Sensor Ontology",
+                                publisher : "W3C",
+                                date : "October 2017"
+                        },
+                        "HMI" : {
+                                title : "The Encyclopedia of Human-Computer Interaction, 2nd Ed",
+                                author : "Mads Soegaard, Rikke Friis Dam",
+                                publisher : "Interaction Design Foundation",
+                                date : "2013"
+                        },
+                        "NORMAN" : {
+                                title : "The Psychology of Everyday Things",
+                                author : "Donald A. Norman",
+                                publisher : "Basic Books",
+                                date : "1988"
+                        },
+                        "MQTT" : {
+                                title : "MQTT Version 3.1.1",
+                                author : "Andrew Banks, Rahul Gupta",
+                                publisher : "OASIS Standard",
+                                date : "2014"
+                        },
+                        "FORMS" : {
+                                href : "https://tools.ietf.org/html/draft-hartke-t2trg-coral",
+                                title : "The Constrained RESTful Application Language (CoRAL)",
+                                author : "Klaus Hartke",
+                                publisher : "IETF",
+                                status : "Internet-Draft",
+                                date : "2019"
+                        }
+                }
+        };
 </script>
 <style type="text/css">
 a[href].internalDFN {
-	color: inherit;
-	border-bottom: 1px solid #99c;
-	text-decoration: none;
+        color: inherit;
+        border-bottom: 1px solid #99c;
+        text-decoration: none;
 }
 </style>
 </head>
@@ -636,15 +636,15 @@ a[href].internalDFN {
                 or more protocols, and maintains private security
                 metadata.</dd>
             <!-- OLD DEFINITION
-			<dd>A runtime system for applications supporting the 
+                        <dd>A runtime system for applications supporting the 
                                 implementation of WoT Thing behavior. 
                                 Implementing a WoT Runtime is optional for Servients but is 
                                 mandatory when the WoT Scripting API is used.
 
-				The WoT Runtime instantiates Consumed
-				Things and Exposed Things as software objects, manages their state,
-				and generates the TDs. It communicates with other components such as
-				the Binding implementations and application scripts or programs through
+                                The WoT Runtime instantiates Consumed
+                                Things and Exposed Things as software objects, manages their state,
+                                and generates the TDs. It communicates with other components such as
+                                the Binding implementations and application scripts or programs through
                                 an API, the WoT Scripting API being one instance of such an API.
                         </dd>
 -->
@@ -2043,9 +2043,8 @@ a[href].internalDFN {
                             [[!RFC3986]] that uniquely identify the
                             type.</span></li>
                 </ul>
+                <figure id="table-operation-types">
                 <table class="def">
-                    <caption>Well-known Operation Types for
-                        the Web of Things</caption>
                     <thead>
                         <tr>
                             <th>Operation Name</th>
@@ -2073,6 +2072,12 @@ a[href].internalDFN {
                                 updated.</td>
                         </tr>
                         <tr>
+                            <td>unobserveproperty</td>
+                            <td>Identifies the unobserve
+                                operation on Property Affordances to stop
+                                the corresponding notifications.</td>
+                        </tr>
+                        <tr>
                             <td>invokeaction</td>
                             <td>Identifies the invoke operation on
                                 Action Affordances to perform the
@@ -2092,6 +2097,9 @@ a[href].internalDFN {
                         </tr>
                     </tbody>
                 </table>
+                    <figcaption>Well-known Operation Types for
+                        the Web of Things</figcaption>
+                </figure>
                 <p class="ednote">As of this specification, the
                     well-known operation types form a fixed set that
                     results from the WoT interaction model. Other
@@ -2668,7 +2676,7 @@ a[href].internalDFN {
              </p>
              <p> For a <a>WoT Client</a> or <a>Servient</a>, the lifecycle management of 
                  <a>Consumed Things</a> is realized in the same manner as that
-	 	 of <a>Exposed Things</a>.
+                 of <a>Exposed Things</a>.
              </p>
         </section>
         <section>
@@ -3443,124 +3451,169 @@ a[href].internalDFN {
             </section>
         </section>
     </section>
-    <section class="appendix-example-sequences" class="appendix informative">
+    <section id="appendix-example-sequences" class="appendix informative">
         <h1>Example Sequences of interaction patterns</h1>
-        <p>This section illustrates example sequences of interaction
-            patterns such as read property, invoke action and event,
-            among <a>WoT Clients</a> and <a>WoT Servers</a>.</p>
-        <p>For the sake of simplicity, remote and local proxies
-            between client and server are omitted from the following
-            sequences.</p>
+        <p> This section illustrates example sequences of application and protocol
+            transactions that correspond to operations 
+            (defined in <a href="#table-operation-types"></a>)
+            implementing various interactions
+            among <a>WoT Clients</a> and <a>WoT Servers</a>.
+            The illustrations show both the concrete protocol transactions
+            and the interactions between the applications running
+            inside the <a>WoT Client</a> and <a>WoT Server</a>
+            and the <a>Consumed Thing</a> and <a>Exposed Thing</a> abstractions.
+        </p>
+        <p> For the sake of simplicity, remote and local proxies
+            between client and server are omitted from the following sequences.
+            We also assume HTTP as the concrete protocol
+            and omit any additional transactions for implementing security,
+            such as those that would be used for authentication or
+            to set up a secure connection for HTTPS.
+            Other concrete protocols and the addition of security transactions
+            however would only effect the concrete protocol transactions,
+            not the application-level interactions with the
+            <a>Consumed Thing</a> and <a>Exposed Thing</a> abstractions.
+        </p>
         <section>
-            <h2>Property</h2>
+            <h2>Property Interactions</h2>
             <section>
-                <h3>Read property (binding = HTTP)</h3>
-                <p>Following sequence illustrates example sequence
-                    of read property operation with HTTP binding.</p>
+                <h3>Read property (HTTP binding)</h3>
+                <p>The following sequence illustrates application and network
+                   transactions to implement the 
+                   "readproperty" operation
+                   with an HTTP protocol binding.</p>
                 <p>
                     <img
                         src="images/message-flows/A_1_1_readProperty.png"
-                        alt="Read property               (binding = HTTP)" />
+                        alt="Read property (HTTP binding)" />
                 </p>
             </section>
             <section>
-                <h3>Write property (binding = HTTP)</h3>
-                <p>Following sequence illustrates example sequence
-                    of write property operation with HTTP binding.</p>
+                <h3>Write property (HTTP binding)</h3>
+                <p>The following sequence illustrates application and network
+                   transactions to implement the 
+                   "writeproperty" operation
+                   with an HTTP protocol binding.</p>
                 <p>
                     <img
                         src="images/message-flows/A_1_2_writeProperty.png"
-                        alt="Write               property (binding = HTTP)" />
+                        alt="Write property (HTTP binding)" />
                 </p>
             </section>
             <section>
-                <h3>Observe property (binding = HTTP Long Polling)</h3>
-                <p>Following sequence illustrates example sequence
-                    of observe property operation with HTTP Long Polling
-                    binding.</p>
+                <h3>Observe property (HTTP binding with Long Polling subprotocol)</h3>
+                <p>The following sequence illustrates application and network
+                   transactions to implement the 
+                   "observeproperty" operation
+                   with an HTTP protocol binding using 
+                   the "longpolling" (Long Polling) subprotocol.</p>
                 <p>
                     <img
                         src="images/message-flows/A_1_3a_observePropertyLongPoll.png"
-                        alt="Observe property (binding = HTTP Long Polling)" />
+                        alt="Observe property (HTTP binding with Long Polling subprotocol)" />
                 </p>
             </section>
             <section>
-                <h3>Observe property (binding = HTTP Server Sent
-                    Event)</h3>
-                <p>Following sequence illustrates example sequence
-                    of observe property operation with HTTP Server Sent
-                    Event binding.</p>
+                <h3>Observe property (HTTP binding with Server Sent Event subprotocol)</h3>
+                <p>The following sequence illustrates application and network
+                   transactions to implement the 
+                   "observeproperty" operation
+                   with an HTTP protocol binding using 
+                   the "sse" (Server Sent Event) subprotocol.</p>
                 <p>
                     <img
                         src="images/message-flows/A_1_3b_observePropertySSE.png"
-                        alt="Observe property (binding = HTTP Server Sent Event)" />
+                        alt="Observe property (HTTP binding with Server Sent Event subprotocol)" />
                 </p>
             </section>
             <section>
-                <h3>Observe property (binding = Simple WebSocket)</h3>
-                <p>Following sequence illustrates example sequence
-                    of observe property operation with simple WebSocket
-                    binding.</p>
+                <h3>Observe property (HTTP binding with WebSocket subprotocol)</h3>
+                <p>The following sequence illustrates application and network
+                   transactions to implement the 
+                   "observeproperty" operation
+                   with an HTTP protocol binding using
+                   a WebSocket-based subprotocol.</p>
                 <p>
                     <img
                         src="images/message-flows/A_1_3c_observePropertyWebSocket.png"
-                        alt="Observe property (binding = simple WebSocket)" />
+                        alt="Observe property (HTTP binding with a WebSocket subprotocol)" />
                 </p>
             </section>
         </section>
         <section>
-            <h2>Action</h2>
+            <h2>Action Interactions</h2>
             <section>
-                <h3>Invoke action (binding = HTTP)</h3>
-                <p>Following sequence illustrates example sequence
-                    of invoke action operation with HTTP binding, where
-                    operation is synchronous and the request to server
-                    is blocked until action completes.</p>
+                <h3>Invoke action (HTTP binding)</h3>
+                <p>The following sequence illustrates application and network
+                   transactions to implement the 
+                   "invokeaction" operation
+                   with an HTTP protocol binding, where the
+                   operation is synchronous and the response from the server
+                   is delayed until after the action completes.</p>
                 <p>
                     <img
                         src="images/message-flows/A_2_1_invokeAction.png"
-                        alt="Invoke action               (binding = HTTP)" />
+                        alt="Invoke action (HTTP binding)" />
                 </p>
-                <p>Note: Action with asynchronous operation is
-                    subject to further study.</p>
+                <!-- Note: Actions with asynchronous operation is
+                     subject to further study.
+                -->
             </section>
         </section>
         <section>
-            <h2>Event</h2>
+            <h2>Event Interactions</h2>
+            <p>In the following, note that
+               there is no explicit operation defined for event notification itself.
+               The subprotocol used for notification is associated with 
+               the "subscribeevent" operation, and any necessary concrete
+               protocol transactions are managed by the Protocol Binding subsystem.
+            </p>
+            <p>There are also several subprotocols possible for event notification
+               using WebSockets.
+               The interaction diagrams show only one of several possible implementations.
+            </p>
             <section>
                 <h3>Subscribe, notify and unsubscribe event
-                    (binding = HTTP Long Polling)</h3>
-                <p>Following sequence illustrates example sequence
-                    of subscribe, notify and unsubscribe event operation
-                    with HTTP Long Polling binding.</p>
+                    (HTTP binding with Long Polling subprotocol)</h3>
+                <p>The following sequence illustrates application and network
+                   transactions to implement the 
+                   "subscribeevent" and "unsubscribeevent" operations
+                   with an HTTP protocol binding using
+                   the Long Polling subprotocol.
+                </p>
                 <p>
                     <img
                         src="images/message-flows/A_3_1a_eventLongPoll.png"
-                        alt="Subscribe,               notify and unsubscribe event (binding = HTTP Long               Polling)" />
+                        alt="Subscribe, notify, and unsubscribe event (HTTP binding with Long Polling subprotocol)" />
                 </p>
             </section>
             <section>
                 <h3>Subscribe, notify and unsubscribe event
-                    (binding = HTTP Server Sent Event)</h3>
-                <p>Following sequence illustrates example sequence
-                    of subscribe, notify and unsubscribe event operation
-                    with HTTP Server Sent Event.</p>
+                    (HTTP binding with Server Sent Event subprotocol)</h3>
+                <p>The following sequence illustrates application and network
+                   transactions to implement the 
+                   "subscribeevent" and "unsubscribeevent" operations
+                   with an HTTP protocol binding using
+                   the Server Sent Event subprotocol.
+                </p>
                 <p>
                     <img src="images/message-flows/A_3_1b_eventSSE.png"
-                        alt="Subscribe,               notify and unsubscribe event (binding = HTTP Server Sent               Event)" />
+                        alt="Subscribe, notify and unsubscribe event (HTTP binding with Server Sent Event subprotocol)" />
                 </p>
             </section>
             <section>
                 <h3>Subscribe, notify and unsubscribe event
-                    (binding = Simple WebSocket)</h3>
-                <p>Following sequence illustrates example sequence
-                    of subscribe, notify and unsubscribe event operation
-                    with simple WebSocket binding.</p>
+                    (HTTP binding with WebSocket subprotocol)</h3>
+                <p>The following sequence illustrates application and network
+                   transactions to implement the 
+                   "subscribeevent" and "unsubscribeevent" operations
+                   with an HTTP protocol binding using
+                   a WebSocket subprotocol.
+                </p>
                 <p>
                     <img
                         src="images/message-flows/A_3_1c_eventWebSocket.png"
-                        alt="Subscribe,
-						notify and unsubscribe event (binding = simple WebSocket)" />
+                        alt="Subscribe, notify and unsubscribe event (HTTP binding with WebSocket subprotocol)" />
                 </p>
             </section>
         </section>
