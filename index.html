@@ -31,8 +31,8 @@
         }, {
             name : "Kazuo Kajimoto",
             w3cid : "74112",
-            company : "Panasonic Corp.",
-            companyURL : "https://www.panasonic.com/"
+            company : "Renesas Electronics Corp.",
+            companyURL : "https://www.renesas.com/"
         }, {
             name : "Ryuichi Matsukura",
             w3cid : "64284",
@@ -257,7 +257,7 @@ a[href].internalDFN {
             over all our documents.
         </p>
     </section>
-    <section id="introduction">
+    <section id="introduction" class="informative">
         <h1>Introduction</h1>
         <p>
             The "Web of Things" (WoT) started as an academic initiative
@@ -462,6 +462,12 @@ a[href].internalDFN {
             <dd>The mapping from an Interaction Affordance to concrete messages of a specific protocol,
                 thereby informing clients how to activate the Interaction Affordance.
                 W3C WoT serializes Protocol Bindings as hypermedia controls.</dd>
+           <dt>
+                <dfn>Proxy</dfn>
+            </dt>
+            <dd>A proxy is a system component that that functions as a relay between devices on different networks. 
+            	Functionalities offered by a proxy may include address translation, 
+            	protocol conversion, and security features.</dd>
             <dt>
                 <dfn>Scripting Runtime</dfn>
             </dt>
@@ -889,9 +895,9 @@ a[href].internalDFN {
                     issue some trigger messages to other devices.
                 </p>
                 <p>In this case, when two devices that have server
-                    roles are connected, at least one device must have
-                    also a client role that issues a message to the
-                    other to actuate.</p>
+                    roles are connected, at least one of the devices 
+                    is also in the client role to send a message to the
+                    other device.</p>
                 <figure id="smart-home-t2t">
                     <img src="images/wot-use-cases/smart-home-t2t.png"
                         style="width: 500px;" />
