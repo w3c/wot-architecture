@@ -434,6 +434,7 @@ a[href].internalDFN {
             <dd>
                 Metadata of a Thing that shows the possible choices to clients,
                 thereby suggesting how clients may interact with the Thing.
+                There are many types of potential affordances, but 
                 W3C WoT defines three types of Interaction Affordances:
                 Properties, Actions, and Events.</dd>
             <dt>
@@ -550,19 +551,6 @@ a[href].internalDFN {
                 optionally consume TDs, offers a protocol binding to one
                 or more protocols, and maintains private security
                 metadata.</dd>
-            <!-- OLD DEFINITION
-                        <dd>A runtime system for applications supporting the 
-                                implementation of WoT Thing behavior. 
-                                Implementing a WoT Runtime is optional for Servients but is 
-                                mandatory when the WoT Scripting API is used.
-
-                                The WoT Runtime instantiates Consumed
-                                Things and Exposed Things as software objects, manages their state,
-                                and generates the TDs. It communicates with other components such as
-                                the Binding implementations and application scripts or programs through
-                                an API, the WoT Scripting API being one instance of such an API.
-                        </dd>
--->
             <dt>
                 <dfn>WoT Scripting API</dfn>
                 or the
@@ -577,7 +565,12 @@ a[href].internalDFN {
             </dt>
             <dd>An entity that exposes a network interface
                 consistent with a WoT Thing Description. WoT Server is
-                also used to refer to a Servient in server role only.</dd>                
+                also used to refer to a Servient in server role only.</dd>  
+            <dt>
+                <dfn>WoT Servient</dfn>
+                <dd>Synonym for Servient.</dd>
+            </dt>
+            <dd>
         </dl>
     </section>
 
