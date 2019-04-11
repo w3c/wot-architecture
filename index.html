@@ -133,7 +133,7 @@
                 publisher : "W3C",
                 date : "October 2017"
             },
-            "HMI" : {
+            "HCI" : {
                 title : "The Encyclopedia of Human-Computer Interaction, 2nd Ed",
                 author : "Mads Soegaard, Rikke Friis Dam",
                 publisher : "Interaction Design Foundation",
@@ -375,6 +375,11 @@ a[href].internalDFN {
                 created by a native WoT Runtime, or instantiated
                 as an object by a Scripting API implementation.</dd>
             <dt>
+                <dfn>Consumer</dfn>
+            </dt>
+            <dd>An entity that can process the WoT Thing Description format
+                and interact with Things (i.e., consume Things).</dd>
+            <dt>
                 <dfn>Digital Twin</dfn>
             </dt>
             <dd>A digital twin is a virtual representation of a
@@ -400,7 +405,7 @@ a[href].internalDFN {
                 <dfn>Event</dfn>
             </dt>
             <dd>An Interaction Affordance that describes an event source,
-                which asynchronously pushes event data to clients
+                which asynchronously pushes event data to Consumers
                 (e.g., overheating alerts).</dd>
             <dt>
                 <dfn>Execution Environment</dfn>
@@ -419,7 +424,7 @@ a[href].internalDFN {
             </dt>
             <dd>A software abstraction that represents a Thing 
                 implemented locally that be accessed over the network by remote
-                WoT Clients. 
+                Consumers. 
                 The abstraction might be
                 created by a native WoT Runtime, or instantiated
                 as an object by a Scripting API implementation.</dd>
@@ -429,13 +434,13 @@ a[href].internalDFN {
             <dd>A serialization of a Protocol Binding in hypermedia, that is,
                 either a Web link [[!RFC8288]] for navigation or a Web form for
                 performing other operations. Forms can be seen as request templates
-                provided by the server to be completeted and sent by the client.</dd>
+                provided by the Thing to be completeted and sent by the Consumer.</dd>
             <dt>
                 <dfn>Interaction Affordance</dfn>
             </dt>
             <dd>
-                Metadata of a Thing that shows the possible choices to clients,
-                thereby suggesting how clients may interact with the Thing.
+                Metadata of a Thing that shows and describes the possible choices to Consumers,
+                thereby suggesting how Consumers may interact with the Thing.
                 There are many types of potential affordances, but 
                 W3C WoT defines three types of Interaction Affordances:
                 Properties, Actions, and Events.</dd>
@@ -463,7 +468,7 @@ a[href].internalDFN {
                 <dfn data-lt="WoT Protocol Binding">Protocol Binding</dfn>
             </dt>
             <dd>The mapping from an Interaction Affordance to concrete messages of a specific protocol,
-                thereby informing clients how to activate the Interaction Affordance.
+                thereby informing Consumers how to activate the Interaction Affordance.
                 W3C WoT serializes Protocol Bindings as hypermedia controls.</dd>
             <dt>
                 <dfn>Scripting Runtime</dfn>
@@ -475,10 +480,9 @@ a[href].internalDFN {
                 <dfn>Servient</dfn>
             </dt>
             <dd>A software stack that implements the WoT building
-                blocks. A Servient can host and expose Things (server
-                role) and/or consume Things (client role). Servients
-                often support multiple Protocol Bindings to enable
-                interaction with different platforms.</dd>
+                blocks. A Servient can host and expose Things and/or host Consumers that consume Things.
+                Servients can support multiple Protocol Bindings to enable
+                interaction with different IoT platforms.</dd>
             <dt>
                 <dfn>Subprotocol</dfn>
             </dt>
@@ -496,7 +500,7 @@ a[href].internalDFN {
                 including communication metadata of WoT Binding
                 Templates.</dd>
             <dt>
-                <dfn>Thing</dfn>
+                <dfn>Thing</dfn> or <dfn>Web Thing</dfn>
             </dt>
             <dd>An abstraction of a physical or a virtual entity
                 whose metadata and interfaces are described by a WoT
@@ -530,21 +534,10 @@ a[href].internalDFN {
             <dd>An instance of a Thing that represents a Thing that is located 
                 on another system component.</dd>
             <dt>
-                <dfn>WoT Client</dfn>
-            </dt>
-            <dd>An entity that can connect with a network interface
-                described by a WoT Thing Description (i.e., consume a
-                Thing). WoT Clients usually implement multiple Protocol
-                Bindings. WoT Client is also used to refer to a Servient
-                in client role only.</dd>
-            <dt>
                 <dfn>WoT Interface</dfn>
             </dt>
-            <dd>The WoT Interface is the network-facing interface
-                that is described by a TD. This requires the mapping
-                rules of Protocol Bindings between the abstract WoT
-                Runtime (Thing level) to a network-facing interface
-                (protocol level).</dd>
+            <dd>The network-facing interface of a Thing
+                that is described by a Thing Description.</dd>
             <dt>
                 <dfn>WoT Runtime</dfn>
             </dt>
@@ -1515,53 +1508,63 @@ a[href].internalDFN {
 
         <section id="sec-architecture-overview">
             <h2>Overview</h2>
-            <p>A WoT system conceptually consists of things that
-                communicate with each other over network connections.
-                These things can take different logical roles in the
-                communication:</p>
-            <ul>
-                <li><a>WoT Client</a>: A thing can behave as a
-                    client, which is an active component and issues
-                    requests to other things. Requests use the
-                    functionalities that are provided by the other
-                    things, we call this interaction <em>to consume
-                        a thing</em>.</li>
-                <li><a>WoT Server</a>: A thing can behave as a
-                    server, which is a component that reacts to requests
-                    from other things. Requests query or modify the
-                    state of a thing, we call this interaction <em>to
-                        expose a thing</em>. Note that the server, is not
-                    purely a passive reactive component, since it can
-                    offer a subscribe/notify mechanism, which allows
-                    clients to be notified about state changes of a
-                    thing.</li>
-                <li><a>WoT Servient</a>: A thing can behave both
-                    as a client and a server, i.e. it can <em>expose</em>
-                    functionality to other things and it can <em>consume</em>
-                    functionalities that are provided by other things.</li>
-            </ul>
-
-            <p>Note that these concepts are logical definitions
-                based on the tasks of a thing. They do not require that
-                an exposed thing must be implemented with a (Web) server
-                and a consumed thing as a (Web) client.</p>
             <p>
-                A <a>WoT Thing Description</a> (TD) contains information
-                about the structure, capabilities, functions and
-                interfaces of an exposed thing. Each Web of Things
-                device MUST have a corresponding TD. The thing
-                description is used by the consumer of a thing to
-                interact with it by obtaining and interpreting a TD of
-                the device. A TD contains, among other things, a
-                device’s identifier, functions and attributes of a
-                device and communication protocols (i.e. transport
-                layer) information. More information about the TD can be
-                found in <a href="#sec-thing-description"></a>.
+                To address the use cases in Section 4 and fulfill the requirements in Section 5,
+                the Web of Things builds on top of the concept of Web Things -- usually simply called <a>Things</a> -- that can be used by so-called <a>Consumers</a>.
+                A Thing is the abstraction of a physical or virtual entity (e.g., a device or a room, resp.)
+                and is described by standardized metadata.
+                In W3C WoT, the description metadata MUST be a WoT Thing Description [[!wot-thing-description]].
+                A Thing Description (TD) is instance-specific (i.e., describes an individual Thing, not types of Things)
+                and is the default Web representation of a Thing.
+                There MAY be other Web representations of a Thing such as an HTML-based user interface or simply an image of the physical entity.
+                However, the WoT Thing Description is a standardized, machine-understandable representation format
+                that allows <a>Consumers</a> to discover and interpret the capabilities of a Thing (through semantic annotations)
+                and to adapt to different implementations (e.g., different protocols or data structures) when interacting with a Thing,
+                thereby enabling interoperability across different <a>IoT platforms</a>, i.e., different ecosystems and standards.
             </p>
             <p class="ednote" title="TODO">
-                There is text incoming to explain the basics around Things, Consumers, and Intermediaries.
+                Simple figure to illustrate Consumer--Thing interaction.
             </p>
             <p>
+                A Thing can also abstract a virtual entity, which is the composition of one or more Things (e.g., a room consisting of several sensors and actuators).
+                
+                In this case, all metadata is consolidated in a single <a>Thing Description</a>.
+                In cases of complex systems, a Thing can also link to other Things and express the relation type. 
+
+                Central feature of the Web - linking.
+            </p>
+            <p>
+                Things can be linked to and from each other (e.g., to represent a complex system composed of several hierarchical Things)
+                or can link to additional resources (e.g., manuals or catalog entries), thereby making the Web of Things browsable.
+                
+
+            </p>
+            <p class="ednote" title="TODO">
+                Figure to illustrate linked Things.
+            </p>
+
+
+
+            <p>
+                A simple example is a Thing being the digital
+                    representation of a physical IoT devices, which also
+                    directly provides the interface for interaction. A Thing
+                    may also be hosted on a gateway or the cloud,
+                    representing a physical entity with which clients cannot
+                    communicate directly (e.g., a legacy device) or not all
+                    (e.g., a room or table). Virtual entities like a room
+                    are often represented by a composition of one or more
+                    sensors and actuators, each of which may also be
+                    available as an individual Thing.
+            </p>
+            <p class="ednote" title="TODO">
+                Figure to illustrate intermediaries.
+            </p>
+            <p>
+                Things MAY be bundled together with a Consumer to enable Thing-to-Thing interaction.
+                The configuration of the Consumer behavior MAY be exposed through the Thing.
+                or MAY be defined out of band, for instance, within
+
                 <a href="#architecture-abstract"></a> shows an overview
                 of how these WoT concepts can be mapped to various
                 components and devices in a connected system.
@@ -1569,56 +1572,68 @@ a[href].internalDFN {
             <figure id="architecture-abstract">
                 <img src="images/architecture-abstract-new.png"
                     style="width: 100%;" />
-                <figcaption>Abstract Architecture of W3C
-                    WoT</figcaption>
+                <figcaption>Abstract Architecture of W3C WoT</figcaption>
             </figure>
+        </section>
+        <section>
+            <h2>Affordances</h2>
+            <p>
+                A central aspect in the concept of Web Things is the provision of machine-understandable metadata.
+                Ideally, such metadata is self-descriptive, so that <a>Consumers</a> are able to identify
+                <emph>what</emph> capabilities a Thing provides and <emph>how</emph> they can make use the provided capabilities.
+                A key to this self-descriptiveness lies in the concept of affordances.
+            </p>
+            <p>The term affordance originates in ecological
+                psychology, but was adopted in the field of
+                Human-Computer Interaction [[?HCI]] based on the
+                definition by Donald Norman: "'Affordance' refers to
+                the perceived and actual properties of the thing,
+                primarily those fundamental properties that
+                determine just how the thing could possibly be
+                used." [[?NORMAN]]</p>
+            <p>
+                An example for this is a door having a handle.
+                The door handle is an affordance, which suggests that the door can be opened.
+                For humans, a door handle usually also suggests how the door is opened;
+                an American knob suggests twisting, a European lever handle suggests pressing down.
+            </p>
+            <p>
+                The hypermedia principle, which is one of the
+                bedrock foundations of the REST architectural style [[?REST]],
+                demands that any piece of information available on
+                the Web be linked to other pieces of information so
+                that the consumer of the information gets explicit
+                knowledge about how to navigate the Web and control
+                Web applications.
+                Here, the simultaneous presentation of
+                information and control (provided in
+                the form of hyperlinks) is a mechanism that affords
+                Web clients the means to drive Web applications. In this
+                context, an affordance is the description of a
+                hyperlink (e.g. via a link relation type and link
+                target attributes) suggesting Web clients how to navigate
+                and possibly how act on the linked resource.
+            </p>
+            <p>
+                Drawn from this hypermedia principle,
+                the Web of Things defines <a>Interaction Affordances</a> as metadata of a Thing
+                that shows and describes the possible choices to <a>Consumers</a>, thereby suggesting how <a>Consumers</a> may interact with the Thing.
+                A general <a>Interaction Affordances</a> is navigation, which is activated by following links, thereby browsing the Web of Things.
+                <a href="#sec-interaction-model"></a> defines three more types of Interaction Affordances for W3C WoT: <a>Properties</a>, <a>Actions</a>, and <a>Events</a>.
+            </p>
+            <p>
+                This definition is thereby aligned with HCI and interaction designers, who create physical Things,
+                as well as the REST and microservice community, who is working on Web services in general.
+            </p>
         </section>
         <section id="sec-web-thing">
             <h2>Web Thing</h2>
-            <p>A simple example is a Thing being the digital
-                representation of a physical IoT devices, which also
-                directly provides the interface for interaction. A Thing
-                may also be hosted on a gateway or the cloud,
-                representing a physical entity with which clients cannot
-                communicate directly (e.g., a legacy device) or not all
-                (e.g., a room or table). Virtual entities like a room
-                are often represented by a composition of one or more
-                sensors and actuators, each of which may also be
-                available as an individual Thing.</p>
             <p>
-                A <a>Thing</a> in the Web of Things is the abstraction
-                of a physical or a virtual entity whose metadata and
-                interfaces are described by a WoT Thing Description. A
-                virtual entity is the composition of one or more Things.
-            </p>
-            <p>A simple example is a Thing being the digital
-                representation of a physical IoT devices, which also
-                directly provides the interface for interaction. A Thing
-                may also be hosted on a gateway or the cloud,
-                representing a physical entity with which clients cannot
-                communicate directly (e.g., a legacy device) or not all
-                (e.g., a room or table). Virtual entities like a room
-                are often represented by a composition of one or more
-                sensors and actuators, each of which may also be
-                available as an individual Thing.</p>
-            <p>
-                The interface of a <a>Thing</a> must follow the
-                interaction model of the WoT Architecture. However, <a>Things</a>
-                may only consist of metadata without offering an
-                interface for interaction.
-            </p>
-        </section>
-        <section id="sec-arch-aspects">
-            <h2>Architectural Aspects of a Web Thing</h2>
-            <p>
-                The use cases and the requirements discussed result in
-                an abstract model of a Thing that has four architectural
-                aspects of interest: its behavior, its interactions, the
-                mapping of those interactions to concrete protocols
-                (what we call the Protocol Binding), and its security
+                A Web Thing has four architectural
+                aspects of interest: its behavior, its <a>Interaction Affordances</a>, and its security
                 configuration. See <a href="#arch-aspects"></a>. The
                 behavior aspect of a Thing includes both lifecycle
-                management (onboarding, updating, decommissioning, etc)
+                management (onboarding, updating, decommissioning, etc.)
                 but also the operational behavior of the Thing, which
                 can include both autonomous behavior and support for
                 interactions. Interactions have two parts, the
@@ -1642,16 +1657,15 @@ a[href].internalDFN {
             </p>
             <figure id="arch-aspects">
                 <img src="images/wot-abstract-arch.png" />
-                <figcaption>Architectural Aspects of a
-                    Thing</figcaption>
+                <figcaption>Architectural Aspects of a Thing</figcaption>
             </figure>
         </section>
         <section id="sec-interaction-model">
             <h2>Interaction Model</h2>
             <p>Originally, a Web resource usually represented a
                 document on the World Wide Web that can simply be
-                fetched by a client. With the introduction of Web
-                services, resources became more generic with interaction
+                fetched by a Web client. With the introduction of Web
+                services, resources became more generic interaction
                 endpoints that can implement any kind of behavior. This
                 very high level of abstraction makes it hard to provide
                 a loose coupling between applications and the manifold
@@ -1670,45 +1684,6 @@ a[href].internalDFN {
                 into three different behaviors, the three types are
                 still able to cover virtually all functionality found in
                 IoT devices and services.</p>
-            <section>
-                <h3>Interaction Affordances</h3>
-                <p>The term affordance originates in ecological
-                    psychology, but was adopted in the field of
-                    Human-Computer Interaction [[?HMI]] based on the
-                    definition by Donald Norman: "'Affordance' refers to
-                    the perceived and actual properties of the thing,
-                    primarily those fundamental properties that
-                    determine just how the thing could possibly be
-                    used." [[?NORMAN]]</p>
-                <p>The hypermedia principle that is one of the
-                    bedrock foundations of the REST [[?REST]] principle
-                    demands that any piece of information available on
-                    the Web be linked to other pieces of information so
-                    that the consumer of the information gets explicit
-                    knowledge about how to navigate the Web and control
-                    Web applications. The simultaneous presentation to
-                    Web clients of information and control, provided in
-                    the form of hyperlinks, is a mechanism that affords
-                    clients the means to drive Web applications. In this
-                    context, an affordance is the description of a
-                    hyperlink (e.g. via a link relation type or link
-                    target attributes) suggesting clients how to act on
-                    the linked resource.</p>
-                <p>
-                    Drawn from this hypermedia principle, the Web of
-                    Things defines Interaction Affordances as metadata
-                    of a Thing exposing <a>hypermedia control</a>s that
-                    describe the possible protocol-level choices to
-                    clients, thereby suggesting how clients may interact
-                    with the Thing. Examples use of affordances
-                    includes, but are not limited, getting and setting <a>properties</a>,
-                    invoking <a>actions</a>, and subscribing to <a>events</a>.
-                </p>
-                <p>This definition is thereby aligned with HCI and
-                    interaction designers, who create physical Things,
-                    as well as the REST and microservice community
-                    working on Web services in general.</p>
-            </section>
             <section>
                 <h3>Properties</h3>
                 <p>A Property is an Interaction Affordance that
@@ -1957,12 +1932,11 @@ a[href].internalDFN {
         </section>
         <section id="sec-protocol-bindings">
             <h2>Protocol Bindings</h2>
-            <p>A Protocol Binding is set of mapping rules from an
-                Interaction Affordance to concrete messages of a
-                specific protocol such as HTTP [[!RFC7231]], CoAP
-                [[!RFC7252]], or MQTT [[!MQTT]]. The Protocol Bindings
-                follow the Uniform Interface constraint of REST
-                [[?REST]].</p>
+            <p>
+                A Protocol Binding is the mapping from an Interaction Affordance to concrete messages of a specific protocol such as HTTP [[!RFC7231]], CoAP [[!RFC7252]], or MQTT [[!MQTT]].
+                The Protocol Bindings follow the Uniform Interface constraint of REST [[?REST]] to support interoperability
+                and are serialized as hypermedia controls to be self-descriptive.
+            </p>
             <section>
                 <h3>Hypermedia-driven</h3>
                 <p>
@@ -1985,58 +1959,57 @@ a[href].internalDFN {
                         determine the freshness.</span>
                 </p>
             </section>
-
-        </section>
-        <section id="sec-arch-URIs">
-            <h3>URIs</h3>
-            <p>
-                <span class="rfc2119-assertion" id="arch-uri-scheme">Eligible
-                    protocols for the Web of Things MUST have an
-                    associated URI scheme that is registered with IANA
-                    [[!RFC4395]].</span> Hypermedia controls rely on URIs to
-                identify target resources and submission targets.
-                Thereby, the URI scheme (the first component up to ":")
-                identifies the communication protocol to be used for
-                interaction with the Thing. The Web of Things refers to
-                these protocols as <a>transfer protocols</a>.
-            </p>
-        </section>
-        <section id="sec-standard-method">
-            <h3>Standard Set of Methods</h3>
-            <p>
-                <span class="rfc2119-assertion" id="arch-methods">Eligible
-                    protocols for the Web of Things MUST be based on a
-                    standard set of methods that can be shared a priori.</span>
-                The standard set of methods makes messages
-                self-descriptive to enable intermediate processing of
-                interactions, for instance by proxies or to translate
-                between Protocol Bindings [[?REST]]. Furthermore, it
-                allows clients to have application-agnostic protocol
-                stack, avoiding Thing-specific code or plugins.
-            </p>
-        </section>
-        <section id="media-types">
-            <h3>Media Types</h3>
-            <p>
-                <span class="rfc2119-assertion" id="arch-media-type">All
-                    data (a.k.a. content) exchanged within Interaction
-                    Affordances MUST be identified by a Media Type
-                    [[!RFC6838]].</span> Media Types are IANA-managed labels to
-                identify representation formats, for instance
-                <code>application/json</code>
-                for JSON [[!RFC7159]] or
-                <code>application/cbor</code>
-                for CBOR [[!RFC7049]].
-            </p>
-            <p>
-                Note that many Media Types only identify a generic
-                serialization format that does not provide further
-                semantics for its elements (e.g., XML, JSON, CBOR). <span
-                    class="rfc2119-assertion" id="arch-schema">Thus,
-                    the corresponding Interaction Affordances SHOULD
-                    declare a data schema to provide more detailed
-                    semantic metadata for the data exchanged.</span>
-            </p>
+            <section id="sec-arch-URIs">
+                <h3>URIs</h3>
+                <p>
+                    <span class="rfc2119-assertion" id="arch-uri-scheme">Eligible
+                        protocols for the Web of Things MUST have an
+                        associated URI scheme that is registered with IANA
+                        [[!RFC4395]].</span> Hypermedia controls rely on URIs to
+                    identify target resources and submission targets.
+                    Thereby, the URI scheme (the first component up to ":")
+                    identifies the communication protocol to be used for
+                    interaction with the Thing. The Web of Things refers to
+                    these protocols as <a>transfer protocols</a>.
+                </p>
+            </section>
+            <section id="sec-standard-method">
+                <h3>Standard Set of Methods</h3>
+                <p>
+                    <span class="rfc2119-assertion" id="arch-methods">Eligible
+                        protocols for the Web of Things MUST be based on a
+                        standard set of methods that can be shared a priori.</span>
+                    The standard set of methods makes messages
+                    self-descriptive to enable intermediate processing of
+                    interactions, for instance by proxies or to translate
+                    between Protocol Bindings [[?REST]]. Furthermore, it
+                    allows clients to have application-agnostic protocol
+                    stack, avoiding Thing-specific code or plugins.
+                </p>
+            </section>
+            <section id="media-types">
+                <h3>Media Types</h3>
+                <p>
+                    <span class="rfc2119-assertion" id="arch-media-type">All
+                        data (a.k.a. content) exchanged within Interaction
+                        Affordances MUST be identified by a Media Type
+                        [[!RFC6838]].</span> Media Types are IANA-managed labels to
+                    identify representation formats, for instance
+                    <code>application/json</code>
+                    for JSON [[!RFC7159]] or
+                    <code>application/cbor</code>
+                    for CBOR [[!RFC7049]].
+                </p>
+                <p>
+                    Note that many Media Types only identify a generic
+                    serialization format that does not provide further
+                    semantics for its elements (e.g., XML, JSON, CBOR). <span
+                        class="rfc2119-assertion" id="arch-schema">Thus,
+                        the corresponding Interaction Affordances SHOULD
+                        declare a data schema to provide more detailed
+                        semantic metadata for the data exchanged.</span>
+                </p>
+            </section>
         </section>
         <section id="sec-WoT-servient-architecture-high-level">
             <h2>System Configurations</h2>
