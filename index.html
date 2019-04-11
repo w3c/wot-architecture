@@ -31,8 +31,8 @@
         }, {
             name : "Kazuo Kajimoto",
             w3cid : "74112",
-            company : "Renesas Electronics Corp.",
-            companyURL : "https://www.renesas.com/"
+            company : "Panasonic Corp.",
+            companyURL : "https://www.panasonic.com/"
         }, {
             name : "Ryuichi Matsukura",
             w3cid : "64284",
@@ -238,6 +238,7 @@ a[href].internalDFN {
                     Security Testing Plan</em> [[WOT-SECURITY-TESTING-PLAN]].
             </li>
         </ul>
+        </p>
         <p>Overall, the goal is to preserve and support existing
             security mechanisms and properties. In general, W3C WoT is
             designed to describe what exists rather than to prescribe
@@ -257,7 +258,7 @@ a[href].internalDFN {
             over all our documents.
         </p>
     </section>
-    <section id="introduction" class="informative">
+    <section id="introduction">
         <h1>Introduction</h1>
         <p>
             The "Web of Things" (WoT) started as an academic initiative
@@ -301,6 +302,7 @@ a[href].internalDFN {
             </li>
             <li>a description of the high level architecture in
                 chapter <a href="#sec-wot-architecture"></a>
+            </li>
             <li>an overview of the WoT building blocks being
                 standardized and their interplay in chapter <a
                 href="#sec-building-blocks"></a>,
@@ -311,6 +313,7 @@ a[href].internalDFN {
             </li>
             <li>deployment scenarios in chapter <a
                 href="#sec-deployment-scenario"></a>,
+            </li>
             <li>and security considerations to be aware of when
                 implementing WoT building blocks in chapter <a
                 href="#sec-security-considerations"></a>.
@@ -324,7 +327,6 @@ a[href].internalDFN {
             <em>This section is normative.</em>
         </p>
 
-        <p>
         <p>This document uses the following terms as defined here.
             The WoT prefix is used to avoid ambiguity for terms that are
             defined specifically for Web of Things concepts.</p>
@@ -393,7 +395,7 @@ a[href].internalDFN {
                 enterprise or service provider core networks. Examples
                 include gateways, routers, switches, multiplexers, and a
                 variety of other access devices.</dd>
-            <dt>
+            
             <dt>
                 <dfn>Event</dfn>
             </dt>
@@ -434,6 +436,7 @@ a[href].internalDFN {
             <dd>
                 Metadata of a Thing that shows the possible choices to clients,
                 thereby suggesting how clients may interact with the Thing.
+                There are many types of potential affordances, but 
                 W3C WoT defines three types of Interaction Affordances:
                 Properties, Actions, and Events.</dd>
             <dt>
@@ -462,12 +465,6 @@ a[href].internalDFN {
             <dd>The mapping from an Interaction Affordance to concrete messages of a specific protocol,
                 thereby informing clients how to activate the Interaction Affordance.
                 W3C WoT serializes Protocol Bindings as hypermedia controls.</dd>
-           <dt>
-                <dfn>Proxy</dfn>
-            </dt>
-            <dd>A proxy is a system component that that functions as a relay between devices on different networks. 
-            	Functionalities offered by a proxy may include address translation, 
-            	protocol conversion, and security features.</dd>
             <dt>
                 <dfn>Scripting Runtime</dfn>
             </dt>
@@ -556,19 +553,6 @@ a[href].internalDFN {
                 optionally consume TDs, offers a protocol binding to one
                 or more protocols, and maintains private security
                 metadata.</dd>
-            <!-- OLD DEFINITION
-                        <dd>A runtime system for applications supporting the 
-                                implementation of WoT Thing behavior. 
-                                Implementing a WoT Runtime is optional for Servients but is 
-                                mandatory when the WoT Scripting API is used.
-
-                                The WoT Runtime instantiates Consumed
-                                Things and Exposed Things as software objects, manages their state,
-                                and generates the TDs. It communicates with other components such as
-                                the Binding implementations and application scripts or programs through
-                                an API, the WoT Scripting API being one instance of such an API.
-                        </dd>
--->
             <dt>
                 <dfn>WoT Scripting API</dfn>
                 or the
@@ -583,7 +567,12 @@ a[href].internalDFN {
             </dt>
             <dd>An entity that exposes a network interface
                 consistent with a WoT Thing Description. WoT Server is
-                also used to refer to a Servient in server role only.</dd>                
+                also used to refer to a Servient in server role only.</dd>  
+            <dt>
+                <dfn>WoT Servient</dfn>
+                <dd>Synonym for Servient.</dd>
+            </dt>
+            <dd>
         </dl>
     </section>
 
@@ -852,13 +841,17 @@ a[href].internalDFN {
 
         <section id="sec-common-usecase-patterns">
             <h1>Common Patterns</h1>
-            <section>
-
-                This section introduces common use case patterns that
-                illustrate how devices/things interact with controllers,
-                other devices, agents and servers.
-
-                <h3 id="device-controllers">Device Controllers</h3>
+            <p>
+            This section introduces common use case patterns that
+            illustrate how devices/things interact with controllers,
+            other devices, agents and servers.
+            In this section, we use the term 'client roles' as an
+            initiator of a transport protocol, and the term 'server roles'
+            as a passive component of a transport protocol.
+            </p>
+        
+            <section id="device-controllers">
+                <h3>Device Controllers</h3>
                 <p>
                     The first use case is a local device controlled by a
                     user-operated remote controller as depicted in <a
@@ -875,7 +868,11 @@ a[href].internalDFN {
                     action. The other device like the remote controller
                     has a client role that can send a message with a
                     requests, like to read a sensor value or to turn on
-                    the device.</p>
+                    the device.
+                    Moreover, to emit a current state or event notification of a device,
+                    the device may have a client role that can send a message
+                    to another device, which has server roles.
+                </p>
                 <figure id="smart-home-device">
                     <img
                         src="images/wot-use-cases/smart-home-device.png"
@@ -895,9 +892,9 @@ a[href].internalDFN {
                     issue some trigger messages to other devices.
                 </p>
                 <p>In this case, when two devices that have server
-                    roles are connected, at least one of the devices 
-                    is also in the client role to send a message to the
-                    other device.</p>
+                    roles are connected, at least one device must have
+                    also a client role that issues a message to the
+                    other to actuate or notify.</p>
                 <figure id="smart-home-t2t">
                     <img src="images/wot-use-cases/smart-home-t2t.png"
                         style="width: 500px;" />
@@ -906,7 +903,7 @@ a[href].internalDFN {
             </section>
             <section>
                 <h3>Remote Access</h3>
-                <P>
+                <p>
                     This use case contains a mobile remote controller
                     (e.g., on a smartphone) as shown in <a
                         href="#smart-home-multi"></a>. The remote
@@ -950,9 +947,15 @@ a[href].internalDFN {
                     functionality.
                 </p>
                 <p>In this pattern, the home gateway has both a
-                    client and a server role. It can connect to the
+                    client and a server role. When the remote controller actuates the electronic appliance,
+                    it can connect to the
                     electronic appliance in the client role and to the
-                    remote controller with the server role.</p>
+                    remote controller with the server role.
+                    When the electronic appliance emits a message to the
+                    remote controller, the gateway act as server roles
+                    for the electric appliance, and it act as client roles
+                    for the remote controller.
+                 </p>
                 <figure id="smart-home-gateway">
                     <img
                         src="images/wot-use-cases/smart-home-gateway.png"
@@ -967,7 +970,7 @@ a[href].internalDFN {
                     Home gateway. We use the term to indicate additional
                     tasks that are carried out by the edge gateway.
                     Whereas the home gateway in <a
-                        href="#smart-home-gateway"></a> primarily just
+                        href="#edge-device"></a> primarily just
                     bridges between the public and the trusted network,
                     the edge device has local compute capabilities and
                     typically bridges between different protocols. Edge
@@ -976,7 +979,7 @@ a[href].internalDFN {
                     aggregation of data provided by connected devices
                     and sensors.
                 </p>
-                <figure id="smart-home-multi">
+                <figure id="edge-device">
                     <img src="images/wot-use-cases/edge-device.png"
                         style="width: 500px;" />
                     <figcaption>Edge device</figcaption>
@@ -1129,19 +1132,22 @@ a[href].internalDFN {
                 physical locations such as inside building, outside
                 buildings, and data centers. <a href="#usecase-overview"></a>
                 is an overview that shows the combinations and
-                communication paths of these entities. To specify the
-                different roles of the entities, each entities shown in
-                the patterns is associated with functional roles such as
-                a server, a client and a proxy/gateway. That is, the
-                client corresponds to the application or the controller,
-                and the server to the device. The proxy/gateway is an
-                entity that relays the connection between the client and
-                the server. The gateway is distinguished from the proxy
-                because it performs protocol converter functionality for
-                legacy devices that use other (non-web) protocols.
+                communication paths of these entities.
+            </p>
+            <p>
+                In a transport protocol layer, each entity arbitrarily
+                selects a suitable role for communications.  For example,
+                a device may act as a server when the device provides a service
+                to indefinite number of applications.  On the other hand,
+                if a device has limited or intermittent network connectivity,
+                they may act as a client and actively send message to an application
+                when network is available.  Regardless of this,
+                in application layer, an application sees that a device provides abstract
+                interfaces to interact and the application can interact with the device
+                using their abstract interfaces.
             </p>
             <figure id="usecase-overview">
-                <img src="images/arch-use-case-overview.png" />
+                <img src="images/wot-use-cases/use-case-summary.png" />
                 <figcaption>Use Case Overview</figcaption>
             </figure>
         </section>
@@ -1301,6 +1307,7 @@ a[href].internalDFN {
                             <li>protocols commonly used in the
                                 local area network</li>
                         </ol>
+                    </li>
                     <li>WoT architecture should allow using
                         multiple web protocols to access to the same
                         functionality.</li>
@@ -1355,6 +1362,7 @@ a[href].internalDFN {
                         An IoT device can be either a client or a server, 
                         or both, depending on the system architecture; 
                         the same is true of edge and cloud services.
+                    </li>
                 </ul>
             </section>
         </section>
@@ -1550,106 +1558,20 @@ a[href].internalDFN {
                 layer) information. More information about the TD can be
                 found in <a href="#sec-thing-description"></a>.
             </p>
+            <p class="ednote" title="TODO">
+                There is text incoming to explain the basics around Things, Consumers, and Intermediaries.
+            </p>
             <p>
                 <a href="#architecture-abstract"></a> shows an overview
                 of how these WoT concepts can be mapped to various
                 components and devices in a connected system.
+            </p>
             <figure id="architecture-abstract">
                 <img src="images/architecture-abstract-new.png"
                     style="width: 100%;" />
                 <figcaption>Abstract Architecture of W3C
                     WoT</figcaption>
             </figure>
-        </section>
-        <section id="sec-WoT-servient-architecture-high-level">
-            <h2>System Configurations</h2>
-
-            <p>This section illustrates the behavior of WoT
-                components using system configuration diagrams.</p>
-
-            <section>
-                <h3>Direct Communication</h3>
-                <p>
-                    <a href="#high-level-application-device"></a> shows
-                    direct communication between a <a>WoT Server</a>, that is
-                    exposing a thing and a <a>WoT Client</a> that is using it.
-                    Direct communication applies when both components
-                    use the same network protocol(s) and are accessible
-                    to each other.
-                </p>
-                <figure id="high-level-application-device">
-                    <img
-                        src="images/arch-high-level-application-device-alt2.png" />
-                    <figcaption>High level architecture of
-                        application and device</figcaption>
-                </figure>
-
-                Conceptually, a <a>WoT Server</a> can be thought to have an <a>Exposed Thing</a>
-                that provides an interface that conforms to the TD. A
-                <a>WoT Client</a> can be considered to contain a <a>Consumed Thing</a>
-                for each of the <a>WoT Servers</a> it connects to
-                that provides a programming interface that can be used
-                by applications. A <a>WoT Client</a> can generate a
-                <a>Consumed Thing</a> instance by interpreting a TD.
-                Communication between the <a>WoT Client</a> and the <a>WoT Server</a>
-                is performed by exchanging messages over a direct
-                network connection between a <a>Consumed Thing</a> and an
-                <a>Exposed Thing</a>.
-
-            </section>
-            <section>
-                <h3>Indirect Communication</h3>
-
-                <p>
-                    In <a
-                        href="#high-level-application-proxy-device-new"></a>
-                    a <a>WoT Client</a> and a <a>WoT Server</a> connect to each other
-                    via a proxy. A proxy is required as an intermediary
-                    if the components use different protocols (gateway)
-                    or if they are on different networks that require
-                    authentication and provide access control (e.g.
-                    firewalls).
-                </p>
-
-                <figure id="high-level-application-proxy-device-new">
-                    <img
-                        src="images/arch-high-level-application-proxy-device-alt2.png" />
-                    <figcaption>High level architecture
-                        with proxy</figcaption>
-                </figure>
-
-                <p>
-                    A proxy combines <a>Exposed Thing</a> and <a>Consumed Thing</a>
-                    functionality, and relays messages that are exchanged
-                    between a <a>WoT Client</a> and a <a>WoT Server</a>. In a proxy,
-                    a <a>Consumed Thing</a> creates a <em>shadow thing
-                        instance</em> of the <a>Exposed Thing</a> of a <a>WoT Server</a>, and
-                    a <a>WoT Client</a> can access the shadow instance through
-                    the <a>Exposed Thing</a> of the proxy.
-                </p>
-                <p>The <a>Exposed Thing</a> and <a>Consumed Thing</a> of a proxy can
-                    communicate with the <a>WoT Client</a> and the <a>WoT Server</a>
-                    in different protocols. For example, a proxy can
-                    provide a bridge between a device that uses CoAP and
-                    an application that uses HTTP. Even when there are
-                    multiple devices and they use different protocols,
-                    an application can communicate with those devices
-                    using a single protocol through the proxy. The same
-                    is true for device authentication. A client only
-                    needs to handle a single authentication method even
-                    when multiple devices connected to a proxy use
-                    different authentication methods.</p>
-                <p>A proxy creates a <a>Consumed Thing</a> based on a TD and
-                    generates another TD for a shadow thing instance.
-                    The TD for a shadow device uses a new identifier
-                    different from the original device TD’s, and
-                    contains interfaces for other communication
-                    protocols if necessary. A proxy then creates an
-                    <a>Exposed Thing</a> that implements the bridge to the
-                    originating thing. A client communicates with a
-                    device via a proxy through a <a>Consumed Thing</a> that
-                    conforms to the TD for the shadow thing instance.</p>
-            </section>
         </section>
         <section id="sec-web-thing">
             <h2>Web Thing</h2>
@@ -1724,7 +1646,7 @@ a[href].internalDFN {
                     Thing</figcaption>
             </figure>
         </section>
-        <section id=sec-interaction-model>
+        <section id="sec-interaction-model">
             <h2>Interaction Model</h2>
             <p>Originally, a Web resource usually represented a
                 document on the World Wide Web that can simply be
@@ -2115,6 +2037,96 @@ a[href].internalDFN {
                     declare a data schema to provide more detailed
                     semantic metadata for the data exchanged.</span>
             </p>
+        </section>
+        <section id="sec-WoT-servient-architecture-high-level">
+            <h2>System Configurations</h2>
+
+            <p>This section illustrates the behavior of WoT
+                components using system configuration diagrams.</p>
+
+            <section>
+                <h3>Direct Communication</h3>
+                <p>
+                    <a href="#high-level-application-device"></a> shows
+                    direct communication between a <a>WoT Server</a>, that is
+                    exposing a thing and a <a>WoT Client</a> that is using it.
+                    Direct communication applies when both components
+                    use the same network protocol(s) and are accessible
+                    to each other.
+                </p>
+                <figure id="high-level-application-device">
+                    <img
+                        src="images/arch-high-level-application-device-alt2.png" />
+                    <figcaption>High level architecture of
+                        application and device</figcaption>
+                </figure>
+
+                Conceptually, a <a>WoT Server</a> can be thought to have an <a>Exposed Thing</a>
+                that provides an interface that conforms to the TD. A
+                <a>WoT Client</a> can be considered to contain a <a>Consumed Thing</a>
+                for each of the <a>WoT Servers</a> it connects to
+                that provides a programming interface that can be used
+                by applications. A <a>WoT Client</a> can generate a
+                <a>Consumed Thing</a> instance by interpreting a TD.
+                Communication between the <a>WoT Client</a> and the <a>WoT Server</a>
+                is performed by exchanging messages over a direct
+                network connection between a <a>Consumed Thing</a> and an
+                <a>Exposed Thing</a>.
+
+            </section>
+            <section>
+                <h3>Indirect Communication</h3>
+
+                <p>
+                    In <a
+                        href="#high-level-application-proxy-device-new"></a>
+                    a <a>WoT Client</a> and a <a>WoT Server</a> connect to each other
+                    via a proxy. A proxy is required as an intermediary
+                    if the components use different protocols (gateway)
+                    or if they are on different networks that require
+                    authentication and provide access control (e.g.
+                    firewalls).
+                </p>
+
+                <figure id="high-level-application-proxy-device-new">
+                    <img
+                        src="images/arch-high-level-application-proxy-device-alt2.png" />
+                    <figcaption>High level architecture
+                        with proxy</figcaption>
+                </figure>
+
+                <p>
+                    A proxy combines <a>Exposed Thing</a> and <a>Consumed Thing</a>
+                    functionality, and relays messages that are exchanged
+                    between a <a>WoT Client</a> and a <a>WoT Server</a>. In a proxy,
+                    a <a>Consumed Thing</a> creates a <em>shadow thing
+                        instance</em> of the <a>Exposed Thing</a> of a <a>WoT Server</a>, and
+                    a <a>WoT Client</a> can access the shadow instance through
+                    the <a>Exposed Thing</a> of the proxy.
+                </p>
+                <p>The <a>Exposed Thing</a> and <a>Consumed Thing</a> of a proxy can
+                    communicate with the <a>WoT Client</a> and the <a>WoT Server</a>
+                    in different protocols. For example, a proxy can
+                    provide a bridge between a device that uses CoAP and
+                    an application that uses HTTP. Even when there are
+                    multiple devices and they use different protocols,
+                    an application can communicate with those devices
+                    using a single protocol through the proxy. The same
+                    is true for device authentication. A client only
+                    needs to handle a single authentication method even
+                    when multiple devices connected to a proxy use
+                    different authentication methods.</p>
+                <p>A proxy creates a <a>Consumed Thing</a> based on a TD and
+                    generates another TD for a shadow thing instance.
+                    The TD for a shadow device uses a new identifier
+                    different from the original device TD’s, and
+                    contains interfaces for other communication
+                    protocols if necessary. A proxy then creates an
+                    <a>Exposed Thing</a> that implements the bridge to the
+                    originating thing. A client communicates with a
+                    device via a proxy through a <a>Consumed Thing</a> that
+                    conforms to the TD for the shadow thing instance.</p>
+            </section>
         </section>
     </section>
 
@@ -2653,7 +2665,7 @@ a[href].internalDFN {
                 using a <a>WoT Thing Description</a>.
             </p>
         </section>
-        <section id="native-impl">
+        <section id="alt-servient-impl">
             <h3>Alternative Servient Implementations</h3>
             <p> The <a>WoT Scripting API</a> building block is optional.
                 Alternative <a>Servient</a> implementations are possible
@@ -2745,7 +2757,7 @@ a[href].internalDFN {
             behavior implementation.
         </p>
 
-        <section id="sec-deployment-app-dev">
+        <section id="sec-client-server-roles">
             <h2>Client and Server Roles</h2>
             <p> A <a>WoT Server</a> creates an <a>Exposed Thing</a> abstraction based on a TD. 
                 The TD is published to make it available to 
@@ -3036,7 +3048,7 @@ a[href].internalDFN {
                         Directory Synchronization</figcaption>
                 </figure>
             </section>
-            <section id="sec-deployment-service-to-service-rm">
+            <section id="sec-deployment-service-sync-proxy-rm">
                 <h3>Connection Through Proxy Synchronization</h3>
                 <p> In <a href="#deployment-service-sync-proxy"></a>, two remote <a>Servients</a>
                     synchronize device information. When a shadow of <a>WoT Server</a>
@@ -3112,7 +3124,7 @@ a[href].internalDFN {
                 <dt>Privacy</dt>
                 <dd>means that the system should maintain the
                     confidentiality of personally identifiable
-                    information.
+                    information.</dd>
             </dl>
         </section>
         <section id="sec-security-consideration-td-risks">
