@@ -1115,7 +1115,7 @@ a[href].internalDFN {
                 </figure>
             </section>
         </section>
-        <section>
+        <section id="sec-use-case-summary">
             <h2>Summary</h2>
             <p>
                 The previous section described various architecture
@@ -1527,47 +1527,53 @@ a[href].internalDFN {
             </p>
             <p>
                 A Thing can also abstract a virtual entity, which is the composition of one or more Things (e.g., a room consisting of several sensors and actuators).
-                
-                In this case, all metadata is consolidated in a single <a>Thing Description</a>.
-                In cases of complex systems, a Thing can also link to other Things and express the relation type. 
-
-                Central feature of the Web - linking.
+                One option for the composition is to provide a single, consolidated <a>Thing Description</a> that contains the superset of capabilities for the virtual entity.
+                In cases where the composition is rather complex, its <a>Thing Description</a> may <emph>link</emph> to hierarchical sub-Things within the composition.
+                The main <a>Thing Description</a> acts as entry point and only contain general metadata and potentially overarching capabilities.
+                This allows grouping of certain aspects of more complex Things.
             </p>
             <p>
-                Things can be linked to and from each other (e.g., to represent a complex system composed of several hierarchical Things)
-                or can link to additional resources (e.g., manuals or catalog entries), thereby making the Web of Things browsable.
-                
-
+                Linking does not only apply to hierarchical Things, but relations between Things and other resources in general.
+                Link relation types express how Things relate, for instance, a switch controlling a light or a room monitored by a motion sensor.
+                Other resources related to a Thing can be manuals, catalogs for spare parts, CAD files, a graphical UI, or any other document on the Web.
+                Overall, Web linking among Things makes the Web of Things browsable.
+                This can be further facilitated by providing Thing directories that manage an index of available Things, usually by caching their TD representation.
+                In summary, <a>Thing Descriptions</a> MAY link to other <a>Things</a> and other resources on the Web to form a Web of Things.
+                Links in <a>Thing Descriptions</a> MUST have a relation type.
             </p>
             <p class="ednote" title="TODO">
                 Figure to illustrate linked Things.
             </p>
-
-
-
             <p>
-                A simple example is a Thing being the digital
-                    representation of a physical IoT devices, which also
-                    directly provides the interface for interaction. A Thing
-                    may also be hosted on a gateway or the cloud,
-                    representing a physical entity with which clients cannot
-                    communicate directly (e.g., a legacy device) or not all
-                    (e.g., a room or table). Virtual entities like a room
-                    are often represented by a composition of one or more
-                    sensors and actuators, each of which may also be
-                    available as an individual Thing.
+                Things must be hosted on networked system components with a software stack to realize interaction through a network-facing interface, the <a>WoT Interface</a> of a <a>Thing</a>.
+                One example of this is an HTTP server running on an embedded device with sensors and actutors interfacing the physical entity behind the Thing abstraction.
+                However, W3C WoT does not mandate where <a>Things</a> are hosted; it can be on the IoT device directly, an <a>Edge device</a> such as a gateway box, or the cloud.
+            </p>
+            <p>
+                A typical deployment challenge is that local networks are not reachable from the Internet, usually because of IPv4 NATs or firewalls.
+                To remedy this situation, W3C WoT allows for <a>Intermediaries</a> between <a>Things</a> and <a>Consumers</a>.
+                <a>Intermediaries</a> can act as proxies for <a>Things</a>, where the <a>Intermediary</a> has a <a>Thing Description</a> similar to the original <a>Thing</a>,
+                but which points to the <a>WoT Interface</a> provided by the <a>Intermediary</a>.
+                <a>Intermediaries</a> may also augment existing <a>Things</a> with additional capabilities or compose a new <a>Thing</a> out of multiple available <a>Things</a>,
+                thereby forming a virtual entity.
+                To <a>Consumers</a>, <a>Intermediaries</a> look like <a>Things</a>, as they possess <a>Thing Descriptions</a> and provide a <a>WoT Interface</a>,
+                and hence might be indistinguishable from <a>Things</a> in a layered system architecture like the Web [[?REST]].
+                An identifier in the <a>Thing Description</a> MUST allow for the correlation of multiple <a>Thing Descriptions</a> representing the same original <a>Thing</a> or ultimately unique physical entity.
             </p>
             <p class="ednote" title="TODO">
                 Figure to illustrate intermediaries.
             </p>
             <p>
+                Another remedy for unreachable local networks would be to bind the <a>WoT Interface</a> to a protocol that establishes the connection from the <a>Thing</a> within the local network to a publicly reachable <a>Consumer</a>.
+            </p>
+            <p>
                 Things MAY be bundled together with a Consumer to enable Thing-to-Thing interaction.
+                Usually, the Consumer behavior is embedded in the software also implementing the behavior of the Thing.
                 The configuration of the Consumer behavior MAY be exposed through the Thing.
-                or MAY be defined out of band, for instance, within
-
-                <a href="#architecture-abstract"></a> shows an overview
-                of how these WoT concepts can be mapped to various
-                components and devices in a connected system.
+            </p>
+            <p>
+                <a href="#architecture-abstract"></a> summarizes how the WoT concepts introduced above can be applied and combined to address the use cases summarized in <a href="#sec-use-case-summary"></a>.
+                In particular, W3C WoT is applicable to all levels relevant for IoT applications: the device level, edge level, and cloud level.
             </p>
             <figure id="architecture-abstract">
                 <img src="images/architecture-abstract-new.png"
