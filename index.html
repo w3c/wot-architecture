@@ -357,14 +357,14 @@ a[href].internalDFN {
             <dd>A re-usable collection of blueprints for the
                 communication with different IoT platforms. The
                 blueprints includes the required vocabulary for the
-                Thing Description to map Interactions to
+                WoT Thing Description to map Interactions to
                 platform-specific messages as well as implementation
                 notes for the required protocol stacks or dedicated
                 communication drivers.</dd>
             <dt>
                 <dfn>to consume a Thing</dfn>
             </dt>
-            <dd>To process a Thing Description and from it create a Consumed
+            <dd>To process a WoT Thing Description and from it create a Consumed
                 Thing software abstraction as interface for the application in the local
                 runtime environment.</dd>
             <dt>
@@ -451,7 +451,7 @@ a[href].internalDFN {
                 <dfn>Intermediary</dfn>
             </dt>
             <dd>An entity between Consumers and Things that can proxy, augment, or compose things
-                and republish a Thing Description that points to the WoT Interface on the Intermediary instead of the original Thing.
+                and republish a WoT Thing Description that points to the WoT Interface on the Intermediary instead of the original Thing.
                 For Consumers, an Intermediary may be indistinguishable from a Thing, following the Layered System constraint of REST.</dd>
             <dt>
                 <dfn>IoT platform</dfn>
@@ -495,7 +495,7 @@ a[href].internalDFN {
             <dt>
                 <dfn>TD</dfn>
             </dt>
-            <dd>Short for Thing Description.</dd>
+            <dd>Short for WoT Thing Description.</dd>
             <dt>
                 <dfn>TD Vocabulary</dfn>
             </dt>
@@ -532,13 +532,13 @@ a[href].internalDFN {
                 <dfn>WoT Interface</dfn>
             </dt>
             <dd>The network-facing interface of a Thing
-                that is described by a Thing Description.</dd>
+                that is described by a WoT Thing Description.</dd>
             <dt>
                 <dfn>WoT Runtime</dfn>
             </dt>
             <dd>A runtime system that maintains an execution
                 environment for applications, and is able to expose and/or
-                consume Things, to process Thing Descriptions, to maintain private security
+                consume Things, to process WoT Thing Descriptions, to maintain private security
                 metadata, and to interface with Protocol Binding implementations.
                 A WoT Runtime may have a custom API or use the optional WoT Scripting API.</dd>
             <dt>
@@ -556,10 +556,10 @@ a[href].internalDFN {
             <dt>
                 <dfn>WoT Thing Description</dfn> or <dfn>Thing Description</dfn>
             </dt>
-            <dd>Structured data describing a Thing. A Thing Description comprises
+            <dd>Structured data describing a Thing. A WoT Thing Description comprises
                 general metadata, domain-specific metadata, Interaction Affordances
                 (which include the supported Protocol Bindings), and links to related Things.
-                The WoT Thing Description is the central building block of W3C WoT.</dd>
+                The WoT Thing Description format is the central building block of W3C WoT.</dd>
         </dl>
     </section>
 
@@ -1506,12 +1506,12 @@ a[href].internalDFN {
                 the Web of Things (WoT) builds on top of the concept of Web Things &ndash; usually simply called <a>Things</a> &ndash; that can be used by so-called <a>Consumers</a>.
                 A Thing is the abstraction of a physical or virtual entity (e.g., a device or a room, resp.)
                 and is described by standardized metadata.
-                In W3C WoT, the description metadata MUST be a WoT Thing Description [[!wot-thing-description]].
-                <a>Consumers</a> MUST be able to process the WoT Thing Description format, which is based on JSON [[!rfc8259]].
-                A Thing Description (TD) is instance-specific (i.e., describes an individual Thing, not types of Things)
+                In W3C WoT, the description metadata MUST be a WoT Thing Description (TD) [[!wot-thing-description]].
+                <a>Consumers</a> MUST be able to process the <a>WoT Thing Description</a> format, which is based on JSON [[!rfc8259]].
+                A <a>TD</a> is instance-specific (i.e., describes an individual Thing, not types of Things)
                 and is the default Web representation of a Thing.
                 There MAY be other Web representations of a Thing such as an HTML-based user interface or simply an image of the physical entity.
-                However, the WoT Thing Description is a standardized, machine-understandable representation format
+                However, the <a>WoT Thing Description</a> is a standardized, machine-understandable representation format
                 that allows <a>Consumers</a> to discover and interpret the capabilities of a Thing (through semantic annotations)
                 and to adapt to different implementations (e.g., different protocols or data structures) when interacting with a Thing,
                 thereby enabling interoperability across different <a>IoT platforms</a>, i.e., different ecosystems and standards.
@@ -1521,9 +1521,9 @@ a[href].internalDFN {
             </p>
             <p>
                 A Thing can also abstract a virtual entity, which is the composition of one or more Things (e.g., a room consisting of several sensors and actuators).
-                One option for the composition is to provide a single, consolidated <a>Thing Description</a> that contains the superset of capabilities for the virtual entity.
-                In cases where the composition is rather complex, its <a>Thing Description</a> may <emph>link</emph> to hierarchical sub-Things within the composition.
-                The main <a>Thing Description</a> acts as entry point and only contain general metadata and potentially overarching capabilities.
+                One option for the composition is to provide a single, consolidated <a>WoT Thing Description</a> that contains the superset of capabilities for the virtual entity.
+                In cases where the composition is rather complex, its <a>TD</a> may <emph>link</emph> to hierarchical sub-Things within the composition.
+                The main <a>TD</a> acts as entry point and only contain general metadata and potentially overarching capabilities.
                 This allows grouping of certain aspects of more complex Things.
             </p>
             <p>
@@ -1532,8 +1532,7 @@ a[href].internalDFN {
                 Other resources related to a Thing can be manuals, catalogs for spare parts, CAD files, a graphical UI, or any other document on the Web.
                 Overall, Web linking among Things makes the Web of Things browsable.
                 This can be further facilitated by providing Thing directories that manage an index of available Things, usually by caching their TD representation.
-                In summary, <a>Thing Descriptions</a> MAY link to other <a>Things</a> and other resources on the Web to form a Web of Things.
-                Links in <a>Thing Descriptions</a> MUST have a relation type.
+                In summary, <a>WoT Thing Descriptions</a> MAY link to other <a>Things</a> and other resources on the Web to form a Web of Things.
             </p>
             <p class="ednote" title="TODO">
                 Figure to illustrate linked Things.
@@ -1546,13 +1545,13 @@ a[href].internalDFN {
             <p>
                 A typical deployment challenge is that local networks are not reachable from the Internet, usually because of IPv4 NATs or firewalls.
                 To remedy this situation, W3C WoT allows for <a>Intermediaries</a> between <a>Things</a> and <a>Consumers</a>.
-                <a>Intermediaries</a> can act as proxies for <a>Things</a>, where the <a>Intermediary</a> has a <a>Thing Description</a> similar to the original <a>Thing</a>,
+                <a>Intermediaries</a> can act as proxies for <a>Things</a>, where the <a>Intermediary</a> has a <a>WoT Thing Description</a> similar to the original <a>Thing</a>,
                 but which points to the <a>WoT Interface</a> provided by the <a>Intermediary</a>.
                 <a>Intermediaries</a> may also augment existing <a>Things</a> with additional capabilities or compose a new <a>Thing</a> out of multiple available <a>Things</a>,
                 thereby forming a virtual entity.
-                To <a>Consumers</a>, <a>Intermediaries</a> look like <a>Things</a>, as they possess <a>Thing Descriptions</a> and provide a <a>WoT Interface</a>,
+                To <a>Consumers</a>, <a>Intermediaries</a> look like <a>Things</a>, as they possess <a>WoT Thing Descriptions</a> and provide a <a>WoT Interface</a>,
                 and hence might be indistinguishable from <a>Things</a> in a layered system architecture like the Web [[?REST]].
-                An identifier in the <a>Thing Description</a> MUST allow for the correlation of multiple <a>Thing Descriptions</a> representing the same original <a>Thing</a> or ultimately unique physical entity.
+                An identifier in the <a>WoT Thing Description</a> MUST allow for the correlation of multiple <a>TDs</a> representing the same original <a>Thing</a> or ultimately unique physical entity.
             </p>
             <p class="ednote" title="TODO">
                 Figure to illustrate intermediaries.
@@ -1579,7 +1578,7 @@ a[href].internalDFN {
         <section>
             <h2>Affordances</h2>
             <p>
-                A central aspect in W3C WoT is the provision of machine-understandable metadata (i.e., <a>Thing Descriptions</a>).
+                A central aspect in W3C WoT is the provision of machine-understandable metadata (i.e., <a>WoT Thing Descriptions</a>).
                 Ideally, such metadata is self-descriptive, so that <a>Consumers</a> are able to identify
                 <emph>what</emph> capabilities a <a>Thing</a> provides and <emph>how</emph> to use the provided capabilities.
                 A key to this self-descriptiveness lies in the concept of affordances.
