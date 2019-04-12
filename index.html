@@ -347,7 +347,7 @@ a[href].internalDFN {
                 Things (provide access to locally gathered data or
                 computed from consumed Things, provide remote control
                 and management interfaces). The application can be
-                implemented using the Scripting API or native platform
+                implemented using the WoT Scripting API or native platform
                 APIs. The application may also be distributed over
                 multiple Things and other hosts.</dd>
             <dt>
@@ -364,8 +364,8 @@ a[href].internalDFN {
             <dt>
                 <dfn>to consume a Thing</dfn>
             </dt>
-            <dd>To read a Thing Description and create a Consumed
-                Thing software object for the application in the local
+            <dd>To process a Thing Description and from it create a Consumed
+                Thing software abstraction as interface for the application in the local
                 runtime environment.</dd>
             <dt>
                 <dfn>Consumed Thing</dfn>
@@ -373,7 +373,7 @@ a[href].internalDFN {
             <dd>A software abstraction that represents a remote
                 Thing used by the local application. The abstraction might be
                 created by a native WoT Runtime, or instantiated
-                as an object by a Scripting API implementation.</dd>
+                as an object through the WoT Scripting API.</dd>
             <dt>
                 <dfn>Consumer</dfn>
             </dt>
@@ -400,7 +400,6 @@ a[href].internalDFN {
                 enterprise or service provider core networks. Examples
                 include gateways, routers, switches, multiplexers, and a
                 variety of other access devices.</dd>
-            
             <dt>
                 <dfn>Event</dfn>
             </dt>
@@ -415,19 +414,16 @@ a[href].internalDFN {
             <dt>
                 <dfn>to expose a Thing</dfn>
             </dt>
-            <dd>To create an Exposed Thing software object in the
-                local runtime environment that enables the application
-                to provide local state and calls as Interactions over
-                the network.</dd>
+            <dd>To create an Exposed Thing software abstraction in the
+                local runtime environment to manage the state of a Thing
+                and interface with the behavior implementation.</dd>
             <dt>
                 <dfn>Exposed Thing</dfn>
             </dt>
-            <dd>A software abstraction that represents a Thing 
-                implemented locally that be accessed over the network by remote
-                Consumers. 
-                The abstraction might be
-                created by a native WoT Runtime, or instantiated
-                as an object by a Scripting API implementation.</dd>
+            <dd>A software abstraction that represents a locally hosted Thing 
+                that can be accessed over the network by remote Consumers. 
+                The abstraction might be created by a native WoT Runtime,
+                or instantiated as an object through the WoT Scripting API.</dd>
             <dt>
                 <dfn>Hypermedia Control</dfn>
             </dt>
@@ -443,13 +439,20 @@ a[href].internalDFN {
                 thereby suggesting how Consumers may interact with the Thing.
                 There are many types of potential affordances, but 
                 W3C WoT defines three types of Interaction Affordances:
-                Properties, Actions, and Events.</dd>
+                Properties, Actions, and Events.
+                A fourth Interaction Affordance is navigation, which is already available on the Web through linking.</dd>
             <dt>
                 <dfn>Interaction Model</dfn>
             </dt>
-            <dd>An intermediate abstraction that formalizes the
-                mapping from application intent to concrete protocol
-                bindings, which are used to interact with Web resources.</dd>
+            <dd>An intermediate abstraction that formalizes and narrows the
+                mapping from application intent to concrete protocol operations.
+                In W3C WoT, the defined set of Interaction Affordances constitutes the Interaction Model.</dd>
+            <dt>
+                <dfn>Intermediary</dfn>
+            </dt>
+            <dd>An entity between Consumers and Things that can proxy, augment, or compose things
+                and republish a Thing Description that points to the WoT Interface on the Intermediary instead of the original Thing.
+                For Consumers, an Intermediary may be indistinguishable from a Thing, following the Layered System constraint of REST.</dd>
             <dt>
                 <dfn>IoT platform</dfn>
             </dt>
@@ -474,8 +477,8 @@ a[href].internalDFN {
                 <dfn>Scripting Runtime</dfn>
             </dt>
             <dd>A runtime system that is used for implementing an
-                API in a scripting language (e.g. using ECMAScript, LUA,
-                Python etc.).</dd>
+                API in a scripting language (e.g., using ECMAScript, LUA,
+                Python, etc.).</dd>
             <dt>
                 <dfn>Servient</dfn>
             </dt>
@@ -487,7 +490,8 @@ a[href].internalDFN {
                 <dfn>Subprotocol</dfn>
             </dt>
             <dd>An extension mechanism to a transfer protocol that
-                must be known to interact successfully.</dd>
+                must be known to interact successfully.
+                An example is long polling for HTTP.</dd>
             <dt>
                 <dfn>TD</dfn>
             </dt>
@@ -507,27 +511,18 @@ a[href].internalDFN {
                 Thing Description, whereas a virtual entity is the
                 composition of one or more Things.</dd>
             <dt>
-                <dfn data-lt="WoT Thing Description">Thing
-                    Description</dfn>
-            </dt>
-            <dd>Structured data describing a Thing. A TD includes
-                metadata, domain-specific metadata, a list of offered
-                interactions, the supported protocol bindings for each
-                interaction, and links to related Things. The Thing
-                Description is built around a formal Interaction Model.</dd>
-            <dt>
                 <dfn>Thing Directory</dfn>
             </dt>
             <dd>A directory service for TDs that provides a Web
-                interface to register TDs (see [[CoRE-RD]]) and look
-                them up (e.g., using SPARQL queries or CoRE Link
-                Format).</dd>
+                interface to register TDs (similar to [[?CoRE-RD]]) and look them up
+                (e.g., using SPARQL queries or the CoRE RD lookup interface [[?CoRE-RD]]).</dd>
             <dt>
                 <dfn>Transfer Protocol</dfn>
             </dt>
             <dd>The underlying, standardized application layer
-                protocol without application-specific options or
-                subprotocol mechanisms.</dd>
+                protocol without application-specific requirements or
+                constraints on options or subprotocol mechanisms.
+                Examples are HTTP, CoAP, or MQTT.</dd>
             <dt>
                 <dfn>Virtual Thing</dfn>
             </dt>
@@ -542,30 +537,29 @@ a[href].internalDFN {
                 <dfn>WoT Runtime</dfn>
             </dt>
             <dd>A runtime system that maintains an execution
-                environment for applications, and is able to expose and
-                optionally consume TDs, offers a protocol binding to one
-                or more protocols, and maintains private security
-                metadata.</dd>
+                environment for applications, and is able to expose and/or
+                consume Things, to process Thing Descriptions, to maintain private security
+                metadata, and to interface with Protocol Binding implementations.
+                A WoT Runtime may have a custom API or use the optional WoT Scripting API.</dd>
             <dt>
                 <dfn>WoT Scripting API</dfn>
-                or the
-                <dfn>Scripting API</dfn>
             </dt>
             <dd>The application-facing programming interface
-                optionally provided by a Servient in order to to ease
-                the implementation of applications running in a WoT
-                Runtime. It is comparable to the Web browser APIs.</dd>
-            <dt>
-                <dfn>WoT Server</dfn>
-            </dt>
-            <dd>An entity that exposes a network interface
-                consistent with a WoT Thing Description. WoT Server is
-                also used to refer to a Servient in server role only.</dd>  
+                provided by a Servient in order to to ease
+                the implementation of behavior or applications running in a WoT
+                Runtime. It is comparable to the Web browser APIs.
+                The WoT Scripting API is an optional building block for W3C WoT.</dd>
             <dt>
                 <dfn>WoT Servient</dfn>
-                <dd>Synonym for Servient.</dd>
             </dt>
-            <dd>
+            <dd>Synonym for Servient.</dd>
+            <dt>
+                <dfn>WoT Thing Description</dfn> or <dfn>Thing Description</dfn>
+            </dt>
+            <dd>Structured data describing a Thing. A Thing Description comprises
+                general metadata, domain-specific metadata, Interaction Affordances
+                (which include the supported Protocol Bindings), and links to related Things.
+                The WoT Thing Description is the central building block of W3C WoT.</dd>
         </dl>
     </section>
 
@@ -1505,15 +1499,15 @@ a[href].internalDFN {
         <p>
             <em>This section is normative.</em>
         </p>
-
         <section id="sec-architecture-overview">
             <h2>Overview</h2>
             <p>
                 To address the use cases in Section 4 and fulfill the requirements in Section 5,
-                the Web of Things builds on top of the concept of Web Things -- usually simply called <a>Things</a> -- that can be used by so-called <a>Consumers</a>.
+                the Web of Things (WoT) builds on top of the concept of Web Things &ndash; usually simply called <a>Things</a> &ndash; that can be used by so-called <a>Consumers</a>.
                 A Thing is the abstraction of a physical or virtual entity (e.g., a device or a room, resp.)
                 and is described by standardized metadata.
                 In W3C WoT, the description metadata MUST be a WoT Thing Description [[!wot-thing-description]].
+                <a>Consumers</a> MUST be able to process the WoT Thing Description format, which is based on JSON [[!rfc8259]].
                 A Thing Description (TD) is instance-specific (i.e., describes an individual Thing, not types of Things)
                 and is the default Web representation of a Thing.
                 There MAY be other Web representations of a Thing such as an HTML-based user interface or simply an image of the physical entity.
@@ -1572,8 +1566,9 @@ a[href].internalDFN {
                 The configuration of the Consumer behavior MAY be exposed through the Thing.
             </p>
             <p>
-                <a href="#architecture-abstract"></a> summarizes how the WoT concepts introduced above can be applied and combined to address the use cases summarized in <a href="#sec-use-case-summary"></a>.
-                In particular, W3C WoT is applicable to all levels relevant for IoT applications: the device level, edge level, and cloud level.
+                The concepts of W3C WoT are applicable to all levels relevant for IoT applications: the device level, edge level, and cloud level.
+                This fosters common interfaces and APIs across the different levels and enables various integration patterns such as Thing-to-Thing, Thing-to-gateway, Thing-to-cloud, gateway-to-cloud, and even cloud federation for IoT applications.
+                <a href="#architecture-abstract"></a> gives an overview how the WoT concepts introduced above can be applied and combined to address the use cases summarized in <a href="#sec-use-case-summary"></a>.
             </p>
             <figure id="architecture-abstract">
                 <img src="images/architecture-abstract-new.png"
@@ -1584,12 +1579,13 @@ a[href].internalDFN {
         <section>
             <h2>Affordances</h2>
             <p>
-                A central aspect in the concept of Web Things is the provision of machine-understandable metadata.
+                A central aspect in W3C WoT is the provision of machine-understandable metadata (i.e., <a>Thing Descriptions</a>).
                 Ideally, such metadata is self-descriptive, so that <a>Consumers</a> are able to identify
-                <emph>what</emph> capabilities a Thing provides and <emph>how</emph> they can make use the provided capabilities.
+                <emph>what</emph> capabilities a <a>Thing</a> provides and <emph>how</emph> to use the provided capabilities.
                 A key to this self-descriptiveness lies in the concept of affordances.
             </p>
-            <p>The term affordance originates in ecological
+            <p>
+                The term affordance originates in ecological
                 psychology, but was adopted in the field of
                 Human-Computer Interaction [[?HCI]] based on the
                 definition by Donald Norman: "'Affordance' refers to
@@ -1598,9 +1594,9 @@ a[href].internalDFN {
                 determine just how the thing could possibly be
                 used." [[?NORMAN]]</p>
             <p>
-                An example for this is a door having a handle.
+                An example for this is a door with a handle.
                 The door handle is an affordance, which suggests that the door can be opened.
-                For humans, a door handle usually also suggests how the door is opened;
+                For humans, a door handle usually also suggests <emph>how</emph> the door can be opened;
                 an American knob suggests twisting, a European lever handle suggests pressing down.
             </p>
             <p>
@@ -1613,22 +1609,22 @@ a[href].internalDFN {
                 Web applications.
                 Here, the simultaneous presentation of
                 information and control (provided in
-                the form of hyperlinks) is a mechanism that affords
+                the form of hyperlinks) is a mechanism that <emph>affords</emph>
                 Web clients the means to drive Web applications. In this
                 context, an affordance is the description of a
-                hyperlink (e.g. via a link relation type and link
+                hyperlink (e.g., via a link relation type and link
                 target attributes) suggesting Web clients how to navigate
-                and possibly how act on the linked resource.
+                and possibly how to act on the linked resource.
             </p>
             <p>
                 Drawn from this hypermedia principle,
                 the Web of Things defines <a>Interaction Affordances</a> as metadata of a Thing
-                that shows and describes the possible choices to <a>Consumers</a>, thereby suggesting how <a>Consumers</a> may interact with the Thing.
-                A general <a>Interaction Affordances</a> is navigation, which is activated by following links, thereby browsing the Web of Things.
+                that shows and describes the possible choices to <a>Consumers</a>, thereby suggesting how <a>Consumers</a> may interact with the <a>Thing</a>.
+                A general <a>Interaction Affordance</a> is navigation, which is activated by following a link, thereby enabling <a>Consumers</a> to browse the Web of Things.
                 <a href="#sec-interaction-model"></a> defines three more types of Interaction Affordances for W3C WoT: <a>Properties</a>, <a>Actions</a>, and <a>Events</a>.
             </p>
             <p>
-                This definition is thereby aligned with HCI and interaction designers, who create physical Things,
+                Overall, this W3C WoT definition is aligned with HCI and interaction designers, who create physical Things,
                 as well as the REST and microservice community, who is working on Web services in general.
             </p>
         </section>
@@ -1668,77 +1664,85 @@ a[href].internalDFN {
         </section>
         <section id="sec-interaction-model">
             <h2>Interaction Model</h2>
-            <p>Originally, a Web resource usually represented a
+            <p>
+                Originally, a Web resource usually represented a
                 document on the World Wide Web that can simply be
                 fetched by a Web client. With the introduction of Web
                 services, resources became more generic interaction
-                endpoints that can implement any kind of behavior. This
+                entities that can implement any kind of behavior. This
                 very high level of abstraction makes it hard to provide
                 a loose coupling between applications and the manifold
-                interaction possibilities of resources. As a result,
-                typical API descriptions consist of a static mapping
+                of interaction possibilities for resources. As a result,
+                at the time of writing typical API descriptions consist of a static mapping
                 from an application intent to a resource address,
                 method, request payload structure, response payload
-                structure, and expected errors.</p>
-            <p>The interaction model of WoT introduces an
+                structure, and expected errors.
+                This imposes a tight coupling between Web client and Web service.</p>
+            <p>
+                The <a>Interaction Model</a> of W3C WoT introduces an
                 intermediate abstraction that formalizes the mapping
-                from application intent to concrete protocol bindings,
-                which are used to interact with Web resources. Instead
-                of generic resources, WoT applications use three types
-                of so-called Interaction Affordances: Properties,
-                Actions, and Events. While constraining Web resources
-                into three different behaviors, the three types are
-                still able to cover virtually all functionality found in
-                IoT devices and services.</p>
+                from application intent to concrete protocol operations
+                and also narrows the possibilities how Interactions
+                can be modeled.
+            </p>
+            <p>
+                In addition to navigation affordances (i.e., Web links),
+                <a>Things</a> MAY only offer three other types of <a>Interaction Affordances</a>: Properties, Actions, and Events.
+                While this narrow waist allows to decouple <a>Consumers</a> and <a>Things</a>,
+                these four types of <a>Interaction Affordances</a> are still able to model virtually all interaction possibilities found in IoT devices and services.
+            </p>
             <section>
                 <h3>Properties</h3>
-                <p>A Property is an Interaction Affordance that
-                    exposes internal state of the Thing that can be
-                    directly accessed (read) and optionally manipulated
-                    (write). Things can also choose to make Properties
-                    observable by pushing the new state after a change
-                    (cf. CoAP Observe [[?RFC7641]]).</p>
-                <p>Properties may contain one data schema if the
-                    data is not fully specified by the Protocol Binding
-                    used (e.g., through a Media Type).</p>
-                <p>Examples of Properties are sensor values
-                    (read-only), stateful actuators (read-write),
-                    configuration parameters (read-write), Thing status
-                    (read-only), or computation results (read-only).</p>
+                <p>
+                    A Property is an Interaction Affordance that exposes state of the Thing
+                    that MUST be retrievable (read) and optionally MAY be updated (write).
+                    Things MAY choose to make Properties observable by pushing the new state after a change
+                    (cf. Observing Resources [[?RFC7641]]).
+                    Write-only state SHOULD be exposed through an Action.
+                </p>
+                <p>
+                    Properties MAY contain one data schema if the data is not fully specified by the Protocol Binding used (e.g., through a Media Type).
+                </p>
+                <p>
+                    Examples of Properties are sensor values (read-only), stateful actuators (read-write),
+                    configuration parameters (read-write), Thing status (read-only or read-write), or computation results (read-only).
+                </p>
             </section>
             <section>
                 <h3>Actions</h3>
-                <p>An Action is an Interaction Affordance that
-                    allows to invoke a function of the Thing, which
-                    manipulates internal state that is not directly
-                    exposed (cf. Properties) based on internal logic or
-                    triggers a process on the Thing.</p>
-                <p>Actions may contain up to two data schemas, one
-                    for optional input parameters, one for output
-                    results, if the data is not fully specified by the
-                    Protocol Binding used (e.g., through a Media Type).</p>
-                <p>Examples of Actions are changing multiple
-                    Properties simultaneously, changing Properties over
-                    time or with a process that shall not be disclosed,
-                    or invoking a long-lasting process such as actuator
-                    control.</p>
+                <p>
+                    An Action is an Interaction Affordance that allows to invoke a function of the Thing,
+                    which MAY manipulate state that is not directly exposed (cf. Properties),
+                    manipulate multiple Properties at a time, or manipulate Properties based on internal logic (e.g., toggle).
+                    Invoking an Action MAY also trigger a process on the Thing that manipulates state (including physical state through actuators) over time.
+                </p>
+                <p>
+                    Actions MAY contain up to two data schemas,
+                    one for optional input parameters and one for output results,
+                    if the data is not fully specified by the Protocol Binding used (e.g., through a Media Type).
+                </p>
+                <p>
+                    Examples of Actions are changing multiple Properties simultaneously,
+                    changing Properties over time such as fading the brightness of a light (dimming)
+                    or with a process that shall not be disclosed such as a proprietary control loop algorithm,
+                    or invoking a long-lasting process such as priting a document.</p>
             </section>
             <section>
                 <h3>Events</h3>
-                <p>An Event Interaction Affordance describes
-                    asynchronous push interactions initiated by the
-                    Thing. Here not state, but state transitions (i.e.,
-                    events) are communicated. Events may be triggered
-                    through conditions that are not exposed as
-                    Properties.</p>
-                <p>Events may contain up to three data schemas, one
-                    for the event data and optionally one for the
-                    subscription data and/or one for the cancellation
-                    data, if the data is not fully specified by the
-                    Protocol Binding used (e.g., through a Media Type).</p>
-                <p>Examples of Events are discrete events such as an
-                    alarm or samples of a time series that are pushed
-                    regularly.</p>
+                <p>
+                    An Event Interaction Affordance describes an event source that pushes data asynchronously from the Thing to the Consumer.
+                    Here not state, but state transitions (i.e., events) are communicated.
+                    Events MAY be triggered through conditions that are not exposed as Properties.
+                </p>
+                <p>
+                    Events MAY contain up to three data schemas,
+                    one for the event data if the data is not fully specified by the Protocol Binding used (e.g., through a Media Type),
+                    optionally one for the subscription data if the message to subscribe is not implicitly known from the Protocol Binding used (e.g., Server-Sent Events vs Web hooks),
+                    and optionally one for the cancellation data if the messages to unsubscribe is not implicitly known from the Protocol Binding used (e.g., WebSockets vs Web hooks).
+                </p>
+                <p>
+                    Examples of Events are discrete events such as an alarm or samples of a time series that are pushed regularly.
+                </p>
             </section>
         </section>
         <section id="sec-hypermedia-controls">
@@ -2133,7 +2137,7 @@ a[href].internalDFN {
             are highlighted with black outlines.
             Security, a cross-cutting concern, 
             is separated into public and protected private components. 
-            The WoT Scripting API is optional and the
+            The <a>WoT Scripting API</a> is optional and the
             Binding Templates are informative.
         </p>
         <figure id="arch-building-blocks">
@@ -2348,12 +2352,12 @@ a[href].internalDFN {
         </section>
         <section id="sec-scripting-api" class="informative">
             <h3>WoT Scripting API</h3>
-            <p> The <a>Scripting API</a> is an optional "convenience"
+            <p> The <a>WoT Scripting API</a> is an optional "convenience"
                 building block in WoT that eases IoT application
                 development and is implemented using a Scripting Runtime
                 (such as a Python, Lua or ECMAScript implementation)
                 that is used in combination with a <a>WoT Runtime</a>.
-                The Scripting API enables writing WoT applications by
+                The <a>WoT Scripting API</a> enables writing WoT applications by
                 user-defined scripts.
             </p>
             <p> Traditionally, IoT device logic is implemented in
@@ -2371,11 +2375,11 @@ a[href].internalDFN {
                 time-critical logic from the cloud down to a gateway or
                 edge node.
             </p>
-            <p> The non-normative WoT Scripting API document defines
+            <p> The non-normative <a>WoT Scripting API</a> document defines
                 the structure and algorithms of the programming
                 interface that allows scripts to discover, consume
                 (retrieve) and produce (define) Thing Descriptions. The
-                implementation of the Scripting API instantiates local
+                implementation of the <a>WoT Scripting API</a> instantiates local
                 objects that act as an interface to other Things and
                 represents their Interaction Affordances (Properties,
                 Actions, and Events). It also allows scripts to expose
@@ -2396,7 +2400,7 @@ a[href].internalDFN {
                 architecture, security is supported by certain explicit
                 features, such as support for public security metadata in TDs
                 and by separation of concerns in the design of the
-                Scripting API. The documents defining each building
+                <a>WoT Scripting API</a>. The documents defining each building
                 block also include a discussion of particular security
                 and privacy considerations for each building block.
                 Another set of documents, the WoT Security and Privacy
@@ -2425,10 +2429,10 @@ a[href].internalDFN {
             abstract architecture. When implementing these concepts, a
             more detailed view is necessary that takes certain technical
             aspects into account. The detailed architecture of a <a>Servient</a>
-            implementation using the (optional) WoT Scripting API is
+            implementation using the (optional) <a>WoT Scripting API</a> is
             shown in <a href="#architecture-implementation"></a>.
             This figure shows and implementation that is using the optional 
-            WoT Scripting API. 
+            <a>WoT Scripting API</a>. 
             Scripts are actually executed by a nested Scripting Runtime, 
             while WoT-specific Servient Implementation aspects are managed
             by the WoT Runtime. 
