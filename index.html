@@ -151,7 +151,7 @@
                 publisher : "OASIS Standard",
                 date : "2014"
             },
-            "FORMS" : {
+            "CoRAL" : {
                 href : "https://tools.ietf.org/html/draft-hartke-t2trg-coral",
                 title : "The Constrained RESTful Application Language (CoRAL)",
                 author : "Klaus Hartke",
@@ -1499,18 +1499,21 @@ a[href].internalDFN {
         <p>
             <em>This section is normative.</em>
         </p>
+        <p>
+            To address the use cases in Section 4 and fulfill the requirements in Section 5,
+            the Web of Things (WoT) builds on top of the concept of Web Things &ndash; usually simply called <a>Things</a> &ndash; that can be used by so-called <a>Consumers</a>.
+            This section provides the background and normative assertions to define the overall W3C Web of Things architecture.
+            As the Web of Things addresses stakeholders from different domains, certain aspects of Web technology are explained in more detail, in particular the concept of hypermedia.
+        </p>
         <section id="sec-architecture-overview">
             <h2>Overview</h2>
-            <p>
-                To address the use cases in Section 4 and fulfill the requirements in Section 5,
-                the Web of Things (WoT) builds on top of the concept of Web Things &ndash; usually simply called <a>Things</a> &ndash; that can be used by so-called <a>Consumers</a>.
-                A Thing is the abstraction of a physical or virtual entity (e.g., a device or a room, resp.)
-                and is described by standardized metadata.
+                A <a>Thing</a> is the abstraction of a physical or virtual entity (e.g., a device or a room, resp.) and is described by standardized metadata.
                 In W3C WoT, the description metadata MUST be a WoT Thing Description (TD) [[!wot-thing-description]].
-                <a>Consumers</a> MUST be able to process the <a>WoT Thing Description</a> format, which is based on JSON [[!rfc8259]].
+                <a>Consumers</a> MUST be able to process the <a>WoT Thing Description</a> format, which is based on JSON [[!RFC8259]].
+                The format can be processed either through classic JSON libraries or a JSON-LD processor, as the underlying information model is graph-based and its serialization compatible with JSON-LD 1.1 [[?json-ld-syntax]].
                 A <a>TD</a> is instance-specific (i.e., describes an individual Thing, not types of Things)
-                and is the default Web representation of a Thing.
-                There MAY be other Web representations of a Thing such as an HTML-based user interface or simply an image of the physical entity.
+                and is the default Web representation of a <a>Thing</a>.
+                There MAY be other Web representations of a <a>Thing</a> such as an HTML-based user interface or simply an image of the physical entity.
                 However, the <a>WoT Thing Description</a> is a standardized, machine-understandable representation format
                 that allows <a>Consumers</a> to discover and interpret the capabilities of a Thing (through semantic annotations)
                 and to adapt to different implementations (e.g., different protocols or data structures) when interacting with a Thing,
@@ -1575,7 +1578,7 @@ a[href].internalDFN {
                 <figcaption>Abstract Architecture of W3C WoT</figcaption>
             </figure>
         </section>
-        <section>
+        <section id="sec-affordances">
             <h2>Affordances</h2>
             <p>
                 A central aspect in W3C WoT is the provision of machine-understandable metadata (i.e., <a>WoT Thing Descriptions</a>).
@@ -1670,8 +1673,8 @@ a[href].internalDFN {
                 services, resources became more generic interaction
                 entities that can implement any kind of behavior. This
                 very high level of abstraction makes it hard to provide
-                a loose coupling between applications and the manifold
-                of interaction possibilities for resources. As a result,
+                a loose coupling between applications and resources due to 
+                the manifold interaction possibilities. As a result,
                 at the time of writing typical API descriptions consist of a static mapping
                 from an application intent to a resource address,
                 method, request payload structure, response payload
@@ -1681,12 +1684,12 @@ a[href].internalDFN {
                 The <a>Interaction Model</a> of W3C WoT introduces an
                 intermediate abstraction that formalizes the mapping
                 from application intent to concrete protocol operations
-                and also narrows the possibilities how Interactions
+                and also narrows the possibilities how <a>Interaction Affordances</a>
                 can be modeled.
             </p>
             <p>
                 In addition to navigation affordances (i.e., Web links),
-                <a>Things</a> MAY only offer three other types of <a>Interaction Affordances</a>: Properties, Actions, and Events.
+                <a>Things</a> MAY only offer three other types of <a>Interaction Affordances</a>: <a>Properties</a>, <a>Actions</a>, and <a>Events</a>.
                 While this narrow waist allows to decouple <a>Consumers</a> and <a>Things</a>,
                 these four types of <a>Interaction Affordances</a> are still able to model virtually all interaction possibilities found in IoT devices and services.
             </p>
@@ -1746,72 +1749,84 @@ a[href].internalDFN {
         </section>
         <section id="sec-hypermedia-controls">
             <h2>Hypermedia Controls</h2>
-            <p>Interaction Affordances showing the possible choices
-                to clients must originate from the Thing itself and are
-                shared during discovery or in-band during the
-                interaction with the Thing. This is opposed to
-                out-of-band interface descriptions that need to be
-                preinstalled or hardcoded into clients (e.g., RPC, WS-*
-                Web services, HTTP services with fixed
-                URI-method-response definitions).</p>
-            <p>To suggest how clients may interact with the Thing,
-                WoT makes use of hypermedia controls known from REST.
-                Besides the well-established Web links [[!RFC8288]], WoT
-                defines the concept of Web forms. They allow to adapt to
-                the diverse choices with which clients are faced in the
-                Internet of Things [[?FORMS]].</p>
+            <p>
+                On the Web, an affordance is the simultaneous presentation of information and controls,
+                such that the information becomes the affordance through which the user obtains choices.
+                For humans, the information is usally text or images describing or decorating a hyperlink.
+                The control is a Web link, which contains at least the URI of the target resource,
+                which can be dereferenced by the Web browser (i.e., the link can be followed).
+                But also machines can follow links in a meaningful way, when the Web link is further described by a relation type and a set of target attributes.
+                A hypermedia control is the machine-understandable serialization of <emph>how</emph> to activate an affordance.
+                Hypermedia controls usually originate from a Web server and are discovered in-band while a Web client is interacting with the server.
+                This way, Web servers can drive clients through Web applications dynamically,
+                by taking their current state and other factors such as authorization into account.
+                This is opposed to out-of-band interface descriptions that need to be preinstalled or hardcoded into clients
+                (e.g., RPC, WS-* Web services, HTTP services with fixed URI-method-response definitions).
+            </p>
+            <p>
+                W3C WoT makes use of two kinds of hypermedia controls:
+                Web links [[!RFC8288]] as the well-established control to navigate the Web,
+                and Web forms as a more powerful control to enable any kind of operation.
+                The same concept is used in the Constrained RESTful Application Language (CoRAL) defined by the IETF [[?CoRAL]].
+            </p>
             <section id="sec-hypermedia-links">
                 <h3>Links</h3>
                 <p>
-                    Web links enable clients to change the current
-                    context (e.g., the set of resource representations
-                    currently rendered in the Web browser) or to include
-                    further resources in the current context, depending
-                    on the relation between context and link target.
-                    Clients do so by <i>dereferencing</i> the target
-                    URI, that is, fetching the resource representation.
+                    Links enable <a>Consumers</a> (or Web clients in the broader sense) to change the current context
+                    (cf. the set of resource representations currently rendered in the Web browser)
+                    or to include additional resources into the current context,
+                    depending on the relation between context and link target.
+                    <a>Consumers</a> do so by <emph>dereferencing</emph> the target URI,
+                    that is, fetching the resource representation by following a link.
                 </p>
                 <p>
-                    A link is comprised of a link context, relation
-                    type, target, and optionally target attributes The
-                    underlying model for the relationships between
-                    resources on the Web (i.e., links) is defined in
-                    [[!RFC8288]]. link relation types are either
-                    IANA-registered tokens adhering to the ABNF
-                    <code style="white-space: nowrap;">LOALPHA *(
-                        LOALPHA / DIGIT / "." / "-" )</code>
-                    (e.g.,
-                    <code>stylesheet</code>
-                    ) or extension types in form of absolute URIs.
-                    [[!RFC8288]]
+                    W3C WoT follows the definitions of Web Linking [[!RFC8288]],
+                    where a link is comprised of:
+                    <ul>
+                        <li>a link context,</li>
+                        <li>a relation type,</li>
+                        <li>a link target, and</li>
+                        <li>optionally target attributes.</li>
+                    </ul>
                 </p>
-                <p>In the Web of Things, links are used for
-                    discovery and to express relations between Things
-                    (e.g., hierarchical or functional) and relations to
-                    other documents on the Web (e.g., manuals or
-                    alternative representations such as CAD models).</p>
+                <p>
+                    Link relation types are either IANA-registered tokens adhering to the ABNF
+                    <code style="white-space: nowrap;">LOALPHA *( LOALPHA / DIGIT / "." / "-" )</code>
+                    (e.g., <code>stylesheet</code>) or extension types in the form of URIs [[!RFC3986]].
+                    Extension relation types MUST be compared as strings (after converting to URIs if serialised in a different format) in a case-insensitive fashion,
+                    character by character.
+                    Because of this, all-lowercase URIs SHOULD be used for extension relation types. [[!RFC8288]]
+                </p>
+                <p>
+                    In the Web of Things, links are used for discovery and to express relations between Things
+                    (e.g., hierarchical or functional)
+                    and relations to other documents on the Web
+                    (e.g., manuals or alternative representations such as CAD models).
+                </p>
             </section>
             <section id="sec-hypermedia-forms">
                 <h3>Forms</h3>
-                <p>Forms enable clients to perform interactions that
-                    go beyond dereferencing a URI such as manipulating
-                    resource state at the server. This usually requires
-                    more detailed information about the necessary
-                    request such as the method and header fields or
-                    protocol options. Forms can be seen as a request
-                    template, where the server prefilled part of the
-                    information according to its own interface and left
-                    parts blank to be filled by the client.</p>
-                <p>In the Web of Things, a form provides
-                    instructions to perform an operation on a resource
-                    and is comprised of:</p>
-                <ul>
-                    <li>a form context,</li>
-                    <li>a submission target,</li>
-                    <li>an operation type,</li>
-                    <li>a request method, and</li>
-                    <li>optionally form fields</li>
-                </ul>
+                <p>
+                    Forms enable <a>Consumers</a> (or Web clients in the broader sense) to perform operations that go beyond dereferencing a URI
+                    (e.g., manipulating state of a Thing).
+                    <a>Consumers</a> do so by <emph>filling out</emph> and <emph>submitting</emph> the form to its submission target.
+                    This usually requires more detailed information about the necessary request message than a link can provide
+                    (e.g., method, header fields, or other protocol options).
+                    Forms can be seen as a request template,
+                    where the provider prefilled parts of the information according to its own interface and state,
+                    and left parts blank to be filled by the <a>Consumers</a> (or Web client in general).
+                </p>
+                <p>
+                    W3C WoT defines forms as new hypermedia control in accordance with the definitions in CoRAL [[?CoRAL]].
+                    A form is comprised of:
+                    <ul>
+                        <li>a form context,</li>
+                        <li>an operation type,</li>
+                        <li>a request method,</li>
+                        <li>a submission target, and</li>
+                        <li>optionally form fields.</li>
+                    </ul>
+                </p>
                 <p>
                     A form can be viewed as a statement of "To perform a
                     <code>operation type</code>
@@ -1821,191 +1836,220 @@ a[href].internalDFN {
                     <code>request method</code>
                     request to
                     <code>submission target</code>
-                    " where form fields may further describe the
-                    required request.
+                    " where the optional form fields may further describe the required request.
                 </p>
-                <p>Form contexts and submission targets are both
+                <p>
+                    Form contexts and submission targets are both
                     Internationalized Resource Identifiers (IRIs)
                     [[!RFC3987]]. However, in the common case, they will
                     also be URIs [[!RFC3986]], because many protocols
                     (such as HTTP) do not support IRIs.</p>
-                <p>Form context and submission target may point to
+                <p>Form context and submission target MAY point to
                     the same resource or different resources, where the
                     submission target resource implements the operation
-                    for the context resource.</p>
+                    for the context.</p>
                 <p>The operation type identifies the semantics of
                     the operation. Operation types are denoted similar
                     to link relation types:</p>
                 <ul>
-                    <li><span class="rfc2119-assertion"
-                        id="arch-op-wellknown">Well-known
-                            operation types MUST have a name that
-                            follows the ABNF <code
-                                style="white-space: nowrap;">LOALPHA
-                                *( LOALPHA / DIGIT / "." / "-" )</code>.
-                    </span> <span class="rfc2119-assertion"
-                        id="arch-op-wellknown-compare">Names MUST
-                            be compared character by character in a
-                            case-insensitive fashion.</span> The well-known
-                        operation types for the Web of Things defined by
-                        this specification are given in the following
-                        table.</li>
-                    <li><span class="rfc2119-assertion"
-                        id="arch-op-extension">Extension
-                            operation types MAY be chosen by
-                            applications.</span> <span
-                        class="rfc2119-assertion"
-                        id="arch-op-extension-iri">Extension
-                            operation type names MUST be absolute URIs
-                            [[!RFC3986]] that uniquely identify the
-                            type.</span></li>
+                    <li>
+                        <span class="rfc2119-assertion" id="arch-op-wellknown">
+                            Well-known operation types MUST follow the ABNF
+                            <code style="white-space: nowrap;">LOALPHA *( LOALPHA / DIGIT / "." / "-" )</code>.
+                        </span>
+                        <span class="rfc2119-assertion" id="arch-op-wellknown-compare">
+                            Well-known operation types MUST be compared character by character in a case-insensitive fashion.
+                        </span>
+                        The well-known operation types for the Web of Things defined by this specification are given in <a href="#table-operation-types">Table 1</a>.
+                    </li>
+                    <li>
+                        <span class="rfc2119-assertion" id="arch-op-extension">
+                            Extension operation types MAY be chosen by applications.
+                        </span>
+                        <span class="rfc2119-assertion" id="arch-op-extension-uri">
+                            Extension operation types MUST be URIs [[!RFC3986]] that uniquely identify the type.
+                        </span>
+                        <span class="rfc2119-assertion" id="arch-op-extension-comparison">
+                            Extension operation types MUST be compared as strings (after converting to URIs if serialised in a different format)
+                            character by character in a case-insensitive fashion.
+                        </span>
+                        <span class="rfc2119-assertion" id="arch-op-extension-lowercase">
+                            Because of this, all-lowercase URIs SHOULD be used for extension operation types.
+                        </span>
+                    </li>
                 </ul>
-                <figure id="table-operation-types">
-                <table class="def">
-                    <thead>
-                        <tr>
-                            <th>Operation Name</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>readproperty</td>
-                            <td>Identifies the read operation on
-                                Property Affordances to retrieve the
-                                corresponding data.</td>
-                        </tr>
-                        <tr>
-                            <td>writeproperty</td>
-                            <td>Identifies the write operation on
-                                Property Affordances to update the
-                                corresponding data.</td>
-                        </tr>
-                        <tr>
-                            <td>observeproperty</td>
-                            <td>Identifies the observe operation on
-                                Property Affordances to be notified with
-                                the new data when the Property was
-                                updated.</td>
-                        </tr>
-                        <tr>
-                            <td>unobserveproperty</td>
-                            <td>Identifies the unobserve
-                                operation on Property Affordances to stop
-                                the corresponding notifications.</td>
-                        </tr>
-                        <tr>
-                            <td>invokeaction</td>
-                            <td>Identifies the invoke operation on
-                                Action Affordances to perform the
-                                corresponding action.</td>
-                        </tr>
-                        <tr>
-                            <td>subscribeevent</td>
-                            <td>Identifies the subscribe operation
-                                on Event Affordances to be notified by
-                                the Thing when the event occurs.</td>
-                        </tr>
-                        <tr>
-                            <td>unsubscribeevent</td>
-                            <td>Identifies the unsubscribe
-                                operation on Event Affordances to stop
-                                the corresponding notifications.</td>
-                        </tr>
-                    </tbody>
-                </table>
-                    <figcaption>Well-known Operation Types for
-                        the Web of Things</figcaption>
-                </figure>
+                <p>
+                    The request method MUST identify one method of
+                    the standard set of the protocol identified by the
+                    submission target URI scheme.
+                </p>
+                <p>
+                    Form fields are optional and MAY further specify the
+                    expected request message for the given operation.
+                    Note that this is not limited to the payload, but may affect also protocol headers.
+                    Form fields MAY depend on the protocol used for the
+                    submission target (i.e., URI scheme). Examples are HTTP header fields,
+                    CoAP options, the protocol-independent Media Type(s)
+                    for the submission payload, or information about the
+                    expected response.
+                </p>
+                <div id="table-operation-types">
+                    <div style="text-align: center; font-style: italic;">Table 1 Well-known Operation Types for the Web of Things</div>
+                    <table class="def">
+                        <thead>
+                            <tr>
+                                <th>Operation Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>readproperty</td>
+                                <td>Identifies the read operation on
+                                    Property Affordances to retrieve the
+                                    corresponding data.</td>
+                            </tr>
+                            <tr>
+                                <td>writeproperty</td>
+                                <td>Identifies the write operation on
+                                    Property Affordances to update the
+                                    corresponding data.</td>
+                            </tr>
+                            <tr>
+                                <td>observeproperty</td>
+                                <td>Identifies the observe operation on
+                                    Property Affordances to be notified with
+                                    the new data when the Property was
+                                    updated.</td>
+                            </tr>
+                            <tr>
+                                <td>unobserveproperty</td>
+                                <td>Identifies the unobserve
+                                    operation on Property Affordances to stop
+                                    the corresponding notifications.</td>
+                            </tr>
+                            <tr>
+                                <td>invokeaction</td>
+                                <td>Identifies the invoke operation on
+                                    Action Affordances to perform the
+                                    corresponding action.</td>
+                            </tr>
+                            <tr>
+                                <td>subscribeevent</td>
+                                <td>Identifies the subscribe operation
+                                    on Event Affordances to be notified by
+                                    the Thing when the event occurs.</td>
+                            </tr>
+                            <tr>
+                                <td>unsubscribeevent</td>
+                                <td>Identifies the unsubscribe
+                                    operation on Event Affordances to stop
+                                    the corresponding notifications.</td>
+                            </tr>
+                            <tr>
+                                <td>readallproperties</td>
+                                <td>Identifies the readallproperties
+                                    operation on Things to retrieve the
+                                    data of all Properties in a single interaction.</td>
+                            </tr>
+                            <tr>
+                                <td>writeallproperties</td>
+                                <td>Identifies the writeallproperties
+                                    operation on Things to update the
+                                    data of all writable Properties in a single interaction.</td>
+                            </tr>
+                            <tr>
+                                <td>readmultipleproperties</td>
+                                <td>Identifies the readmultipleproperties
+                                    operation on Things to retrieve the
+                                    data of selected Properties in a single interaction.</td>
+                            </tr>
+                            <tr>
+                                <td>writemultipleproperties</td>
+                                <td>Identifies the writemultipleproperties
+                                    operation on Things to update the
+                                    data of selected writable Properties in a single interaction.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <p class="ednote">As of this specification, the
-                    well-known operation types form a fixed set that
-                    results from the WoT interaction model. Other
+                    well-known operation types are a fixed set that
+                    results from the WoT <a>Interaction Model</a>. Other
                     specifications may define further well-known
                     operation types that are valid for their respective
                     document format or form serialization. Updates to
-                    this specification may set up an IANA registry in
+                    this specification or another specification may set up an IANA registry in
                     the future to enable extension and a more
                     generic Web form model that may be applied beyond
-                    WoT specifications.</p>
-                <p>The request method MUST identify one method of
-                    the standard set of the protocol identified by the
-                    submission target URI scheme.</p>
-                <p>Form fields may further specify the request
-                    expected by the server for the given operation. Form
-                    fields may depend on the protocol used for the
-                    submission target. Examples are HTTP header fields,
-                    CoAP options, the protocol-independent Media Type(s)
-                    for the submission payload, or information about the
-                    expected response.</p>
+                    WoT specifications.
+                </p>
             </section>
         </section>
         <section id="sec-protocol-bindings">
             <h2>Protocol Bindings</h2>
             <p>
-                A Protocol Binding is the mapping from an Interaction Affordance to concrete messages of a specific protocol such as HTTP [[!RFC7231]], CoAP [[!RFC7252]], or MQTT [[!MQTT]].
-                The Protocol Bindings follow the Uniform Interface constraint of REST [[?REST]] to support interoperability
-                and are serialized as hypermedia controls to be self-descriptive.
+                A Protocol Binding is the mapping from an <a>Interaction Affordance</a> to concrete messages of a specific protocol such as HTTP [[!RFC7231]], CoAP [[!RFC7252]], or MQTT [[!MQTT]].
+                It informs the <a>Consumer</a> <emph>how</emph> to activate the <a>Interaction Affordance</a> through a network-facing interface.
+                The <a>Protocol Bindings</a> follow the Uniform Interface constraint of REST [[?REST]] to support interoperability.
+            </p>
+            <p>
+                In the door example given in <a href="#sec-affordances"></a>, the <a>Protocol Binding</a> corresponds to the door handle at the level of knob vs lever,
+                which suggests <emph>how</emph> the door can be opened.
             </p>
             <section>
                 <h3>Hypermedia-driven</h3>
                 <p>
-                    <span class="rfc2119-assertion" id="arch-hypermedia">Interaction
-                        Affordances MUST use hypermedia controls (see <a
-                        href="#sec-hypermedia-controls"></a>) to
-                        describe their usage.
-                    </span> <span class="rfc2119-assertion"
-                        id="arch-hypermedia-origin">The
-                        hypermedia controls MUST originate from the
-                        Thing providing the corresponding Interaction
-                        Affordance.</span> This enables a loose coupling
-                    between Things and clients, allowing for an
-                    independent lifecycle and evolution. <span
-                        class="rfc2119-assertion"
-                        id="arch-hypermedia-caching">The
-                        hypermedia controls MAY be cached outside the
-                        Thing and used for offline processing if
-                        corresponding caching metadata is available to
-                        determine the freshness.</span>
+                    <span class="rfc2119-assertion" id="arch-hypermedia">
+                        Interaction Affordances MUST contain one ore more Protocol Bindings, which MUST be serialized as hypermedia controls (see <a
+                        href="#sec-hypermedia-controls"></a>) to to be self-descriptive on how to activate the Interaction Affordance.
+                    </span>
+                    <span class="rfc2119-assertion" id="arch-hypermedia-origin">
+                        The hypermedia controls MUST originate from the authority managing the Thing providing the corresponding Interaction Affordance.
+                    </span>
+                    The authority can be the <a>Thing</a> itself, serializing the <a>WoT Thing Description</a> at runtime based on its current state including network parameters such as its IP address,
+                    or an external entity that has full and fresh knowledge of the <a>Thing</a> including its network parameters and software stack.
+                    This enables a loose coupling between Things and clients, allowing for an independent lifecycle and evolution.
+                    <span class="rfc2119-assertion" id="arch-hypermedia-caching">
+                        The hypermedia controls MAY be cached outside the Thing and used for offline processing if corresponding caching metadata is available to determine the freshness.
+                    </span>
                 </p>
             </section>
             <section id="sec-arch-URIs">
                 <h3>URIs</h3>
                 <p>
-                    <span class="rfc2119-assertion" id="arch-uri-scheme">Eligible
-                        protocols for the Web of Things MUST have an
-                        associated URI scheme that is registered with IANA
-                        [[!RFC4395]].</span> Hypermedia controls rely on URIs to
-                    identify target resources and submission targets.
-                    Thereby, the URI scheme (the first component up to ":")
-                    identifies the communication protocol to be used for
-                    interaction with the Thing. The Web of Things refers to
-                    these protocols as <a>transfer protocols</a>.
+                    <span class="rfc2119-assertion" id="arch-uri-scheme">
+                        Eligible protocols for W3C WoT MUST have an associated URI scheme that is registered with IANA [[!RFC4395]].
+                    </span>
+                    Hypermedia controls rely on URIs to identify link and submission targets.
+                    Thereby, the URI scheme (the first component up to ":") identifies the communication protocol to be used for interaction with the Thing.
+                    W3C WoT refers to these protocols as <a>transfer protocols</a>.
                 </p>
             </section>
             <section id="sec-standard-method">
                 <h3>Standard Set of Methods</h3>
                 <p>
                     <span class="rfc2119-assertion" id="arch-methods">Eligible
-                        protocols for the Web of Things MUST be based on a
-                        standard set of methods that can be shared a priori.</span>
+                        protocols for W3C WoT MUST be based on a
+                        standard set of methods that is known a priori.</span>
                     The standard set of methods makes messages
                     self-descriptive to enable intermediate processing of
                     interactions, for instance by proxies or to translate
                     between Protocol Bindings [[?REST]]. Furthermore, it
-                    allows clients to have application-agnostic protocol
-                    stack, avoiding Thing-specific code or plugins.
+                    allows <a>Consumers</a> to have re-usable protocol
+                    stacks of common transfer protocols such as HTTP, CoAP, or MQTT,
+                    avoiding Thing-specific code or plugins.
                 </p>
             </section>
             <section id="media-types">
                 <h3>Media Types</h3>
                 <p>
                     <span class="rfc2119-assertion" id="arch-media-type">All
-                        data (a.k.a. content) exchanged within Interaction
-                        Affordances MUST be identified by a Media Type
-                        [[!RFC6838]].</span> Media Types are IANA-managed labels to
-                    identify representation formats, for instance
+                        data (a.k.a. content) exchanged when activating Interaction Affordances MUST be identified by a Media Type
+                        [[!RFC6838]] within the Protocol Binding.</span>
+                    Media Types are IANA-managed labels to identify representation formats, for instance
                     <code>application/json</code>
-                    for JSON [[!RFC7159]] or
+                    for JSON [[!RFC8259]] or
                     <code>application/cbor</code>
                     for CBOR [[!RFC7049]].
                 </p>
