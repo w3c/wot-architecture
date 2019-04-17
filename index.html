@@ -1513,8 +1513,10 @@ a[href].internalDFN {
                 The format can be processed either through classic JSON libraries or a JSON-LD processor, as the underlying information model is graph-based and its serialization compatible with JSON-LD 1.1 [[?json-ld-syntax]].
                 A <a>TD</a> is instance-specific (i.e., describes an individual Thing, not types of Things)
                 and is the default Web representation of a <a>Thing</a>.
-                There MAY be other Web representations of a <a>Thing</a> such as an HTML-based user interface or simply an image of the physical entity.
-                However, the <a>WoT Thing Description</a> is a standardized, machine-understandable representation format
+                There MAY be other representations of a <a>Thing</a> such as an HTML-based user interface, simply an image of the physical entity,
+                or even non-Web representations in closed systems;
+                to be a <a>Thing</a>, however, one <a>TD</a> representation MUST be available.
+                The <a>WoT Thing Description</a> is a standardized, machine-understandable representation format
                 that allows <a>Consumers</a> to discover and interpret the capabilities of a Thing (through semantic annotations)
                 and to adapt to different implementations (e.g., different protocols or data structures) when interacting with a Thing,
                 thereby enabling interoperability across different <a>IoT platforms</a>, i.e., different ecosystems and standards.
@@ -1523,8 +1525,8 @@ a[href].internalDFN {
                 Simple figure to illustrate Consumer--Thing interaction.
             </p>
             <p>
-                A <a>Thing</a> can also be the abstraction of a virtual entity,
-                which is the composition of one or more Things (e.g., a room consisting of several sensors and actuators).
+                A <a>Thing</a> can also be the abstraction of a virtual entity.
+                A virtual entity is the composition of one or more Things (e.g., a room consisting of several sensors and actuators).
                 One option for the composition is to provide a single, consolidated <a>WoT Thing Description</a> that contains the superset of capabilities for the virtual entity.
                 In cases where the composition is rather complex, its <a>TD</a> may <emph>link</emph> to hierarchical sub-Things within the composition.
                 The main <a>TD</a> acts as entry point and only contain general metadata and potentially overarching capabilities.
@@ -1534,7 +1536,7 @@ a[href].internalDFN {
                 Linking does not only apply to hierarchical Things, but relations between Things and other resources in general.
                 Link relation types express how Things relate, for instance, a switch controlling a light or a room monitored by a motion sensor.
                 Other resources related to a Thing can be manuals, catalogs for spare parts, CAD files, a graphical UI, or any other document on the Web.
-                Overall, Web linking among Things makes the Web of Things browsable.
+                Overall, Web linking among Things makes the Web of Things browsable, for both humans and machines.
                 This can be further facilitated by providing Thing directories that manage an index of available Things, usually by caching their TD representation.
                 In summary, <a>WoT Thing Descriptions</a> MAY link to other <a>Things</a> and other resources on the Web to form a Web of Things.
             </p>
@@ -1543,7 +1545,7 @@ a[href].internalDFN {
             </p>
             <p>
                 Things must be hosted on networked system components with a software stack to realize interaction through a network-facing interface, the <a>WoT Interface</a> of a <a>Thing</a>.
-                One example of this is an HTTP server running on an embedded device with sensors and actutors interfacing the physical entity behind the Thing abstraction.
+                One example of this is an HTTP server running on an embedded device with sensors and actuators interfacing the physical entity behind the Thing abstraction.
                 However, W3C WoT does not mandate where <a>Things</a> are hosted; it can be on the IoT device directly, an <a>Edge device</a> such as a gateway box, or the cloud.
             </p>
             <p>
@@ -1618,6 +1620,7 @@ a[href].internalDFN {
                 hyperlink (e.g., via a link relation type and link
                 target attributes) suggesting Web clients how to navigate
                 and possibly how to act on the linked resource.
+                Hence, links provide navigation affordances.
             </p>
             <p>
                 Drawn from this hypermedia principle,
@@ -1728,7 +1731,7 @@ a[href].internalDFN {
                     Examples of Actions are changing multiple Properties simultaneously,
                     changing Properties over time such as fading the brightness of a light (dimming)
                     or with a process that shall not be disclosed such as a proprietary control loop algorithm,
-                    or invoking a long-lasting process such as priting a document.</p>
+                    or invoking a long-lasting process such as printing a document.</p>
             </section>
             <section>
                 <h3>Events</h3>
@@ -1753,7 +1756,7 @@ a[href].internalDFN {
             <p>
                 On the Web, an affordance is the simultaneous presentation of information and controls,
                 such that the information becomes the affordance through which the user obtains choices.
-                For humans, the information is usally text or images describing or decorating a hyperlink.
+                For humans, the information is usually text or images describing or decorating a hyperlink.
                 The control is a Web link, which contains at least the URI of the target resource,
                 which can be dereferenced by the Web browser (i.e., the link can be followed).
                 But also machines can follow links in a meaningful way, when the Web link is further described by a relation type and a set of target attributes.
@@ -1791,7 +1794,7 @@ a[href].internalDFN {
                     </ul>
                 </p>
                 <p>
-                    Link relation types are either IANA-registered tokens adhering to the ABNF
+                    Link relation types are either IANA-registered tokens [[IANA-RELATIONS]] adhering to the ABNF [[!RFC5234]]
                     <code style="white-space: nowrap;">LOALPHA *( LOALPHA / DIGIT / "." / "-" )</code>
                     (e.g., <code>stylesheet</code>) or extension types in the form of URIs [[!RFC3986]].
                     Extension relation types MUST be compared as strings (after converting to URIs if serialised in a different format) in a case-insensitive fashion,
