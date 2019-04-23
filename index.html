@@ -1707,7 +1707,8 @@ a[href].internalDFN {
                     Write-only state should be updated through an Action.
                 </p>
                 <p>
-                    Properties MAY contain one data schema if the data is not fully specified by the Protocol Binding used (e.g., through a Media Type).
+                    Properties MAY contain one data schema for the exposed state,
+                    if the data is not fully specified by the Protocol Binding used (e.g., through a Media Type).
                 </p>
                 <p>
                     Examples of Properties are sensor values (read-only), stateful actuators (read-write),
@@ -1723,8 +1724,7 @@ a[href].internalDFN {
                     Invoking an Action MAY also trigger a process on the Thing that manipulates state (including physical state through actuators) over time.
                 </p>
                 <p>
-                    Actions MAY contain up to two data schemas,
-                    one for optional input parameters and one for output results,
+                    Actions MAY contain data schemas for optional input parameters and output results,
                     if the data is not fully specified by the Protocol Binding used (e.g., through a Media Type).
                 </p>
                 <p>
@@ -1741,10 +1741,8 @@ a[href].internalDFN {
                     Events MAY be triggered through conditions that are not exposed as Properties.
                 </p>
                 <p>
-                    Events MAY contain up to three data schemas,
-                    one for the event data if the data is not fully specified by the Protocol Binding used (e.g., through a Media Type),
-                    optionally one for the subscription data if the message to subscribe is not implicitly known from the Protocol Binding used (e.g., Server-Sent Events vs Web hooks),
-                    and optionally one for the cancellation data if the messages to unsubscribe is not implicitly known from the Protocol Binding used (e.g., WebSockets vs Web hooks).
+                    Events MAY contain data schemas for the event data and possible subscription control messages (e.g., to subscribe with a Webhook callback URI),
+                    if the data is not fully specified by the Protocol Binding used (e.g., through a Media Type).
                 </p>
                 <p>
                     Examples of Events are discrete events such as an alarm or samples of a time series that are pushed regularly.
