@@ -2080,7 +2080,7 @@ a[href].internalDFN {
                Systems based on WoT architecture involves <a>Servients</a> 
                communicating each other to achieve the goals of a system.</p>
 
-            <p>A <a>Thing</a> can be implemented as a <a>Servient</a>. In a <a>Thing</a>, 
+            <p>A <a>Thing</a> can be implemented by a <a>Servient</a>. In a <a>Thing</a>, 
                a <a>Servient</a> software stack provides a representation of 
                a <a>Thing</a> called <a>Exposed Thing</a>, and makes its <a>WoT Interface</a> 
                available  to <a>Consumers</a> of the <a>Thing</a>.</p>
@@ -2091,8 +2091,11 @@ a[href].internalDFN {
                     <figcaption>Servient as a Thing</figcaption>
                 </figure>
 
-            <p>Similarly, a <a>Consumer</a> is also a <a>Servient</a>. 
-               In a <a>Consumer</a>, a <a>Servient</a> software stack provides 
+            <p>On the other hand, <a>Consumers</a> are always implemented by 
+               <a>Servients</a>, as they must be able to process the <a>WoT Thing Description</a> (TD) 
+               format and must have a protocol stack that can be configured through 
+               <a>Protocol Binding</a> information given the TDs.</p>
+            <p>In a <a>Consumer</a>, a <a>Servient</a> software stack provides 
                a representation of a <a>Thing</a> called <a>Consumed Thing</a>, 
                and makes it available to the rest of the software stack and 
                the applications to interact with.
