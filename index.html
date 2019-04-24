@@ -2134,12 +2134,15 @@ a[href].internalDFN {
                 <h3>Direct Communication</h3>
                 <p>
                     <a href="#high-level-application-device"></a> shows
-                    direct communication between a <a>Thing</a>, that is
-                    exposing <a>interaction affordances</a> and a <a>Consumer</a> that is using it.
-                    Direct communication applies when both WoT components
+                    direct communication between a <a>Thing</a>, which is
+                    exposing <a>Interaction Affordances</a> through <a>Thing Descriptions</a>, 
+                    and a <a>Consumer</a> that uses the <a>Thing</a> by means of 
+                    the <a>Interaction Affordances</a>.
+                    Direct communication applies when both <a>Servients</a>
                     use the same network protocol(s) and are accessible
                     to each other.
                 </p>
+
                 <figure id="high-level-application-device">
                     <img
                         src="images/arch-high-level-application-device-alt2.png" />
@@ -2147,18 +2150,18 @@ a[href].internalDFN {
                         Consumer and Thing</figcaption>
                 </figure>
 
-                Conceptually, a <a>Thing</a> can be thought to have an <a>Exposed Thing</a>
-                that provides an interface that conforms to the TD. 
-                A <a>Consumer</a> can be considered to contain a <a>Consumed Thing</a>
-                for each of the <a>Things</a> it connects to
-                that provides a programming interface that can be used
-                by applications. A <a>Consumer</a> can generate a
-                <a>Consumed Thing</a> instance by interpreting a TD.
-                Communication between the <a>Consumer</a> and the <a>Thing</a>
-                is performed by exchanging messages over a direct
-                network connection between a <a>Consumed Thing</a> and an
-                <a>Exposed Thing</a>.
+                <p>An <a>Exposed Thing</a> is the software representation of 
+                   a <a>Thing</a> abstraction, serving a <a>WoT Interface</a>
+                   of the <a>Interaction Affordances</a> provided by the <a>Thing</a>.</p>
 
+                <p>A <a>Consumed Thing</a> is the software representation of 
+                   a remote <a>Thing</a> being consumed by a <a>Consumer</a>, serving as 
+                   the interface to the remote <a>Thing</a> for the applications.
+                   A <a>Consumer</a> can generate a <a>Consumed Thing</a> instance 
+                   by processing a <a>Thing Description</a>.
+                   Interactions between a <a>Consumer</a> and a <a>Thing</a>
+                   are performed by the <a>Consumed Thing</a> and the <a>Exposed Thing</a> 
+                   exchanging messages over a direct network connection between them.</p>
             </section>
             <section>
                 <h3>Indirect Communication</h3>
