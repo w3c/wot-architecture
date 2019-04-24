@@ -2097,17 +2097,18 @@ a[href].internalDFN {
                <a>Protocol Binding</a> information given the TDs.</p>
             <p>In a <a>Consumer</a>, a <a>Servient</a> software stack provides 
                a representation of a <a>Thing</a> called <a>Consumed Thing</a>, 
-               and makes it available to the rest of the software stack and 
-               the applications to interact with.
-               A <a>Consumed Thing</a> instantiated by the software stack serves 
-               to abstract the protocol level complexity away from applications, 
-               communicating with <a>Exposed Things</a> on the application's behalf.</p>
+               and makes it available to those applications running on the <a>Servient</a>
+               that need to process TDs to interact <a>Things</a>.</p>
 
                 <figure id="servient-consumer-consumedThing">
                     <img
                         src="images/servient-consumer-consumedThing.png" />
                     <figcaption>Servient as a Consumer</figcaption>
                 </figure>
+
+            <p>A <a>Consumed Thing</a> instantiated by the <a>Servient</a> software stack serves 
+               to abstract the protocol level complexity away from applications, 
+               communicating with <a>Exposed Things</a> on the application's behalf.</p>
 
             <p>In the same token, an <a>Intermediary</a> is yet another <a>Servient</a>. 
                An <a>Intermediary</a> sits between a <a>Thing</a> and its <a>Consumers</a>, 
