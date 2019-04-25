@@ -1764,7 +1764,7 @@ a[href].internalDFN {
                 On the Web, an affordance is the simultaneous presentation of information and controls,
                 such that the information becomes the affordance through which the user obtains choices.
                 For humans, the information is usually text or images describing or decorating a hyperlink.
-                The control is a Web link, which contains at least the URI of the target resource,
+                The control is a Web link, which includes at least the URI of the target resource,
                 which can be dereferenced by the Web browser (i.e., the link can be followed).
                 But also machines can follow links in a meaningful way, when the Web link is further described by a relation type and a set of target attributes.
                 A hypermedia control is the machine-understandable serialization of <emph>how</emph> to activate an affordance.
@@ -2012,7 +2012,7 @@ a[href].internalDFN {
                 <h3>Hypermedia-driven</h3>
                 <p>
                     <span class="rfc2119-assertion" id="arch-hypermedia">
-                        Interaction Affordances MUST contain one ore more Protocol Bindings, which MUST be serialized as hypermedia controls (see <a
+                        Interaction Affordances MUST include one ore more Protocol Bindings, which MUST be serialized as hypermedia controls (see <a
                         href="#sec-hypermedia-controls"></a>) to to be self-descriptive on how to activate the Interaction Affordance.
                     </span>
                     <span class="rfc2119-assertion" id="arch-hypermedia-origin">
@@ -2063,6 +2063,15 @@ a[href].internalDFN {
                     for JSON [[!RFC8259]] or
                     <code>application/cbor</code>
                     for CBOR [[!RFC7049]].
+                </p>
+                <p>
+                    Some Media Types might need additional parameters to fully specify the representation format used.
+                    Examples are <code>text/plain; charset=utf-8</code> or <code>application/ld+json; profile="http://www.w3.org/ns/json-ld#compacted"</code>.
+                    This needs to be taken into account in particular when describing data to be sent to <a>Things</a>.
+                    There might also be standardized transformations on the data such as content coding [[!RFC7231]].
+                    <span class="rfc2119-assertion" id="arch-media-type-extra">
+                        Protocol Bindings MAY have additional information that specifies representation formats in more detail than the Media Type alone.
+                    </span>
                 </p>
                 <p>
                     Note that many Media Types only identify a generic
@@ -2437,12 +2446,13 @@ a[href].internalDFN {
                     additional form fields defined for the
                     application-layer protocol used.</li>
                 <li><b>Media Type:</b> <a>IoT Platforms</a> often
-                    differ in the representation formats (or
+                    differ in the representation formats (a.k.a.
                     serializations) used for exchanging data. The Media
                     Type [[!RFC6838]] identifies these formats, while
                     parameters may specify them further. Forms may
                     contain the Media Type and optional parameters in
-                    additional form fields.</li>
+                    additional form fields such as a content type field known from HTTP,
+                    which combines Media Type and potential parameters (e.g., <code>text/plain; charset=utf-8</code>).</li>
                 <li><b>Transfer Protocol:</b> The Web of Things
                     uses the term <a>transfer protocol</a> for the
                     underlying, standardized application layer protocol
