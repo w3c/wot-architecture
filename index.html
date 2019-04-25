@@ -2092,7 +2092,7 @@ a[href].internalDFN {
                 </figure>
 
             <p>On the other hand, <a>Consumers</a> are always implemented by 
-               <a>Servients</a>, as they must be able to process the <a>WoT Thing Description</a> (TD) 
+               <a>Servients</a>, as they must be able to process the <a>Thing Description</a> (TD) 
                format and must have a protocol stack that can be configured through 
                <a>Protocol Binding</a> information given the TDs.</p>
             <p>In a <a>Consumer</a>, a <a>Servient</a> software stack provides 
@@ -2167,11 +2167,10 @@ a[href].internalDFN {
                 <h3>Indirect Communication</h3>
 
                 <p>
-                    In <a
-                        href="#high-level-application-proxy-device-new"></a>
+                    In <a href="#high-level-application-proxy-device-new"></a>, 
                     a <a>Consumer</a> and a <a>Thing</a> connect to each other
                     via an <a>Intermediary</a>. An <a>Intermediary</a> is required 
-                    if the WoT components use different protocols 
+                    if the <a>Servients</a> use different protocols 
                     or if they are on different networks that require
                     authentication and provide access control (e.g.
                     firewalls).
@@ -2184,37 +2183,46 @@ a[href].internalDFN {
                         with Intermediary</figcaption>
                 </figure>
 
-                <p>
-                    An <a>Intermediary</a> combines <a>Exposed Thing</a> and <a>Consumed Thing</a>
-                    functionality, and relays messages that are exchanged
-                    between a <a>Consumer</a> and a <a>Thing</a>. In an <a>Intermediary</a>,
-                    a <a>Consumed Thing</a> creates a <em>shadow thing
-                        instance</em> of the <a>Exposed Thing</a> of a <a>Thing</a>, and
-                    a <a>Consumer</a> can access the shadow instance through
-                    the <a>Exposed Thing</a> of the proxy.
-                </p>
+                <p>An <a>Intermediary</a> combines <a>Exposed Thing</a> and 
+                   <a>Consumed Thing</a> functionality. The functionality of 
+                   <a>Intermediaries</a> includes relaying messages for the 
+                   interactions between a <a>Consumer</a> and a <a>Thing</a>, 
+                   caching the <a>Thing</a>'s data for faster response, and 
+                   transforming communication when the functionality of the 
+                   <a>Thing</a> is extended by the <a>Intermediary</a>.
+                   In an <a>Intermediary</a>, a <a>Consumed Thing</a> creates 
+                   a proxy object of the <a>Exposed Thing</a> of a <a>Thing</a>, 
+                   and a <a>Consumer</a> can access the proxy object through 
+                   the <a>Exposed Thing</a> of the <a>Intermediary</a>.</p>
+
                 <p>The <a>Exposed Thing</a> and <a>Consumed Thing</a> of an <a>Intermediary</a> can
                     communicate with the <a>Consumer</a> and the <a>Thing</a>
                     in different protocols. For example, an <a>Intermediary</a> can
-                    provide a bridge between a device that uses CoAP and
-                    an application that uses HTTP. Even when there are
-                    multiple devices and they use different protocols,
-                    an application can communicate with those devices
-                    using a single protocol through the proxy. The same
-                    is true for device authentication. A Consumer only
+                    provide a bridge between a <a>Thing</a> that uses CoAP and
+                    an application on <a>Consumer</a> that uses HTTP. Even when there are
+                    multiple <a>Things</a> and their <a>Exposed Things</a> use different protocols,
+                    applications on the <a>Consumer</a> can communicate with those <a>Things</a>
+                    using a single protocol through the <a>Intermediary</a>. The same
+                    is true for the authentication. The <a>Consumed Thing</a> of a <a>Consumer</a> only
                     needs to handle a single authentication method even
-                    when multiple devices connected to an <a>Intermediary</a> use
-                    different authentication methods.</p>
-                <p>An <a>Intermediary</a> creates a <a>Consumed Thing</a> based on a TD and
-                    generates another TD for a shadow thing instance.
-                    The TD for a shadow device uses a new identifier
-                    different from the original device TD’s, and
-                    contains interfaces for other communication
-                    protocols if necessary. An <a>Intermediary</a> then creates an
-                    <a>Exposed Thing</a> that implements the bridge to the
-                    originating thing. A Consumer communicates with a
-                    device via an <a>Intermediary</a> through a <a>Consumed Thing</a> that
-                    conforms to the TD for the shadow thing instance.</p>
+                    when the <a>Exposed Things</a> of the multiple <a>Things</a> connected to an <a>Intermediary</a> use                    different authentication methods.</p>
+
+                <p>Given the <a>Thing Description</a> (TD) of a <a>Thing</a>, 
+                   an <a>Intermediary</a> creates a <a>Consumed Thing</a> and 
+                   a proxy object for the <a>Exposed Thing</a> of the <a>Thing</a>, 
+                   generates another TD for the proxy object.
+                   The TD for the proxy object may either use the identifier 
+                   same as the one in the <a>Thing</a>'s TD, or be assigned 
+                   an identifier different from the <a>Thing</a>'s, depending 
+                   on the requirements of the use cases.
+                   The TD generated by the <a>Intermediary</a> MAY contain 
+                   interfaces for other communication protocols if necessary. </p>
+
+                   <p>An <a>Intermediary</a> then creates an <a>Exposed Thing</a> 
+                   that serves as a bridge to the <a>Thing</a>. A <a>Consumer</a> 
+                   communicates with a device via an <a>Intermediary</a> through 
+                   a <a>Consumed Thing</a> that conforms to the TD for the proxy 
+                   object.</p>
             </section>
         </section>
     </section>
