@@ -2074,50 +2074,108 @@ a[href].internalDFN {
             </section>
         </section>
         <section id="sec-WoT-servient-architecture-high-level">
-            <h2>System Configurations</h2>
+            <h2>WoT System Components and their Interconnectivity</h2>
 
-            <p>This section illustrates the behavior of WoT
-                components using system configuration diagrams.</p>
+            <p>Section <a href="#sec-architecture-overview"></a> described the 
+               WoT architecture in terms of the abstract WoT architecture components 
+               such as <a>Things</a>, <a>Consumers</a> and <a>Intermediaries</a>. 
+               When those abstract WoT architecture components are implemented as 
+               a software stack to play an expected role of each in the WoT architecture, 
+               such software stacks are called <a>Servients</a>. 
+               Systems based on WoT architecture involves <a>Servients</a> 
+               communicating each other to achieve the goals of a system.</p>
+
+            <p>A <a>Thing</a> can be implemented by a <a>Servient</a>. In a <a>Thing</a>, 
+               a <a>Servient</a> software stack provides a representation of 
+               a <a>Thing</a> called <a>Exposed Thing</a>, and makes its <a>WoT Interface</a> 
+               available  to <a>Consumers</a> of the <a>Thing</a>.</p>
+
+                <figure id="servient-thing-exposedThing">
+                    <img
+                        src="images/servient-thing-exposedThing.png" />
+                    <figcaption>Servient as a Thing</figcaption>
+                </figure>
+
+            <p>On the other hand, <a>Consumers</a> are always implemented by 
+               <a>Servients</a>, as they must be able to process the <a>Thing Description</a> (TD) 
+               format and must have a protocol stack that can be configured through 
+               <a>Protocol Binding</a> information given the TDs.</p>
+            <p>In a <a>Consumer</a>, a <a>Servient</a> software stack provides 
+               a representation of a <a>Thing</a> called <a>Consumed Thing</a>, 
+               and makes it available to those applications running on the <a>Servient</a>
+               that need to process TDs to interact <a>Things</a>.</p>
+
+                <figure id="servient-consumer-consumedThing">
+                    <img
+                        src="images/servient-consumer-consumedThing.png" />
+                    <figcaption>Servient as a Consumer</figcaption>
+                </figure>
+
+            <p>A <a>Consumed Thing</a> instantiated by the <a>Servient</a> software stack serves 
+               to abstract the protocol level complexity away from applications, 
+               communicating with <a>Exposed Things</a> on the application's behalf.</p>
+
+            <p>Similarly, an <a>Intermediary</a> is yet another WoT 
+               architecture component implemented by a <a>Servient</a>.
+               An <a>Intermediary</a> sits between a <a>Thing</a> and its <a>Consumers</a>, 
+               playing itself dual roles of both a <a>Consumer</a> (to the Thing) 
+               and a <a>Thing</a> (to the Consumers). 
+               In an <a>Intermediary</a>, a <a>Servient</a> software stack provides 
+               the representations of both a <a>Consumer</a> (<a>Consumed Thing</a>) 
+               and a <a>Thing</a> (<a>Exposed Thing</a>).</p>
+
+                <figure id="servient-intermediary">
+                    <img
+                        src="images/servient-intermediary.png" />
+                    <figcaption>Servient as an Intermediary</figcaption>
+                </figure>
+
+            <p>This section illustrates using system configuration diagrams 
+               how <a>Servients</a> being WoT system components with software objects 
+               <a>Exposed Things</a> and <a>Consumed Things</a> work together 
+               make systems based on WoT architecture.</p>
 
             <section>
                 <h3>Direct Communication</h3>
                 <p>
                     <a href="#high-level-application-device"></a> shows
-                    direct communication between a <a>WoT Server</a>, that is
-                    exposing a thing and a <a>WoT Client</a> that is using it.
-                    Direct communication applies when both components
+                    direct communication between a <a>Thing</a>, which is
+                    exposing <a>Interaction Affordances</a> through <a>Thing Descriptions</a>, 
+                    and a <a>Consumer</a> that uses the <a>Thing</a> by means of 
+                    the <a>Interaction Affordances</a>.
+                    Direct communication applies when both <a>Servients</a>
                     use the same network protocol(s) and are accessible
                     to each other.
                 </p>
+
                 <figure id="high-level-application-device">
                     <img
                         src="images/arch-high-level-application-device-alt2.png" />
                     <figcaption>High level architecture of
-                        application and device</figcaption>
+                        Consumer and Thing</figcaption>
                 </figure>
 
-                Conceptually, a <a>WoT Server</a> can be thought to have an <a>Exposed Thing</a>
-                that provides an interface that conforms to the TD. A
-                <a>WoT Client</a> can be considered to contain a <a>Consumed Thing</a>
-                for each of the <a>WoT Servers</a> it connects to
-                that provides a programming interface that can be used
-                by applications. A <a>WoT Client</a> can generate a
-                <a>Consumed Thing</a> instance by interpreting a TD.
-                Communication between the <a>WoT Client</a> and the <a>WoT Server</a>
-                is performed by exchanging messages over a direct
-                network connection between a <a>Consumed Thing</a> and an
-                <a>Exposed Thing</a>.
+                <p>An <a>Exposed Thing</a> is the software representation of 
+                   a <a>Thing</a> abstraction, serving a <a>WoT Interface</a>
+                   of the <a>Interaction Affordances</a> provided by the <a>Thing</a>.</p>
 
+                <p>A <a>Consumed Thing</a> is the software representation of 
+                   a remote <a>Thing</a> being consumed by a <a>Consumer</a>, serving as 
+                   the interface to the remote <a>Thing</a> for the applications.
+                   A <a>Consumer</a> can generate a <a>Consumed Thing</a> instance 
+                   by processing a <a>Thing Description</a>.
+                   Interactions between a <a>Consumer</a> and a <a>Thing</a>
+                   are performed by the <a>Consumed Thing</a> and the <a>Exposed Thing</a> 
+                   exchanging messages over a direct network connection between them.</p>
             </section>
             <section>
                 <h3>Indirect Communication</h3>
 
                 <p>
-                    In <a
-                        href="#high-level-application-proxy-device-new"></a>
-                    a <a>WoT Client</a> and a <a>WoT Server</a> connect to each other
-                    via a proxy. A proxy is required as an intermediary
-                    if the components use different protocols (gateway)
+                    In <a href="#high-level-application-proxy-device-new"></a>, 
+                    a <a>Consumer</a> and a <a>Thing</a> connect to each other
+                    via an <a>Intermediary</a>. An <a>Intermediary</a> is required 
+                    if the <a>Servients</a> use different protocols 
                     or if they are on different networks that require
                     authentication and provide access control (e.g.
                     firewalls).
@@ -2127,40 +2185,49 @@ a[href].internalDFN {
                     <img
                         src="images/arch-high-level-application-proxy-device-alt2.png" />
                     <figcaption>High level architecture
-                        with proxy</figcaption>
+                        with Intermediary</figcaption>
                 </figure>
 
-                <p>
-                    A proxy combines <a>Exposed Thing</a> and <a>Consumed Thing</a>
-                    functionality, and relays messages that are exchanged
-                    between a <a>WoT Client</a> and a <a>WoT Server</a>. In a proxy,
-                    a <a>Consumed Thing</a> creates a <em>shadow thing
-                        instance</em> of the <a>Exposed Thing</a> of a <a>WoT Server</a>, and
-                    a <a>WoT Client</a> can access the shadow instance through
-                    the <a>Exposed Thing</a> of the proxy.
-                </p>
-                <p>The <a>Exposed Thing</a> and <a>Consumed Thing</a> of a proxy can
-                    communicate with the <a>WoT Client</a> and the <a>WoT Server</a>
-                    in different protocols. For example, a proxy can
-                    provide a bridge between a device that uses CoAP and
-                    an application that uses HTTP. Even when there are
-                    multiple devices and they use different protocols,
-                    an application can communicate with those devices
-                    using a single protocol through the proxy. The same
-                    is true for device authentication. A client only
+                <p>An <a>Intermediary</a> combines <a>Exposed Thing</a> and 
+                   <a>Consumed Thing</a> functionality. The functionality of 
+                   <a>Intermediaries</a> includes relaying messages for the 
+                   interactions between a <a>Consumer</a> and a <a>Thing</a>, 
+                   caching the <a>Thing</a>'s data for faster response, and 
+                   transforming communication when the functionality of the 
+                   <a>Thing</a> is extended by the <a>Intermediary</a>.
+                   In an <a>Intermediary</a>, a <a>Consumed Thing</a> creates 
+                   a proxy object of the <a>Exposed Thing</a> of a <a>Thing</a>, 
+                   and a <a>Consumer</a> can access the proxy object through 
+                   the <a>Exposed Thing</a> of the <a>Intermediary</a>.</p>
+
+                <p>The <a>Exposed Thing</a> and <a>Consumed Thing</a> of an <a>Intermediary</a> can
+                    communicate with the <a>Consumer</a> and the <a>Thing</a>
+                    in different protocols. For example, an <a>Intermediary</a> can
+                    provide a bridge between a <a>Thing</a> that uses CoAP and
+                    an application on <a>Consumer</a> that uses HTTP. Even when there are
+                    multiple <a>Things</a> and their <a>Exposed Things</a> use different protocols,
+                    applications on the <a>Consumer</a> can communicate with those <a>Things</a>
+                    using a single protocol through the <a>Intermediary</a>. The same
+                    is true for the authentication. The <a>Consumed Thing</a> of a <a>Consumer</a> only
                     needs to handle a single authentication method even
-                    when multiple devices connected to a proxy use
-                    different authentication methods.</p>
-                <p>A proxy creates a <a>Consumed Thing</a> based on a TD and
-                    generates another TD for a shadow thing instance.
-                    The TD for a shadow device uses a new identifier
-                    different from the original device TD’s, and
-                    contains interfaces for other communication
-                    protocols if necessary. A proxy then creates an
-                    <a>Exposed Thing</a> that implements the bridge to the
-                    originating thing. A client communicates with a
-                    device via a proxy through a <a>Consumed Thing</a> that
-                    conforms to the TD for the shadow thing instance.</p>
+                    when the <a>Exposed Things</a> of the multiple <a>Things</a> connected to an <a>Intermediary</a> use                    different authentication methods.</p>
+
+                <p>Given the <a>Thing Description</a> (TD) of a <a>Thing</a>, 
+                   an <a>Intermediary</a> creates a <a>Consumed Thing</a> and 
+                   a proxy object for the <a>Exposed Thing</a> of the <a>Thing</a>, 
+                   generates another TD for the proxy object.
+                   The TD for the proxy object may either use the identifier 
+                   same as the one in the <a>Thing</a>'s TD, or be assigned 
+                   an identifier different from the <a>Thing</a>'s, depending 
+                   on the requirements of the use cases.
+                   The TD generated by the <a>Intermediary</a> MAY contain 
+                   interfaces for other communication protocols if necessary. </p>
+
+                   <p>An <a>Intermediary</a> then creates an <a>Exposed Thing</a> 
+                   that serves as a bridge to the <a>Thing</a>. A <a>Consumer</a> 
+                   communicates with a device via an <a>Intermediary</a> through 
+                   a <a>Consumed Thing</a> that conforms to the TD for the proxy 
+                   object.</p>
             </section>
         </section>
     </section>
