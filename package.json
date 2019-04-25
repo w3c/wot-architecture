@@ -1,0 +1,35 @@
+{
+  "name": "wot-architecture",
+  "version": "0.0.0",
+  "description": "Specification 'Web of Things (WoT) Architecture'",
+  "main": "assertions.js",
+  "scripts": {
+    "assertions": "node assertions.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/w3c/wot-architecture.git"
+  },
+  "keywords": [
+    "wot",
+    "architecture",
+    "w3c",
+    "specification"
+  ],
+  "author": "w3c",
+  "license": "W3C-20150513",
+  "bugs": {
+    "url": "https://github.com/w3c/wot-architecture/issues"
+  },
+  "homepage": "http://w3c.github.io/wot-architecture",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "csvtojson": "^2.0.8",
+    "debug": "^4.1.1",
+    "jsonld": "^1.5.4",
+    "npm": "^6.6.0",
+    "shacl": "github:TopQuadrant/shacl-js",
+    "sttl": "vcharpenay/STTL.js"
+  }
+}
