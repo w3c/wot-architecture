@@ -1581,7 +1581,7 @@ a[href].internalDFN {
                 <a href="#architecture-abstract"></a> gives an overview how the WoT concepts introduced above can be applied and combined to address the use cases summarized in <a href="#sec-use-case-summary"></a>.
             </p>
             <figure id="architecture-abstract">
-                <img src="images/architecture-abstract-new.png"
+                <img src="images/arch-overview.png"
                     style="width: 100%;" />
                 <figcaption>Abstract Architecture of W3C WoT</figcaption>
             </figure>
@@ -1642,34 +1642,22 @@ a[href].internalDFN {
         <section id="sec-web-thing">
             <h2>Web Thing</h2>
             <p>
-                A Web Thing has four architectural
-                aspects of interest: its behavior, its <a>Interaction Affordances</a>, and its security
-                configuration. See <a href="#arch-aspects"></a>. The
-                behavior aspect of a Thing includes both lifecycle
-                management (onboarding, updating, decommissioning, etc.)
-                but also the operational behavior of the Thing, which
-                can include both autonomous behavior and support for
-                interactions. Interactions have two parts, the
-                interaction affordances which are presented externally,
-                and the interaction implementation, which defines the
-                actual behavior corresponding to the interaction. The
-                interaction affordances provide a model of the network
-                API using a set of abstract operations, but without
-                reference to a specific network protocol or payload
-                encoding. The protocol binding adds the additional
-                detail needed to map each interaction affordance to
-                operations in a particular concrete protocol. In
-                general, different concrete protocols may be used to
-                support different subsets of interaction affordances
+                A Web Thing has four architectural aspects of interest:
+                its behavior, its <a>Interaction Affordances</a>, its security configuration, and its <a>Protocol Bindings</a>,
+				as depicted in <a href="#arch-webthing"></a>. 
+                The behavior aspect of a <a>Thing</a> includes both the autonomous behavior and the handlers for the <a>Interaction Affordances</a>.
+                The <a>Interaction Affordances</a> provide a model of how <a>Consumers</a> can interact with the <a>Thing</a> through abstract operations,
+				but without reference to a specific network protocol or data encoding.
+                The protocol binding adds the additional detail needed to map each interaction to concete messages of a certain protocol.
+                In general, different concrete protocols may be used to
+                support different subsets of <a>Interaction Affordances</a>,
                 even within a single Thing. The security configuration
                 aspect of a Thing represents the mechanisms used to
-                control access to the affordances and the management of
-                related public and private metadata. <a
-                    href="#arch-aspects"></a> shows these aspects in a
-                diagram.
+                control access to the <a>Interaction Affordances</a> and the management of
+                related public and private metadata.
             </p>
-            <figure id="arch-aspects">
-                <img src="images/wot-abstract-arch.png" />
+            <figure id="arch-webthing">
+                <img src="images/arch-webthing.png" />
                 <figcaption>Architectural Aspects of a Thing</figcaption>
             </figure>
         </section>
