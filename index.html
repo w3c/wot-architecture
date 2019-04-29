@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en-US">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta charset="utf-8" />
@@ -20,9 +20,10 @@
         wg : "Web of Things Working Group",
         wgURI : "https://www.w3.org/WoT/WG/",
         wgPublicList : "public-wot-wg",
-        edDraftURI : "https://w3c.github.io/wot-architecture/",
-        githubAPI : "https://api.github.com/repos/w3c/wot-architecture",
-        issueBase : "https://www.github.com/w3c/wot-architecture/issues",
+        github: {
+            repoURL: "https://github.com/w3c/wot-architecture",
+            branch: "master"
+        },
         editors : [ {
             name : "Matthias Kovatsch",
             w3cid : "75998",
@@ -49,7 +50,7 @@
         }, {
             name : "Kunihiko Toumura",
             w3cid : "83488",
-            company : "Hitachi",
+            company : "Hitachi, Ltd.",
             companyURL : "https://www.hitachi.com/"
         } ],
         otherLinks : [
@@ -59,16 +60,7 @@
                         value : "In the GitHub repository",
                         href : "https://github.com/w3c/wot-architecture/graphs/contributors"
                     } ]
-                }, {
-                    key : "Repository",
-                    data : [ {
-                        value : "We are on GitHub",
-                        href : "https://github.com/w3c/wot-architecture/"
-                    }, {
-                        value : "File a bug",
-                        href : "https://github.com/w3c/wot-architecture/issues"
-                    } ]
-                } ],
+                }],
         localBiblio : {
             "CoRE-RD" : {
                 href : "https://tools.ietf.org/html/draft-ietf-core-resource-directory-11",
