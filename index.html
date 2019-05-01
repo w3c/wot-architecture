@@ -2923,7 +2923,7 @@ a[href].internalDFN {
             <p> A <a>Intermediary</a> plays both <a>Thing</a> and
                 <a>Consumer</a> roles on the network and supports
                 both the <a>Exposed Thing</a> and <a>Consumed Thing</a>
-                abstractions within its <a>WoT Runtime</a>. 
+                software abstractions within its <a>WoT Runtime</a>. 
             </p>
             <p> One simple application of a <a>Intermediary</a> is as a proxy.  
                 When functioning as a proxy,
@@ -2937,12 +2937,12 @@ a[href].internalDFN {
             </p>
             <p> To implement this pattern, the proxy <a>Intermediary</a> obtains a TD
                 of a <a>Thing</a> and creates a <a>Consumed Thing</a>. 
-                It creates a "shadow" of the <a>Thing</a> as a software
-                implementation that has the same interactions.
-                It then creates a TD for the shadow device with a new identifier 
+                It creates a proxy object of the <a>Thing</a> as a software
+                implementation that has the same <a>Interaction Affordances</a>.
+                It then creates a TD for the proxy object with a new identifier 
                 and possibly with new communications metadata (protocol bindings)
                 and/or new public security configuration metadata.
-                Finally an <a>Exposed Thing</a> is
+                Finally, an <a>Exposed Thing</a> is
                 created based on this TD, and the <a>Intermediary</a> notifies other
                 <a>Consumers</a> or <a>Intermediaries</a> of the TD via
                 an appropriate publication mechanism.
@@ -2953,28 +2953,28 @@ a[href].internalDFN {
                     style="width: 640px;" />
                 <figcaption>Consumer and Thing Connect via a Intermediary Acting as a Proxy</figcaption>
             </figure>
-            <p> More complex intermediaries may be known as digital twins.
-                A digital twin may or may not modify the protocols or
+            <p> More complex <a>Intermediaries</a> may be known as <a>digital twins</a>.
+                A <a>digital twins</a> may or may not modify the protocols or
                 translate between networks, but they provide additional
                 services, such as state caching, deferred updates, 
                 or even predictive simulation of the behavior of the target device.
                 For example, if an IoT device has limited power, it 
                 may choose to wake up relatively infrequently, synchronize
-                with a digital twin, and then immediately go to sleep again.
-                In this case the digital twin runs on a less power-constrained
+                with a <a>digital twins</a>, and then immediately go to sleep again.
+                In this case, assume the <a>digital twins</a> runs on a less power-constrained
                 device (such as in the cloud or on a gateway) 
                 and is able to respond to interactions on the 
                 constrained device's behalf.
                 Requests for the current state of properties
-                may also be satisfied by the digital twin using cached state.
+                may also be satisfied by the <a>digital twins</a> using cached state.
                 Requests that arrive when the target IoT device is sleeping
-                may be queued and sent to it when it wakes.
+                may be queued and sent to it when it wakes up.
                 One complication with implementing this pattern is that the 
-                digital twin <a>Intermediary</a> needs to know when the device is awake if it
-                is implemented as a <a>Thing</a>.  The actual implementation
-                may need to be augmented with a notification mechanism (which could
+                <a>Intermediary</a> that is a <a>digital twins</a> needs to know when the device is awake where
+                the device is implemented as a <a>Thing</a>.  The actual implementation
+                may needs to be augmented with a notification mechanism (which could
                 be implemented using a separate <a>Consumer</a>/<a>Thing</a> pair),
-                although it may also be possible to use event interactions for this
+                although it may also be possible to use <a>Event</a> interactions for this
                 purpose.
             </p>
         </section>
