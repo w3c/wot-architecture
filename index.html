@@ -2838,7 +2838,7 @@ a[href].internalDFN {
         <h1>WoT Deployments</h1>
 
         <p> This section discusses how the Web of Things as a whole works
-            when <a>Things</a> implemented as devices and services are 
+            when <a>Things</a> and <a>Consumers</a> implemented as devices and services are 
             connected together in various topologies and deployment scenarios.
             These are only example patterns. Other interconnection topologies are also possible. 
             The interconnection topologies 
@@ -2846,12 +2846,14 @@ a[href].internalDFN {
             (<a href="#sec-use-cases"></a>)
             as well as the technical requirements extracted from them
             (<a href="#sec-requirements"></a>).
+        </p>
             Before discussing specific topologies, we will
-            first review the roles that <a>Things</a> can
-            play in a WoT network and the relationship of these roles to the 
-            <a>Consumed Thing</a> and <a>Exposed Thing</a> abstractions
-            presented internally to each <a>Thing</a>'s internal
-            behavior implementation.
+            first review the roles that <a>Things</a> and <a>Consumers</a> can
+            play in a WoT network and the relationships they have with the 
+            <a>Exposed Thing</a> and <a>Consumed Thing</a> software abstractions.
+            <a>Exposed Thing</a> and <a>Consumed Thing</a> are internally available 
+            to the behavior implementations of <a>Servients</a> 
+            in the roles of <a>Things</a> and <a>Consumers</a>, respectively.
         </p>
 
         <section id="sec-client-server-roles">
@@ -2900,8 +2902,8 @@ a[href].internalDFN {
                 directly with each other without any intermediaries.
                 One use case where this topology arises is when the <a>Consumer</a> is an orchestration
                 service or some other IoT application running on a gateway and the <a>Thing</a> is a device interfacing to 
-                a sensor or actuator.  However, the client/server relationship could easily be reversed;
-                the client could be a device in the <a>Consumer</a> role accesses
+                a sensor or an actuator.  However, the client/server relationship could easily be reversed;
+                the client could be a device in the <a>Consumer</a> role accessing
                 a service running as a <a>Thing</a> on a gateway or in the cloud.
             </p>
             <figure id="simple-conf-application-device">
@@ -2910,7 +2912,7 @@ a[href].internalDFN {
                 <figcaption>Consumer and Thing on the Same Network</figcaption>
             </figure>
             <p> If the <a>Thing</a> is in the cloud and the <a>Consumer</a> is on a local network
-                (for example, in a Smart Home use case) the actual network topology may be more complex, 
+                (see <a href="#smart-home"></a> for an example in a Smart Home use case) the actual network topology may be more complex, 
                 for example requiring NAT traversal and disallowing certain forms of discovery.  
                 In such cases one of the more complex
                 topologies discussed later may be more appropriate.
