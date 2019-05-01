@@ -1529,7 +1529,7 @@ a[href].internalDFN {
                 A virtual entity is the composition of one or more Things (e.g., a room consisting of several sensors and actuators).
                 One option for the composition is to provide a single, consolidated <a>WoT Thing Description</a> that contains the superset of capabilities for the virtual entity.
                 In cases where the composition is rather complex, its <a>TD</a> may <emph>link</emph> to hierarchical sub-Things within the composition.
-                The main <a>TD</a> acts as entry point and only contain general metadata and potentially overarching capabilities.
+                The main <a>TD</a> acts as entry point and only contains general metadata and potentially overarching capabilities.
                 This allows grouping of certain aspects of more complex Things.
             </p>
             <p>
@@ -2838,64 +2838,66 @@ a[href].internalDFN {
         <h1>WoT Deployments</h1>
 
         <p> This section discusses how the Web of Things as a whole works
-            when <a>Things</a> implementing IoT devices and services are 
+            when <a>Things</a> and <a>Consumers</a> implemented as devices and services are 
             connected together in various topologies and deployment scenarios.
-            These are only examples and other interconnection topologies are possible. 
-            The interconnection topologies 
-            described here are derived from the Web of Things use cases 
-            (<a href="#sec-use-cases"></a>)
-            as well as the technical requirements extracted from them
-            (<a href="#sec-requirements"></a>).
+        </p>
             Before discussing specific topologies, we will
-            first review the roles that WoT <a>Things</a> can
-            play in a network and the relationship of these roles to the 
-            <a>Consumed Thing</a> and <a>Exposed Thing</a> abstractions
-            presented internally to each <a>Thing</a>'s internal
-            behavior implementation.
+            first review the roles that <a>Things</a> and <a>Consumers</a> can
+            play in a WoT network and the relationships they have with the 
+            <a>Exposed Thing</a> and <a>Consumed Thing</a> software abstractions.
+            <a>Exposed Thing</a> and <a>Consumed Thing</a> are internally available 
+            to the behavior implementations of <a>Servients</a> 
+            in the roles of <a>Things</a> and <a>Consumers</a>, respectively.
         </p>
 
         <section id="sec-client-server-roles">
-            <h2>Consumer and Thing Roles</h2>
-            <p> A <a>Thing</a> creates an <a>Exposed Thing</a> abstraction based on a TD. 
-                The TD is published to make it available to 
-                other <a>Consumers</a> or <a>Intermediaries</a>.
-                Such publication can be done in various ways: the TD
-                might be registered with a <a>Thing Directory</a> service, 
-                or the <a>Thing</a>
-                may provide requesters with the TD upon receiving a discovery request.
-                It is also possible in some application scenarios for TDs to be associated with
-                <a>Thing</a> statically or via a management system.
+            <h2>Thing and Consumer Roles</h2>
+            <p> A <a>Servient</a> in the role of a <a>Thing</a> creates an 
+                <a>Exposed Thing</a> based on a <a>Thing Description</a> (TD).
+                TDs are published and made available to other <a>Servients</a>
+                that are in the roles of <a>Consumers</a> or <a>Intermediaries</a>.
+                Publications of TDs may be done in various different ways: the TD
+                might be registered with a management system such as 
+                the <a>Thing Directory</a> service, or a <a>Thing</a>
+                may provide the requesters with a TD upon receiving a request for a TD.
+                It is even possible to statically associate a TD with <a>Thing</a> 
+                in certain application scenarios.
             </p>
-            <p> A <a>Consumer</a> obtains the TDs of <a>Things</a> 
-                via a discovery process appropriate to the deployment scenario
-                in which it is used (<a>Thing Directory</a>, discovery protocol,
-                static assignment, management system, etc.)
-                and creates <a>Consumed Thing</a> abstractions for each based on the
-                obtained TDs. 
+            <p> A <a>Servient</a> in the role of a <a>Consumer</a> obtains the TD of a <a>Thing</a> 
+                using a discovery mechanism implemented in the individual deployment scenarios
+                (such as a management system such as <a>Thing Directory</a>, discovery protocol, 
+                 static assignment, etc. as stated above)
+                and creates a <a>Consumed Thing</a> based on the obtained TD. 
                 Internal system functions of a device such as attached sensors and actuators
                 can also optionally be represented as <a>Consumed Thing</a> abstractions.
             </p>
-            <p> The functions supported by the 
-                <a>Exposed Thing</a> and <a>Consumed Thing</a> abstractions
-                are provided internally to the <a>Thing</a>'s behavior implementation
-                via a programming language interface.
-                In the <a>WoT Scripting API</a>, these abstractions are represented by objects.
-                The behavior implementation (that is, the application logic)
-                running in the <a>Thing</a> can then
-                achieve its functions, such as appropriately responding to
-                interactions, by using this interface.
+            <p>The functions supported by the <a>Consumed Thing</a> are provided internally 
+               to the <a>Consumer</a>'s behavior implementation through a programming language 
+               interface. In the <a>WoT Scripting API</a>, <a>Consumed Things</a> 
+               are represented by objects.
+               The behavior implementation (that is, the application logic) running in 
+               a <a>Thing</a> can engage in interactions with <a>Consumers</a> by using 
+               the programming language interface provided by the <a>Exposed Thing</a>.
             </p>
-            <p> A <a>Thing</a> may or may not be a device associated with physical
-                sensors and actuators; 
-                it may also be a service running in a gateway 
-                or in the cloud.  
-                Likewise a <a>Consumer</a> may or may not be 
-                an application service running on a gateway or cloud, it
-                may in some cases be necessary to implement <a>Consumer</a>
-                functionality on edge devices.  
-                In some cases a single <a>Thing</a>
-                simultaneously performs both roles using a single <a>WoT Runtime</a>,
-                in which case we call it a <a>Servient</a>.
+            <p> A <a>Thing</a> may not necessarily represent a physical device. 
+                <a>Things</a> can also represent a collection of devices, or virtual services 
+                running in a gateway or in the cloud.
+                Likewise, a <a>Consumer</a> may or may not represent 
+                an application service running on a gateway or cloud.
+                <a>Consumers</a> can also be implemented on edge devices.
+                In <a>Intermediaries</a>, a single <a>Servient</a>
+                simultaneously performs both the roles of a <a>Thing</a> and a <a>Consumer</a> 
+                sharing a single <a>WoT Runtime</a>.
+            </p>
+        </section>
+        <section id="sec-topologies-deployment-scenarios">
+            <h2>WoT System's Topologies and Deployment Scenarios</h2>
+            <p>Various topologies and deployment scenarios of WoT systems are discussed in this section.
+            These are only example patterns. Other interconnection topologies are also possible. 
+            The interconnection topologies described here are derived from the Web of Things use cases 
+            (<a href="#sec-use-cases"></a>)
+            as well as the technical requirements extracted from them
+            (<a href="#sec-requirements"></a>).
             </p>
         <section id="sec-deployment-app-dev">
             <h2>Consumer and Thing on the Same Network</h2>
@@ -2904,8 +2906,8 @@ a[href].internalDFN {
                 directly with each other without any intermediaries.
                 One use case where this topology arises is when the <a>Consumer</a> is an orchestration
                 service or some other IoT application running on a gateway and the <a>Thing</a> is a device interfacing to 
-                a sensor or actuator.  However, the client/server relationship could easily be reversed;
-                the client could be a device in the <a>Consumer</a> role accesses
+                a sensor or an actuator.  However, the client/server relationship could easily be reversed;
+                the client could be a device in the <a>Consumer</a> role accessing
                 a service running as a <a>Thing</a> on a gateway or in the cloud.
             </p>
             <figure id="simple-conf-application-device">
@@ -2914,7 +2916,7 @@ a[href].internalDFN {
                 <figcaption>Consumer and Thing on the Same Network</figcaption>
             </figure>
             <p> If the <a>Thing</a> is in the cloud and the <a>Consumer</a> is on a local network
-                (for example, in a Smart Home use case) the actual network topology may be more complex, 
+                (see <a href="#smart-home"></a> for an example in a Smart Home use case) the actual network topology may be more complex, 
                 for example requiring NAT traversal and disallowing certain forms of discovery.  
                 In such cases one of the more complex
                 topologies discussed later may be more appropriate.
@@ -2925,7 +2927,7 @@ a[href].internalDFN {
             <p> A <a>Intermediary</a> plays both <a>Thing</a> and
                 <a>Consumer</a> roles on the network and supports
                 both the <a>Exposed Thing</a> and <a>Consumed Thing</a>
-                abstractions within its <a>WoT Runtime</a>. 
+                software abstractions within its <a>WoT Runtime</a>. 
             </p>
             <p> One simple application of a <a>Intermediary</a> is as a proxy.  
                 When functioning as a proxy,
@@ -2939,12 +2941,12 @@ a[href].internalDFN {
             </p>
             <p> To implement this pattern, the proxy <a>Intermediary</a> obtains a TD
                 of a <a>Thing</a> and creates a <a>Consumed Thing</a>. 
-                It creates a "shadow" of the <a>Thing</a> as a software
-                implementation that has the same interactions.
-                It then creates a TD for the shadow device with a new identifier 
+                It creates a proxy object of the <a>Thing</a> as a software
+                implementation that has the same <a>Interaction Affordances</a>.
+                It then creates a TD for the proxy object with a new identifier 
                 and possibly with new communications metadata (protocol bindings)
                 and/or new public security configuration metadata.
-                Finally an <a>Exposed Thing</a> is
+                Finally, an <a>Exposed Thing</a> is
                 created based on this TD, and the <a>Intermediary</a> notifies other
                 <a>Consumers</a> or <a>Intermediaries</a> of the TD via
                 an appropriate publication mechanism.
@@ -2955,28 +2957,28 @@ a[href].internalDFN {
                     style="width: 640px;" />
                 <figcaption>Consumer and Thing Connect via a Intermediary Acting as a Proxy</figcaption>
             </figure>
-            <p> More complex intermediaries may be known as digital twins.
-                A digital twin may or may not modify the protocols or
+            <p> More complex <a>Intermediaries</a> may be known as <a>digital twins</a>.
+                A <a>digital twins</a> may or may not modify the protocols or
                 translate between networks, but they provide additional
                 services, such as state caching, deferred updates, 
                 or even predictive simulation of the behavior of the target device.
                 For example, if an IoT device has limited power, it 
                 may choose to wake up relatively infrequently, synchronize
-                with a digital twin, and then immediately go to sleep again.
-                In this case the digital twin runs on a less power-constrained
+                with a <a>digital twins</a>, and then immediately go to sleep again.
+                In this case, assume the <a>digital twins</a> runs on a less power-constrained
                 device (such as in the cloud or on a gateway) 
                 and is able to respond to interactions on the 
                 constrained device's behalf.
                 Requests for the current state of properties
-                may also be satisfied by the digital twin using cached state.
+                may also be satisfied by the <a>digital twins</a> using cached state.
                 Requests that arrive when the target IoT device is sleeping
-                may be queued and sent to it when it wakes.
+                may be queued and sent to it when it wakes up.
                 One complication with implementing this pattern is that the 
-                digital twin <a>Intermediary</a> needs to know when the device is awake if it
-                is implemented as a <a>Thing</a>.  The actual implementation
-                may need to be augmented with a notification mechanism (which could
+                <a>Intermediary</a> that is a <a>digital twins</a> needs to know when the device is awake where
+                the device is implemented as a <a>Thing</a>.  The actual implementation
+                may needs to be augmented with a notification mechanism (which could
                 be implemented using a separate <a>Consumer</a>/<a>Thing</a> pair),
-                although it may also be possible to use event interactions for this
+                although it may also be possible to use <a>Event</a> interactions for this
                 purpose.
             </p>
         </section>
@@ -2998,7 +3000,7 @@ a[href].internalDFN {
                 adopted in ITU-T Recommendation Y.2070,
                 is shown in <a href="#deployment-cloud-device"></a>.
                 In this structure there is both a local and a remote <a>Intermediary</a>.
-                The local <a>Intermediary</a> aggregates the interaction affordances from multiple
+                The local <a>Intermediary</a> aggregates the <a>Interaction Affordances</a> from multiple
                 <a>Thing</a> into a (set of) <a>Exposed Things</a>, 
                 which can all be mapped onto a common protocol 
                 (for example, HTTP, with all interactions mapped to a single
@@ -3013,11 +3015,11 @@ a[href].internalDFN {
                 protocol (HTTP, MQTT, CoAP, etc.) and/or a different set of
                 ecosystem conventions, the
                 <a>Exposed Thing</a> can converge them into a single protocol so
-                that clients do not need to be aware of the various
-                protocols the servers use.  
+                that <a>Consumers</a> do not need to be aware of the various
+                protocols the <a>Things</a> use.  
             </p>
             <p> In the figure, there are two
-                clients connected to the remote <a>Intermediary</a>, which
+                <a>Consumers</a> connected to the remote <a>Intermediary</a>, which
                 has disaggregated the services available behind the NAT and may
                 provide additional protocol translation or security services.
                 In particular, the local <a>Intermediary</a> may be on a network
@@ -3049,7 +3051,7 @@ a[href].internalDFN {
                 shown. In particular, an ISP may not support publicly accessible addresses,
                 or STUN/TURN and/or DyDNS may not be supported or available.  
                 In this case the <a>Intermediaries</a>
-                may alternative reverse the client/server roles between then to set up an initial
+                may alternative reverse the client/server roles between them to set up an initial
                 connection (with the local <a>Intermediary</a> first connecting to the remote <a>Intermediary</a>
                 in the cloud), then the pair of <a>Intermediaries</a>
                 may establish a tunnel (using for example, a Secure Web Socket, which uses TLS
