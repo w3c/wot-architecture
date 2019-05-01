@@ -32,9 +32,6 @@
             company : "Huawei",
             companyURL : "https://www.huawei.com/"
         }, {
-            name : "Kazuo Kajimoto",
-            note : "Former Editor, when at Panasonic"
-        }, {
             name : "Ryuichi Matsukura",
             w3cid : "64284",
             company : "Fujitsu Ltd.",
@@ -54,6 +51,9 @@
             w3cid : "83488",
             company : "Hitachi, Ltd.",
             companyURL : "https://www.hitachi.com/"
+        }, {
+            name : "Kazuo Kajimoto",
+            note : "Former Editor, when at Panasonic"
         } ],
         otherLinks : [
                 {
@@ -217,6 +217,7 @@ a[href].internalDFN {
             underlying the Web of Things are also described in the
             context of deployment scenarios. In particular,
             recommendations for security and privacy are included in:
+        </p>
         <ul>
             <li>the <em>Web of Things (WoT)
                     Security and Privacy Considerations</em> [[wot-security]],
@@ -228,7 +229,6 @@ a[href].internalDFN {
                     Security Testing Plan</em> [[wot-security-testing-plan]].
             </li>
         </ul>
-        </p>
         <p>Overall, the goal is to preserve and support existing
             IoT standards and solutions. In general, W3C WoT is
             designed to describe what exists rather than to prescribe
@@ -1761,13 +1761,13 @@ a[href].internalDFN {
                 <p>
                     W3C WoT follows the definitions of Web Linking [[!RFC8288]],
                     where a link is comprised of:
-                    <ul>
+                </p>
+                <ul>
                         <li>a link context,</li>
                         <li>a relation type,</li>
                         <li>a link target, and</li>
                         <li>optionally target attributes.</li>
                     </ul>
-                </p>
                 <p>
                     Link relation types are either IANA-registered tokens [[IANA-RELATIONS]] adhering to the ABNF [[!RFC5234]]
                     <code style="white-space: nowrap;">LOALPHA *( LOALPHA / DIGIT / "." / "-" )</code>
@@ -1798,6 +1798,7 @@ a[href].internalDFN {
                 <p>
                     W3C WoT defines forms as new hypermedia control in accordance with the definitions in CoRAL [[?CoRAL]].
                     A form is comprised of:
+                </p>
                     <ul>
                         <li>a form context,</li>
                         <li>an operation type,</li>
@@ -1805,7 +1806,6 @@ a[href].internalDFN {
                         <li>a request method, and</li>
                         <li>optionally form fields.</li>
                     </ul>
-                </p>
                 <p>
                     A form can be viewed as a statement of "To perform a
                     <code>operation type</code>
@@ -2380,7 +2380,7 @@ a[href].internalDFN {
                 particular standard, but provide an eligible interface
                 over a suitable network protocol. WoT is tackling this
                 variety through <a>Protocol Bindings</a>, which must meet a
-                number of constraints (see <a href="#protocol-bindings"></a>).
+                number of constraints (see <a href="#sec-protocol-bindings"></a>).
             </p>
             <p> The non-normative <a>WoT Binding Templates</a> document
                 [[?wot-binding-templates]] provides a collection of
@@ -2826,6 +2826,7 @@ a[href].internalDFN {
             when <a>Things</a> and <a>Consumers</a> implemented as devices and services are 
             connected together in various topologies and deployment scenarios.
         </p>
+        <p>
             Before discussing specific topologies, we will
             first review the roles that <a>Things</a> and <a>Consumers</a> can
             play in a WoT network and the relationships they have with the 
