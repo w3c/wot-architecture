@@ -2996,7 +2996,7 @@ a[href].internalDFN {
                 adopted in ITU-T Recommendation Y.2070,
                 is shown in <a href="#deployment-cloud-device"></a>.
                 In this structure there is both a local and a remote <a>Intermediary</a>.
-                The local <a>Intermediary</a> aggregates the interaction affordances from multiple
+                The local <a>Intermediary</a> aggregates the <a>Interaction Affordances</a> from multiple
                 <a>Thing</a> into a (set of) <a>Exposed Things</a>, 
                 which can all be mapped onto a common protocol 
                 (for example, HTTP, with all interactions mapped to a single
@@ -3011,11 +3011,11 @@ a[href].internalDFN {
                 protocol (HTTP, MQTT, CoAP, etc.) and/or a different set of
                 ecosystem conventions, the
                 <a>Exposed Thing</a> can converge them into a single protocol so
-                that clients do not need to be aware of the various
-                protocols the servers use.  
+                that <a>Consumers</a> do not need to be aware of the various
+                protocols the <a>Things</a> use.  
             </p>
             <p> In the figure, there are two
-                clients connected to the remote <a>Intermediary</a>, which
+                <a>Consumers</a> connected to the remote <a>Intermediary</a>, which
                 has disaggregated the services available behind the NAT and may
                 provide additional protocol translation or security services.
                 In particular, the local <a>Intermediary</a> may be on a network
@@ -3047,7 +3047,7 @@ a[href].internalDFN {
                 shown. In particular, an ISP may not support publicly accessible addresses,
                 or STUN/TURN and/or DyDNS may not be supported or available.  
                 In this case the <a>Intermediaries</a>
-                may alternative reverse the client/server roles between then to set up an initial
+                may alternative reverse the client/server roles between them to set up an initial
                 connection (with the local <a>Intermediary</a> first connecting to the remote <a>Intermediary</a>
                 in the cloud), then the pair of <a>Intermediaries</a>
                 may establish a tunnel (using for example, a Secure Web Socket, which uses TLS
