@@ -2986,13 +2986,13 @@ a[href].internalDFN {
             <p> In Smart Home use cases, devices (sensors and home appliances)
                 connected to a home network are often
                 monitored and, in some cases, also controlled by cloud
-                services. There is usually a NAT between the home
+                services. There is usually a NAT-gateway between the home
                 network to which the devices are connected and the cloud.
-                The NAT translates IP addresses as well as often providing
+                The NAT-gateway translates IP addresses as well as often providing
                 firewall services, which block connections selectively.
                 The local devices and cloud services can only communicate
                 with each other if the communication can successfully
-                traverse the NAT. 
+                traverse the gateway. 
             </p>
             <p> A typical structure,
                 adopted in ITU-T Recommendation Y.2070,
@@ -3004,9 +3004,9 @@ a[href].internalDFN {
                 (for example, HTTP, with all interactions mapped to a single
                 URL namespace with a common base server and using a single port).
                 This provides the remote <a>Intermediary</a> with a simple way to
-                access all the <a>Things</a> behind the NAT,
+                access all the <a>Things</a> behind the NAT-gateway,
                 assuming the local <a>Intermediary</a>
-                has used a converged protocol that can traverse the NAT
+                has used a converged protocol that can traverse the NAT-gateway
                 and has some way to expose this service to the Internet (STUN, TURN, DyDNS, etc).
                 In addition, the local <a>Intermediary</a> can function as a proxy, so
                 even when the connected <a>Things</a> each use a different
@@ -3016,9 +3016,9 @@ a[href].internalDFN {
                 that clients do not need to be aware of the various
                 protocols the servers use.  
             </p>
-            <p> In the figure, there are two
+            <p> In <a href=#deployment-cloud-device></a>, there are two
                 clients connected to the remote <a>Intermediary</a>, which
-                has disaggregated the services available behind the NAT and may
+                has aggregated the services that reside behind the NAT border and may
                 provide additional protocol translation or security services.
                 In particular, the local <a>Intermediary</a> may be on a network
                 with limited capacity and making that service directly available to all
@@ -3032,7 +3032,7 @@ a[href].internalDFN {
                 <a>Intermediary</a>, which makes the development of clients much
                 simpler.
             </p>
-            <p> In this topology there is a NAT and a firewall between the consumers and things,
+            <p> In this topology there is NAT and firewall functionality between the consumers and things,
                 but the local and remote <a>Intermediaries</a> work together to tunnel all communications
                 through the firewall, so the consumers and things need to know
                 nothing about the firewall.
