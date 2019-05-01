@@ -3193,7 +3193,8 @@ a[href].internalDFN {
             access mechanisms and properties of IoT devices and
             services, including security. In general, W3C WoT is
             designed to describe what exists rather than to prescribe
-            what to implement.</p>
+            what to implement.
+        </p>
         <p>
             However, the WoT architecture should <em>enable</em> the use
             of best practices in security and privacy. The WoT security
@@ -3209,12 +3210,14 @@ a[href].internalDFN {
             systems, IoT devices are subject to different and in some
             cases higher risks than IT systems. It is also important to
             protect IoT systems so that they can not be used to launch
-            attacks on other computer systems.</p>
+            attacks on other computer systems.
+        </p>
         <p>In general, security and privacy cannot be guaranteed. It
             is not possible for the WoT to turn an insecure system into
             a secure one. Specifically, the WoT architecture needs to do
             no harm: it should support security and privacy at least as
-            well as the systems it connects to.</p>
+            well as the systems it connects to.
+        </p>
         <section id="sec-security-consideration-definitions">
             <h2>Definitions</h2>
             <dl>
@@ -3250,7 +3253,7 @@ a[href].internalDFN {
                     security information is included in <a>TDs</a>.
                     There should be a strict separation of public and
                     private security data. A TD should contain only
-                    public security information, letting users know what
+                    public security information, letting Consumers know what
                     they need to do to access as system if and only if
                     they have authorization. Authorization in turn
                     should be based on separately managed private
@@ -3258,15 +3261,18 @@ a[href].internalDFN {
                 </p>
                 <p>The built-in TD security schemes defined in the
                     TD specification do not support the encoding of
-                    private security data. However, other fields such as
+                    private security data. However, there is a risk that
+                    other fields such as
                     human-readable descriptions might be used
                     (incorrectly...) to encode this information, or new
                     security schemes might be defined and deployed via
                     the extension mechanism that encode such
-                    information.</p>
+                    information.
+                </p>
                 <dl>
                     <dt>Mitigation:</dt>
-                    <dd>TD producers must ensure that no private
+                    <dd>Creators of TDs and extensions meant to be used in TDs 
+                        must ensure that no private
                         security data is ever stored in TDs.</dd>
                 </dl>
             </section>
@@ -3281,7 +3287,8 @@ a[href].internalDFN {
                     that person. For example, the association of
                     uniquely identifiable TDs exposed by mobile devices
                     whose location can be determined can be a tracking
-                    risk.</p>
+                    risk.
+                </p>
                 <p>Generally, personally identifiable information in
                     a TD should be limited as much as possible. In some
                     cases, however, it cannot be avoided. The potential
@@ -3291,7 +3298,8 @@ a[href].internalDFN {
                     only be cached for limited times, should be deleted
                     upon request, should only be used for the purpose
                     for which they were provided with user consent, and
-                    they should otherwise satisfy local requirements for
+                    they should otherwise satisfy local requirements 
+                    (including any legal requirements) for
                     the use of PII.</p>
                 <dl>
                     <dt>Mitigation:</dt>
@@ -3299,10 +3307,10 @@ a[href].internalDFN {
                         as much as possible. Even without explicit PII
                         in TDs, a tracking and identification privacy
                         risk may exist. To minimize this risk, TDs
-                        should be treated as if they contained PII and
+                        should generally be treated as if they contained PII and
                         subject to the same management policies as other
                         PII. They should only be provided to authorized
-                        users.</dd>
+                        Consumers.</dd>
                 </dl>
             </section>
             <section id="sec-security-consideration-td-cm">
@@ -3320,9 +3328,9 @@ a[href].internalDFN {
                 <dl>
                     <dt>Mitigation:</dt>
                     <dd>
-                        Whenever possible, use the vetted communication
+                        Whenever possible, TD creators should use the vetted communication
                         metadata provided in the <a>WoT Binding
-                            Templates</a>. When using a TD for an IoT
+                            Templates</a>. When generating TDs for an IoT
                         ecosystem not covered by the <a>WoT Binding
                             Templates</a>, ensure that all the security
                         requirements of the <a>IoT Platform</a> are
@@ -3339,7 +3347,7 @@ a[href].internalDFN {
                 malicious access to the system and isolate scripts in
                 multi-tenant <a>Servients</a> . More specifically the <a>WoT
                     Runtime</a> implementation when used with the <a>WoT
-                    Scripting API</a> should take into account the below
+                    Scripting API</a> should take into account the following
                 security and privacy risks and implement the recommended
                 mitigations.
             </p>
@@ -3358,7 +3366,7 @@ a[href].internalDFN {
                     well-audited, it might be desirable to separate it
                     from the rest of the script instances to minimize
                     the risk of data exposure in case some other script
-                    inside WoT gets compromised during runtime. Another
+                    inside the same system gets compromised during runtime. Another
                     example is mutual co-existence of different tenants
                     on a single WoT device. In this case each WoT
                     runtime instance will be hosting a different tenant,
@@ -3367,7 +3375,7 @@ a[href].internalDFN {
                 <dl>
                     <dt>Mitigation:</dt>
                     <dd>
-                        The WoT runtime should perform isolation of
+                        The <a>WoT Runtime</a> should perform isolation of
                         script instances and their data in cases when
                         scripts handle privacy-related or other critical
                         security data. Similarly, the <a>WoT Runtime</a>
@@ -3387,13 +3395,14 @@ a[href].internalDFN {
                 id="sec-security-consideration-device-direct-access">
                 <h5>Physical Device Direct Access Security and
                     Privacy Risk</h5>
-                <p>In case a script is compromised or misbehaving,
+                <p>In case a script is compromised or malfunctions
                     the underlying physical device (and potentially
                     surrounded environment) can be damaged if a script
                     can use directly exposed native device interfaces.
                     If such interfaces lack safety checks on their
                     inputs, they might bring the underlying physical
-                    device (or environment) to an unsafe state.</p>
+                    device (or environment) to an unsafe state.
+                </p>
                 <dl>
                     <dt>Mitigation:</dt>
                     <dd>
@@ -3422,7 +3431,7 @@ a[href].internalDFN {
                 <p>
                     If the <a>WoT Runtime</a> implementation supports
                     post-manufacturing provisioning or updates of
-                    itself, WoT scripts, or any related data (including
+                    itself, scripts, or any related data (including
                     security credentials), it can be a major attack
                     vector. An attacker can try to modify any above
                     described element during the update or provisioning
@@ -3447,10 +3456,11 @@ a[href].internalDFN {
                 <p>
                     Typically the <a>WoT Runtime</a> needs to store the
                     security credentials that are provisioned to a WoT
-                    device to operate in WoT network. If an attacker can
+                    device to operate in a network. If an attacker can
                     compromise the confidentiality or integrity of these
-                    credentials, then it can obtain access to the WoT
-                    assets, impersonate WoT things or devices or create
+                    credentials, then it can obtain access to 
+                    assets, impersonate other WoT Things, devices, or services, 
+                    or launch
                     Denial-Of-Service (DoS) attacks.
                 </p>
                 <dl>
