@@ -1529,7 +1529,7 @@ a[href].internalDFN {
                 A virtual entity is the composition of one or more Things (e.g., a room consisting of several sensors and actuators).
                 One option for the composition is to provide a single, consolidated <a>WoT Thing Description</a> that contains the superset of capabilities for the virtual entity.
                 In cases where the composition is rather complex, its <a>TD</a> may <emph>link</emph> to hierarchical sub-Things within the composition.
-                The main <a>TD</a> acts as entry point and only contain general metadata and potentially overarching capabilities.
+                The main <a>TD</a> acts as entry point and only contains general metadata and potentially overarching capabilities.
                 This allows grouping of certain aspects of more complex Things.
             </p>
             <p>
@@ -2838,64 +2838,60 @@ a[href].internalDFN {
         <h1>WoT Deployments</h1>
 
         <p> This section discusses how the Web of Things as a whole works
-            when <a>Things</a> implementing IoT devices and services are 
+            when <a>Things</a> implemented as devices and services are 
             connected together in various topologies and deployment scenarios.
-            These are only examples and other interconnection topologies are possible. 
+            These are only example patterns. Other interconnection topologies are also possible. 
             The interconnection topologies 
             described here are derived from the Web of Things use cases 
             (<a href="#sec-use-cases"></a>)
             as well as the technical requirements extracted from them
             (<a href="#sec-requirements"></a>).
             Before discussing specific topologies, we will
-            first review the roles that WoT <a>Things</a> can
-            play in a network and the relationship of these roles to the 
+            first review the roles that <a>Things</a> can
+            play in a WoT network and the relationship of these roles to the 
             <a>Consumed Thing</a> and <a>Exposed Thing</a> abstractions
             presented internally to each <a>Thing</a>'s internal
             behavior implementation.
         </p>
 
         <section id="sec-client-server-roles">
-            <h2>Consumer and Thing Roles</h2>
-            <p> A <a>Thing</a> creates an <a>Exposed Thing</a> abstraction based on a TD. 
-                The TD is published to make it available to 
-                other <a>Consumers</a> or <a>Intermediaries</a>.
-                Such publication can be done in various ways: the TD
-                might be registered with a <a>Thing Directory</a> service, 
-                or the <a>Thing</a>
-                may provide requesters with the TD upon receiving a discovery request.
-                It is also possible in some application scenarios for TDs to be associated with
-                <a>Thing</a> statically or via a management system.
+            <h2>Thing and Consumer Roles</h2>
+            <p> A <a>Servient</a> in the role of a <a>Thing</a> creates an 
+                <a>Exposed Thing</a> based on a <a>Thing Description</a> (TD).
+                TDs are published and made available to other <a>Servients</a>
+                that are in the roles of <a>Consumers</a> or <a>Intermediaries</a>.
+                Publications of TDs may be done in various different ways: the TD
+                might be registered with a management system such as 
+                the <a>Thing Directory</a> service, or a <a>Thing</a>
+                may provide the requesters with a TD upon receiving a request for a TD.
+                It is even possible to statically associate a TD with <a>Thing</a> 
+                in certain application scenarios.
             </p>
-            <p> A <a>Consumer</a> obtains the TDs of <a>Things</a> 
-                via a discovery process appropriate to the deployment scenario
-                in which it is used (<a>Thing Directory</a>, discovery protocol,
-                static assignment, management system, etc.)
-                and creates <a>Consumed Thing</a> abstractions for each based on the
-                obtained TDs. 
+            <p> A <a>Servient</a> in the role of a <a>Consumer</a> obtains the TD of a <a>Thing</a> 
+                using a discovery mechanism implemented in the individual deployment scenarios
+                (such as a management system such as <a>Thing Directory</a>, discovery protocol, 
+                 static assignment, etc. as stated above)
+                and creates a <a>Consumed Thing</a> based on the obtained TD. 
                 Internal system functions of a device such as attached sensors and actuators
                 can also optionally be represented as <a>Consumed Thing</a> abstractions.
             </p>
-            <p> The functions supported by the 
-                <a>Exposed Thing</a> and <a>Consumed Thing</a> abstractions
-                are provided internally to the <a>Thing</a>'s behavior implementation
-                via a programming language interface.
-                In the <a>WoT Scripting API</a>, these abstractions are represented by objects.
-                The behavior implementation (that is, the application logic)
-                running in the <a>Thing</a> can then
-                achieve its functions, such as appropriately responding to
-                interactions, by using this interface.
+            <p>The functions supported by the <a>Consumed Thing</a> are provided internally 
+               to the <a>Consumer</a>'s behavior implementation through a programming language 
+               interface. In the <a>WoT Scripting API</a>, <a>Consumed Things</a> 
+               are represented by objects.
+               The behavior implementation (that is, the application logic) running in 
+               a <a>Thing</a> can engage in interactions with <a>Consumers</a> by using 
+               the programming language interface provided by the <a>Exposed Thing</a>.
             </p>
-            <p> A <a>Thing</a> may or may not be a device associated with physical
-                sensors and actuators; 
-                it may also be a service running in a gateway 
-                or in the cloud.  
-                Likewise a <a>Consumer</a> may or may not be 
-                an application service running on a gateway or cloud, it
-                may in some cases be necessary to implement <a>Consumer</a>
-                functionality on edge devices.  
-                In some cases a single <a>Thing</a>
-                simultaneously performs both roles using a single <a>WoT Runtime</a>,
-                in which case we call it a <a>Servient</a>.
+            <p> A <a>Thing</a> may not necessarily represent a physical device. 
+                <a>Things</a> can also represent a collection of devices, or virtual services 
+                running in a gateway or in the cloud.
+                Likewise, a <a>Consumer</a> may or may not represent 
+                an application service running on a gateway or cloud.
+                <a>Consumers</a> can also be implemented on edge devices.
+                In <a>Intermediaries</a>, a single <a>Servient</a>
+                simultaneously performs both the roles of a <a>Thing</a> and a <a>Consumer</a> 
+                sharing a single <a>WoT Runtime</a>.
             </p>
         <section id="sec-deployment-app-dev">
             <h2>Consumer and Thing on the Same Network</h2>
