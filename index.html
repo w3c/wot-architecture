@@ -2808,21 +2808,27 @@ a[href].internalDFN {
                     Description</h3>
                 <p> It is also possible to support <em>existing</em> IoT devices
                     or services in the WoT and integrate them with other
-                    WoT Things by writing a <a>Thing Description</a> for them.
+                    <a>WoT Things</a> by writing a <a>Thing Description</a> for them.
                     This can only be done however if the target device
-                    is using protocols eligible for WoT <a>Protocol
-                    Bindings</a>. If the device itself cannot be modified, a
-                    <a>Thing Description</a> may also have to be provided
-                    separately using a service such as a <a>Thing Directory</a>
-                    or some other external distribution mechanism. 
+                    is using protocols that can be described using WoT <a>Protocol
+                    Bindings</a>.  Protocols need to satisfy the requirements 
+                    for such a binding, for example by having resources that can
+                    be identified with URIs. 
+                    Much of the previous discussion also implies that a <a>Thing</a>
+                    provides its own <a>Thing Description</a>.  While this
+                    is a useful pattern it is not mandatory.
+                    In particular, it may not be possible to modify
+                    existing devices to provide their
+                    own <a>Thing Description</a> directly.  In this case the
+                    <a>Thing Description</a> will have to be provided
+                    separately using a service such as a directory
+                    or some other external and separate distribution mechanism. 
                     Providing a <a>Thing Description</a> for
-                    a device also only allows it to be used in the
-                    <a>WoT Server</a> role. 
-                    Using such a device in the <a>WoT Client</a> role
-                    may also be possible if the device can be modified to
-                    consume <a>Thing Descriptions</a> itself or if a separate
-                    management system can be used to configure it using
-                    information found in <a>Thing Descriptions</a>.
+                    a device also only allows it to be used in a server role,
+                    with its <a>Thing Description</a> being consumed by other <a>Things</a>.
+                    Using such a device 
+                    as a <a>Consumer</a> will only in general be possible if the device can 
+                    be modified to consume <a>Thing Descriptions</a>.
                 </p>
                 <figure id="architecture-implementation-existing">
                     <img src="images/wot-thing-existing.png"
