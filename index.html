@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en-US">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta charset="utf-8" />
@@ -11,26 +11,26 @@
         lint: {
             "check-punctuation": true,
             "local-refs-exist": true,
-            "no-http-props": true
+            "no-http-props": true,
+            "no-headingless-sections": true
         },
+        doJsonLd : true,
         specStatus : "ED",
-        processVersion : 2017,
         shortName : "wot-architecture",
         copyrightStart : 2017,
         wg : "Web of Things Working Group",
         wgURI : "https://www.w3.org/WoT/WG/",
+        wgPatentURI : "https://www.w3.org/2004/01/pp-impl/95969/status",
         wgPublicList : "public-wot-wg",
-        edDraftURI : "https://w3c.github.io/wot-architecture/",
-        githubAPI : "https://api.github.com/repos/w3c/wot-architecture",
-        issueBase : "https://www.github.com/w3c/wot-architecture/issues",
+        github: {
+            repoURL: "https://github.com/w3c/wot-architecture",
+            branch: "master"
+        },
         editors : [ {
             name : "Matthias Kovatsch",
             w3cid : "75998",
             company : "Huawei",
             companyURL : "https://www.huawei.com/"
-        }, {
-            name : "Kazuo Kajimoto",
-            note : "Former Editor, when at Panasonic"
         }, {
             name : "Ryuichi Matsukura",
             w3cid : "64284",
@@ -49,8 +49,11 @@
         }, {
             name : "Kunihiko Toumura",
             w3cid : "83488",
-            company : "Hitachi",
+            company : "Hitachi, Ltd.",
             companyURL : "https://www.hitachi.com/"
+        }, {
+            name : "Kazuo Kajimoto",
+            note : "Former Editor, when at Panasonic"
         } ],
         otherLinks : [
                 {
@@ -59,16 +62,7 @@
                         value : "In the GitHub repository",
                         href : "https://github.com/w3c/wot-architecture/graphs/contributors"
                     } ]
-                }, {
-                    key : "Repository",
-                    data : [ {
-                        value : "We are on GitHub",
-                        href : "https://github.com/w3c/wot-architecture/"
-                    }, {
-                        value : "File a bug",
-                        href : "https://github.com/w3c/wot-architecture/issues"
-                    } ]
-                } ],
+                }],
         localBiblio : {
             "CoRE-RD" : {
                 href : "https://tools.ietf.org/html/draft-ietf-core-resource-directory-11",
@@ -87,20 +81,20 @@
                 publisher : "W3C"
             },
 */
-            "TAG-REVIEW-WOT-THING-DESCRIPTION" : {
+            "tag-review-wot-thing-description" : {
                 href: "https://cdn.staticaly.com/gh/w3c/wot-thing-description/TD-TAG-review/index.html?env=dev",
                 title : "Web of Things (WoT) Thing Description",
                 status: "Editor's Draft for TAG Review",
                 publisher : "W3C"
             },
-            "WOT-SECURITY-BEST-PRACTICES" : {
+            "wot-security-best-practices" : {
                 // href : "https://www.w3.org/TR/wot-security-best-practices/",
                 href: "https://cdn.staticaly.com/gh/w3c/wot-security-best-practices/master/index.html?env=dev",
                 title : "Web of Things (WoT) Security Best Practices",
                 status: "Editor's Draft (will be W3C NOTE in final version)",
                 publisher : "W3C"
             },
-            "WOT-SECURITY-TESTING-PLAN" : {
+            "wot-security-testing-plan" : {
                 // href : "https://www.w3.org/TR/wot-security-testing-plan/",
                 href: "https://cdn.staticaly.com/gh/w3c/wot-security-testing-plan/master/index.html?env=dev",
                 title : "Web of Things (WoT) Security Best Practices",
@@ -184,7 +178,7 @@ a[href].internalDFN {
             set of requirements that were derived from use cases for
             multiple application domains. The architecture can be mapped
             onto a variety of concrete deployment scenarios, several
-            examples of which are given.</p>
+            example patterns of which are given.</p>
         <p>The document is focused on the scope of W3C WoT
             standardization, which consists of three initial building
             blocks. These are described by additional WoT
@@ -194,10 +188,10 @@ a[href].internalDFN {
                     Thing Description</em> [[wot-thing-description]],
             </li>
             <li>the <em>Web of Things (WoT)
-                    Binding Templates</em> [[wot-binding-templates]], and
+                    Binding Templates</em> [[?wot-binding-templates]], and
             </li>
             <li>the <em>Web of Things (WoT)
-                    Scripting API</em> [[wot-scripting-api]].
+                    Scripting API</em> [[?wot-scripting-api]].
             </li>
         </ul>
 
@@ -216,26 +210,25 @@ a[href].internalDFN {
             The optional <a>WoT Scripting API</a> enables implementation of
             the application logic of a Thing using a standardized
             contract for JavaScript. This simplifies IoT application
-            development and enables portability across vendors and WoT
-            network components.
+            development and enables portability across vendors and devices.
         </p>
 
         <p>Other non-normative architectural blocks and conditions
             underlying the Web of Things are also described in the
             context of deployment scenarios. In particular,
             recommendations for security and privacy are included in:
+        </p>
         <ul>
             <li>the <em>Web of Things (WoT)
                     Security and Privacy Considerations</em> [[wot-security]],
             </li>
             <li>the <em>Web of Things (WoT)
-                    Security Best Practices</em> [[WOT-SECURITY-BEST-PRACTICES]], and
+                    Security Best Practices</em> [[wot-security-best-practices]], and
             </li>
             <li>the <em>Web of Things (WoT)
-                    Security Testing Plan</em> [[WOT-SECURITY-TESTING-PLAN]].
+                    Security Testing Plan</em> [[wot-security-testing-plan]].
             </li>
         </ul>
-        </p>
         <p>Overall, the goal is to preserve and support existing
             IoT standards and solutions. In general, W3C WoT is
             designed to describe what exists rather than to prescribe
@@ -269,10 +262,10 @@ a[href].internalDFN {
                     Thing Description</em> [[wot-thing-description]],
             </li>
             <li>the <em>Web of Things (WoT)
-                    Binding Templates</em> [[wot-binding-templates]], and
+                    Binding Templates</em> [[?wot-binding-templates]], and
             </li>
             <li>the <em>Web of Things (WoT)
-                    Scripting API</em> [[wot-scripting-api]].
+                    Scripting API</em> [[?wot-scripting-api]].
             </li>
         </ul>
 
@@ -1520,7 +1513,7 @@ a[href].internalDFN {
                 A <a>Thing</a> can also be the abstraction of a virtual entity.
                 A virtual entity is the composition of one or more Things (e.g., a room consisting of several sensors and actuators).
                 One option for the composition is to provide a single, consolidated <a>WoT Thing Description</a> that contains the superset of capabilities for the virtual entity.
-                In cases where the composition is rather complex, its <a>TD</a> may <emph>link</emph> to hierarchical sub-Things within the composition.
+                In cases where the composition is rather complex, its <a>TD</a> may <em>link</em> to hierarchical sub-Things within the composition.
                 The main <a>TD</a> acts as entry point and only contain general metadata and potentially overarching capabilities.
                 This allows grouping of certain aspects of more complex Things.
             </p>
@@ -1582,7 +1575,7 @@ a[href].internalDFN {
             <p>
                 A central aspect in W3C WoT is the provision of machine-understandable metadata (i.e., <a>WoT Thing Descriptions</a>).
                 Ideally, such metadata is self-descriptive, so that <a>Consumers</a> are able to identify
-                <emph>what</emph> capabilities a <a>Thing</a> provides and <emph>how</emph> to use the provided capabilities.
+                <em>what</em> capabilities a <a>Thing</a> provides and <em>how</em> to use the provided capabilities.
                 A key to this self-descriptiveness lies in the concept of affordances.
             </p>
             <p>
@@ -1597,7 +1590,7 @@ a[href].internalDFN {
             <p>
                 An example for this is a door with a handle.
                 The door handle is an affordance, which suggests that the door can be opened.
-                For humans, a door handle usually also suggests <emph>how</emph> the door can be opened;
+                For humans, a door handle usually also suggests <em>how</em> the door can be opened;
                 an American knob suggests twisting, a European lever handle suggests pressing down.
             </p>
             <p>
@@ -1610,7 +1603,7 @@ a[href].internalDFN {
                 Web applications.
                 Here, the simultaneous presentation of
                 information and control (provided in
-                the form of hyperlinks) is a mechanism that <emph>affords</emph>
+                the form of hyperlinks) is a mechanism that <em>affords</em>
                 Web clients the means to drive Web applications. In this
                 context, an affordance is the description of a
                 hyperlink (e.g., via a link relation type and link
@@ -1742,7 +1735,7 @@ a[href].internalDFN {
                 The control is a Web link, which includes at least the URI of the target resource,
                 which can be dereferenced by the Web browser (i.e., the link can be followed).
                 But also machines can follow links in a meaningful way, when the Web link is further described by a relation type and a set of target attributes.
-                A hypermedia control is the machine-understandable serialization of <emph>how</emph> to activate an affordance.
+                A hypermedia control is the machine-understandable serialization of <em>how</em> to activate an affordance.
                 Hypermedia controls usually originate from a Web server and are discovered in-band while a Web client is interacting with the server.
                 This way, Web servers can drive clients through Web applications dynamically,
                 by taking their current state and other factors such as authorization into account.
@@ -1762,19 +1755,19 @@ a[href].internalDFN {
                     (cf. the set of resource representations currently rendered in the Web browser)
                     or to include additional resources into the current context,
                     depending on the relation between context and link target.
-                    <a>Consumers</a> do so by <emph>dereferencing</emph> the target URI,
+                    <a>Consumers</a> do so by <em>dereferencing</em> the target URI,
                     that is, fetching the resource representation by following a link.
                 </p>
                 <p>
                     W3C WoT follows the definitions of Web Linking [[!RFC8288]],
                     where a link is comprised of:
-                    <ul>
+                </p>
+                <ul>
                         <li>a link context,</li>
                         <li>a relation type,</li>
                         <li>a link target, and</li>
                         <li>optionally target attributes.</li>
                     </ul>
-                </p>
                 <p>
                     Link relation types are either IANA-registered tokens [[IANA-RELATIONS]] adhering to the ABNF [[!RFC5234]]
                     <code style="white-space: nowrap;">LOALPHA *( LOALPHA / DIGIT / "." / "-" )</code>
@@ -1795,7 +1788,7 @@ a[href].internalDFN {
                 <p>
                     Forms enable <a>Consumers</a> (or Web clients in the broader sense) to perform operations that go beyond dereferencing a URI
                     (e.g., manipulating state of a Thing).
-                    <a>Consumers</a> do so by <emph>filling out</emph> and <emph>submitting</emph> the form to its submission target.
+                    <a>Consumers</a> do so by <em>filling out</em> and <em>submitting</em> the form to its submission target.
                     This usually requires more detailed information about the necessary request message than a link can provide
                     (e.g., method, header fields, or other protocol options).
                     Forms can be seen as a request template,
@@ -1805,6 +1798,7 @@ a[href].internalDFN {
                 <p>
                     W3C WoT defines forms as new hypermedia control in accordance with the definitions in CoRAL [[?CoRAL]].
                     A form is comprised of:
+                </p>
                     <ul>
                         <li>a form context,</li>
                         <li>an operation type,</li>
@@ -1812,7 +1806,6 @@ a[href].internalDFN {
                         <li>a request method, and</li>
                         <li>optionally form fields.</li>
                     </ul>
-                </p>
                 <p>
                     A form can be viewed as a statement of "To perform a
                     <code>operation type</code>
@@ -1976,12 +1969,14 @@ a[href].internalDFN {
             <h2>Protocol Bindings</h2>
             <p>
                 A Protocol Binding is the mapping from an <a>Interaction Affordance</a> to concrete messages of a specific protocol such as HTTP [[!RFC7231]], CoAP [[!RFC7252]], or MQTT [[!MQTT]].
-                It informs the <a>Consumer</a> <emph>how</emph> to activate the <a>Interaction Affordance</a> through a network-facing interface.
+                It informs the <a>Consumer</a> <em>how</em> to activate the <a>Interaction Affordance</a> through a network-facing interface.
                 The <a>Protocol Bindings</a> follow the Uniform Interface constraint of REST [[?REST]] to support interoperability.
+                Thus, not all communication protocols are eligible to implement <a>Protocol Bindings</a> for W3C WoT;
+                the requirements are given in the assertions below.
             </p>
             <p>
                 In the door example given in <a href="#sec-affordances"></a>, the <a>Protocol Binding</a> corresponds to the door handle at the level of knob vs lever,
-                which suggests <emph>how</emph> the door can be opened.
+                which suggests <em>how</em> the door can be opened.
             </p>
             <section>
                 <h3>Hypermedia-driven</h3>
@@ -2230,41 +2225,42 @@ a[href].internalDFN {
             overview and a summary.
         </p>
         <p> The WoT Building Blocks support each of the architectural
-            aspects of a Thing discussed in <a href="#sec-arch-aspects"></a>
-            and diagrammed in <a href="#arch-aspects"></a>. The building
-            blocks themselves are shown in the context of an abstract Thing in 
+            aspects of a <a>Thing</a> discussed in <a href="#sec-web-thing"></a>
+            and diagrammed in <a href="#arch-webthing"></a>. The building
+            blocks themselves are shown in the context of an abstract <a>Thing</a> in 
             <a href="#arch-building-blocks"></a>. This is an abstract
             view and is not meant to represent any particular
             implementation; instead it is meant to illustrate the  
             relationship between the building blocks and the main
-            architectural aspects of a Thing. 
+            architectural aspects of a <a>Thing</a>. 
             In this figure the WoT Building Blocks
             are highlighted with black outlines.
             Security, a cross-cutting concern, 
             is separated into public and protected private components. 
             The <a>WoT Scripting API</a> is optional and the
-            Binding Templates are informative.
+            <a>Binding Templates</a> are informative.
         </p>
         <figure id="arch-building-blocks">
-            <img src="images/wot-building-blocks-abstract.png" />
+            <img src="images/wot-building-blocks-abstract.png" 
+                 style="width: 640px;" />
             <figcaption>Relationship of WoT Building Blocks 
             to the Architectural Aspects of a Thing.</figcaption>
         </figure>
         <p> The <a>WoT Thing Description</a> (TD) contains metadata describing the
-            interaction affordances of the Thing, the mapping of these
+            <a>Interaction Affordances</a> of the <a>Thing</a>, the mapping of these
             affordances onto concrete network protocols (the
             communication metadata), the <em>public</em> security data
             needed by authorized users to understand how to access the
-            Thing, and other general metadata such as IDs, names, and
+            <a>Thing</a>, and other general metadata such as IDs, names, and
             descriptions. The <a>Binding Templates</a> are another WoT building
             block that provides guidance on how to provide the correct
             communications metadata in a TD to support
             specific target protocols.
         </p>
-        <p> The interaction implementation specifies how a Thing
+        <p> The interaction implementation specifies how a <a>Thing</a>
             actually responds to an interaction, including how state is
             stored and modified. The behavior implementation specifies
-            how other behavior of a Thing is implemented, which may or
+            how other behavior of a <a>Thing</a> is implemented, which may or
             may not be directly related to an interaction. For example,
             a thermostat may need to execute a control loop to control a
             furnace based on a sensor reading. This does not directly
@@ -2273,19 +2269,19 @@ a[href].internalDFN {
             can be modified by an interaction.
         </p>
         <p> For specifying behavior and interaction implementations, an
-            optional WoT Scripting API building block is provided which
-            supports the definition and consumption of WoT Thing
-            Descriptions. This is useful to define application behavior
+            optional <a>WoT Scripting API</a> building block is provided which
+            supports the definition and consumption of <a>WoT Thing
+            Descriptions</a>. This is useful to define application behavior
             using an easy-to-use scripting language. It is however
-            possible to implement a WoT Thing <em>without</em> using the
-            WoT Scripting API. In this case the externally visible
+            possible to implement a <a>Thing</a> <em>without</em> using the
+            <a>WoT Scripting API</a>. In this case the externally visible
             interactions and network interface still needs to be
-            consistent with the Thing Description defined for the Thing.
+            consistent with the <a>Thing Description</a> defined for the <a>Thing</a>.
         </p>
-        <p> Internally to a Thing, it is also generally important to
+        <p> Internally to a <a>Thing</a>, it is also generally important to
             provide secure storage for <em>private</em> security data
             such as encryption keys and identity material. This information is
-            never directly shared with entities outside the Thing, and ideally
+            never directly shared with entities outside the <a>Thing</a>, and ideally
             should not even be available to the behavior and interaction
             implementations. Instead an abstract set of operations
             should support security functions such as signing,
@@ -2303,52 +2299,53 @@ a[href].internalDFN {
             This is not true of an implementation or network interface.
         </p>
         <p> In the following sections we will provide additional
-            information on each WoT Building Block: the WoT Thing
-            Description, the WoT Binding Templates, and the WoT
-            Scripting API.
+            information on each WoT Building Block:
+            the <a href="#sec-thing-description">WoT Thing
+            Description</a>, the <a href="#sec-binding-templates">WoT Binding Templates</a>,
+            and the <a href="#sec-scripting-api">WoT Scripting API</a>.
             Security, although it is a cross-cutting concern, can
             be considered a fourth building block.
         </p>
 
         <section id="sec-thing-description">
             <h2>WoT Thing Description</h2>
-            <p> The WoT Thing Description (TD) document
+            <p> The <a>WoT Thing Description</a> (TD) document
                 [[!wot-thing-description]] defines an information model
                 based on a semantic vocabulary and a serialized
-                representation based on JSON. TDs provide rich metadata
-                for Things in a way that is both human-readable and
+                representation based on JSON. <a>TDs</a> provide rich metadata
+                for <a>Things</a> in a way that is both human-readable and
                 machine-understandable. Both the information model and
-                the representation format of TDs are aligned with Linked
+                the representation format of <a>TDs</a> are aligned with Linked
                 Data [[?LINKED-DATA]], so that besides raw JSON
                 processing, implementations may choose to make use of
                 JSON-LD [[?JSON-LD11]] and graph databases to enable
                 powerful semantic processing of the metadata.
             </p> 
-            <p> A <a>Thing Description</a> (TD) describes Thing
+            <p> A <a>Thing Description</a> (TD) describes <a>Thing</a>
                 instances with general metadata such as name, ID,
                 descriptions, and also can provide relation metadata
-                through links to related Things or other documents. TDs
+                through links to related <a>Things</a> or other documents. <a>TDs</a>
                 also provide interaction affordance metadata based on
                 the interaction model defined in <a
                     href="#sec-interaction-model"></a>; public security
                 configuration metadata; and communications metadata
-                defining protocol bindings. The TD can be seen as the <i>index.html
-                    for Things</i>, as it provides the entry point to learn
+                defining protocol bindings. The <a>TD</a> can be seen as the <em>index.html
+                for <a>Things</a></em>, as it provides the entry point to learn
                 about the provided services and related resources, both
                 of which are described using hypermedia controls.
             </p>
-            <p> Ideally, the TD is created and/or hosted by the Thing
+            <p> Ideally, the <a>TD</a> is created and/or hosted by the <a>Thing</a>
                 itself and retrieved upon discovery. Yet it can also be
-                hosted externally when a Thing has resource restrictions
+                hosted externally when a <a>Thing</a> has resource restrictions
                 (e.g., limited memory space, limited power) or when an existing device
                 is retrofitted to become part of the Web of Things. A
-                common pattern is to register TDs with a directory to improve
+                common pattern is to register <a>TDs</a> with a directory to improve
                 discovery (e.g., for constrained devices) and to
                 facilitate device management. It is recommended that
-                clients should use TD caching combined with
-                notifications when they are paired with a Thing, meaning
-                that they will be notified to fetch a fresh TD
-                representation in case the Thing is updated.
+                clients should use <a>TD</a> caching combined with
+                notifications when they are paired with a <a>Thing</a>, meaning
+                that they will be notified to fetch a fresh <a>TD</a>
+                representation in case the <a>Thing</a> is updated.
             </p>
             <p> For semantic interoperability, <a>TDs</a> may make use
                 of a domain-specific vocabulary, for which explicit
@@ -2359,11 +2356,11 @@ a[href].internalDFN {
             <p> Three examples of potentially useful external IoT
                 vocabularies are SAREF [[?SAREF]], iot.schema.org
                 [[?iot-schema-org]], and the W3C Semantic Sensor Network
-                ontology [[?vocab-ssn]]. Use of such external vocabularies in TDs is
+                ontology [[?vocab-ssn]]. Use of such external vocabularies in <a>TDs</a> is
                 optional. In the future additional domain-specific
-                vocabularies may be developed and used with TDs.
+                vocabularies may be developed and used with <a>TDs</a>.
             </p>
-            <p> Overall, the WoT Thing Description building block
+            <p> Overall, the <a>WoT Thing Description</a> building block
                 fosters interoperability in two ways: First, <a>TDs</a>
                 enable machine-to-machine communication in the Web of
                 Things. Second, <a>TDs</a> can serve as a common,
@@ -2382,10 +2379,10 @@ a[href].internalDFN {
                 LWM2M, OPC UA) and devices that do not follow any
                 particular standard, but provide an eligible interface
                 over a suitable network protocol. WoT is tackling this
-                variety through Protocol Bindings, which must meet a
-                number of constraints (see <a href="#protocol-bindings"></a>).
+                variety through <a>Protocol Bindings</a>, which must meet a
+                number of constraints (see <a href="#sec-protocol-bindings"></a>).
             </p>
-            <p> The non-normative WoT Binding Templates document
+            <p> The non-normative <a>WoT Binding Templates</a> document
                 [[?wot-binding-templates]] provides a collection of
                 communication metadata blueprints that provide guidance on 
                 how to interact with different <a>IoT platforms</a>. 
@@ -2397,26 +2394,26 @@ a[href].internalDFN {
             </p>
             <figure id="fig-binding-templates">
                 <img src="images/binding-templates.png"
-                    style="width: 800px;" />
+                    style="width: 640px;" />
                 <figcaption>From Binding Templates to Protocol Bindings</figcaption>
             </figure>
             <p> <a href="#fig-binding-templates"></a> shows how <a>Binding
                 Templates</a> are applied. A <a>WoT Binding Template</a>
                 is created only once for each <a>IoT Platform</a> and
                 can then be reused in all <a>TDs</a> for devices of that
-                platform. Clients consuming a <a>TD</a> must implement
+                platform. <a>Consumer</a> processing a <a>TD</a> must implement
                 the corresponding <a>Protocol Binding</a> by including a
                 corresponding protocol stack and by configuring the
                 stack (or its messages) according to the information
                 given in the <a>TD</a>. The communication metadata of
-                Protocol Bindings spans five dimensions:
+                <a>Protocol Bindings</a> spans five dimensions:
             </p>
             <ul>
                 <li><b>IoT Platform:</b> <a>IoT Platforms</a> often
                     introduce proprietary modifications at the
                     application layer such as platform-specific HTTP
                     header fields or CoAP options. Forms (see <a
-                    href="sec-hypermedia-forms"></a>) may contain the
+                    href="#sec-hypermedia-forms"></a>) may contain the
                     necessary information to apply these tweaks in
                     additional form fields defined for the
                     application-layer protocol used.</li>
@@ -2431,12 +2428,12 @@ a[href].internalDFN {
                 <li><b>Transfer Protocol:</b> The Web of Things
                     uses the term <a>transfer protocol</a> for the
                     underlying, standardized application layer protocol
-                    without application-specific options or subprotocol
+                    without application-specific options or <a>subprotocol</a>
                     mechanisms. The URI scheme of the form submission
                     target contains the necessary information to
-                    identify the transfer protocol, e.g., HTTP, CoAP, or
+                    identify the <a>transfer protocol</a>, e.g., HTTP, CoAP, or
                     WebSockets.</li>
-                <li><b>Subprotocol:</b> Transfer protocols may have
+                <li><b>Subprotocol:</b> <a>Transfer protocols</a> may have
                     extension mechanisms that must be known to interact
                     successfully. Such <a>subprotocols</a> cannot be
                     identified from the URI scheme and must be declared
@@ -2444,23 +2441,23 @@ a[href].internalDFN {
                     workarounds for HTTP such as long polling
                     [[?RFC6202]] or Server-Sent Events [[?EVENTSOURCE]].
                     Forms may contain the necessary information to
-                    identify the subprotocol in additional form fields.</li>
+                    identify the <a>subprotocol</a> in additional form fields.</li>
                 <li><b>Security:</b> Security mechanisms can be
                     applied at different layers of the communication
                     stack and might be used together, often to
                     complement each other. Examples are (D)TLS
-                    [[?RFC5246]]/[[?RFC6347]], IPSec [[?RFC6071]], OAuth
+                    [[?RFC8446]]/[[?RFC6347]], IPSec [[?RFC4301]], OAuth
                     [[?RFC6749]], and ACE [[?RFC7744]]. Due to the
                     cross-cutting nature of security, the necessary
                     information to apply the right mechanism may be
-                    given within the general metadata of the Thing.</li>
+                    given within the general metadata of the <a>Thing</a>.</li>
             </ul>
         </section>
         <section id="sec-scripting-api" class="informative">
             <h3>WoT Scripting API</h3>
             <p> The <a>WoT Scripting API</a> is an optional "convenience"
                 building block in WoT that eases IoT application
-                development and is implemented using a Scripting Runtime
+                development and is implemented using a <a>Scripting Runtime</a>
                 (such as a Python, Lua or ECMAScript implementation)
                 that is used in combination with a <a>WoT Runtime</a>.
                 The <a>WoT Scripting API</a> enables writing WoT applications by
@@ -2483,14 +2480,14 @@ a[href].internalDFN {
             </p>
             <p> The non-normative <a>WoT Scripting API</a> document defines
                 the structure and algorithms of the programming
-                interface that allows scripts to discover, consume
-                (retrieve) and produce (define) Thing Descriptions. The
+                interface that allows scripts to discover, process
+                (retrieve) and produce (define) <a>Thing Descriptions</a>. The
                 implementation of the <a>WoT Scripting API</a> instantiates local
-                objects that act as an interface to other Things and
-                represents their Interaction Affordances (Properties,
-                Actions, and Events). It also allows scripts to expose
-                Things, i.e. to specify and implement Interaction
-                Affordances and publish a Thing Description.
+                objects that act as an interface to other <a>Things</a> and
+                represents their <a>Interaction Affordances</a> (<a>Properties</a>,
+                <a>Actions</a>, and <a>Events</a>). It also allows scripts to expose
+                <a>Things</a>, i.e. to specify and implement <a>Interaction
+                Affordances</a> and publish a <a>Thing Description</a>.
             </p>
             <p> The standardized <a>WoT Scripting API</a> provides a
                 contract between application scripts and the <a>WoT
@@ -2504,7 +2501,7 @@ a[href].internalDFN {
             <p> Security is a cross-cutting concern and should be
                 considered in all aspects of system design. In the WoT
                 architecture, security is supported by certain explicit
-                features, such as support for public security metadata in TDs
+                features, such as support for public security metadata in <a>TDs</a>
                 and by separation of concerns in the design of the
                 <a>WoT Scripting API</a>. The documents defining each building
                 block also include a discussion of particular security
@@ -2512,8 +2509,8 @@ a[href].internalDFN {
                 Another set of documents, the WoT Security and Privacy
                 Considerations [[?wot-security]], the WoT
                 Security Best Practices
-                [[?WOT-SECURITY-BEST-PRACTICES]], and the WoT Security
-                Testing Plan [[?WOT-SECURITY-TESTING-PLAN]], provide
+                [[?wot-security-best-practices]], and the WoT Security
+                Testing Plan [[?wot-security-testing-plan]], provide
                 additional non-normative security and privacy guidance.
             </p>
         </section>
@@ -2521,186 +2518,181 @@ a[href].internalDFN {
 
     <section id="sec-servient-implementation" class="informative">
         <h1>Servient Implementation</h1>
-        <p> A <a>Servient</a> is a software stack that implements the
-            WoT building blocks presented in the previous section. <a>Servients</a>
-            can host and expose <a>Things</a> and/or consume <a>Things</a>.
-            Thus, <a>Servients</a> can perform in both the <a>WoT Server</a> and
-            <a>WoT Client</a> roles; the name (a portmanteau of server and client)
-            is based on this dual role.
+        <p>
+            A <a>Servient</a> is a software stack that implements the WoT building blocks presented in the previous section.
+            <a>Servients</a> can host and expose <a>Things</a> and/or consume <a>Things</a> (i.e., host <a>Consumers</a>).
+            Depending on the <a>Protocol Binding</a>,
+            <a>Servients</a> can perform in both server and client role,
+            hence the portmanteau naming.
         </p>
-        <p> The previous sections and 
-            chapter <a href="#sec-wot-architecture"></a> 
-            describes how the WoT
-            building blocks conceptually relate to each other and to the
-            abstract architecture. When implementing these concepts, a
-            more detailed view is necessary that takes certain technical
-            aspects into account. The detailed architecture of a <a>Servient</a>
-            implementation using the (optional) <a>WoT Scripting API</a> is
-            shown in <a href="#architecture-implementation"></a>.
-            This figure shows and implementation that is using the optional 
-            <a>WoT Scripting API</a>. 
-            Scripts are actually executed by a nested Scripting Runtime, 
-            while WoT-specific Servient Implementation aspects are managed
-            by the WoT Runtime. 
-            <a>Consumed Thing</a> and <a>Exposed Thing</a>
-            objects provide abstract interfaces to the Things
-            described in related Thing Descriptions. Scripts can
-            operate on Things using these abstractions by performing
-            abstract Interactions while the details of the Protocol Bindings are
-            managed automatically by the WoT Runtime.
+        <p>
+            The previous section describes how the WoT building blocks conceptually relate to each other
+            and how they correspond to the abstract WoT Architecture (see <a href="#sec-wot-architecture"></a>).
+            When implementing these concepts,
+            a more detailed view is necessary that takes certain technical aspects into account.
+            This section presents the detailed architecture of a <a>Servient</a> implementation.
+        </p>
+        <p>
+            <a href="#architecture-implementation"></a> shows a <a>Servient</a> implementation using the (optional) <a>WoT Scripting API</a> building block.
+            Here, the <a>WoT Runtime</a> is also a <a>Scripting Runtime</a> system that
+            in addition to managing the WoT-specific aspects also interprets and executes the application scripts.
+            <a>Servients</a> with <a>WoT Scripting API</a> support usually run on powerful devices, edge nodes, or in the cloud.
+            There are, however, also <a>Scripting Runtimes</a> for resource-constrained systems.
+            Furthermore, the WoT Architecture does not limit the application-facing API of the <a>WoT Runtime</a> to JavaScript/ECMAScript [[ECMAScript]].
+        </p>
+        <p>
+            <a href="#native-impl"></a> presents an alternative <a>Servient</a> implementation without the <a>WoT Scripting API</a> building block.
+            The <a>WoT Runtime</a> may use any programming language for its application-facing API.
+            Usually, it is the native language of the <a>Servient</a> software stack,
+            for instance C/C++ for embedded <a>Servients</a> or Java for cloud-based <a>Servient</a>.
+            It may also be an alternative scripting langague such as Lua to combine the benefits of application scripts with low resource consumption.
         </p>
         <figure id="architecture-implementation">
-            <img src="images/wot-thing-scripting.png"
-                style="width: 640px;" />
-            <figcaption>Implementation of a Servient
-                Using the Optional WoT Scripting API.
-            </figcaption>
+            <img src="images/wot-thing-scripting.png" style="width: 80%;" />
+            <figcaption>Implementation of a Servient Using the Optional WoT Scripting API</figcaption>
         </figure>
-        <p> The role and functionality of each additional module shown
+        <p>
+            The role and functionality of each internal module shown
             in <a href="#architecture-implementation"></a> is given in
             the following sections.
         </p>
-
         <section>
-            <h2>Applications</h2>
-            <p> <a>Applications</a> running on a <a>Servient</a> provide
-                implementations of interactions (for example, what the
-                Servient actually does when a certain action is invoked)
-                and optionally other behaviors, such as control loops or
-                support for local user interfaces. 
-                The <a>WoT Scripting API</a> is one way to
-                implement an application using an application script,
-                and is described in more detail below. Application
-                scripts run inside a <a>Scripting Runtime</a> nested
-                inside the <a>WoT Runtime</a> but have access to objects and
-                interfaces defined by <a>WoT Runtime</a>.
+            <h2>Behavior Implementation</h2>
+            <p>
+                The behavior defines the overall application logic and includes
+                autonomous behavior of <a>Things</a> (e.g., sampling of sensors or control loops for actuators),
+                the handlers for <a>Interaction Affordances</a> (i.e., the concrete actions taken when an affordance is activated),
+                <a>Consumer</a> behavior (e.g., controlling a <a>Thing</a> or realizing mashups), and
+                <a>Intermediary</a> behavior (e.g., simply proxying a <a>Thing</a> or composing virtual entities).
+                The behavior implementation within a <a>Servient</a> defines
+                which <a>Things</a>, <a>Consumers</a>, and <a>Intermediaries</a> are hosted on this component.
+            </p>
+            <p>
+                <a href="#architecture-implementation"></a> focuses on <a>Servients</a> implementing the optional <a>WoT Scripting API</a> building block,
+                where portable application scripts written in JavaScript [[ECMAScript]] define the behavior.
+                They are executed in a <a>Scripting Runtime</a> system, which can be seen as either nested in or coinciding with the <a>WoT Runtime</a>.
+                They are portable, as they are written against the common <a>WoT Scripting API</a> definitions,
+                and hence can be executed by any <a>Servient</a> featuring this building block.
+                This makes it possible to migrate certain application logic between system components,
+                for instance moving a <a>Consumer</a> from the cloud to an edge node to meet networking requirements,
+                or move an <a>Intermediary</a> to the cloud to fulfill growing resource demands.
+                The portability can also foster <a>Thing</a> customization by installing behavior following the app concept known from smartphones.
+            </p>
+            <p>
+                See <a href="#native-impl"></a> for behavior implementation without the <a>WoT Scripting API</a> building block.
+                In principle, any programming language and API can be used in order to define the behavior of a Thing,
+                as long as the <a>Interaction Affordances</a> are presented externally through a <a>WoT Interface</a>.
+                The adaption between application-facing API and the protocol stack is handled by the <a>WoT Runtime</a>.
+            </p>
+        </section>
+        <section>
+            <h2>WoT Runtime</h2>
+            <p>
+                Technically, the <a>Thing</a> abstraction and its <a>Interaction Model</a> is implemented in a runtime system.
+                This <a>WoT Runtime</a> maintains the execution environment for the behavior implementation and is able to expose and/or consume <a>Things</a>,
+                and hence must be able to process, serialize, serve, and fetch <a>WoT Thing Descriptions</a>.
+            </p>
+            <p>
+                The <a>WoT Runtime</a> must provide an API for the behavior implementation that follows the <a>Thing</a> abstraction.
+                The optional <a>WoT Scripting API</a> building block shown in <a href="#architecture-implementation"></a> defines such an application-facing interface.
+                See <a href="#native-impl"></a> for alternative APIs.
+            </p>
+            <p>
+                A <a>WoT Runtime</a> needs to provide certain operations to manage the lifecycle of <a>Things</a>,
+                or more precicely their software abstractions and descriptions.
+                The details of such operations vary among different implementations.
+                A lifecycle management (LCM) system may encapsulate those lifecycle operations within a <a>Servient</a>
+                and use internal interfaces to realize the lifecycle management.
+                The <a>WoT Scripting API</a> includes LCM functionality, and hence represents one possible implementation of such a system.
+            </p>
+            <p>
+                The <a>WoT Runtime</a> must interface with the protocol stack implementation of the <a>Servient</a>,
+                as it decouples the behavior implementation from the details of the <a>Protocol Bindings</a>.
+                The <a>WoT Runtime</a> usually also interfaces with the underlying system,
+                for instance, to access local hardware or system services such as storage.
+                Both interfaces are implementation-specific,
+                yet the <a>WoT Runtime</a> must provide the necessary adaption to the <a>Thing</a> abstraction.
+            </p>
+        </section>
+        <section>
+            <h2>Scripting Runtime</h2>
+            <p>
+                When the <a>WoT Scripting API</a> is used, the <a>Servient</a> requires a language runtime to actually manage and execute scripts.
+                This <a>Scripting Runtime</a> is part of the <a>WoT Runtime</a>, but is functionally distinct from it.
+                While the <a>WoT Runtime</a> implements the <a>Thing</a> abstraction, provides lifecycle management, and interfaces with the protocol stack and system,
+                the <a>Scripting Runtime</a> interprets the scripting language and executes the application scripts.
+            </p>
+            <p>
+                Based on this distinction, a <a>Scripting Runtime</a> can be seen as being nested within the <a>WoT Runtime</a>.
+                To simplify <a href="#architecture-implementation"></a>, a combined <em>Scripting WoT Runtime</em> is depicted.
+            </p>
+        </section>
+        <section>
+            <h3>WoT Scripting API</h3>
+            <p>
+                The <a>WoT Scripting API</a> building block defines an ECMAScript API that closely follows the <a>WoT Thing Description</a> specificiation [[wot-thing-description]].
+                It forms the interface between behavior implementations and a scripting-based <a>WoT Runtime</a>.
+                Other, simpler APIs may be implemented on top of it,
+                similar to jQuery for the Web browser APIs.
+            </p>
+            <p>
+                See [[?wot-scripting-api]] for more details.
             </p>
         </section>
         <section>
             <h2>Exposed Thing and Consumed Thing Abstractions</h2>
-            <p> The <a>WoT Runtime</a> and <a>WoT Scripting API</a> provide
-                <a>Exposed Thing</a> abstractions that represent Things exposed by
-                the <a>Servient</a> (network interfaces presented to the outside when the
-                Servient is acting as a server) and <a>Consumed Thing</a>
-                abstractions representing other Things the Servient can
-                communicate with in a client role.
+            <p>
+                The <a>WoT Runtime</a> instantiates software representations of <a>Things</a> based on their <a>TDs</a>.
+                These software representations provide the interface toward the behavior implementation.
             </p>
-            <p> In the <a>WoT Scripting API</a> these abstractions are
-                represented by actual object instances.
-                These objects provide an abstract interface at the
-                level of interactions, not specific protocols. 
-                The <a>WoT Runtime</a> manages the translation of 
-                these higher-level interactions to
-                concrete protocol transactions using the Protocol Binding.
+            <p>
+                The <a>Exposed Thing</a> abstraction represents a <a>Thing</a> hosted locally 
+                and accessible from the outside through the protocol stack implementation of the <a>Servient</a>.
+                The behavior implementation can fully control <a>Exposed Things</a> by defining their metadata and <a>Interaction Affordances</a>,
+                and providing their autonomous behavior.
+            </p>
+            <p>
+                The <a>Consumed Thing</a> abstraction represents a remotely hosted <a>Thing</a> for <a>Consumers</a> that needs to be accessed using a communication protocol.
+                <a>Consumed Things</a> are proxy objects or stubs.
+                The behavior implementation is restricted to reading their metadata and activating their <a>Interaction Affordances</a> as described in the corresponding <a>TD</a>.
+                <a>Consumed Things</a> can also represent system features such as local hardware or devices behind proprietary or legacy communication protocols.
+                In this case, the <a>WoT Runtime</a> must provide the necessary adaptation between system API and <a>Consumed Thing</a>.
+                Furthermore, it must provide corresponding <a>TDs</a> and make them available to the behavior implementation,
+                for instance, by extending whatever discovery mechanism is provided by the <a>WoT Runtime</a> through the application-facing API
+                (e.g., the <code>discover()</code> method defined in the <a>WoT Scripting API</a> [[?wot-scripting-api]]).
+            </p>
+            <p>
+                When using the <a>WoT Scripting API</a>, <a>Exposed Thing</a> and <a>Consumed Thing</a> are JavaScript objects,
+                which can be created, operated on, and destroyed by application scripts.
+                However, access my be restricted through security configuration,
+                for instance, in multi-tenant <a>Servients</a>.
             </p>
         </section>
         <section>
-            <h2>Private Security Metadata</h2>
-            <p> Private security metadata is also conceptually
+            <h2>Private Security Configuration</h2>
+            <p>
+                Private security metadata is also conceptually
                 managed by the <a>WoT Runtime</a> but is intentionally not made
                 directly accessible to the application. In fact, in the
                 most secure hardware implementations, such private
                 security data is stored in a separate, isolated memory
+                (e.g., on a secure element or TPM)
                 and only an abstract set of operations (possibly even
                 implemented by an isolated processor and software stack)
                 is provided that limit the attack surface and prevent
                 external disclosure of this data. Private security data
                 is used transparently by the <a>Protocol Binding</a> to
                 authorize and protect the integrity and confidentiality
-                of interactions.</p>
-        </section>
-        <section>
-            <h3>WoT Scripting API</h3>
-            <p> The <a href="https://w3c.github.io/wot-scripting-api/">WoT Scripting
-                    API specification</a> describes a low level <a
-                    href="https://www.ecma-international.org/default.htm">ECMAScript</a>
-                API that follows the <a
-                    href="https://w3c.github.io/wot-thing-description">WoT Thing
-                    Description specification</a> closely. Other, simpler
-                APIs may be implemented on top of it.
-            </p>
-            <p>In principle, any programming language and API can be
-                used in order to define the behavior of a Thing, as long
-                as the <a>Interaction Affordances</a> are presented externally
-                through <a>Protocol Bindings</a> and (optionally) access
-                to the information encoded in <a>Thing Descriptions</a> is
-                provided. (Ideally via <a>Consumed Thing</a> and <a>Exposed Thing</a>
-                abstractions, which are providing similar functionality to the objects
-                in the <a>WoT Scripting API</a>).
-            </p>
-            <p class="ednote"
-                title="The node-wot Reference Implementation">
-                The current reference implementation of the <a>Scripting
-                    API</a> is the open-source <a
-                    href="https://github.com/eclipse/thingweb.node-wot">
-                    Eclipse ThingWeb (node-wot)</a> project. This API is the
-                only one at the moment that currently ensures "de facto"
-                portability of WoT scripts.
-            </p>
-            <p> See <a href="https://w3c.github.io/wot-scripting-api/">
-                    WoT Scripting API</a> for more details.
+                of interactions.
             </p>
         </section>
         <section>
-            <h2>WoT Runtime</h2>
-            <p> At a low level, the <a>Thing</a> abstraction and <a>Interaction
-                    Model</a> is implemented in a runtime system that is
-                independent of but supports the <a>WoT Scripting API</a>.
-                This <a>WoT Runtime</a> also interfaces with the <a>Protocol
-                    Bindings</a> subsystem to access remote <a>Things</a>
-                and (optionally) with the system API to access local
-                hardware and proprietary communication protocols. Both
-                local hardware and devices behind proprietary
-                communications protocols may also represented as <a>Things</a>
-                in the runtime environment, that is, they can be made
-                accessible via <a>Consumed Thing</a> abstractions. The <a>WoT
-                    Runtime</a> is also tasked with generating and exposing a <a>Thing
-                    Description</a> based on general metadata (e.g.,
-                location), application metadata (e.g., <a>Interaction
-                    Affordance</a>), and communication metadata for the
-                available <a>Protocol Bindings</a>
-                (e.g., based on <a>WoT Binding Templates</a>).
-            </p>
-        </section>
-        <section>
-            <h2>Scripting Runtime</h2>
-            <p> When the <a>WoT Scripting API</a> is used an additional
-                nested <a>Scripting Runtime</a> is needed, which is a
-                language runtime to actually manage and execute scripts.
-                The <a>Scripting Runtime</a> runs inside of but is
-                distinct from the <a>WoT Runtime</a>.
-            </p>
-        </section>
-        <section>
-            <h2>Life Cycle Management</h2>
-            <p> Certain operations are needed to manage the lifecycle
-                of an exposed Thing such as retrieving and/or serving
-                a Thing Description, instantiating an <a>Exposed Thing</a> abstraction based
-                on the Thing Description, and terminating an
-                <a>Exposed Thing</a>. The details of such operations vary among
-                different kinds of devices. A WoT Servient Life Cycle
-                Management (LCM) system encapsulates those lifecycle
-                operations. It uses internal interfaces to realize the
-                lifecycle management of exposed Things. The LCM is a
-                system component that integrates with the <a>WoT Runtime</a>.
-                The <a>WoT Scripting API</a> provides one implementation of the
-                LCM functionality.
-             </p>
-             <p> For a <a>WoT Client</a> or <a>Servient</a>, the lifecycle management of 
-                 <a>Consumed Things</a> is realized in the same manner as that
-                 of <a>Exposed Things</a>.
-             </p>
-        </section>
-        <section>
-            <h2>Protocol Bindings</h2>
-            <p> <a>Protocol Bindings</a> are implementations of the 
-                <a>Binding Templates</a>. 
-                They produce the concrete protocol transactions to interact
-                with other <a>Things</a> over the network based on the
-                communication metadata given in the <a>Thing
-                    Description</a> of the <a>Consumed Thing</a>. 
-                <a>Servients</a> may have multiple <a>Protocol Bindings</a> to
-                enable interaction with different <a>IoT Platforms</a>.
+            <h2>Protocol Stack Implementation</h2>
+            <p>
+                The protocol stack of a <a>Servient</a> implements the <a>WoT Interface</a> of the <a>Exposed Things</a>
+                and is used by <a>Consumers</a> to access the <a>WoT Interface</a> of remote <a>Things</a> (via <a>Consumed Things</a>).
+                It produces the concrete protocol messages to interact over the network.
+                <a>Servients</a> may implement multiple protocols, and hence support multiple <a>Protocol Bindings</a> to enable interaction with different <a>IoT Platforms</a>. 
             </p>
             <p> In many cases, where standard protocols are used,
                 generic protocol stacks can be used to produce the
@@ -2715,58 +2707,56 @@ a[href].internalDFN {
                 as identified by the Internet Media Type can also be
                 shared across these generic protocol stacks.
             </p>
-            <p> In some cases, where no aspects can be shared, the <a>Protocol
-                    Binding</a> is more comparable to a platform-specific
-                driver that is selected and configured through the
-                communication metadata in similar way as above.
-            </p>
-            <p> See <a
-                    href="https://w3c.github.io/wot-binding-templates/">WoT
-                    Binding Templates</a> for details.
+            <p>
+                See [[?wot-binding-templates]] for details.
             </p>
         </section>
         <section>
             <h2>System API</h2>
-            <p> The implementation of a <a>Thing</a> may access local
-                hardware or system services (e.g. storage) through
-                proprietary APIs or other means. This block is out of
-                scope of WoT standardization.
-            </p>
-            <p> However, a given implementation of a <a>WoT Runtime</a>
+            <p>
+                A given implementation of a <a>WoT Runtime</a>
                 may provide local hardware or system services to
-                application scripts through a <a>Thing</a>
-                abstraction, as if they were accessible over a network
-                protocol. In this case the implementation should be
-                optimized to avoid the overhead that would be involved
-                in a literal implementation of a network protocol while
-                maintaining a consistent <a>WoT Interface</a>.
+                behavior implementations through the <a>Thing</a>
+                abstraction, as if they were accessible over a communication
+                protocol. In this case, the <a>WoT Runtime</a> should
+                enable the behavior implementation to instantiate <a>Consumed Things</a>
+                that internally interface with the system instead of the protocol stack.
+                This can be done by listing such system Things, which are only available in the local <a>WoT Runtime</a>,
+                in the results of the discovery mechanism provided by the application-facing <a>WoT Runtime</a> API.
             </p>
-            <p> A device may also be physically external to a <a>Servient</a>,
-                but connected via a proprietary protocols or a protocol
-                not eligible for direct support as part of the WoT. In
-                this case, the implemented runtime environment may
+            <p>
+                A device may also be physically external to a <a>Servient</a>,
+                but connected via a proprietary protocol or a protocol
+                not eligible as <a>WoT Interface</a> (see <a href="#sec-protocol-bindings"></a>).
+                In this case, the <a>WoT Runtime</a> may
                 access legacy devices with such protocols (e.g., Echonet
                 Lite, BACNET, X10, I2C, SPI, etc.) through proprietary APIs,
-                but may again choose to expose them to applications via
+                but may again choose to expose them to the behavior implementation via
                 a <a>Thing</a> abstraction. A <a>Servient</a> can then act
                 as gateway to the legacy devices. This should only be
                 done if the legacy device cannot be described directly
                 using a <a>WoT Thing Description</a>.
             </p>
+            <p>
+                The behavior implementation may also access local
+                hardware or system services (e.g., storage) through a
+                proprietary API or other means. This is, however, out of
+                scope of the W3C WoT standardization, as it hinders portability.
+            </p>
         </section>
         <section id="alt-servient-impl">
-            <h3>Alternative Servient Implementations</h3>
-            <p> The <a>WoT Scripting API</a> building block is optional.
-                Alternative <a>Servient</a> implementations are possible
+            <h3>Alternative Servient and WoT Implementations</h3>
+            <p>
+                The <a>WoT Scripting API</a> building block is optional.
+                Alternative <a>Servient</a> implementations are possible,
                 where applications are implemented using alternative
-                APIs internally. There are two possibilities for such
-                implementations: those that use the <a>WoT Runtime</a> but use
-                an alternative API and programming language for defining
-                an application; and those that do not use a <a>WoT Runtime</a>
-                but are implemented using a separate software stack. The
-                second case can still be incorporated into a WoT system
-                if they use a WoT-supported protocol and a Thing
-                Description can be provided for such devices or services.
+                northbound APIs for the <a>WoT Runtime</a> or provide the
+                behavior implementation in a native programming language.
+            </p>
+            <p>
+                Furthermore, devices or services unaware of W3C WoT can still be consumed,
+                when it is possible to provide a valid <a>WoT Thing Description</a> for them.
+                In this case, the <a>TD</a> describes a <a>WoT Interface</a> of a <a>Thing</a> with a black box implementation.
             </p>
             <section id="native-impl">
                 <h3>Native WoT API</h3>
@@ -2774,7 +2764,7 @@ a[href].internalDFN {
                     There are various reasons why a developer may choose
                     to implement a <a>Servient</a> without using the <a>WoT
                         Scripting API</a>. This may be due to insufficient 
-                    memory or computing resources, so the developer can't use
+                    memory or computing resources, so the developer cannot use
                     the required software stack or a fully-featured scripting
                     engine. Alternatively, to support their use case (for
                     example, a proprietary communications protocol) 
@@ -2783,44 +2773,47 @@ a[href].internalDFN {
                     through a particular programming environment or
                     language.
                 </p>
-                <p> In this case, a <a>WoT Runtime</a> can still be
+                <p>
+                    In this case, a <a>WoT Runtime</a> can still be
                     used, but with the equivalent abstraction and functionality 
                     exposed using an alternative WoT API instead of through
                     the <a>WoT Scripting API</a>.
                 </p>
                 <figure id="architecture-implementation-native">
-                    <img src="images/wot-thing-native.png"
-                        style="width: 640px;" />
-                    <figcaption>Implementation of a
-                        Servient using an Alternative Native WoT API</figcaption>
+                    <img src="images/wot-thing-native.png" style="width: 80%;" />
+                    <figcaption>Implementation of a Servient Using a Native WoT API</figcaption>
                 </figure>
             </section>
             <section id="existing-impl">
-                <h3>Existing Device Described with a Thing
+               <h3>Existing Device Described with a Thing
                     Description</h3>
                 <p> It is also possible to support <em>existing</em> IoT devices
                     or services in the WoT and integrate them with other
-                    WoT Things by writing a <a>Thing Description</a> for them.
+			<em>WoT <a>Things</a></em> by writing a <a>Thing Description</a> for them.
                     This can only be done however if the target device
-                    is using protocols eligible for WoT <a>Protocol
-                    Bindings</a>. If the device itself cannot be modified, a
-                    <a>Thing Description</a> may also have to be provided
-                    separately using a service such as a <a>Thing Directory</a>
-                    or some other external distribution mechanism. 
+                    is using protocols that can be described using WoT <a>Protocol
+                    Bindings</a>.  Protocols need to satisfy the requirements 
+                    for such a binding, for example by having resources that can
+                    be identified with URIs. 
+                    Much of the previous discussion also implies that a <a>Thing</a>
+                    provides its own <a>Thing Description</a>.  While this
+                    is a useful pattern it is not mandatory.
+                    In particular, it may not be possible to modify
+                    existing devices to provide their
+                    own <a>Thing Description</a> directly.  In this case the
+                    <a>Thing Description</a> will have to be provided
+                    separately using a service such as a directory
+                    or some other external and separate distribution mechanism. 
                     Providing a <a>Thing Description</a> for
-                    a device also only allows it to be used in the
-                    <a>WoT Server</a> role. 
-                    Using such a device in the <a>WoT Client</a> role
-                    may also be possible if the device can be modified to
-                    consume <a>Thing Descriptions</a> itself or if a separate
-                    management system can be used to configure it using
-                    information found in <a>Thing Descriptions</a>.
+                    a device also only allows it to be used in a server role,
+                    with its <a>Thing Description</a> being consumed by other <a>Things</a>.
+                    Using such a device 
+                    as a <a>Consumer</a> will only in general be possible if the device can 
+                    be modified to consume <a>Thing Descriptions</a>.
                 </p>
                 <figure id="architecture-implementation-existing">
-                    <img src="images/wot-thing-existing.png"
-                        style="width: 640px;" />
-                    <figcaption>Integration of Existing IoT
-                        Devices into the WoT</figcaption>
+                    <img src="images/wot-thing-existing.png" style="width: 80%;" />
+                    <figcaption>Integration of Existing IoT Devices into W3C WoT</figcaption>
                 </figure>
             </section>
         </section>
@@ -2830,64 +2823,67 @@ a[href].internalDFN {
         <h1>WoT Deployments</h1>
 
         <p> This section discusses how the Web of Things as a whole works
-            when <a>Things</a> implementing IoT devices and services are 
+            when <a>Things</a> and <a>Consumers</a> implemented as devices and services are 
             connected together in various topologies and deployment scenarios.
-            These are only examples and other interconnection topologies are possible. 
-            The interconnection topologies 
-            described here are derived from the Web of Things use cases 
-            (<a href="#sec-use-cases"></a>)
-            as well as the technical requirements extracted from them
-            (<a href="#sec-requirements"></a>).
+        </p>
+        <p>
             Before discussing specific topologies, we will
-            first review the roles that WoT <a>Things</a> can
-            play in a network and the relationship of these roles to the 
-            <a>Consumed Thing</a> and <a>Exposed Thing</a> abstractions
-            presented internally to each <a>Thing</a>'s internal
-            behavior implementation.
+            first review the roles that <a>Things</a> and <a>Consumers</a> can
+            play in a WoT network and the relationships they have with the 
+            <a>Exposed Thing</a> and <a>Consumed Thing</a> software abstractions.
+            <a>Exposed Thing</a> and <a>Consumed Thing</a> are internally available 
+            to the behavior implementations of <a>Servients</a> 
+            in the roles of <a>Things</a> and <a>Consumers</a>, respectively.
         </p>
 
         <section id="sec-client-server-roles">
-            <h2>Consumer and Thing Roles</h2>
-            <p> A <a>Thing</a> creates an <a>Exposed Thing</a> abstraction based on a TD. 
-                The TD is published to make it available to 
-                other <a>Consumers</a> or <a>Intermediaries</a>.
-                Such publication can be done in various ways: the TD
-                might be registered with a <a>Thing Directory</a> service, 
-                or the <a>Thing</a>
-                may provide requesters with the TD upon receiving a discovery request.
-                It is also possible in some application scenarios for TDs to be associated with
-                <a>Thing</a> statically or via a management system.
+            <h2>Thing and Consumer Roles</h2>
+            <p> A <a>Servient</a> in the role of a <a>Thing</a> creates an 
+                <a>Exposed Thing</a> based on a <a>Thing Description</a> (TD).
+                TDs are published and made available to other <a>Servients</a>
+                that are in the roles of <a>Consumers</a> or <a>Intermediaries</a>.
+                Publications of TDs may be done in various different ways: the TD
+                might be registered with a management system such as 
+                the <a>Thing Directory</a> service, or a <a>Thing</a>
+                may provide the requesters with a TD upon receiving a request for a TD.
+                It is even possible to statically associate a TD with <a>Thing</a> 
+                in certain application scenarios.
             </p>
-            <p> A <a>Consumer</a> obtains the TDs of <a>Things</a> 
-                via a discovery process appropriate to the deployment scenario
-                in which it is used (<a>Thing Directory</a>, discovery protocol,
-                static assignment, management system, etc.)
-                and creates <a>Consumed Thing</a> abstractions for each based on the
-                obtained TDs. 
+            <p> A <a>Servient</a> in the role of a <a>Consumer</a> obtains the TD of a <a>Thing</a> 
+                using a discovery mechanism implemented in the individual deployment scenarios
+                (such as a management system such as <a>Thing Directory</a>, discovery protocol, 
+                 static assignment, etc. as stated above)
+                and creates a <a>Consumed Thing</a> based on the obtained TD. 
                 Internal system functions of a device such as attached sensors and actuators
                 can also optionally be represented as <a>Consumed Thing</a> abstractions.
             </p>
-            <p> The functions supported by the 
-                <a>Exposed Thing</a> and <a>Consumed Thing</a> abstractions
-                are provided internally to the <a>Thing</a>'s behavior implementation
-                via a programming language interface.
-                In the <a>WoT Scripting API</a>, these abstractions are represented by objects.
-                The behavior implementation (that is, the application logic)
-                running in the <a>Thing</a> can then
-                achieve its functions, such as appropriately responding to
-                interactions, by using this interface.
+            <p>The functions supported by the <a>Consumed Thing</a> are provided internally 
+               to the <a>Consumer</a>'s behavior implementation through a programming language 
+               interface. In the <a>WoT Scripting API</a>, <a>Consumed Things</a> 
+               are represented by objects.
+               The behavior implementation (that is, the application logic) running in 
+               a <a>Thing</a> can engage in interactions with <a>Consumers</a> by using 
+               the programming language interface provided by the <a>Exposed Thing</a>.
             </p>
-            <p> A <a>Thing</a> may or may not be a device associated with physical
-                sensors and actuators; 
-                it may also be a service running in a gateway 
-                or in the cloud.  
-                Likewise a <a>Consumer</a> may or may not be 
-                an application service running on a gateway or cloud, it
-                may in some cases be necessary to implement <a>Consumer</a>
-                functionality on edge devices.  
-                In some cases a single <a>Thing</a>
-                simultaneously performs both roles using a single <a>WoT Runtime</a>,
-                in which case we call it a <a>Servient</a>.
+            <p> A <a>Thing</a> may not necessarily represent a physical device. 
+                <a>Things</a> can also represent a collection of devices, or virtual services 
+                running in a gateway or in the cloud.
+                Likewise, a <a>Consumer</a> may or may not represent 
+                an application service running on a gateway or cloud.
+                <a>Consumers</a> can also be implemented on edge devices.
+                In <a>Intermediaries</a>, a single <a>Servient</a>
+                simultaneously performs both the roles of a <a>Thing</a> and a <a>Consumer</a> 
+                sharing a single <a>WoT Runtime</a>.
+            </p>
+        </section>
+        <section id="sec-topologies-deployment-scenarios">
+            <h2>WoT System's Topologies and Deployment Scenarios</h2>
+            <p>Various topologies and deployment scenarios of WoT systems are discussed in this section.
+            These are only example patterns. Other interconnection topologies are also possible. 
+            The interconnection topologies described here are derived from the Web of Things use cases 
+            (<a href="#sec-use-cases"></a>)
+            as well as the technical requirements extracted from them
+            (<a href="#sec-requirements"></a>).
             </p>
         <section id="sec-deployment-app-dev">
             <h2>Consumer and Thing on the Same Network</h2>
@@ -2896,8 +2892,8 @@ a[href].internalDFN {
                 directly with each other without any intermediaries.
                 One use case where this topology arises is when the <a>Consumer</a> is an orchestration
                 service or some other IoT application running on a gateway and the <a>Thing</a> is a device interfacing to 
-                a sensor or actuator.  However, the client/server relationship could easily be reversed;
-                the client could be a device in the <a>Consumer</a> role accesses
+                a sensor or an actuator.  However, the client/server relationship could easily be reversed;
+                the client could be a device in the <a>Consumer</a> role accessing
                 a service running as a <a>Thing</a> on a gateway or in the cloud.
             </p>
             <figure id="simple-conf-application-device">
@@ -2906,7 +2902,7 @@ a[href].internalDFN {
                 <figcaption>Consumer and Thing on the Same Network</figcaption>
             </figure>
             <p> If the <a>Thing</a> is in the cloud and the <a>Consumer</a> is on a local network
-                (for example, in a Smart Home use case) the actual network topology may be more complex, 
+                (see <a href="#smart-home"></a> for an example in a Smart Home use case) the actual network topology may be more complex, 
                 for example requiring NAT traversal and disallowing certain forms of discovery.  
                 In such cases one of the more complex
                 topologies discussed later may be more appropriate.
@@ -2917,7 +2913,7 @@ a[href].internalDFN {
             <p> A <a>Intermediary</a> plays both <a>Thing</a> and
                 <a>Consumer</a> roles on the network and supports
                 both the <a>Exposed Thing</a> and <a>Consumed Thing</a>
-                abstractions within its <a>WoT Runtime</a>. 
+                software abstractions within its <a>WoT Runtime</a>. 
             </p>
             <p> One simple application of a <a>Intermediary</a> is as a proxy.  
                 When functioning as a proxy,
@@ -2931,12 +2927,12 @@ a[href].internalDFN {
             </p>
             <p> To implement this pattern, the proxy <a>Intermediary</a> obtains a TD
                 of a <a>Thing</a> and creates a <a>Consumed Thing</a>. 
-                It creates a "shadow" of the <a>Thing</a> as a software
-                implementation that has the same interactions.
-                It then creates a TD for the shadow device with a new identifier 
+                It creates a proxy object of the <a>Thing</a> as a software
+                implementation that has the same <a>Interaction Affordances</a>.
+                It then creates a TD for the proxy object with a new identifier 
                 and possibly with new communications metadata (protocol bindings)
                 and/or new public security configuration metadata.
-                Finally an <a>Exposed Thing</a> is
+                Finally, an <a>Exposed Thing</a> is
                 created based on this TD, and the <a>Intermediary</a> notifies other
                 <a>Consumers</a> or <a>Intermediaries</a> of the TD via
                 an appropriate publication mechanism.
@@ -2947,28 +2943,28 @@ a[href].internalDFN {
                     style="width: 640px;" />
                 <figcaption>Consumer and Thing Connect via a Intermediary Acting as a Proxy</figcaption>
             </figure>
-            <p> More complex intermediaries may be known as digital twins.
-                A digital twin may or may not modify the protocols or
+            <p> More complex <a>Intermediaries</a> may be known as <a>digital twins</a>.
+                A <a>digital twins</a> may or may not modify the protocols or
                 translate between networks, but they provide additional
                 services, such as state caching, deferred updates, 
                 or even predictive simulation of the behavior of the target device.
                 For example, if an IoT device has limited power, it 
                 may choose to wake up relatively infrequently, synchronize
-                with a digital twin, and then immediately go to sleep again.
-                In this case the digital twin runs on a less power-constrained
+                with a <a>digital twins</a>, and then immediately go to sleep again.
+                In this case, assume the <a>digital twins</a> runs on a less power-constrained
                 device (such as in the cloud or on a gateway) 
                 and is able to respond to interactions on the 
                 constrained device's behalf.
                 Requests for the current state of properties
-                may also be satisfied by the digital twin using cached state.
+                may also be satisfied by the <a>digital twins</a> using cached state.
                 Requests that arrive when the target IoT device is sleeping
-                may be queued and sent to it when it wakes.
+                may be queued and sent to it when it wakes up.
                 One complication with implementing this pattern is that the 
-                digital twin <a>Intermediary</a> needs to know when the device is awake if it
-                is implemented as a <a>Thing</a>.  The actual implementation
-                may need to be augmented with a notification mechanism (which could
+                <a>Intermediary</a> that is a <a>digital twins</a> needs to know when the device is awake where
+                the device is implemented as a <a>Thing</a>.  The actual implementation
+                may needs to be augmented with a notification mechanism (which could
                 be implemented using a separate <a>Consumer</a>/<a>Thing</a> pair),
-                although it may also be possible to use event interactions for this
+                although it may also be possible to use <a>Event</a> interactions for this
                 purpose.
             </p>
         </section>
@@ -2978,39 +2974,39 @@ a[href].internalDFN {
             <p> In Smart Home use cases, devices (sensors and home appliances)
                 connected to a home network are often
                 monitored and, in some cases, also controlled by cloud
-                services. There is usually a NAT between the home
+                services. There is usually a NAT-gateway between the home
                 network to which the devices are connected and the cloud.
-                The NAT translates IP addresses as well as often providing
+                The NAT-gateway translates IP addresses as well as often providing
                 firewall services, which block connections selectively.
                 The local devices and cloud services can only communicate
                 with each other if the communication can successfully
-                traverse the NAT. 
+                traverse the gateway. 
             </p>
             <p> A typical structure,
                 adopted in ITU-T Recommendation Y.2070,
                 is shown in <a href="#deployment-cloud-device"></a>.
                 In this structure there is both a local and a remote <a>Intermediary</a>.
-                The local <a>Intermediary</a> aggregates the interaction affordances from multiple
+                The local <a>Intermediary</a> aggregates the <a>Interaction Affordances</a> from multiple
                 <a>Thing</a> into a (set of) <a>Exposed Things</a>, 
                 which can all be mapped onto a common protocol 
                 (for example, HTTP, with all interactions mapped to a single
                 URL namespace with a common base server and using a single port).
                 This provides the remote <a>Intermediary</a> with a simple way to
-                access all the <a>Things</a> behind the NAT,
+                access all the <a>Things</a> behind the NAT-gateway,
                 assuming the local <a>Intermediary</a>
-                has used a converged protocol that can traverse the NAT
+                has used a converged protocol that can traverse the NAT-gateway
                 and has some way to expose this service to the Internet (STUN, TURN, DyDNS, etc).
                 In addition, the local <a>Intermediary</a> can function as a proxy, so
                 even when the connected <a>Things</a> each use a different
                 protocol (HTTP, MQTT, CoAP, etc.) and/or a different set of
                 ecosystem conventions, the
                 <a>Exposed Thing</a> can converge them into a single protocol so
-                that clients do not need to be aware of the various
-                protocols the servers use.  
+                that <a>Consumers</a> do not need to be aware of the various
+                protocols the <a>Things</a> use.  
             </p>
-            <p> In the figure, there are two
+            <p> In <a href=#deployment-cloud-device></a>, there are two
                 clients connected to the remote <a>Intermediary</a>, which
-                has disaggregated the services available behind the NAT and may
+                has aggregated the services that reside behind the NAT border and may
                 provide additional protocol translation or security services.
                 In particular, the local <a>Intermediary</a> may be on a network
                 with limited capacity and making that service directly available to all
@@ -3024,7 +3020,7 @@ a[href].internalDFN {
                 <a>Intermediary</a>, which makes the development of clients much
                 simpler.
             </p>
-            <p> In this topology there is a NAT and a firewall between the consumers and things,
+            <p> In this topology there is NAT and firewall functionality between the consumers and things,
                 but the local and remote <a>Intermediaries</a> work together to tunnel all communications
                 through the firewall, so the consumers and things need to know
                 nothing about the firewall.
@@ -3041,7 +3037,7 @@ a[href].internalDFN {
                 shown. In particular, an ISP may not support publicly accessible addresses,
                 or STUN/TURN and/or DyDNS may not be supported or available.  
                 In this case the <a>Intermediaries</a>
-                may alternative reverse the client/server roles between then to set up an initial
+                may alternative reverse the client/server roles between them to set up an initial
                 connection (with the local <a>Intermediary</a> first connecting to the remote <a>Intermediary</a>
                 in the cloud), then the pair of <a>Intermediaries</a>
                 may establish a tunnel (using for example, a Secure Web Socket, which uses TLS
@@ -3176,16 +3172,17 @@ a[href].internalDFN {
             privacy threats, risks, mitigations, and best practices, see
             the WoT Security and Privacy Considerations
             [[?wot-security]] and the WoT Security Best
-            Practices [[?WOT-SECURITY-BEST-PRACTICES]] documents.
+            Practices [[?wot-security-best-practices]] documents.
             Guidelines for the security testing of WoT implementations,
             including adversarial testing, are given in the WoT Security
-            Testing Plan [[?WOT-SECURITY-TESTING-PLAN]].
+            Testing Plan [[?wot-security-testing-plan]].
         </p>
         <p>Overall, the goal of the WoT is to describe the existing
             access mechanisms and properties of IoT devices and
             services, including security. In general, W3C WoT is
             designed to describe what exists rather than to prescribe
-            what to implement.</p>
+            what to implement.
+        </p>
         <p>
             However, the WoT architecture should <em>enable</em> the use
             of best practices in security and privacy. The WoT security
@@ -3201,12 +3198,14 @@ a[href].internalDFN {
             systems, IoT devices are subject to different and in some
             cases higher risks than IT systems. It is also important to
             protect IoT systems so that they can not be used to launch
-            attacks on other computer systems.</p>
+            attacks on other computer systems.
+        </p>
         <p>In general, security and privacy cannot be guaranteed. It
             is not possible for the WoT to turn an insecure system into
             a secure one. Specifically, the WoT architecture needs to do
             no harm: it should support security and privacy at least as
-            well as the systems it connects to.</p>
+            well as the systems it connects to.
+        </p>
         <section id="sec-security-consideration-definitions">
             <h2>Definitions</h2>
             <dl>
@@ -3242,7 +3241,7 @@ a[href].internalDFN {
                     security information is included in <a>TDs</a>.
                     There should be a strict separation of public and
                     private security data. A TD should contain only
-                    public security information, letting users know what
+                    public security information, letting Consumers know what
                     they need to do to access as system if and only if
                     they have authorization. Authorization in turn
                     should be based on separately managed private
@@ -3250,15 +3249,18 @@ a[href].internalDFN {
                 </p>
                 <p>The built-in TD security schemes defined in the
                     TD specification do not support the encoding of
-                    private security data. However, other fields such as
+                    private security data. However, there is a risk that
+                    other fields such as
                     human-readable descriptions might be used
                     (incorrectly...) to encode this information, or new
                     security schemes might be defined and deployed via
                     the extension mechanism that encode such
-                    information.</p>
+                    information.
+                </p>
                 <dl>
                     <dt>Mitigation:</dt>
-                    <dd>TD producers must ensure that no private
+                    <dd>Creators of TDs and extensions meant to be used in TDs 
+                        must ensure that no private
                         security data is ever stored in TDs.</dd>
                 </dl>
             </section>
@@ -3273,7 +3275,8 @@ a[href].internalDFN {
                     that person. For example, the association of
                     uniquely identifiable TDs exposed by mobile devices
                     whose location can be determined can be a tracking
-                    risk.</p>
+                    risk.
+                </p>
                 <p>Generally, personally identifiable information in
                     a TD should be limited as much as possible. In some
                     cases, however, it cannot be avoided. The potential
@@ -3283,7 +3286,8 @@ a[href].internalDFN {
                     only be cached for limited times, should be deleted
                     upon request, should only be used for the purpose
                     for which they were provided with user consent, and
-                    they should otherwise satisfy local requirements for
+                    they should otherwise satisfy local requirements 
+                    (including any legal requirements) for
                     the use of PII.</p>
                 <dl>
                     <dt>Mitigation:</dt>
@@ -3291,10 +3295,10 @@ a[href].internalDFN {
                         as much as possible. Even without explicit PII
                         in TDs, a tracking and identification privacy
                         risk may exist. To minimize this risk, TDs
-                        should be treated as if they contained PII and
+                        should generally be treated as if they contained PII and
                         subject to the same management policies as other
                         PII. They should only be provided to authorized
-                        users.</dd>
+                        Consumers.</dd>
                 </dl>
             </section>
             <section id="sec-security-consideration-td-cm">
@@ -3312,9 +3316,9 @@ a[href].internalDFN {
                 <dl>
                     <dt>Mitigation:</dt>
                     <dd>
-                        Whenever possible, use the vetted communication
+                        Whenever possible, TD creators should use the vetted communication
                         metadata provided in the <a>WoT Binding
-                            Templates</a>. When using a TD for an IoT
+                            Templates</a>. When generating TDs for an IoT
                         ecosystem not covered by the <a>WoT Binding
                             Templates</a>, ensure that all the security
                         requirements of the <a>IoT Platform</a> are
@@ -3331,7 +3335,7 @@ a[href].internalDFN {
                 malicious access to the system and isolate scripts in
                 multi-tenant <a>Servients</a> . More specifically the <a>WoT
                     Runtime</a> implementation when used with the <a>WoT
-                    Scripting API</a> should take into account the below
+                    Scripting API</a> should take into account the following
                 security and privacy risks and implement the recommended
                 mitigations.
             </p>
@@ -3350,7 +3354,7 @@ a[href].internalDFN {
                     well-audited, it might be desirable to separate it
                     from the rest of the script instances to minimize
                     the risk of data exposure in case some other script
-                    inside WoT gets compromised during runtime. Another
+                    inside the same system gets compromised during runtime. Another
                     example is mutual co-existence of different tenants
                     on a single WoT device. In this case each WoT
                     runtime instance will be hosting a different tenant,
@@ -3359,7 +3363,7 @@ a[href].internalDFN {
                 <dl>
                     <dt>Mitigation:</dt>
                     <dd>
-                        The WoT runtime should perform isolation of
+                        The <a>WoT Runtime</a> should perform isolation of
                         script instances and their data in cases when
                         scripts handle privacy-related or other critical
                         security data. Similarly, the <a>WoT Runtime</a>
@@ -3379,13 +3383,14 @@ a[href].internalDFN {
                 id="sec-security-consideration-device-direct-access">
                 <h5>Physical Device Direct Access Security and
                     Privacy Risk</h5>
-                <p>In case a script is compromised or misbehaving,
+                <p>In case a script is compromised or malfunctions
                     the underlying physical device (and potentially
                     surrounded environment) can be damaged if a script
                     can use directly exposed native device interfaces.
                     If such interfaces lack safety checks on their
                     inputs, they might bring the underlying physical
-                    device (or environment) to an unsafe state.</p>
+                    device (or environment) to an unsafe state.
+                </p>
                 <dl>
                     <dt>Mitigation:</dt>
                     <dd>
@@ -3414,7 +3419,7 @@ a[href].internalDFN {
                 <p>
                     If the <a>WoT Runtime</a> implementation supports
                     post-manufacturing provisioning or updates of
-                    itself, WoT scripts, or any related data (including
+                    itself, scripts, or any related data (including
                     security credentials), it can be a major attack
                     vector. An attacker can try to modify any above
                     described element during the update or provisioning
@@ -3439,10 +3444,11 @@ a[href].internalDFN {
                 <p>
                     Typically the <a>WoT Runtime</a> needs to store the
                     security credentials that are provisioned to a WoT
-                    device to operate in WoT network. If an attacker can
+                    device to operate in a network. If an attacker can
                     compromise the confidentiality or integrity of these
-                    credentials, then it can obtain access to the WoT
-                    assets, impersonate WoT things or devices or create
+                    credentials, then it can obtain access to 
+                    assets, impersonate other WoT Things, devices, or services, 
+                    or launch
                     Denial-Of-Service (DoS) attacks.
                 </p>
                 <dl>
@@ -3480,7 +3486,11 @@ a[href].internalDFN {
            regarding the concept of "Web of Things" that started as an academic 
            initiative in the form of publications such as [TBD] and, starting 
            in 2010, a yearly <a href="https://webofthings.org/events/">
-           International Workshop on the Web of Things</a>.</p>
+           International Workshop on the Web of Things</a>.
+	   The WoT WG would like to acknowledge the work of the academic Web of Things community: 
+	   <a href="https://webofthings.org/events/wot/"></a>
+	 </p>
+		    
     </section>
 
     <section class="appendix-change-history">
