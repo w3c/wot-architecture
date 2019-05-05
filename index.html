@@ -425,7 +425,10 @@ a[href].internalDFN {
                 <dfn>Execution Environment</dfn>
             </dt>
             <dd>A sandbox within the WoT Runtime that isolates application logic
-                (e.g., scripts for the WoT Scripting API) running on the same Servient.</dd>
+                (e.g., scripts for the WoT Scripting API) from the WoT Runtime
+		functions (in particular private security configuration and,
+		when applicable, from application logic of other tenants
+		on the same Servient.</dd>
             <dt>
                 <dfn>to expose a Thing</dfn>
             </dt>
@@ -2509,18 +2512,14 @@ a[href].internalDFN {
             </p>
             <p> The non-normative <a>WoT Scripting API</a> document [[?wot-scripting-api]
                 defines the structure and algorithms of the programming
-                interface that allows scripts to discover, fetch and process,
-                and produce (i.e., define and publish) <a>WoT Thing Descriptions</a>. The
+                interface that allows scripts to discover, fetch, consume,
+                produce, and expose <a>WoT Thing Descriptions</a>. The
                 runtime system of the <a>WoT Scripting API</a> instantiates local
                 objects that act as an interface to other <a>Things</a> and
                 their <a>Interaction Affordances</a> (<a>Properties</a>,
                 <a>Actions</a>, and <a>Events</a>). It also allows scripts to expose
                 <a>Things</a>, that is, to define and implement <a>Interaction
                 Affordances</a> and publish a <a>Thing Description</a>.
-            </p>
-            <p> The standardized <a>WoT Scripting API</a> provides a
-                contract between application scripts and the <a>WoT
-                Runtime</a> in a <a>Servient</a>.
             </p>
         </section>
         <section id="sec-security-guidelines" class="informative">
@@ -2626,8 +2625,8 @@ a[href].internalDFN {
                 defines such an application-facing interface that follows the <a>Thing</a> abstraction.
                 See <a href="#native-impl"></a> for alternative APIs.
                 In general, application logic should be executed in isolated <a>Execution Environments</a>
-                that prevent unauthorized access to the management aspects of the <a>WoT Runtime</a>,
-                in particular the private security configurations.
+                to prevent unauthorized access to the management aspects of the <a>WoT Runtime</a>,
+                in particular the private security configuration.
                 In multi-tenant <a>Servients</a>, additional <a>Execution Environment</a> isolation is required for the different tenants.
             </p>
             <p>
