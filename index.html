@@ -476,6 +476,16 @@ a[href].internalDFN {
                 application-facing APIs, data model, and protocols or
                 protocol configurations.</dd>
             <dt>
+                <dfn data-lt="Personally Identifiable Information">Personally Identifiable Information (PII)</dfn>
+            </dt>
+            <dd>Information that can be associated with a
+                unique individual.</dd>
+            <dt>
+                <dfn>Privacy</dfn>
+            </dt>
+            <dd>The system should maintain the
+                confidentiality of <a>Personally Identifiable Information</a>.</dd>
+            <dt>
                 <dfn>Property</dfn>
             </dt>
             <dd>An Interaction Affordance that exposes state of the Thing.
@@ -494,6 +504,11 @@ a[href].internalDFN {
             <dd>A runtime system that is used for implementing an
                 API in a scripting language (e.g., using ECMAScript, LUA,
                 Python, etc.).</dd>
+            <dt>
+                <dfn>Security</dfn>
+            </dt>
+            <dd>The system should preserve its integrity
+                and functionality even when subject to attack.</dd>
             <dt>
                 <dfn>Servient</dfn>
             </dt>
@@ -3236,25 +3251,10 @@ a[href].internalDFN {
         </p>
         <p>In general, security and privacy cannot be guaranteed. It
             is not possible for the WoT to turn an insecure system into
-            a secure one. Specifically, the WoT architecture needs to do
+            a secure one. However, the WoT architecture needs to do
             no harm: it should support security and privacy at least as
             well as the systems it connects to.
         </p>
-        <section id="sec-security-consideration-definitions">
-            <h2>Definitions</h2>
-            <dl>
-                <dt>Security</dt>
-                <dd>means a system should preserve its integrity
-                    and functionality even when subject to attack.</dd>
-                <dt>Personally Identifiable Information (PII)</dt>
-                <dd>means information that can be associated with a
-                    unique individual.</dd>
-                <dt>Privacy</dt>
-                <dd>means that the system should maintain the
-                    confidentiality of personally identifiable
-                    information.</dd>
-            </dl>
-        </section>
         <section id="sec-security-consideration-td-risks">
             <h2>WoT Thing Description Risks</h2>
             <p>
@@ -3302,7 +3302,7 @@ a[href].internalDFN {
                 <h5>Thing Description Personally Identifiable
                     Information Risk</h5>
                 <p>Thing descriptions can potentially contain
-                    personally identifiable information of various
+                    <a>Personally Identifiable Information</a> of various
                     types. Even if it is not explicit, the presence of
                     semantic information in a TD and its association
                     with a person can be used to infer information about
