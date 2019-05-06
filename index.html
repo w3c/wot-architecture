@@ -142,13 +142,27 @@
                 publisher : "OASIS Standard",
                 date : "2014"
             },
+            "OCF" : {
+                href : "https://openconnectivity.org/developer/specifications",
+                title : "OCF Core Specification",
+                publisher : "Open Connectivity Foundation",
+                status : "Version 2.0.2",
+                date : "April 2019"
+            },
+            "LWM2M" : {
+                href : "http://openmobilealliance.org/release/LightweightM2M/V1_1-20180710-A/OMA-TS-LightweightM2M_Core-V1_1-20180710-A.pdf",
+                title : "Lightweight Machine to Machine Technical Specification: Core",
+                publisher : "OMA SpecWorks",
+                status : "Approved Version: 1.1",
+                date : "August 2018"
+            },
             "CoRAL" : {
                 href : "https://tools.ietf.org/html/draft-hartke-t2trg-coral",
                 title : "The Constrained RESTful Application Language (CoRAL)",
-                author : "Klaus Hartke",
+                authors : [ "Klaus Hartke" ],
                 publisher : "IETF",
                 status : "Internet-Draft",
-                date : "2019"
+                date : " March 2019"
             },
             "wot-pioneers-1" : {
                 title : "Mobile Service Interaction with the Web of Things",
@@ -1584,7 +1598,7 @@ a[href].internalDFN {
                 However, W3C WoT does not mandate where <a>Things</a> are hosted; it can be on the IoT device directly, an <a>Edge device</a> such as a gateway box, or the cloud.
             </p>
             <p>
-                A typical deployment challenge is that local networks are not reachable from the Internet, usually because of IPv4 NATs or firewalls.
+                A typical deployment challenge is that local networks are not reachable from the Internet, usually because of IPv4 Network Address Translation (NAT) or firewall devices.
                 To remedy this situation, W3C WoT allows for <a>Intermediaries</a> between <a>Things</a> and <a>Consumers</a>.
                 <a>Intermediaries</a> can act as proxies for <a>Things</a>, where the <a>Intermediary</a> has a <a>WoT Thing Description</a> similar to the original <a>Thing</a>,
                 but which points to the <a>WoT Interface</a> provided by the <a>Intermediary</a>.
@@ -1819,9 +1833,12 @@ a[href].internalDFN {
             </p>
             <p>
                 W3C WoT makes use of two kinds of hypermedia controls:
-                Web links [[!RFC8288]] as the well-established control to navigate the Web,
+                Web links [[!RFC8288]], the well-established control to navigate the Web,
                 and Web forms as a more powerful control to enable any kind of operation.
-                The same concept is used in the Constrained RESTful Application Language (CoRAL) defined by the IETF [[?CoRAL]].
+		Links are already used in other IoT standards and <a>IoT platforms</a> such as
+		CoRE Link Format [[?RFC6690]], OMA LWM2M [[?LWM2M]], and OCF [[?OCF]].
+		Form is a new concept that besides W3C WoT is also introduced by the
+		<em>Constrained RESTful Application Language (CoRAL)</em> [[?CoRAL]] defined by the IETF.
             </p>
             <section id="sec-hypermedia-links">
                 <h3>Links</h3>
@@ -1875,7 +1892,8 @@ a[href].internalDFN {
                     and left parts blank to be filled by the <a>Consumers</a> (or Web client in general).
                 </p>
                 <p>
-                    W3C WoT defines forms as new hypermedia control in accordance with the definitions in CoRAL [[?CoRAL]].
+                    W3C WoT defines forms as new hypermedia control.
+		    Note that the definition in CoRAL is virtually identical, and hence compatible [[?CoRAL]].
                     A form is comprised of:
                 </p>
                     <ul>
@@ -3070,9 +3088,9 @@ a[href].internalDFN {
             <p> In Smart Home use cases, devices (sensors and home appliances)
                 connected to a home network are often
                 monitored and, in some cases, also controlled by cloud
-                services. There is usually a NAT-gateway between the home
+                services. There is usually a NAT device between the home
                 network to which the devices are connected and the cloud.
-                The NAT-gateway translates IP addresses as well as often providing
+                The NAT device translates IP addresses as well as often providing
                 firewall services, which block connections selectively.
                 The local devices and cloud services can only communicate
                 with each other if the communication can successfully
@@ -3088,9 +3106,9 @@ a[href].internalDFN {
                 (for example, HTTP, with all interactions mapped to a single
                 URL namespace with a common base server and using a single port).
                 This provides the remote <a>Intermediary</a> with a simple way to
-                access all the <a>Things</a> behind the NAT-gateway,
+                access all the <a>Things</a> behind the NAT device,
                 assuming the local <a>Intermediary</a>
-                has used a converged protocol that can traverse the NAT-gateway
+                has used a converged protocol that can traverse the NAT device
                 and has some way to expose this service to the Internet (STUN, TURN, DyDNS, etc).
                 In addition, the local <a>Intermediary</a> can function as a Thing proxy, so
                 even when the connected <a>Things</a> each use a different
@@ -3191,8 +3209,8 @@ a[href].internalDFN {
                 may also be cloud services that act as <a>Things</a>.
                 These can also register themselves with the <a>Thing Directory</a>.
                 Since a <a>Thing Directory</a> is a Web service, it should be visible
-                to the local devices through the NAT/firewall
-                and its interface can even be provided with its own TD.
+                to the local devices through the NAT or firewall device
+                and its interface can even be provided with its own TD.  
                 Local devices acting as <a>Consumers</a> can then
                 discover the <a>Things</a> in the cloud via the <a>Thing Directory</a>
                 and connect to the <a>Things</a> directly or via the local
