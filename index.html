@@ -71,7 +71,7 @@
                 publisher : "IETF",
                 date : "03 July 2017"
             },
-/* ReSpec will pick up the citation it is officially published
+/* ReSpec will pick up the citation as it is officially published
             "wot-security" : {
                 href : "https://www.w3.org/TR/wot-security/",
                 // href: "https://cdn.staticaly.com/gh/w3c/wot-security/master/index.html?env=dev",
@@ -85,20 +85,6 @@
                 href: "https://cdn.staticaly.com/gh/w3c/wot-thing-description/TD-TAG-review/index.html?env=dev",
                 title : "Web of Things (WoT) Thing Description",
                 status: "Editor's Draft for TAG Review",
-                publisher : "W3C"
-            },
-            "wot-security-best-practices" : {
-                // href : "https://www.w3.org/TR/wot-security-best-practices/",
-                href: "https://cdn.staticaly.com/gh/w3c/wot-security-best-practices/master/index.html?env=dev",
-                title : "Web of Things (WoT) Security Best Practices",
-                status: "Editor's Draft (will be W3C NOTE in final version)",
-                publisher : "W3C"
-            },
-            "wot-security-testing-plan" : {
-                // href : "https://www.w3.org/TR/wot-security-testing-plan/",
-                href: "https://cdn.staticaly.com/gh/w3c/wot-security-testing-plan/master/index.html?env=dev",
-                title : "Web of Things (WoT) Security Best Practices",
-                status: "Editor's Draft (will be W3C NOTE in final version)",
                 publisher : "W3C"
             },
             "IEC-FOTF" : {
@@ -142,13 +128,27 @@
                 publisher : "OASIS Standard",
                 date : "2014"
             },
+            "OCF" : {
+                href : "https://openconnectivity.org/developer/specifications",
+                title : "OCF Core Specification",
+                publisher : "Open Connectivity Foundation",
+                status : "Version 2.0.2",
+                date : "April 2019"
+            },
+            "LWM2M" : {
+                href : "http://openmobilealliance.org/release/LightweightM2M/V1_1-20180710-A/OMA-TS-LightweightM2M_Core-V1_1-20180710-A.pdf",
+                title : "Lightweight Machine to Machine Technical Specification: Core",
+                publisher : "OMA SpecWorks",
+                status : "Approved Version: 1.1",
+                date : "August 2018"
+            },
             "CoRAL" : {
                 href : "https://tools.ietf.org/html/draft-hartke-t2trg-coral",
                 title : "The Constrained RESTful Application Language (CoRAL)",
-                author : "Klaus Hartke",
+                authors : [ "Klaus Hartke" ],
                 publisher : "IETF",
                 status : "Internet-Draft",
-                date : "2019"
+                date : " March 2019"
             },
             "wot-pioneers-1" : {
                 title : "Mobile Service Interaction with the Web of Things",
@@ -164,10 +164,10 @@
             },
             "wot-pioneers-3" : {
                 title : "Poster Abstract: Dyser – Towards a Real-Time Search Engine for the Web of Things",
-                authors : [ "Benedikt Ostermaier", 
-                            "B. Maryam Elahi", 
-                            "Kay Römer", 
-                            "Michael Fahrmair", 
+                authors : [ "Benedikt Ostermaier",
+                            "B. Maryam Elahi",
+                            "Kay Römer",
+                            "Michael Fahrmair",
                             "Wolfgang Kellerer" ],
                 publisher : "Proceedings of ACM SenSys 2008, Raleigh, NC, USA",
                 date : "November 2008"
@@ -246,23 +246,13 @@ a[href].internalDFN {
             contract for JavaScript. This simplifies IoT application
             development and enables portability across vendors and devices.
         </p>
-
         <p>Other non-normative architectural blocks and conditions
             underlying the Web of Things are also described in the
-            context of deployment scenarios. In particular,
-            recommendations for security and privacy are included in:
+            context of deployment scenarios. 
+            Recommendations for security and privacy are included in
+            the <em>Web of Things (WoT) Security and Privacy Considerations</em> [[wot-security]]
+            document.
         </p>
-        <ul>
-            <li>the <em>Web of Things (WoT)
-                    Security and Privacy Considerations</em> [[wot-security]],
-            </li>
-            <li>the <em>Web of Things (WoT)
-                    Security Best Practices</em> [[wot-security-best-practices]], and
-            </li>
-            <li>the <em>Web of Things (WoT)
-                    Security Testing Plan</em> [[wot-security-testing-plan]].
-            </li>
-        </ul>
         <p>Overall, the goal is to preserve and support existing
             IoT standards and solutions. In general, W3C WoT is
             designed to describe what exists rather than to prescribe
@@ -278,16 +268,16 @@ a[href].internalDFN {
                 Architecture</a> repository. For feedback on security and
             privacy considerations, please use the <a
                 href="https://github.com/w3c/wot-security/issues">WoT
-                Security and Privacy</a> Issues, as they are cross-cutting
-            over all our documents.
+                Security and Privacy Considerations</a> repository to file issues, 
+               as they are cross-cutting over all our documents.
         </p>
     </section>
     <section id="introduction">
         <h1>Introduction</h1>
         <p>
-            The goals of the "Web of Things" (WoT) are to improve the interoperability 
-            and usability of the Internet of Things (IoT). Through a collaboration 
-            involving many stakeholders over the past years, several building 
+            The goals of the "Web of Things" (WoT) are to improve the interoperability
+            and usability of the Internet of Things (IoT). Through a collaboration
+            involving many stakeholders over the past years, several building
             blocks have been identified that address these challenges.
             The first set of WoT building blocks are now being standardized:
         </p>
@@ -387,7 +377,7 @@ a[href].internalDFN {
             </dt>
             <dd>A digital twin is a virtual representation of a
                 device or a group of devices that resides on a cloud
-                server, edge device, or proxy. It can be used to represent
+                or edge node. It can be used to represent
                 real-world devices which may not be continuously online,
                 or to run simulations of new applications and services,
                 before they get deployed to the real devices.</dd>
@@ -423,8 +413,8 @@ a[href].internalDFN {
             <dt>
                 <dfn>Exposed Thing</dfn>
             </dt>
-            <dd>A software abstraction that represents a locally hosted Thing 
-                that can be accessed over the network by remote Consumers. 
+            <dd>A software abstraction that represents a locally hosted Thing
+                that can be accessed over the network by remote Consumers.
                 The abstraction might be created by a native WoT Runtime,
                 or instantiated as an object through the WoT Scripting API.</dd>
             <dt>
@@ -440,7 +430,7 @@ a[href].internalDFN {
             <dd>
                 Metadata of a Thing that shows and describes the possible choices to Consumers,
                 thereby suggesting how Consumers may interact with the Thing.
-                There are many types of potential affordances, but 
+                There are many types of potential affordances, but
                 W3C WoT defines three types of Interaction Affordances:
                 Properties, Actions, and Events.
                 A fourth Interaction Affordance is navigation, which is already available on the Web through linking.</dd>
@@ -453,7 +443,7 @@ a[href].internalDFN {
             <dt>
                 <dfn>Intermediary</dfn>
             </dt>
-            <dd>An entity between Consumers and Things that can proxy, augment, or compose things
+            <dd>An entity between Consumers and Things that can proxy, augment, or compose Things
                 and republish a WoT Thing Description that points to the WoT Interface on the Intermediary instead of the original Thing.
                 For Consumers, an Intermediary may be indistinguishable from a Thing, following the Layered System constraint of REST.</dd>
             <dt>
@@ -544,7 +534,7 @@ a[href].internalDFN {
             <dt>
                 <dfn>Virtual Thing</dfn>
             </dt>
-            <dd>An instance of a Thing that represents a Thing that is located 
+            <dd>An instance of a Thing that represents a Thing that is located
                 on another system component.</dd>
             <dt>
                 <dfn>WoT Interface</dfn>
@@ -854,7 +844,7 @@ a[href].internalDFN {
             initiator of a transport protocol, and the term 'server roles'
             as a passive component of a transport protocol.
             </p>
-        
+
             <section id="device-controllers">
                 <h3>Device Controllers</h3>
                 <p>
@@ -1179,8 +1169,8 @@ a[href].internalDFN {
                     <li>WoT architecture should allow to use
                         multiple payload formats which are commonly used
                         in the web.</li>
-                    <li>WoT architecture must enable different device 
-                        architectures and must not force a client or server 
+                    <li>WoT architecture must enable different device
+                        architectures and must not force a client or server
                         implementation of system components.</li>
                     <li>Flexibility
                         <p>There are a wide variety of physical
@@ -1233,8 +1223,8 @@ a[href].internalDFN {
                                 output parameters which would cause
                                 certain actuation or calculation.</li>
                             <li>subscribing to, receiving and
-                                unsubscribing to event notifications 
-                                that are more general than just reports 
+                                unsubscribing to event notifications
+                                that are more general than just reports
                                 of state transitions.
                             </li>
                         </ul>
@@ -1362,11 +1352,11 @@ a[href].internalDFN {
                     <li>WoT architecture should allow transparent
                         use of existing IP protocols without
                         translation, which follow RESTful architecture.</li>
-                        
-                    <li>WoT architecture must not enforce client or server 
-                        roles on devices and services. 
-                        An IoT device can be either a client or a server, 
-                        or both, depending on the system architecture; 
+
+                    <li>WoT architecture must not enforce client or server
+                        roles on devices and services.
+                        An IoT device can be either a client or a server,
+                        or both, depending on the system architecture;
                         the same is true of edge and cloud services.
                     </li>
                 </ul>
@@ -1389,7 +1379,7 @@ a[href].internalDFN {
                     such as devices and applications, that access and
                     control those devices, proxies (i.e. gateways and
                     edge devices) that are located between devices.
-                    An additional component useful in some use cases 
+                    An additional component useful in some use cases
                     is the directory, which assists with discovery.</p>
                 <p>Those components are connected to the internet or
                     field networks in offices, factories or other
@@ -1435,9 +1425,9 @@ a[href].internalDFN {
             </section>
             <section>
                 <h3>Applications</h3>
-                <p>Applications need to be able to generate and use network 
+                <p>Applications need to be able to generate and use network
                     and program interfaces based on metadata (descriptions).</p>
-                <p>Applications have to be able to obtain these 
+                <p>Applications have to be able to obtain these
                     descriptions through the network,
                     therefore, need to be able to conduct search
                     operations and acquire the necessary descriptions over the
@@ -1584,7 +1574,7 @@ a[href].internalDFN {
                 However, W3C WoT does not mandate where <a>Things</a> are hosted; it can be on the IoT device directly, an <a>Edge device</a> such as a gateway box, or the cloud.
             </p>
             <p>
-                A typical deployment challenge is that local networks are not reachable from the Internet, usually because of IPv4 NATs or firewalls.
+                A typical deployment challenge is that local networks are not reachable from the Internet, usually because of IPv4 Network Address Translation (NAT) or firewall devices.
                 To remedy this situation, W3C WoT allows for <a>Intermediaries</a> between <a>Things</a> and <a>Consumers</a>.
                 <a>Intermediaries</a> can act as proxies for <a>Things</a>, where the <a>Intermediary</a> has a <a>WoT Thing Description</a> similar to the original <a>Thing</a>,
                 but which points to the <a>WoT Interface</a> provided by the <a>Intermediary</a>.
@@ -1680,7 +1670,7 @@ a[href].internalDFN {
             <p>
                 A Web Thing has four architectural aspects of interest:
                 its behavior, its <a>Interaction Affordances</a>, its security configuration, and its <a>Protocol Bindings</a>,
-				as depicted in <a href="#arch-webthing"></a>. 
+				as depicted in <a href="#arch-webthing"></a>.
                 The behavior aspect of a <a>Thing</a> includes both the autonomous behavior and the handlers for the <a>Interaction Affordances</a>.
                 The <a>Interaction Affordances</a> provide a model of how <a>Consumers</a> can interact with the <a>Thing</a> through abstract operations,
 				but without reference to a specific network protocol or data encoding.
@@ -1706,7 +1696,7 @@ a[href].internalDFN {
                 services, resources became more generic interaction
                 entities that can implement any kind of behavior. This
                 very high level of abstraction makes it hard to provide
-                a loose coupling between applications and resources due to 
+                a loose coupling between applications and resources due to
                 the manifold interaction possibilities. As a result,
                 at the time of writing typical API descriptions consist of a static mapping
                 from an application intent to a resource address,
@@ -1819,9 +1809,12 @@ a[href].internalDFN {
             </p>
             <p>
                 W3C WoT makes use of two kinds of hypermedia controls:
-                Web links [[!RFC8288]] as the well-established control to navigate the Web,
+                Web links [[!RFC8288]], the well-established control to navigate the Web,
                 and Web forms as a more powerful control to enable any kind of operation.
-                The same concept is used in the Constrained RESTful Application Language (CoRAL) defined by the IETF [[?CoRAL]].
+		Links are already used in other IoT standards and <a>IoT platforms</a> such as
+		CoRE Link Format [[?RFC6690]], OMA LWM2M [[?LWM2M]], and OCF [[?OCF]].
+		Form is a new concept that besides W3C WoT is also introduced by the
+		<em>Constrained RESTful Application Language (CoRAL)</em> [[?CoRAL]] defined by the IETF.
             </p>
             <section id="sec-hypermedia-links">
                 <h3>Links</h3>
@@ -1875,7 +1868,8 @@ a[href].internalDFN {
                     and left parts blank to be filled by the <a>Consumers</a> (or Web client in general).
                 </p>
                 <p>
-                    W3C WoT defines forms as new hypermedia control in accordance with the definitions in CoRAL [[?CoRAL]].
+                    W3C WoT defines forms as new hypermedia control.
+		    Note that the definition in CoRAL is virtually identical, and hence compatible [[?CoRAL]].
                     A form is comprised of:
                 </p>
                     <ul>
@@ -2152,18 +2146,18 @@ a[href].internalDFN {
         <section id="sec-WoT-servient-architecture-high-level">
             <h2>WoT System Components and their Interconnectivity</h2>
 
-            <p>Section <a href="#sec-architecture-overview"></a> described the 
-               WoT architecture in terms of the abstract WoT architecture components 
-               such as <a>Things</a>, <a>Consumers</a> and <a>Intermediaries</a>. 
-               When those abstract WoT architecture components are implemented as 
-               a software stack to play an expected role of each in the WoT architecture, 
-               such software stacks are called <a>Servients</a>. 
-               Systems based on WoT architecture involves <a>Servients</a> 
+            <p>Section <a href="#sec-architecture-overview"></a> described the
+               WoT architecture in terms of the abstract WoT architecture components
+               such as <a>Things</a>, <a>Consumers</a> and <a>Intermediaries</a>.
+               When those abstract WoT architecture components are implemented as
+               a software stack to play an expected role of each in the WoT architecture,
+               such software stacks are called <a>Servients</a>.
+               Systems based on WoT architecture involves <a>Servients</a>
                communicating each other to achieve the goals of a system.</p>
 
-            <p>A <a>Thing</a> can be implemented by a <a>Servient</a>. In a <a>Thing</a>, 
-               a <a>Servient</a> software stack provides a representation of 
-               a <a>Thing</a> called <a>Exposed Thing</a>, and makes its <a>WoT Interface</a> 
+            <p>A <a>Thing</a> can be implemented by a <a>Servient</a>. In a <a>Thing</a>,
+               a <a>Servient</a> software stack provides a representation of
+               a <a>Thing</a> called <a>Exposed Thing</a>, and makes its <a>WoT Interface</a>
                available  to <a>Consumers</a> of the <a>Thing</a>.</p>
 
                 <figure id="servient-thing-exposedThing">
@@ -2172,12 +2166,12 @@ a[href].internalDFN {
                     <figcaption>Servient as a Thing</figcaption>
                 </figure>
 
-            <p>On the other hand, <a>Consumers</a> are always implemented by 
-               <a>Servients</a>, as they must be able to process the <a>Thing Description</a> (TD) 
-               format and must have a protocol stack that can be configured through 
+            <p>On the other hand, <a>Consumers</a> are always implemented by
+               <a>Servients</a>, as they must be able to process the <a>Thing Description</a> (TD)
+               format and must have a protocol stack that can be configured through
                <a>Protocol Binding</a> information given the TDs.</p>
-            <p>In a <a>Consumer</a>, a <a>Servient</a> software stack provides 
-               a representation of a <a>Thing</a> called <a>Consumed Thing</a>, 
+            <p>In a <a>Consumer</a>, a <a>Servient</a> software stack provides
+               a representation of a <a>Thing</a> called <a>Consumed Thing</a>,
                and makes it available to those applications running on the <a>Servient</a>
                that need to process TDs to interact <a>Things</a>.</p>
 
@@ -2187,17 +2181,17 @@ a[href].internalDFN {
                     <figcaption>Servient as a Consumer</figcaption>
                 </figure>
 
-            <p>A <a>Consumed Thing</a> instantiated by the <a>Servient</a> software stack serves 
-               to abstract the protocol level complexity away from applications, 
+            <p>A <a>Consumed Thing</a> instantiated by the <a>Servient</a> software stack serves
+               to abstract the protocol level complexity away from applications,
                communicating with <a>Exposed Things</a> on the application's behalf.</p>
 
-            <p>Similarly, an <a>Intermediary</a> is yet another WoT 
+            <p>Similarly, an <a>Intermediary</a> is yet another WoT
                architecture component implemented by a <a>Servient</a>.
-               An <a>Intermediary</a> sits between a <a>Thing</a> and its <a>Consumers</a>, 
-               playing itself dual roles of both a <a>Consumer</a> (to the Thing) 
-               and a <a>Thing</a> (to the Consumers). 
-               In an <a>Intermediary</a>, a <a>Servient</a> software stack provides 
-               the representations of both a <a>Consumer</a> (<a>Consumed Thing</a>) 
+               An <a>Intermediary</a> sits between a <a>Thing</a> and its <a>Consumers</a>,
+               playing itself dual roles of both a <a>Consumer</a> (to the Thing)
+               and a <a>Thing</a> (to the Consumers).
+               In an <a>Intermediary</a>, a <a>Servient</a> software stack provides
+               the representations of both a <a>Consumer</a> (<a>Consumed Thing</a>)
                and a <a>Thing</a> (<a>Exposed Thing</a>).</p>
 
                 <figure id="servient-intermediary">
@@ -2206,9 +2200,9 @@ a[href].internalDFN {
                     <figcaption>Servient as an Intermediary</figcaption>
                 </figure>
 
-            <p>This section illustrates using system configuration diagrams 
-               how <a>Servients</a> being WoT system components with software objects 
-               <a>Exposed Things</a> and <a>Consumed Things</a> work together 
+            <p>This section illustrates using system configuration diagrams
+               how <a>Servients</a> being WoT system components with software objects
+               <a>Exposed Things</a> and <a>Consumed Things</a> work together
                make systems based on WoT architecture.</p>
 
             <section>
@@ -2216,8 +2210,8 @@ a[href].internalDFN {
                 <p>
                     <a href="#high-level-application-device"></a> shows
                     direct communication between a <a>Thing</a>, which is
-                    exposing <a>Interaction Affordances</a> through <a>Thing Descriptions</a>, 
-                    and a <a>Consumer</a> that uses the <a>Thing</a> by means of 
+                    exposing <a>Interaction Affordances</a> through <a>Thing Descriptions</a>,
+                    and a <a>Consumer</a> that uses the <a>Thing</a> by means of
                     the <a>Interaction Affordances</a>.
                     Direct communication applies when both <a>Servients</a>
                     use the same network protocol(s) and are accessible
@@ -2231,27 +2225,27 @@ a[href].internalDFN {
                         Consumer and Thing</figcaption>
                 </figure>
 
-                <p>An <a>Exposed Thing</a> is the software representation of 
+                <p>An <a>Exposed Thing</a> is the software representation of
                    a <a>Thing</a> abstraction, serving a <a>WoT Interface</a>
                    of the <a>Interaction Affordances</a> provided by the <a>Thing</a>.</p>
 
-                <p>A <a>Consumed Thing</a> is the software representation of 
-                   a remote <a>Thing</a> being consumed by a <a>Consumer</a>, serving as 
+                <p>A <a>Consumed Thing</a> is the software representation of
+                   a remote <a>Thing</a> being consumed by a <a>Consumer</a>, serving as
                    the interface to the remote <a>Thing</a> for the applications.
-                   A <a>Consumer</a> can generate a <a>Consumed Thing</a> instance 
+                   A <a>Consumer</a> can generate a <a>Consumed Thing</a> instance
                    by processing a <a>Thing Description</a>.
                    Interactions between a <a>Consumer</a> and a <a>Thing</a>
-                   are performed by the <a>Consumed Thing</a> and the <a>Exposed Thing</a> 
+                   are performed by the <a>Consumed Thing</a> and the <a>Exposed Thing</a>
                    exchanging messages over a direct network connection between them.</p>
             </section>
             <section>
                 <h3>Indirect Communication</h3>
 
                 <p>
-                    In <a href="#high-level-application-proxy-device-new"></a>, 
+                    In <a href="#high-level-application-proxy-device-new"></a>,
                     a <a>Consumer</a> and a <a>Thing</a> connect to each other
-                    via an <a>Intermediary</a>. An <a>Intermediary</a> is required 
-                    if the <a>Servients</a> use different protocols 
+                    via an <a>Intermediary</a>. An <a>Intermediary</a> is required
+                    if the <a>Servients</a> use different protocols
                     or if they are on different networks that require
                     authentication and provide access control (e.g.
                     firewalls).
@@ -2264,16 +2258,16 @@ a[href].internalDFN {
                         with Intermediary</figcaption>
                 </figure>
 
-                <p>An <a>Intermediary</a> combines <a>Exposed Thing</a> and 
-                   <a>Consumed Thing</a> functionality. The functionality of 
-                   <a>Intermediaries</a> includes relaying messages for the 
-                   interactions between a <a>Consumer</a> and a <a>Thing</a>, 
-                   caching the <a>Thing</a>'s data for faster response, and 
-                   transforming communication when the functionality of the 
+                <p>An <a>Intermediary</a> combines <a>Exposed Thing</a> and
+                   <a>Consumed Thing</a> functionality. The functionality of
+                   <a>Intermediaries</a> includes relaying messages for the
+                   interactions between a <a>Consumer</a> and a <a>Thing</a>,
+                   caching the <a>Thing</a>'s data for faster response, and
+                   transforming communication when the functionality of the
                    <a>Thing</a> is extended by the <a>Intermediary</a>.
-                   In an <a>Intermediary</a>, a <a>Consumed Thing</a> creates 
-                   a proxy object of the <a>Exposed Thing</a> of a <a>Thing</a>, 
-                   and a <a>Consumer</a> can access the proxy object through 
+                   In an <a>Intermediary</a>, a <a>Consumed Thing</a> creates
+                   a proxy object of the <a>Exposed Thing</a> of a <a>Thing</a>,
+                   and a <a>Consumer</a> can access the proxy object through
                    the <a>Exposed Thing</a> of the <a>Intermediary</a>.</p>
 
                 <p>The <a>Exposed Thing</a> and <a>Consumed Thing</a> of an <a>Intermediary</a> can
@@ -2288,13 +2282,13 @@ a[href].internalDFN {
                     needs to handle a single authentication method even
                     when the <a>Exposed Things</a> of the multiple <a>Things</a> connected to an <a>Intermediary</a> use                    different authentication methods.</p>
 
-                <p>Given the <a>Thing Description</a> (TD) of a <a>Thing</a>, 
-                   an <a>Intermediary</a> creates a <a>Consumed Thing</a> and 
-                   a proxy object for the <a>Exposed Thing</a> of the <a>Thing</a>, 
+                <p>Given the <a>Thing Description</a> (TD) of a <a>Thing</a>,
+                   an <a>Intermediary</a> creates a <a>Consumed Thing</a> and
+                   a proxy object for the <a>Exposed Thing</a> of the <a>Thing</a>,
                    generates another TD for the proxy object.
-                   The TD for the proxy object may either use the identifier 
-                   same as the one in the <a>Thing</a>'s TD, or be assigned 
-                   an identifier different from the <a>Thing</a>'s, depending 
+                   The TD for the proxy object may either use the identifier
+                   same as the one in the <a>Thing</a>'s TD, or be assigned
+                   an identifier different from the <a>Thing</a>'s, depending
                    on the requirements of the use cases.
                    <span class="rfc2119-assertion" id="arch-intermediary-td-extra-protocols">The 
                    TD generated by an <a>Intermediary</a> MAY contain 
@@ -2302,10 +2296,10 @@ a[href].internalDFN {
                    </span>
                    </p>
 
-                   <p>An <a>Intermediary</a> then creates an <a>Exposed Thing</a> 
-                   that serves as a bridge to the <a>Thing</a>. A <a>Consumer</a> 
-                   communicates with a device via an <a>Intermediary</a> through 
-                   a <a>Consumed Thing</a> that conforms to the TD for the proxy 
+                   <p>An <a>Intermediary</a> then creates an <a>Exposed Thing</a>
+                   that serves as a bridge to the <a>Thing</a>. A <a>Consumer</a>
+                   communicates with a device via an <a>Intermediary</a> through
+                   a <a>Consumed Thing</a> that conforms to the TD for the proxy
                    object.</p>
             </section>
         </section>
@@ -2325,23 +2319,23 @@ a[href].internalDFN {
         <p> The WoT Building Blocks support each of the architectural
             aspects of a <a>Thing</a> discussed in <a href="#sec-web-thing"></a>
             and diagrammed in <a href="#arch-webthing"></a>. The building
-            blocks themselves are shown in the context of an abstract <a>Thing</a> in 
+            blocks themselves are shown in the context of an abstract <a>Thing</a> in
             <a href="#arch-building-blocks"></a>. This is an abstract
             view and is not meant to represent any particular
-            implementation; instead it is meant to illustrate the  
+            implementation; instead it is meant to illustrate the
             relationship between the building blocks and the main
-            architectural aspects of a <a>Thing</a>. 
+            architectural aspects of a <a>Thing</a>.
             In this figure the WoT Building Blocks
             are highlighted with black outlines.
-            Security, a cross-cutting concern, 
-            is separated into public and protected private components. 
+            Security, a cross-cutting concern,
+            is separated into public and protected private components.
             The <a>WoT Scripting API</a> is optional and the
             <a>Binding Templates</a> are informative.
         </p>
         <figure id="arch-building-blocks">
-            <img src="images/wot-building-blocks-abstract.png" 
+            <img src="images/wot-building-blocks-abstract.png"
                  style="width: 640px;" />
-            <figcaption>Relationship of WoT Building Blocks 
+            <figcaption>Relationship of WoT Building Blocks
             to the Architectural Aspects of a Thing.</figcaption>
         </figure>
         <p> The <a>WoT Thing Description</a> (TD) contains metadata describing the
@@ -2418,7 +2412,7 @@ a[href].internalDFN {
                 processing, implementations may choose to make use of
                 JSON-LD [[?JSON-LD11]] and graph databases to enable
                 powerful semantic processing of the metadata.
-            </p> 
+            </p>
             <p> A <a>Thing Description</a> (TD) describes <a>Thing</a>
                 instances with general metadata such as name, ID,
                 descriptions, and also can provide relation metadata
@@ -2482,9 +2476,9 @@ a[href].internalDFN {
             </p>
             <p> The non-normative <a>WoT Binding Templates</a> document
                 [[?wot-binding-templates]] provides a collection of
-                communication metadata blueprints that provide guidance on 
-                how to interact with different <a>IoT platforms</a>. 
-                When describing a particular IoT device or service, 
+                communication metadata blueprints that provide guidance on
+                how to interact with different <a>IoT platforms</a>.
+                When describing a particular IoT device or service,
                 the <a>Binding Template</a> for the corresponding <a>IoT Platform</a>
                 can be used to look up the communication metadata that
                 must be provided in the <a>Thing Description</a> to
@@ -2604,12 +2598,9 @@ a[href].internalDFN {
                 <a>WoT Scripting API</a>. The documents defining each building
                 block also include a discussion of particular security
                 and privacy considerations for each building block.
-                Another set of documents, the WoT Security and Privacy
-                Considerations [[?wot-security]], the WoT
-                Security Best Practices
-                [[?wot-security-best-practices]], and the WoT Security
-                Testing Plan [[?wot-security-testing-plan]], provide
-                additional non-normative security and privacy guidance.
+                Another document, the 
+                <em>WoT Security and Privacy Considerations</em> [[?wot-security]], 
+                provides additional non-normative security and privacy guidance.
             </p>
         </section>
     </section>
@@ -2744,7 +2735,7 @@ a[href].internalDFN {
                 These software representations provide the interface toward the behavior implementation.
             </p>
             <p>
-                The <a>Exposed Thing</a> abstraction represents a <a>Thing</a> hosted locally 
+                The <a>Exposed Thing</a> abstraction represents a <a>Thing</a> hosted locally
                 and accessible from the outside through the protocol stack implementation of the <a>Servient</a>.
                 The behavior implementation can fully control <a>Exposed Things</a> by defining their metadata and <a>Interaction Affordances</a>,
                 and providing their autonomous behavior.
@@ -2790,7 +2781,7 @@ a[href].internalDFN {
                 The protocol stack of a <a>Servient</a> implements the <a>WoT Interface</a> of the <a>Exposed Things</a>
                 and is used by <a>Consumers</a> to access the <a>WoT Interface</a> of remote <a>Things</a> (via <a>Consumed Things</a>).
                 It produces the concrete protocol messages to interact over the network.
-                <a>Servients</a> may implement multiple protocols, and hence support multiple <a>Protocol Bindings</a> to enable interaction with different <a>IoT Platforms</a>. 
+                <a>Servients</a> may implement multiple protocols, and hence support multiple <a>Protocol Bindings</a> to enable interaction with different <a>IoT Platforms</a>.
             </p>
             <p> In many cases, where standard protocols are used,
                 generic protocol stacks can be used to produce the
@@ -2861,11 +2852,11 @@ a[href].internalDFN {
                 <p>
                     There are various reasons why a developer may choose
                     to implement a <a>Servient</a> without using the <a>WoT
-                        Scripting API</a>. This may be due to insufficient 
+                        Scripting API</a>. This may be due to insufficient
                     memory or computing resources, so the developer cannot use
                     the required software stack or a fully-featured scripting
                     engine. Alternatively, to support their use case (for
-                    example, a proprietary communications protocol) 
+                    example, a proprietary communications protocol)
                     the developer may have to use
                     specific functions or libraries only available
                     through a particular programming environment or
@@ -2873,7 +2864,7 @@ a[href].internalDFN {
                 </p>
                 <p>
                     In this case, a <a>WoT Runtime</a> can still be
-                    used, but with the equivalent abstraction and functionality 
+                    used, but with the equivalent abstraction and functionality
                     exposed using an alternative WoT API instead of through
                     the <a>WoT Scripting API</a>.
                 </p>
@@ -2894,9 +2885,9 @@ a[href].internalDFN {
                     metadata provided in another ecosystem-dependent machine-readable format.
                     This can only be done however if the target device
                     is using protocols that can be described using WoT <a>Protocol
-                    Bindings</a>.  Protocols need to satisfy the requirements 
+                    Bindings</a>.  Protocols need to satisfy the requirements
                     for such a binding, for example by having resources that can
-                    be identified with URIs. 
+                    be identified with URIs.
                     Much of the previous discussion also implies that a <a>Thing</a>
                     provides its own <a>Thing Description</a>.  While this
                     is a useful pattern it is not mandatory.
@@ -2905,7 +2896,7 @@ a[href].internalDFN {
                     own <a>Thing Description</a> directly.  In this case the
                     <a>Thing Description</a> will have to be provided
                     separately using a service such as a directory
-                    or some other external and separate distribution mechanism. 
+                    or some other external and separate distribution mechanism.
                 </p>
                 <figure id="architecture-implementation-existing">
                     <img src="images/wot-thing-existing.png" style="width: 80%;" />
@@ -2919,64 +2910,64 @@ a[href].internalDFN {
         <h1>WoT Deployments</h1>
 
         <p> This section discusses how the Web of Things as a whole works
-            when <a>Things</a> and <a>Consumers</a> implemented as devices and services are 
+            when <a>Things</a> and <a>Consumers</a> implemented as devices and services are
             connected together in various topologies and deployment scenarios.
         </p>
         <p>
             Before discussing specific topologies, we will
             first review the roles that <a>Things</a> and <a>Consumers</a> can
-            play in a WoT network and the relationships they have with the 
+            play in a WoT network and the relationships they have with the
             <a>Exposed Thing</a> and <a>Consumed Thing</a> software abstractions.
-            <a>Exposed Thing</a> and <a>Consumed Thing</a> are internally available 
-            to the behavior implementations of <a>Servients</a> 
+            <a>Exposed Thing</a> and <a>Consumed Thing</a> are internally available
+            to the behavior implementations of <a>Servients</a>
             in the roles of <a>Things</a> and <a>Consumers</a>, respectively.
         </p>
 
         <section id="sec-client-server-roles">
             <h2>Thing and Consumer Roles</h2>
-            <p> A <a>Servient</a> in the role of a <a>Thing</a> creates an 
+            <p> A <a>Servient</a> in the role of a <a>Thing</a> creates an
                 <a>Exposed Thing</a> based on a <a>Thing Description</a> (TD).
                 TDs are published and made available to other <a>Servients</a>
                 that are in the roles of <a>Consumers</a> or <a>Intermediaries</a>.
                 Publications of TDs may be done in various different ways: the TD
-                might be registered with a management system such as 
+                might be registered with a management system such as
                 the <a>Thing Directory</a> service, or a <a>Thing</a>
                 may provide the requesters with a TD upon receiving a request for a TD.
-                It is even possible to statically associate a TD with <a>Thing</a> 
+                It is even possible to statically associate a TD with <a>Thing</a>
                 in certain application scenarios.
             </p>
-            <p> A <a>Servient</a> in the role of a <a>Consumer</a> obtains the TD of a <a>Thing</a> 
+            <p> A <a>Servient</a> in the role of a <a>Consumer</a> obtains the TD of a <a>Thing</a>
                 using a discovery mechanism implemented in the individual deployment scenarios
-                (such as a management system such as <a>Thing Directory</a>, discovery protocol, 
+                (such as a management system such as <a>Thing Directory</a>, discovery protocol,
                  static assignment, etc. as stated above)
-                and creates a <a>Consumed Thing</a> based on the obtained TD. 
+                and creates a <a>Consumed Thing</a> based on the obtained TD.
                 Internal system functions of a device such as attached sensors and actuators
                 can also optionally be represented as <a>Consumed Thing</a> abstractions.
             </p>
-            <p>The functions supported by the <a>Consumed Thing</a> are provided internally 
-               to the <a>Consumer</a>'s behavior implementation through a programming language 
-               interface. In the <a>WoT Scripting API</a>, <a>Consumed Things</a> 
+            <p>The functions supported by the <a>Consumed Thing</a> are provided internally
+               to the <a>Consumer</a>'s behavior implementation through a programming language
+               interface. In the <a>WoT Scripting API</a>, <a>Consumed Things</a>
                are represented by objects.
-               The behavior implementation (that is, the application logic) running in 
-               a <a>Thing</a> can engage in interactions with <a>Consumers</a> by using 
+               The behavior implementation (that is, the application logic) running in
+               a <a>Thing</a> can engage in interactions with <a>Consumers</a> by using
                the programming language interface provided by the <a>Exposed Thing</a>.
             </p>
-            <p> A <a>Thing</a> may not necessarily represent a physical device. 
-                <a>Things</a> can also represent a collection of devices, or virtual services 
+            <p> A <a>Thing</a> may not necessarily represent a physical device.
+                <a>Things</a> can also represent a collection of devices, or virtual services
                 running in a gateway or in the cloud.
-                Likewise, a <a>Consumer</a> may or may not represent 
+                Likewise, a <a>Consumer</a> may or may not represent
                 an application service running on a gateway or cloud.
                 <a>Consumers</a> can also be implemented on edge devices.
                 In <a>Intermediaries</a>, a single <a>Servient</a>
-                simultaneously performs both the roles of a <a>Thing</a> and a <a>Consumer</a> 
+                simultaneously performs both the roles of a <a>Thing</a> and a <a>Consumer</a>
                 sharing a single <a>WoT Runtime</a>.
             </p>
         </section>
         <section id="sec-topologies-deployment-scenarios">
             <h2>WoT System's Topologies and Deployment Scenarios</h2>
             <p>Various topologies and deployment scenarios of WoT systems are discussed in this section.
-            These are only example patterns. Other interconnection topologies are also possible. 
-            The interconnection topologies described here are derived from the Web of Things use cases 
+            These are only example patterns. Other interconnection topologies are also possible.
+            The interconnection topologies described here are derived from the Web of Things use cases
             (<a href="#sec-use-cases"></a>)
             as well as the technical requirements extracted from them
             (<a href="#sec-requirements"></a>).
@@ -2987,19 +2978,19 @@ a[href].internalDFN {
                 the <a>Consumer</a> and <a>Thing</a> are on the same network and can communicate
                 directly with each other without any intermediaries.
                 One use case where this topology arises is when the <a>Consumer</a> is an orchestration
-                service or some other IoT application running on a gateway and the <a>Thing</a> is a device interfacing to 
+                service or some other IoT application running on a gateway and the <a>Thing</a> is a device interfacing to
                 a sensor or an actuator.  However, the client/server relationship could easily be reversed;
                 the client could be a device in the <a>Consumer</a> role accessing
                 a service running as a <a>Thing</a> on a gateway or in the cloud.
             </p>
             <figure id="simple-conf-application-device">
-                <img src="images/deployments/arch-simple-conf-consumer-thing.png" 
+                <img src="images/deployments/arch-simple-conf-consumer-thing.png"
                      style="width: 640px;"/>
                 <figcaption>Consumer and Thing on the Same Network</figcaption>
             </figure>
             <p> If the <a>Thing</a> is in the cloud and the <a>Consumer</a> is on a local network
-                (see <a href="#smart-home"></a> for an example in a Smart Home use case) the actual network topology may be more complex, 
-                for example requiring NAT traversal and disallowing certain forms of discovery.  
+                (see <a href="#smart-home"></a> for an example in a Smart Home use case) the actual network topology may be more complex,
+                for example requiring NAT traversal and disallowing certain forms of discovery.
                 In such cases one of the more complex
                 topologies discussed later may be more appropriate.
             </p>
@@ -3009,12 +3000,12 @@ a[href].internalDFN {
             <p> A <a>Intermediary</a> plays both <a>Thing</a> and
                 <a>Consumer</a> roles on the network and supports
                 both the <a>Exposed Thing</a> and <a>Consumed Thing</a>
-                software abstractions within its <a>WoT Runtime</a>. 
+                software abstractions within its <a>WoT Runtime</a>.
             </p>
-            <p> One simple application of a <a>Intermediary</a> is as a proxy.  
-                When functioning as a proxy,
+            <p> One simple application of a <a>Intermediary</a> is as a Thing proxy.
+                When functioning as a Thing proxy,
                 the <a>Intermediary</a> generally interfaces with two separate
-                networks or protocols.  This may involve 
+                networks or protocols.  This may involve
                 the implementation of additional security mechanisms
                 such as providing TLS endpoints.  Generally proxies
                 do not modify the set of interactions so the TD exposed
@@ -3022,10 +3013,10 @@ a[href].internalDFN {
                 as the consumed TD but with the connection metadata modified.
             </p>
             <p> To implement this pattern, the proxy <a>Intermediary</a> obtains a TD
-                of a <a>Thing</a> and creates a <a>Consumed Thing</a>. 
+                of a <a>Thing</a> and creates a <a>Consumed Thing</a>.
                 It creates a proxy object of the <a>Thing</a> as a software
                 implementation that has the same <a>Interaction Affordances</a>.
-                It then creates a TD for the proxy object with a new identifier 
+                It then creates a TD for the proxy object with a new identifier
                 and possibly with new communications metadata (protocol bindings)
                 and/or new public security configuration metadata.
                 Finally, an <a>Exposed Thing</a> is
@@ -3042,20 +3033,20 @@ a[href].internalDFN {
             <p> More complex <a>Intermediaries</a> may be known as <a>digital twins</a>.
                 A <a>digital twins</a> may or may not modify the protocols or
                 translate between networks, but they provide additional
-                services, such as state caching, deferred updates, 
+                services, such as state caching, deferred updates,
                 or even predictive simulation of the behavior of the target device.
-                For example, if an IoT device has limited power, it 
+                For example, if an IoT device has limited power, it
                 may choose to wake up relatively infrequently, synchronize
                 with a <a>digital twins</a>, and then immediately go to sleep again.
                 In this case, assume the <a>digital twins</a> runs on a less power-constrained
-                device (such as in the cloud or on a gateway) 
-                and is able to respond to interactions on the 
+                device (such as in the cloud or on a gateway)
+                and is able to respond to interactions on the
                 constrained device's behalf.
                 Requests for the current state of properties
                 may also be satisfied by the <a>digital twins</a> using cached state.
                 Requests that arrive when the target IoT device is sleeping
                 may be queued and sent to it when it wakes up.
-                One complication with implementing this pattern is that the 
+                One complication with implementing this pattern is that the
                 <a>Intermediary</a> that is a <a>digital twins</a> needs to know when the device is awake where
                 the device is implemented as a <a>Thing</a>.  The actual implementation
                 may needs to be augmented with a notification mechanism (which could
@@ -3070,35 +3061,35 @@ a[href].internalDFN {
             <p> In Smart Home use cases, devices (sensors and home appliances)
                 connected to a home network are often
                 monitored and, in some cases, also controlled by cloud
-                services. There is usually a NAT-gateway between the home
+                services. There is usually a NAT device between the home
                 network to which the devices are connected and the cloud.
-                The NAT-gateway translates IP addresses as well as often providing
+                The NAT device translates IP addresses as well as often providing
                 firewall services, which block connections selectively.
                 The local devices and cloud services can only communicate
                 with each other if the communication can successfully
-                traverse the gateway. 
+                traverse the gateway.
             </p>
             <p> A typical structure,
                 adopted in ITU-T Recommendation Y.2070 [[?Y.2070]] ,
                 is shown in <a href="#deployment-cloud-device"></a>.
                 In this structure there is both a local and a remote <a>Intermediary</a>.
                 The local <a>Intermediary</a> aggregates the <a>Interaction Affordances</a> from multiple
-                <a>Thing</a> into a (set of) <a>Exposed Things</a>, 
-                which can all be mapped onto a common protocol 
+                <a>Thing</a> into a (set of) <a>Exposed Things</a>,
+                which can all be mapped onto a common protocol
                 (for example, HTTP, with all interactions mapped to a single
                 URL namespace with a common base server and using a single port).
                 This provides the remote <a>Intermediary</a> with a simple way to
-                access all the <a>Things</a> behind the NAT-gateway,
+                access all the <a>Things</a> behind the NAT device,
                 assuming the local <a>Intermediary</a>
-                has used a converged protocol that can traverse the NAT-gateway
+                has used a converged protocol that can traverse the NAT device
                 and has some way to expose this service to the Internet (STUN, TURN, DyDNS, etc).
-                In addition, the local <a>Intermediary</a> can function as a proxy, so
+                In addition, the local <a>Intermediary</a> can function as a Thing proxy, so
                 even when the connected <a>Things</a> each use a different
                 protocol (HTTP, MQTT, CoAP, etc.) and/or a different set of
                 ecosystem conventions, the
                 <a>Exposed Thing</a> can converge them into a single protocol so
                 that <a>Consumers</a> do not need to be aware of the various
-                protocols the <a>Things</a> use.  
+                protocols the <a>Things</a> use.
             </p>
             <p> In <a href=#deployment-cloud-device></a>, there are two
                 clients connected to the remote <a>Intermediary</a>, which
@@ -3106,12 +3097,12 @@ a[href].internalDFN {
                 provide additional protocol translation or security services.
                 In particular, the local <a>Intermediary</a> may be on a network
                 with limited capacity and making that service directly available to all
-                users may not be feasible.  In this case access to the local 
+                users may not be feasible.  In this case access to the local
                 <a>Intermediary</a> is <em>only</em> provided to the remote <a>Intermediary</a>.
                 The remote <a>Intermediary</a> then implements a more general access
                 control mechanism and may also perform caching or throttling to
                 protect the consumer from excess traffic.
-                Those consumers also will use a 
+                Those consumers also will use a
                 single protocol suitable for the open Internet (e.g. HTTPS) to communicate with the
                 <a>Intermediary</a>, which makes the development of clients much
                 simpler.
@@ -3131,24 +3122,24 @@ a[href].internalDFN {
             </figure>
             <p> In more difficult cases the NAT and firewall traversal may not work exactly as
                 shown. In particular, an ISP may not support publicly accessible addresses,
-                or STUN/TURN and/or DyDNS may not be supported or available.  
+                or STUN/TURN and/or DyDNS may not be supported or available.
                 In this case the <a>Intermediaries</a>
                 may alternative reverse the client/server roles between them to set up an initial
                 connection (with the local <a>Intermediary</a> first connecting to the remote <a>Intermediary</a>
                 in the cloud), then the pair of <a>Intermediaries</a>
                 may establish a tunnel (using for example, a Secure Web Socket, which uses TLS
                 to protect the connection).
-                The tunnel can then be used to encode all communications between the 
-                <a>Intermediaries</a> using a custom protocol.  
+                The tunnel can then be used to encode all communications between the
+                <a>Intermediaries</a> using a custom protocol.
                 In this case the initial connection can still be made over HTTPS using standard
                 ports, and from the local <a>Intermediary</a> to the remote <a>Intermediary</a> identically
-                to a normal browser/web server interaction.  
+                to a normal browser/web server interaction.
                 This should be able to traverse most home firewalls, and since the connection
-                is outgoing, network address translation will not cause any problems.  
-                However, even though a custom tunneling protocol is needed, the 
+                is outgoing, network address translation will not cause any problems.
+                However, even though a custom tunneling protocol is needed, the
                 remote <a>Intermediary</a> can still translate this custom protocol back into
                 standard external protocols.  The connected <a>Consumers</a> and <a>Things</a>
-                do not need to know about it.  
+                do not need to know about it.
                 It is also possible to extend this example to use cases where both <a>Things</a>
                 and <a>Consumers</a> can connect on either side of the NAT boundary.
                 This however also requires a bidirectional tunnel to be established between
@@ -3159,7 +3150,7 @@ a[href].internalDFN {
             <h2>Discovery Using a Thing Directory</h2>
 <!-- "application" and "device" are used intentionally here instead of client or server, since they
      might be either! -->
-            <p> Once local devices (and possibly services) 
+            <p> Once local devices (and possibly services)
                 can be monitored or controlled by services
                 on cloud, a variety of additional services can be built on top.
                 For example, a cloud application could change a device's
@@ -3175,7 +3166,7 @@ a[href].internalDFN {
                 available to the cloud applications,
                 their metadata
                 can be registered with a <a>Thing Directory</a> service.
-                This metadata is specifically the TDs of the local devices modified to 
+                This metadata is specifically the TDs of the local devices modified to
                 reflect the security configuration and communication metadata
                 provided by the remote <a>Intermediary</a>.
                 A client application then can obtain the metadata
@@ -3190,12 +3181,13 @@ a[href].internalDFN {
             <p> In more complex situations, not shown in the figure, there
                 may also be cloud services that act as <a>Things</a>.
                 These can also register themselves with the <a>Thing Directory</a>.
-                Since a <a>Thing Directory</a> is a web service, it should be visible
-                to the local devices through the NAT/firewall 
+                Since a <a>Thing Directory</a> is a Web service, it should be visible
+                to the local devices through the NAT or firewall device
                 and its interface can even be provided with its own TD.  
                 Local devices acting as <a>Consumers</a> can then
-                connect to the <a>Thing Directory</a> either directly or via the local
-                <a>Intermediary</a> if proxying (e.g. protocol translation) is needed.
+                discover the <a>Things</a> in the cloud via the <a>Thing Directory</a>
+                and connect to the <a>Things</a> directly or via the local
+                <a>Intermediary</a> if, for instance, protocol translation is needed.
             </p>
         </section>
         <section id="sec-deployment-service-to-service-rm">
@@ -3206,12 +3198,12 @@ a[href].internalDFN {
                 discussed structure of a cloud application eco-system,
                 the figure below shows two eco-systems connected to each
                 other to make a system-of-systems. Consider the case in
-                which a client in one eco-system (i.e. <a>Consumer</a> A 
-                below) needs to use a server in another eco-system 
-                (i.e. <a>Thing</a> B below). 
+                which a client in one eco-system (i.e. <a>Consumer</a> A
+                below) needs to use a server in another eco-system
+                (i.e. <a>Thing</a> B below).
                 There is more than one mechanism to
                 achieve this cross eco-systems application-device
-                integration. 
+                integration.
                 Below, two mechanisms are
                 explained, each using a figure, to show how this can be achieved.</p>
             <section id="sec-deployment-service-to-service-rm-synchronized">
@@ -3222,7 +3214,7 @@ a[href].internalDFN {
                     for <a>Consumer</a> A to obtain the information of
                     <a>Thing</a> B through <a>Thing Directory</a> A. As described in
                     previous sections, remote <a>Intermediary</a> B maintains a shadow
-                    implementation of <a>Thing</a> B. 
+                    implementation of <a>Thing</a> B.
                     By obtaining the TD of this shadow
                     device, <a>Consumer</a> A is able to use <a>Thing</a> B through the
                     remote <a>Intermediary</a> B.
@@ -3242,7 +3234,7 @@ a[href].internalDFN {
                     simultaneously synchronized into remote <a>Intermediary</a> A.
                     Remote <a>Intermediary</a> A in turn creates its own shadow of
                     <a>Thing</a> B, and registers the TD with <a>Thing Directory</a>
-                    A. With this mechanism, synchronization between 
+                    A. With this mechanism, synchronization between
                     <a>Thing Directories</a> is not necessary.
                 </p>
                 <figure id="deployment-service-sync-proxy">
@@ -3265,13 +3257,8 @@ a[href].internalDFN {
             summarizes some general issues and guidelines to help
             preserve the security and privacy of WoT implementations.
             For a more detailed and complete analysis of security and
-            privacy threats, risks, mitigations, and best practices, see
-            the WoT Security and Privacy Considerations
-            [[?wot-security]] and the WoT Security Best
-            Practices [[?wot-security-best-practices]] documents.
-            Guidelines for the security testing of WoT implementations,
-            including adversarial testing, are given in the WoT Security
-            Testing Plan [[?wot-security-testing-plan]].
+            privacy issues, see the <em>WoT Security and Privacy Considerations</em>
+            [[?wot-security]] document.
         </p>
         <p>Overall, the goal of the WoT is to describe the existing
             access mechanisms and properties of IoT devices and
@@ -3340,7 +3327,7 @@ a[href].internalDFN {
                 </p>
                 <dl>
                     <dt>Mitigation:</dt>
-                    <dd>Creators of TDs and extensions meant to be used in TDs 
+                    <dd>Creators of TDs and extensions meant to be used in TDs
                         must ensure that no private
                         security data is ever stored in TDs.</dd>
                 </dl>
@@ -3367,7 +3354,7 @@ a[href].internalDFN {
                     only be cached for limited times, should be deleted
                     upon request, should only be used for the purpose
                     for which they were provided with user consent, and
-                    they should otherwise satisfy local requirements 
+                    they should otherwise satisfy local requirements
                     (including any legal requirements) for
                     the use of PII.</p>
                 <dl>
@@ -3455,8 +3442,8 @@ a[href].internalDFN {
                         using platform security mechanisms available on
                         the device. For more information see Sections
                         "WoT Servient Single-Tenant" and "WoT Servient
-                        Multi-Tenant" of
-                        [[wot-security]].
+                        Multi-Tenant" of the <em>WoT Security and Privacy
+                        Considerations</em> document [[wot-security]].
                     </dd>
                 </dl>
             </section>
@@ -3515,7 +3502,8 @@ a[href].internalDFN {
                         related data should be done in a secure fashion.
                         A set of recommendations for secure update and
                         post-manufacturing provisioning can be found in
-                        [[wot-security]].
+                        the <em>WoT Security and Privacy Considerations</em>
+                        document [[wot-security]].
                     </dd>
                 </dl>
             </section>
@@ -3527,8 +3515,8 @@ a[href].internalDFN {
                     security credentials that are provisioned to a WoT
                     device to operate in a network. If an attacker can
                     compromise the confidentiality or integrity of these
-                    credentials, then it can obtain access to 
-                    assets, impersonate other WoT Things, devices, or services, 
+                    credentials, then it can obtain access to
+                    assets, impersonate other WoT Things, devices, or services,
                     or launch
                     Denial-Of-Service (DoS) attacks.
                 </p>
@@ -3563,10 +3551,10 @@ a[href].internalDFN {
             of Things Interest Group (WoT IG) and Working Group (WoT WG) for their
             technical input and suggestions that led to improvements to
             this document.</p>
-        <p>The WoT WG also would like to appreciate the pioneering efforts 
-           regarding the concept of "Web of Things" that started as an academic 
-           initiative in the form of publications such as [[?wot-pioneers-1]] [[?wot-pioneers-2]] 
-           [[?wot-pioneers-3]] [[?wot-pioneers-4]] and, starting 
+        <p>The WoT WG also would like to appreciate the pioneering efforts
+           regarding the concept of "Web of Things" that started as an academic
+           initiative in the form of publications such as [[?wot-pioneers-1]] [[?wot-pioneers-2]]
+           [[?wot-pioneers-3]] [[?wot-pioneers-4]] and, starting
            in 2010, a yearly <a href="https://webofthings.org/events/wot/">
            International Workshop on the Web of Things</a>.</p>
     </section>
