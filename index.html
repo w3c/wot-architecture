@@ -2318,11 +2318,11 @@ a[href].internalDFN {
         </p>
         <p> The WoT Building Blocks support each of the architectural
             aspects of a <a>Thing</a> discussed in <a href="#sec-web-thing"></a>
-            and diagrammed in <a href="#arch-webthing"></a>. The building
-            blocks themselves are shown in the context of an abstract <a>Thing</a> in
+            and depicted in <a href="#arch-webthing"></a>. The individual building
+            blocks are shown in the context of an abstract <a>Thing</a> in
             <a href="#arch-building-blocks"></a>. This is an abstract
-            view and is not meant to represent any particular
-            implementation; instead it is meant to illustrate the
+            view and does not represent any particular
+            implementation; instead it illustrates the
             relationship between the building blocks and the main
             architectural aspects of a <a>Thing</a>.
             In this figure the WoT Building Blocks
@@ -2340,12 +2340,12 @@ a[href].internalDFN {
         </figure>
         <p> The <a>WoT Thing Description</a> (TD) contains metadata describing the
             <a>Interaction Affordances</a> of the <a>Thing</a>, the mapping of these
-            affordances onto concrete network protocols (the
+            affordances to concrete network protocols (the
             communication metadata), the <em>public</em> security data
             needed by authorized users to understand how to access the
             <a>Thing</a>, and other general metadata such as IDs, names, and
             descriptions. The <a>Binding Templates</a> are another WoT building
-            block that provides guidance on how to provide the correct
+            block that gives guidance on how to provide the correct
             communications metadata in a TD to support
             specific target protocols.
         </p>
@@ -2374,17 +2374,18 @@ a[href].internalDFN {
             provide secure storage for <em>private</em> security data
             such as encryption keys and identity material. This information is
             never directly shared with entities outside the <a>Thing</a>, and ideally
-            should not even be available to the behavior and interaction
+            should not even be directly accessible to the behavior and interaction
             implementations. Instead an abstract set of operations
             should support security functions such as signing,
             authorization, certificate validation, as well as encryption and
             decryption. Technology such as asymmetric public encryption
             schemes are generally used to provide these functions
-            without disclosing the secret private security data. In
-            general, explicitly managing secrets in a form that is
-            easily updated if necessary and keeping them clearly
-            separated from public information is considered a security
-            best practice.  In particular storing secrets as random
+            without disclosing the secret private security data. 
+        </p> 
+        <p> In general it is considered a security
+            best practice to explicitly manage secrets in a form that is
+            easily updated if necessary, and to keep them clearly
+            separated from public information. In particular storing secrets as random
             numeric values rather than attempting to obfuscate the
             implementation or network interface is strongly recommended.
             If a numeric value is disclosed it is easily changed.
@@ -2402,9 +2403,9 @@ a[href].internalDFN {
         <section id="sec-thing-description">
             <h2>WoT Thing Description</h2>
             <p> The <a>WoT Thing Description</a> (TD) document
-                [[!wot-thing-description]] defines an information model
-                based on a semantic vocabulary and a serialized
-                representation based on JSON. <a>TDs</a> provide rich metadata
+                [[!wot-thing-description]] defines an <em>information model</em>
+                based on a semantic vocabulary and a <em>serialized
+                representation based on JSON</em>. <a>TDs</a> provide rich metadata
                 for <a>Things</a> in a way that is both human-readable and
                 machine-understandable. Both the information model and
                 the representation format of <a>TDs</a> are aligned with Linked
@@ -2417,7 +2418,7 @@ a[href].internalDFN {
                 instances with general metadata such as name, ID,
                 descriptions, and also can provide relation metadata
                 through links to related <a>Things</a> or other documents. <a>TDs</a>
-                also provide interaction affordance metadata based on
+                also contain interaction affordance metadata based on
                 the interaction model defined in <a
                     href="#sec-interaction-model"></a>; public security
                 configuration metadata; and communications metadata
@@ -2431,13 +2432,11 @@ a[href].internalDFN {
                 hosted externally when a <a>Thing</a> has resource restrictions
                 (e.g., limited memory space, limited power) or when an existing device
                 is retrofitted to become part of the Web of Things. A
-                common pattern is to register <a>TDs</a> with a directory to improve
-                discovery (e.g., for constrained devices) and to
-                facilitate device management. It is recommended that
-                clients should use <a>TD</a> caching combined with
-                notifications when they are paired with a <a>Thing</a>, meaning
-                that they will be notified to fetch a fresh <a>TD</a>
-                representation in case the <a>Thing</a> is updated.
+                common pattern to improve discovery (e.g., for constrained devices) and to
+                facilitate device management is to register <a>TDs</a> with a directory. 
+                It is recommended that Consumers use a <a>TD</a> caching mechanism combined with
+                a notification mechanism, which will inform them when it is required to fetch 
+                a new version of the <a>TD</a>, in case the <a>Thing</a> is updated.
             </p>
             <p> For semantic interoperability, <a>TDs</a> may make use
                 of a domain-specific vocabulary, for which explicit
@@ -2464,7 +2463,7 @@ a[href].internalDFN {
         <section id="sec-binding-templates" class="informative">
             <h3>WoT Binding Templates</h3>
             <p> The IoT uses a variety of protocols for accessing
-                devices, since no one protocol is appropriate in all
+                devices, since no single protocol is appropriate in all
                 contexts. Thus, a central challenge for the Web of
                 Things is to enable interactions with the plethora of
                 different <a>IoT platforms</a> (e.g., OCF, oneM2M, OMA
@@ -2476,7 +2475,7 @@ a[href].internalDFN {
             </p>
             <p> The non-normative <a>WoT Binding Templates</a> document
                 [[?wot-binding-templates]] provides a collection of
-                communication metadata blueprints that provide guidance on
+                communication metadata blueprints that give guidance on
                 how to interact with different <a>IoT platforms</a>.
                 When describing a particular IoT device or service,
                 the <a>Binding Template</a> for the corresponding <a>IoT Platform</a>
@@ -2493,39 +2492,47 @@ a[href].internalDFN {
                 Templates</a> are applied. A <a>WoT Binding Template</a>
                 is created only once for each <a>IoT Platform</a> and
                 can then be reused in all <a>TDs</a> for devices of that
-                platform. <a>Consumer</a> processing a <a>TD</a> must implement
-                the corresponding <a>Protocol Binding</a> by including a
+                platform. The <a>Consumer</a> that is processing a <a>TD</a> must implement
+                the required <a>Protocol Binding</a> by including a
                 corresponding protocol stack and by configuring the
                 stack (or its messages) according to the information
-                given in the <a>TD</a>. The communication metadata of
+                given in the <a>TD</a>. 
+            </p>
+            <p>    
+                The communication metadata of
                 <a>Protocol Bindings</a> spans five dimensions:
             </p>
             <ul>
-                <li><b>IoT Platform:</b> <a>IoT Platforms</a> often
+                <li><b>IoT Platform:</b> 
+                <p><a>IoT Platforms</a> often
                     introduce proprietary modifications at the
                     application layer such as platform-specific HTTP
                     header fields or CoAP options. Forms (see <a
                     href="#sec-hypermedia-forms"></a>) may contain the
                     necessary information to apply these tweaks in
                     additional form fields defined for the
-                    application-layer protocol used.</li>
-                <li><b>Media Type:</b> <a>IoT Platforms</a> often
+                    application-layer protocol used.</p></li>
+                <li><b>Media Type:</b> 
+                <p><a>IoT Platforms</a> often
                     differ in the representation formats (a.k.a.
                     serializations) used for exchanging data. The Media
                     Type [[!RFC6838]] identifies these formats, while
                     parameters may specify them further. Forms may
                     contain the Media Type and optional parameters in
                     additional form fields such as a content type field known from HTTP,
-                    which combines Media Type and potential parameters (e.g., <code>text/plain; charset=utf-8</code>).</li>
-                <li><b>Transfer Protocol:</b> The Web of Things
+                    which combines Media Type and other optional parameters 
+                    (e.g., <code>text/plain; charset=utf-8</code>).</p></li>
+                <li><b>Transfer Protocol:</b> 
+                <p>The Web of Things
                     uses the term <a>transfer protocol</a> for the
-                    underlying, standardized application layer protocol
+                    underlying, standardized application-layer protocol
                     without application-specific options or <a>subprotocol</a>
-                    mechanisms. The URI scheme of the form submission
-                    target contains the necessary information to
+                    mechanisms. The URI scheme of the form (submission)
+                    target contains the information required to
                     identify the <a>transfer protocol</a>, e.g., HTTP, CoAP, or
-                    WebSockets.</li>
-                <li><b>Subprotocol:</b> <a>Transfer protocols</a> may have
+                    WebSockets.</p></li>
+                <li><b>Subprotocol:</b> 
+                <p><a>Transfer protocols</a> may have
                     extension mechanisms that must be known to interact
                     successfully. Such <a>subprotocols</a> cannot be
                     identified from the URI scheme and must be declared
@@ -2533,8 +2540,9 @@ a[href].internalDFN {
                     workarounds for HTTP such as long polling
                     [[?RFC6202]] or Server-Sent Events [[?EVENTSOURCE]].
                     Forms may contain the necessary information to
-                    identify the <a>subprotocol</a> in additional form fields.</li>
-                <li><b>Security:</b> Security mechanisms can be
+                    identify the <a>subprotocol</a> in additional form fields.</p></li>
+                <li><b>Security:</b> 
+                <p>Security mechanisms can be
                     applied at different layers of the communication
                     stack and might be used together, often to
                     complement each other. Examples are (D)TLS
@@ -2542,7 +2550,7 @@ a[href].internalDFN {
                     [[?RFC6749]], and ACE [[?RFC7744]]. Due to the
                     cross-cutting nature of security, the necessary
                     information to apply the right mechanism may be
-                    given within the general metadata of the <a>Thing</a>.</li>
+                    given within the general metadata of the <a>Thing</a>.</p></li>
             </ul>
         </section>
         <section id="sec-scripting-api" class="informative">
@@ -2570,7 +2578,7 @@ a[href].internalDFN {
                 time-critical logic from the cloud down to a gateway or
                 edge node.
             </p>
-            <p> The non-normative <a>WoT Scripting API</a> document defines
+            <p> The non-normative <a>WoT Scripting API</a> specification defines
                 the structure and algorithms of the programming
                 interface that allows scripts to discover, process
                 (retrieve) and produce (define) <a>Thing Descriptions</a>. The
@@ -2595,12 +2603,12 @@ a[href].internalDFN {
                 architecture, security is supported by certain explicit
                 features, such as support for public security metadata in <a>TDs</a>
                 and by separation of concerns in the design of the
-                <a>WoT Scripting API</a>. The documents defining each building
-                block also include a discussion of particular security
-                and privacy considerations for each building block.
-                Another document, the 
+                <a>WoT Scripting API</a>. The specification document for each building
+                block also includes a discussion of particular security
+                and privacy considerations of that building block.
+                Another non-normative document, the 
                 <em>WoT Security and Privacy Considerations</em> [[?wot-security]], 
-                provides additional non-normative security and privacy guidance.
+                provides additional security and privacy guidance.
             </p>
         </section>
     </section>
