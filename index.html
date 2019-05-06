@@ -71,7 +71,7 @@
                 publisher : "IETF",
                 date : "03 July 2017"
             },
-/* ReSpec will pick up the citation it is officially published
+/* ReSpec will pick up the citation as it is officially published
             "wot-security" : {
                 href : "https://www.w3.org/TR/wot-security/",
                 // href: "https://cdn.staticaly.com/gh/w3c/wot-security/master/index.html?env=dev",
@@ -85,20 +85,6 @@
                 href: "https://cdn.staticaly.com/gh/w3c/wot-thing-description/TD-TAG-review/index.html?env=dev",
                 title : "Web of Things (WoT) Thing Description",
                 status: "Editor's Draft for TAG Review",
-                publisher : "W3C"
-            },
-            "wot-security-best-practices" : {
-                // href : "https://www.w3.org/TR/wot-security-best-practices/",
-                href: "https://cdn.staticaly.com/gh/w3c/wot-security-best-practices/master/index.html?env=dev",
-                title : "Web of Things (WoT) Security Best Practices",
-                status: "Editor's Draft (will be W3C NOTE in final version)",
-                publisher : "W3C"
-            },
-            "wot-security-testing-plan" : {
-                // href : "https://www.w3.org/TR/wot-security-testing-plan/",
-                href: "https://cdn.staticaly.com/gh/w3c/wot-security-testing-plan/master/index.html?env=dev",
-                title : "Web of Things (WoT) Security Best Practices",
-                status: "Editor's Draft (will be W3C NOTE in final version)",
                 publisher : "W3C"
             },
             "IEC-FOTF" : {
@@ -260,23 +246,13 @@ a[href].internalDFN {
             contract for JavaScript. This simplifies IoT application
             development and enables portability across vendors and devices.
         </p>
-
         <p>Other non-normative architectural blocks and conditions
             underlying the Web of Things are also described in the
-            context of deployment scenarios. In particular,
-            recommendations for security and privacy are included in:
+            context of deployment scenarios. 
+            Recommendations for security and privacy are included in
+            the <em>Web of Things (WoT) Security and Privacy Considerations</em> [[wot-security]]
+            document.
         </p>
-        <ul>
-            <li>the <em>Web of Things (WoT)
-                    Security and Privacy Considerations</em> [[wot-security]],
-            </li>
-            <li>the <em>Web of Things (WoT)
-                    Security Best Practices</em> [[wot-security-best-practices]], and
-            </li>
-            <li>the <em>Web of Things (WoT)
-                    Security Testing Plan</em> [[wot-security-testing-plan]].
-            </li>
-        </ul>
         <p>Overall, the goal is to preserve and support existing
             IoT standards and solutions. In general, W3C WoT is
             designed to describe what exists rather than to prescribe
@@ -292,8 +268,8 @@ a[href].internalDFN {
                 Architecture</a> repository. For feedback on security and
             privacy considerations, please use the <a
                 href="https://github.com/w3c/wot-security/issues">WoT
-                Security and Privacy</a> Issues, as they are cross-cutting
-            over all our documents.
+                Security and Privacy Considerations</a> repository to file issues, 
+               as they are cross-cutting over all our documents.
         </p>
     </section>
     <section id="introduction">
@@ -2622,12 +2598,9 @@ a[href].internalDFN {
                 <a>WoT Scripting API</a>. The documents defining each building
                 block also include a discussion of particular security
                 and privacy considerations for each building block.
-                Another set of documents, the WoT Security and Privacy
-                Considerations [[?wot-security]], the WoT
-                Security Best Practices
-                [[?wot-security-best-practices]], and the WoT Security
-                Testing Plan [[?wot-security-testing-plan]], provide
-                additional non-normative security and privacy guidance.
+                Another document, the 
+                <em>WoT Security and Privacy Considerations</em> [[?wot-security]], 
+                provides additional non-normative security and privacy guidance.
             </p>
         </section>
     </section>
@@ -3284,13 +3257,8 @@ a[href].internalDFN {
             summarizes some general issues and guidelines to help
             preserve the security and privacy of WoT implementations.
             For a more detailed and complete analysis of security and
-            privacy threats, risks, mitigations, and best practices, see
-            the WoT Security and Privacy Considerations
-            [[?wot-security]] and the WoT Security Best
-            Practices [[?wot-security-best-practices]] documents.
-            Guidelines for the security testing of WoT implementations,
-            including adversarial testing, are given in the WoT Security
-            Testing Plan [[?wot-security-testing-plan]].
+            privacy issues, see the <em>WoT Security and Privacy Considerations</em>
+            [[?wot-security]] document.
         </p>
         <p>Overall, the goal of the WoT is to describe the existing
             access mechanisms and properties of IoT devices and
@@ -3474,8 +3442,8 @@ a[href].internalDFN {
                         using platform security mechanisms available on
                         the device. For more information see Sections
                         "WoT Servient Single-Tenant" and "WoT Servient
-                        Multi-Tenant" of
-                        [[wot-security]].
+                        Multi-Tenant" of the <em>WoT Security and Privacy
+                        Considerations</em> document [[wot-security]].
                     </dd>
                 </dl>
             </section>
@@ -3534,7 +3502,8 @@ a[href].internalDFN {
                         related data should be done in a secure fashion.
                         A set of recommendations for secure update and
                         post-manufacturing provisioning can be found in
-                        [[wot-security]].
+                        the <em>WoT Security and Privacy Considerations</em>
+                        document [[wot-security]].
                     </dd>
                 </dl>
             </section>
