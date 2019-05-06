@@ -1584,7 +1584,7 @@ a[href].internalDFN {
                 However, W3C WoT does not mandate where <a>Things</a> are hosted; it can be on the IoT device directly, an <a>Edge device</a> such as a gateway box, or the cloud.
             </p>
             <p>
-                A typical deployment challenge is that local networks are not reachable from the Internet, usually because of IPv4 NATs or firewalls.
+                A typical deployment challenge is that local networks are not reachable from the Internet, usually because of IPv4 Network Address Translation (NAT) or firewall devices.
                 To remedy this situation, W3C WoT allows for <a>Intermediaries</a> between <a>Things</a> and <a>Consumers</a>.
                 <a>Intermediaries</a> can act as proxies for <a>Things</a>, where the <a>Intermediary</a> has a <a>WoT Thing Description</a> similar to the original <a>Thing</a>,
                 but which points to the <a>WoT Interface</a> provided by the <a>Intermediary</a>.
@@ -3072,9 +3072,9 @@ a[href].internalDFN {
             <p> In Smart Home use cases, devices (sensors and home appliances)
                 connected to a home network are often
                 monitored and, in some cases, also controlled by cloud
-                services. There is usually a NAT-gateway between the home
+                services. There is usually a NAT device between the home
                 network to which the devices are connected and the cloud.
-                The NAT-gateway translates IP addresses as well as often providing
+                The NAT device translates IP addresses as well as often providing
                 firewall services, which block connections selectively.
                 The local devices and cloud services can only communicate
                 with each other if the communication can successfully
@@ -3090,9 +3090,9 @@ a[href].internalDFN {
                 (for example, HTTP, with all interactions mapped to a single
                 URL namespace with a common base server and using a single port).
                 This provides the remote <a>Intermediary</a> with a simple way to
-                access all the <a>Things</a> behind the NAT-gateway,
+                access all the <a>Things</a> behind the NAT device,
                 assuming the local <a>Intermediary</a>
-                has used a converged protocol that can traverse the NAT-gateway
+                has used a converged protocol that can traverse the NAT device
                 and has some way to expose this service to the Internet (STUN, TURN, DyDNS, etc).
                 In addition, the local <a>Intermediary</a> can function as a proxy, so
                 even when the connected <a>Things</a> each use a different
@@ -3193,7 +3193,7 @@ a[href].internalDFN {
                 may also be cloud services that act as <a>Things</a>.
                 These can also register themselves with the <a>Thing Directory</a>.
                 Since a <a>Thing Directory</a> is a web service, it should be visible
-                to the local devices through the NAT/firewall 
+                to the local devices through the NAT or firewall device
                 and its interface can even be provided with its own TD.  
                 Local devices acting as <a>Consumers</a> can then
                 connect to the <a>Thing Directory</a> either directly or via the local
