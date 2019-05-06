@@ -1806,8 +1806,9 @@ a[href].internalDFN {
                 </p>
                 <p>
                     <span class="rfc2119-assertion" id="arch-event-dataschema">
-                    Events MAY contain data schemas for the event data and possible subscription control messages (e.g., to subscribe with a Webhook callback URI),
-                    if the data is not fully specified by the Protocol Binding used (e.g., through a Media Type).
+                    If the data is not fully specified by the Protocol Binding used (e.g., through a Media Type),
+                    Events MAY contain data schemas for the event data and possible subscription control messages 
+                    (e.g., to subscribe with a Webhook callback URI).
                     </span>
                 </p>
                 <p>
@@ -1823,18 +1824,19 @@ a[href].internalDFN {
                 For humans, the information is usually text or images describing or decorating a hyperlink.
                 The control is a Web link, which includes at least the URI of the target resource,
                 which can be dereferenced by the Web browser (i.e., the link can be followed).
-                But also machines can follow links in a meaningful way, when the Web link is further described by a relation type and a set of target attributes.
-                A hypermedia control is the machine-understandable serialization of <em>how</em> to activate an affordance.
+                But also machines can follow links in a meaningful way, when the Web link is further described 
+                by a relation type and a set of target attributes.
+                A hypermedia control is the machine-understandable description of <em>how</em> to use an affordance.
                 Hypermedia controls usually originate from a Web server and are discovered in-band while a Web client is interacting with the server.
                 This way, Web servers can drive clients through Web applications dynamically,
                 by taking their current state and other factors such as authorization into account.
                 This is opposed to out-of-band interface descriptions that need to be preinstalled or hardcoded into clients
-                (e.g., RPC, WS-* Web services, HTTP services with fixed URI-method-response definitions).
+                (e.g., RPC, WS-* Web services, HTTP+REST services with fixed URI-method-response definitions).
             </p>
             <p>
                 W3C WoT makes use of two kinds of hypermedia controls:
-                Web links [[!RFC8288]] as the well-established control to navigate the Web,
-                and Web forms as a more powerful control to enable any kind of operation.
+                <em>Web links</em> [[!RFC8288]] as the well-established control to navigate the Web,
+                and <em>Web forms</em> as a more powerful control to enable any kind of operation.
                 The same concept is used in the Constrained RESTful Application Language (CoRAL) defined by the IETF [[?CoRAL]].
             </p>
             <section id="sec-hypermedia-links">
@@ -1858,15 +1860,15 @@ a[href].internalDFN {
                         <li>optionally target attributes.</li>
                     </ul>
                 <p>
-                    Link relation types are either IANA-registered tokens [[IANA-RELATIONS]] adhering to the ABNF [[!RFC5234]]
-                    <code style="white-space: nowrap;">LOALPHA *( LOALPHA / DIGIT / "." / "-" )</code>
+                    Link relation types are either a set of predefined tokens that are registered with IANA [[IANA-RELATIONS]] 
+                    adhering to the ABNF [[!RFC5234]] <code style="white-space: nowrap;">LOALPHA *( LOALPHA / DIGIT / "." / "-" )</code>
                     (e.g., <code>stylesheet</code>) or extension types in the form of URIs [[!RFC3986]].
                     <span class="rfc2119-assertion" id="arch-rel-types">
-                    Extension relation types MUST be compared as strings (after converting to URIs if serialised in a different format) in a case-insensitive fashion,
-                    character by character.
+                    Extension relation types MUST be compared as strings using a case-insensitive comparison.
+                    (If they are serialised in a different format they are to be converted to URIs).
                     </span>
                     <span class="rfc2119-assertion" id="arch-rel-type-lowercase">
-                    Because of this, all-lowercase URIs SHOULD be used for extension relation types. [[!RFC8288]]
+                    Nevertheless, all-lowercase URIs SHOULD be used for extension relation types. [[!RFC8288]]
                     </span>
                 </p>
                 <p>
@@ -1880,12 +1882,12 @@ a[href].internalDFN {
                 <h3>Forms</h3>
                 <p>
                     Forms enable <a>Consumers</a> (or Web clients in the broader sense) to perform operations that go beyond dereferencing a URI
-                    (e.g., manipulating state of a Thing).
+                    (e.g. to manipulate the state of a Thing).
                     <a>Consumers</a> do so by <em>filling out</em> and <em>submitting</em> the form to its submission target.
-                    This usually requires more detailed information about the necessary request message than a link can provide
+                    This usually requires more detailed information about the contents of the (request) message than a link can provide
                     (e.g., method, header fields, or other protocol options).
                     Forms can be seen as a request template,
-                    where the provider prefilled parts of the information according to its own interface and state,
+                    where the provider pre-filled parts of the information according to its own interface and state,
                     and left parts blank to be filled by the <a>Consumers</a> (or Web client in general).
                 </p>
                 <p>
@@ -1904,7 +1906,7 @@ a[href].internalDFN {
                     <code>operation type</code>
                     operation on
                     <code>form context</code>
-                    , make a
+                    , issue a
                     <code>request method</code>
                     request to
                     <code>submission target</code>
@@ -1936,30 +1938,29 @@ a[href].internalDFN {
                             <code style="white-space: nowrap;">LOALPHA *( LOALPHA / DIGIT / "." / "-" )</code>.
                         </span>
                         <span class="rfc2119-assertion" id="arch-op-wellknown-compare">
-                            Well-known operation types MUST be compared character by character in a case-insensitive fashion.
+                            Well-known operation types MUST be compared using a case-insensitive comparison.
                         </span>
                         The well-known operation types for the Web of Things defined by this specification are given in <a href="#table-operation-types">Table 1</a>.
                     </li>
                     <li>
                         <span class="rfc2119-assertion" id="arch-op-extension">
-                            Extension operation types MAY be chosen by applications.
+                            The set of predefined operation types MAY be augmented by <em>Extension operation types</em> chosen by applications.
                         </span>
                         <span class="rfc2119-assertion" id="arch-op-extension-uri">
                             Extension operation types MUST be URIs [[!RFC3986]] that uniquely identify the type.
                         </span>
                         <span class="rfc2119-assertion" id="arch-op-extension-comparison">
-                            Extension operation types MUST be compared as strings (after converting to URIs if serialised in a different format)
-                            character by character in a case-insensitive fashion.
+                            Extension operation types MUST be compared compared as strings using a case-insensitive comparison.
                         </span>
                         <span class="rfc2119-assertion" id="arch-op-extension-lowercase">
-                            Because of this, all-lowercase URIs SHOULD be used for extension operation types.
+                            Nevertheless, all-lowercase URIs SHOULD be used for extension operation types.
                         </span>
                     </li>
                 </ul>
                 <p>
                     <span class="rfc2119-assertion" id="arch-op-request-method">
-                    The request method MUST identify one method of
-                    the standard set of the protocol identified by the
+                    The request method MUST identify one operation type of
+                    the standard set of operation types of the protocol identified by the
                     submission target URI scheme.
                     </span>
                 </p>
@@ -1975,7 +1976,7 @@ a[href].internalDFN {
                     </span>
                     Examples are HTTP header fields,
                     CoAP options, the protocol-independent Media Type including parameters (i.e., full content type)
-                    for the submission payload, or information about the
+                    for the request payload, or information about the
                     expected response.
                 </p>
                 <div id="table-operation-types">
@@ -2063,7 +2064,7 @@ a[href].internalDFN {
                     results from the WoT <a>Interaction Model</a>. Other
                     specifications may define further well-known
                     operation types that are valid for their respective
-                    document format or form serialization. Updates to
+                    document format or form serialization. Later versions of
                     this specification or another specification may set up an IANA registry in
                     the future to enable extension and a more
                     generic Web form model that may be applied beyond
@@ -2075,7 +2076,7 @@ a[href].internalDFN {
             <h2>Protocol Bindings</h2>
             <p>
                 A Protocol Binding is the mapping from an <a>Interaction Affordance</a> to concrete messages of a specific protocol such as HTTP [[!RFC7231]], CoAP [[!RFC7252]], or MQTT [[!MQTT]].
-                It informs the <a>Consumer</a> <em>how</em> to activate the <a>Interaction Affordance</a> through a network-facing interface.
+                It informs the <a>Consumer</a> <em>how</em> to use the <a>Interaction Affordance</a> through a network-facing interface.
                 The <a>Protocol Bindings</a> follow the Uniform Interface constraint of REST [[?REST]] to support interoperability.
                 Thus, not all communication protocols are eligible to implement <a>Protocol Bindings</a> for W3C WoT;
                 the requirements are given in the assertions below.
@@ -2095,10 +2096,12 @@ a[href].internalDFN {
                         href="#sec-hypermedia-controls"></a>) to be self-descriptive on how to activate the Interaction Affordance.
                     </span>
                     <span class="rfc2119-assertion" id="arch-hypermedia-origin">
-                        The hypermedia controls MUST originate from the authority managing the Thing providing the corresponding Interaction Affordance.
+                        The hypermedia controls MUST originate from the authority managing the Thing which is providing the corresponding Interaction Affordance.
                     </span>
-                    The authority can be the <a>Thing</a> itself, serializing the <a>WoT Thing Description</a> at runtime based on its current state including network parameters such as its IP address,
-                    or an external entity that has full and fresh knowledge of the <a>Thing</a> including its network parameters and software stack.
+                    The authority can be the <a>Thing</a> itself, generating the <a>WoT Thing Description</a> 
+                    at runtime (based on its current state and including network parameters such as its IP address),
+                    or an external entity that has full and up-to-date knowledge of the <a>Thing</a> 
+                    including its network parameters and internal structure (e.g. software stack).
                     This enables a loose coupling between <a>Things</a>  and clients, allowing for an independent lifecycle and evolution.
                     <span class="rfc2119-assertion" id="arch-hypermedia-caching">
                         The hypermedia controls MAY be cached outside the Thing and used for offline processing if corresponding caching metadata is available to determine the freshness.
@@ -2136,17 +2139,17 @@ a[href].internalDFN {
                 <p>
                     <span class="rfc2119-assertion" id="arch-media-type">All
                         data (a.k.a. content) exchanged when activating Interaction Affordances MUST be identified by a Media Type
-                        [[!RFC6838]] within the Protocol Binding.</span>
-                    Media Types are IANA-managed labels to identify representation formats, for instance
+                        [[!RFC6838]] in the Protocol Binding.</span>
+                    Media Types are labels to identify representation formats, for instance
                     <code>application/json</code>
                     for JSON [[!RFC8259]] or
                     <code>application/cbor</code>
-                    for CBOR [[!RFC7049]].
+                    for CBOR [[!RFC7049]]. They are managed by IANA. 
                 </p>
                 <p>
                     Some Media Types might need additional parameters to fully specify the representation format used.
                     Examples are <code>text/plain; charset=utf-8</code> or <code>application/ld+json; profile="http://www.w3.org/ns/json-ld#compacted"</code>.
-                    This needs to be taken into account in particular when describing data to be sent to <a>Things</a>.
+                    This needs to be taken into account in particular when describing data to be sent to, or received by <a>Things</a>.
                     There might also be standardized transformations on the data such as content coding [[!RFC7231]].
                     <span class="rfc2119-assertion" id="arch-media-type-extra">
                         Protocol Bindings MAY have additional information that specifies representation formats in more detail than the Media Type alone.
@@ -2158,7 +2161,7 @@ a[href].internalDFN {
                     semantics for its elements (e.g., XML, JSON, CBOR). 
                     <span class="rfc2119-assertion" id="arch-schema">Thus,
                         the corresponding Interaction Affordances SHOULD
-                        declare a data schema to provide more detailed
+                        declare a <em>data schema</em> to provide more detailed
                         semantic metadata for the data exchanged.</span>
                 </p>
             </section>
@@ -2170,15 +2173,20 @@ a[href].internalDFN {
                WoT architecture in terms of the abstract WoT architecture components 
                such as <a>Things</a>, <a>Consumers</a> and <a>Intermediaries</a>. 
                When those abstract WoT architecture components are implemented as 
-               a software stack to play an expected role of each in the WoT architecture, 
+               a software stack to take a specific role in the WoT architecture, 
                such software stacks are called <a>Servients</a>. 
-               Systems based on WoT architecture involves <a>Servients</a> 
-               communicating each other to achieve the goals of a system.</p>
+               Systems that are based on the WoT architecture involve <a>Servients</a>, 
+               which are communicating with each other to achieve the goals of a system.</p>
+
+            <p>This section uses system configuration diagrams to illustrate
+               how <a>Servients</a> work together to build systems based on the WoT architecture.</p>
 
             <p>A <a>Thing</a> can be implemented by a <a>Servient</a>. In a <a>Thing</a>, 
-               a <a>Servient</a> software stack provides a representation of 
+               a <a>Servient</a> software stack contains a representation of 
                a <a>Thing</a> called <a>Exposed Thing</a>, and makes its <a>WoT Interface</a> 
-               available  to <a>Consumers</a> of the <a>Thing</a>.</p>
+               available  to <a>Consumers</a> of the <a>Thing</a>.
+               This <a>Exposed Thing</a> may be used by other software components on 
+               the <a>Servient</a> (e.g. applications) to implement the behavior of the thing.</p>
 
                 <figure id="servient-thing-exposedThing">
                     <img
@@ -2188,12 +2196,12 @@ a[href].internalDFN {
 
             <p>On the other hand, <a>Consumers</a> are always implemented by 
                <a>Servients</a>, as they must be able to process the <a>Thing Description</a> (TD) 
-               format and must have a protocol stack that can be configured through 
+               format and must have a protocol stack that can be configured to use a thing through 
                <a>Protocol Binding</a> information given the TDs.</p>
             <p>In a <a>Consumer</a>, a <a>Servient</a> software stack provides 
                a representation of a <a>Thing</a> called <a>Consumed Thing</a>, 
                and makes it available to those applications running on the <a>Servient</a>
-               that need to process TDs to interact <a>Things</a>.</p>
+               that need to process TDs to interact with <a>Things</a>.</p>
 
                 <figure id="servient-consumer-consumedThing">
                     <img
@@ -2201,16 +2209,16 @@ a[href].internalDFN {
                     <figcaption>Servient as a Consumer</figcaption>
                 </figure>
 
-            <p>A <a>Consumed Thing</a> instantiated by the <a>Servient</a> software stack serves 
-               to abstract the protocol level complexity away from applications, 
-               communicating with <a>Exposed Things</a> on the application's behalf.</p>
+            <p>A <a>Consumed Thing</a> instance in the <a>Servient</a> software stack serves 
+               to separate the protocol level complexity from applications. 
+               It is communicating with <a>Exposed Things</a> on behalf of the application.</p>
 
             <p>Similarly, an <a>Intermediary</a> is yet another WoT 
                architecture component implemented by a <a>Servient</a>.
-               An <a>Intermediary</a> sits between a <a>Thing</a> and its <a>Consumers</a>, 
-               playing itself dual roles of both a <a>Consumer</a> (to the Thing) 
+               An <a>Intermediary</a> is located between a <a>Thing</a> and its <a>Consumers</a>, 
+               performing the roles of both a <a>Consumer</a> (to the Thing) 
                and a <a>Thing</a> (to the Consumers). 
-               In an <a>Intermediary</a>, a <a>Servient</a> software stack provides 
+               In an <a>Intermediary</a>, a <a>Servient</a> software stack contains 
                the representations of both a <a>Consumer</a> (<a>Consumed Thing</a>) 
                and a <a>Thing</a> (<a>Exposed Thing</a>).</p>
 
@@ -2219,11 +2227,6 @@ a[href].internalDFN {
                         src="images/servient-intermediary.png" />
                     <figcaption>Servient as an Intermediary</figcaption>
                 </figure>
-
-            <p>This section illustrates using system configuration diagrams 
-               how <a>Servients</a> being WoT system components with software objects 
-               <a>Exposed Things</a> and <a>Consumed Things</a> work together 
-               make systems based on WoT architecture.</p>
 
             <section>
                 <h3>Direct Communication</h3>
@@ -2246,7 +2249,7 @@ a[href].internalDFN {
                 </figure>
 
                 <p>An <a>Exposed Thing</a> is the software representation of 
-                   a <a>Thing</a> abstraction, serving a <a>WoT Interface</a>
+                   a <a>Thing</a>, offering a <a>WoT Interface</a>
                    of the <a>Interaction Affordances</a> provided by the <a>Thing</a>.</p>
 
                 <p>A <a>Consumed Thing</a> is the software representation of 
