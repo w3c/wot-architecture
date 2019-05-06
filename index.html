@@ -142,13 +142,27 @@
                 publisher : "OASIS Standard",
                 date : "2014"
             },
+            "OCF" : {
+                href : "https://openconnectivity.org/developer/specifications",
+                title : "OCF Core Specification",
+                publisher : "Open Connectivity Foundation",
+                status : "Version 2.0.2",
+                date : "April 2019"
+            },
+            "LWM2M" : {
+                href : "http://openmobilealliance.org/release/LightweightM2M/V1_1-20180710-A/OMA-TS-LightweightM2M_Core-V1_1-20180710-A.pdf",
+                title : "Lightweight Machine to Machine Technical Specification: Core",
+                publisher : "OMA SpecWorks",
+                status : "Approved Version: 1.1",
+                date : "August 2018"
+            },
             "CoRAL" : {
                 href : "https://tools.ietf.org/html/draft-hartke-t2trg-coral",
                 title : "The Constrained RESTful Application Language (CoRAL)",
-                author : "Klaus Hartke",
+                authors : [ "Klaus Hartke" ],
                 publisher : "IETF",
                 status : "Internet-Draft",
-                date : "2019"
+                date : " March 2019"
             },
             "wot-pioneers-1" : {
                 title : "Mobile Service Interaction with the Web of Things",
@@ -1819,9 +1833,12 @@ a[href].internalDFN {
             </p>
             <p>
                 W3C WoT makes use of two kinds of hypermedia controls:
-                Web links [[!RFC8288]] as the well-established control to navigate the Web,
+                Web links [[!RFC8288]], the well-established control to navigate the Web,
                 and Web forms as a more powerful control to enable any kind of operation.
-                The same concept is used in the Constrained RESTful Application Language (CoRAL) defined by the IETF [[?CoRAL]].
+		Links are already used in other IoT standards and <a>IoT platforms</a> such as
+		CoRE Link Format [[?RFC6690]], OMA LWM2M [[?LWM2M]], and OCF [[?OCF]].
+		Form is a new concept that besides W3C WoT is also introduced by the
+		<em>Constrained RESTful Application Language (CoRAL)</em> [[?CoRAL]] defined by the IETF.
             </p>
             <section id="sec-hypermedia-links">
                 <h3>Links</h3>
@@ -1875,7 +1892,8 @@ a[href].internalDFN {
                     and left parts blank to be filled by the <a>Consumers</a> (or Web client in general).
                 </p>
                 <p>
-                    W3C WoT defines forms as new hypermedia control in accordance with the definitions in CoRAL [[?CoRAL]].
+                    W3C WoT defines forms as new hypermedia control.
+		    Note that the definition in CoRAL is virtually identical, and hence compatible [[?CoRAL]].
                     A form is comprised of:
                 </p>
                     <ul>
