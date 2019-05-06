@@ -71,7 +71,7 @@
                 publisher : "IETF",
                 date : "03 July 2017"
             },
-/* ReSpec will pick up the citation it is officially published
+/* ReSpec will pick up the citation as it is officially published
             "wot-security" : {
                 href : "https://www.w3.org/TR/wot-security/",
                 // href: "https://cdn.staticaly.com/gh/w3c/wot-security/master/index.html?env=dev",
@@ -85,20 +85,6 @@
                 href: "https://cdn.staticaly.com/gh/w3c/wot-thing-description/TD-TAG-review/index.html?env=dev",
                 title : "Web of Things (WoT) Thing Description",
                 status: "Editor's Draft for TAG Review",
-                publisher : "W3C"
-            },
-            "wot-security-best-practices" : {
-                // href : "https://www.w3.org/TR/wot-security-best-practices/",
-                href: "https://cdn.staticaly.com/gh/w3c/wot-security-best-practices/master/index.html?env=dev",
-                title : "Web of Things (WoT) Security Best Practices",
-                status: "Editor's Draft (will be W3C NOTE in final version)",
-                publisher : "W3C"
-            },
-            "wot-security-testing-plan" : {
-                // href : "https://www.w3.org/TR/wot-security-testing-plan/",
-                href: "https://cdn.staticaly.com/gh/w3c/wot-security-testing-plan/master/index.html?env=dev",
-                title : "Web of Things (WoT) Security Best Practices",
-                status: "Editor's Draft (will be W3C NOTE in final version)",
                 publisher : "W3C"
             },
             "IEC-FOTF" : {
@@ -142,13 +128,27 @@
                 publisher : "OASIS Standard",
                 date : "2014"
             },
+            "OCF" : {
+                href : "https://openconnectivity.org/developer/specifications",
+                title : "OCF Core Specification",
+                publisher : "Open Connectivity Foundation",
+                status : "Version 2.0.2",
+                date : "April 2019"
+            },
+            "LWM2M" : {
+                href : "http://openmobilealliance.org/release/LightweightM2M/V1_1-20180710-A/OMA-TS-LightweightM2M_Core-V1_1-20180710-A.pdf",
+                title : "Lightweight Machine to Machine Technical Specification: Core",
+                publisher : "OMA SpecWorks",
+                status : "Approved Version: 1.1",
+                date : "August 2018"
+            },
             "CoRAL" : {
                 href : "https://tools.ietf.org/html/draft-hartke-t2trg-coral",
                 title : "The Constrained RESTful Application Language (CoRAL)",
-                author : "Klaus Hartke",
+                authors : [ "Klaus Hartke" ],
                 publisher : "IETF",
                 status : "Internet-Draft",
-                date : "2019"
+                date : " March 2019"
             },
             "wot-pioneers-1" : {
                 title : "Mobile Service Interaction with the Web of Things",
@@ -246,23 +246,13 @@ a[href].internalDFN {
             contract for JavaScript. This simplifies IoT application
             development and enables portability across vendors and devices.
         </p>
-
         <p>Other non-normative architectural blocks and conditions
             underlying the Web of Things are also described in the
-            context of deployment scenarios. In particular,
-            recommendations for security and privacy are included in:
+            context of deployment scenarios. 
+            Recommendations for security and privacy are included in
+            the <em>Web of Things (WoT) Security and Privacy Considerations</em> [[wot-security]]
+            document.
         </p>
-        <ul>
-            <li>the <em>Web of Things (WoT)
-                    Security and Privacy Considerations</em> [[wot-security]],
-            </li>
-            <li>the <em>Web of Things (WoT)
-                    Security Best Practices</em> [[wot-security-best-practices]], and
-            </li>
-            <li>the <em>Web of Things (WoT)
-                    Security Testing Plan</em> [[wot-security-testing-plan]].
-            </li>
-        </ul>
         <p>Overall, the goal is to preserve and support existing
             IoT standards and solutions. In general, W3C WoT is
             designed to describe what exists rather than to prescribe
@@ -278,8 +268,8 @@ a[href].internalDFN {
                 Architecture</a> repository. For feedback on security and
             privacy considerations, please use the <a
                 href="https://github.com/w3c/wot-security/issues">WoT
-                Security and Privacy</a> Issues, as they are cross-cutting
-            over all our documents.
+                Security and Privacy Considerations</a> repository to file issues, 
+               as they are cross-cutting over all our documents.
         </p>
     </section>
     <section id="introduction">
@@ -387,7 +377,7 @@ a[href].internalDFN {
             </dt>
             <dd>A digital twin is a virtual representation of a
                 device or a group of devices that resides on a cloud
-                server, edge device, or proxy. It can be used to represent
+                or edge node. It can be used to represent
                 real-world devices which may not be continuously online,
                 or to run simulations of new applications and services,
                 before they get deployed to the real devices.</dd>
@@ -456,7 +446,7 @@ a[href].internalDFN {
             <dt>
                 <dfn>Intermediary</dfn>
             </dt>
-            <dd>An entity between Consumers and Things that can proxy, augment, or compose things
+            <dd>An entity between Consumers and Things that can proxy, augment, or compose Things
                 and republish a WoT Thing Description that points to the WoT Interface on the Intermediary instead of the original Thing.
                 For Consumers, an Intermediary may be indistinguishable from a Thing, following the Layered System constraint of REST.</dd>
             <dt>
@@ -1581,7 +1571,7 @@ a[href].internalDFN {
                 However, W3C WoT does not mandate where <a>Things</a> are hosted; it can be on the IoT device directly, an <a>Edge device</a> such as a gateway box, or the cloud.
             </p>
             <p>
-                A typical deployment challenge is that local networks are not reachable from the Internet, usually because of IPv4 NATs or firewalls.
+                A typical deployment challenge is that local networks are not reachable from the Internet, usually because of IPv4 Network Address Translation (NAT) or firewall devices.
                 To remedy this situation, W3C WoT allows for <a>Intermediaries</a> between <a>Things</a> and <a>Consumers</a>.
                 <a>Intermediaries</a> can act as proxies for <a>Things</a>, where the <a>Intermediary</a> has a <a>WoT Thing Description</a> similar to the original <a>Thing</a>,
                 but which points to the <a>WoT Interface</a> provided by the <a>Intermediary</a>.
@@ -1816,9 +1806,12 @@ a[href].internalDFN {
             </p>
             <p>
                 W3C WoT makes use of two kinds of hypermedia controls:
-                Web links [[!RFC8288]] as the well-established control to navigate the Web,
+                Web links [[!RFC8288]], the well-established control to navigate the Web,
                 and Web forms as a more powerful control to enable any kind of operation.
-                The same concept is used in the Constrained RESTful Application Language (CoRAL) defined by the IETF [[?CoRAL]].
+		Links are already used in other IoT standards and <a>IoT platforms</a> such as
+		CoRE Link Format [[?RFC6690]], OMA LWM2M [[?LWM2M]], and OCF [[?OCF]].
+		Form is a new concept that besides W3C WoT is also introduced by the
+		<em>Constrained RESTful Application Language (CoRAL)</em> [[?CoRAL]] defined by the IETF.
             </p>
             <section id="sec-hypermedia-links">
                 <h3>Links</h3>
@@ -1872,7 +1865,8 @@ a[href].internalDFN {
                     and left parts blank to be filled by the <a>Consumers</a> (or Web client in general).
                 </p>
                 <p>
-                    W3C WoT defines forms as new hypermedia control in accordance with the definitions in CoRAL [[?CoRAL]].
+                    W3C WoT defines forms as new hypermedia control.
+		    Note that the definition in CoRAL is virtually identical, and hence compatible [[?CoRAL]].
                     A form is comprised of:
                 </p>
                     <ul>
@@ -2596,12 +2590,9 @@ a[href].internalDFN {
                 <a>WoT Scripting API</a>. The documents defining each building
                 block also include a discussion of particular security
                 and privacy considerations for each building block.
-                Another set of documents, the WoT Security and Privacy
-                Considerations [[?wot-security]], the WoT
-                Security Best Practices
-                [[?wot-security-best-practices]], and the WoT Security
-                Testing Plan [[?wot-security-testing-plan]], provide
-                additional non-normative security and privacy guidance.
+                Another document, the 
+                <em>WoT Security and Privacy Considerations</em> [[?wot-security]], 
+                provides additional non-normative security and privacy guidance.
             </p>
         </section>
     </section>
@@ -2860,7 +2851,7 @@ a[href].internalDFN {
                 <p>
                     In this case, a <a>WoT Runtime</a> can still be
                     used, but with an equivalent abstraction and functionality
-                    exposed using an alternative application-facing API instead of
+                    exposed using an alternative application-facing interface instead of
                     the <a>WoT Scripting API</a>
                     Except for the latter, all block descriptions in <a href="#sec-servient-implementation"></a>
                     are also valid for <a href="#architecture-implementation-native"></a>.
@@ -2871,16 +2862,18 @@ a[href].internalDFN {
                 </figure>
             </section>
             <section id="existing-impl">
-               <h3>Existing Device Described with a Thing
-                    Description</h3>
-                <p> It is also possible to support <em>existing</em> IoT devices
-                    or services in the WoT and integrate them with other
-			              <a>Things</a> by writing a <a>Thing Description</a> for these devices or services.
-                    This can only be done however if the target device
-                    is using protocols that can be described using a <a>Protocol
-                    Binding</a>.  Protocols need to satisfy the requirements
-                    for such a binding, for example by having resources that can
-                    be identified with URIs.
+                <h3>Existing Device Described with a Thing Description</h3>
+                <p>
+                    It is also possible to integrate <em>existing</em> IoT devices
+                    or services into the W3C Web of Things and to use them as <a>Things</a>
+                    by creating a <a>Thing Description</a> for these devices or services.
+                    Such a TD can either be created manually or via a tool or service.
+                    For example, a TD could be generated by a service that provides
+                    automatic translation of metadata provided by another,
+                    ecosystem-dependent machine-readable format.
+                    This can only be done, however, if the target device
+                    is using protocols that can be described using a <a>Protocol Binding</a>.
+                    The requirements for this are given in <a href="#sec-protocol-bindings"></a>
                     Much of the previous discussion also implies that a <a>Thing</a>
                     provides its own <a>Thing Description</a>.  While this
                     is a useful pattern it is not mandatory.
@@ -2890,12 +2883,6 @@ a[href].internalDFN {
                     <a>Thing Description</a> will have to be provided
                     separately using a service such as a directory
                     or some other external and separate distribution mechanism.
-                    Providing a <a>Thing Description</a> for
-                    a device also only allows it to be used in a server role,
-                    with its <a>Thing Description</a> being consumed by other <a>Things</a>.
-                    Using such a device
-                    as a <a>Consumer</a> will only in general be possible if the device can
-                    be modified to consume <a>Thing Descriptions</a>.
                 </p>
                 <figure id="architecture-implementation-existing">
                     <img src="images/wot-thing-existing.png" style="width: 80%;" />
@@ -3001,8 +2988,8 @@ a[href].internalDFN {
                 both the <a>Exposed Thing</a> and <a>Consumed Thing</a>
                 software abstractions within its <a>WoT Runtime</a>.
             </p>
-            <p> One simple application of a <a>Intermediary</a> is as a proxy.
-                When functioning as a proxy,
+            <p> One simple application of a <a>Intermediary</a> is as a Thing proxy.
+                When functioning as a Thing proxy,
                 the <a>Intermediary</a> generally interfaces with two separate
                 networks or protocols.  This may involve
                 the implementation of additional security mechanisms
@@ -3060,9 +3047,9 @@ a[href].internalDFN {
             <p> In Smart Home use cases, devices (sensors and home appliances)
                 connected to a home network are often
                 monitored and, in some cases, also controlled by cloud
-                services. There is usually a NAT-gateway between the home
+                services. There is usually a NAT device between the home
                 network to which the devices are connected and the cloud.
-                The NAT-gateway translates IP addresses as well as often providing
+                The NAT device translates IP addresses as well as often providing
                 firewall services, which block connections selectively.
                 The local devices and cloud services can only communicate
                 with each other if the communication can successfully
@@ -3078,11 +3065,11 @@ a[href].internalDFN {
                 (for example, HTTP, with all interactions mapped to a single
                 URL namespace with a common base server and using a single port).
                 This provides the remote <a>Intermediary</a> with a simple way to
-                access all the <a>Things</a> behind the NAT-gateway,
+                access all the <a>Things</a> behind the NAT device,
                 assuming the local <a>Intermediary</a>
-                has used a converged protocol that can traverse the NAT-gateway
+                has used a converged protocol that can traverse the NAT device
                 and has some way to expose this service to the Internet (STUN, TURN, DyDNS, etc).
-                In addition, the local <a>Intermediary</a> can function as a proxy, so
+                In addition, the local <a>Intermediary</a> can function as a Thing proxy, so
                 even when the connected <a>Things</a> each use a different
                 protocol (HTTP, MQTT, CoAP, etc.) and/or a different set of
                 ecosystem conventions, the
@@ -3180,12 +3167,13 @@ a[href].internalDFN {
             <p> In more complex situations, not shown in the figure, there
                 may also be cloud services that act as <a>Things</a>.
                 These can also register themselves with the <a>Thing Directory</a>.
-                Since a <a>Thing Directory</a> is a web service, it should be visible
-                to the local devices through the NAT/firewall
+                Since a <a>Thing Directory</a> is a Web service, it should be visible
+                to the local devices through the NAT or firewall device
                 and its interface can even be provided with its own TD.
                 Local devices acting as <a>Consumers</a> can then
-                connect to the <a>Thing Directory</a> either directly or via the local
-                <a>Intermediary</a> if proxying (e.g. protocol translation) is needed.
+                discover the <a>Things</a> in the cloud via the <a>Thing Directory</a>
+                and connect to the <a>Things</a> directly or via the local
+                <a>Intermediary</a> if, for instance, protocol translation is needed.
             </p>
         </section>
         <section id="sec-deployment-service-to-service-rm">
@@ -3196,9 +3184,9 @@ a[href].internalDFN {
                 discussed structure of a cloud application eco-system,
                 the figure below shows two eco-systems connected to each
                 other to make a system-of-systems. Consider the case in
-                which a client in one eco-system (i.e. <a>Consumer</a> A
+                which a client in one eco-system (i.e., <a>Consumer</a> A
                 below) needs to use a server in another eco-system
-                (i.e. <a>Thing</a> B below).
+                (i.e., <a>Thing</a> B below).
                 There is more than one mechanism to
                 achieve this cross eco-systems application-device
                 integration.
@@ -3255,13 +3243,8 @@ a[href].internalDFN {
             summarizes some general issues and guidelines to help
             preserve the security and privacy of WoT implementations.
             For a more detailed and complete analysis of security and
-            privacy threats, risks, mitigations, and best practices, see
-            the WoT Security and Privacy Considerations
-            [[?wot-security]] and the WoT Security Best
-            Practices [[?wot-security-best-practices]] documents.
-            Guidelines for the security testing of WoT implementations,
-            including adversarial testing, are given in the WoT Security
-            Testing Plan [[?wot-security-testing-plan]].
+            privacy issues, see the <em>WoT Security and Privacy Considerations</em>
+            [[?wot-security]] document.
         </p>
         <p>Overall, the goal of the WoT is to describe the existing
             access mechanisms and properties of IoT devices and
@@ -3445,8 +3428,8 @@ a[href].internalDFN {
                         using platform security mechanisms available on
                         the device. For more information see Sections
                         "WoT Servient Single-Tenant" and "WoT Servient
-                        Multi-Tenant" of
-                        [[wot-security]].
+                        Multi-Tenant" of the <em>WoT Security and Privacy
+                        Considerations</em> document [[wot-security]].
                     </dd>
                 </dl>
             </section>
@@ -3505,7 +3488,8 @@ a[href].internalDFN {
                         related data should be done in a secure fashion.
                         A set of recommendations for secure update and
                         post-manufacturing provisioning can be found in
-                        [[wot-security]].
+                        the <em>WoT Security and Privacy Considerations</em>
+                        document [[wot-security]].
                     </dd>
                 </dl>
             </section>
