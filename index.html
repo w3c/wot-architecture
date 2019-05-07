@@ -2909,8 +2909,8 @@ a[href].internalDFN {
     <section id="sec-deployment-scenario" class="informative">
         <h1>WoT Deployments</h1>
 
-        <p> This section discusses how the Web of Things as a whole works
-            when <a>Things</a> and <a>Consumers</a> implemented as devices and services are
+        <p> This section discusses how the Web of Things works as a whole,
+            when devices and services that implement <a>Things</a> and <a>Consumers</a> are
             connected together in various topologies and deployment scenarios.
         </p>
         <p>
@@ -2929,7 +2929,7 @@ a[href].internalDFN {
                 <a>Exposed Thing</a> based on a <a>Thing Description</a> (TD).
                 TDs are published and made available to other <a>Servients</a>
                 that are in the roles of <a>Consumers</a> or <a>Intermediaries</a>.
-                Publications of TDs may be done in various different ways: the TD
+                TDs may be published in various different ways: the TD
                 might be registered with a management system such as
                 the <a>Thing Directory</a> service, or a <a>Thing</a>
                 may provide the requesters with a TD upon receiving a request for a TD.
@@ -2937,14 +2937,15 @@ a[href].internalDFN {
                 in certain application scenarios.
             </p>
             <p> A <a>Servient</a> in the role of a <a>Consumer</a> obtains the TD of a <a>Thing</a>
-                using a discovery mechanism implemented in the individual deployment scenarios
-                (such as a management system such as <a>Thing Directory</a>, discovery protocol,
-                 static assignment, etc. as stated above)
-                and creates a <a>Consumed Thing</a> based on the obtained TD.
-                Internal system functions of a device such as attached sensors and actuators
+                using a discovery mechanism and creates a <a>Consumed Thing</a> based on the obtained TD.
+                The concrete discovery mechanism depends on the individual deployment scenario:
+                It could be provided by a management system such as a <a>Thing Directory</a>, 
+                a discovery protocol, through static assignment, etc.
+                
+                Internal system functions of a device, such as interacting with attached sensors and actuators,
                 can also optionally be represented as <a>Consumed Thing</a> abstractions.
             </p>
-            <p>The functions supported by the <a>Consumed Thing</a> are provided internally
+            <p>The functions supported by the <a>Consumed Thing</a> are provided
                to the <a>Consumer</a>'s behavior implementation through a programming language
                interface. In the <a>WoT Scripting API</a>, <a>Consumed Things</a>
                are represented by objects.
@@ -2952,22 +2953,21 @@ a[href].internalDFN {
                a <a>Thing</a> can engage in interactions with <a>Consumers</a> by using
                the programming language interface provided by the <a>Exposed Thing</a>.
             </p>
-            <p> A <a>Thing</a> may not necessarily represent a physical device.
+            <p> A <a>Thing</a> does not necessarily represent a physical device.
                 <a>Things</a> can also represent a collection of devices, or virtual services
                 running in a gateway or in the cloud.
-                Likewise, a <a>Consumer</a> may or may not represent
-                an application service running on a gateway or cloud.
+                Likewise, a <a>Consumer</a> may represent an application or service running on a gateway or cloud.
                 <a>Consumers</a> can also be implemented on edge devices.
                 In <a>Intermediaries</a>, a single <a>Servient</a>
-                simultaneously performs both the roles of a <a>Thing</a> and a <a>Consumer</a>
+                performs both the roles of a <a>Thing</a> and a <a>Consumer</a> simultaneously which are
                 sharing a single <a>WoT Runtime</a>.
             </p>
         </section>
         <section id="sec-topologies-deployment-scenarios">
             <h2>WoT System's Topologies and Deployment Scenarios</h2>
             <p>Various topologies and deployment scenarios of WoT systems are discussed in this section.
-            These are only example patterns. Other interconnection topologies are also possible.
-            The interconnection topologies described here are derived from the Web of Things use cases
+            These are only example patterns and other interconnection topologies are also possible.
+            The topologies described here are derived from the Web of Things use cases
             (<a href="#sec-use-cases"></a>)
             as well as the technical requirements extracted from them
             (<a href="#sec-requirements"></a>).
@@ -2989,7 +2989,8 @@ a[href].internalDFN {
                 <figcaption>Consumer and Thing on the Same Network</figcaption>
             </figure>
             <p> If the <a>Thing</a> is in the cloud and the <a>Consumer</a> is on a local network
-                (see <a href="#smart-home"></a> for an example in a Smart Home use case) the actual network topology may be more complex,
+                (see <a href="#smart-home"></a> for an example in a Smart Home use case)
+                the actual network topology may be more complex,
                 for example requiring NAT traversal and disallowing certain forms of discovery.
                 In such cases one of the more complex
                 topologies discussed later may be more appropriate.
@@ -2997,22 +2998,22 @@ a[href].internalDFN {
         </section>
         <section id="sec-deployment-app-proxy-dev">
             <h2>Intermediary Acting as a Proxy</h2>
-            <p> A <a>Intermediary</a> plays both <a>Thing</a> and
+            <p> An <a>Intermediary</a> plays both <a>Thing</a> and
                 <a>Consumer</a> roles on the network and supports
                 both the <a>Exposed Thing</a> and <a>Consumed Thing</a>
                 software abstractions within its <a>WoT Runtime</a>.
             </p>
-            <p> One simple application of a <a>Intermediary</a> is as a Thing proxy.
-                When functioning as a Thing proxy,
-                the <a>Intermediary</a> generally interfaces with two separate
+            <p> One simple application of an <a>Intermediary</a> is a proxy for a <p>Thing</p>.
+                When the <a>Intermediary</a> acts as a proxy,
+                it has interfaces with two separate
                 networks or protocols.  This may involve
                 the implementation of additional security mechanisms
                 such as providing TLS endpoints.  Generally proxies
-                do not modify the set of interactions so the TD exposed
+                do not modify the set of interactions, so the TD exposed
                 by the <a>Intermediary</a> will have the same interactions
-                as the consumed TD but with the connection metadata modified.
+                as the consumed TD, however the connection metadata is modified.
             </p>
-            <p> To implement this pattern, the proxy <a>Intermediary</a> obtains a TD
+            <p> To implement this proxy pattern, the <a>Intermediary</a> obtains a TD
                 of a <a>Thing</a> and creates a <a>Consumed Thing</a>.
                 It creates a proxy object of the <a>Thing</a> as a software
                 implementation that has the same <a>Interaction Affordances</a>.
@@ -3031,14 +3032,14 @@ a[href].internalDFN {
                 <figcaption>Consumer and Thing Connect via a Intermediary Acting as a Proxy</figcaption>
             </figure>
             <p> More complex <a>Intermediaries</a> may be known as <a>digital twins</a>.
-                A <a>digital twins</a> may or may not modify the protocols or
+                A <a>digital twin</a> may or may not modify the protocols or
                 translate between networks, but they provide additional
                 services, such as state caching, deferred updates,
                 or even predictive simulation of the behavior of the target device.
                 For example, if an IoT device has limited power, it
                 may choose to wake up relatively infrequently, synchronize
-                with a <a>digital twins</a>, and then immediately go to sleep again.
-                In this case, assume the <a>digital twins</a> runs on a less power-constrained
+                with a <a>digital twin</a>, and then immediately go to sleep again.
+                In this case, typically the <a>digital twins</a> runs on a less power-constrained
                 device (such as in the cloud or on a gateway)
                 and is able to respond to interactions on the
                 constrained device's behalf.
@@ -3046,17 +3047,15 @@ a[href].internalDFN {
                 may also be satisfied by the <a>digital twins</a> using cached state.
                 Requests that arrive when the target IoT device is sleeping
                 may be queued and sent to it when it wakes up.
-                One complication with implementing this pattern is that the
-                <a>Intermediary</a> that is a <a>digital twins</a> needs to know when the device is awake where
-                the device is implemented as a <a>Thing</a>.  The actual implementation
-                may needs to be augmented with a notification mechanism (which could
-                be implemented using a separate <a>Consumer</a>/<a>Thing</a> pair),
-                although it may also be possible to use <a>Event</a> interactions for this
-                purpose.
+                To implement this pattern, the <a>Intermediary</a>,
+                i.e. the <a>digital twin</a> needs to know when the device is awake. 
+                The device implementation as a <a>Thing</a> may need to include a notification mechanism for that.
+                This could be implemented using a separate <a>Consumer</a>/<a>Thing</a> pair,
+                or by using <a>Event</a> interactions for this purpose.
             </p>
         </section>
 
-        <section id="sec-deployment-cloud-rm">
+        <section id="sec-deployment-cloud">
             <h2>Devices in a Local Network Controlled from a Cloud Service</h2>
             <p> In Smart Home use cases, devices (sensors and home appliances)
                 connected to a home network are often
@@ -3146,7 +3145,7 @@ a[href].internalDFN {
                 the two <a>Intermediaries</a>.
             </p>
         </section>
-        <section id="sec-deployment-discovery-with-directory-rm">
+        <section id="sec-deployment-discovery-with-directory">
             <h2>Discovery Using a Thing Directory</h2>
 <!-- "application" and "device" are used intentionally here instead of client or server, since they
      might be either! -->
@@ -3190,7 +3189,7 @@ a[href].internalDFN {
                 <a>Intermediary</a> if, for instance, protocol translation is needed.
             </p>
         </section>
-        <section id="sec-deployment-service-to-service-rm">
+        <section id="sec-deployment-service-to-service">
             <h2>Service-to-Service Connections Across Multiple Domains</h2>
             <p> Multiple cloud eco-systems each based on different
                 IoT platforms can work together to make a larger,
@@ -3206,7 +3205,7 @@ a[href].internalDFN {
                 integration.
                 Below, two mechanisms are
                 explained, each using a figure, to show how this can be achieved.</p>
-            <section id="sec-deployment-service-to-service-rm-synchronized">
+            <section id="sec-deployment-service-to-service-synchronized">
                 <h3>Connection Through Thing Directory Synchronization</h3>
                 <p> In <a href="#deployment-service-sync-directory"></a>,
                     two <a>Thing Directories</a>
@@ -3226,7 +3225,7 @@ a[href].internalDFN {
                         Directory Synchronization</figcaption>
                 </figure>
             </section>
-            <section id="sec-deployment-service-sync-proxy-rm">
+            <section id="sec-deployment-service-sync-proxy">
                 <h3>Connection Through Proxy Synchronization</h3>
                 <p> In <a href="#deployment-service-sync-proxy"></a>, two remote <a>Intermediaries</a>
                     synchronize device information. When a shadow of <a>Thing</a>
