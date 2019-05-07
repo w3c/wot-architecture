@@ -2973,7 +2973,7 @@ a[href].internalDFN {
             (<a href="#sec-requirements"></a>).
             </p>
         <section id="sec-deployment-app-dev">
-            <h2>Consumer and Thing on the Same Network</h2>
+            <h2>Consumer and Thing on the same Network</h2>
             <p> In the simplest interconnection topology, illustrated by <a href="#simple-conf-application-device"></a>,
                 the <a>Consumer</a> and <a>Thing</a> are on the same network and can communicate
                 directly with each other without any intermediaries.
@@ -2996,14 +2996,18 @@ a[href].internalDFN {
                 topologies discussed later may be more appropriate.
             </p>
         </section>
-        <section id="sec-deployment-app-proxy-dev">
-            <h2>Intermediary Acting as a Proxy</h2>
+        <section id="sec-deployment-intermediaries">
+            <h2>Consumer and Thing connected via Intermediaries</h2>
             <p> An <a>Intermediary</a> plays both <a>Thing</a> and
                 <a>Consumer</a> roles on the network and supports
                 both the <a>Exposed Thing</a> and <a>Consumed Thing</a>
                 software abstractions within its <a>WoT Runtime</a>.
+                <a>Intermediaries</a> can be used for proxying between devices and
+                networks or for <a>Digital Twins</a>. 
             </p>
-            <p> One simple application of an <a>Intermediary</a> is a proxy for a <p>Thing</p>.
+            <section id="sec-deployment-app-proxy-dev">
+                <h2>Intermediary acting as a Proxy</h2>
+                <p> One simple application of an <a>Intermediary</a> is a proxy for a <a>Thing</a>.
                 When the <a>Intermediary</a> acts as a proxy,
                 it has interfaces with two separate
                 networks or protocols.  This may involve
@@ -3031,30 +3035,33 @@ a[href].internalDFN {
                     style="width: 640px;" />
                 <figcaption>Consumer and Thing Connect via a Intermediary Acting as a Proxy</figcaption>
             </figure>
-            <p> More complex <a>Intermediaries</a> may be known as <a>digital twins</a>.
-                A <a>digital twin</a> may or may not modify the protocols or
-                translate between networks, but they provide additional
-                services, such as state caching, deferred updates,
-                or even predictive simulation of the behavior of the target device.
-                For example, if an IoT device has limited power, it
-                may choose to wake up relatively infrequently, synchronize
-                with a <a>digital twin</a>, and then immediately go to sleep again.
-                In this case, typically the <a>digital twins</a> runs on a less power-constrained
-                device (such as in the cloud or on a gateway)
-                and is able to respond to interactions on the
-                constrained device's behalf.
-                Requests for the current state of properties
-                may also be satisfied by the <a>digital twins</a> using cached state.
-                Requests that arrive when the target IoT device is sleeping
-                may be queued and sent to it when it wakes up.
-                To implement this pattern, the <a>Intermediary</a>,
-                i.e. the <a>digital twin</a> needs to know when the device is awake. 
-                The device implementation as a <a>Thing</a> may need to include a notification mechanism for that.
-                This could be implemented using a separate <a>Consumer</a>/<a>Thing</a> pair,
-                or by using <a>Event</a> interactions for this purpose.
-            </p>
+            </section>
+            <section id="sec-deployment-digital-twin">
+                <h2>Intermediary acting as a Digital Twin</h2>
+                <p> More complex <a>Intermediaries</a> may be known as <a>Digital Twins</a>.
+                    A <a>Digital Twin</a> may or may not modify the protocols or
+                    translate between networks, but they provide additional
+                    services, such as state caching, deferred updates,
+                    or even predictive simulation of the behavior of the target device.
+                    For example, if an IoT device has limited power, it
+                    may choose to wake up relatively infrequently, synchronize
+                    with a <a>digital twin</a>, and then immediately go to sleep again.
+                    In this case, typically the <a>Digital Twins</a> runs on a less power-constrained
+                    device (such as in the cloud or on a gateway)
+                    and is able to respond to interactions on the
+                    constrained device's behalf.
+                    Requests for the current state of properties
+                    may also be satisfied by the <a>Digital Twins</a> using cached state.
+                    Requests that arrive when the target IoT device is sleeping
+                    may be queued and sent to it when it wakes up.
+                    To implement this pattern, the <a>Intermediary</a>,
+                    i.e. the <a>digital twin</a> needs to know when the device is awake. 
+                    The device implementation as a <a>Thing</a> may need to include a notification mechanism for that.
+                    This could be implemented using a separate <a>Consumer</a>/<a>Thing</a> pair,
+                    or by using <a>Event</a> interactions for this purpose.
+                </p>
+            </section>
         </section>
-
         <section id="sec-deployment-cloud">
             <h2>Devices in a Local Network Controlled from a Cloud Service</h2>
             <p> In Smart Home use cases, devices (sensors and home appliances)
