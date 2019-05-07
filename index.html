@@ -833,9 +833,24 @@ img.wot-arch-diagram {
             This section introduces common use case patterns that
             illustrate how devices/things interact with controllers,
             other devices, agents and servers.
-            In this section, we use the term 'client roles' as an
-            initiator of a transport protocol, and the term 'server roles'
+            In this section, we use the term <em>client role</em> as an
+            initiator of a transport protocol, and the term </em>server role</em>
             as a passive component of a transport protocol.
+            This does not imply prescribing a specific role on any system component.
+            A device can be in a <em>client</em> and <em>server</em> role simultaneously.
+            </p>
+            <p>
+            One example of this dual role is a sensor, that registers itself with a cloud service
+            and regularly sends sensor readings to the cloud. 
+            In the response messages the cloud can adjust the transmission rate of the 
+            sensor's messages or select specific sensor attributes, that are to be transmitted in future messages.
+            Since the sensor registers itself with the cloud and initiates connections, it is in the 'client' role.
+            However, since it also reacts to requests, that are transmitted in response messages, it also fulfills a 'server' role.
+            </p>
+            <p>
+            The following sections illustrate the roles, tasks, and use case patterns with increasing complexity.
+            They are not exhaustive and are presented to motivate for the WoT architecture and building blocks
+            that are defined in later sections of this specification. 
             </p>
 
             <section id="device-controllers">
@@ -855,7 +870,7 @@ img.wot-arch-diagram {
                     to them, and sometimes initiates a mechanical
                     action. The other device like the remote controller
                     has a client role that can send a message with a
-                    requests, like to read a sensor value or to turn on
+                    request, like to read a sensor value or to turn on
                     the device.
                     Moreover, to emit a current state or event notification of a device,
                     the device may have a client role that can send a message
