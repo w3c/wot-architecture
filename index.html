@@ -2622,59 +2622,62 @@ a[href].internalDFN {
             and how they correspond to the abstract WoT Architecture (see <a href="#sec-wot-architecture"></a>).
             When implementing these concepts,
             a more detailed view is necessary that takes certain technical aspects into account.
-            This section presents the detailed architecture of a <a>Servient</a> implementation.
+            This section describes the detailed architecture of a <a>Servient</a> implementation.
         </p>
         <p>
-            <a href="#architecture-implementation"></a> shows a <a>Servient</a> implementation using the (optional) <a>WoT Scripting API</a> building block.
-            Here, the <a>WoT Runtime</a> is also a <a>Scripting Runtime</a> system that
-            in addition to managing the WoT-specific aspects also interprets and executes the application scripts.
-            <a>Servients</a> with <a>WoT Scripting API</a> support usually run on powerful devices, edge nodes, or in the cloud.
-            There are, however, also <a>Scripting Runtimes</a> for resource-constrained systems.
-            Furthermore, the WoT Architecture does not limit the application-facing API of the <a>WoT Runtime</a> to JavaScript/ECMAScript [[ECMAScript]].
+            <a href="#architecture-implementation"></a> shows a <a>Servient</a> implementation that is using the (optional) <a>WoT Scripting API</a> building block.
+            Here, the <a>WoT Runtime</a> is also a <a>Scripting Runtime</a> system that,
+            in addition to managing the WoT-specific aspects, also interprets and executes the application scripts.
+            <a>Servients</a> that support the <a>WoT Scripting API</a> usually run on powerful devices, edge nodes, or in the cloud.
+            The WoT Architecture does not limit the application-facing API of the <a>WoT Runtime</a> to JavaScript/ECMAScript [[ECMAScript]].
+            There are also other runtime systems for resource-constrained systems that can be used to implement a <a>Servient</a>.
         </p>
         <p>
-            <a href="#native-impl"></a> presents an alternative <a>Servient</a> implementation without the <a>WoT Scripting API</a> building block.
+            Section <a href="#native-impl"></a> presents an alternative <a>Servient</a> implementation without the <a>WoT Scripting API</a> building block.
             The <a>WoT Runtime</a> may use any programming language for its application-facing API.
             Usually, it is the native language of the <a>Servient</a> software stack,
-            for instance C/C++ for embedded <a>Servients</a> or Java for cloud-based <a>Servient</a>.
-            It may also be an alternative scripting langague such as Lua to combine the benefits of application scripts with low resource consumption.
+            for instance C/C++ for embedded <a>Servients</a> or Java for cloud-based <a>Servients</a>.
+            It may also be an alternative scripting languague such as Lua to combine the benefits of application scripts with low resource consumption.
         </p>
         <figure id="architecture-implementation">
             <img src="images/wot-thing-scripting.png" style="width: 80%;" />
-            <figcaption>Implementation of a Servient Using the Optional WoT Scripting API</figcaption>
+            <figcaption>Implementation of a Servient using the WoT Scripting API</figcaption>
         </figure>
         <p>
-            The role and functionality of each internal module shown
-            in <a href="#architecture-implementation"></a> is given in
+            The role and functionality of each module shown
+            in <a href="#architecture-implementation"></a> is explained in
             the following sections.
         </p>
         <section>
             <h2>Behavior Implementation</h2>
             <p>
-                The behavior defines the overall application logic and includes
-                autonomous behavior of <a>Things</a> (e.g., sampling of sensors or control loops for actuators),
-                the handlers for <a>Interaction Affordances</a> (i.e., the concrete actions taken when an affordance is activated),
-                <a>Consumer</a> behavior (e.g., controlling a <a>Thing</a> or realizing mashups), and
-                <a>Intermediary</a> behavior (e.g., simply proxying a <a>Thing</a> or composing virtual entities).
-                The behavior implementation within a <a>Servient</a> defines
-                which <a>Things</a>, <a>Consumers</a>, and <a>Intermediaries</a> are hosted on this component.
+                The <em>behavior</em> defines the overall application logic of a <a>Thing</a>,
+                which has several aspects:
             </p>
             <p>
-                <a href="#architecture-implementation"></a> focuses on <a>Servients</a> implementing the optional <a>WoT Scripting API</a> building block,
+                It includes <em>autonomous behavior</em> of <a>Things</a> (e.g., sampling of sensors or control loops for actuators),
+                the <em>handlers</em> for <a>Interaction Affordances</a> (i.e., the concrete actions taken when an affordance is activated),
+                <em><a>Consumer</a> behavior</em> (e.g., controlling a <a>Thing</a> or realizing mashups), and
+                <em><a>Intermediary</a> behavior</em> (e.g., simply proxying a <a>Thing</a> or composing virtual entities).
+                The behavior implementation within a <a>Servient</a> defines which <a>Things</a>, <a>Consumers</a>, 
+                and <a>Intermediaries</a> are hosted on this component.
+            </p>
+            <p>
+                <a href="#architecture-implementation"></a> depicts <a>Servients</a> that are implementing the optional <a>WoT Scripting API</a> building block,
                 where portable application scripts written in JavaScript [[ECMAScript]] define the behavior.
                 They are executed in a <a>Scripting Runtime</a> system, which can be seen as either nested in or coinciding with the <a>WoT Runtime</a>.
-                They are portable, as they are written against the common <a>WoT Scripting API</a> definitions,
+                Applications are portable, as they are written against the common <a>WoT Scripting API</a> definitions,
                 and hence can be executed by any <a>Servient</a> featuring this building block.
-                This makes it possible to migrate certain application logic between system components,
+                This makes it possible to shift application logic between system components,
                 for instance moving a <a>Consumer</a> from the cloud to an edge node to meet networking requirements,
-                or move an <a>Intermediary</a> to the cloud to fulfill growing resource demands.
-                The portability can also foster <a>Thing</a> customization by installing behavior following the app concept known from smartphones.
+                or to move an <a>Intermediary</a> to the cloud to fulfill growing resource demands.
+                Additional behavior can be 'installed' after deployment of a <a>Servient</a> through portable applications. 
             </p>
             <p>
-                See <a href="#native-impl"></a> for behavior implementation without the <a>WoT Scripting API</a> building block.
                 In principle, any programming language and API can be used in order to define the behavior of a Thing,
                 as long as the <a>Interaction Affordances</a> are presented externally through a <a>WoT Interface</a>.
                 The adaption between application-facing API and the protocol stack is handled by the <a>WoT Runtime</a>.
+                See section <a href="#native-impl"></a> for behavior implementation without the <a>WoT Scripting API</a> building block.
             </p>
         </section>
         <section>
@@ -2686,16 +2689,17 @@ a[href].internalDFN {
             </p>
             <p>
                 The <a>WoT Runtime</a> must provide an API for the behavior implementation that follows the <a>Thing</a> abstraction.
-                The optional <a>WoT Scripting API</a> building block shown in <a href="#architecture-implementation"></a> defines such an application-facing interface.
+                The optional <a>WoT Scripting API</a> shown in <a href="#architecture-implementation"></a> defines such an application-facing interface.
                 See <a href="#native-impl"></a> for alternative APIs.
             </p>
             <p>
                 A <a>WoT Runtime</a> needs to provide certain operations to manage the lifecycle of <a>Things</a>,
                 or more precicely their software abstractions and descriptions.
-                The details of such operations vary among different implementations.
                 A lifecycle management (LCM) system may encapsulate those lifecycle operations within a <a>Servient</a>
                 and use internal interfaces to realize the lifecycle management.
-                The <a>WoT Scripting API</a> includes LCM functionality, and hence represents one possible implementation of such a system.
+                The details of such operations vary among different implementations.
+                The <a>WoT Scripting API</a> includes LCM functionality, and hence represents one possible 
+                implementation of such a system.
             </p>
             <p>
                 The <a>WoT Runtime</a> must interface with the protocol stack implementation of the <a>Servient</a>,
@@ -2735,7 +2739,7 @@ a[href].internalDFN {
             <h2>Exposed Thing and Consumed Thing Abstractions</h2>
             <p>
                 The <a>WoT Runtime</a> instantiates software representations of <a>Things</a> based on their <a>TDs</a>.
-                These software representations provide the interface toward the behavior implementation.
+                These software representations provide the interface towards the behavior implementation.
             </p>
             <p>
                 The <a>Exposed Thing</a> abstraction represents a <a>Thing</a> hosted locally
@@ -2782,9 +2786,11 @@ a[href].internalDFN {
             <h2>Protocol Stack Implementation</h2>
             <p>
                 The protocol stack of a <a>Servient</a> implements the <a>WoT Interface</a> of the <a>Exposed Things</a>
-                and is used by <a>Consumers</a> to access the <a>WoT Interface</a> of remote <a>Things</a> (via <a>Consumed Things</a>).
+                and is used by <a>Consumers</a> to access the <a>WoT Interface</a> of remote 
+                <a>Things</a> (via <a>Consumed Things</a>).
                 It produces the concrete protocol messages to interact over the network.
-                <a>Servients</a> may implement multiple protocols, and hence support multiple <a>Protocol Bindings</a> to enable interaction with different <a>IoT Platforms</a>.
+                <a>Servients</a> may implement multiple protocols, and hence support multiple 
+                <a>Protocol Bindings</a> to enable interaction with different <a>IoT Platforms</a>.
             </p>
             <p> In many cases, where standard protocols are used,
                 generic protocol stacks can be used to produce the
@@ -2806,15 +2812,17 @@ a[href].internalDFN {
         <section>
             <h2>System API</h2>
             <p>
-                A given implementation of a <a>WoT Runtime</a>
+                An implementation of a <a>WoT Runtime</a>
                 may provide local hardware or system services to
                 behavior implementations through the <a>Thing</a>
                 abstraction, as if they were accessible over a communication
                 protocol. In this case, the <a>WoT Runtime</a> should
                 enable the behavior implementation to instantiate <a>Consumed Things</a>
                 that internally interface with the system instead of the protocol stack.
-                This can be done by listing such system Things, which are only available in the local <a>WoT Runtime</a>,
-                in the results of the discovery mechanism provided by the application-facing <a>WoT Runtime</a> API.
+                This can be done by listing such system Things, 
+                which are only available in the local <a>WoT Runtime</a>,
+                in the results of the discovery mechanism provided by the 
+                application-facing <a>WoT Runtime</a> API.
             </p>
             <p>
                 A device may also be physically external to a <a>Servient</a>,
@@ -2842,13 +2850,14 @@ a[href].internalDFN {
                 The <a>WoT Scripting API</a> building block is optional.
                 Alternative <a>Servient</a> implementations are possible,
                 where applications are implemented using alternative
-                northbound APIs for the <a>WoT Runtime</a> or provide the
+                application facing APIs for the <a>WoT Runtime</a> or provide the
                 behavior implementation in a native programming language.
             </p>
             <p>
                 Furthermore, devices or services unaware of W3C WoT can still be consumed,
                 when it is possible to provide a valid <a>WoT Thing Description</a> for them.
-                In this case, the <a>TD</a> describes a <a>WoT Interface</a> of a <a>Thing</a> with a black box implementation.
+                In this case, the <a>TD</a> describes a <a>WoT Interface</a> of a 
+                <a>Thing</a> with a black box implementation.
             </p>
             <section id="native-impl">
                 <h3>Native WoT API</h3>
