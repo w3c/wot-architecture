@@ -403,15 +403,7 @@ img.wot-arch-diagram {
             <dd>An Interaction Affordance that describes an event source,
                 which asynchronously pushes event data to Consumers
                 (e.g., overheating alerts).</dd>
-            <dt>
-                <dfn>Execution Environment</dfn>
-            </dt>
-            <dd>A sandbox within the WoT Runtime that isolates application logic
-                (e.g., scripts for the WoT Scripting API) from the WoT Runtime
-		functions (in particular private security configuration and,
-		when applicable, from application logic of other tenants
-		on the same Servient.</dd>
-            <dt>
+           <dt>
                 <dfn>to expose a Thing</dfn>
             </dt>
             <dd>To create an Exposed Thing software abstraction in the
@@ -2719,10 +2711,10 @@ img.wot-arch-diagram {
                 defines such an application-facing interface that follows the <a>Thing</a> abstraction
                 and enables the deployment of behavior implementations during runtime through application scripts.
                 See <a href="#native-impl"></a> for alternative APIs, which can also only be available during compile time.
-                In general, application logic should be executed in isolated <a>Execution Environments</a>
+                In general, application logic should be executed in isolated execution environments
                 to prevent unauthorized access to the management aspects of the <a>WoT Runtime</a>,
                 in particular the private security configuration.
-                In multi-tenant <a>Servients</a>, additional <a>Execution Environment</a> isolation is required for the different tenants.
+                In multi-tenant <a>Servients</a>, additional execution environment isolation is required for the different tenants.
             </p>
             <p>
                 A <a>WoT Runtime</a> needs to provide certain operations to manage the lifecycle of <a>Things</a>,
