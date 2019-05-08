@@ -65,11 +65,11 @@
                 }],
         localBiblio : {
             "CoRE-RD" : {
-                href : "https://tools.ietf.org/html/draft-ietf-core-resource-directory-11",
+                href : "https://tools.ietf.org/html/draft-ietf-core-resource-directory-20",
                 title : "CoRE Resource Directory",
                 status : "Internet-Draft",
                 publisher : "IETF",
-                date : "03 July 2017"
+                date : "11 March 2019"
             },
 /* ReSpec will pick up the citation as it is officially published
             "wot-security" : {
@@ -178,8 +178,8 @@
                 publisher : "Proceedings of Internet of Things 2010 International Conference (IoT 2010). Tokyo, Japan",
                 date : "November 2010"
             },
-            "Y.2070" : {
-                title : "ITU-T Rec. Y.2070 (01/2015) Requirements and architecture of the home energy management system and home network services ",
+            "Y.4409/Y.2070" : {
+                title : "ITU-T Rec. Y.4409/Y.2070 (01/2015) Requirements and architecture of the home energy management system and home network services ",
                 publisher : "ITU-T",
                 status: "Recommendation",
                 date : "January 2015"
@@ -220,7 +220,7 @@ img.wot-arch-diagram {
 	    
         <p>This specification is focused on the scope of W3C WoT standardization,
 	    which is broken down into so-called building blocks.
-	    It introduces the four intial WoT building blocks,
+	    It introduces the four initial WoT building blocks,
             which are defined and described in detail in separate specifications,
 	    and explains their interworking:</p>
         <p>
@@ -346,7 +346,7 @@ img.wot-arch-diagram {
             <dd>An Interaction Affordance that allows to invoke a
                 function of the Thing, which manipulates state
                 (e.g., toggling a lamp on or off)
-                or triggers a process on the Thing (e.g., dimm a lamp over time).</dd>
+                or triggers a process on the Thing (e.g., dim a lamp over time).</dd>
             <dt>
                 <dfn data-lt="WoT Binding Templates">Binding
                     Templates</dfn>
@@ -422,7 +422,7 @@ img.wot-arch-diagram {
             <dd>A serialization of a Protocol Binding in hypermedia, that is,
                 either a Web link [[!RFC8288]] for navigation or a Web form for
                 performing other operations. Forms can be seen as request templates
-                provided by the Thing to be completeted and sent by the Consumer.</dd>
+                provided by the Thing to be completed and sent by the Consumer.</dd>
             <dt>
                 <dfn>Interaction Affordance</dfn>
             </dt>
@@ -546,7 +546,7 @@ img.wot-arch-diagram {
                 <dfn>WoT Scripting API</dfn>
             </dt>
             <dd>The application-facing programming interface
-                provided by a Servient in order to to ease
+                provided by a Servient in order to ease
                 the implementation of behavior or applications running in a WoT
                 Runtime. It is comparable to the Web browser APIs.
                 The WoT Scripting API is an optional building block for W3C WoT.</dd>
@@ -639,11 +639,11 @@ img.wot-arch-diagram {
                         of a Smart Factory. In this case, field-level,
                         cell and line controllers automate different
                         factory equipment based on industrial
-                        communication protocols such as Profinet,
+                        communication protocols such as PROFINET,
                         Modbus, OPC UA TSN, EtherCAT, or CAN. An
                         industrial edge device collects selected data
                         from various controllers and makes it available
-                        to a cloud backend service, e.g. for remote
+                        to a cloud backend service, e.g., for remote
                         monitoring via a dashboard or analyzes it for
                         preventive maintenance.
                     </p>
@@ -774,7 +774,7 @@ img.wot-arch-diagram {
                     usage and availability of parking spaces and
                     automates billing/reservations.</p>
                 <p>Smart control of street lights based on presence
-                    detection, weather predictions, etc reduced cost.</p>
+                    detection, weather predictions, etc. reduces cost.</p>
                 <p>Garbage containers can be monitored to optimize
                     the waste management and the trash collection route.</p>
             </section>
@@ -911,7 +911,7 @@ img.wot-arch-diagram {
                     (e.g., on a smartphone) as shown in <a
                         href="#smart-home-multi"></a>. The remote
                     controller can switch between different network
-                    connections and protocols, e.g. between a cellular
+                    connections and protocols, e.g., between a cellular
                     network and a home network, which is using protocols
                     such as Wi-Fi and Bluetooth. When the controller is
                     in the home network it is a trusted device and no
@@ -1085,7 +1085,7 @@ img.wot-arch-diagram {
                     for describing devices and device types is the
                     capability of deploying devices to different cloud
                     environments without the need of doing customization
-                    at device software / firmware level, i.e. installing
+                    at device software / firmware level, i.e.,  installing
                     cloud specific code to a device. This implies that
                     the solution is flexible enough to describe devices
                     in a way that allows on-boarding and using devices
@@ -1317,7 +1317,7 @@ img.wot-arch-diagram {
                         functionality.</li>
                     <li>WoT architecture should allow using a
                         combination of multiple protocols to the
-                        functionalities of the same thing (e.g. HTTP and
+                        functionalities of the same thing (e.g., HTTP and
                         WebSocket).</li>
                 </ul>
             </section>
@@ -1385,7 +1385,7 @@ img.wot-arch-diagram {
                     of Things architecture</h3>
                 <p>The use cases help to identify basic components
                     such as devices and applications, that access and
-                    control those devices, proxies (i.e. gateways and
+                    control those devices, proxies (i.e.,  gateways and
                     edge devices) that are located between devices.
                     An additional component useful in some use cases
                     is the directory, which assists with discovery.</p>
@@ -1420,7 +1420,7 @@ img.wot-arch-diagram {
                     protocols used.</p>
                 <p>Because many systems based on Web of Things
                     architecture are crossing system Domains,
-                    vocabularies and meta data (e.g. ontologies) used in
+                    vocabularies and meta data (e.g., ontologies) used in
                     information models should be commonly understood by
                     involved parties. In addition to REST transports,
                     PubSub transports are also supported.</p>
@@ -1554,7 +1554,7 @@ img.wot-arch-diagram {
             <figure id="consumer-thing">
                 <img src="images/architecture/consumer-thing.png"
                      class="wot-arch-diagram" />
-                <figcaption>Consumer--Thing interaction</figcaption>
+                <figcaption>Consumer-Thing interaction</figcaption>
             </figure>
             <p>
                 A <a>Thing</a> can also be the abstraction of a virtual entity.
@@ -1622,7 +1622,7 @@ img.wot-arch-diagram {
                 The concepts of W3C WoT are applicable to all levels relevant for IoT applications: the device level, edge level, and cloud level.
                 This fosters common interfaces and APIs across the different levels and enables various integration patterns 
                 such as Thing-to-Thing, Thing-to-Gateway, Thing-to-Cloud, Gateway-to-Cloud, and even cloud federation, 
-                i.e. interconnecting cloud computing environments of two or more service providers, for IoT applications.
+                i.e.,  interconnecting cloud computing environments of two or more service providers, for IoT applications.
                 <a href="#architecture-abstract"></a> gives an overview how the WoT concepts introduced above can be applied and combined to address the use cases summarized in <a href="#sec-use-case-summary"></a>.
             </p>
             <figure id="architecture-abstract">
@@ -1696,7 +1696,8 @@ img.wot-arch-diagram {
                 The behavior aspect of a <a>Thing</a> includes both the autonomous behavior and the handlers for the <a>Interaction Affordances</a>.
                 The <a>Interaction Affordances</a> provide a model of how <a>Consumers</a> can interact with the <a>Thing</a> through abstract operations,
 				but without reference to a specific network protocol or data encoding.
-                The protocol binding adds the additional detail needed to map each interaction to concete messages of a certain protocol.
+                The protocol binding adds the additional detail needed to map each 
+                <a>Interaction Affordance</a> to concete messages of a certain protocol.
                 In general, different concrete protocols may be used to
                 support different subsets of <a>Interaction Affordances</a>,
                 even within a single Thing. The security configuration
@@ -1867,7 +1868,7 @@ img.wot-arch-diagram {
                     (e.g., <code>stylesheet</code>) or extension types in the form of URIs [[!RFC3986]].
                     <span class="rfc2119-assertion" id="arch-rel-types">
                     Extension relation types MUST be compared as strings using a case-insensitive comparison.
-                    (If they are serialised in a different format they are to be converted to URIs).
+                    (If they are serialized in a different format they are to be converted to URIs).
                     </span>
                     <span class="rfc2119-assertion" id="arch-rel-type-lowercase">
                     Nevertheless, all-lowercase URIs SHOULD be used for extension relation types. [[!RFC8288]]
@@ -1884,7 +1885,7 @@ img.wot-arch-diagram {
                 <h3>Forms</h3>
                 <p>
                     Forms enable <a>Consumers</a> (or Web clients in the broader sense) to perform operations that go beyond dereferencing a URI
-                    (e.g. to manipulate the state of a Thing).
+                    (e.g., to manipulate the state of a Thing).
                     <a>Consumers</a> do so by <em>filling out</em> and <em>submitting</em> the form to its submission target.
                     This usually requires more detailed information about the contents of the (request) message than a link can provide
                     (e.g., method, header fields, or other protocol options).
@@ -1953,7 +1954,7 @@ img.wot-arch-diagram {
                             Extension operation types MUST be URIs [[!RFC3986]] that uniquely identify the type.
                         </span>
                         <span class="rfc2119-assertion" id="arch-op-extension-comparison">
-                            Extension operation types MUST be compared compared as strings using a case-insensitive comparison.
+                            Extension operation types MUST be compared as strings using a case-insensitive comparison.
                         </span>
                         <span class="rfc2119-assertion" id="arch-op-extension-lowercase">
                             Nevertheless, all-lowercase URIs SHOULD be used for extension operation types.
@@ -2039,25 +2040,25 @@ img.wot-arch-diagram {
                                 <td>readallproperties</td>
                                 <td>Identifies the readallproperties
                                     operation on Things to retrieve the
-                                    data of all Properties in a single interaction.</td>
+                                    data of all Properties in a single <a>Interaction Affordance</a>.</td>
                             </tr>
                             <tr>
                                 <td>writeallproperties</td>
                                 <td>Identifies the writeallproperties
                                     operation on Things to update the
-                                    data of all writable Properties in a single interaction.</td>
+                                    data of all writable Properties in a single <a>Interaction Affordance</a>.</td>
                             </tr>
                             <tr>
                                 <td>readmultipleproperties</td>
                                 <td>Identifies the readmultipleproperties
                                     operation on Things to retrieve the
-                                    data of selected Properties in a single interaction.</td>
+                                    data of selected Properties in a single <a>Interaction Affordance</a>.</td>
                             </tr>
                             <tr>
                                 <td>writemultipleproperties</td>
                                 <td>Identifies the writemultipleproperties
                                     operation on Things to update the
-                                    data of selected writable Properties in a single interaction.</td>
+                                    data of selected writable Properties in a single <a>Interaction Affordance</a>.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -2104,7 +2105,7 @@ img.wot-arch-diagram {
                     The authority can be the <a>Thing</a> itself, generating the <a>WoT Thing Description</a> 
                     at runtime (based on its current state and including network parameters such as its IP address),
                     or an external entity that has full and up-to-date knowledge of the <a>Thing</a> 
-                    including its network parameters and internal structure (e.g. software stack).
+                    including its network parameters and internal structure (e.g., software stack).
                     This enables a loose coupling between <a>Things</a>  and clients, allowing for an independent lifecycle and evolution.
                     <span class="rfc2119-assertion" id="arch-hypermedia-caching">
                         The hypermedia controls MAY be cached outside the Thing and used for offline processing if corresponding caching metadata is available to determine the freshness.
@@ -2118,7 +2119,8 @@ img.wot-arch-diagram {
                         Eligible protocols for W3C WoT MUST have an associated URI scheme that is registered with IANA [[!RFC4395]].
                     </span>
                     Hypermedia controls rely on URIs to identify link and submission targets.
-                    Thereby, the URI scheme (the first component up to ":") identifies the communication protocol to be used for interaction with the Thing.
+                    Thereby, the URI scheme (the first component up to ":") identifies the 
+                    communication protocol to be used for <a>Interaction Affordance</a>s with the Thing.
                     W3C WoT refers to these protocols as <a>transfer protocols</a>.
                 </p>
             </section>
@@ -2126,11 +2128,11 @@ img.wot-arch-diagram {
                 <h3>Standard Set of Methods</h3>
                 <p>
                     <span class="rfc2119-assertion" id="arch-methods">
-                        Eligible protocols for W3C WoT MUST be based on a
-                        standard set of methods that are known a priori.</span>
+                    Eligible protocols for W3C WoT MUST be based on a
+                    standard set of methods that are known a priori.</span>
                     The standard set of methods makes messages
                     self-descriptive to enable intermediate processing of
-                    interactions, for instance by proxies or to translate
+                    <a>Interaction Affordance</a>s, for instance by proxies or to translate
                     between Protocol Bindings [[?REST]]. Furthermore, it
                     allows <a>Consumers</a> to have re-usable protocol
                     stacks of common <a>transfer protocols</a> such as HTTP, CoAP, or MQTT,
@@ -2189,7 +2191,7 @@ img.wot-arch-diagram {
                a <a>Thing</a> called <a>Exposed Thing</a>, and makes its <a>WoT Interface</a> 
                available  to <a>Consumers</a> of the <a>Thing</a>.
                This <a>Exposed Thing</a> may be used by other software components on 
-               the <a>Servient</a> (e.g. applications) to implement the behavior of the thing.</p>
+               the <a>Servient</a> (e.g., applications) to implement the behavior of the thing.</p>
 
                 <figure id="servient-thing-exposedThing">
                     <img
@@ -2292,7 +2294,7 @@ img.wot-arch-diagram {
                 <p>An <a>Intermediary</a> combines <a>Exposed Thing</a> and 
                    <a>Consumed Thing</a> functionality. The functionality of 
                    <a>Intermediaries</a> includes relaying messages for the 
-                   interactions between a <a>Consumer</a> and a <a>Thing</a>, 
+                   <a>Interaction Affordance</a>s between a <a>Consumer</a> and a <a>Thing</a>, 
                    optionally caching the <a>Thing</a>'s data for faster response, and 
                    transforming communication when the functionality of the 
                    <a>Thing</a> is extended by the <a>Intermediary</a>.
@@ -2384,31 +2386,31 @@ img.wot-arch-diagram {
             specific target protocols.
         </p>
         <p> The interaction implementation specifies how a <a>Thing</a>
-            actually responds to an interaction, including how state is
+            actually responds to an <a>Interaction Affordance</a>, including how state is
             stored and modified. The behavior implementation specifies
             how other behavior of a <a>Thing</a> is implemented, which may or
             may not be directly related to an interaction. For example,
             a thermostat may need to execute a control loop to control a
             furnace based on a sensor reading. This does not directly
-            relate to a specific interaction, although it might be
+            relate to a specific <a>Interaction Affordance</a>, although it might be
             controlled by a property (such as target temperature) that
-            can be modified by an interaction.
+            can be modified by an <a>Interaction Affordance</a>.
         </p>
-        <p> For specifying behavior and interaction implementations, an
+        <p> For specifying behavior and <a>Interaction Affordance</a> implementations, an
             optional <a>WoT Scripting API</a> building block is provided which
             supports the definition and consumption of <a>WoT Thing
             Descriptions</a>. This is useful to define application behavior
             using an easy-to-use scripting language. It is however
             possible to implement a <a>Thing</a> <em>without</em> using the
             <a>WoT Scripting API</a>. In this case the externally visible
-            interactions and network interface still needs to be
+            <a>Interaction Affordance</a>s and network interface still needs to be
             consistent with the <a>Thing Description</a> defined for the <a>Thing</a>.
         </p>
         <p> Internally to a <a>Thing</a>, it is also generally important to
             provide secure storage for <em>private</em> security data
             such as encryption keys and identity material. This information is
             never directly shared with entities outside the <a>Thing</a>, and ideally
-            should not even be directly accessible to the behavior and interaction
+            should not even be directly accessible to the behavior and <a>Interaction Affordance</a>
             implementations. Instead an abstract set of operations
             should support security functions such as signing,
             authorization, certificate validation, as well as encryption and
@@ -2452,7 +2454,7 @@ img.wot-arch-diagram {
                 instances with general metadata such as name, ID,
                 descriptions, and also can provide relation metadata
                 through links to related <a>Things</a> or other documents. <a>TDs</a>
-                also contain interaction affordance metadata based on
+                also contain <a>Interaction Affordance</a> metadata based on
                 the interaction model defined in <a
                     href="#sec-interaction-model"></a>; public security
                 configuration metadata; and communications metadata
@@ -2499,7 +2501,7 @@ img.wot-arch-diagram {
             <p> The IoT uses a variety of protocols for accessing
                 devices, since no single protocol is appropriate in all
                 contexts. Thus, a central challenge for the Web of
-                Things is to enable interactions with the plethora of
+                Things is to enable <a>Interaction Affordance</a> with the plethora of
                 different <a>IoT platforms</a> (e.g., OCF, oneM2M, OMA
                 LWM2M, OPC UA) and devices that do not follow any
                 particular standard, but provide an eligible interface
@@ -2564,7 +2566,7 @@ img.wot-arch-diagram {
                     mechanisms. The URI scheme of the form (submission)
                     target contains the information required to
                     identify the <a>transfer protocol</a>, e.g., HTTP, CoAP, or
-                    WebSockets.</p></li>
+                    WebSocket.</p></li>
                 <li><b>Subprotocol:</b> 
                 <p><a>Transfer protocols</a> may have
                     extension mechanisms that must be known to interact
@@ -2645,7 +2647,7 @@ img.wot-arch-diagram {
     <section id="sec-servient-implementation" class="informative">
         <h1>Servient Implementation</h1>
         <p>
-            As defined in <a href="sec-wot-servient-architecture-high-level"></a>,
+            As defined in <a href="#sec-wot-servient-architecture-high-level"></a>,
             a <a>Servient</a> is a software stack that implements the WoT building blocks 
             presented in the previous section.
             <a>Servients</a> can host and expose <a>Things</a> and/or consume <a>Things</a> 
@@ -2674,7 +2676,7 @@ img.wot-arch-diagram {
             The <a>WoT Runtime</a> may use any programming language for its application-facing API.
             Usually, it is the native language of the <a>Servient</a> software stack,
             for instance C/C++ for embedded <a>Servients</a> or Java for cloud-based <a>Servients</a>.
-            It may also be an alternative scripting languague such as Lua to combine the benefits of application scripts with low resource consumption.
+            It may also be an alternative scripting language such as Lua to combine the benefits of application scripts with low resource consumption.
         </p>
         <figure id="architecture-implementation">
             <img src="images/servient/wot-thing-scripting.png"
@@ -2739,7 +2741,7 @@ img.wot-arch-diagram {
             </p>
             <p>
                 A <a>WoT Runtime</a> needs to provide certain operations to manage the lifecycle of <a>Things</a>,
-                or more precicely their software abstractions and descriptions.
+                or more precisely their software abstractions and descriptions.
                 A lifecycle management (LCM) system may encapsulate those lifecycle operations within a <a>Servient</a>
                 and use internal interfaces to realize the lifecycle management.
                 The details of such operations vary among different implementations.
@@ -2758,7 +2760,7 @@ img.wot-arch-diagram {
         <section>
             <h3>WoT Scripting API</h3>
             <p>
-                The <a>WoT Scripting API</a> building block defines an ECMAScript API that closely follows the <a>WoT Thing Description</a> specificiation [[wot-thing-description]].
+                The <a>WoT Scripting API</a> building block defines an ECMAScript API that closely follows the <a>WoT Thing Description</a> specification [[wot-thing-description]].
                 It defines the interface between behavior implementations and a scripting-based <a>WoT Runtime</a>.
                 Other, simpler APIs may be implemented on top of it,
                 similar to, for instance, jQuery for the Web browser APIs.
@@ -2792,7 +2794,7 @@ img.wot-arch-diagram {
             <p>
                 When using the <a>WoT Scripting API</a>, <a>Exposed Thing</a> and <a>Consumed Thing</a> are JavaScript objects,
                 which can be created, operated on, and destroyed by application scripts.
-                However, access my be restricted through a security configuration,
+                However, access may be restricted through a security configuration,
                 for instance, in multi-tenant <a>Servients</a>.
             </p>
         </section>
@@ -2811,7 +2813,7 @@ img.wot-arch-diagram {
                 external disclosure of this data. Private security data
                 is used transparently by the <a>Protocol Binding</a> to
                 authorize and protect the integrity and confidentiality
-                of interactions.
+                of <a>Interaction Affordance</a>.
             </p>
         </section>
         <section>
@@ -2861,8 +2863,8 @@ img.wot-arch-diagram {
                 but connected via a proprietary protocol or a protocol
                 not eligible as <a>WoT Interface</a> (see <a href="#sec-protocol-bindings"></a>).
                 In this case, the <a>WoT Runtime</a> may
-                access legacy devices with such protocols (e.g., Echonet
-                Lite, BACNET, X10, I2C, SPI, etc.) through proprietary APIs,
+                access legacy devices with such protocols (e.g., ECHONET
+                Lite, BACnet, X10, I2C, SPI, etc.) through proprietary APIs,
                 but may again choose to expose them to the behavior implementation via
                 a <a>Thing</a> abstraction. A <a>Servient</a> can then act
                 as gateway to the legacy devices. This should only be
@@ -2994,7 +2996,7 @@ img.wot-arch-diagram {
                interface. In the <a>WoT Scripting API</a>, <a>Consumed Things</a>
                are represented by objects.
                The behavior implementation (that is, the application logic) running in
-               a <a>Thing</a> can engage in interactions with <a>Consumers</a> by using
+               a <a>Thing</a> can engage in <a>Interaction Affordance</a> with <a>Consumers</a> by using
                the programming language interface provided by the <a>Exposed Thing</a>.
             </p>
             <p> A <a>Thing</a> does not necessarily represent a physical device.
@@ -3099,7 +3101,7 @@ img.wot-arch-diagram {
                     Requests that arrive when the target IoT device is sleeping
                     may be queued and sent to it when it wakes up.
                     To implement this pattern, the <a>Intermediary</a>,
-                    i.e. the <a>digital twin</a> needs to know when the device is awake. 
+                    i.e.,  the <a>digital twin</a> needs to know when the device is awake. 
                     The device implementation as a <a>Thing</a> may need to include a notification mechanism for that.
                     This could be implemented using a separate <a>Consumer</a>/<a>Thing</a> pair,
                     or by using <a>Event</a> interactions for this purpose.
@@ -3120,7 +3122,7 @@ img.wot-arch-diagram {
                 traverse the gateway.
             </p>
             <p> A typical structure,
-                adopted in ITU-T Recommendation Y.2070 [[?Y.2070]] ,
+                adopted in ITU-T Recommendation Y.4409/Y.2070 [[?Y.4409/Y.2070]] ,
                 is shown in <a href="#deployment-cloud-device"></a>.
                 In this structure there is both a local and a remote <a>Intermediary</a>.
                 The local <a>Intermediary</a> aggregates the <a>Interaction Affordances</a> from multiple
@@ -3153,7 +3155,7 @@ img.wot-arch-diagram {
                 control mechanism and may also perform caching or throttling to
                 protect the consumer from excess traffic.
                 Those consumers also will use a
-                single protocol suitable for the open Internet (e.g. HTTPS) to communicate with the
+                single protocol suitable for the open Internet (e.g., HTTPS) to communicate with the
                 <a>Intermediary</a>, which makes the development of clients much
                 simpler.
             </p>
@@ -3177,7 +3179,7 @@ img.wot-arch-diagram {
                 may alternative reverse the client/server roles between them to set up an initial
                 connection (with the local <a>Intermediary</a> first connecting to the remote <a>Intermediary</a>
                 in the cloud), then the pair of <a>Intermediaries</a>
-                may establish a tunnel (using for example, a Secure Web Socket, which uses TLS
+                may establish a tunnel (using for example, a Secure WebSocket, which uses TLS
                 to protect the connection).
                 The tunnel can then be used to encode all communications between the
                 <a>Intermediaries</a> using a custom protocol.
