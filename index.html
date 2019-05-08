@@ -2329,13 +2329,13 @@ img.wot-arch-diagram {
         <p>
             <em>This section is normative.</em>
         </p>
-        <p> The Web of Things (WoT) Building Blocks allow the
+        <p> The Web of Things (WoT) building blocks allow the
             implementation of systems that conform with the abstract WoT
             Architecture. The specifics of these building blocks are
             defined in separate documents; this chapter provides an
             overview and a summary.
         </p>
-        <p> The WoT Building Blocks support each of the architectural
+        <p> The WoT building blocks support each of the architectural
             aspects of a <a>Thing</a> discussed in <a href="#sec-web-thing"></a>
             and depicted in <a href="#arch-webthing"></a>. The individual building
             blocks are shown in the context of an abstract <a>Thing</a> in
@@ -2344,7 +2344,7 @@ img.wot-arch-diagram {
             implementation; instead it illustrates the
             relationship between the building blocks and the main
             architectural aspects of a <a>Thing</a>.
-            In this figure the WoT Building Blocks
+            In this figure the WoT building blocks
             are highlighted with black outlines.
             Security, a cross-cutting concern,
             is separated into public and protected private components.
@@ -2411,7 +2411,7 @@ img.wot-arch-diagram {
             This is not true of an implementation or network interface.
         </p>
         <p> In the following sections we will provide additional
-            information on each WoT Building Block:
+            information on each WoT building block:
             the <a href="#sec-thing-description">WoT Thing
             Description</a>, the <a href="#sec-binding-templates">WoT Binding Templates</a>,
             and the <a href="#sec-scripting-api">WoT Scripting API</a>.
@@ -2630,7 +2630,7 @@ img.wot-arch-diagram {
     <section id="sec-servient-implementation" class="informative">
         <h1>Servient Implementation</h1>
         <p>
-            As defined in <a href="sec-wot-servient-architecture-high-level"></a> 
+            As defined in <a href="sec-wot-servient-architecture-high-level"></a>,
             a <a>Servient</a> is a software stack that implements the WoT building blocks 
             presented in the previous section.
             <a>Servients</a> can host and expose <a>Things</a> and/or consume <a>Things</a> 
@@ -2651,8 +2651,8 @@ img.wot-arch-diagram {
             Here, the <a>WoT Runtime</a> is also a <a>Scripting Runtime</a> system that,
             in addition to managing the WoT-specific aspects, also interprets and executes the application scripts.
             <a>Servients</a> that support the <a>WoT Scripting API</a> usually run on powerful devices, edge nodes, or in the cloud.
-            The WoT Architecture does not limit the application-facing API of the <a>WoT Runtime</a> to JavaScript/ECMAScript [[ECMAScript]].
-            There are also other runtime systems for resource-constrained systems that can be used to implement a <a>Servient</a>.
+            The WoT Architecture does not limit the application-facing API of the <a>WoT Runtime</a> to JavaScript/ECMAScript.
+            Also other runtime systems can be used to implement a <a>Servient</a>.
         </p>
         <p>
             Section <a href="#native-impl"></a> presents an alternative <a>Servient</a> implementation without the <a>WoT Scripting API</a> building block.
@@ -2695,7 +2695,7 @@ img.wot-arch-diagram {
                 This makes it possible to shift application logic between system components,
                 for instance moving a <a>Consumer</a> from the cloud to an edge node to meet networking requirements,
                 or to move an <a>Intermediary</a> to the cloud to fulfill growing resource demands.
-                Additional behavior can be 'installed' after deployment of a <a>Servient</a> through portable applications. 
+                Portable applications enable to 'install' additional behavior after the deployment of a Servient.
             </p>
             <p>
                 In principle, any programming language and API can be used in order to define the behavior of a Thing,
