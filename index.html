@@ -3065,12 +3065,12 @@ a[href].internalDFN {
         <section id="sec-deployment-cloud">
             <h2>Devices in a Local Network Controlled from a Cloud Service</h2>
             <p> In Smart Home use cases, devices (sensors and home appliances)
-                connected to a home network are often
+                are connected to a home network. They are often
                 monitored and, in some cases, also controlled by cloud
                 services. There is usually a NAT device between the home
-                network to which the devices are connected and the cloud.
-                The NAT device translates IP addresses as well as often providing
-                firewall services, which block connections selectively.
+                network through which the devices are connected and the cloud.
+                The NAT device translates IP addresses and is often providing
+                firewall services, which selectively block connections.
                 The local devices and cloud services can only communicate
                 with each other if the communication can successfully
                 traverse the gateway.
@@ -3089,21 +3089,21 @@ a[href].internalDFN {
                 assuming the local <a>Intermediary</a>
                 has used a converged protocol that can traverse the NAT device
                 and has some way to expose this service to the Internet (STUN, TURN, DyDNS, etc).
-                In addition, the local <a>Intermediary</a> can function as a Thing proxy, so
+                In addition, the local <a>Intermediary</a> can function as a <a>Thing</a> proxy, so
                 even when the connected <a>Things</a> each use a different
                 protocol (HTTP, MQTT, CoAP, etc.) and/or a different set of
                 ecosystem conventions, the
                 <a>Exposed Thing</a> can converge them into a single protocol so
                 that <a>Consumers</a> do not need to be aware of the various
-                protocols the <a>Things</a> use.
+                protocols the <a>Things</a> are using.
             </p>
-            <p> In <a href=#deployment-cloud-device></a>, there are two
-                clients connected to the remote <a>Intermediary</a>, which
+            <p> In <a href=#deployment-cloud-device></a> two
+                clients are connected to the remote <a>Intermediary</a>, which
                 has aggregated the services that reside behind the NAT border and may
                 provide additional protocol translation or security services.
                 In particular, the local <a>Intermediary</a> may be on a network
-                with limited capacity and making that service directly available to all
-                users may not be feasible.  In this case access to the local
+                with limited capacity and it may not be feasible to make that service directly available to all
+                users.  In this case, access to the local
                 <a>Intermediary</a> is <em>only</em> provided to the remote <a>Intermediary</a>.
                 The remote <a>Intermediary</a> then implements a more general access
                 control mechanism and may also perform caching or throttling to
