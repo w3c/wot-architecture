@@ -202,7 +202,7 @@ img.wot-arch-diagram {
 <body>
     <section id="abstract">
         <p>The W3C Web of Things (WoT) was created to enable
-            interoperability across IoT Platforms and application
+            interoperability across IoT platforms and application
             domains.</p>
         <p>WoT provides mechanisms to formally describe IoT
             interfaces to allow IoT devices and services to communicate
@@ -211,56 +211,54 @@ img.wot-arch-diagram {
             addition WoT offers a standardized way to define and program
             IoT behavior.</p>
 
-        <p>This WoT Architecture document describes the abstract
+        <p>This <em>WoT Architecture</em> specification describes the abstract
             architecture for the W3C Web of Things. It is derived from a
             set of requirements that were derived from use cases for
             multiple application domains. The architecture can be mapped
             onto a variety of concrete deployment scenarios, several
             example patterns of which are given.</p>
-        <p>The document is focused on the scope of W3C WoT
-            standardization, which consists of three initial building
-            blocks. These are described by additional WoT
-            specifications:</p>
-        <ul>
-            <li>the <em>Web of Things (WoT)
-                    Thing Description</em> [[wot-thing-description]],
-            </li>
-            <li>the <em>Web of Things (WoT)
-                    Binding Templates</em> [[?wot-binding-templates]], and
-            </li>
-            <li>the <em>Web of Things (WoT)
-                    Scripting API</em> [[?wot-scripting-api]].
-            </li>
-        </ul>
-
+	    
+        <p>This specification is focused on the scope of W3C WoT standardization,
+	    which is broken down into so-called building blocks.
+	    It introduces the four intial WoT building blocks,
+            which are defined and described in detail in separate specifications,
+	    and explains their interworking:</p>
         <p>
-            The <a>WoT Thing Description</a> is the primary building
-            block, as it describes the network-facing interface of a
-            Thing (<a>WoT Interface</a>).
+            The <em>WoT Thing Description</em> is the central building
+            block, as it allows to describe the metadata and network-facing
+	    interfaces of Things.
         </p>
         <p>
-            The optional <a>WoT Binding Templates</a> can be used to
-            describe multiple protocol bindings, so that a <a>Thing</a>
-            can communicate with different <a>IoT Platforms</a> (i.e.,
-            IoT ecosystems or standards).
+            The informational <em>WoT Binding Templates</em> provide
+	    guidelines on how to define so-called Protocol Bindings
+	    for the description of these network-facing interfaces
+	    and provides examples for a number of existing IoT
+	    ecosystems and standards.
         </p>
         <p>
-            The optional <a>WoT Scripting API</a> enables implementation of
-            the application logic of a Thing using a standardized
-            contract for JavaScript. This simplifies IoT application
+            The optional <em>WoT Scripting API</em> enables the implementation of
+            the application logic of a Thing using a common JavaScript API
+	    similar to the Web browser APIs. This simplifies IoT application
             development and enables portability across vendors and devices.
         </p>
-        <p>Other non-normative architectural blocks and conditions
-            underlying the Web of Things are also described in the
-            context of deployment scenarios. 
-            Recommendations for security and privacy are included in
-            the <em>Web of Things (WoT) Security and Privacy Considerations</em> [[wot-security]]
-            document.
+	<p>
+	    The <em>WoT Security and Privacy Considerations</em> represent a
+	    cross-cutting building block, which should be applied to any system
+	    implementing W3C WoT. It focuses on the secure implementation and
+	    configuration of Things.
+	</p>
+	
+        <p>
+	    This specification also covers non-normative architectural aspects
+	    and conditions for the deployment of WoT systems.
+            These guidelines are described in the context of deployment scenarios.
         </p>
-        <p>Overall, the goal is to preserve and support existing
+        <p>
+	    Overall, the goal is to preserve and complement existing
             IoT standards and solutions. In general, W3C WoT is
             designed to describe what exists rather than to prescribe
-            what to implement.</p>
+            what to implement.
+	</p>
 
     </section>
     <section id="sotd">
@@ -273,59 +271,61 @@ img.wot-arch-diagram {
             privacy considerations, please use the <a
                 href="https://github.com/w3c/wot-security/issues">WoT
                 Security and Privacy Considerations</a> repository to file issues, 
-               as they are cross-cutting over all our documents.
+               as they are cross-cutting over all our specifications.
         </p>
     </section>
     <section id="introduction">
         <h1>Introduction</h1>
         <p>
-            The goals of the "Web of Things" (WoT) are to improve the interoperability
+	    The goals of the <em>Web of Things</em> (WoT) are to improve the interoperability
             and usability of the Internet of Things (IoT). Through a collaboration
             involving many stakeholders over the past years, several building
             blocks have been identified that address these challenges.
-            The first set of WoT building blocks are now being standardized:
+            The first set of WoT building blocks is now defined:
         </p>
         <ul>
             <li>the <em>Web of Things (WoT)
                     Thing Description</em> [[wot-thing-description]],
             </li>
             <li>the <em>Web of Things (WoT)
-                    Binding Templates</em> [[?wot-binding-templates]], and
+                    Binding Templates</em> [[?wot-binding-templates]],
             </li>
             <li>the <em>Web of Things (WoT)
-                    Scripting API</em> [[?wot-scripting-api]].
+                    Scripting API</em> [[?wot-scripting-api]], and
+            </li>
+            <li>the <em>Web of Things (WoT)
+                    Security and Privacy Considerations</em> [[?wot-security]].
             </li>
         </ul>
 
-        <p>This document serves as an umbrella for the W3C WoT draft
+        <p>This specification serves as an umbrella for W3C WoT
             specifications and defines the basics such as terminology
             and the underlying abstract architecture of the W3C Web of
-            Things. In particular, the purpose of this document is to
+            Things. In particular, the purpose of this specification is to
             provide:</p>
         <ul>
-            <li>a set of use cases that lead to the W3C WoT
-                Architecture in chapter <a href="#sec-use-cases"></a>,
+            <li>a set of use cases in <a href="#sec-use-cases"></a>
+                that lead to the W3C WoT Architecture,
             </li>
             <li>a set of requirements for WoT implementations in
-                chapter <a href="#sec-requirements"></a>,
+                <a href="#sec-requirements"></a>,
             </li>
-            <li>a description of the high level architecture in
-                chapter <a href="#sec-wot-architecture"></a>
+            <li>a definition of the abstract architecture in
+                <a href="#sec-wot-architecture"></a>
             </li>
-            <li>an overview of the WoT building blocks being
-                standardized and their interplay in chapter <a
-                href="#sec-building-blocks"></a>,
+            <li>an overview of the available WoT building blocks
+                and their interplay in <a href="#sec-building-blocks"></a>,
             </li>
             <li>a guideline to map the abstract architecture to
-                software stacks and hardware components in chapter <a
-                href="#sec-servient-implementation"></a>,
+                software stacks and hardware components in
+                <a href="#sec-servient-implementation"></a>,
             </li>
-            <li>deployment scenarios in chapter <a
+            <li>deployment scenarios in <a
                 href="#sec-deployment-scenario"></a>,
             </li>
             <li>and security considerations to be aware of when
-                implementing WoT building blocks in chapter <a
-                href="#sec-security-considerations"></a>.
+                implementing the W3C WoT architecture in
+		<a href="#sec-security-considerations"></a>.
             </li>
         </ul>
     </section>
@@ -336,9 +336,9 @@ img.wot-arch-diagram {
             <em>This section is normative.</em>
         </p>
 
-        <p>This document uses the following terms as defined here.
+        <p>This specification uses the following terms as defined here.
             The WoT prefix is used to avoid ambiguity for terms that are
-            defined specifically for Web of Things concepts.</p>
+            (re)defined specifically for Web of Things concepts.</p>
         <dl>
             <dt>
                 <dfn>Action</dfn>
@@ -1484,7 +1484,7 @@ img.wot-arch-diagram {
                     themselves. Both are out of scope of the W3C WoT
                     specifications. Given the focus on IoT instead of
                     users, accessibility is not a direct requirement,
-                    and hence is not addressed within this document.</p>
+                    and hence is not addressed within this specification.</p>
                 <p>There is, however, an interesting aspect on
                     accessibility: Fulfilling the requirements above
                     enables machines to understand the network-facing
@@ -1722,7 +1722,7 @@ img.wot-arch-diagram {
                 <span class="rfc2119-assertion" id="arch-affordances">In 
                 addition to navigation affordances (i.e., Web links),
                 <a>Things</a> MAY offer three other types of <a>Interaction Affordances</a> 
-                defined by this document: <a>Properties</a>, <a>Actions</a>, and <a>Events</a>.
+                defined by this specification: <a>Properties</a>, <a>Actions</a>, and <a>Events</a>.
                 </span>
                 While this narrow waist allows to decouple <a>Consumers</a> and <a>Things</a>,
                 these four types of <a>Interaction Affordances</a> are still able to model virtually all interaction possibilities found in IoT devices and services.
@@ -2332,7 +2332,7 @@ img.wot-arch-diagram {
         <p> The Web of Things (WoT) Building Blocks allow the
             implementation of systems that conform with the abstract WoT
             Architecture. The specifics of these building blocks are
-            defined in separate documents; this chapter provides an
+            defined in separate specification; this section provides an
             overview and a summary.
         </p>
         <p> The WoT Building Blocks support each of the architectural
@@ -2421,7 +2421,7 @@ img.wot-arch-diagram {
 
         <section id="sec-thing-description">
             <h2>WoT Thing Description</h2>
-            <p> The <a>WoT Thing Description</a> (TD) document
+            <p> The <a>WoT Thing Description</a> (TD) specification
                 [[!wot-thing-description]] defines an <em>information model</em>
                 based on a semantic vocabulary and a <em>serialized
                 representation based on JSON</em>. <a>TDs</a> provide rich metadata
@@ -2492,7 +2492,7 @@ img.wot-arch-diagram {
                 variety through <a>Protocol Bindings</a>, which must meet a
                 number of constraints (see <a href="#sec-protocol-bindings"></a>).
             </p>
-            <p> The non-normative <a>WoT Binding Templates</a> document
+            <p> The non-normative <a>WoT Binding Templates</a> specification
                 [[?wot-binding-templates]] provides a collection of
                 communication metadata blueprints that give guidance on
                 how to interact with different <a>IoT platforms</a>.
@@ -2617,12 +2617,12 @@ img.wot-arch-diagram {
                 architecture, security is supported by certain explicit
                 features, such as support for public security metadata in <a>TDs</a>
                 and by separation of concerns in the design of the
-                <a>WoT Scripting API</a>. The specification document for each building
+                <a>WoT Scripting API</a>. The specification for each building
                 block also includes a discussion of particular security
                 and privacy considerations of that building block.
-                Another non-normative document, the 
+                Another non-normative specification, the 
                 <em>WoT Security and Privacy Considerations</em> [[?wot-security]], 
-                provides additional security and privacy guidance.
+                provides additional cross-cutting security and privacy guidance.
             </p>
         </section>
     </section>
@@ -3277,7 +3277,7 @@ img.wot-arch-diagram {
             preserve the security and privacy of WoT implementations.
             For a more detailed and complete analysis of security and
             privacy issues, see the <em>WoT Security and Privacy Considerations</em>
-            [[?wot-security]] document.
+            specification [[?wot-security]].
         </p>
         <p>Overall, the goal of the WoT is to describe the existing
             access mechanisms and properties of IoT devices and
@@ -3462,7 +3462,7 @@ img.wot-arch-diagram {
                         the device. For more information see Sections
                         "WoT Servient Single-Tenant" and "WoT Servient
                         Multi-Tenant" of the <em>WoT Security and Privacy
-                        Considerations</em> document [[wot-security]].
+                        Considerations</em> specification [[wot-security]].
                     </dd>
                 </dl>
             </section>
@@ -3522,7 +3522,7 @@ img.wot-arch-diagram {
                         A set of recommendations for secure update and
                         post-manufacturing provisioning can be found in
                         the <em>WoT Security and Privacy Considerations</em>
-                        document [[wot-security]].
+                        specification [[wot-security]].
                     </dd>
                 </dl>
             </section>
