@@ -2102,11 +2102,12 @@ img.wot-arch-diagram {
                     <span class="rfc2119-assertion" id="arch-hypermedia-origin">
                         The hypermedia controls MUST originate from the authority managing the Thing that is providing the corresponding Interaction Affordance.
                     </span>
-                    The authority can be the <a>Thing</a> itself, generating the <a>WoT Thing Description</a> 
-                    at runtime (based on its current state and including network parameters such as its IP address),
-                    or an external entity that has full and up-to-date knowledge of the <a>Thing</a> 
+                    The authority can be the <a>Thing</a> itself, producing the <a>TD</a> document
+                    at runtime (based on its current state and including network parameters such as its IP address)
+		                or serving it from memory with only the current network parameters inserted.
+                    The authority can also be an external entity that has full and up-to-date knowledge of the <a>Thing</a> 
                     including its network parameters and internal structure (e.g., software stack).
-                    This enables a loose coupling between <a>Things</a>  and clients, allowing for an independent lifecycle and evolution.
+                    This enables a loose coupling between <a>Things</a> and <a>Consumers</a>, allowing for an independent lifecycle and evolution.
                     <span class="rfc2119-assertion" id="arch-hypermedia-caching">
 		                The hypermedia controls MAY be cached outside the <a>Thing</a>
 			              and used for offline processing if caching metadata is available to determine the freshness.
@@ -2306,7 +2307,7 @@ img.wot-arch-diagram {
                    through its own <a>Consumed Thing</a>.</p>
 
                 <p><a>Consumer</a> and <a>Intermediary</a> can
-                    communicate in different protocol than <a>Intermediary</a> and <a>Thing</a>
+                    communicate in a different protocol than <a>Intermediary</a> and <a>Thing</a>
                     For example, an <a>Intermediary</a> can
                     provide a bridge between a <a>Thing</a> that uses CoAP and
                     the application of a <a>Consumer</a> that uses HTTP. 
@@ -3009,7 +3010,7 @@ img.wot-arch-diagram {
             </p>
         </section>
         <section id="sec-topologies-deployment-scenarios">
-            <h2>WoT System's Topologies and Deployment Scenarios</h2>
+            <h2>Topology of WoT Systems and Deployment Scenarios</h2>
             <p>Various topologies and deployment scenarios of WoT systems are discussed in this section.
             These are only example patterns and other interconnection topologies are also possible.
             The topologies described here are derived from the Web of Things use cases
