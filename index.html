@@ -178,7 +178,7 @@
                 publisher : "Proceedings of Internet of Things 2010 International Conference (IoT 2010). Tokyo, Japan",
                 date : "November 2010"
             },
-            "Y.4409/Y.2070" : {
+            "Y.4409-Y.2070" : {
                 title : "ITU-T Rec. Y.4409/Y.2070 (01/2015) Requirements and architecture of the home energy management system and home network services ",
                 publisher : "ITU-T",
                 status: "Recommendation",
@@ -352,16 +352,15 @@ img.wot-arch-diagram {
                     Templates</dfn>
             </dt>
             <dd>A re-usable collection of blueprints for the
-                communication with different IoT platforms. The
-                blueprints includes the required vocabulary for the
-                WoT Thing Description to map Interactions to
-                platform-specific messages as well as implementation
-                notes for the required protocol stacks or dedicated
-                communication drivers.</dd>
+                communication with different IoT platforms.
+		            The blueprints provide information to map Interaction Affordances
+		            to platform-specific messages through WoT Thing Description
+                as well as implementation notes for the required protocol stacks
+		            or dedicated communication drivers.</dd>
             <dt>
                 <dfn>to consume a Thing</dfn>
             </dt>
-            <dd>To process a WoT Thing Description and from it create a Consumed
+            <dd>To parse and process a TD document and from it create a Consumed
                 Thing software abstraction as interface for the application in the local
                 runtime environment.</dd>
             <dt>
@@ -374,7 +373,8 @@ img.wot-arch-diagram {
             <dt>
                 <dfn>Consumer</dfn>
             </dt>
-            <dd>An entity that can process the WoT Thing Description format
+            <dd>An entity that can process WoT Thing Descriptions
+		(including its JSON-based representation format)
                 and interact with Things (i.e., consume Things).</dd>
             <dt>
                 <dfn>Digital Twin</dfn>
@@ -393,7 +393,7 @@ img.wot-arch-diagram {
             <dt>
                 <dfn>Edge device</dfn>
             </dt>
-            <dd>a device which provides an entry point into
+            <dd>A device that provides an entry point into
                 enterprise or service provider core networks. Examples
                 include gateways, routers, switches, multiplexers, and a
                 variety of other access devices.</dd>
@@ -619,7 +619,7 @@ img.wot-arch-diagram {
                     remote access and control, voice control and home
                     automation. Smart home also enables device
                     manufacturers to monitor and maintain devices
-                    remotely. Smart home can realizes added value
+                    remotely. Smart home can realize value added
                     services such as energy management and security
                     surveillance.</p>
             </section>
@@ -1399,7 +1399,7 @@ img.wot-arch-diagram {
             <section>
                 <h3>Devices</h3>
                 <p>
-                    Access to devices is made using a descriptions of
+                    Access to devices is made using a description of
                     their functions and interfaces. This description is
                     called <em>Thing Description (TD)</em>. A <em>Thing
                         Description</em> includes a general metadata about
@@ -1530,7 +1530,7 @@ img.wot-arch-diagram {
                   In W3C WoT, the description metadata MUST be a WoT Thing Description (TD) [[!wot-thing-description]].
                 </span>
                 <span class="rfc2119-assertion" id="arch-td-consumers-process">
-                  <a>Consumers</a> MUST be able to process the <a>WoT Thing Description</a> format, which is based on JSON [[!RFC8259]].
+                  <a>Consumers</a> MUST be able to parse and process the <a>TD</a> representation format, which is based on JSON [[!RFC8259]].
                 </span>
                 The format can be processed either through classic JSON libraries or a JSON-LD processor, 
                 as the underlying information model is graph-based and its serialization compatible with JSON-LD 1.1 [[?json-ld-syntax]].
@@ -1692,10 +1692,10 @@ img.wot-arch-diagram {
                 A Web Thing has four architectural aspects of interest:
                 its <em>behavior</em>, its <em><a>Interaction Affordances</a></em>, its <em>security configuration</em>, 
                 and its <em><a>Protocol Bindings</a></em>,
-				as depicted in <a href="#arch-webthing"></a>. 
+				        as depicted in <a href="#arch-webthing"></a>. 
                 The behavior aspect of a <a>Thing</a> includes both the autonomous behavior and the handlers for the <a>Interaction Affordances</a>.
                 The <a>Interaction Affordances</a> provide a model of how <a>Consumers</a> can interact with the <a>Thing</a> through abstract operations,
-				but without reference to a specific network protocol or data encoding.
+				        but without reference to a specific network protocol or data encoding.
                 The protocol binding adds the additional detail needed to map each 
                 <a>Interaction Affordance</a> to concete messages of a certain protocol.
                 In general, different concrete protocols may be used to
@@ -2040,25 +2040,25 @@ img.wot-arch-diagram {
                                 <td>readallproperties</td>
                                 <td>Identifies the readallproperties
                                     operation on Things to retrieve the
-                                    data of all Properties in a single <a>Interaction Affordance</a>.</td>
+                                    data of all Properties in a single interaction.</td>
                             </tr>
                             <tr>
                                 <td>writeallproperties</td>
                                 <td>Identifies the writeallproperties
                                     operation on Things to update the
-                                    data of all writable Properties in a single <a>Interaction Affordance</a>.</td>
+                                    data of all writable Properties in a single interaction.</td>
                             </tr>
                             <tr>
                                 <td>readmultipleproperties</td>
                                 <td>Identifies the readmultipleproperties
                                     operation on Things to retrieve the
-                                    data of selected Properties in a single <a>Interaction Affordance</a>.</td>
+                                    data of selected Properties in a single interaction.</td>
                             </tr>
                             <tr>
                                 <td>writemultipleproperties</td>
                                 <td>Identifies the writemultipleproperties
                                     operation on Things to update the
-                                    data of selected writable Properties in a single <a>Interaction Affordance</a>.</td>
+                                    data of selected writable Properties in a single interaction.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -2102,13 +2102,15 @@ img.wot-arch-diagram {
                     <span class="rfc2119-assertion" id="arch-hypermedia-origin">
                         The hypermedia controls MUST originate from the authority managing the Thing that is providing the corresponding Interaction Affordance.
                     </span>
-                    The authority can be the <a>Thing</a> itself, generating the <a>WoT Thing Description</a> 
-                    at runtime (based on its current state and including network parameters such as its IP address),
-                    or an external entity that has full and up-to-date knowledge of the <a>Thing</a> 
+                    The authority can be the <a>Thing</a> itself, producing the <a>TD</a> document
+                    at runtime (based on its current state and including network parameters such as its IP address)
+		                or serving it from memory with only the current network parameters inserted.
+                    The authority can also be an external entity that has full and up-to-date knowledge of the <a>Thing</a> 
                     including its network parameters and internal structure (e.g., software stack).
-                    This enables a loose coupling between <a>Things</a>  and clients, allowing for an independent lifecycle and evolution.
+                    This enables a loose coupling between <a>Things</a> and <a>Consumers</a>, allowing for an independent lifecycle and evolution.
                     <span class="rfc2119-assertion" id="arch-hypermedia-caching">
-                        The hypermedia controls MAY be cached outside the Thing and used for offline processing if corresponding caching metadata is available to determine the freshness.
+		                The hypermedia controls MAY be cached outside the <a>Thing</a>
+			              and used for offline processing if caching metadata is available to determine the freshness.
                     </span>
                 </p>
             </section>
@@ -2253,7 +2255,7 @@ img.wot-arch-diagram {
                     <img
                         src="images/architecture/servient-consumer-thing.png"
                         class="wot-arch-diagram" />
-                    <figcaption>High level architecture of
+                    <figcaption>High-level architecture of
                         Consumer and Thing</figcaption>
                 </figure>
 
@@ -2265,7 +2267,7 @@ img.wot-arch-diagram {
                    a remote <a>Thing</a> being consumed by a <a>Consumer</a>, serving as
                    the interface to the remote <a>Thing</a> for the applications.
                    A <a>Consumer</a> can generate a <a>Consumed Thing</a> instance
-                   by processing a <a>Thing Description</a>.
+                   by parsing and processing a <a>TD</a> document.
                    Interactions between a <a>Consumer</a> and a <a>Thing</a>
                    are performed by the <a>Consumed Thing</a> and the <a>Exposed Thing</a>
                    exchanging messages over a direct network connection between them.</p>
@@ -2287,7 +2289,7 @@ img.wot-arch-diagram {
                     <img
                         src="images/architecture/servient-consumer-intermediary-thing.png"
                         class="wot-arch-diagram" />
-                    <figcaption>High level architecture
+                    <figcaption>High-level architecture
                         with Intermediary</figcaption>
                 </figure>
 
@@ -2300,43 +2302,40 @@ img.wot-arch-diagram {
                    <a>Thing</a> is extended by the <a>Intermediary</a>.
                    In an <a>Intermediary</a>, a <a>Consumed Thing</a> creates
                    a proxy object of the <a>Exposed Thing</a> of a <a>Thing</a>,
-                   and a <a>Consumer</a> can access the proxy object through
-                   the <a>Exposed Thing</a> of the <a>Intermediary</a>.</p>
+                   and a <a>Consumer</a> can access the proxy object
+		   (i.e., the <a>Exposed Thing</a> of the <a>Intermediary</a>)
+                   through its own <a>Consumed Thing</a>.</p>
 
-                <p>The <a>Exposed Thing</a> and <a>Consumed Thing</a> of an <a>Intermediary</a> can
-                    communicate with the <a>Consumer</a> and the <a>Thing</a>
-                    in different protocols. For example, an <a>Intermediary</a> can
+                <p><a>Consumer</a> and <a>Intermediary</a> can
+                    communicate in a different protocol than <a>Intermediary</a> and <a>Thing</a>
+                    For example, an <a>Intermediary</a> can
                     provide a bridge between a <a>Thing</a> that uses CoAP and
-                    an application on <a>Consumer</a> that uses HTTP. 
+                    the application of a <a>Consumer</a> that uses HTTP. 
                 </p>
                 <p>
                     Even when there are
-                    multiple <a>Things</a> and their <a>Exposed Things</a> use different protocols,
-                    applications on the <a>Consumer</a> can communicate with those <a>Things</a>
+                    multiple different protocols used between <a>Intermediary</a> and <a>Things</a>,
+                    <a>Consumer</a> can indirectly communicate with those <a>Things</a>
                     using a single protocol through the <a>Intermediary</a>. The same
                     is true for the authentication. The <a>Consumed Thing</a> of a <a>Consumer</a> only
-                    needs to handle a single authentication method even
-                    when the <a>Exposed Things</a> of the multiple <a>Things</a> connected to an <a>Intermediary</a> use                    different authentication methods.</p>
+                    needs to authenticate with the <a>Exposed Things</a> of the <a>Intermediary</a>
+		    using a single security mechanism,
+                    while the <a>Intermediary</a> might need multiple security mechanism
+		    to authenticate with different <a>Things</a>.
+		</p>
 
-                <p>An <a>Intermediary</a> creates a <a>Consumed Thing</a> and 
-                   a proxy object for the <a>Exposed Thing</a> of the <a>Thing</a>, 
-                   generates another TD for the proxy object from the 
-                   <a>Thing Description</a> (TD) of the originating <a>Thing</a>.
+		<p>Usually, an <a>Intermediary</a> generates the <a>Thing Description</a>
+		  for its proxy object based on the <a>Thing Description</a>
+		  of the originating <a>Thing</a>.
                    Depending on the requirements of the use cases, the TD for the 
                    proxy object may either use the same identifier 
-                   as the TD of the originating <a>Thing</a>, or it gets assigned 
+                   as the TD of the original <a>Thing</a>, or it gets assigned 
                    a new identifier. 
                    <span class="rfc2119-assertion" id="arch-intermediary-td-extra-protocols">The 
                    If necessary, a TD generated by an <a>Intermediary</a> MAY contain 
                    interfaces for other communication protocols. 
                    </span>
                    </p>
-
-                   <p>An <a>Intermediary</a> then creates an <a>Exposed Thing</a>
-                   that serves as a bridge to the <a>Thing</a>. A <a>Consumer</a>
-                   communicates with a device via an <a>Intermediary</a> through
-                   a <a>Consumed Thing</a> that conforms to the TD for the proxy
-                   object.</p>
             </section>
         </section>
     </section>
@@ -2374,59 +2373,6 @@ img.wot-arch-diagram {
             <figcaption>Relationship of WoT Building Blocks 
             to the Architectural Aspects of a Thing.</figcaption>
         </figure>
-        <p> The <a>WoT Thing Description</a> (TD) contains metadata describing the
-            <a>Interaction Affordances</a> of the <a>Thing</a>, the mapping of these
-            affordances to concrete network protocols (the
-            communication metadata), the <em>public</em> security data
-            needed by authorized users to understand how to access the
-            <a>Thing</a>, and other general metadata such as IDs, names, and
-            descriptions. The <a>Binding Templates</a> are another WoT building
-            block that gives guidance on how to provide the correct
-            communications metadata in a TD to support
-            specific target protocols.
-        </p>
-        <p> The interaction implementation specifies how a <a>Thing</a>
-            actually responds to an <a>Interaction Affordance</a>, including how state is
-            stored and modified. The behavior implementation specifies
-            how other behavior of a <a>Thing</a> is implemented, which may or
-            may not be directly related to an interaction. For example,
-            a thermostat may need to execute a control loop to control a
-            furnace based on a sensor reading. This does not directly
-            relate to a specific <a>Interaction Affordance</a>, although it might be
-            controlled by a property (such as target temperature) that
-            can be modified by an <a>Interaction Affordance</a>.
-        </p>
-        <p> For specifying behavior and <a>Interaction Affordance</a> implementations, an
-            optional <a>WoT Scripting API</a> building block is provided which
-            supports the definition and consumption of <a>WoT Thing
-            Descriptions</a>. This is useful to define application behavior
-            using an easy-to-use scripting language. It is however
-            possible to implement a <a>Thing</a> <em>without</em> using the
-            <a>WoT Scripting API</a>. In this case the externally visible
-            <a>Interaction Affordance</a>s and network interface still needs to be
-            consistent with the <a>Thing Description</a> defined for the <a>Thing</a>.
-        </p>
-        <p> Internally to a <a>Thing</a>, it is also generally important to
-            provide secure storage for <em>private</em> security data
-            such as encryption keys and identity material. This information is
-            never directly shared with entities outside the <a>Thing</a>, and ideally
-            should not even be directly accessible to the behavior and <a>Interaction Affordance</a>
-            implementations. Instead an abstract set of operations
-            should support security functions such as signing,
-            authorization, certificate validation, as well as encryption and
-            decryption. Technology such as asymmetric public encryption
-            schemes are generally used to provide these functions
-            without disclosing the secret private security data. 
-        </p> 
-        <p> In general it is considered a security
-            best practice to explicitly manage secrets in a form that is
-            easily updated if necessary, and to keep them clearly
-            separated from public information. In particular storing secrets as random
-            numeric values rather than attempting to obfuscate the
-            implementation or network interface is strongly recommended.
-            If a numeric value is disclosed it is easily changed.
-            This is not true of an implementation or network interface.
-        </p>
         <p> In the following sections we will provide additional
             information on each WoT building block:
             the <a href="#sec-thing-description">WoT Thing
@@ -2501,7 +2447,7 @@ img.wot-arch-diagram {
             <p> The IoT uses a variety of protocols for accessing
                 devices, since no single protocol is appropriate in all
                 contexts. Thus, a central challenge for the Web of
-                Things is to enable <a>Interaction Affordance</a> with the plethora of
+                Things is to enable interactions with the plethora of
                 different <a>IoT platforms</a> (e.g., OCF, oneM2M, OMA
                 LWM2M, OPC UA) and devices that do not follow any
                 particular standard, but provide an eligible interface
@@ -2813,7 +2759,7 @@ img.wot-arch-diagram {
                 external disclosure of this data. Private security data
                 is used transparently by the <a>Protocol Binding</a> to
                 authorize and protect the integrity and confidentiality
-                of <a>Interaction Affordance</a>.
+                of interactions.
             </p>
         </section>
         <section>
@@ -2996,7 +2942,8 @@ img.wot-arch-diagram {
                interface. In the <a>WoT Scripting API</a>, <a>Consumed Things</a>
                are represented by objects.
                The behavior implementation (that is, the application logic) running in
-               a <a>Thing</a> can engage in <a>Interaction Affordance</a> with <a>Consumers</a> by using
+               a <a>Thing</a> can engage through <a>Interaction Affordances</a> with 
+               <a>Consumers</a> by using
                the programming language interface provided by the <a>Exposed Thing</a>.
             </p>
             <p> A <a>Thing</a> does not necessarily represent a physical device.
@@ -3010,7 +2957,7 @@ img.wot-arch-diagram {
             </p>
         </section>
         <section id="sec-topologies-deployment-scenarios">
-            <h2>WoT System's Topologies and Deployment Scenarios</h2>
+            <h2>Topology of WoT Systems and Deployment Scenarios</h2>
             <p>Various topologies and deployment scenarios of WoT systems are discussed in this section.
             These are only example patterns and other interconnection topologies are also possible.
             The topologies described here are derived from the Web of Things use cases
@@ -3101,7 +3048,7 @@ img.wot-arch-diagram {
                     Requests that arrive when the target IoT device is sleeping
                     may be queued and sent to it when it wakes up.
                     To implement this pattern, the <a>Intermediary</a>,
-                    i.e. the <a>digital twin</a> needs to know when the device is awake. 
+                    i.e.,  the <a>digital twin</a> needs to know when the device is awake. 
                     The device implementation as a <a>Thing</a> may need to include a notification mechanism for that.
                     This could be implemented using a separate <a>Consumer</a>/<a>Thing</a> pair,
                     or by using <a>Event</a> interactions for this purpose.
@@ -3122,7 +3069,7 @@ img.wot-arch-diagram {
                 traverse the gateway.
             </p>
             <p> A typical structure,
-                adopted in ITU-T Recommendation Y.4409/Y.2070 [[?Y.4409/Y.2070]] ,
+                adopted in ITU-T Recommendation Y.4409/Y.2070 [[?Y.4409-Y.2070]] ,
                 is shown in <a href="#deployment-cloud-device"></a>.
                 In this structure there is both a local and a remote <a>Intermediary</a>.
                 The local <a>Intermediary</a> aggregates the <a>Interaction Affordances</a> from multiple
