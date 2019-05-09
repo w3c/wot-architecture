@@ -178,7 +178,7 @@
                 publisher : "Proceedings of Internet of Things 2010 International Conference (IoT 2010). Tokyo, Japan",
                 date : "November 2010"
             },
-            "Y.4409/Y.2070" : {
+            "Y.4409-Y.2070" : {
                 title : "ITU-T Rec. Y.4409/Y.2070 (01/2015) Requirements and architecture of the home energy management system and home network services ",
                 publisher : "ITU-T",
                 status: "Recommendation",
@@ -359,7 +359,7 @@ img.wot-arch-diagram {
             <dt>
                 <dfn>to consume a Thing</dfn>
             </dt>
-            <dd>To parse and process TD document and from it create a Consumed
+            <dd>To parse and process a TD document and from it create a Consumed
                 Thing software abstraction as interface for the application in the local
                 runtime environment.</dd>
             <dt>
@@ -373,7 +373,7 @@ img.wot-arch-diagram {
                 <dfn>Consumer</dfn>
             </dt>
             <dd>An entity that can process WoT Thing Descriptions
-		(including its representation format)
+		(including its JSON-based representation format)
                 and interact with Things (i.e., consume Things).</dd>
             <dt>
                 <dfn>Digital Twin</dfn>
@@ -392,7 +392,7 @@ img.wot-arch-diagram {
             <dt>
                 <dfn>Edge device</dfn>
             </dt>
-            <dd>A device which provides an entry point into
+            <dd>A device that provides an entry point into
                 enterprise or service provider core networks. Examples
                 include gateways, routers, switches, multiplexers, and a
                 variety of other access devices.</dd>
@@ -2039,25 +2039,25 @@ img.wot-arch-diagram {
                                 <td>readallproperties</td>
                                 <td>Identifies the readallproperties
                                     operation on Things to retrieve the
-                                    data of all Properties in a single <a>Interaction Affordance</a>.</td>
+                                    data of all Properties in a single interaction.</td>
                             </tr>
                             <tr>
                                 <td>writeallproperties</td>
                                 <td>Identifies the writeallproperties
                                     operation on Things to update the
-                                    data of all writable Properties in a single <a>Interaction Affordance</a>.</td>
+                                    data of all writable Properties in a single interaction.</td>
                             </tr>
                             <tr>
                                 <td>readmultipleproperties</td>
                                 <td>Identifies the readmultipleproperties
                                     operation on Things to retrieve the
-                                    data of selected Properties in a single <a>Interaction Affordance</a>.</td>
+                                    data of selected Properties in a single interaction.</td>
                             </tr>
                             <tr>
                                 <td>writemultipleproperties</td>
                                 <td>Identifies the writemultipleproperties
                                     operation on Things to update the
-                                    data of selected writable Properties in a single <a>Interaction Affordance</a>.</td>
+                                    data of selected writable Properties in a single interaction.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -2499,7 +2499,7 @@ img.wot-arch-diagram {
             <p> The IoT uses a variety of protocols for accessing
                 devices, since no single protocol is appropriate in all
                 contexts. Thus, a central challenge for the Web of
-                Things is to enable <a>Interaction Affordance</a> with the plethora of
+                Things is to enable interactions with the plethora of
                 different <a>IoT platforms</a> (e.g., OCF, oneM2M, OMA
                 LWM2M, OPC UA) and devices that do not follow any
                 particular standard, but provide an eligible interface
@@ -2811,7 +2811,7 @@ img.wot-arch-diagram {
                 external disclosure of this data. Private security data
                 is used transparently by the <a>Protocol Binding</a> to
                 authorize and protect the integrity and confidentiality
-                of <a>Interaction Affordance</a>.
+                of interactions.
             </p>
         </section>
         <section>
@@ -2994,7 +2994,8 @@ img.wot-arch-diagram {
                interface. In the <a>WoT Scripting API</a>, <a>Consumed Things</a>
                are represented by objects.
                The behavior implementation (that is, the application logic) running in
-               a <a>Thing</a> can engage in <a>Interaction Affordance</a> with <a>Consumers</a> by using
+               a <a>Thing</a> can engage through <a>Interaction Affordances</a> with 
+               <a>Consumers</a> by using
                the programming language interface provided by the <a>Exposed Thing</a>.
             </p>
             <p> A <a>Thing</a> does not necessarily represent a physical device.
@@ -3120,7 +3121,7 @@ img.wot-arch-diagram {
                 traverse the gateway.
             </p>
             <p> A typical structure,
-                adopted in ITU-T Recommendation Y.4409/Y.2070 [[?Y.4409/Y.2070]] ,
+                adopted in ITU-T Recommendation Y.4409/Y.2070 [[?Y.4409-Y.2070]] ,
                 is shown in <a href="#deployment-cloud-device"></a>.
                 In this structure there is both a local and a remote <a>Intermediary</a>.
                 The local <a>Intermediary</a> aggregates the <a>Interaction Affordances</a> from multiple
