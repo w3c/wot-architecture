@@ -2373,59 +2373,6 @@ img.wot-arch-diagram {
             <figcaption>Relationship of WoT Building Blocks 
             to the Architectural Aspects of a Thing.</figcaption>
         </figure>
-        <p> The <a>WoT Thing Description</a> (TD) contains metadata describing the
-            <a>Interaction Affordances</a> of the <a>Thing</a>, the mapping of these
-            affordances to concrete network protocols (the
-            communication metadata), the <em>public</em> security data
-            needed by authorized users to understand how to access the
-            <a>Thing</a>, and other general metadata such as IDs, names, and
-            descriptions. The <a>Binding Templates</a> are another WoT building
-            block that gives guidance on how to provide the correct
-            communications metadata in a TD to support
-            specific target protocols.
-        </p>
-        <p> The interaction implementation specifies how a <a>Thing</a>
-            actually responds to an <a>Interaction Affordance</a>, including how state is
-            stored and modified. The behavior implementation specifies
-            how other behavior of a <a>Thing</a> is implemented, which may or
-            may not be directly related to an interaction. For example,
-            a thermostat may need to execute a control loop to control a
-            furnace based on a sensor reading. This does not directly
-            relate to a specific <a>Interaction Affordance</a>, although it might be
-            controlled by a property (such as target temperature) that
-            can be modified by an <a>Interaction Affordance</a>.
-        </p>
-        <p> For specifying behavior and <a>Interaction Affordance</a> implementations, an
-            optional <a>WoT Scripting API</a> building block is provided which
-            supports the definition and consumption of <a>WoT Thing
-            Descriptions</a>. This is useful to define application behavior
-            using an easy-to-use scripting language. It is however
-            possible to implement a <a>Thing</a> <em>without</em> using the
-            <a>WoT Scripting API</a>. In this case the externally visible
-            <a>Interaction Affordance</a>s and network interface still needs to be
-            consistent with the <a>Thing Description</a> defined for the <a>Thing</a>.
-        </p>
-        <p> Internally to a <a>Thing</a>, it is also generally important to
-            provide secure storage for <em>private</em> security data
-            such as encryption keys and identity material. This information is
-            never directly shared with entities outside the <a>Thing</a>, and ideally
-            should not even be directly accessible to the behavior and <a>Interaction Affordance</a>
-            implementations. Instead an abstract set of operations
-            should support security functions such as signing,
-            authorization, certificate validation, as well as encryption and
-            decryption. Technology such as asymmetric public encryption
-            schemes are generally used to provide these functions
-            without disclosing the secret private security data. 
-        </p> 
-        <p> In general it is considered a security
-            best practice to explicitly manage secrets in a form that is
-            easily updated if necessary, and to keep them clearly
-            separated from public information. In particular storing secrets as random
-            numeric values rather than attempting to obfuscate the
-            implementation or network interface is strongly recommended.
-            If a numeric value is disclosed it is easily changed.
-            This is not true of an implementation or network interface.
-        </p>
         <p> In the following sections we will provide additional
             information on each WoT building block:
             the <a href="#sec-thing-description">WoT Thing
