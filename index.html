@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta charset="utf-8" />
 <title>Web of Things (WoT) Architecture</title>
 <script class="remove"
@@ -26,6 +25,9 @@
             repoURL: "https://github.com/w3c/wot-architecture",
             branch: "master"
         },
+        implementationReportURI: "https://w3c.github.io/wot-thing-description/testing/report.html",
+        previousPublishDate: "2019-05-16",
+        previousMaturity: "CR",
         editors : [ {
             name : "Matthias Kovatsch",
             w3cid : "75998",
@@ -273,6 +275,32 @@ img.wot-arch-diagram {
                 Security and Privacy Considerations</a> repository to file issues, 
                as they are cross-cutting over all our specifications.
         </p>
+
+    <p>This document describes an abstract architecture design.
+    However, there is a
+    <a href="https://w3c.github.io/wot-thing-description/testing/report.html">
+    preliminary implementation report</a> which describes concrete
+    implementations based on the associated <em>WoT Thing Description</em>
+    specification. The Working Group seeks implementation feedback,
+    having set the requirement of at least two implementations of each
+    feature as the exit criteria for the Candidate Recommendation
+    phase. The group aims to obtain reports from one TD producer and
+    one TD consumer for each feature if applicable.  For details,
+    including definitions of implementation, TD producer, and TD
+    consumer, see the
+    <a href="https://w3c.github.io/wot-thing-description/testing/report.html">
+    preliminary implementation report</a>.
+    </p>
+
+    <p>This document was published by the <a href=
+    "https://www.w3.org/WoT/WG/">Web of Things Working Group</a> as
+      an Editor's Draft.
+     This document is intended to become a <abbr title="World Wide Web Consortium">W3C</abbr> Recommendation.</p>
+
+    <p>Please see the Working Group's
+    <a href="https://w3c.github.io/vc-test-suite/implementations/">
+      Implementation Report for the associated WoT Thing Description specification</a>.
+    </p>
     </section>
     <section id="introduction">
         <h1>Introduction</h1>
@@ -612,7 +640,7 @@ img.wot-arch-diagram {
                     and other UX devices.</p>
                 <figure id="smart-home">
                     <img src="images/wot-use-cases/smart-home.png"
-                        class="wot-arch-diagram"/>
+                        class="wot-arch-diagram"/ alt="smart home use case" />
                     <figcaption>Smart Home</figcaption>
                 </figure>
                 <p>Smart home provides consumer benefits such as
@@ -650,7 +678,7 @@ img.wot-arch-diagram {
                     <figure id="smart-factory">
                         <img
                             src="images/wot-use-cases/smart_factory_new.png"
-                            class="wot-arch-diagram" />
+                            class="wot-arch-diagram" alt="smart factory use case" />
                         <figcaption>Smart Factory</figcaption>
                     </figure>
                 </section>
@@ -794,7 +822,7 @@ img.wot-arch-diagram {
                     Driver safety is enhanced with notifications of an
                     early warning system for critical road and traffic
                     conditions.</p>
-                <section id="connected car example">
+                <section id="connected-car-example">
                     <h4 id="connectedcar-example">Connected Car
                         Example</h4>
                     <p>
@@ -813,7 +841,7 @@ img.wot-arch-diagram {
                     <figure id="connected-car">
                         <img
                             src="images/wot-use-cases/connected-car.png"
-                            class="wot-arch-diagram" />
+                            class="wot-arch-diagram" alt="connected car use case />
                         <figcaption>Connected Car</figcaption>
                     </figure>
                 </section>
@@ -879,7 +907,7 @@ img.wot-arch-diagram {
                 <figure id="smart-home-device">
                     <img
                         src="images/wot-use-cases/smart-home-device.png"
-                        class="wot-arch-diagram" />
+                        class="wot-arch-diagram" alt="smart home device use case" />
                     <figcaption>Device Control</figcaption>
                 </figure>
             </section>
@@ -900,7 +928,7 @@ img.wot-arch-diagram {
                     other to actuate or notify.</p>
                 <figure id="smart-home-t2t">
                     <img src="images/wot-use-cases/smart-home-t2t.png"
-                         class="wot-arch-diagram" />
+                         class="wot-arch-diagram" alt="smart home t2t use case" />
                     <figcaption>Control Agent</figcaption>
                 </figure>
             </section>
@@ -931,7 +959,7 @@ img.wot-arch-diagram {
                 </p>
                 <figure id="smart-home-multi">
                     <img src="images/wot-use-cases/smart-home-multi.png"
-                         class="wot-arch-diagram" />
+                         class="wot-arch-diagram" alt="smart home multi use case" />
                     <figcaption>Multiple Network Interfaces</figcaption>
                 </figure>
             </section>
@@ -962,7 +990,7 @@ img.wot-arch-diagram {
                 <figure id="smart-home-gateway">
                     <img
                         src="images/wot-use-cases/smart-home-gateway.png"
-                        class="wot-arch-diagram" />
+                        class="wot-arch-diagram" alt="smart home gateway use case" />
                     <figcaption>Smart Home Gateway</figcaption>
                 </figure>
             </section>
@@ -984,7 +1012,7 @@ img.wot-arch-diagram {
                 </p>
                 <figure id="edge-device">
                     <img src="images/wot-use-cases/edge-device.png"
-                         class="wot-arch-diagram" />
+                         class="wot-arch-diagram" alt="edge device use case" />
                     <figcaption>Edge device</figcaption>
                 </figure>
             </section>
@@ -999,7 +1027,7 @@ img.wot-arch-diagram {
                     to the real devices.</p>
                 <figure id="digital-twin">
                     <img src="images/wot-use-cases/digital-twin.png"
-                         class="wot-arch-diagram" />
+                         class="wot-arch-diagram" alt="digital twin use case" />
                     <figcaption>Digital Twin</figcaption>
                 </figure>
                 <p>Digital twins can model a single device, or they
@@ -1008,7 +1036,7 @@ img.wot-arch-diagram {
                 <figure id="digital-twin-multiple-devices">
                     <img
                         src="images/wot-use-cases/digital-twin-multiple-devices.png"
-                        class="wot-arch-diagram" />
+                        class="wot-arch-diagram" alt="digital twin multiple devices use case" />
                     <figcaption>Digital Twin for Multiple
                         Devices</figcaption>
                 </figure>
@@ -1033,7 +1061,7 @@ img.wot-arch-diagram {
                     <figure id="smart-home-cloud1">
                         <img
                             src="images/wot-use-cases/smart-home-cloud1a.png"
-                            class="wot-arch-diagram" />
+                            class="wot-arch-diagram" alt="smart home cloud use case 1" />
                         <figcaption>Appliance twin for a
                             Cloud-ready Devices</figcaption>
                     </figure>
@@ -1068,7 +1096,7 @@ img.wot-arch-diagram {
                     <figure id="smart-home-cloud2">
                         <img
                             src="images/wot-use-cases/smart-home-cloud2.png"
-                            class="wot-arch-diagram" />
+                            class="wot-arch-diagram" alt="smart home cloud use case 2" />
                         <figcaption>A Digital Twin for a
                             Legacy Device</figcaption>
                     </figure>
@@ -1118,9 +1146,9 @@ img.wot-arch-diagram {
                 </p>
                 <figure id="cross-domain">
                     <img src="images/wot-use-cases/cross-domain-direct.png"
-                        class="wot-arch-diagram" />
+                        class="wot-arch-diagram" alt="cross domain direct use case" />
                     <img src="images/wot-use-cases/cross-domain-indirect.png"
-                        class="wot-arch-diagram" />
+                        class="wot-arch-diagram" alt="cross domain indirect use case" />
                     <figcaption>Cross-domain collaboration</figcaption>
                 </figure>
             </section>
@@ -1151,7 +1179,7 @@ img.wot-arch-diagram {
             </p>
             <figure id="usecase-overview">
                 <img src="images/wot-use-cases/use-case-summary.png"
-                     class="wot-arch-diagram" />
+                     class="wot-arch-diagram" alt="use case summary" />
                 <figcaption>Use Case Overview</figcaption>
             </figure>
         </section>
@@ -1553,7 +1581,7 @@ img.wot-arch-diagram {
             </p>
             <figure id="consumer-thing">
                 <img src="images/architecture/consumer-thing.png"
-                     class="wot-arch-diagram" />
+                     class="wot-arch-diagram" alt="consumer thing" />
                 <figcaption>Consumer-Thing interaction</figcaption>
             </figure>
             <p>
@@ -1577,7 +1605,7 @@ img.wot-arch-diagram {
             </p>
             <figure id="linked-things">
                 <img src="images/architecture/linked-things.png"
-                     class="wot-arch-diagram" />
+                     class="wot-arch-diagram" alt="linked things" />
                 <figcaption>Linked Things</figcaption>
             </figure>
             <p>
@@ -1603,7 +1631,7 @@ img.wot-arch-diagram {
             </p>
             <figure id="intermediary">
                 <img src="images/architecture/intermediary.png"
-                     class="wot-arch-diagram" />
+                     class="wot-arch-diagram" alt="intermediary" />
                 <figcaption>Intermediary</figcaption>
             </figure>
             <p>
@@ -1627,7 +1655,7 @@ img.wot-arch-diagram {
             </p>
             <figure id="architecture-abstract">
                 <img src="images/architecture/overview.png"
-                     class="wot-arch-diagram" />
+                     class="wot-arch-diagram" alt="architecture overview" />
                 <figcaption>Abstract Architecture of W3C WoT</figcaption>
             </figure>
         </section>
@@ -1697,7 +1725,7 @@ img.wot-arch-diagram {
                 The <a>Interaction Affordances</a> provide a model of how <a>Consumers</a> can interact with the <a>Thing</a> through abstract operations,
 				        but without reference to a specific network protocol or data encoding.
                 The protocol binding adds the additional detail needed to map each 
-                <a>Interaction Affordance</a> to concete messages of a certain protocol.
+                <a>Interaction Affordance</a> to concrete messages of a certain protocol.
                 In general, different concrete protocols may be used to
                 support different subsets of <a>Interaction Affordances</a>,
                 even within a single Thing. The security configuration
@@ -1707,7 +1735,7 @@ img.wot-arch-diagram {
             </p>
             <figure id="arch-webthing">
                 <img src="images/architecture/webthing.png"
-                     class="wot-arch-diagram" />
+                     class="wot-arch-diagram" alt="web thing" />
                 <figcaption>Architectural Aspects of a Thing</figcaption>
             </figure>
         </section>
@@ -1926,7 +1954,7 @@ img.wot-arch-diagram {
                     also be URIs [[!RFC3986]], because many protocols
                     (such as HTTP) do not support IRIs.</p>
                 <p>
-                    <span class="rfc2119-assertion" id="arch-form-iris">
+                    <span class="rfc2119-assertion" id="arch-form-iris2">
                     Form context and submission target MAY point to
                     the same resource or different resources, where the
                     submission target resource implements the operation
@@ -2097,7 +2125,7 @@ img.wot-arch-diagram {
                     </span>
                     <span class="rfc2119-assertion" id="arch-hypermedia-protocol-binding">
                         Protocol Bindings MUST be serialized as hypermedia controls (see <a
-                        href="#sec-hypermedia-controls"></a>) to be self-descriptive on how to activate the Interaction Affordance.
+                        href="#sec-hypermedia-controls"><span class="rfc2119-assertion" id="arch-hypermedia-controles"></span></a>) to be self-descriptive on how to activate the Interaction Affordance.
                     </span>
                     <span class="rfc2119-assertion" id="arch-hypermedia-origin">
                         The hypermedia controls MUST originate from the authority managing the Thing that is providing the corresponding Interaction Affordance.
@@ -2198,7 +2226,7 @@ img.wot-arch-diagram {
                 <figure id="servient-thing-exposedThing">
                     <img
                         src="images/architecture/servient-thing-exposedThing.png" 
-                        class="wot-arch-diagram" />
+                        class="wot-arch-diagram" alt="servient as a thing" />
                     <figcaption>Servient as a Thing</figcaption>
                 </figure>
 
@@ -2214,7 +2242,7 @@ img.wot-arch-diagram {
                 <figure id="servient-consumer-consumedThing">
                     <img
                         src="images/architecture/servient-consumer-consumedThing.png"
-                        class="wot-arch-diagram" />
+                        class="wot-arch-diagram" alt="servient as a consumer" />
                     <figcaption>Servient as a Consumer</figcaption>
                 </figure>
 
@@ -2234,7 +2262,7 @@ img.wot-arch-diagram {
                 <figure id="servient-intermediary">
                     <img
                         src="images/architecture/servient-intermediary.png"
-                        class="wot-arch-diagram" />
+                        class="wot-arch-diagram" alt="servient as an intermediary" />
                     <figcaption>Servient as an Intermediary</figcaption>
                 </figure>
 
@@ -2254,7 +2282,7 @@ img.wot-arch-diagram {
                 <figure id="high-level-application-device">
                     <img
                         src="images/architecture/servient-consumer-thing.png"
-                        class="wot-arch-diagram" />
+                        class="wot-arch-diagram" alt="high-level architecture of consumer and thing" />
                     <figcaption>High-level architecture of
                         Consumer and Thing</figcaption>
                 </figure>
@@ -2288,7 +2316,7 @@ img.wot-arch-diagram {
                 <figure id="high-level-application-proxy-device-new">
                     <img
                         src="images/architecture/servient-consumer-intermediary-thing.png"
-                        class="wot-arch-diagram" />
+                        class="wot-arch-diagram" alt="high-level architecture with intermediary" />
                     <figcaption>High-level architecture
                         with Intermediary</figcaption>
                 </figure>
@@ -2369,7 +2397,7 @@ img.wot-arch-diagram {
         </p>
         <figure id="arch-building-blocks">
             <img src="images/bblocks/abstract.png" 
-                 class="wot-arch-diagram" />
+                 class="wot-arch-diagram" alt="wot building blocks" />
             <figcaption>Relationship of WoT Building Blocks 
             to the Architectural Aspects of a Thing.</figcaption>
         </figure>
@@ -2467,7 +2495,7 @@ img.wot-arch-diagram {
             </p>
             <figure id="fig-binding-templates">
                 <img src="images/bblocks/binding-templates.png"
-                     class="wot-arch-diagram" />
+                     class="wot-arch-diagram" alt="binding templates" />
                 <figcaption>From Binding Templates to Protocol Bindings</figcaption>
             </figure>
             <p> <a href="#fig-binding-templates"></a> shows how <a>Binding
@@ -2626,7 +2654,7 @@ img.wot-arch-diagram {
         </p>
         <figure id="architecture-implementation">
             <img src="images/servient/wot-thing-scripting.png"
-                 class="wot-arch-diagram" />
+                 class="wot-arch-diagram" alt="architecture implementation" />
             <figcaption>Implementation of a Servient using the WoT Scripting API</figcaption>
         </figure>
         <p>
@@ -2862,7 +2890,7 @@ img.wot-arch-diagram {
                 </p>
                 <figure id="architecture-implementation-native">
                     <img src="images/servient/wot-thing-native.png" 
-                         class="wot-arch-diagram" />
+                         class="wot-arch-diagram" alt="implementation native" />
                     <figcaption>Implementation of a Servient Using a Native WoT API</figcaption>
                 </figure>
             </section>
@@ -2891,7 +2919,7 @@ img.wot-arch-diagram {
                 </p>
                 <figure id="architecture-implementation-existing">
                     <img src="images/servient/wot-thing-existing.png" 
-                         class="wot-arch-diagram" />
+                         class="wot-arch-diagram" alt="implementation existing" />
                     <figcaption>Integration of Existing IoT Devices into W3C WoT</figcaption>
                 </figure>
             </section>
@@ -2978,7 +3006,7 @@ img.wot-arch-diagram {
             </p>
             <figure id="simple-conf-application-device">
                 <img src="images/deployments/arch-simple-conf-consumer-thing.png" 
-                     class="wot-arch-diagram" />
+                     class="wot-arch-diagram" alt="consumer and thing on the same network" />
                 <figcaption>Consumer and Thing on the Same Network</figcaption>
             </figure>
             <p> If the <a>Thing</a> is in the cloud and the <a>Consumer</a> is on a local network
@@ -3025,7 +3053,7 @@ img.wot-arch-diagram {
             <figure id="simple-conf-application-proxy-device">
                 <img
                     src="images/deployments/arch-simple-conf-consumer-intermediary-thing.png"
-                    class="wot-arch-diagram" />
+                    class="wot-arch-diagram" alt="consumer and thing connected via an intermediary acting as a proxy" />
                 <figcaption>Consumer and Thing Connect via a Intermediary Acting as a Proxy</figcaption>
             </figure>
             </section>
@@ -3115,7 +3143,7 @@ img.wot-arch-diagram {
             </p>
             <figure id="deployment-cloud-device">
                 <img src="images/deployments/arch-deploy-cloud-thing.png"
-                     class="wot-arch-diagram" />
+                     class="wot-arch-diagram" alt="cloud applications" />
                 <figcaption>Cloud Applications Implemented as Consumers Connected to
                     Local Devices implemented as Things via Paired Intermediaries</figcaption>
             </figure>
@@ -3174,7 +3202,7 @@ img.wot-arch-diagram {
             </p>
             <figure id="deployment-cloud-directory">
                 <img src="images/deployments/arch-deploy-service-directory.png"
-                     class="wot-arch-diagram" />
+                     class="wot-arch-diagram" alt="cloud directory" />
                 <figcaption>Cloud Service with Thing Directory</figcaption>
             </figure>
             <p> In more complex situations, not shown in the figure, there
@@ -3220,7 +3248,7 @@ img.wot-arch-diagram {
                 </p>
                 <figure id="deployment-service-sync-directory">
                     <img src="images/deployments/arch-deploy-service-sync-directory.png"
-                         class="wot-arch-diagram" />
+                         class="wot-arch-diagram" alt="service sync directory" />
                     <figcaption>Multiple Cloud Connections Through Thing
                         Directory Synchronization</figcaption>
                 </figure>
@@ -3238,7 +3266,7 @@ img.wot-arch-diagram {
                 </p>
                 <figure id="deployment-service-sync-proxy">
                     <img src="images/deployments/arch-deploy-service-sync-intermediary.png"
-                         class="wot-arch-diagram" />
+                         class="wot-arch-diagram" alt="service sync proxy" />
                     <figcaption>Multiple Cloud Connections Through
                         Intermediary Synchronization</figcaption>
                 </figure>
