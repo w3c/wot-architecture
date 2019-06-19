@@ -210,7 +210,7 @@ img.wot-arch-diagram {
             interfaces to allow IoT devices and services to communicate
             with each other, independent of their underlying
             implementation, and across multiple networking protocols. In
-            addition WoT offers a standardized way to define and program
+            addition, WoT offers a standardized way to define and program
             IoT behavior.</p>
 
         <p>This <em>WoT Architecture</em> specification describes the abstract
@@ -1938,7 +1938,7 @@ img.wot-arch-diagram {
                         <li>optionally form fields.</li>
                     </ul>
                 <p>
-                    A form can be viewed as a statement of "To perform a
+                    A form can be viewed as a statement of "To perform an
                     <code>operation type</code>
                     operation on
                     <code>form context</code>
@@ -2188,7 +2188,7 @@ img.wot-arch-diagram {
                 <p>
                     Some Media Types might need additional parameters to fully specify the representation format used.
                     Examples are <code>text/plain; charset=utf-8</code> or <code>application/ld+json; profile="http://www.w3.org/ns/json-ld#compacted"</code>.
-                    This needs to be taken into account in particular when describing data to be sent to <a>Things</a>.
+                    This needs to be considered in particular when describing data to be sent to <a>Things</a>.
                     There might also be standardized transformations on the data such as content coding [[!RFC7231]].
                     <span class="rfc2119-assertion" id="arch-media-type-extra">
                         Protocol Bindings MAY have additional information that specifies representation formats in more detail than the Media Type alone.
@@ -3070,7 +3070,7 @@ img.wot-arch-diagram {
                     src="images/deployments/arch-simple-conf-consumer-intermediary-thing.png"
                     srcset="images/deployments/arch-simple-conf-consumer-intermediary-thing.svg"
                     class="wot-arch-diagram" alt="consumer and thing connected via an intermediary acting as a proxy" />
-                <figcaption>Consumer and Thing Connect via a Intermediary Acting as a Proxy</figcaption>
+                <figcaption>Consumer and Thing Connect via an Intermediary Acting as a Proxy</figcaption>
             </figure>
             </section>
             <section id="sec-deployment-digital-twin">
@@ -3125,7 +3125,7 @@ img.wot-arch-diagram {
                 access all the <a>Things</a> behind the NAT device,
                 assuming the local <a>Intermediary</a>
                 has used a converged protocol that can traverse the NAT device
-                and has some way to expose this service to the Internet (STUN, TURN, DyDNS, etc).
+                and has some way to expose this service to the Internet (STUN, TURN, DyDNS, etc.).
                 In addition, the local <a>Intermediary</a> can function as a Thing proxy, so
                 even when the connected <a>Things</a> each use a different
                 protocol (HTTP, MQTT, CoAP, etc.) and/or a different set of
@@ -3298,8 +3298,8 @@ img.wot-arch-diagram {
     <section id="sec-security-considerations" class="informative">
         <h1>Security and Privacy Considerations</h1>
         <p>
-            Security is a cross-cutting issue that needs to be taken
-            into account in all <a href="#sec-building-blocks">WoT
+            Security is a cross-cutting issue that needs to be considered
+            in all <a href="#sec-building-blocks">WoT
                 building blocks</a> and WoT implementations. This chapter
             summarizes some general issues and guidelines to help
             preserve the security and privacy of WoT implementations.
@@ -3322,12 +3322,12 @@ img.wot-arch-diagram {
             security mechanisms will also vary based on these factors.
         </p>
         <p>Security and privacy are especially important in the IoT
-            domain since IoT devices need to operate autonomously and in
-            many cases have access to both personal data and/or can be
+            domain since IoT devices need to operate autonomously and, in
+            many cases, have access to both personal data and/or can be
             in control of safety-critical systems. Compared to personal
             systems, IoT devices are subject to different and in some
             cases higher risks than IT systems. It is also important to
-            protect IoT systems so that they can not be used to launch
+            protect IoT systems so that they cannot be used to launch
             attacks on other computer systems.
         </p>
         <p>In general, security and privacy cannot be guaranteed. It
@@ -3450,7 +3450,7 @@ img.wot-arch-diagram {
                 malicious access to the system and isolate scripts in
                 multi-tenant <a>Servients</a> . More specifically the <a>WoT
                     Runtime</a> implementation when used with the <a>WoT
-                    Scripting API</a> should take into account the following
+                    Scripting API</a> should consider the following
                 security and privacy risks and implement the recommended
                 mitigations.
             </p>
