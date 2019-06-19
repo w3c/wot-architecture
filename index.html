@@ -386,18 +386,18 @@ img.wot-arch-diagram {
                 as well as implementation notes for the required protocol stacks
 		            or dedicated communication drivers.</dd>
             <dt>
-                <dfn>to consume a Thing</dfn>
-            </dt>
-            <dd>To parse and process a TD document and from it create a Consumed
-                Thing software abstraction as interface for the application in the local
-                runtime environment.</dd>
-            <dt>
                 <dfn>Consumed Thing</dfn>
             </dt>
             <dd>A software abstraction that represents a remote
                 Thing used by the local application. The abstraction might be
                 created by a native WoT Runtime, or instantiated
                 as an object through the WoT Scripting API.</dd>
+            <dt>
+                <dfn>Consuming a Thing</dfn>
+            </dt>
+            <dd>To parse and process a TD document and from it create a Consumed
+                Thing software abstraction as interface for the application in the local
+                runtime environment.</dd>
             <dt>
                 <dfn>Consumer</dfn>
             </dt>
@@ -414,12 +414,12 @@ img.wot-arch-diagram {
                 or to run simulations of new applications and services,
                 before they get deployed to the real devices.</dd>
             <dt>
-                <dfn>Domain-specific vocabulary</dfn>
+                <dfn>Domain-specific Vocabulary</dfn>
             </dt>
             <dd>Linked Data vocabulary that can be used in the WoT
                 Thing Description, but is not defined by W3C WoT.</dd>
             <dt>
-                <dfn>Edge device</dfn>
+                <dfn>Edge Device</dfn>
             </dt>
             <dd>A device that provides an entry point into
                 enterprise or service provider core networks. Examples
@@ -431,12 +431,6 @@ img.wot-arch-diagram {
             <dd>An Interaction Affordance that describes an event source,
                 which asynchronously pushes event data to Consumers
                 (e.g., overheating alerts).</dd>
-           <dt>
-                <dfn>to expose a Thing</dfn>
-            </dt>
-            <dd>To create an Exposed Thing software abstraction in the
-                local runtime environment to manage the state of a Thing
-                and interface with the behavior implementation.</dd>
             <dt>
                 <dfn>Exposed Thing</dfn>
             </dt>
@@ -444,6 +438,12 @@ img.wot-arch-diagram {
                 that can be accessed over the network by remote Consumers.
                 The abstraction might be created by a native WoT Runtime,
                 or instantiated as an object through the WoT Scripting API.</dd>
+            <dt>
+                <dfn>Exposing a Thing</dfn>
+            </dt>
+            <dd>To create an Exposed Thing software abstraction in the
+                local runtime environment to manage the state of a Thing
+                and interface with the behavior implementation.</dd>
             <dt>
                 <dfn>Hypermedia Control</dfn>
             </dt>
@@ -474,7 +474,7 @@ img.wot-arch-diagram {
                 and republish a WoT Thing Description that points to the WoT Interface on the Intermediary instead of the original Thing.
                 For Consumers, an Intermediary may be indistinguishable from a Thing, following the Layered System constraint of REST.</dd>
             <dt>
-                <dfn>IoT platform</dfn>
+                <dfn>IoT Platform</dfn>
             </dt>
             <dd>A specific IoT ecosystem such as OCF, oneM2M, or
                 Mozilla Project Things with its own specifications for
