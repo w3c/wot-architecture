@@ -67,27 +67,11 @@
                 }],
         localBiblio : {
             "CoRE-RD" : {
-                href : "https://tools.ietf.org/html/draft-ietf-core-resource-directory-20",
+                href : "https://tools.ietf.org/html/draft-ietf-core-resource-directory-21",
                 title : "CoRE Resource Directory",
                 status : "Internet-Draft",
                 publisher : "IETF",
-                date : "11 March 2019"
-            },
-/* ReSpec will pick up the citation as it is officially published
-            "wot-security" : {
-                href : "https://www.w3.org/TR/wot-security/",
-                // href: "https://cdn.staticaly.com/gh/w3c/wot-security/master/index.html?env=dev",
-                title : "Web of Things (WoT) Security and Privacy Guidelines",
-                // status: "Editor's Draft (will be W3C NOTE in final version)",
-                status: "W3C Note",
-                publisher : "W3C"
-            },
-*/
-            "tag-review-wot-thing-description" : {
-                href: "https://cdn.staticaly.com/gh/w3c/wot-thing-description/TD-TAG-review/index.html?env=dev",
-                title : "Web of Things (WoT) Thing Description",
-                status: "Editor's Draft for TAG Review",
-                publisher : "W3C"
+                date : "13 June 2019"
             },
             "IEC-FOTF" : {
                 href : "https://www.iec.ch/whitepaper/pdf/iecWP-futurefactory-LR-en.pdf",
@@ -95,9 +79,9 @@
                 publisher : "IEC",
                 date : "October 2015"
             },
-            "iot-schema-org" : {
-                href : "https://iot.schema.org/",
-                title : "iot.schema.org"
+            "IOT-SCHEMA-ORG" : {
+                href : "https://www.w3.org/community/iotschema/",
+                title : "Schema Extensions for IoT Community Group"
             },
             "REST" : {
                 title : "REST: Architectural Styles and the Design of Network-based Software Architectures",
@@ -152,19 +136,19 @@
                 status : "Internet-Draft",
                 date : " March 2019"
             },
-            "wot-pioneers-1" : {
+            "WOT-PIONEERS-1" : {
                 title : "Mobile Service Interaction with the Web of Things",
                 authors : [ "E. Rukzio, M. Paolucci", "M. Wagner, H. Berndt", "J. Hamard", "A. Schmidt" ],
                 publisher : "Proceedings of 13th International Conference on Telecommunications (ICT 2006), Funchal, Madeira island, Portugal",
                 date : "May 2006"
             },
-            "wot-pioneers-2" : {
+            "WOT-PIONEERS-2" : {
                 title : "Putting Things to REST",
                 authors : [ "Erik Wilde" ],
                 publisher : "UCB iSchool Report 2007-015, UC Berkeley, Berkeley, CA, USA",
                 date : "November 2007"
             },
-            "wot-pioneers-3" : {
+            "WOT-PIONEERS-3" : {
                 title : "Poster Abstract: Dyser – Towards a Real-Time Search Engine for the Web of Things",
                 authors : [ "Benedikt Ostermaier",
                             "B. Maryam Elahi",
@@ -174,7 +158,7 @@
                 publisher : "Proceedings of ACM SenSys 2008, Raleigh, NC, USA",
                 date : "November 2008"
             },
-            "wot-pioneers-4" : {
+            "WOT-PIONEERS-4" : {
                 title : "A Resource Oriented Architecture for the Web of Things",
                 authors : [ "Dominique Guinard", "Vlad Trifa", "Erik Wilde" ],
                 publisher : "Proceedings of Internet of Things 2010 International Conference (IoT 2010). Tokyo, Japan",
@@ -264,43 +248,19 @@ img.wot-arch-diagram {
 
     </section>
     <section id="sotd">
-        <p class="ednote" title="The W3C WoT WG is asking for feedback">
-            Please contribute to this draft using the <a
-                href="https://github.com/w3c/wot-architecture/issues">GitHub
-                Issue</a> feature of the <a
-                href="https://github.com/w3c/wot-architecture/">WoT
-                Architecture</a> repository. For feedback on security and
-            privacy considerations, please use the <a
-                href="https://github.com/w3c/wot-security/issues">WoT
-                Security and Privacy Guidelines</a> repository to file issues, 
-               as they are cross-cutting over all our specifications.
+        <p>
+            This document was published by the
+            <a href= "https://www.w3.org/WoT/WG/">Web of Things Working Group</a>
+            as an Editor's Draft.
+            This document is intended to become a <abbr title="World Wide Web Consortium">W3C</abbr> Recommendation.
         </p>
-
-    <p>This document describes an abstract architecture design.
-    However, there is a
-    <a href="https://w3c.github.io/wot-thing-description/testing/report.html">
-    preliminary implementation report</a> which describes concrete
-    implementations based on the associated <em>WoT Thing Description</em>
-    specification. The Working Group seeks implementation feedback,
-    having set the requirement of at least two implementations of each
-    feature as the exit criteria for the Candidate Recommendation
-    phase. The group aims to obtain reports from one TD producer and
-    one TD consumer for each feature if applicable.  For details,
-    including definitions of implementation, TD producer, and TD
-    consumer, see the
-    <a href="https://w3c.github.io/wot-thing-description/testing/report.html">
-    preliminary implementation report</a>.
-    </p>
-
-    <p>This document was published by the <a href=
-    "https://www.w3.org/WoT/WG/">Web of Things Working Group</a> as
-      an Editor's Draft.
-     This document is intended to become a <abbr title="World Wide Web Consortium">W3C</abbr> Recommendation.</p>
-
-    <p>Please see the Working Group's
-      <a href="https://w3c.github.io/wot-thing-description/testing/report.html">
-      Implementation Report for the associated WoT Thing Description specification</a>.
-    </p>
+        <p>
+            This document describes an abstract architecture design.
+            However, there is an
+            <a href="https://w3c.github.io/wot-thing-description/testing/report.html">Implementation Report</a>
+            that describes concrete implementations based on the associated <em>WoT Thing Description</em> specification.
+            These are implementations following the W3C Web of Things architecture.
+        </p>
     </section>
     <section id="introduction">
         <h1>Introduction</h1>
@@ -313,16 +273,16 @@ img.wot-arch-diagram {
         </p>
         <ul>
             <li>the <em>Web of Things (WoT)
-                    Thing Description</em> [[wot-thing-description]],
+                    Thing Description</em> [[WOT-THING-DESCRIPTION]],
             </li>
             <li>the <em>Web of Things (WoT)
-                    Binding Templates</em> [[?wot-binding-templates]],
+                    Binding Templates</em> [[?WOT-BINDING-TEMPLATES]],
             </li>
             <li>the <em>Web of Things (WoT)
-                    Scripting API</em> [[?wot-scripting-api]], and
+                    Scripting API</em> [[?WOT-SCRIPTING-API]], and
             </li>
             <li>the <em>Web of Things (WoT)
-                    Security and Privacy Guidelines</em> [[?wot-security]].
+                    Security and Privacy Guidelines</em> [[?WOT-SECURITY]].
             </li>
         </ul>
 
@@ -1555,13 +1515,13 @@ img.wot-arch-diagram {
             <p>
                 A <a>Thing</a> is the abstraction of a physical or virtual entity (e.g., a device or a room) and is described by standardized metadata.
                 <span class="rfc2119-assertion" id="arch-td-metadata">
-                  In W3C WoT, the description metadata MUST be a WoT Thing Description (TD) [[!wot-thing-description]].
+                  In W3C WoT, the description metadata MUST be a WoT Thing Description (TD) [[!WOT-THING-DESCRIPTION]].
                 </span>
                 <span class="rfc2119-assertion" id="arch-td-consumers-process">
                   <a>Consumers</a> MUST be able to parse and process the <a>TD</a> representation format, which is based on JSON [[!RFC8259]].
                 </span>
                 The format can be processed either through classic JSON libraries or a JSON-LD processor, 
-                as the underlying information model is graph-based and its serialization compatible with JSON-LD 1.1 [[?json-ld-syntax]].
+                as the underlying information model is graph-based and its serialization compatible with JSON-LD 1.1 [[?JSON-LD11]].
                 A <a>TD</a> is instance-specific (i.e., describes an individual Thing, not types of Things)
                 and is the default external, textual (Web) representation of a <a>Thing</a>.
                 <span class="rfc2119-assertion" id="arch-other-thing-representations">
@@ -1793,7 +1753,7 @@ img.wot-arch-diagram {
                 </p>
                 <p>
                     <span class="rfc2119-assertion" id="arch-property-dataschema">
-                    If the data is not fully specified by the Protocol Binding used (e.g., through a Media Type),
+                    If the data is not fully specified by the Protocol Binding used (e.g., through a media type),
                     Properties MAY contain one data schema for the exposed state.
                     </span>
                 </p>
@@ -1817,7 +1777,7 @@ img.wot-arch-diagram {
                 </p>
                 <p>
                     <span class="rfc2119-assertion" id="arch-action-dataschema">
-                    If the data is not fully specified by the Protocol Binding used (e.g., through a Media Type),
+                    If the data is not fully specified by the Protocol Binding used (e.g., through a media type),
                     Actions MAY contain data schemas for optional input parameters and output results.
                     </span>
                 </p>
@@ -1838,7 +1798,7 @@ img.wot-arch-diagram {
                 </p>
                 <p>
                     <span class="rfc2119-assertion" id="arch-event-dataschema">
-                    If the data is not fully specified by the Protocol Binding used (e.g., through a Media Type),
+                    If the data is not fully specified by the Protocol Binding used (e.g., through a media type),
                     Events MAY contain data schemas for the event data and possible subscription control messages 
                     (e.g., to subscribe with a Webhook callback URI).
                     </span>
@@ -1895,9 +1855,10 @@ img.wot-arch-diagram {
                         <li>optionally target attributes.</li>
                     </ul>
                 <p>
-                    Link relation types are either a set of predefined tokens that are registered with IANA [[IANA-RELATIONS]] 
-                    adhering to the ABNF [[!RFC5234]] <code style="white-space: nowrap;">LOALPHA *( LOALPHA / DIGIT / "." / "-" )</code>
-                    (e.g., <code>stylesheet</code>) or extension types in the form of URIs [[!RFC3986]].
+                    Link relation types are either a set of predefined tokens that are registered with IANA [[?IANA-RELATIONS]],
+                    which must adhere to the ABNF [[!RFC5234]]
+                    <code style="white-space: nowrap;">LOALPHA *( LOALPHA / DIGIT / "." / "-" )</code> (e.g., <code>stylesheet</code>),
+                    or extension types in the form of URIs [[!RFC3986]].
                     <span class="rfc2119-assertion" id="arch-rel-types">
                     Extension relation types MUST be compared as strings using a case-insensitive comparison.
                     (If they are serialized in a different format they are to be converted to URIs).
@@ -2011,9 +1972,8 @@ img.wot-arch-diagram {
                     submission target as specified in the URI scheme. 
                     </span>
                     Examples are HTTP header fields,
-                    CoAP options, the protocol-independent Media Type including parameters (i.e., full content type)
-                    for the request payload, or information about the
-                    expected response.
+                    CoAP options, the protocol-independent media type [[!RFC2046]] including parameters (i.e., full content type)
+                    for the request payload, or information about the expected response.
                 </p>
                 <div id="table-operation-types">
                     <div style="text-align: center; font-style: italic;">Table 1 Well-known Operation Types for the Web of Things</div>
@@ -2111,7 +2071,7 @@ img.wot-arch-diagram {
         <section id="sec-protocol-bindings">
             <h2>Protocol Bindings</h2>
             <p>
-                A Protocol Binding is the mapping from an <a>Interaction Affordance</a> to concrete messages of a specific protocol such as HTTP [[!RFC7231]], CoAP [[!RFC7252]], or MQTT [[!MQTT]].
+                A Protocol Binding is the mapping from an <a>Interaction Affordance</a> to concrete messages of a specific protocol such as HTTP [[?RFC7231]], CoAP [[?RFC7252]], or MQTT [[?MQTT]].
                 It informs the <a>Consumer</a> <em>how</em> to activate the <a>Interaction Affordance</a> through a network-facing interface.
                 The <a>Protocol Bindings</a> follow the Uniform Interface constraint of REST [[?REST]] to support interoperability.
                 Thus, not all communication protocols are eligible to implement <a>Protocol Bindings</a> for W3C WoT;
@@ -2150,9 +2110,9 @@ img.wot-arch-diagram {
                 <h3>URIs</h3>
                 <p>
                     <span class="rfc2119-assertion" id="arch-uri-scheme">
-                        Eligible protocols for W3C WoT MUST have an associated URI scheme that is registered with IANA [[!RFC4395]].
+                        Eligible protocols for W3C WoT MUST have an associated URI scheme [[!RFC3986]] that is registered with IANA (see [[?IANA-URI-SCHEMES]]).
                     </span>
-                    Hypermedia controls rely on URIs to identify link and submission targets.
+                    Hypermedia controls rely on URIs [[!RFC3986]] to identify link and submission targets.
                     Thereby, the URI scheme (the first component up to ":") identifies the 
                     communication protocol to be used for <a>Interaction Affordance</a>s with the Thing.
                     W3C WoT refers to these protocols as <a>transfer protocols</a>.
@@ -2177,31 +2137,35 @@ img.wot-arch-diagram {
                 <h3>Media Types</h3>
                 <p>
                     <span class="rfc2119-assertion" id="arch-media-type">All
-                        data (a.k.a. content) exchanged when activating Interaction Affordances MUST be identified by a Media Type
-                        [[!RFC6838]] in the Protocol Binding.</span>
-                    Media Types are labels to identify representation formats, for instance
+                        data (a.k.a. content) exchanged when activating Interaction Affordances
+                        MUST be identified by a media type [[!RFC2046]] in the Protocol Binding.
+                    </span>
+                    Media types are labels to identify representation formats, for instance
                     <code>application/json</code>
-                    for JSON [[!RFC8259]] or
+                    for JSON [[RFC8259]] or
                     <code>application/cbor</code>
-                    for CBOR [[!RFC7049]]. They are managed by IANA. 
+                    for CBOR [[?RFC7049]].
+                    They are managed by IANA. 
                 </p>
                 <p>
-                    Some Media Types might need additional parameters to fully specify the representation format used.
+                    Some media types might need additional parameters to fully specify the representation format used.
                     Examples are <code>text/plain; charset=utf-8</code> or <code>application/ld+json; profile="http://www.w3.org/ns/json-ld#compacted"</code>.
                     This needs to be considered in particular when describing data to be sent to <a>Things</a>.
-                    There might also be standardized transformations on the data such as content coding [[!RFC7231]].
+                    There might also be standardized transformations on the data such as content coding [[?RFC7231]].
                     <span class="rfc2119-assertion" id="arch-media-type-extra">
-                        Protocol Bindings MAY have additional information that specifies representation formats in more detail than the Media Type alone.
+                        Protocol Bindings MAY have additional information that specifies representation formats
+                        in more detail than the media type alone.
                     </span>
                 </p>
                 <p>
-                    Note that many Media Types only identify a generic
+                    Note that many media types only identify a generic
                     serialization format that does not provide further
                     semantics for its elements (e.g., XML, JSON, CBOR). 
                     <span class="rfc2119-assertion" id="arch-schema">Thus,
                         the corresponding Interaction Affordances SHOULD
                         declare a <em>data schema</em> to provide more detailed
-                        syntactic metadata for the data exchanged.</span>
+                        syntactic metadata for the data exchanged.
+                    </span>
                 </p>
             </section>
         </section>
@@ -2423,7 +2387,7 @@ img.wot-arch-diagram {
         <section id="sec-thing-description">
             <h2>WoT Thing Description</h2>
             <p> The <a>WoT Thing Description</a> (TD) specification
-                [[!wot-thing-description]] defines an <em>information model</em>
+                [[!WOT-THING-DESCRIPTION]] defines an <em>information model</em>
                 based on a semantic vocabulary and a <em>serialized
                 representation based on JSON</em>. <a>TDs</a> provide rich metadata
                 for <a>Things</a> in a way that is both human-readable and
@@ -2465,9 +2429,9 @@ img.wot-arch-diagram {
                 out-of-scope of the W3C WoT standardization activity.
             </p>
             <p> Three examples of potentially useful external IoT
-                vocabularies are SAREF [[?SAREF]], iot.schema.org
-                [[?iot-schema-org]], and the W3C Semantic Sensor Network
-                ontology [[?vocab-ssn]]. Use of such external vocabularies in <a>TDs</a> is
+                vocabularies are SAREF [[?SAREF]], Schema Extensions for IoT
+                [[?IOT-SCHEMA-ORG]], and the W3C Semantic Sensor Network
+                ontology [[?VOCAB-SSN]]. Use of such external vocabularies in <a>TDs</a> is
                 optional. In the future additional domain-specific
                 vocabularies may be developed and used with <a>TDs</a>.
             </p>
@@ -2494,7 +2458,7 @@ img.wot-arch-diagram {
                 number of constraints (see <a href="#sec-protocol-bindings"></a>).
             </p>
             <p> The non-normative <a>WoT Binding Templates</a> specification
-                [[?wot-binding-templates]] provides a collection of
+                [[?WOT-BINDING-TEMPLATES]] provides a collection of
                 communication metadata blueprints that give guidance on
                 how to interact with different <a>IoT platforms</a>.
                 When describing a particular IoT device or service,
@@ -2524,54 +2488,65 @@ img.wot-arch-diagram {
                 <a>Protocol Bindings</a> spans five dimensions:
             </p>
             <ul>
-                <li><b>IoT Platform:</b> 
-                <p><a>IoT Platforms</a> often
-                    introduce proprietary modifications at the
-                    application layer such as platform-specific HTTP
-                    header fields or CoAP options. Forms (see <a
-                    href="#sec-hypermedia-forms"></a>) may contain the
-                    necessary information to apply these tweaks in
-                    additional form fields defined for the
-                    application-layer protocol used.</p></li>
-                <li><b>Media Type:</b> 
-                <p><a>IoT Platforms</a> often
-                    differ in the representation formats (a.k.a.
-                    serializations) used for exchanging data. The Media
-                    Type [[!RFC6838]] identifies these formats, while
-                    parameters may specify them further. Forms may
-                    contain the Media Type and optional parameters in
-                    additional form fields such as a content type field known from HTTP,
-                    which combines Media Type and other optional parameters 
-                    (e.g., <code>text/plain; charset=utf-8</code>).</p></li>
-                <li><b>Transfer Protocol:</b> 
-                <p>The Web of Things
-                    uses the term <a>transfer protocol</a> for the
-                    underlying, standardized application-layer protocol
-                    without application-specific options or <a>subprotocol</a>
-                    mechanisms. The URI scheme of the form (submission)
-                    target contains the information required to
-                    identify the <a>transfer protocol</a>, e.g., HTTP, CoAP, or
-                    WebSocket.</p></li>
-                <li><b>Subprotocol:</b> 
-                <p><a>Transfer protocols</a> may have
-                    extension mechanisms that must be known to interact
-                    successfully. Such <a>subprotocols</a> cannot be
-                    identified from the URI scheme and must be declared
-                    explicitly. Examples are the push notification
-                    workarounds for HTTP such as long polling
-                    [[?RFC6202]] or Server-Sent Events [[?EVENTSOURCE]].
-                    Forms may contain the necessary information to
-                    identify the <a>subprotocol</a> in additional form fields.</p></li>
-                <li><b>Security:</b> 
-                <p>Security mechanisms can be
-                    applied at different layers of the communication
-                    stack and might be used together, often to
-                    complement each other. Examples are (D)TLS
-                    [[?RFC8446]]/[[?RFC6347]], IPSec [[?RFC4301]], OAuth
-                    [[?RFC6749]], and ACE [[?RFC7744]]. Due to the
-                    cross-cutting nature of security, the necessary
-                    information to apply the right mechanism may be
-                    given within the general metadata of the <a>Thing</a>.</p></li>
+                <li>
+                    <b>IoT Platform:</b> 
+                    <p>
+                        <a>IoT Platforms</a> often
+                        introduce proprietary modifications at the
+                        application layer such as platform-specific HTTP
+                        header fields or CoAP options. Forms (see <a
+                        href="#sec-hypermedia-forms"></a>) may contain the
+                        necessary information to apply these tweaks in
+                        additional form fields defined for the
+                        application-layer protocol used.
+                    </p>
+                </li>
+                <li>
+                    <b>Media Type:</b> 
+                    <p>
+                        <a>IoT Platforms</a> often differ in the representation formats
+                        (a.k.a. serializations) used for exchanging data.
+                        The media type [[!RFC2046]] identifies these formats,
+                        while media type parameters may specify them further.
+                        Forms may contain the media type and optional parameters in
+                        additional form fields such as a content type field known from HTTP,
+                        which combines media type and its potential parameters 
+                        (e.g., <code>text/plain; charset=utf-8</code>).
+                    </p>
+                </li>
+                <li>
+                    <b>Transfer Protocol:</b> 
+                    <p>
+                        The Web of Things uses the term <a>transfer protocol</a> for the underlying, standardized
+                        application-layer protocol without application-specific options or <a>subprotocol</a> mechanisms.
+                        The URI scheme of the form submission target contains the information required to
+                        identify the <a>transfer protocol</a>,
+                        e.g., HTTP, CoAPS, or WebSocket through <code>http:</code>, <code>coaps:</code>, or <code>ws:</code>, resp.
+                    </p>
+                </li>
+                <li>
+                    <b>Subprotocol:</b> 
+                    <p>
+                        <a>Transfer protocols</a> may have extension mechanisms that must be known to interact successfully.
+                        Such <a>subprotocols</a> cannot be identified from the URI scheme alone and must be declared explicitly.
+                        Examples are the push notification workarounds for HTTP such as long polling [[?RFC6202]] or Server-Sent Events [[?EVENTSOURCE]].
+                        Forms may contain the necessary information to identify the <a>subprotocol</a> in additional form fields.
+                    </p>
+                </li>
+                <li>
+                    <b>Security:</b> 
+                    <p>
+                        Security mechanisms can be applied at different layers of the communication stack
+                        and might be used together, often to complement each other.
+                        Examples are (D)TLS [[?RFC8446]]/[[?RFC6347]],
+                        IPSec [[?RFC4301]],
+                        OAuth [[?RFC6749]], and
+                        ACE [[?RFC7744]].
+                        Due to the cross-cutting nature of security, the necessary information to apply the right mechanism
+                        may be given within the general metadata of the <a>Thing</a>
+                        and/or specialized for each <a>Interaction Affordance</a> or form.
+                    </p>
+                </li>
             </ul>
         </section>
         <section id="sec-scripting-api" class="informative">
@@ -2600,7 +2575,7 @@ img.wot-arch-diagram {
                 time-critical logic from the cloud down to a gateway or
                 edge node.
             </p>
-            <p> The non-normative <a>WoT Scripting API</a> specification [[?wot-scripting-api]] defines
+            <p> The non-normative <a>WoT Scripting API</a> specification [[?WOT-SCRIPTING-API]] defines
                 the structure and algorithms of the programming
                 interface that allows scripts to discover, fetch, consume,
                 produce, and expose <a>WoT Thing Descriptions</a>. The
@@ -2623,7 +2598,7 @@ img.wot-arch-diagram {
                 block also includes a discussion of particular security
                 and privacy considerations of that building block.
                 Another non-normative specification, the 
-                <em>WoT Security and Privacy Guidelines</em> [[?wot-security]], 
+                <em>WoT Security and Privacy Guidelines</em> [[?WOT-SECURITY]], 
                 provides additional cross-cutting security and privacy guidance.
             </p>
         </section>
@@ -2746,13 +2721,13 @@ img.wot-arch-diagram {
         <section>
             <h3>WoT Scripting API</h3>
             <p>
-                The <a>WoT Scripting API</a> building block defines an ECMAScript API that closely follows the <a>WoT Thing Description</a> specification [[wot-thing-description]].
+                The <a>WoT Scripting API</a> building block defines an ECMAScript API that closely follows the <a>WoT Thing Description</a> specification [[WOT-THING-DESCRIPTION]].
                 It defines the interface between behavior implementations and a scripting-based <a>WoT Runtime</a>.
                 Other, simpler APIs may be implemented on top of it,
                 similar to, for instance, jQuery for the Web browser APIs.
             </p>
             <p>
-                See [[?wot-scripting-api]] for more details.
+                See [[?WOT-SCRIPTING-API]] for more details.
             </p>
         </section>
         <section>
@@ -2775,7 +2750,7 @@ img.wot-arch-diagram {
                 In this case, the <a>WoT Runtime</a> must provide the necessary adaptation between system API and <a>Consumed Thing</a>.
                 Furthermore, it must provide corresponding <a>TDs</a> and make them available to the behavior implementation,
                 for instance, by extending whatever discovery mechanism is provided by the <a>WoT Runtime</a> through the application-facing API
-                (e.g., the <code>discover()</code> method defined in the <a>WoT Scripting API</a> [[?wot-scripting-api]]).
+                (e.g., the <code>discover()</code> method defined in the <a>WoT Scripting API</a> [[?WOT-SCRIPTING-API]]).
             </p>
             <p>
                 When using the <a>WoT Scripting API</a>, <a>Exposed Thing</a> and <a>Consumed Thing</a> are JavaScript objects,
@@ -2822,11 +2797,11 @@ img.wot-arch-diagram {
                 the right header fields or CoAP with the right options).
                 Parsers and serializers for the expected payload representation
                 format (JSON, CBOR, XML, etc.)
-                as identified by the Internet Media Type can also be
+                as identified by the media type [[RFC2046]] can also be
                 shared across these generic protocol stacks.
             </p>
             <p>
-                See [[?wot-binding-templates]] for details.
+                See [[?WOT-BINDING-TEMPLATES]] for details.
             </p>
         </section>
         <section>
@@ -3305,7 +3280,7 @@ img.wot-arch-diagram {
             preserve the security and privacy of WoT implementations.
             For a more detailed and complete analysis of security and
             privacy issues, see the <em>WoT Security and Privacy Guidelines</em>
-            specification [[?wot-security]].
+            specification [[?WOT-SECURITY]].
         </p>
         <p>Overall, the goal of the WoT is to describe the existing
             access mechanisms and properties of IoT devices and
@@ -3490,7 +3465,7 @@ img.wot-arch-diagram {
                         the device. For more information see Sections
                         "WoT Servient Single-Tenant" and "WoT Servient
                         Multi-Tenant" of the <em>WoT Security and Privacy
-                        Guidelines</em> specification [[wot-security]].
+                        Guidelines</em> specification [[WOT-SECURITY]].
                     </dd>
                 </dl>
             </section>
@@ -3550,7 +3525,7 @@ img.wot-arch-diagram {
                         A set of recommendations for secure update and
                         post-manufacturing provisioning can be found in
                         the <em>WoT Security and Privacy Guidelines</em>
-                        specification [[wot-security]].
+                        specification [[WOT-SECURITY]].
                     </dd>
                 </dl>
             </section>
@@ -3596,6 +3571,7 @@ img.wot-arch-diagram {
       <h1>Recent Specification Changes</h1>
       <h2 id="changes-from-candidate-recommendation">Changes from Candidate Recommendation</h2>
       <ul>
+      <li>Updated references.</li>
       <li>Adjusted figure colors based on accessibility feedback.</li>
       <li>Minor editorial fixes such as typos and capitalization.</li>
       </ul>
@@ -3624,8 +3600,8 @@ img.wot-arch-diagram {
         </p>
         <p>The WoT WG also would like to appreciate the pioneering efforts
            regarding the concept of "Web of Things" that started as an academic
-           initiative in the form of publications such as [[?wot-pioneers-1]] [[?wot-pioneers-2]]
-           [[?wot-pioneers-3]] [[?wot-pioneers-4]] and, starting
+           initiative in the form of publications such as [[?WOT-PIONEERS-1]] [[?WOT-PIONEERS-2]]
+           [[?WOT-PIONEERS-3]] [[?WOT-PIONEERS-4]] and, starting
            in 2010, a yearly <a href="https://webofthings.org/events/wot/">
            International Workshop on the Web of Things</a>.</p>
            <p>Finally, special thanks to Joerg Heuer for leading the WoT IG for 2 years 
