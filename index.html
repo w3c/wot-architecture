@@ -538,7 +538,7 @@ img.wot-arch-diagram {
             <dd>A runtime system that maintains an execution
                 environment for applications, and is able to expose and/or
                 consume Things, to process WoT Thing Descriptions, to maintain private security
-                metadata, and to interface with Protocol Binding implementations.
+                configurations, and to interface with Protocol Binding implementations.
                 A WoT Runtime may have a custom API or use the optional WoT Scripting API.</dd>
             <dt>
                 <dfn>WoT Scripting API</dfn>
@@ -1707,7 +1707,7 @@ img.wot-arch-diagram {
                 even within a single Thing. The security configuration
                 aspect of a Thing represents the mechanisms used to
                 control access to the <a>Interaction Affordances</a> and the management of
-                related public and private metadata.
+                related public and private security configurations.
             </p>
             <figure id="arch-webthing">
                 <img src="images/architecture/webthing.png"
@@ -2605,7 +2605,7 @@ img.wot-arch-diagram {
             <p> Security is a cross-cutting concern and should be
                 considered in all aspects of system design. In the WoT
                 architecture, security is supported by certain explicit
-                features, such as support for public security metadata in <a>TDs</a>
+                features, such as support for public security configuration in <a>TDs</a>
                 and by separation of concerns in the design of the
                 <a>WoT Scripting API</a>. The specification for each building
                 block also includes a discussion of particular security
@@ -2775,8 +2775,8 @@ img.wot-arch-diagram {
         <section>
             <h2>Private Security Configuration</h2>
             <p>
-                Private security metadata is also conceptually
-                managed by the <a>WoT Runtime</a> but is intentionally not made
+                Private security data, such as a secret key for interacting with the Thing, is also conceptually
+                managed by the <a>WoT Runtime</a> as a private security configuration, but is intentionally not made
                 directly accessible to the application. In fact, in the
                 most secure hardware implementations, such private
                 security data is stored in a separate, isolated memory
@@ -3344,7 +3344,7 @@ img.wot-arch-diagram {
                     security information is included in <a>TDs</a>.
                     There should be a strict separation of public and
                     private security data. A TD should contain only
-                    public security information, letting Consumers know what
+                    public security data, letting Consumers know what
                     they need to do to access as system if and only if
                     they have authorization. Authorization in turn
                     should be based on separately managed private
