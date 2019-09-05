@@ -374,6 +374,10 @@ img.wot-arch-diagram {
 		(including its JSON-based representation format)
                 and interact with Things (i.e., consume Things).</dd>
             <dt>
+                <dfn>Data Schema</dfn>
+            </dt>
+            <dd>A data schema describes the payload structure and included data items that are passed between <a>Consumers</a> and <a>Things</a> during interactions.</dd>
+            <dt>
                 <dfn>Digital Twin</dfn>
             </dt>
             <dd>A digital twin is a virtual representation of a
@@ -1768,7 +1772,7 @@ img.wot-arch-diagram {
                 <p>
                     <span class="rfc2119-assertion" id="arch-property-dataschema">
                     If the data is not fully specified by the Protocol Binding used (e.g., through a media type),
-                    Properties MAY contain one data schema for the exposed state.
+                    Properties MAY contain one <a>data schema</a> for the exposed state.
                     </span>
                 </p>
                 <p>
@@ -1792,7 +1796,7 @@ img.wot-arch-diagram {
                 <p>
                     <span class="rfc2119-assertion" id="arch-action-dataschema">
                     If the data is not fully specified by the Protocol Binding used (e.g., through a media type),
-                    Actions MAY contain data schemas for optional input parameters and output results.
+                    Actions MAY contain <a>data schemas</a> for optional input parameters and output results.
                     </span>
                 </p>
                 <p>
@@ -1813,7 +1817,7 @@ img.wot-arch-diagram {
                 <p>
                     <span class="rfc2119-assertion" id="arch-event-dataschema">
                     If the data is not fully specified by the Protocol Binding used (e.g., through a media type),
-                    Events MAY contain data schemas for the event data and possible subscription control messages 
+                    Events MAY contain <a>data schemas</a> for the event data and possible subscription control messages 
                     (e.g., to subscribe with a Webhook callback URI).
                     </span>
                 </p>
@@ -2177,7 +2181,7 @@ img.wot-arch-diagram {
                     semantics for its elements (e.g., XML, JSON, CBOR). 
                     <span class="rfc2119-assertion" id="arch-schema">Thus,
                         the corresponding Interaction Affordances SHOULD
-                        declare a <em>data schema</em> to provide more detailed
+                        declare a <em><a>data schema</a></em> to provide more detailed
                         syntactic metadata for the data exchanged.
                     </span>
                 </p>
