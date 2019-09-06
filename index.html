@@ -178,13 +178,24 @@
                 status: "Recommendation",
                 date : "January 2015"
             },
+	    "ISO-IEC-2382" : {	
+		href: "https://www.iso.org/obp/ui/#iso:std:iso-iec:27000:ed-5:v1:en",
+		title : "Information technology — Vocabulary",
+                publisher : "ISO",
+                date : "2015"
+            },
+	    "ISO-IEC-27000" : {	
+		href: "https://www.iso.org/obp/ui/#iso:std:iso-iec:27000:ed-5:v1:en",
+		title : "Information technology — Security techniques — Information security management systems — Overview and vocabulary",
+                publisher : "ISO",
+                date : "2018"
+            },
 	    "ISO-IEC-29100" : {	
 		href: "https://www.iso.org/obp/ui/#iso:std:iso-iec:29100:ed-1:v1:en",
 		title : "Information technology — Security techniques — Privacy framework",
                 publisher : "ISO",
                 date : "2011"
             },
-
         }
     };
 </script>
@@ -459,14 +470,18 @@ img.wot-arch-diagram {
                 <dfn data-lt="Personally Identifiable Information">Personally Identifiable Information (PII)</dfn>
             </dt>
             <dd>Any information that can be used to identify the natural person to whom such information relates, 
-		or is or might be directly or indirectly linked to a natural person. Note that we use the same 
-		definition as [[ISO-IEC-29100]].
+		or is or might be directly or indirectly linked to a natural person. 
+                We use the same definition as [[ISO-IEC-29100]].
 	    </dd>
             <dt>
                 <dfn>Privacy</dfn>
             </dt>
-            <dd>The system should maintain the
-                confidentiality of <a>Personally Identifiable Information</a>.</dd>
+            <dd>Freedom from intrusion into the private life or affairs of an individual when that intrusion results from 
+                undue or illegal gathering and use of data about that individual.
+                We use the same definition as [[ISO-IEC-2382]].
+                See also <a>Personally Identifiable Information</a> and <a>Security</a>,
+                as well as other related definitions in [[ISO-IEC-29100]].
+            </dd>
             <dt>
                 <dfn>Property</dfn>
             </dt>
@@ -483,8 +498,14 @@ img.wot-arch-diagram {
             <dt>
                 <dfn>Security</dfn>
             </dt>
-            <dd>The system should preserve its integrity
-                and functionality even when subject to attack.</dd>
+            <dd>Preservation of the confidentiality, integrity and availability of information.
+                Properties such as authenticity, accountability, non-repudiation, and reliability may also be involved.
+                This definition is adapted from the definition of <i>Information Security</i> in [[ISO-IEC-27000]], which
+                also includes additional definitions of each of the more specific properties mentioned.
+                Please refer to this document for other related definitions.
+                We additionally note that it is desirable that these properties be maintained both in normal operation
+                and when the system is subject to attack.
+            </dd>
             <dt>
                 <dfn>Servient</dfn>
             </dt>
