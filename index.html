@@ -1735,7 +1735,7 @@ img.wot-arch-diagram {
                 even within a single Thing. The security configuration
                 aspect of a Thing represents the mechanisms used to
                 control access to the <a>Interaction Affordances</a> and the management of
-                related public and private security configurations.
+                related public and private security data.
             </p>
             <figure id="arch-webthing">
                 <img src="images/architecture/webthing.png"
@@ -2633,7 +2633,7 @@ img.wot-arch-diagram {
             <p> Security is a cross-cutting concern and should be
                 considered in all aspects of system design. In the WoT
                 architecture, security is supported by certain explicit
-                features, such as support for public security configuration in <a>TDs</a>
+                features, such as support for public security metadata in <a>TDs</a>
                 and by separation of concerns in the design of the
                 <a>WoT Scripting API</a>. The specification for each building
                 block also includes a discussion of particular security
@@ -2738,7 +2738,7 @@ img.wot-arch-diagram {
                 See <a href="#native-impl"></a> for alternative APIs, which can also only be available during compile time.
                 In general, application logic should be executed in isolated execution environments
                 to prevent unauthorized access to the management aspects of the <a>WoT Runtime</a>,
-                in particular the private security configuration.
+                in particular the private security data.
                 In multi-tenant <a>Servients</a>, additional execution environment isolation is required for the different tenants.
             </p>
             <p>
@@ -2794,17 +2794,20 @@ img.wot-arch-diagram {
                 (e.g., the <code>discover()</code> method defined in the <a>WoT Scripting API</a> [[?WOT-SCRIPTING-API]]).
             </p>
             <p>
-                When using the <a>WoT Scripting API</a>, <a>Exposed Thing</a> and <a>Consumed Thing</a> are JavaScript objects,
+                When using the <a>WoT Scripting API</a>, <a>Exposed Thing</a> and <a>Consumed Thing</a> 
+		are JavaScript objects,
                 which can be created, operated on, and destroyed by application scripts.
-                However, access may be restricted through a security configuration,
+                However, access may be restricted through a security mechanism,
                 for instance, in multi-tenant <a>Servients</a>.
             </p>
         </section>
         <section>
-            <h2>Private Security Configuration</h2>
+            <h2>Private Security Data</h2>
             <p>
-                Private security data, such as a secret key for interacting with the Thing, is also conceptually
-                managed by the <a>WoT Runtime</a> as a private security configuration, but is intentionally not made
+                Private security data, such as a secret key for interacting with the Thing, 
+		    is also conceptually
+                managed by the <a>WoT Runtime</a>, 
+		    but is intentionally not made
                 directly accessible to the application. In fact, in the
                 most secure hardware implementations, such private
                 security data is stored in a separate, isolated memory
@@ -3075,7 +3078,7 @@ img.wot-arch-diagram {
                 implementation that has the same <a>Interaction Affordances</a>.
                 It then creates a TD for the proxy object with a new identifier
                 and possibly with new communications metadata (protocol bindings)
-                and/or new public security configuration metadata.
+                and/or new public security metadata.
                 Finally, an <a>Exposed Thing</a> is
                 created based on this TD, and the <a>Intermediary</a> notifies other
                 <a>Consumers</a> or <a>Intermediaries</a> of the TD via
@@ -3227,7 +3230,7 @@ img.wot-arch-diagram {
                 their metadata
                 can be registered with a <a>Thing Directory</a> service.
                 This metadata is specifically the TDs of the local devices modified to
-                reflect the security configuration and communication metadata
+                reflect the public security and communication metadata
                 provided by the remote <a>Intermediary</a>.
                 A client application then can obtain the metadata
                 it needs to communicate with local devices to
