@@ -226,14 +226,18 @@ img.wot-arch-diagram {
         <p>This <em>WoT Architecture</em> specification describes the abstract
             architecture for the W3C Web of Things. It is derived from a
             set of requirements that were derived from use cases for
-            multiple application domains. The architecture can be mapped
-            onto a variety of concrete deployment scenarios, several
-            example patterns of which are given.</p>
+            multiple application domains. 
+	    Since the Web of Things is addressing a new area,
+	    the abstract architecture defines a basic conceptual 
+	    framework that can be mapped onto a variety of concrete deployment scenarios, 
+	    several example patterns of which are given. It does not define
+	    concrete mechanisms or prescribe any implementation.
+	</p>
 	    
         <p>This specification is focused on the scope of W3C WoT standardization,
 	    which is broken down into so-called building blocks.
 	    It introduces the four initial WoT building blocks,
-      which are defined and described in detail in separate specifications,
+      	    which are defined and described in detail in separate specifications,
 	    and explains their interworking:</p>
         <p>
             The <em>WoT Thing Description</em> is the central building
@@ -257,14 +261,19 @@ img.wot-arch-diagram {
 	    The <em>WoT Security and Privacy Guidelines</em> represent a
 	    cross-cutting building block, which should be applied to any system
 	    implementing W3C WoT. It focuses on the secure implementation and
-	    configuration of Things.
+	    configuration of Things. Privacy is important, and we discuss mitigation 
+	    of privacy issues at a high level in section <a href="#sec-security-considerations"></a>.
 	</p>
-	
         <p>
 	    This specification also covers non-normative architectural aspects
 	    and conditions for the deployment of WoT systems.
             These guidelines are described in the context of deployment scenarios.
         </p>
+	<p>
+	    Additional conceptual features and new building blocks will be 
+	    addressed in a future revision of this document, 
+	    such as an abstract device and information lifecycle.
+	</p>
         <p>
 	    Overall, the goal is to preserve and complement existing
             IoT standards and solutions. In general, W3C WoT is
