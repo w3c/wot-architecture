@@ -226,14 +226,18 @@ img.wot-arch-diagram {
         <p>This <em>WoT Architecture</em> specification describes the abstract
             architecture for the W3C Web of Things. It is derived from a
             set of requirements that were derived from use cases for
-            multiple application domains. The architecture can be mapped
-            onto a variety of concrete deployment scenarios, several
-            example patterns of which are given.</p>
+            multiple application domains. 
+	    Since the Web of Things is addressing a new area,
+	    the abstract architecture defines a basic conceptual 
+	    framework that can be mapped onto a variety of concrete deployment scenarios, 
+	    several example patterns of which are given. It does not define
+	    concrete mechanisms or prescribe any implementation.
+	</p>
 	    
         <p>This specification is focused on the scope of W3C WoT standardization,
 	    which is broken down into so-called building blocks.
 	    It introduces the four initial WoT building blocks,
-      which are defined and described in detail in separate specifications,
+      	    which are defined and described in detail in separate specifications,
 	    and explains their interworking:</p>
         <p>
             The <em>WoT Thing Description</em> is the central building
@@ -257,14 +261,19 @@ img.wot-arch-diagram {
 	    The <em>WoT Security and Privacy Guidelines</em> represent a
 	    cross-cutting building block, which should be applied to any system
 	    implementing W3C WoT. It focuses on the secure implementation and
-	    configuration of Things.
+	    configuration of Things. Privacy is important, and we discuss mitigation 
+	    of privacy issues at a high level in section <a href="#sec-security-considerations"></a>.
 	</p>
-	
         <p>
 	    This specification also covers non-normative architectural aspects
 	    and conditions for the deployment of WoT systems.
             These guidelines are described in the context of deployment scenarios.
         </p>
+	<p>
+	    Additional conceptual features and new building blocks will be 
+	    addressed in a future revision of this document, 
+	    such as an abstract device and information lifecycle.
+	</p>
         <p>
 	    Overall, the goal is to preserve and complement existing
             IoT standards and solutions. In general, W3C WoT is
@@ -2691,7 +2700,7 @@ img.wot-arch-diagram {
     </section>
 
     <section id="sec-servient-implementation" class="informative">
-        <h1>Servient Implementation</h1>
+        <h1>Abstract Servient Architecture</h1>
         <p>
             As defined in <a href="#sec-wot-servient-architecture-high-level"></a>,
             a <a>Servient</a> is a software stack that implements the WoT building blocks 
@@ -3005,11 +3014,14 @@ img.wot-arch-diagram {
     </section>
 
     <section id="sec-deployment-scenario" class="informative">
-        <h1>WoT Deployments</h1>
+        <h1>Example WoT Deployments</h1>
 
-        <p> This section discusses how the Web of Things works as a whole,
-            when devices and services that implement <a>Things</a> and <a>Consumers</a> are
-            connected together in various topologies and deployment scenarios.
+        <p> This section provides various examples of how the Web of Things (WoT) 
+            abstract architecture may be instantiated 
+            when devices and services that implement the <a>Thing</a> and <a>Consumer</a> roles are
+            connected together in various concrete topologies and deployment scenarios.
+            These topologies and scenarios are not normative, but are permitted and supported
+            by the WoT abstract architecture.
         </p>
         <p>
             Before discussing specific topologies, we will
@@ -3029,7 +3041,7 @@ img.wot-arch-diagram {
                 that are in the roles of <a>Consumers</a> or <a>Intermediaries</a>.
                 TDs may be published in various different ways: the TD
                 might be registered with a management system such as
-                the <a>Thing Directory</a> service, or a <a>Thing</a>
+                a <a>Thing Directory</a> service, or a <a>Thing</a>
                 may provide the requesters with a TD upon receiving a request for a TD.
                 It is even possible to statically associate a TD with <a>Thing</a>
                 in certain application scenarios.
@@ -3039,9 +3051,23 @@ img.wot-arch-diagram {
                 The concrete discovery mechanism depends on the individual deployment scenario:
                 It could be provided by a management system such as a <a>Thing Directory</a>, 
                 a discovery protocol, through static assignment, etc.
-                
-                Internal system functions of a device, such as interacting with attached sensors and actuators,
-                can also optionally be represented as <a>Consumed Thing</a> abstractions.
+            </p>
+            <p> However, it should be noted that TDs describing 
+                devices associated with an indentifiable person may potentially
+                be used to infer privacy-sensitive information.
+                Constraints on the distribution of such TDs must therefore be
+                incorporated into any concrete TD discovery mechanism.  If possible,
+                steps to limit the information exposed in a TD may also have to
+                be taken, such as filtering out IDs or human-readable information
+                if this is not strictly necessary for a particular use case. 
+                Privacy issues are discussed
+                at a high level in <a href="#sec-security-considerations"></a> 
+                and a more detailed discussion is given in the 
+                <a href="https://www.w3.org/TR/wot-thing-description/#sec-security-considerations">Web of Things (WoT) Thing Description</a>
+                specification.
+            </p>
+            <p>Internal system functions of a device, such as interacting with attached sensors and actuators,
+               can also optionally be represented as <a>Consumed Thing</a> abstractions.
             </p>
             <p>The functions supported by the <a>Consumed Thing</a> are provided
                to the <a>Consumer</a>'s behavior implementation through a programming language
@@ -3290,12 +3316,12 @@ img.wot-arch-diagram {
             </figure>
             <p> In more complex situations, not shown in the figure, there
                 may also be cloud services that act as <a>Things</a>.
-                These can also register themselves with the <a>Thing Directory</a>.
+                These can also register themselves with a <a>Thing Directory</a>.
                 Since a <a>Thing Directory</a> is a Web service, it should be visible
                 to the local devices through the NAT or firewall device
                 and its interface can even be provided with its own TD.
                 Local devices acting as <a>Consumers</a> can then
-                discover the <a>Things</a> in the cloud via the <a>Thing Directory</a>
+                discover the <a>Things</a> in the cloud via a <a>Thing Directory</a>
                 and connect to the <a>Things</a> directly or via the local
                 <a>Intermediary</a> if, for instance, protocol translation is needed.
             </p>
@@ -3363,11 +3389,15 @@ img.wot-arch-diagram {
     <section id="sec-security-considerations" class="informative">
         <h1>Security and Privacy Considerations</h1>
         <p>
-            Security is a cross-cutting issue that needs to be considered
+            Security and privacy are a cross-cutting issues that need to be considered
             in all <a href="#sec-building-blocks">WoT
                 building blocks</a> and WoT implementations. This chapter
             summarizes some general issues and guidelines to help
-            preserve the security and privacy of WoT implementations.
+            preserve the security and privacy of concrete WoT implementations.
+            However, these are only general guidelines and an abstract architecture
+            such as described in this document cannot, itself, guarantee security and
+            privacy.
+            Instead the details of a concrete implementation need to be considered.
             For a more detailed and complete analysis of security and
             privacy issues, see the <em>WoT Security and Privacy Guidelines</em>
             specification [[?WOT-SECURITY]].
@@ -3376,11 +3406,18 @@ img.wot-arch-diagram {
             access mechanisms and properties of IoT devices and
             services, including security. In general, W3C WoT is
             designed to describe what exists rather than to prescribe
-            what to implement.
+            what to implement.  A description of an existing system
+            should accurately describe that system, even if it has
+            less than ideal security behavior.  A clear understanding of
+            the security vulnerabilities of a system supports 
+            security mitigations&mdash;although of course such data need
+            not be distributed to those who might maliciously exploit it.
         </p>
         <p>
-            However, the WoT architecture should <em>enable</em> the use
-            of best practices in security and privacy. The WoT security
+            However, especially for new systems, 
+            the WoT architecture should <em>enable</em> the use
+            of best practices in security and privacy. 
+            In general, the WoT security
             architecture must support the goals and mechanisms of the
             IoT protocols and systems it connects to. These systems vary
             in their security requirements and risk tolerance, so
@@ -3389,8 +3426,8 @@ img.wot-arch-diagram {
         <p>Security and privacy are especially important in the IoT
             domain since IoT devices need to operate autonomously and, in
             many cases, have access to both personal data and/or can be
-            in control of safety-critical systems. Compared to personal
-            systems, IoT devices are subject to different and in some
+            in control of safety-critical systems. 
+            IoT devices are subject to different and in some
             cases higher risks than IT systems. It is also important to
             protect IoT systems so that they cannot be used to launch
             attacks on other computer systems.
@@ -3399,7 +3436,7 @@ img.wot-arch-diagram {
             is not possible for the WoT to turn an insecure system into
             a secure one. However, the WoT architecture needs to do
             no harm: it should support security and privacy at least as
-            well as the systems it connects to.
+            well as the systems it describes and supports.
         </p>
         <section id="sec-security-consideration-td-risks">
             <h2>WoT Thing Description Risks</h2>
@@ -3412,7 +3449,8 @@ img.wot-arch-diagram {
             </p>
             <p>Please refer to the Security and Privacy
                 Consideration section of the WoT Thing Description
-                specification for additional details and discussion.</p>
+                specification for additional details and discussion of
+                these points.</p>
             <section id="sec-security-consideration-td-private">
                 <h5>Thing Description Private Security Data Risk</h5>
                 <p>
