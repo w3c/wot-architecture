@@ -3488,24 +3488,30 @@ img.wot-arch-diagram {
                     Information Risk</h5>
                 <p>Thing descriptions can potentially contain
                     <a>Personally Identifiable Information</a> of various
-                    types. Even if it is not explicit, the presence of
-                    semantic information in a TD and its association
-                    with a person can be used to infer information about
+                    types. Even if it is not explicit, 
+                    a TD and its association with an identifiable person 
+                    can be used to infer information about
                     that person. For example, the association of
-                    uniquely identifiable TDs exposed by mobile devices
+                    fingerprintable TDs exposed by mobile devices
                     whose location can be determined can be a tracking
-                    risk.
+                    risk.  Even if a particular device instance cannot
+                    be identified, the type of device represented
+                    by a TD, when associated with a person, may constitute
+                    personal information.  For example, a medical device
+                    may be used to infer that the user has a medical condition.
                 </p>
-                <p>Generally, personally identifiable information in
+                <p>Generally, Personally Identifiable Information in
                     a TD should be limited as much as possible. In some
                     cases, however, it cannot be avoided. The potential
-                    presence of PII in a TD means that TD should be
+                    presence of both direct and inferencable 
+                    PII in a TD means that TD should be
                     treated like other forms of PII. They should be
                     stored and transmitted in a secure fashion, should
+                    only be provided to authorized users, should
                     only be cached for limited times, should be deleted
                     upon request, should only be used for the purpose
                     for which they were provided with user consent, and
-                    they should otherwise satisfy local requirements
+                    they should otherwise satisfy all requirements
                     (including any legal requirements) for
                     the use of PII.</p>
                 <dl>
@@ -3517,7 +3523,19 @@ img.wot-arch-diagram {
                         should generally be treated as if they contained PII and
                         subject to the same management policies as other
                         PII. They should only be provided to authorized
-                        Consumers.</dd>
+                        Consumers.
+                        Information unnecessary for a specific use case
+                        should also be removed from TDs whenever possible.
+                        For example, explicit type and instance identifying information in TDs should
+                        be removed if not needed by the use case.  
+                        Even if required by the use case,
+                        to mimimize tracking risks, distributed and limited-scope
+                        identifiers should be used whenever possible rather than
+                        globally unique identifiers.
+                        Other forms of information,
+                        such as human-readable descriptions, may also
+                        be removed in some use cases to reduce fingerprinting risks.
+                    </dd>
                 </dl>
             </section>
             <section id="sec-security-consideration-td-cm">
