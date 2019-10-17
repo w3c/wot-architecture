@@ -3063,7 +3063,7 @@ img.wot-arch-diagram {
                 Privacy issues are discussed
                 at a high level in <a href="#sec-security-considerations"></a> 
                 and a more detailed discussion is given in the 
-                <a href="https://www.w3.org/TR/wot-thing-description/#sec-security-considerations">Web of Things (WoT) Thing Description</a>
+                [[!WOT-THING-DESCRIPTION]]
                 specification.
             </p>
             <p>Internal system functions of a device, such as interacting with attached sensors and actuators,
@@ -3525,16 +3525,16 @@ img.wot-arch-diagram {
                         PII. They should only be provided to authorized
                         Consumers.
                         Information unnecessary for a specific use case
-                        should also be removed from TDs whenever possible.
+                        should not be exposed in TDs whenever possible.
                         For example, explicit type and instance identifying information in TDs should
-                        be removed if not needed by the use case.  
+                        also not be included if it is not needed by the use case.  
                         Even if required by the use case,
                         to mimimize tracking risks, distributed and limited-scope
                         identifiers should be used whenever possible rather than
                         globally unique identifiers.
                         Other forms of information,
                         such as human-readable descriptions, may also
-                        be removed in some use cases to reduce fingerprinting risks.
+                        be omitted in some use cases to reduce fingerprinting risks.
                     </dd>
                 </dl>
             </section>
@@ -3716,8 +3716,12 @@ img.wot-arch-diagram {
 
     <section id="changes" class="appendix">
       <h1>Recent Specification Changes</h1>
-      <h2 id="changes-from-candidate-recommendation">Changes from Candidate Recommendation</h2>
+      <h2 id="changes-from-candidate-recommendation">Changes from First Candidate Recommendation</h2>
       <ul>
+      <li>Reorganized abstract and introduction.</li>
+      <li>Expanded privacy discussion and mitigations.</li>
+      <li>Adapted figures to text changes.</li>
+      <li>Updated and extended definitions.</li>
       <li>Updated references.</li>
       <li>Adjusted figure colors based on accessibility feedback.</li>
       <li>Minor editorial fixes such as typos and capitalization.</li>
