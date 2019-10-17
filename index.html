@@ -476,6 +476,11 @@ img.wot-arch-diagram {
                 application-facing APIs, data model, and protocols or
                 protocol configurations.</dd>
             <dt>
+                <dfn>Metadata</dfn>
+            </dt>
+            <dd>Data that provides a description of an entity's abstract characteristics.
+                For example, a <a>Thing Description</a> is Metadata for a <a>Thing</a>.</dd>
+            <dt>
                 <dfn data-lt="Personally Identifiable Information">Personally Identifiable Information (PII)</dfn>
             </dt>
             <dd>Any information that can be used to identify the natural person to whom such information relates, 
@@ -492,6 +497,15 @@ img.wot-arch-diagram {
                 as well as other related definitions in [[ISO-IEC-29100]].
             </dd>
             <dt>
+                <dfn>Private Security Data</dfn>
+            </dt>
+            <dd>
+                Private Security Data is that component of a Thing's Security Configuration that is 
+                kept secret and is not shared with other devices or users.  An example would be private keys in a PKI
+                system.  Ideally such data is stored in a separate memory inaccessible to the application
+                and is only used via abstract operations, such as signing, that do not reveal the secret
+                information even to the application using it.</dd>
+            <dt>
                 <dfn>Property</dfn>
             </dt>
             <dd>An Interaction Affordance that exposes state of the Thing.
@@ -505,6 +519,16 @@ img.wot-arch-diagram {
                 thereby informing Consumers how to activate the Interaction Affordance.
                 W3C WoT serializes Protocol Bindings as hypermedia controls.</dd>
             <dt>
+                <dfn>Public Security Metadata</dfn>
+            </dt>
+            <dd>
+                Public Security Metadata is that component of a Thing's Security Configuration which
+                describes the security mechanisms and access rights necessary to access a Thing.
+                It does not include any secret information or concrete data (including public keys), and does
+                not by itself, provide access to the Thing.  Instead, it describes the mechanisms by which access
+                may be obtained by authorized users, including how they must authenticate themselves.
+            </dd>
+            <dt>
                 <dfn>Security</dfn>
             </dt>
             <dd>Preservation of the confidentiality, integrity and availability of information.
@@ -515,6 +539,11 @@ img.wot-arch-diagram {
                 We additionally note that it is desirable that these properties be maintained both in normal operation
                 and when the system is subject to attack.
             </dd>
+            <dt>
+                <dfn>Security Configuration</dfn>
+            </dt>
+            <dd>The combination of Public Security Metadata, Private Security Data, and any other configuration
+                information (such as public keys) necessary to operationally configure the security mechanisms of a Thing.</dd>
             <dt>
                 <dfn>Servient</dfn>
             </dt>
@@ -574,8 +603,8 @@ img.wot-arch-diagram {
             </dt>
             <dd>A runtime system that maintains an execution
                 environment for applications, and is able to expose and/or
-                consume Things, to process WoT Thing Descriptions, to maintain private security
-                configurations, and to interface with Protocol Binding implementations.
+                consume Things, to process WoT Thing Descriptions, to maintain Security
+                Configurations, and to interface with Protocol Binding implementations.
                 A WoT Runtime may have a custom API or use the optional WoT Scripting API.</dd>
             <dt>
                 <dfn>WoT Scripting API</dfn>
@@ -1760,7 +1789,7 @@ img.wot-arch-diagram {
                 even within a single Thing. The security configuration
                 aspect of a Thing represents the mechanisms used to
                 control access to the <a>Interaction Affordances</a> and the management of
-                related public and private security data.
+                related <a>Public Security Data</a> and <a>Private Security Data</a>.
             </p>
             <figure id="arch-webthing">
                 <img src="images/architecture/webthing.png"
@@ -2470,9 +2499,9 @@ img.wot-arch-diagram {
                 through links to related <a>Things</a> or other documents. <a>TDs</a>
                 also contain <a>Interaction Affordance</a> metadata based on
                 the interaction model defined in <a
-                    href="#sec-interaction-model"></a>; public security
-                configuration metadata; and communications metadata
-                defining protocol bindings. The <a>TD</a> can be seen as the <em>index.html
+                    href="#sec-interaction-model"></a>; <a>Public Security
+                Metadata</a>; and communications metadata
+                defining <a>Protocol Bindings</a>. The <a>TD</a> can be seen as the <em>index.html
                 for <a>Things</a></em>, as it provides the entry point to learn
                 about the provided services and related resources, both
                 of which are described using hypermedia controls.
@@ -2658,7 +2687,7 @@ img.wot-arch-diagram {
             <p> Security is a cross-cutting concern and should be
                 considered in all aspects of system design. In the WoT
                 architecture, security is supported by certain explicit
-                features, such as support for public security metadata in <a>TDs</a>
+                features, such as support for <a>Public Security Metadata</a> in <a>TDs</a>
                 and by separation of concerns in the design of the
                 <a>WoT Scripting API</a>. The specification for each building
                 block also includes a discussion of particular security
@@ -2763,7 +2792,7 @@ img.wot-arch-diagram {
                 See <a href="#native-impl"></a> for alternative APIs, which can also only be available during compile time.
                 In general, application logic should be executed in isolated execution environments
                 to prevent unauthorized access to the management aspects of the <a>WoT Runtime</a>,
-                in particular the private security data.
+                in particular the <a>Private Security Data</a>.
                 In multi-tenant <a>Servients</a>, additional execution environment isolation is required for the different tenants.
             </p>
             <p>
@@ -2834,13 +2863,13 @@ img.wot-arch-diagram {
                 managed by the <a>WoT Runtime</a>, 
 		    but is intentionally not made
                 directly accessible to the application. In fact, in the
-                most secure hardware implementations, such private
-                security data is stored in a separate, isolated memory
-                (e.g., on a secure element or TPM)
+                most secure hardware implementations, such <a>Private
+                Security Data</a> is stored in a separate, isolated memory
+                (e.g., on a secure processing element or TPM)
                 and only an abstract set of operations (possibly even
                 implemented by an isolated processor and software stack)
                 is provided that limit the attack surface and prevent
-                external disclosure of this data. Private security data
+                external disclosure of this data. <a>Private Security Data</a>
                 is used transparently by the <a>Protocol Binding</a> to
                 authorize and protect the integrity and confidentiality
                 of interactions.
@@ -2987,9 +3016,12 @@ img.wot-arch-diagram {
     <section id="sec-deployment-scenario" class="informative">
         <h1>Example WoT Deployments</h1>
 
-        <p> This section discusses how the Web of Things works as a whole,
-            when devices and services that implement <a>Things</a> and <a>Consumers</a> are
-            connected together in various topologies and deployment scenarios.
+        <p> This section provides various examples of how the Web of Things (WoT) 
+            abstract architecture may be instantiated 
+            when devices and services that implement the <a>Thing</a> and <a>Consumer</a> roles are
+            connected together in various concrete topologies and deployment scenarios.
+            These topologies and scenarios are not normative, but are permitted and supported
+            by the WoT abstract architecture.
         </p>
         <p>
             Before discussing specific topologies, we will
@@ -3009,7 +3041,7 @@ img.wot-arch-diagram {
                 that are in the roles of <a>Consumers</a> or <a>Intermediaries</a>.
                 TDs may be published in various different ways: the TD
                 might be registered with a management system such as
-                the <a>Thing Directory</a> service, or a <a>Thing</a>
+                a <a>Thing Directory</a> service, or a <a>Thing</a>
                 may provide the requesters with a TD upon receiving a request for a TD.
                 It is even possible to statically associate a TD with <a>Thing</a>
                 in certain application scenarios.
@@ -3019,9 +3051,23 @@ img.wot-arch-diagram {
                 The concrete discovery mechanism depends on the individual deployment scenario:
                 It could be provided by a management system such as a <a>Thing Directory</a>, 
                 a discovery protocol, through static assignment, etc.
-                
-                Internal system functions of a device, such as interacting with attached sensors and actuators,
-                can also optionally be represented as <a>Consumed Thing</a> abstractions.
+            </p>
+            <p> However, it should be noted that TDs describing 
+                devices associated with an indentifiable person may potentially
+                be used to infer privacy-sensitive information.
+                Constraints on the distribution of such TDs must therefore be
+                incorporated into any concrete TD discovery mechanism.  If possible,
+                steps to limit the information exposed in a TD may also have to
+                be taken, such as filtering out IDs or human-readable information
+                if this is not strictly necessary for a particular use case. 
+                Privacy issues are discussed
+                at a high level in <a href="#sec-security-considerations"></a> 
+                and a more detailed discussion is given in the 
+                [[!WOT-THING-DESCRIPTION]]
+                specification.
+            </p>
+            <p>Internal system functions of a device, such as interacting with attached sensors and actuators,
+               can also optionally be represented as <a>Consumed Thing</a> abstractions.
             </p>
             <p>The functions supported by the <a>Consumed Thing</a> are provided
                to the <a>Consumer</a>'s behavior implementation through a programming language
@@ -3102,8 +3148,8 @@ img.wot-arch-diagram {
                 It creates a proxy object of the <a>Thing</a> as a software
                 implementation that has the same <a>Interaction Affordances</a>.
                 It then creates a TD for the proxy object with a new identifier
-                and possibly with new communications metadata (protocol bindings)
-                and/or new public security metadata.
+                and possibly with new communications metadata (<a>Protocol Bindings</a>)
+                and/or new <a>Public Security Metadata</a>.
                 Finally, an <a>Exposed Thing</a> is
                 created based on this TD, and the <a>Intermediary</a> notifies other
                 <a>Consumers</a> or <a>Intermediaries</a> of the TD via
@@ -3255,7 +3301,8 @@ img.wot-arch-diagram {
                 their metadata
                 can be registered with a <a>Thing Directory</a> service.
                 This metadata is specifically the TDs of the local devices modified to
-                reflect the public security and communication metadata
+                reflect the <a>Public Security Metadata</a> and communication metadata
+                (<a>Protocol Bindings</a>)
                 provided by the remote <a>Intermediary</a>.
                 A client application then can obtain the metadata
                 it needs to communicate with local devices to
@@ -3269,12 +3316,12 @@ img.wot-arch-diagram {
             </figure>
             <p> In more complex situations, not shown in the figure, there
                 may also be cloud services that act as <a>Things</a>.
-                These can also register themselves with the <a>Thing Directory</a>.
+                These can also register themselves with a <a>Thing Directory</a>.
                 Since a <a>Thing Directory</a> is a Web service, it should be visible
                 to the local devices through the NAT or firewall device
                 and its interface can even be provided with its own TD.
                 Local devices acting as <a>Consumers</a> can then
-                discover the <a>Things</a> in the cloud via the <a>Thing Directory</a>
+                discover the <a>Things</a> in the cloud via a <a>Thing Directory</a>
                 and connect to the <a>Things</a> directly or via the local
                 <a>Intermediary</a> if, for instance, protocol translation is needed.
             </p>
@@ -3342,11 +3389,15 @@ img.wot-arch-diagram {
     <section id="sec-security-considerations" class="informative">
         <h1>Security and Privacy Considerations</h1>
         <p>
-            Security is a cross-cutting issue that needs to be considered
+            Security and privacy are a cross-cutting issues that need to be considered
             in all <a href="#sec-building-blocks">WoT
                 building blocks</a> and WoT implementations. This chapter
             summarizes some general issues and guidelines to help
-            preserve the security and privacy of WoT implementations.
+            preserve the security and privacy of concrete WoT implementations.
+            However, these are only general guidelines and an abstract architecture
+            such as described in this document cannot, itself, guarantee security and
+            privacy.
+            Instead the details of a concrete implementation need to be considered.
             For a more detailed and complete analysis of security and
             privacy issues, see the <em>WoT Security and Privacy Guidelines</em>
             specification [[?WOT-SECURITY]].
@@ -3355,11 +3406,18 @@ img.wot-arch-diagram {
             access mechanisms and properties of IoT devices and
             services, including security. In general, W3C WoT is
             designed to describe what exists rather than to prescribe
-            what to implement.
+            what to implement.  A description of an existing system
+            should accurately describe that system, even if it has
+            less than ideal security behavior.  A clear understanding of
+            the security vulnerabilities of a system supports 
+            security mitigations&mdash;although of course such data need
+            not be distributed to those who might maliciously exploit it.
         </p>
         <p>
-            However, the WoT architecture should <em>enable</em> the use
-            of best practices in security and privacy. The WoT security
+            However, especially for new systems, 
+            the WoT architecture should <em>enable</em> the use
+            of best practices in security and privacy. 
+            In general, the WoT security
             architecture must support the goals and mechanisms of the
             IoT protocols and systems it connects to. These systems vary
             in their security requirements and risk tolerance, so
@@ -3368,8 +3426,8 @@ img.wot-arch-diagram {
         <p>Security and privacy are especially important in the IoT
             domain since IoT devices need to operate autonomously and, in
             many cases, have access to both personal data and/or can be
-            in control of safety-critical systems. Compared to personal
-            systems, IoT devices are subject to different and in some
+            in control of safety-critical systems. 
+            IoT devices are subject to different and in some
             cases higher risks than IT systems. It is also important to
             protect IoT systems so that they cannot be used to launch
             attacks on other computer systems.
@@ -3378,7 +3436,7 @@ img.wot-arch-diagram {
             is not possible for the WoT to turn an insecure system into
             a secure one. However, the WoT architecture needs to do
             no harm: it should support security and privacy at least as
-            well as the systems it connects to.
+            well as the systems it describes and supports.
         </p>
         <section id="sec-security-consideration-td-risks">
             <h2>WoT Thing Description Risks</h2>
@@ -3391,27 +3449,29 @@ img.wot-arch-diagram {
             </p>
             <p>Please refer to the Security and Privacy
                 Consideration section of the WoT Thing Description
-                specification for additional details and discussion.</p>
+                specification for additional details and discussion of
+                these points.</p>
             <section id="sec-security-consideration-td-private">
                 <h5>Thing Description Private Security Data Risk</h5>
                 <p>
-                    TDs are designed to carry only public security data.
-                    Producers of TDs must ensure that no private
-                    security information is included in <a>TDs</a>.
-                    There should be a strict separation of public and
-                    private security data. A TD should contain only
-                    public security data, letting Consumers know what
+                    TDs are designed to carry only <a>Public Security Metadata</a>.
+                    Producers of TDs must ensure that no <a>Private
+                    Security Data</a> is included in <a>TDs</a>.
+                    There should be a strict separation of 
+                    <a>Public Security Metadata</a> and <a>Private Security Data</a>. 
+                    A TD should contain only
+                    <a>Public Security Metadata</a>, letting <a>Consumers</a> know what
                     they need to do to access as system if and only if
                     they have authorization. Authorization in turn
                     should be based on separately managed private
                     information.
                 </p>
                 <p>The built-in TD security schemes defined in the
-                    TD specification do not support the encoding of
-                    private security data. However, there is a risk that
+                    TD specification intentionally do not support the encoding of
+                    <a>Private Security Data</a>. However, there is a risk that
                     other fields such as
-                    human-readable descriptions might be used
-                    (incorrectly...) to encode this information, or new
+                    human-readable descriptions might be misused
+                    to encode this information, or new
                     security schemes might be defined and deployed via
                     the extension mechanism that encode such
                     information.
@@ -3419,8 +3479,8 @@ img.wot-arch-diagram {
                 <dl>
                     <dt>Mitigation:</dt>
                     <dd>Creators of TDs and extensions meant to be used in TDs
-                        must ensure that no private
-                        security data is ever stored in TDs.</dd>
+                        must ensure that only <a>Public Security Metadata</a>
+                        is ever stored in TDs.</dd>
                 </dl>
             </section>
             <section id="sec-security-consideration-td-pii">
@@ -3428,24 +3488,30 @@ img.wot-arch-diagram {
                     Information Risk</h5>
                 <p>Thing descriptions can potentially contain
                     <a>Personally Identifiable Information</a> of various
-                    types. Even if it is not explicit, the presence of
-                    semantic information in a TD and its association
-                    with a person can be used to infer information about
+                    types. Even if it is not explicit, 
+                    a TD and its association with an identifiable person 
+                    can be used to infer information about
                     that person. For example, the association of
-                    uniquely identifiable TDs exposed by mobile devices
+                    fingerprintable TDs exposed by mobile devices
                     whose location can be determined can be a tracking
-                    risk.
+                    risk.  Even if a particular device instance cannot
+                    be identified, the type of device represented
+                    by a TD, when associated with a person, may constitute
+                    personal information.  For example, a medical device
+                    may be used to infer that the user has a medical condition.
                 </p>
-                <p>Generally, personally identifiable information in
+                <p>Generally, Personally Identifiable Information in
                     a TD should be limited as much as possible. In some
                     cases, however, it cannot be avoided. The potential
-                    presence of PII in a TD means that TD should be
+                    presence of both direct and inferencable 
+                    PII in a TD means that TD should be
                     treated like other forms of PII. They should be
                     stored and transmitted in a secure fashion, should
+                    only be provided to authorized users, should
                     only be cached for limited times, should be deleted
                     upon request, should only be used for the purpose
                     for which they were provided with user consent, and
-                    they should otherwise satisfy local requirements
+                    they should otherwise satisfy all requirements
                     (including any legal requirements) for
                     the use of PII.</p>
                 <dl>
@@ -3457,7 +3523,19 @@ img.wot-arch-diagram {
                         should generally be treated as if they contained PII and
                         subject to the same management policies as other
                         PII. They should only be provided to authorized
-                        Consumers.</dd>
+                        Consumers.
+                        Information unnecessary for a specific use case
+                        should not be exposed in TDs whenever possible.
+                        For example, explicit type and instance identifying information in TDs should
+                        also not be included if it is not needed by the use case.  
+                        Even if required by the use case,
+                        to mimimize tracking risks, distributed and limited-scope
+                        identifiers should be used whenever possible rather than
+                        globally unique identifiers.
+                        Other forms of information,
+                        such as human-readable descriptions, may also
+                        be omitted in some use cases to reduce fingerprinting risks.
+                    </dd>
                 </dl>
             </section>
             <section id="sec-security-consideration-td-cm">
@@ -3638,8 +3716,12 @@ img.wot-arch-diagram {
 
     <section id="changes" class="appendix">
       <h1>Recent Specification Changes</h1>
-      <h2 id="changes-from-candidate-recommendation">Changes from Candidate Recommendation</h2>
+      <h2 id="changes-from-candidate-recommendation">Changes from First Candidate Recommendation</h2>
       <ul>
+      <li>Reorganized abstract and introduction.</li>
+      <li>Expanded privacy discussion and mitigations.</li>
+      <li>Adapted figures to text changes.</li>
+      <li>Updated and extended definitions.</li>
       <li>Updated references.</li>
       <li>Adjusted figure colors based on accessibility feedback.</li>
       <li>Minor editorial fixes such as typos and capitalization.</li>
