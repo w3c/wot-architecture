@@ -1,5 +1,5 @@
 # Link to updated CR draft
-https://cdn.statically.io/gh/w3c/wot-architecture/master/publication/cr2/index.html
+https://cdn.statically.io/gh/w3c/wot-architecture/06bcab5b/publication/cr2/index.html
 
 For informational purposes, an auto-generated diff from the previous CR is at:
 https://cdn.statically.io/gh/w3c/wot-architecture/06bcab5b/publication/cr2/diff.html
