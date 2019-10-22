@@ -5,7 +5,7 @@ For informational purposes, an auto-generated diff from the previous CR is at:
 https://cdn.statically.io/gh/w3c/wot-architecture/06bcab5b/publication/cr2/diff.html
 
 # Link to GitHub files for updated CR draft
-https://github.com/w3c/wot-architecture/06bcab5b/publication/cr2/index.html
+https://github.com/w3c/wot-architecture/master/publication/cr2/
 
 # Link to group's decision to request transition
 https://www.w3.org/2019/10/16-wot-minutes.html#resolution03
