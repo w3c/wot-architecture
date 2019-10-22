@@ -1,0 +1,47 @@
+# Link to updated CR draft
+https://cdn.statically.io/gh/w3c/wot-architecture/master/publication/cr2/index.html
+
+For informational purposes, an auto-generated diff from the previous CR is at:
+https://cdn.statically.io/gh/w3c/wot-architecture/06bcab5b/publication/cr2/diff.html
+
+# Link to GitHub files for updated CR draft
+https://github.com/w3c/wot-architecture/master/publication/cr2/index.html
+
+# Link to group's decision to request transition
+https://www.w3.org/2019/10/16-wot-minutes.html#resolution03
+
+# Link to previous Candidate Recommendation transition request
+https://lists.w3.org/Archives/Member/chairs/2019AprJun/0069.html 
+
+# Substantive changes
+- Terminology section is now informative.
+
+# Any changes in normative references?
+- References to all other WoT documents, in particular the Web of Things (WoT) Thing Description, have been made informative.
+- As all terminology definitions are now informative, references only from that section are now informative, not normative.
+- Normative references added: RFC2046
+- Normative references removed or moved to informative section: IANA-RELATIONS, MQTT,  RFC4395, RFC6838, RFC7049, RFC7231, RFC7252
+
+# Any changes in informative references?
+- In order to support definitions of security and privacy-related terms, additional informative references to ISO-IEC specifications 2382, 27000, and 29100 were added.  However, as we also made all terminology definitions informative in this update, these references now appear in the informative section.
+
+# Any changes in requirements?
+No.  However, we did clarify the introduction to emphasize that this is an abstract architecture document.
+
+# Wide Review of substantive changes
+In addition to the wide reviews done for the previous CR transition, this version has addressed several issues raised by the Privacy IG during their review.
+
+# Issues status
+All issues are either closed or marked for resolution by PR transition (informative changes) or have been deferred to an update to be developed under a rechartered WG.
+
+# Formal Objections
+None.
+
+# Any changes in implementation information?
+No.
+
+# Deadline for further comments
+We intend to request a PR transition on Dec 10, 2019.
+
+# Any changes in patent disclosures?
+No.
