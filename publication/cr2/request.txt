@@ -19,7 +19,7 @@ https://lists.w3.org/Archives/Member/chairs/2019AprJun/0069.html
 # Any changes in normative references?
 - References to all other WoT documents, in particular the Web of Things (WoT) Thing Description, have been made informative.
 - As all terminology definitions are now informative, references only from that section are now informative, not normative.
-- Normative references added: RFC2046
+- Normative references added: RFC2046 was added to clarify an example.
 - Normative references removed or moved to informative section: IANA-RELATIONS, MQTT,  RFC4395, RFC6838, RFC7049, RFC7231, RFC7252
 
 # Any changes in informative references?
