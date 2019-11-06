@@ -4,7 +4,7 @@
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.7.27">
   <meta charset="utf-8">
-  <meta name="generator" content="ReSpec 24.34.1">
+  <meta name="generator" content="ReSpec 24.34.0">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1, shrink-to-fit=no">
   <style>
@@ -432,7 +432,7 @@
     "no-headingless-sections": true
   },
   "doJsonLd": true,
-  "specStatus": "ED",
+  "specStatus": "CR",
   "shortName": "wot-architecture",
   "copyrightStart": 2017,
   "wg": "Web of Things Working Group",
@@ -691,8 +691,8 @@
       "id": "iso-iec-29100"
     }
   },
-  "publishISODate": "2019-10-31T00:00:00.000Z",
-  "generatedSubtitle": "Editor's Draft 31 October 2019"
+  "publishISODate": "2019-11-06T00:00:00.000Z",
+  "generatedSubtitle": "Candidate Recommendation 6 November 2019"
   }
   </script>
   <meta name="description" content=
@@ -728,7 +728,7 @@
   "name": "Web of Things (WoT) Architecture",
   "inLanguage": "en-US",
   "license": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
-  "datePublished": "2019-10-31",
+  "datePublished": "2019-11-06",
   "copyrightHolder": {
     "name": "World Wide Web Consortium",
     "url": "https://www.w3.org/"
@@ -1080,7 +1080,7 @@
   }
   </script>
   <link rel="stylesheet" href=
-  "https://www.w3.org/StyleSheets/TR/2016/W3C-ED">
+  "https://www.w3.org/StyleSheets/TR/2016/W3C-CR">
 </head>
 <body class="h-entry toc-inline">
   <div class="head">
@@ -1089,13 +1089,13 @@
     "https://www.w3.org/StyleSheets/TR/2016/logos/W3C"></a>
     <h1 id="title" class="title p-name">Web of Things (WoT)
     Architecture</h1>
-    <h2>W3C Editor's Draft <time class="dt-published" datetime=
-    "2019-10-31">31 October 2019</time></h2>
+    <h2>W3C Candidate Recommendation <time class="dt-published" datetime=
+    "2019-11-06">6 November 2019</time></h2>
     <dl>
       <dt>This version:</dt>
       <dd>
         <a class="u-url" href=
-        "https://w3c.github.io/wot-architecture/">https://w3c.github.io/wot-architecture/</a>
+        "https://www.w3.org/TR/2019/CR-wot-architecture-20191106/">https://www.w3.org/TR/2019/CR-wot-architecture-20191106/</a>
       </dd>
       <dt>Latest published version:</dt>
       <dd>
@@ -1106,6 +1106,16 @@
       <dd>
         <a href=
         "https://w3c.github.io/wot-architecture/">https://w3c.github.io/wot-architecture/</a>
+      </dd>
+      <dt>Preliminary implementation report:</dt>
+      <dd>
+	<a href=
+	"https://w3c.github.io/wot-thing-description/testing/report.html">https://w3c.github.io/wot-thing-description/testing/report.html</a>
+      </dd>
+      <dt>Previous version:</dt>
+      <dd>
+        <a href=
+        "https://www.w3.org/TR/2019/CR-wot-architecture-20190516/">https://www.w3.org/TR/2019/CR-wot-architecture-20190516/</a>
       </dd>
       <dt>Editors:</dt>
       <dd class="p-author h-card vcard" data-editor-id="75998">
@@ -1227,15 +1237,29 @@
     architecture.</p>
     <p>This document was published by the <a href=
     "https://www.w3.org/WoT/WG/">Web of Things Working Group</a> as
-    an Editor's Draft.</p>
+      a Candidate Recommendation.
+     This document is intended to become a <abbr title="World Wide Web Consortium">W3C</abbr> Recommendation.</p>
     <p><a href=
     "https://github.com/w3c/wot-architecture/issues/">GitHub
     Issues</a> are preferred for discussion of this specification.
     Alternatively, you can send comments to our mailing list.
     Please send them to <a href=
     "mailto:public-wot-wg@w3.org">public-wot-wg@w3.org</a>
-    (<a href="https://lists.w3.org/Archives/Public/public-wot-wg/">archives</a>).</p>
-    <p>Publication as an Editor's Draft does not imply endorsement
+    (<a href="mailto:public-wot-wg-request@w3.org?subject=subscribe">subscribe</a>,
+    <a href="https://lists.w3.org/Archives/Public/public-wot-wg/">archives</a>).</p>
+    <p><abbr title="World Wide Web Consortium">W3C</abbr> publishes a
+    Candidate Recommendation to indicate that the document is believed
+    to be stable and to encourage implementation by the developer
+    community. This Candidate Recommendation is expected to advance to
+    Proposed Recommendation no earlier than 13 June 2019.
+    </p>
+
+    <p>Please see the Working Group's
+    <a href="https://w3c.github.io/wot-thing-description/testing/report.html">
+      Preliminary Implementation Report for the associated WoT Thing Description specification</a>.
+    </p>
+    
+    <p>Publication as a Candidate Recommendation does not imply endorsement
     by the <abbr title="World Wide Web Consortium">W3C</abbr>
     Membership. This is a draft document and may be updated,
     replaced or obsoleted by other documents at any time. It is
@@ -6787,14 +6811,7 @@
       <li>Expanded privacy discussion and mitigations.</li>
       <li>Adapted figures to text changes.</li>
       <li>Updated and extended definitions.</li>
-      <li>Updated references:
-        <ul>
-          <li>Normative references added: RFC2046</li>
-          <li>Normative references removed or moved to informative
-          section: IANA-RELATIONS, MQTT, RFC4395, RFC6838, RFC7049,
-          RFC7231, RFC7252</li>
-        </ul>
-      </li>
+      <li>Updated references.</li>
       <li>Adjusted figure colors based on accessibility
       feedback.</li>
       <li>Minor editorial fixes such as typos and
@@ -7043,9 +7060,8 @@
         <dt id="bib-json-ld11">[JSON-LD11]</dt>
         <dd>
           <a href="https://www.w3.org/TR/json-ld11/"><cite>JSON-LD
-          1.1</cite></a>. Gregg Kellogg; Pierre-Antoine Champin;
-          Dave Longley. W3C. 18 October 2019. W3C Working Draft.
-          URL: <a href=
+          1.1</cite></a>. Gregg Kellogg; Pierre-Antoine Champin.
+          W3C. 9 September 2019. W3C Working Draft. URL: <a href=
           "https://www.w3.org/TR/json-ld11/">https://www.w3.org/TR/json-ld11/</a>
         </dd>
         <dt id="bib-linked-data">[LINKED-DATA]</dt>
@@ -7270,17 +7286,17 @@
         <dd>
           <a href=
           "https://www.w3.org/TR/wot-scripting-api/"><cite>Web of
-          Things (WoT) Scripting API</cite></a>. Zoltan Kis; Daniel
-          Peintner; Johannes Hund; Kazuaki Nimura. W3C. 28 October
-          2019. W3C Working Draft. URL: <a href=
+          Things (WoT) Scripting API</cite></a>. Zoltan Kis;
+          Kazuaki Nimura; Daniel Peintner; Johannes Hund. W3C. 29
+          November 2018. W3C Working Draft. URL: <a href=
           "https://www.w3.org/TR/wot-scripting-api/">https://www.w3.org/TR/wot-scripting-api/</a>
         </dd>
         <dt id="bib-wot-security">[WOT-SECURITY]</dt>
         <dd>
           <a href="https://www.w3.org/TR/wot-security/"><cite>Web
           of Things (WoT) Security and Privacy
-          Considerations</cite></a>. Elena Reshetova; Michael
-          McCool. W3C. 3 December 2018. W3C Note. URL: <a href=
+          Guidelines</cite></a>. Elena Reshetova; Michael
+          McCool. W3C. 6 November 2019. W3C Note. URL: <a href=
           "https://www.w3.org/TR/wot-security/">https://www.w3.org/TR/wot-security/</a>
         </dd>
         <dt id="bib-wot-thing-description">
@@ -7290,7 +7306,7 @@
           "https://www.w3.org/TR/wot-thing-description/"><cite>Web
           of Things (WoT) Thing Description</cite></a>. Sebastian
           Käbisch; Takuki Kamiya; Michael McCool; Victor Charpenay.
-          W3C. 16 May 2019. W3C Candidate Recommendation. URL:
+          W3C. 6 November 2019. W3C Candidate Recommendation. URL:
           <a href=
           "https://www.w3.org/TR/wot-thing-description/">https://www.w3.org/TR/wot-thing-description/</a>
         </dd>
@@ -7308,7 +7324,7 @@
     </section>
   </section>
   <p role="navigation" id="back-to-top"><a href=
-  "#title"><abbr title="Back to Top">↑</abbr></a></p>
+  "#toc"><abbr title="Back to Top">↑</abbr></a></p>
   <script src=
   "https://www.w3.org/scripts/TR/2016/fixup.js"></script>
 </body>
