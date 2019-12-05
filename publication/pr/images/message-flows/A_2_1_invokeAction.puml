@@ -1,0 +1,31 @@
+@startuml
+hide footbox
+
+box "WoT Client"
+participant "Application" as AP
+participant "Consumed Thing" as SA
+end box
+
+box "WoT Server"
+participant "Exposed Thing" as WS
+participant "Application" as DC
+end box
+
+AP  -> SA: invokes\n"invokeaction"\noperation
+activate SA
+SA  -> AP: returns Promise
+SA  -> WS: send HTTP POST Request\nto href of form\n (body: input data)
+
+activate WS
+WS  -> DC: perform corresponding\n action and awaits completion
+...(certain time elapsed)...
+DC  -> WS: finished
+
+WS  -> SA: send HTTP POST Response\n (body: output data)
+
+deactivate WS
+SA  -> AP: Promise callback\n (resolves to: output data)
+
+deactivate SA
+
+@enduml
