@@ -196,6 +196,11 @@
                 publisher : "ISO",
                 date : "2011"
             },
+		"Garcia17": {
+		  authors: ["O. Garcia-Morchon", "S. Kumar", "M. Sethi"]
+		  , title: "State-of-the-Art and Challenges for the Internet of Things Security"
+		  , href: "https://datatracker.ietf.org/doc/draft-irtf-t2trg-iot-seccons/"
+            }
         }
     };
 </script>
@@ -1706,6 +1711,58 @@ img.wot-arch-diagram {
                 <figcaption>Abstract Architecture of W3C WoT</figcaption>
             </figure>
         </section>
+	    
+	<section id="wot-device-lifecycle">
+	<h1 id="e-wot-device-lifecycle">Lifecycle of a WoT Device</h1>
+
+	<figure id="wot-lifecycle">
+	   <img src="images/WoT_lifecycle_diagram.png"
+		width="100%"
+		title="WoT Device Lifecycle"/>
+	   <figcaption>WoT Device Lifecycle</figcaption>
+	</figure>
+
+	<p>The lifecycle of a WoT Device is similar to the lifecycles of other IoT devices and services.
+	It may in fact be identical if a WoT Thing Description is being used simply to describe an existing device
+	implemented using another standard.
+	However, for discussion purposes we will use the generic lifecycle shown in <a href="#wot-lifecycle"></a> 
+	which includes the following states:
+	<ul>
+	<li><strong>Manufactured:</strong> The WoT Device has been manufactured by an OEM.
+		It might have a WoT runtime present that enables single or multi-tenant users 
+		or it might only have network interfaces exposed present that are compatible with a WoT description.
+		From the Manufactured state, based on the deployment scenario, the device can transition to either of two states: 
+		the Installation/Commissioning state or the Security Provisioning state.</li>
+	<li><strong>Installation/Commissioning:</strong> A WoT Device has been installed into its intended deployment environment
+		by a system provider or system integrator and any necessary SW configuration has been performed. 
+		In practice this state may be combined with or reordered with the Security Provisioning state.</li>
+	<li><strong>Security Provisioning:</strong> A WoT Device is provisioned with the security metadata and credentials needed 
+		during its Operational state. 
+		The exact set of necessary credentials will vary based on the WoT Device's deployment model and choice of security mechanisms. 
+		The document <cite>The State-of-the-Art and Challenges for the Internet of Things Security</cite> [[Garcia17]] 
+		refers to this stage as "Bootstrapping".</li>
+	<li><strong>Operational:</strong> The default operational state of WoT Devices. 
+		Devices in this state are fully ready to communicate over WoT interfaces and satisfy their deployment's operational roles. 
+		From the Operational state a device can return to the Manufactured state 
+		if it is fully decommissioned and security de-provisioned 
+		(link E in <a href="#wot-lifecycle"></a>). 
+		It is also possible to perform only a partial reset of a device,
+		if it only requires re-installation and recommissioning without security re-provisioning 
+		(link D in <a href="#wot-lifecycle"></a>).
+		It is also possible that only security re-provisioning is needed 
+		without re-installation and re-commissioning (link C in <a href="#wot-lifecycle"></a>).</li>
+	<li><strong>Maintenance and Security Update:</strong> 
+		A state that is entered when the device's software or configuration needs to be updated.
+		This is an optional state that can be activated remotely or locally (link A in <a href="#wot-lifecycle"></a>) 
+		on a WoT Device depending on the deployment model and overall setup. 
+		This state can be required to maintain security,
+		for example to patch SW vulnerabilities or perform security-related configuration updates, 
+		such as key revocation or certificate refresh. 
+		After maintenance or updates are done, 
+		the device normally returns to the Operational state (link B in <a href="#wot-lifecycle"></a>). </li>
+	</ul>
+	</p>
+	</section>
         <section id="sec-affordances">
             <h2>Affordances</h2>
             <p>
