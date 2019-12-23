@@ -393,8 +393,14 @@ img.wot-arch-diagram {
             <dd>A data schema describes the information model and the related payload structure 
 		and corresponding data items that are passed between <a>Things</a> 
 		and <a>Consumers</a> during interactions.</dd>
-            <dt>
-                <dfn>Digital Twin</dfn>
+	     <dt>
+                <dfn>Device Manufacturer</dfn>
+            </dt>
+            <dd>An entity that produces a HW device, which might also implement the <a>WoT Runtime</a>
+		on this device, as well as define <a>Things</a> and respective WoT Thing Descriptions.
+		A Device Manufacturer might also simultaneously be a <a>System Provider</a>.</dd>
+            <dt>		    
+		<dfn>Digital Twin</dfn>
             </dt>
             <dd>A digital twin is a virtual representation of a
                 device or a group of devices that resides on a cloud
@@ -545,6 +551,28 @@ img.wot-arch-diagram {
                 blocks. A Servient can host and expose Things and/or host Consumers that consume Things.
                 Servients can support multiple Protocol Bindings to enable
                 interaction with different IoT platforms.</dd>
+	    <dt>
+                <dfn>System Integrator</dfn>
+            </dt>
+            <dd>An entity that is similar to a <a>System Provider</a> but tends to reuse rather than create new technology.</dd>
+            <dt>
+                <dfn>System Maintainer</dfn>
+            </dt>
+            <dd>An entity that administers a WoT System on behalf of a <a>System Provider</a> or <a>System User</a>.</dd>
+	    <dt>
+                <dfn>System Provider</dfn>
+            </dt>
+            <dd>An entity that uses devices from <a>Device Manufacturer</a>s to build various WoT end solutions
+		specific to particular WoT use case(s). System Providers might define new <a>Things</a> and their respective
+		<a>WoT Thing Descriptions</a> or modify the ones provided by a <a>Device Manufacturer</a>.</dd>
+	    <dt>
+                <dfn>System User</dfn>
+            </dt>
+            <dd>This can be either a physical user (e.g. John in his smart home) or an abstract user
+		(e.g. the company running a factory). The primary characteristic of this stakeholder is the need
+		to use the WoT System to obtain some functionality. System Users entrust WoT Systems with their data 
+                (video streams from home cameras or factory plans) or physical capabilities in the surrounding
+		environment (put lights on in a room or start a machine on the factory line).</dd>
             <dt>
                 <dfn>Subprotocol</dfn>
             </dt>
