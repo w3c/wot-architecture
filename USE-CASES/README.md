@@ -17,3 +17,9 @@ https://github.com/w3c/wot-architecture/issues/8
 - Life Companion
 Integrate multiple devices and services to automate parts of the user's life 
 (e.g. morning routine, support aged people, accessibility)
+
+- Accessibility
+Providing accessible interfaces to devices
+
+- Multi-Vendor system integration
+E.g. building management system integrating devices from multiple manufacturers
