@@ -1,4 +1,4 @@
-## Smart Cars
+## Smart Car Configuration Management
 
 ### Submitter(s): 
 
