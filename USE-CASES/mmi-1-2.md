@@ -1,4 +1,4 @@
-## Intelligent Home Apparatus
+## Unified Smart Home Control and Status Interface
 
 ### Submitter(s): 
 
@@ -92,7 +92,7 @@ A service may be needed to recognize gestures and emotional states.
 
 ### Existing standards:
 
-This use case is based on MMI UC 1.2.
+This use case is based on MMI UC 1.2; original title was Intelligent Home Apparatus.
 
 ### Comments:
 
