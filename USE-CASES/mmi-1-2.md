@@ -1,3 +1,5 @@
+## Intelligent Home Apparatus
+
 ### Submitter(s): 
 
 Michael McCool

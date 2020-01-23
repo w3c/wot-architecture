@@ -1,3 +1,5 @@
+## Audiovisual Devices Acting as Smartphone Extensions
+
 ### Submitter(s): 
 
 Michael McCool
