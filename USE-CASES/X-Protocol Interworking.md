@@ -33,9 +33,9 @@ Device owners, cloud providers.
 
 <Provide a description of the problem that is solved by the use case and a reason why this use case is important for the users>
 
-In home and industrial scenarios various devices are connected to a common network. These devices implement different protocols. To enable interoperability, an "agent" needs to communcate across different protocols. Platforms for this agent can be  edge devices, gateways or cloud services.
+In home and industrial scenarios various devices are connected to a common network. These devices implement different protocols. To enable interoperability, an "agent" needs to communicate across different protocols. Platforms for this agent can be edge devices, gateways or cloud services.
 
-Interoperability across protocols is a must for all user scenarios that inctegrate devices from more than one protocol.
+Interoperability across protocols is a must for all user scenarios that integrate devices from more than one protocol.
 
 ### Expected Devices:
 
