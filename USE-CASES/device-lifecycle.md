@@ -1,12 +1,12 @@
-## Title: <Pick a descriptive title>
+## Device Lifecycle
 
 ### Submitter(s): 
 
-<Put your name here>
+Michael Lagally
 
 ### Reviewer(s):
 
-<Suggest reviewers>
+All WoT Arch participants
 
 ### Tracker Issue ID:
 
@@ -26,11 +26,11 @@
 
 ### Target Users
 
-<List all users that are involved in the use case, e.g. device manufacturer, gateway manufacturer, cloud provider>
+device manufacturer, gateway manufacturer, cloud provider
 
 ### Motivation:
 
-<Provide a description of the problem that is solved by the use case and a reason why this use case is important for the users>
+Current spec does not address lifecycle.
 
 ### Expected Devices:
 
@@ -46,7 +46,8 @@
 
 ### Description:
 
-<Provide a description from the users perspective>
+Handle the entire device lifecycle: 
+Define terminology for lifecycle states and transitions.
 
 #### Variants:
 
@@ -61,5 +62,4 @@
 <Provide links to relevant standards that are relevant for this use case>
 
 ### Comments:
-
 
