@@ -5,6 +5,7 @@ Please put all your use cases into this directory adopting the format in <em>use
 
 ### Initial set of use cases:
 - Cloud / Big Data
+https://github.com/w3c/wot-architecture/blob/master/USE-CASES/big-data.md
 
 - Thing Directory / Discovery
 
@@ -15,17 +16,17 @@ https://github.com/w3c/wot-architecture/issues/387
 https://github.com/w3c/wot-architecture/issues/8
 
 - Accessibility  
-Providing accessible interfaces to devices
+  Providing accessible interfaces to devices
 
 - Life Companion
-   Integrate multiple devices and services to automate parts of the user's life 
-   (e.g. morning routine, support aged people, accessibility)
+  Integrate multiple devices and services to automate parts of the user's life 
+  (e.g. morning routine, support aged people, accessibility)
 
 - Multi-Vendor system integration  
   E.g. building management system integrating devices from multiple manufacturers (HVAC control)
 
-- Integration of data from devices across multiple vendors
-   Examples: Smart city, factories, 
+- Cross-protocol integration of data from devices across multiple vendors
+   Examples: Smart city, factories, environment onitoring, smart home
    
 - Fleet management
-   Assets are moving across locations and networks
+   Assets are moving across locations and networks, geofencing
