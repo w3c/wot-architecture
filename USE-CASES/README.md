@@ -11,15 +11,15 @@ when we combine the use case in a document.
 
 ### Stakeholders/actors
 
-device owners
-device user
-cloud provider
-service provider
-device manufacturer 
-gateway manufacturer
-network operator (potentially transparent for WoT use cases)
-identity provider
-directory service operator?
+device owners  
+device user  
+cloud provider  
+service provider  
+device manufacturer   
+gateway manufacturer  
+network operator (potentially transparent for WoT use cases)  
+identity provider  
+directory service operator?  
 
 Please avoid domain specific terminology, e.g. MNO, telco. Rather use network operator.
 
