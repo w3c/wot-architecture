@@ -2,7 +2,7 @@
 
 ### Submitter(s): 
 
-David Ezell, Michael Lagally
+David Ezell, Michael Lagally, Michael McCool
 
 ### Reviewer(s):
 
@@ -40,7 +40,7 @@ simplifies the work of retailers.
 ### Expected Devices:
 
 Connected sensors, such as people counters, presence sensors, air quality, room ocupancy, door sensors. 
-Cloud service.
+Cloud services.  Video analytics edge services.
 
 ### Expected Data:
  
@@ -67,7 +67,8 @@ by providing real-time visibility into worker status, location, and work environ
 
 ### Variants:
 
--
+- Use edge computing, in particular video analytics, in combination with IoT devices to deliver an enhanced 
+  customer experience, better manage inventory, or otherwise improve the store workflow.
 
 ### Gaps:
 
