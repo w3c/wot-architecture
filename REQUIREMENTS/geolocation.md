@@ -23,12 +23,12 @@ Profile spec
 
 ### Requirements:
 
-Enable location support for devices that are either stationary or moving between different locations.
-Enable indoor and outdoor navigation and a handover between them.
-Support multiple geolocation systems, such as GPS, Galileo, .
-Standardize TD vocabulary with corresponding identifiers for those.
-Select the appropriate Mime types for representing location information.
-Define the corresponding data formats and types to represent a location and a path / track.
+Enable location support for devices that are either stationary or moving between different locations.  
+Enable indoor and outdoor navigation and a handover between them.  
+Support multiple geolocation systems, such as GPS, Galileo, and others.  
+Standardize TD vocabulary with corresponding identifiers for those.  
+Select the appropriate Mime types for representing location information.  
+Define the corresponding data formats and types to represent a location and a path / track.  
 
 Evaluate existing W3C standards for adoption / alignment, including:
 * Spatial Data on the Web Best Practices (https://www.w3.org/TR/sdw-bp/)
