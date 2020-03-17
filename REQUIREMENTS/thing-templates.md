@@ -19,11 +19,11 @@ https://github.com/w3c/wot-architecture/blob/master/USE-CASES/big-data.md
 
 ### Affected WoT Deliverables:
 
-TD spec
-Profile spec
-Scripting API 
-Security best practices
-Discovery
+TD spec  
+Profile spec  
+Scripting API   
+Security best practices  
+Discovery  
 
 ### Requirements:
 
