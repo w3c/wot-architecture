@@ -1,12 +1,12 @@
-## Title: <title>
+## Title: Link relation types
 
 ### Submitter(s): 
 
-<submitter>
+Michael Lagally
 
 ### Reviewer(s):
 
-<reviewers>
+Michael McCool, Sebastian Käbisch, Michael Koster, Ege Korkan, ...
 
 ### Tracker Issue ID:
 
@@ -14,24 +14,33 @@
 
 ### Use case reference(s):
 
-<link to corresponding use case https://github.com/w3c/wot-architecture/blob/master/USE-CASES/xyz.md >
+https://github.com/w3c/wot-architecture/blob/master/USE-CASES/digital-twin.md
+https://github.com/w3c/wot-architecture/blob/master/USE-CASES/big-data.md
 
 ### Affected WoT Deliverables:
 
-<list all affected deliverables, e.g. TD spec, Profile spec, Scripting API, Security best practices, Discovery, ...>
+TD spec
+Profile spec
+Scripting API 
+Security best practices
+Discovery
 
 ### Requirements:
 
-<short description of all requirements>
+Define vocabulary and semantics for a templating mechanism for a class of things.
+A template is a blueprint that describes the affordances, i.e. the structure and interface.
+Define an inheritance mechanism and corresponding handling of namespaces to avoid naming conflicts,
+when things implement more than one template.
 
 ### Related standards:
 
-<list related standards>
+Additional Link Relation Types (https://tools.ietf.org/html/rfc6903)
 
 ### Other references:
 
-<additional references that provide more context>
+See also the corresponding section in the profile spec:
+https://w3c.github.io/wot-profile/#links
 
 ### Comments:
 
-<additional comments>
+It is expected that the inheritance mechanism adopts links that are defined in the link relationship work item.
