@@ -32,6 +32,7 @@ A template is a blueprint that describes the affordances, i.e. the structure and
 Define an inheritance mechanism and corresponding handling of namespaces to avoid naming conflicts,
 when things implement more than one template.
 
+
 ### Related standards:
 
 Additional Link Relation Types (https://tools.ietf.org/html/rfc6903)
@@ -44,3 +45,16 @@ https://w3c.github.io/wot-profile/#links
 ### Comments:
 
 It is expected that the inheritance mechanism adopts links that are defined in the link relationship work item.
+
+Todo: Consider adding protocol constraints
+Consider to use the scripting API to define exposed things with partial TDs
+Clear separation between *templates* and *partial TDs*
+
+Todo: 
+address / consider whether these are separate aspects or separate requirements
+- Interface
+- Expose TDs in scripting API
+- Search patterns in directory services
+
+
+
