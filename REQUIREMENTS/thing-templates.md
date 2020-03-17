@@ -1,4 +1,4 @@
-## Title: Link relation types
+## Title: Thing Templates
 
 ### Submitter(s): 
 
