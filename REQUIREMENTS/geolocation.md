@@ -38,6 +38,9 @@ Evaluate existing W3C standards for adoption / alignment, including:
 ### Related standards:
 
 https://www.iso.org/standard/39242.html
+https://www.iso.org/standard/70882.html ISO 19116:2019
+Open Geospatial consortium
+ETSI, FIWARE
 
 ### Other references:
 
