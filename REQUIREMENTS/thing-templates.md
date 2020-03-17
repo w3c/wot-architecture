@@ -14,7 +14,7 @@ Michael McCool, Sebastian Käbisch, Michael Koster, Ege Korkan, ...
 
 ### Use case reference(s):
 
-https://github.com/w3c/wot-architecture/blob/master/USE-CASES/digital-twin.md
+https://github.com/w3c/wot-architecture/blob/master/USE-CASES/digital-twin.md   
 https://github.com/w3c/wot-architecture/blob/master/USE-CASES/big-data.md
 
 ### Affected WoT Deliverables:
