@@ -6,7 +6,7 @@ Michael Lagally
 
 ### Reviewer(s):
 
-Jennifer Lin, Zoltan Kis, Ege Korkan
+Jennifer Lin, Zoltan Kis, Ege Korkan, Michael McCool
 
 ### Tracker Issue ID:
 
@@ -18,8 +18,8 @@ https://github.com/w3c/wot-architecture/blob/master/USE-CASES/govtech-gps-module
 
 ### Affected WoT Deliverables:
 
-TD spec
-Profile spec
+TD spec  
+Profile spec  
 
 ### Requirements:
 
