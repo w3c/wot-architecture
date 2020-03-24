@@ -5,53 +5,53 @@
 <meta name="generator" content=
 "HTML Tidy for HTML5 for Linux version 5.7.27" />
 <meta charset="utf-8" />
-<meta name="generator" content="ReSpec 24.37.0" />
+<meta name="generator" content="ReSpec 25.1.0" />
 <meta name="viewport" content=
 "width=device-width, initial-scale=1, shrink-to-fit=no" />
 <style>
 <![CDATA[
-/* --- ISSUES/NOTES --- */
-.issue-label {
+  /* --- ISSUES/NOTES --- */
+  .issue-label {
     text-transform: initial;
-}
+  }
 
-.warning > p:first-child { margin-top: 0 }
-.warning {
+  .warning > p:first-child { margin-top: 0 }
+  .warning {
     padding: .5em;
     border-left-width: .5em;
     border-left-style: solid;
-}
-span.warning { padding: .1em .5em .15em; }
+  }
+  span.warning { padding: .1em .5em .15em; }
 
-.issue.closed span.issue-number {
+  .issue.closed span.issue-number {
     text-decoration: line-through;
-}
+  }
 
-.warning {
+  .warning {
     border-color: #f11;
     border-width: .2em;
     border-style: solid;
     background: #fbe9e9;
-}
+  }
 
-.warning-title:before{
+  .warning-title:before{
     content: "⚠"; /*U+26A0 WARNING SIGN*/
     font-size: 1.3em;
     float: left;
     padding-right: .3em;
     margin-top: -0.3em;
-}
+  }
 
-li.task-list-item {
+  li.task-list-item {
     list-style: none;
-}
+  }
 
-input.task-list-item-checkbox {
+  input.task-list-item-checkbox {
     margin: 0 0.35em 0.25em -1.6em;
     vertical-align: middle;
-}
+  }
 
-.issue a.respec-gh-label {
+  .issue a.respec-gh-label {
   padding: 5px;
   margin: 0 2px 0 2px;
   font-size: 10px;
@@ -63,29 +63,98 @@ input.task-list-item-checkbox {
   bottom: 2px;
   border: none;
   display: inline-block;
-}
+  }
 
-.issue a.respec-label-dark {
+  .issue a.respec-label-dark {
   color: #fff;
   background-color: #000;
-}
+  }
 
-.issue a.respec-label-light {
+  .issue a.respec-label-light {
   color: #000;
   background-color: #fff;
-}
+  }
+]]>
+</style>
+
+<style>
+<![CDATA[
+  /* dfn popup panel that list all local references to a dfn */
+  dfn {
+  cursor: pointer;
+  }
+
+  .dfn-panel {
+  position: absolute;
+  left: var(--left); /* set via JS */
+  top: var(--top); /* set via JS */
+  z-index: 35;
+  height: auto;
+  width: max-content;
+  max-width: 300px;
+  max-height: 500px;
+  overflow: auto;
+  padding: 0.5em 0.75em;
+  font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
+  background: #dddddd;
+  color: black;
+  border: outset 0.2em;
+  }
+
+  .dfn-panel * {
+  margin: 0;
+  }
+
+  .dfn-panel > b {
+  display: block;
+  }
+
+  .dfn-panel ul a[href] {
+  color: black;
+  }
+
+  .dfn-panel a:not(:hover) {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  }
+
+  .dfn-panel a[href]:hover {
+  border-bottom-width: 1px;
+  }
+
+  .dfn-panel > b + b {
+  margin-top: 0.25em;
+  }
+
+  .dfn-panel ul {
+  padding: 0;
+  }
+
+  .dfn-panel li {
+  list-style: inside;
+  }
+
+  .dfn-panel.docked {
+  display: inline-block;
+  position: fixed;
+  left: 0.5em;
+  top: unset;
+  bottom: 2em;
+  margin: 0 auto;
+  /* 0.75em from padding (x2), 0.5em from left position, 0.2em border (x2) */
+  max-width: calc(100vw - 0.75em * 2 - 0.5em - 0.2em * 2);
+  max-height: 30vh;
+  }
 ]]>
 </style>
 <title>Web of Things (WoT) Architecture</title>
 
 <style id="respec-mainstyle">
 <![CDATA[
-/*****************************************************************
- * ReSpec 3 CSS
- * Robin Berjon - http://berjon.com/
- *****************************************************************/
-
-@keyframes pop {
+  /*****************************************************************
+  * ReSpec specific CSS
+  *****************************************************************/
+  @keyframes pop {
   0% {
     transform: scale(1, 1);
   }
@@ -96,53 +165,53 @@ input.task-list-item-checkbox {
   100% {
     transform: scale(1, 1);
   }
-}
+  }
 
-/* Override code highlighter background */
-.hljs {
+  /* Override code highlighter background */
+  .hljs {
   background: transparent !important;
-}
+  }
 
-/* --- INLINES --- */
-h1 abbr,
-h2 abbr,
-h3 abbr,
-h4 abbr,
-h5 abbr,
-h6 abbr,
-a abbr {
+  /* --- INLINES --- */
+  h1 abbr,
+  h2 abbr,
+  h3 abbr,
+  h4 abbr,
+  h5 abbr,
+  h6 abbr,
+  a abbr {
   border: none;
-}
+  }
 
-dfn {
+  dfn {
   font-weight: bold;
-}
+  }
 
-a.internalDFN {
+  a.internalDFN {
   color: inherit;
   border-bottom: 1px solid #99c;
   text-decoration: none;
-}
+  }
 
-a.externalDFN {
+  a.externalDFN {
   color: inherit;
   border-bottom: 1px dotted #ccc;
   text-decoration: none;
-}
+  }
 
-a.bibref {
+  a.bibref {
   text-decoration: none;
-}
+  }
 
-.respec-offending-element:target {
+  .respec-offending-element:target {
   animation: pop 0.25s ease-in-out 0s 1;
-}
+  }
 
-.respec-offending-element,
-a[href].respec-offending-element {
+  .respec-offending-element,
+  a[href].respec-offending-element {
   text-decoration: red wavy underline;
-}
-@supports not (text-decoration: red wavy underline) {
+  }
+  @supports not (text-decoration: red wavy underline) {
   .respec-offending-element:not(pre) {
     display: inline-block;
   }
@@ -151,179 +220,179 @@ a[href].respec-offending-element {
     background: url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=)
       bottom repeat-x;
   }
-}
+  }
 
-#references :target {
+  #references :target {
   background: #eaf3ff;
   animation: pop 0.4s ease-in-out 0s 1;
-}
+  }
 
-cite .bibref {
+  cite .bibref {
   font-style: normal;
-}
+  }
 
-code {
+  code {
   color: #c83500;
-}
+  }
 
-th code {
+  th code {
   color: inherit;
-}
+  }
 
-a[href].orcid {
+  a[href].orcid {
     padding-left: 4px;
     padding-right: 4px;
-}
+  }
 
-a[href].orcid > svg {
+  a[href].orcid > svg {
     margin-bottom: -2px;
-}
+  }
 
-/* --- TOC --- */
+  /* --- TOC --- */
 
-.toc a,
-.tof a {
+  .toc a,
+  .tof a {
   text-decoration: none;
-}
+  }
 
-a .secno,
-a .figno {
+  a .secno,
+  a .figno {
   color: #000;
-}
+  }
 
-ul.tof,
-ol.tof {
+  ul.tof,
+  ol.tof {
   list-style: none outside none;
-}
+  }
 
-.caption {
+  .caption {
   margin-top: 0.5em;
   font-style: italic;
-}
+  }
 
-/* --- TABLE --- */
+  /* --- TABLE --- */
 
-table.simple {
+  table.simple {
   border-spacing: 0;
   border-collapse: collapse;
   border-bottom: 3px solid #005a9c;
-}
+  }
 
-.simple th {
+  .simple th {
   background: #005a9c;
   color: #fff;
   padding: 3px 5px;
   text-align: left;
-}
+  }
 
-.simple th a {
+  .simple th a {
   color: #fff;
   padding: 3px 5px;
   text-align: left;
-}
+  }
 
-.simple th[scope="row"] {
+  .simple th[scope="row"] {
   background: inherit;
   color: inherit;
   border-top: 1px solid #ddd;
-}
+  }
 
-.simple td {
+  .simple td {
   padding: 3px 10px;
   border-top: 1px solid #ddd;
-}
+  }
 
-.simple tr:nth-child(even) {
+  .simple tr:nth-child(even) {
   background: #f0f6ff;
-}
+  }
 
-/* --- DL --- */
+  /* --- DL --- */
 
-.section dd > p:first-child {
+  .section dd > p:first-child {
   margin-top: 0;
-}
+  }
 
-.section dd > p:last-child {
+  .section dd > p:last-child {
   margin-bottom: 0;
-}
+  }
 
-.section dd {
+  .section dd {
   margin-bottom: 1em;
-}
+  }
 
-.section dl.attrs dd,
-.section dl.eldef dd {
+  .section dl.attrs dd,
+  .section dl.eldef dd {
   margin-bottom: 0;
-}
+  }
 
-#issue-summary > ul,
-.respec-dfn-list {
+  #issue-summary > ul,
+  .respec-dfn-list {
   column-count: 2;
-}
+  }
 
-#issue-summary li,
-.respec-dfn-list li {
+  #issue-summary li,
+  .respec-dfn-list li {
   list-style: none;
-}
+  }
 
-details.respec-tests-details {
+  details.respec-tests-details {
   margin-left: 1em;
   display: inline-block;
   vertical-align: top;
-}
+  }
 
-details.respec-tests-details > * {
+  details.respec-tests-details > * {
   padding-right: 2em;
-}
+  }
 
-details.respec-tests-details[open] {
+  details.respec-tests-details[open] {
   z-index: 999999;
   position: absolute;
   border: thin solid #cad3e2;
   border-radius: 0.3em;
   background-color: white;
   padding-bottom: 0.5em;
-}
+  }
 
-details.respec-tests-details[open] > summary {
+  details.respec-tests-details[open] > summary {
   border-bottom: thin solid #cad3e2;
   padding-left: 1em;
   margin-bottom: 1em;
   line-height: 2em;
-}
+  }
 
-details.respec-tests-details > ul {
+  details.respec-tests-details > ul {
   width: 100%;
   margin-top: -0.3em;
-}
+  }
 
-details.respec-tests-details > li {
+  details.respec-tests-details > li {
   padding-left: 1em;
-}
+  }
 
-a[href].self-link:hover {
+  a[href].self-link:hover {
   opacity: 1;
   text-decoration: none;
   background-color: transparent;
-}
+  }
 
-h2,
-h3,
-h4,
-h5,
-h6 {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
   position: relative;
-}
+  }
 
-aside.example .marker > a.self-link {
+  aside.example .marker > a.self-link {
   color: inherit;
-}
+  }
 
-h2 > a.self-link,
-h3 > a.self-link,
-h4 > a.self-link,
-h5 > a.self-link,
-h6 > a.self-link {
+  h2 > a.self-link,
+  h3 > a.self-link,
+  h4 > a.self-link,
+  h5 > a.self-link,
+  h6 > a.self-link {
   border: none;
   color: inherit;
   font-size: 83%;
@@ -336,18 +405,18 @@ h6 > a.self-link {
   top: 0;
   transition: opacity 0.2s;
   width: 2em;
-}
+  }
 
-h2 > a.self-link::before,
-h3 > a.self-link::before,
-h4 > a.self-link::before,
-h5 > a.self-link::before,
-h6 > a.self-link::before {
+  h2 > a.self-link::before,
+  h3 > a.self-link::before,
+  h4 > a.self-link::before,
+  h5 > a.self-link::before,
+  h6 > a.self-link::before {
   content: "§";
   display: block;
-}
+  }
 
-@media (max-width: 767px) {
+  @media (max-width: 767px) {
   dd {
     margin-left: 0;
   }
@@ -361,27 +430,27 @@ h6 > a.self-link::before {
     left: auto;
     top: auto;
   }
-}
+  }
 
-@media print {
+  @media print {
   .removeOnSave {
     display: none;
   }
-}
+  }
 ]]>
 </style>
 
 <style type="text/css">
 /*<![CDATA[*/
-a[href].internalDFN {
+  a[href].internalDFN {
         color: inherit;
         border-bottom: 1px solid #99c;
         text-decoration: none;
-}
-img.wot-arch-diagram {
+  }
+  img.wot-arch-diagram {
     max-width: 90%;
     height: auto;
-}
+  }
 /*]]>*/
 </style>
 <meta name="description" content=
@@ -390,7 +459,7 @@ img.wot-arch-diagram {
 "https://www.w3.org/TR/wot-architecture/" />
 <script type="application/ld+json">
 <![CDATA[
-{
+  {
   "@context": [
     "http://schema.org",
     {
@@ -419,7 +488,7 @@ img.wot-arch-diagram {
   "name": "Web of Things (WoT) Architecture",
   "inLanguage": "en-US",
   "license": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
-  "datePublished": "2019-12-05",
+  "datePublished": "2020-01-16",
   "copyrightHolder": {
     "name": "World Wide Web Consortium",
     "url": "https://www.w3.org/"
@@ -1027,17 +1096,29 @@ img.wot-arch-diagram {
       }
     },
     {
-      "id": "https://www.w3.org/TR/eventsource/",
+      "id": "https://html.spec.whatwg.org/multipage/",
       "type": "TechArticle",
-      "name": "Server-Sent Events",
-      "url": "https://www.w3.org/TR/eventsource/",
+      "name": "HTML Standard",
+      "url": "https://html.spec.whatwg.org/multipage/",
       "creator": [
         {
+          "name": "Anne van Kesteren"
+        },
+        {
+          "name": "Domenic Denicola"
+        },
+        {
           "name": "Ian Hickson"
+        },
+        {
+          "name": "Philip Jägenstedt"
+        },
+        {
+          "name": "Simon Pieters"
         }
       ],
       "publisher": {
-        "name": "W3C"
+        "name": "WHATWG"
       }
     },
     {
@@ -1230,38 +1311,38 @@ img.wot-arch-diagram {
       }
     }
   ]
-}
+  }
 ]]>
 </script>
 <style>
 <![CDATA[
-var {
+  var {
   position: relative;
   cursor: pointer;
-}
+  }
 
-var[data-type]::before,
-var[data-type]::after {
+  var[data-type]::before,
+  var[data-type]::after {
   position: absolute;
   left: 50%;
   top: -6px;
   opacity: 0;
   transition: opacity 0.4s;
   pointer-events: none;
-}
+  }
 
-/* the triangle or arrow or caret or whatever */
-var[data-type]::before {
+  /* the triangle or arrow or caret or whatever */
+  var[data-type]::before {
   content: "";
   transform: translateX(-50%);
   border-width: 4px 6px 0 6px;
   border-style: solid;
   border-color: transparent;
   border-top-color: #000;
-}
+  }
 
-/* actual text */
-var[data-type]::after {
+  /* actual text */
+  var[data-type]::after {
   content: attr(data-type);
   transform: translateX(-50%) translateY(-100%);
   background: #000;
@@ -1274,18 +1355,18 @@ var[data-type]::after {
   color: #daca88;
   text-indent: 0;
   font-weight: normal;
-}
+  }
 
-var[data-type]:hover::after,
-var[data-type]:hover::before {
+  var[data-type]:hover::after,
+  var[data-type]:hover::before {
   opacity: 1;
-}
+  }
 ]]>
 </style>
 
 <script id="initialUserConfig" type="application/json">
 <![CDATA[
-{
+  {
   "lint": {
     "check-punctuation": true,
     "local-refs-exist": true,
@@ -1293,7 +1374,7 @@ var[data-type]:hover::before {
     "no-headingless-sections": true
   },
   "doJsonLd": true,
-  "specStatus": "ED",
+  "specStatus": "PR",
   "shortName": "wot-architecture",
   "copyrightStart": 2017,
   "wg": "Web of Things Working Group",
@@ -1552,13 +1633,13 @@ var[data-type]:hover::before {
       "id": "iso-iec-29100"
     }
   },
-  "publishISODate": "2019-12-05T00:00:00.000Z",
-  "generatedSubtitle": "Editor's Draft 05 December 2019"
-}
+  "publishISODate": "2020-01-16T00:00:00.000Z",
+  "generatedSubtitle": "Editor's Draft 16 January 2020"
+  }
 ]]>
 </script>
 <link rel="stylesheet" href=
-"https://www.w3.org/StyleSheets/TR/2016/W3C-ED" />
+"https://www.w3.org/StyleSheets/TR/2016/W3C-PR" />
 <style type='text/css'>
 .diff-old-a {
   font-size: smaller;
@@ -1593,18 +1674,17 @@ Architecture
 </h1>
 <h2>
 W3C
-<del class="diff-old">Candidate
-Recommendation
-6
-November
-</del>
-<ins class="diff-chg">Editor's
+<del class="diff-old">Editor's
 Draft
-</ins><time class="dt-published" datetime= "2019-12-05"><ins class="diff-chg">
-05
-December
+16
+</del>
+<ins class="diff-chg">Proposed
+Recommendation
+</ins><time class="dt-published" datetime="2020-01-30"><ins class="diff-chg">
+30
 </ins>
-2019
+January
+2020
 </time>
 </h2>
 <dl>
@@ -1613,10 +1693,10 @@ This
 version:
 </dt>
 <dd>
-<del class="diff-old">https://www.w3.org/TR/2019/CR-wot-architecture-20191106/
+<del class="diff-old">https://w3c.github.io/wot-architecture/
 </del>
-<a class="u-url" href= "https://w3c.github.io/wot-architecture/">
-<ins class="diff-chg">https://w3c.github.io/wot-architecture/
+<a class="u-url" href= "https://www.w3.org/TR/2020/PR-wot-architecture-20200130/">
+<ins class="diff-chg">https://www.w3.org/TR/2020/PR-wot-architecture-20200130/
 </ins>
 </a>
 </dd>
@@ -1641,14 +1721,16 @@ https://w3c.github.io/wot-architecture/
 </a>
 </dd>
 <dt>
-<del class="diff-old">Preliminary
-implementation
+<ins class="diff-new">Implementation
 report:
+</ins></dt><dd><a href= "https://w3c.github.io/wot-thing-description/testing/report.html"><ins class="diff-new">
 https://w3c.github.io/wot-thing-description/testing/report.html
+</ins></a></dd><dt><ins class="diff-new">
 Previous
 version:
-https://www.w3.org/TR/2019/CR-wot-architecture-20190516/
-</del>
+</ins></dt><dd><a class="u-url" href= "https://www.w3.org/TR/2019/CR-wot-architecture-20191106/"><ins class="diff-new">
+https://www.w3.org/TR/2019/CR-wot-architecture-20191106/
+</ins></a></dd><dt>
 Editors:
 </dt>
 <dd class="p-author h-card vcard" data-editor-id="75998">
@@ -1766,7 +1848,7 @@ repository
 Copyright
 </a>
 ©
-2017-2019
+2017-2020
 <a href="https://www.w3.org/">
 <abbr title= "World Wide Web Consortium">
 W3C
@@ -2116,8 +2198,12 @@ Working
 Group
 </a>
 as
-<del class="diff-old">a
-Candidate
+<del class="diff-old">an
+Editor's
+Draft.
+</del>
+<ins class="diff-chg">a
+Proposed
 Recommendation.
 This
 document
@@ -2126,12 +2212,10 @@ intended
 to
 become
 a
+</ins><abbr title="World Wide Web Consortium"><ins class="diff-chg">
 W3C
+</ins></abbr><ins class="diff-chg">
 Recommendation.
-</del>
-<ins class="diff-chg">an
-Editor's
-Draft.
 </ins>
 </p>
 <p>
@@ -2163,80 +2247,83 @@ to
 public-wot-wg@w3.org
 </a>
 (
-<del class="diff-old">subscribe
-,
-</del>
 <a href= "https://lists.w3.org/Archives/Public/public-wot-wg/">
 archives
 </a>
 ).
 </p>
 <p>
-<del class="diff-old">W3C
-publishes
-a
-Candidate
-Recommendation
+<ins class="diff-new">The
+</ins><abbr title="World Wide Web Consortium"><ins class="diff-new">
+W3C
+</ins></abbr><ins class="diff-new">
+Membership
+and
+other
+interested
+parties
+are
+invited
 to
-indicate
-that
+review
 the
 document
-is
-believed
-to
-be
-stable
 and
+send
+comments
 to
-encourage
-implementation
-by
+</ins><a rel="discussion" href= "mailto:public-wot-wg@w3.org"><ins class="diff-new">
+public-wot-wg@w3.org
+</ins></a><ins class="diff-new">
+(
+</ins><a href= "mailto:public-wot-wg-request@w3.org?subject=subscribe"><ins class="diff-new">
+subscribe
+</ins></a>,<a href= "https://lists.w3.org/Archives/Public/public-wot-wg/"><ins class="diff-new">
+archives
+</ins></a><ins class="diff-new">
+)
+through
+27
+February
+2020.
+Advisory
+Committee
+Representatives
+should
+consult
+their
+</ins><a href= "https://www.w3.org/2002/09/wbs/myQuestionnaires"><ins class="diff-new">
+WBS
+questionnaires
+</ins></a>.<ins class="diff-new">
+Note
+that
+substantive
+technical
+comments
+were
+expected
+during
 the
-developer
-community.
-This
 Candidate
 Recommendation
-is
-expected
-to
-advance
-to
-Proposed
-Recommendation
-no
-earlier
-than
+review
+period
+that
+ended
 4
 December
 2019.
-Please
-see
-the
-Working
-Group's
-Preliminary
-Implementation
-Report
-for
-the
-associated
-WoT
-Thing
-Description
-specification
-.
-</del>
+</ins></p><p>
 Publication
 as
-<del class="diff-old">a
-Candidate
-Recommendation
-</del>
-<ins class="diff-chg">an
+<del class="diff-old">an
 Editor's
 Draft
+</del>
+<ins class="diff-chg">a
+Proposed
+Recommendation
 </ins>
 does
 not
@@ -2244,7 +2331,7 @@ imply
 endorsement
 by
 the
-<abbr title="World Wide Web Consortium">
+<abbr title= "World Wide Web Consortium">
 W3C
 </abbr>
 Membership.
@@ -2463,7 +2550,7 @@ Factory
 </ol>
 </li>
 <li class="tocline">
-<a class="tocxref" href= "#sec-transportationlogistics">
+<a class="tocxref" href= "#transportationlogistics">
 <bdi class="secno">
 4.1.3
 </bdi>
@@ -2473,7 +2560,7 @@ Logistics
 </a>
 </li>
 <li class="tocline">
-<a class="tocxref" href= "#sec-utilities">
+<a class="tocxref" href= "#utilities">
 <bdi class="secno">
 4.1.4
 </bdi>
@@ -2481,7 +2568,7 @@ Utilities
 </a>
 </li>
 <li class="tocline">
-<a class="tocxref" href= "#sec-oilandgas">
+<a class="tocxref" href= "#oilandgas">
 <bdi class="secno">
 4.1.5
 </bdi>
@@ -2491,7 +2578,7 @@ Gas
 </a>
 </li>
 <li class="tocline">
-<a class="tocxref" href= "#sec-insurance">
+<a class="tocxref" href= "#insurance">
 <bdi class="secno">
 4.1.6
 </bdi>
@@ -2499,7 +2586,7 @@ Insurance
 </a>
 </li>
 <li class="tocline">
-<a class="tocxref" href= "#sec-engineering-and-construction">
+<a class="tocxref" href= "#engineering-and-construction">
 <bdi class="secno">
 4.1.7
 </bdi>
@@ -2509,7 +2596,7 @@ Construction
 </a>
 </li>
 <li class="tocline">
-<a class="tocxref" href= "#sec-agriculture">
+<a class="tocxref" href= "#agriculture">
 <bdi class="secno">
 4.1.8
 </bdi>
@@ -2517,7 +2604,7 @@ Agriculture
 </a>
 </li>
 <li class="tocline">
-<a class="tocxref" href= "#sec-healthcare">
+<a class="tocxref" href= "#healthcare">
 <bdi class="secno">
 4.1.9
 </bdi>
@@ -2525,7 +2612,7 @@ Healthcare
 </a>
 </li>
 <li class="tocline">
-<a class="tocxref" href= "#sec-environmentmonitoring">
+<a class="tocxref" href= "#environmentmonitoring">
 <bdi class="secno">
 4.1.10
 </bdi>
@@ -2534,7 +2621,7 @@ Monitoring
 </a>
 </li>
 <li class="tocline">
-<a class="tocxref" href= "#sec-smart-cities">
+<a class="tocxref" href= "#smartcities">
 <bdi class="secno">
 4.1.11
 </bdi>
@@ -2543,7 +2630,7 @@ Cities
 </a>
 </li>
 <li class="tocline">
-<a class="tocxref" href= "#sec-smart-buildings">
+<a class="tocxref" href= "#smartbuildings">
 <bdi class="secno">
 4.1.12
 </bdi>
@@ -2552,7 +2639,7 @@ Buildings
 </a>
 </li>
 <li class="tocline">
-<a class="tocxref" href= "#sec-connected-car">
+<a class="tocxref" href= "#connectedcar">
 <bdi class="secno">
 4.1.13
 </bdi>
@@ -2561,7 +2648,7 @@ Car
 </a>
 <ol class="toc">
 <li class="tocline">
-<a class="tocxref" href= "#connected-car-example">
+<a class="tocxref" href= "#connectedcar-example">
 <bdi class="secno">
 4.1.13.1
 </bdi>
@@ -3726,7 +3813,7 @@ Description
 </em>
 [
 <cite>
-<a class="bibref" href="#bib-wot-thing-description" title= "Web of Things (WoT) Thing Description" data-link-type= "biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-wot-thing-description" title= "Web of Things (WoT) Thing Description">
 WOT-THING-DESCRIPTION
 </a>
 </cite>
@@ -3774,7 +3861,7 @@ Templates
 </em>
 [
 <cite>
-<a class="bibref" href="#bib-wot-binding-templates" title= "Web of Things (WoT) Protocol Binding Templates" data-link-type= "biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-wot-binding-templates" title= "Web of Things (WoT) Protocol Binding Templates">
 WOT-BINDING-TEMPLATES
 </a>
 </cite>
@@ -3828,7 +3915,7 @@ API
 </em>
 [
 <cite>
-<a class= "bibref" href="#bib-wot-scripting-api" title= "Web of Things (WoT) Scripting API" data-link-type= "biblio">
+<a class= "bibref" data-link-type="biblio" href="#bib-wot-scripting-api" title= "Web of Things (WoT) Scripting API">
 WOT-SCRIPTING-API
 </a>
 </cite>
@@ -3884,7 +3971,7 @@ Guidelines
 </em>
 [
 <cite>
-<a class="bibref" href="#bib-wot-security" title="Web of Things (WoT) Security and Privacy Considerations" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href="#bib-wot-security" title= "Web of Things (WoT) Security and Privacy Considerations">
 WOT-SECURITY
 </a>
 </cite>
@@ -4364,14 +4451,14 @@ BCP
 </a>
 [
 <cite>
-<a class= "bibref" href="#bib-rfc2119" title= "Key words for use in RFCs to Indicate Requirement Levels" data-link-type="biblio">
+<a class= "bibref" data-link-type="biblio" href="#bib-rfc2119" title= "Key words for use in RFCs to Indicate Requirement Levels">
 RFC2119
 </a>
 </cite>
 ]
 [
 <cite>
-<a class= "bibref" href="#bib-rfc8174" title= "Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-rfc8174" title= "Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words">
 RFC8174
 </a>
 </cite>
@@ -4924,7 +5011,7 @@ Web
 link
 [
 <cite>
-<a class="bibref" href="#bib-rfc8288" title="Web Linking" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href="#bib-rfc8288" title="Web Linking">
 RFC8288
 </a>
 </cite>
@@ -5233,7 +5320,7 @@ definition
 as
 [
 <cite>
-<a class="bibref" href="#bib-iso-iec-29100" title= "Information technology — Security techniques — Privacy framework" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-iso-iec-29100" title= "Information technology — Security techniques — Privacy framework">
 ISO-IEC-29100
 </a>
 </cite>
@@ -5281,20 +5368,20 @@ definition
 as
 [
 <cite>
-<a class="bibref" href="#bib-iso-iec-2382" title="Information technology — Vocabulary" data-link-type= "biblio">
+<a class="bibref" data-link-type="biblio" href="#bib-iso-iec-2382" title= "Information technology — Vocabulary">
 ISO-IEC-2382
 </a>
 </cite>
 ].
 See
 also
-<a href= "#dfn-personally-identifiable-information" class="internalDFN" data-link-type="dfn">
+<a href="#dfn-personally-identifiable-information" class= "internalDFN" data-link-type="dfn">
 Personally
 Identifiable
 Information
 </a>
 and
-<a href="#dfn-security" class="internalDFN" data-link-type= "dfn">
+<a href="#dfn-security" class="internalDFN" data-link-type="dfn">
 Security
 </a>,
 as
@@ -5306,7 +5393,7 @@ definitions
 in
 [
 <cite>
-<a class="bibref" href="#bib-iso-iec-29100" title= "Information technology — Security techniques — Privacy framework" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href="#bib-iso-iec-29100" title= "Information technology — Security techniques — Privacy framework">
 ISO-IEC-29100
 </a>
 </cite>
@@ -5592,7 +5679,7 @@ Security
 in
 [
 <cite>
-<a class="bibref" href="#bib-iso-iec-27000" title= "Information technology — Security techniques — Information security management systems — Overview and vocabulary" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href="#bib-iso-iec-27000" title= "Information technology — Security techniques — Information security management systems — Overview and vocabulary">
 ISO-IEC-27000
 </a>
 </cite>
@@ -5866,7 +5953,7 @@ TDs
 to
 [
 <cite>
-<a class="bibref" href= "#bib-core-rd" title="CoRE Resource Directory" data-link-type= "biblio">
+<a class="bibref" data-link-type= "biblio" href="#bib-core-rd" title= "CoRE Resource Directory">
 CoRE-RD
 </a>
 </cite>
@@ -5887,7 +5974,7 @@ lookup
 interface
 [
 <cite>
-<a class="bibref" href="#bib-core-rd" title="CoRE Resource Directory" data-link-type= "biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-core-rd" title= "CoRE Resource Directory">
 CoRE-RD
 </a>
 </cite>
@@ -6764,7 +6851,7 @@ chain.
 Transportation
 &amp;
 Logistics
-<a class="self-link" aria-label="§" href="#sec-transportationlogistics">
+<a class="self-link" aria-label="§" href="#transportationlogistics">
 </a>
 </h4>
 <p>
@@ -6853,7 +6940,7 @@ situations.
 4.1.4
 </bdi>
 Utilities
-<a class="self-link" aria-label="§" href= "#sec-utilities">
+<a class="self-link" aria-label="§" href= "#utilities">
 </a>
 </h4>
 <p>
@@ -6939,7 +7026,7 @@ field.
 Oil
 and
 Gas
-<a class="self-link" aria-label="§" href= "#sec-oilandgas">
+<a class="self-link" aria-label="§" href="#oilandgas">
 </a>
 </h4>
 <p>
@@ -7009,7 +7096,7 @@ optimization.
 4.1.6
 </bdi>
 Insurance
-<a class="self-link" aria-label="§" href= "#sec-insurance">
+<a class="self-link" aria-label="§" href= "#insurance">
 </a>
 </h4>
 <p>
@@ -7090,7 +7177,7 @@ damage.
 Engineering
 and
 Construction
-<a class= "self-link" aria-label="§" href= "#sec-engineering-and-construction">
+<a class= "self-link" aria-label="§" href= "#engineering-and-construction">
 </a>
 </h4>
 <p>
@@ -7123,7 +7210,7 @@ loss.
 4.1.8
 </bdi>
 Agriculture
-<a class="self-link" aria-label="§" href= "#sec-agriculture">
+<a class="self-link" aria-label="§" href= "#agriculture">
 </a>
 </h4>
 <p>
@@ -7160,7 +7247,7 @@ produce.
 4.1.9
 </bdi>
 Healthcare
-<a class="self-link" aria-label="§" href= "#sec-healthcare">
+<a class="self-link" aria-label="§" href= "#healthcare">
 </a>
 </h4>
 <p>
@@ -7207,7 +7294,7 @@ hospitalization.
 </bdi>
 Environment
 Monitoring
-<a class="self-link" aria-label="§" href= "#sec-environmentmonitoring">
+<a class="self-link" aria-label="§" href= "#environmentmonitoring">
 </a>
 </h4>
 <p>
@@ -7279,7 +7366,7 @@ damages.
 </bdi>
 Smart
 Cities
-<a class="self-link" aria-label="§" href= "#sec-smart-cities">
+<a class="self-link" aria-label="§" href= "#smartcities">
 </a>
 </h4>
 <p>
@@ -7373,7 +7460,7 @@ route.
 </bdi>
 Smart
 Buildings
-<a class="self-link" aria-label="§" href= "#sec-smart-buildings">
+<a class="self-link" aria-label="§" href= "#smartbuildings">
 </a>
 </h4>
 <p>
@@ -7423,7 +7510,7 @@ occupants.
 </bdi>
 Connected
 Car
-<a class="self-link" aria-label="§" href= "#sec-connected-car">
+<a class="self-link" aria-label="§" href= "#connectedcar">
 </a>
 </h4>
 <p>
@@ -7466,7 +7553,7 @@ conditions.
 Connected
 Car
 Example
-<a class="self-link" aria-label="§" href= "#connected-car-example">
+<a class="self-link" aria-label="§" href= "#connectedcar-example">
 </a>
 </h5>
 <p>
@@ -9201,7 +9288,7 @@ shown
 in
 [
 <cite>
-<a class="bibref" href="#bib-iec-fotf" title= "Factory of the future" data-link-type= "biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-iec-fotf" title="Factory of the future">
 IEC-FOTF
 </a>
 </cite>
@@ -11441,17 +11528,17 @@ Description
 (TD)
 [
 <cite>
-<a class="bibref" href= "#bib-wot-thing-description" title= "Web of Things (WoT) Thing Description" data-link-type= "biblio">
+<a class="bibref" data-link-type="biblio" href="#bib-wot-thing-description" title= "Web of Things (WoT) Thing Description">
 WOT-THING-DESCRIPTION
 </a>
 </cite>
 ].
 </span>
-<span class= "rfc2119-assertion" id="arch-td-consumers-process">
-<a href= "#dfn-consumer" class="internalDFN" data-link-type= "dfn">
+<span class="rfc2119-assertion" id= "arch-td-consumers-process">
+<a href="#dfn-consumer" class= "internalDFN" data-link-type="dfn">
 Consumers
 </a>
-<em class="rfc2119" title="MUST">
+<em class= "rfc2119" title="MUST">
 MUST
 </em>
 be
@@ -11473,7 +11560,7 @@ on
 JSON
 [
 <cite>
-<a class="bibref" href="#bib-rfc8259" title= "The JavaScript Object Notation (JSON) Data Interchange Format" data-link-type="biblio">
+<a class= "bibref" data-link-type="biblio" href="#bib-rfc8259" title= "The JavaScript Object Notation (JSON) Data Interchange Format">
 RFC8259
 </a>
 </cite>
@@ -11509,7 +11596,7 @@ JSON-LD
 1.1
 [
 <cite>
-<a class= "bibref" href="#bib-json-ld11" title="JSON-LD 1.1" data-link-type= "biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-json-ld11" title="JSON-LD 1.1">
 JSON-LD11
 </a>
 </cite>
@@ -11546,14 +11633,14 @@ terms,
 which
 would
 make
-<a href= "#dfn-consumer" class="internalDFN" data-link-type= "dfn">
+<a href="#dfn-consumer" class= "internalDFN" data-link-type="dfn">
 Consumers
 </a>
 behave
 more
 autonomous.
 A
-<a href="#dfn-td" class="internalDFN" data-link-type="dfn">
+<a href="#dfn-td" class="internalDFN" data-link-type= "dfn">
 TD
 </a>
 is
@@ -12243,17 +12330,17 @@ the
 Web
 [
 <cite>
-<a class="bibref" href="#bib-rest" title= "REST: Architectural Styles and the Design of Network-based Software Architectures" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href="#bib-rest" title= "REST: Architectural Styles and the Design of Network-based Software Architectures">
 REST
 </a>
 </cite>
 ].
-<span class= "rfc2119-assertion" id="arch-id-correlation">
+<span class="rfc2119-assertion" id="arch-id-correlation">
 An
 identifier
 in
 the
-<a href="#dfn-wot-thing-description" class="internalDFN" data-link-type="dfn">
+<a href="#dfn-wot-thing-description" class= "internalDFN" data-link-type="dfn">
 WoT
 Thing
 Description
@@ -12274,7 +12361,7 @@ representing
 the
 same
 original
-<a href="#dfn-thing" class= "internalDFN" data-link-type="dfn">
+<a href="#dfn-thing" class="internalDFN" data-link-type= "dfn">
 Thing
 </a>
 or
@@ -12599,7 +12686,7 @@ Human-Computer
 Interaction
 [
 <cite>
-<a class= "bibref" href="#bib-hci" title= "The Encyclopedia of Human-Computer Interaction, 2nd Ed" data-link-type="biblio">
+<a class= "bibref" data-link-type="biblio" href="#bib-hci" title= "The Encyclopedia of Human-Computer Interaction, 2nd Ed">
 HCI
 </a>
 </cite>
@@ -12638,7 +12725,7 @@ be
 used."
 [
 <cite>
-<a class="bibref" href="#bib-norman" title= "The Psychology of Everyday Things" data-link-type= "biblio">
+<a class="bibref" data-link-type="biblio" href="#bib-norman" title= "The Psychology of Everyday Things">
 NORMAN
 </a>
 </cite>
@@ -12716,7 +12803,7 @@ architectural
 style
 [
 <cite>
-<a class="bibref" href= "#bib-rest" title= "REST: Architectural Styles and the Design of Network-based Software Architectures" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href="#bib-rest" title= "REST: Architectural Styles and the Design of Network-based Software Architectures">
 REST
 </a>
 </cite>
@@ -13491,7 +13578,7 @@ Observing
 Resources
 [
 <cite>
-<a class= "bibref" href="#bib-rfc7641" title= "Observing Resources in the Constrained Application Protocol (CoAP)" data-link-type="biblio">
+<a class= "bibref" data-link-type="biblio" href="#bib-rfc7641" title= "Observing Resources in the Constrained Application Protocol (CoAP)">
 RFC7641
 </a>
 </cite>
@@ -14076,7 +14163,7 @@ links
 </em>
 [
 <cite>
-<a class="bibref" href="#bib-rfc8288" title="Web Linking" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-rfc8288" title="Web Linking">
 RFC8288
 </a>
 </cite>
@@ -14111,7 +14198,7 @@ other
 IoT
 standards
 and
-<a href="#dfn-iot-platform" class= "internalDFN" data-link-type="dfn">
+<a href="#dfn-iot-platform" class="internalDFN" data-link-type="dfn">
 IoT
 platforms
 </a>
@@ -14122,7 +14209,7 @@ Link
 Format
 [
 <cite>
-<a class="bibref" href="#bib-rfc6690" title= "Constrained RESTful Environments (CoRE) Link Format" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href="#bib-rfc6690" title= "Constrained RESTful Environments (CoRE) Link Format">
 RFC6690
 </a>
 </cite>
@@ -14131,7 +14218,7 @@ OMA
 LWM2M
 [
 <cite>
-<a class="bibref" href="#bib-lwm2m" title= "Lightweight Machine to Machine Technical Specification: Core" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-lwm2m" title= "Lightweight Machine to Machine Technical Specification: Core">
 LWM2M
 </a>
 </cite>
@@ -14140,7 +14227,7 @@ and
 OCF
 [
 <cite>
-<a class= "bibref" href="#bib-ocf" title="OCF Core Specification" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-ocf" title="OCF Core Specification">
 OCF
 </a>
 </cite>
@@ -14152,7 +14239,7 @@ new
 concept
 that
 besides
-<abbr title="World Wide Web Consortium">
+<abbr title= "World Wide Web Consortium">
 W3C
 </abbr>
 WoT
@@ -14170,7 +14257,7 @@ Language
 </em>
 [
 <cite>
-<a class="bibref" href="#bib-coral" title= "The Constrained RESTful Application Language (CoRAL)" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href="#bib-coral" title= "The Constrained RESTful Application Language (CoRAL)">
 CoRAL
 </a>
 </cite>
@@ -14273,7 +14360,7 @@ Web
 Linking
 [
 <cite>
-<a class="bibref" href= "#bib-rfc8288" title="Web Linking" data-link-type= "biblio">
+<a class="bibref" data-link-type="biblio" href="#bib-rfc8288" title= "Web Linking">
 RFC8288
 </a>
 </cite>
@@ -14326,7 +14413,7 @@ with
 IANA
 [
 <cite>
-<a class="bibref" href= "#bib-iana-relations" title="Link Relations" data-link-type= "biblio">
+<a class="bibref" data-link-type= "biblio" href="#bib-iana-relations" title= "Link Relations">
 IANA-RELATIONS
 </a>
 </cite>
@@ -14339,12 +14426,12 @@ the
 ABNF
 [
 <cite>
-<a class="bibref" href="#bib-rfc5234" title= "Augmented BNF for Syntax Specifications: ABNF" data-link-type= "biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-rfc5234" title= "Augmented BNF for Syntax Specifications: ABNF">
 RFC5234
 </a>
 </cite>
 ]
-<code style= "white-space: nowrap;">
+<code style="white-space: nowrap;">
 LOALPHA
 *(
 LOALPHA
@@ -14371,12 +14458,12 @@ of
 URIs
 [
 <cite>
-<a class="bibref" href="#bib-rfc3986" title= "Uniform Resource Identifier (URI): Generic Syntax" data-link-type= "biblio">
+<a class="bibref" data-link-type= "biblio" href="#bib-rfc3986" title= "Uniform Resource Identifier (URI): Generic Syntax">
 RFC3986
 </a>
 </cite>
 ].
-<span class="rfc2119-assertion" id= "arch-rel-types">
+<span class="rfc2119-assertion" id="arch-rel-types">
 Extension
 relation
 types
@@ -14407,7 +14494,7 @@ converted
 to
 URIs).
 </span>
-<span class= "rfc2119-assertion" id="arch-rel-type-lowercase">
+<span class="rfc2119-assertion" id= "arch-rel-type-lowercase">
 Nevertheless,
 all-lowercase
 URIs
@@ -14422,7 +14509,7 @@ relation
 types.
 [
 <cite>
-<a class="bibref" href="#bib-rfc8288" title="Web Linking" data-link-type= "biblio">
+<a class="bibref" data-link-type= "biblio" href="#bib-rfc8288" title= "Web Linking">
 RFC8288
 </a>
 </cite>
@@ -14622,7 +14709,7 @@ hence
 compatible
 [
 <cite>
-<a class= "bibref" href="#bib-coral" title= "The Constrained RESTful Application Language (CoRAL)" data-link-type="biblio">
+<a class= "bibref" data-link-type="biblio" href="#bib-coral" title= "The Constrained RESTful Application Language (CoRAL)">
 CoRAL
 </a>
 </cite>
@@ -14728,7 +14815,7 @@ Identifiers
 (IRIs)
 [
 <cite>
-<a class="bibref" href="#bib-rfc3987" title= "Internationalized Resource Identifiers (IRIs)" data-link-type= "biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-rfc3987" title= "Internationalized Resource Identifiers (IRIs)">
 RFC3987
 </a>
 </cite>
@@ -14746,7 +14833,7 @@ be
 URIs
 [
 <cite>
-<a class="bibref" href="#bib-rfc3986" title="Uniform Resource Identifier (URI): Generic Syntax" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-rfc3986" title= "Uniform Resource Identifier (URI): Generic Syntax">
 RFC3986
 </a>
 </cite>
@@ -14907,7 +14994,7 @@ be
 URIs
 [
 <cite>
-<a class="bibref" href="#bib-rfc3986" title= "Uniform Resource Identifier (URI): Generic Syntax" data-link-type= "biblio">
+<a class="bibref" data-link-type="biblio" href="#bib-rfc3986" title= "Uniform Resource Identifier (URI): Generic Syntax">
 RFC3986
 </a>
 </cite>
@@ -14918,11 +15005,11 @@ identify
 the
 type.
 </span>
-<span class="rfc2119-assertion" id= "arch-op-extension-comparison">
+<span class= "rfc2119-assertion" id="arch-op-extension-comparison">
 Extension
 operation
 types
-<em class= "rfc2119" title="MUST">
+<em class="rfc2119" title="MUST">
 MUST
 </em>
 be
@@ -14934,7 +15021,7 @@ a
 case-insensitive
 comparison.
 </span>
-<span class="rfc2119-assertion" id="arch-op-extension-lowercase">
+<span class="rfc2119-assertion" id= "arch-op-extension-lowercase">
 Nevertheless,
 all-lowercase
 URIs
@@ -15048,7 +15135,7 @@ media
 type
 [
 <cite>
-<a class="bibref" href="#bib-rfc2046" title= "Multipurpose Internet Mail Extensions (MIME) Part Two: Media Types" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-rfc2046" title= "Multipurpose Internet Mail Extensions (MIME) Part Two: Media Types">
 RFC2046
 </a>
 </cite>
@@ -15463,7 +15550,7 @@ as
 HTTP
 [
 <cite>
-<a class="bibref" href="#bib-rfc7231" title= "Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content" data-link-type="biblio">
+<a class="bibref" data-link-type= "biblio" href="#bib-rfc7231" title= "Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content">
 RFC7231
 </a>
 </cite>
@@ -15471,7 +15558,7 @@ RFC7231
 CoAP
 [
 <cite>
-<a class= "bibref" href="#bib-rfc7252" title= "The Constrained Application Protocol (CoAP)" data-link-type= "biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-rfc7252" title= "The Constrained Application Protocol (CoAP)">
 RFC7252
 </a>
 </cite>
@@ -15480,7 +15567,7 @@ or
 MQTT
 [
 <cite>
-<a class="bibref" href="#bib-mqtt" title="MQTT Version 3.1.1 Plus Errata 01" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-mqtt" title= "MQTT Version 3.1.1 Plus Errata 01">
 MQTT
 </a>
 </cite>
@@ -15488,7 +15575,7 @@ MQTT
 It
 informs
 the
-<a href= "#dfn-consumer" class="internalDFN" data-link-type= "dfn">
+<a href="#dfn-consumer" class="internalDFN" data-link-type= "dfn">
 Consumer
 </a>
 <em>
@@ -15519,7 +15606,7 @@ of
 REST
 [
 <cite>
-<a class="bibref" href= "#bib-rest" title= "REST: Architectural Styles and the Design of Network-based Software Architectures" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href="#bib-rest" title= "REST: Architectural Styles and the Design of Network-based Software Architectures">
 REST
 </a>
 </cite>
@@ -15536,7 +15623,7 @@ are
 eligible
 to
 implement
-<a href="#dfn-wot-protocol-binding" class= "internalDFN" data-link-type="dfn">
+<a href="#dfn-wot-protocol-binding" class="internalDFN" data-link-type="dfn">
 Protocol
 Bindings
 </a>
@@ -15826,7 +15913,7 @@ URI
 scheme
 [
 <cite>
-<a class="bibref" href="#bib-rfc3986" title= "Uniform Resource Identifier (URI): Generic Syntax" data-link-type= "biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-rfc3986" title= "Uniform Resource Identifier (URI): Generic Syntax">
 RFC3986
 </a>
 </cite>
@@ -15839,7 +15926,7 @@ IANA
 (see
 [
 <cite>
-<a class="bibref" href="#bib-iana-uri-schemes" title= "Uniform Resource Identifier (URI) Schemes" data-link-type= "biblio">
+<a class="bibref" data-link-type="biblio" href="#bib-iana-uri-schemes" title= "Uniform Resource Identifier (URI) Schemes">
 IANA-URI-SCHEMES
 </a>
 </cite>
@@ -15852,7 +15939,7 @@ on
 URIs
 [
 <cite>
-<a class="bibref" href="#bib-rfc3986" title= "Uniform Resource Identifier (URI): Generic Syntax" data-link-type= "biblio">
+<a class="bibref" data-link-type="biblio" href="#bib-rfc3986" title= "Uniform Resource Identifier (URI): Generic Syntax">
 RFC3986
 </a>
 </cite>
@@ -15881,7 +15968,7 @@ to
 be
 used
 for
-<a href= "#dfn-interaction-affordance" class="internalDFN" data-link-type= "dfn">
+<a href="#dfn-interaction-affordance" class="internalDFN" data-link-type="dfn">
 Interaction
 Affordance
 </a>
@@ -15972,7 +16059,7 @@ Protocol
 Bindings
 [
 <cite>
-<a class="bibref" href="#bib-rest" title= "REST: Architectural Styles and the Design of Network-based Software Architectures" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href="#bib-rest" title= "REST: Architectural Styles and the Design of Network-based Software Architectures">
 REST
 </a>
 </cite>
@@ -15980,7 +16067,7 @@ REST
 Furthermore,
 it
 allows
-<a href="#dfn-consumer" class="internalDFN" data-link-type= "dfn">
+<a href="#dfn-consumer" class="internalDFN" data-link-type="dfn">
 Consumers
 </a>
 to
@@ -15990,7 +16077,7 @@ protocol
 stacks
 of
 common
-<a href="#dfn-transfer-protocol" class="internalDFN" data-link-type="dfn">
+<a href="#dfn-transfer-protocol" class= "internalDFN" data-link-type="dfn">
 transfer
 protocols
 </a>
@@ -16006,7 +16093,7 @@ code
 or
 plugins
 for
-<a href= "#dfn-consumer" class="internalDFN" data-link-type= "dfn">
+<a href="#dfn-consumer" class="internalDFN" data-link-type= "dfn">
 Consumers
 </a>.
 </p>
@@ -16043,7 +16130,7 @@ media
 type
 [
 <cite>
-<a class="bibref" href="#bib-rfc2046" title= "Multipurpose Internet Mail Extensions (MIME) Part Two: Media Types" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-rfc2046" title= "Multipurpose Internet Mail Extensions (MIME) Part Two: Media Types">
 RFC2046
 </a>
 </cite>
@@ -16070,7 +16157,7 @@ for
 JSON
 [
 <cite>
-<a class="bibref" href="#bib-rfc8259" title= "The JavaScript Object Notation (JSON) Data Interchange Format" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-rfc8259" title= "The JavaScript Object Notation (JSON) Data Interchange Format">
 RFC8259
 </a>
 </cite>
@@ -16083,7 +16170,7 @@ for
 CBOR
 [
 <cite>
-<a class="bibref" href="#bib-rfc7049" title= "Concise Binary Object Representation (CBOR)" data-link-type= "biblio">
+<a class="bibref" data-link-type="biblio" href="#bib-rfc7049" title= "Concise Binary Object Representation (CBOR)">
 RFC7049
 </a>
 </cite>
@@ -16152,12 +16239,12 @@ content
 coding
 [
 <cite>
-<a class="bibref" href= "#bib-rfc7231" title= "Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href="#bib-rfc7231" title= "Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content">
 RFC7231
 </a>
 </cite>
 ].
-<span class= "rfc2119-assertion" id="arch-media-type-extra">
+<span class="rfc2119-assertion" id="arch-media-type-extra">
 Protocol
 Bindings
 <em class="rfc2119" title="MAY">
@@ -17167,7 +17254,7 @@ Intermediary
 and
 <a href= "#dfn-thing" class="internalDFN" data-link-type="dfn">
 Thing
-</a>
+</a>.
 For
 example,
 an
@@ -17356,7 +17443,6 @@ a
 new
 identifier.
 <span class="rfc2119-assertion" id= "arch-intermediary-td-extra-protocols">
-The
 If
 necessary,
 a
@@ -17663,7 +17749,7 @@ Description
 specification
 [
 <cite>
-<a class="bibref" href="#bib-wot-thing-description" title= "Web of Things (WoT) Thing Description" data-link-type= "biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-wot-thing-description" title= "Web of Things (WoT) Thing Description">
 WOT-THING-DESCRIPTION
 </a>
 </cite>
@@ -17726,7 +17812,7 @@ Linked
 Data
 [
 <cite>
-<a class="bibref" href="#bib-linked-data" title= "Linked Data Design Issues" data-link-type= "biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-linked-data" title= "Linked Data Design Issues">
 LINKED-DATA
 </a>
 </cite>
@@ -17747,7 +17833,7 @@ of
 JSON-LD
 [
 <cite>
-<a class="bibref" href="#bib-json-ld11" title="JSON-LD 1.1" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-json-ld11" title="JSON-LD 1.1">
 JSON-LD11
 </a>
 </cite>
@@ -18057,7 +18143,7 @@ are
 SAREF
 [
 <cite>
-<a class="bibref" href="#bib-saref" title= "Smart Appliances REFerence (SAREF) ontology" data-link-type= "biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-saref" title= "Smart Appliances REFerence (SAREF) ontology">
 SAREF
 </a>
 </cite>
@@ -18068,14 +18154,14 @@ for
 IoT
 [
 <cite>
-<a class="bibref" href="#bib-iot-schema-org" title= "Schema Extensions for IoT Community Group" data-link-type= "biblio">
+<a class="bibref" data-link-type= "biblio" href="#bib-iot-schema-org" title= "Schema Extensions for IoT Community Group">
 IOT-SCHEMA-ORG
 </a>
 </cite>
 ],
 and
 the
-<abbr title= "World Wide Web Consortium">
+<abbr title="World Wide Web Consortium">
 W3C
 </abbr>
 Semantic
@@ -18084,7 +18170,7 @@ Network
 ontology
 [
 <cite>
-<a class="bibref" href="#bib-vocab-ssn" title= "Semantic Sensor Network Ontology" data-link-type= "biblio">
+<a class="bibref" data-link-type= "biblio" href="#bib-vocab-ssn" title= "Semantic Sensor Network Ontology">
 VOCAB-SSN
 </a>
 </cite>
@@ -18095,7 +18181,7 @@ such
 external
 vocabularies
 in
-<a href="#dfn-td" class="internalDFN" data-link-type= "dfn">
+<a href="#dfn-td" class="internalDFN" data-link-type="dfn">
 TDs
 </a>
 is
@@ -18112,7 +18198,7 @@ developed
 and
 used
 with
-<a href="#dfn-td" class="internalDFN" data-link-type="dfn">
+<a href="#dfn-td" class="internalDFN" data-link-type= "dfn">
 TDs
 </a>.
 </p>
@@ -18306,7 +18392,7 @@ Templates
 specification
 [
 <cite>
-<a class="bibref" href= "#bib-wot-binding-templates" title= "Web of Things (WoT) Protocol Binding Templates" data-link-type= "biblio">
+<a class="bibref" data-link-type="biblio" href="#bib-wot-binding-templates" title= "Web of Things (WoT) Protocol Binding Templates">
 WOT-BINDING-TEMPLATES
 </a>
 </cite>
@@ -18327,7 +18413,7 @@ to
 interact
 with
 different
-<a href="#dfn-iot-platform" class= "internalDFN" data-link-type="dfn">
+<a href= "#dfn-iot-platform" class="internalDFN" data-link-type="dfn">
 IoT
 platforms
 </a>.
@@ -18340,14 +18426,14 @@ device
 or
 service,
 the
-<a href= "#dfn-wot-binding-templates" class="internalDFN" data-link-type= "dfn">
+<a href="#dfn-wot-binding-templates" class="internalDFN" data-link-type="dfn">
 Binding
 Template
 </a>
 for
 the
 corresponding
-<a href= "#dfn-iot-platform" class="internalDFN" data-link-type="dfn">
+<a href="#dfn-iot-platform" class="internalDFN" data-link-type= "dfn">
 IoT
 Platform
 </a>
@@ -18366,7 +18452,7 @@ be
 provided
 in
 the
-<a href="#dfn-thing-description" class= "internalDFN" data-link-type="dfn">
+<a href= "#dfn-thing-description" class="internalDFN" data-link-type= "dfn">
 Thing
 Description
 </a>
@@ -18581,7 +18667,7 @@ media
 type
 [
 <cite>
-<a class="bibref" href="#bib-rfc2046" title= "Multipurpose Internet Mail Extensions (MIME) Part Two: Media Types" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-rfc2046" title= "Multipurpose Internet Mail Extensions (MIME) Part Two: Media Types">
 RFC2046
 </a>
 </cite>
@@ -18755,7 +18841,7 @@ long
 polling
 [
 <cite>
-<a class="bibref" href="#bib-rfc6202" title= "Known Issues and Best Practices for the Use of Long Polling and Streaming in Bidirectional HTTP" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-rfc6202" title= "Known Issues and Best Practices for the Use of Long Polling and Streaming in Bidirectional HTTP">
 RFC6202
 </a>
 </cite>
@@ -18765,8 +18851,8 @@ Server-Sent
 Events
 [
 <cite>
-<a class="bibref" href="#bib-eventsource" title= "Server-Sent Events" data-link-type= "biblio">
-EVENTSOURCE
+<a class="bibref" data-link-type= "biblio" href="#bib-html" title="HTML Standard">
+HTML
 </a>
 </cite>
 ].
@@ -18779,7 +18865,7 @@ information
 to
 identify
 the
-<a href="#dfn-subprotocol" class= "internalDFN" data-link-type="dfn">
+<a href="#dfn-subprotocol" class="internalDFN" data-link-type= "dfn">
 subprotocol
 </a>
 in
@@ -18820,13 +18906,13 @@ are
 (D)TLS
 [
 <cite>
-<a class="bibref" href= "#bib-rfc8446" title= "The Transport Layer Security (TLS) Protocol Version 1.3" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href="#bib-rfc8446" title= "The Transport Layer Security (TLS) Protocol Version 1.3">
 RFC8446
 </a>
 </cite>
 ]/[
 <cite>
-<a class= "bibref" href="#bib-rfc6347" title= "Datagram Transport Layer Security Version 1.2" data-link-type= "biblio">
+<a class="bibref" data-link-type="biblio" href="#bib-rfc6347" title= "Datagram Transport Layer Security Version 1.2">
 RFC6347
 </a>
 </cite>
@@ -18834,7 +18920,7 @@ RFC6347
 IPSec
 [
 <cite>
-<a class="bibref" href= "#bib-rfc4301" title= "Security Architecture for the Internet Protocol" data-link-type= "biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-rfc4301" title= "Security Architecture for the Internet Protocol">
 RFC4301
 </a>
 </cite>
@@ -18842,7 +18928,7 @@ RFC4301
 OAuth
 [
 <cite>
-<a class="bibref" href= "#bib-rfc6749" title="The OAuth 2.0 Authorization Framework" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-rfc6749" title= "The OAuth 2.0 Authorization Framework">
 RFC6749
 </a>
 </cite>
@@ -18851,7 +18937,7 @@ and
 ACE
 [
 <cite>
-<a class="bibref" href="#bib-rfc7744" title= "Use Cases for Authentication and Authorization in Constrained Environments" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-rfc7744" title= "Use Cases for Authentication and Authorization in Constrained Environments">
 RFC7744
 </a>
 </cite>
@@ -18880,7 +18966,7 @@ general
 metadata
 of
 the
-<a href="#dfn-thing" class="internalDFN" data-link-type= "dfn">
+<a href="#dfn-thing" class="internalDFN" data-link-type="dfn">
 Thing
 </a>
 and/or
@@ -18946,7 +19032,7 @@ ECMAScript-based
 API
 [
 <cite>
-<a class="bibref" href="#bib-ecmascript" title= "ECMAScript Language Specification" data-link-type= "biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-ecmascript" title= "ECMAScript Language Specification">
 ECMAScript
 </a>
 </cite>
@@ -18965,12 +19051,12 @@ runtime
 system
 into
 the
-<a href= "#dfn-wot-runtime" class="internalDFN" data-link-type="dfn">
+<a href="#dfn-wot-runtime" class="internalDFN" data-link-type="dfn">
 WoT
 Runtime
 </a>,
 the
-<a href="#dfn-wot-scripting-api" class= "internalDFN" data-link-type="dfn">
+<a href= "#dfn-wot-scripting-api" class="internalDFN" data-link-type= "dfn">
 WoT
 Scripting
 API
@@ -18985,14 +19071,14 @@ define
 the
 behavior
 of
-<a href="#dfn-thing" class="internalDFN" data-link-type= "dfn">
+<a href="#dfn-thing" class= "internalDFN" data-link-type="dfn">
 Things
 </a>,
-<a href="#dfn-consumer" class="internalDFN" data-link-type="dfn">
+<a href= "#dfn-consumer" class="internalDFN" data-link-type= "dfn">
 Consumers
 </a>,
 and
-<a href="#dfn-intermediary" class="internalDFN" data-link-type="dfn">
+<a href="#dfn-intermediary" class= "internalDFN" data-link-type="dfn">
 Intermediaries
 </a>.
 </p>
@@ -19030,7 +19116,6 @@ API
 </a>
 in
 contrast
-supports
 enables
 implementing
 device
@@ -19112,7 +19197,7 @@ API
 specification
 [
 <cite>
-<a class="bibref" href= "#bib-wot-scripting-api" title="Web of Things (WoT) Scripting API" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href="#bib-wot-scripting-api" title= "Web of Things (WoT) Scripting API">
 WOT-SCRIPTING-API
 </a>
 </cite>
@@ -19136,7 +19221,7 @@ consume,
 produce,
 and
 expose
-<a href= "#dfn-wot-thing-description" class="internalDFN" data-link-type= "dfn">
+<a href="#dfn-wot-thing-description" class="internalDFN" data-link-type="dfn">
 WoT
 Thing
 Descriptions
@@ -19319,7 +19404,7 @@ Guidelines
 </em>
 [
 <cite>
-<a class="bibref" href="#bib-wot-security" title= "Web of Things (WoT) Security and Privacy Considerations" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-wot-security" title= "Web of Things (WoT) Security and Privacy Considerations">
 WOT-SECURITY
 </a>
 </cite>
@@ -19896,7 +19981,7 @@ in
 JavaScript
 [
 <cite>
-<a class="bibref" href="#bib-ecmascript" title= "ECMAScript Language Specification" data-link-type= "biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-ecmascript" title= "ECMAScript Language Specification">
 ECMAScript
 </a>
 </cite>
@@ -19917,14 +20002,14 @@ is
 part
 of
 the
-<a href= "#dfn-wot-runtime" class="internalDFN" data-link-type="dfn">
+<a href="#dfn-wot-runtime" class="internalDFN" data-link-type="dfn">
 WoT
 Runtime
 </a>
 (when
 providing
 the
-<a href="#dfn-wot-scripting-api" class="internalDFN" data-link-type="dfn">
+<a href= "#dfn-wot-scripting-api" class="internalDFN" data-link-type= "dfn">
 WoT
 Scripting
 API
@@ -19944,7 +20029,7 @@ written
 against
 the
 common
-<a href="#dfn-wot-scripting-api" class= "internalDFN" data-link-type="dfn">
+<a href= "#dfn-wot-scripting-api" class="internalDFN" data-link-type= "dfn">
 WoT
 Scripting
 API
@@ -19957,7 +20042,7 @@ be
 executed
 by
 any
-<a href= "#dfn-servient" class="internalDFN" data-link-type= "dfn">
+<a href="#dfn-servient" class="internalDFN" data-link-type= "dfn">
 Servient
 </a>
 featuring
@@ -20503,7 +20588,7 @@ Description
 specification
 [
 <cite>
-<a class= "bibref" href="#bib-wot-thing-description" title= "Web of Things (WoT) Thing Description" data-link-type= "biblio">
+<a class= "bibref" data-link-type="biblio" href="#bib-wot-thing-description" title= "Web of Things (WoT) Thing Description">
 WOT-THING-DESCRIPTION
 </a>
 </cite>
@@ -20518,7 +20603,7 @@ implementations
 and
 a
 scripting-based
-<a href="#dfn-wot-runtime" class="internalDFN" data-link-type= "dfn">
+<a href="#dfn-wot-runtime" class="internalDFN" data-link-type="dfn">
 WoT
 Runtime
 </a>.
@@ -20547,7 +20632,7 @@ APIs.
 See
 [
 <cite>
-<a class="bibref" href="#bib-wot-scripting-api" title="Web of Things (WoT) Scripting API" data-link-type= "biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-wot-scripting-api" title= "Web of Things (WoT) Scripting API">
 WOT-SCRIPTING-API
 </a>
 </cite>
@@ -20808,7 +20893,7 @@ API
 </a>
 [
 <cite>
-<a class="bibref" href="#bib-wot-scripting-api" title= "Web of Things (WoT) Scripting API" data-link-type= "biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-wot-scripting-api" title= "Web of Things (WoT) Scripting API">
 WOT-SCRIPTING-API
 </a>
 </cite>
@@ -21178,7 +21263,7 @@ media
 type
 [
 <cite>
-<a class= "bibref" href="#bib-rfc2046" title= "Multipurpose Internet Mail Extensions (MIME) Part Two: Media Types" data-link-type="biblio">
+<a class= "bibref" data-link-type="biblio" href="#bib-rfc2046" title= "Multipurpose Internet Mail Extensions (MIME) Part Two: Media Types">
 RFC2046
 </a>
 </cite>
@@ -21197,7 +21282,7 @@ stacks.
 See
 [
 <cite>
-<a class="bibref" href="#bib-wot-binding-templates" title="Web of Things (WoT) Protocol Binding Templates" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-wot-binding-templates" title= "Web of Things (WoT) Protocol Binding Templates">
 WOT-BINDING-TEMPLATES
 </a>
 </cite>
@@ -21705,7 +21790,7 @@ the
 WoT
 Scripting
 API
-</a>
+</a>.
 Except
 for
 the
@@ -21883,7 +21968,7 @@ in
 </bdi>
 Protocol
 Bindings
-</a>
+</a>.
 Much
 of
 the
@@ -22351,7 +22436,7 @@ devices
 associated
 with
 an
-indentifiable
+identifiable
 person
 may
 potentially
@@ -22444,7 +22529,7 @@ in
 the
 [
 <cite>
-<a class="bibref" href="#bib-wot-thing-description" title="Web of Things (WoT) Thing Description" data-link-type= "biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-wot-thing-description" title= "Web of Things (WoT) Thing Description">
 WOT-THING-DESCRIPTION
 </a>
 </cite>
@@ -23615,7 +23700,7 @@ Recommendation
 Y.4409/Y.2070
 [
 <cite>
-<a class="bibref" href="#bib-y.4409-y.2070" title= "ITU-T Rec. Y.4409/Y.2070 (01/2015) Requirements and architecture of the home energy management system and home network services " data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href="#bib-y.4409-y.2070" title= "ITU-T Rec. Y.4409/Y.2070 (01/2015) Requirements and architecture of the home energy management system and home network services ">
 Y.4409-Y.2070
 </a>
 </cite>
@@ -25133,7 +25218,7 @@ Guidelines
 specification
 [
 <cite>
-<a class="bibref" href= "#bib-wot-security" title= "Web of Things (WoT) Security and Privacy Considerations" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href="#bib-wot-security" title= "Web of Things (WoT) Security and Privacy Considerations">
 WOT-SECURITY
 </a>
 </cite>
@@ -26536,7 +26621,7 @@ Guidelines
 specification
 [
 <cite>
-<a class= "bibref" href="#bib-wot-security" title= "Web of Things (WoT) Security and Privacy Considerations" data-link-type="biblio">
+<a class= "bibref" data-link-type="biblio" href="#bib-wot-security" title= "Web of Things (WoT) Security and Privacy Considerations">
 WOT-SECURITY
 </a>
 </cite>
@@ -26853,7 +26938,7 @@ Guidelines
 specification
 [
 <cite>
-<a class= "bibref" href="#bib-wot-security" title= "Web of Things (WoT) Security and Privacy Considerations" data-link-type="biblio">
+<a class= "bibref" data-link-type="biblio" href="#bib-wot-security" title= "Web of Things (WoT) Security and Privacy Considerations">
 WOT-SECURITY
 </a>
 </cite>
@@ -27018,7 +27103,7 @@ credentials.
 Such
 credentials
 (or
-event
+even
 better,
 abstract
 operations
@@ -27066,7 +27151,7 @@ from
 First
 Candidate
 Recommendation
-<a class="self-link" aria-label="§" href= "#changes">
+<a class="self-link" aria-label="§" href= "#changes-from-candidate-recommendation">
 </a>
 </h2>
 <ul>
@@ -27104,15 +27189,15 @@ definitions.
 </li>
 <li>
 Updated
-<del class="diff-old">references.
-</del>
-<ins class="diff-chg">references:
-</ins><ul><li><ins class="diff-chg">
+references:
+<ul>
+<li>
 Normative
 references
 added:
 RFC2046
-</ins></li><li><ins class="diff-chg">
+</li>
+<li>
 Normative
 references
 removed
@@ -27128,7 +27213,8 @@ RFC6838,
 RFC7049,
 RFC7231,
 RFC7252
-</ins></li></ul>
+</li>
+</ul>
 </li>
 <li>
 Adjusted
@@ -27157,7 +27243,7 @@ First
 Public
 Working
 Draft
-<a class="self-link" aria-label="§" href= "#changes">
+<a class="self-link" aria-label="§" href= "#changes-from-first-public-working-draft">
 </a>
 </h2>
 <ul>
@@ -27323,28 +27409,28 @@ such
 as
 [
 <cite>
-<a class="bibref" href="#bib-wot-pioneers-1" title= "Mobile Service Interaction with the Web of Things" data-link-type= "biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-wot-pioneers-1" title= "Mobile Service Interaction with the Web of Things">
 WOT-PIONEERS-1
 </a>
 </cite>
 ]
 [
 <cite>
-<a class="bibref" href= "#bib-wot-pioneers-2" title="Putting Things to REST" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-wot-pioneers-2" title= "Putting Things to REST">
 WOT-PIONEERS-2
 </a>
 </cite>
 ]
 [
 <cite>
-<a class= "bibref" href="#bib-wot-pioneers-3" title= "Poster Abstract: Dyser – Towards a Real-Time Search Engine for the Web of Things" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-wot-pioneers-3" title= "Poster Abstract: Dyser – Towards a Real-Time Search Engine for the Web of Things">
 WOT-PIONEERS-3
 </a>
 </cite>
 ]
 [
 <cite>
-<a class= "bibref" href="#bib-wot-pioneers-4" title= "A Resource Oriented Architecture for the Web of Things" data-link-type="biblio">
+<a class="bibref" data-link-type="biblio" href= "#bib-wot-pioneers-4" title= "A Resource Oriented Architecture for the Web of Things">
 WOT-PIONEERS-4
 </a>
 </cite>
@@ -27739,29 +27825,6 @@ URL:
 https://tc39.github.io/ecma262/
 </a>
 </dd>
-<dt id="bib-eventsource">
-[EVENTSOURCE]
-</dt>
-<dd>
-<a href="https://www.w3.org/TR/eventsource/">
-<cite>
-Server-Sent
-Events
-</cite>
-</a>.
-Ian
-Hickson.
-W3C.
-3
-February
-2015.
-W3C
-Recommendation.
-URL:
-<a href= "https://www.w3.org/TR/eventsource/">
-https://www.w3.org/TR/eventsource/
-</a>
-</dd>
 <dt id="bib-hci">
 [HCI]
 </dt>
@@ -27784,6 +27847,35 @@ Foundation.
 URL:
 <a href= "https://www.interaction-design.org/literature/book/the-encyclopedia-of-human-computer-interaction-2nd-ed">
 https://www.interaction-design.org/literature/book/the-encyclopedia-of-human-computer-interaction-2nd-ed
+</a>
+</dd>
+<dt id="bib-html">
+[HTML]
+</dt>
+<dd>
+<a href="https://html.spec.whatwg.org/multipage/">
+<cite>
+HTML
+Standard
+</cite>
+</a>.
+Anne
+van
+Kesteren;
+Domenic
+Denicola;
+Ian
+Hickson;
+Philip
+Jägenstedt;
+Simon
+Pieters.
+WHATWG.
+Living
+Standard.
+URL:
+<a href= "https://html.spec.whatwg.org/multipage/">
+https://html.spec.whatwg.org/multipage/
 </a>
 </dd>
 <dt id="bib-iana-relations">
@@ -27935,7 +28027,7 @@ https://www.iso.org/obp/ui/#iso:std:iso-iec:29100:ed-1:v1:en
 [JSON-LD11]
 </dt>
 <dd>
-<a href="https://www.w3.org/TR/json-ld11/">
+<a href= "https://www.w3.org/TR/2019/CR-json-ld11-20191212/">
 <cite>
 JSON-LD
 1.1
@@ -27944,26 +28036,30 @@ JSON-LD
 Gregg
 Kellogg;
 Pierre-Antoine
-<del class="diff-old">Champin.
-</del>
-<ins class="diff-chg">Champin;
+Champin;
 Dave
 Longley.
-</ins>
 W3C.
-<del class="diff-old">9
-September
-</del>
-<ins class="diff-chg">18
+<del class="diff-old">18
 October
+</del>
+<ins class="diff-chg">12
+December
 </ins>
 2019.
 W3C
-Working
+<del class="diff-old">Working
 Draft.
+</del>
+<ins class="diff-chg">Candidate
+Recommendation.
+</ins>
 URL:
-<a href= "https://www.w3.org/TR/json-ld11/">
-https://www.w3.org/TR/json-ld11/
+<del class="diff-old">https://www.w3.org/TR/json-ld11/
+</del>
+<a href= "https://www.w3.org/TR/2019/CR-json-ld11-20191212/">
+<ins class="diff-chg">https://www.w3.org/TR/2019/CR-json-ld11-20191212/
+</ins>
 </a>
 </dd>
 <dt id="bib-linked-data">
@@ -28474,7 +28570,7 @@ https://sites.google.com/site/smartappliancesproject/ontologies/reference-ontolo
 [VOCAB-SSN]
 </dt>
 <dd>
-<a href="https://www.w3.org/TR/vocab-ssn/">
+<a href= "https://www.w3.org/TR/2017/REC-vocab-ssn-20171019/">
 <cite>
 Semantic
 Sensor
@@ -28502,15 +28598,18 @@ October
 W3C
 Recommendation.
 URL:
-<a href= "https://www.w3.org/TR/vocab-ssn/">
-https://www.w3.org/TR/vocab-ssn/
+<del class="diff-old">https://www.w3.org/TR/vocab-ssn/
+</del>
+<a href= "https://www.w3.org/TR/2017/REC-vocab-ssn-20171019/">
+<ins class="diff-chg">https://www.w3.org/TR/2017/REC-vocab-ssn-20171019/
+</ins>
 </a>
 </dd>
 <dt id="bib-wot-binding-templates">
 [WOT-BINDING-TEMPLATES]
 </dt>
 <dd>
-<a href= "https://www.w3.org/TR/wot-binding-templates/">
+<a href= "https://www.w3.org/TR/2020/NOTE-wot-binding-templates-20200130/">
 <cite>
 Web
 of
@@ -28524,14 +28623,22 @@ Templates
 Michael
 Koster.
 W3C.
-5
+<del class="diff-old">5
 April
 2018.
+</del>
+<ins class="diff-chg">30
+January
+2020.
+</ins>
 W3C
 Note.
 URL:
-<a href= "https://www.w3.org/TR/wot-binding-templates/">
-https://www.w3.org/TR/wot-binding-templates/
+<del class="diff-old">https://www.w3.org/TR/wot-binding-templates/
+</del>
+<a href= "https://www.w3.org/TR/2020/NOTE-wot-binding-templates-20200130/">
+<ins class="diff-chg">https://www.w3.org/TR/2020/NOTE-wot-binding-templates-20200130/
+</ins>
 </a>
 </dd>
 <dt id="bib-wot-pioneers-1">
@@ -28706,7 +28813,7 @@ https://ieeexplore.ieee.org/abstract/document/5678452
 [WOT-SCRIPTING-API]
 </dt>
 <dd>
-<a href="https://www.w3.org/TR/wot-scripting-api/">
+<a href= "https://www.w3.org/TR/2019/WD-wot-scripting-api-20191028/">
 <cite>
 Web
 of
@@ -28718,40 +28825,32 @@ API
 </a>.
 Zoltan
 Kis;
-<del class="diff-old">Kazuaki
-Nimura;
-</del>
 Daniel
 Peintner;
 Johannes
-<del class="diff-old">Hund.
-</del>
-<ins class="diff-chg">Hund;
+Hund;
 Kazuaki
 Nimura.
-</ins>
 W3C.
-<del class="diff-old">29
-November
-2018.
-</del>
-<ins class="diff-chg">28
+28
 October
 2019.
-</ins>
 W3C
 Working
 Draft.
 URL:
-<a href= "https://www.w3.org/TR/wot-scripting-api/">
-https://www.w3.org/TR/wot-scripting-api/
+<del class="diff-old">https://www.w3.org/TR/wot-scripting-api/
+</del>
+<a href= "https://www.w3.org/TR/2019/WD-wot-scripting-api-20191028/">
+<ins class="diff-chg">https://www.w3.org/TR/2019/WD-wot-scripting-api-20191028/
+</ins>
 </a>
 </dd>
 <dt id="bib-wot-security">
 [WOT-SECURITY]
 </dt>
 <dd>
-<a href="https://www.w3.org/TR/wot-security/">
+<a href= "https://www.w3.org/TR/2019/NOTE-wot-security-20191106/">
 <cite>
 Web
 of
@@ -28760,10 +28859,7 @@ Things
 Security
 and
 Privacy
-<del class="diff-old">Guidelines
-</del>
-<ins class="diff-chg">Considerations
-</ins>
+Considerations
 </cite>
 </a>.
 Elena
@@ -28771,26 +28867,29 @@ Reshetova;
 Michael
 McCool.
 W3C.
-<del class="diff-old">6
-November
-2019.
-</del>
-<ins class="diff-chg">3
+<del class="diff-old">3
 December
 2018.
+</del>
+<ins class="diff-chg">6
+November
+2019.
 </ins>
 W3C
 Note.
 URL:
-<a href= "https://www.w3.org/TR/wot-security/">
-https://www.w3.org/TR/wot-security/
+<del class="diff-old">https://www.w3.org/TR/wot-security/
+</del>
+<a href= "https://www.w3.org/TR/2019/NOTE-wot-security-20191106/">
+<ins class="diff-chg">https://www.w3.org/TR/2019/NOTE-wot-security-20191106/
+</ins>
 </a>
 </dd>
 <dt id="bib-wot-thing-description">
 [WOT-THING-DESCRIPTION]
 </dt>
 <dd>
-<a href= "https://www.w3.org/TR/wot-thing-description/">
+<a href= "https://www.w3.org/TR/2020/CR-wot-thing-description-20200130/">
 <cite>
 Web
 of
@@ -28807,22 +28906,30 @@ Kamiya;
 Michael
 McCool;
 Victor
-<del class="diff-old">Charpenay.
-</del>
-<ins class="diff-chg">Charpenay;
+Charpenay;
 Matthias
 Kovatsch.
-</ins>
 W3C.
-6
+<del class="diff-old">6
 November
 2019.
+</del>
+<ins class="diff-chg">30
+January
+2020.
+</ins>
 W3C
-Candidate
+<del class="diff-old">Candidate
+</del>
+<ins class="diff-chg">Proposed
+</ins>
 Recommendation.
 URL:
-<a href= "https://www.w3.org/TR/wot-thing-description/">
-https://www.w3.org/TR/wot-thing-description/
+<del class="diff-old">https://www.w3.org/TR/wot-thing-description/
+</del>
+<a href= "https://www.w3.org/TR/2020/PR-wot-thing-description-20200130/">
+<ins class="diff-chg">https://www.w3.org/TR/2020/PR-wot-thing-description-20200130/
+</ins>
 </a>
 </dd>
 <dt id="bib-y.4409-y.2070">
@@ -28864,7 +28971,7 @@ https://www.itu.int/rec/T-REC-Y.2070-201501-I
 </section>
 </section>
 <p role="navigation" id="back-to-top">
-<a href="#title">
+<a href="#toc">
 <abbr title= "Back to Top">
 ↑
 </abbr>

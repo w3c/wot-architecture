@@ -1,3 +1,5 @@
+## Device Lifecycle
+
 ### Submitter(s): 
 
 Michael Lagally
@@ -28,7 +30,7 @@ device manufacturer, gateway manufacturer, cloud provider
 
 ### Motivation:
 
-Cirrent spec does not address lifecycle.
+Current spec does not address lifecycle.
 
 ### Expected Devices:
 
