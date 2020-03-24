@@ -27,10 +27,17 @@ Michael McCool, Michael Lagally
 ### Target Users
 
 Agencies, companies and other organizations in a Smart City with 
-significant people traffic.
+significant foot traffic.
 
 ### Motivation:
 
+A system to monitor the health of people in public places is useful to
+control the spread of infectious diseases.  In particular, we would like
+to identify individuals with temperatures outside the norm (i.e. running
+a fever) and then take appropriate action.
+
+This mechanism should be non-invasive and non-contact since the solution
+should not itself contribute to the spread of infectious diseases.
 
 ### Expected Devices:
 
@@ -42,7 +49,7 @@ Optional:
 * RGB and/or depth camera registered with the thermal camera
 * Some way to identify location (optional)
 Note that location might be static and configured during installation,
-but might also be based on a localization technology if it needs to be 
+but might also be based on a localization technology if the device needs to be 
 portable (for example, if it needs to be set up quickly for an event).
 
 ### Expected Data:
@@ -62,7 +69,7 @@ Optional:
 * Depth image
 * Localization technology (see localization use case)
 * Integration with local IoT devices: gates, lights, or people (guards)
-* Bounding boxes around faces of identified people
+* Bounding boxes around faces of identified people in image(s)
 
 Note: the system should be capable of notifying consumers,
 via a push mechanism, of fever detections.   
@@ -74,9 +81,27 @@ node-wot
 
 ### Description:
 
+A thermal camera image is taken of a group of people
+and an AI service is used to identify faces in the image.
+The temperature of each person is then estimated from the registered face;
+for greater accuracy, a consistent location for sampling should be used, such 
+as the forehead.
+The estimated temperature is compared to high (and optionally, low)
+thresholds and a notification (or other action) is taken if the 
+temperature is outside the norm.
 
 #### Variants:
 
+* Enough information is included in the notification that the specific
+  person that raised the alarm can be identified.  For example, if an RGB
+  camera is also registered with the thermal camera, then a bounding box may
+  be indicated via JSON and the RGB image included; or the bounding box could
+  be actually drawn into the sent image, or the face could be cropped out.
+  This is useful if, for example, a notification needs to be sent to health
+  or security workers who need to identify the person in a crowd.
+* Instead of simply a notification, an action may be taken, such as closing
+  or refusing to open a gate at the entrance to a building, to prevent sick
+  employees from entering the building.
 
 ### Gaps:
 
@@ -88,5 +113,5 @@ node-wot
 ### Comments:
 
 * May be additional requirements for privacy since images of people and their health status is involved.
-* Different sub-use cases: immediate alerts vs agreggate data gathering
+* Different sub-use cases: immediate alerts or actions vs. aggregate data gathering
 
