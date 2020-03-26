@@ -35,7 +35,13 @@ when things implement more than one template.
 
 ### Related standards:
 
-Additional Link Relation Types (https://tools.ietf.org/html/rfc6903)
+Web Linking: https://tools.ietf.org/html/rfc8288
+Link Relation Types for Web Services: https://tools.ietf.org/html/rfc8631
+Additional Link Relation Types: https://tools.ietf.org/html/rfc6903
+
+Link Relation Types - IANA registry: https://www.iana.org/assignments/link-relations/link-relations.xhtml
+
+
 
 ### Other references:
 
