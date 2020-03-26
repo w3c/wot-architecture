@@ -49,7 +49,7 @@
 
 <List the type of expected data, e.g. weather and climate data, medical conditions, machine sensors, vehicle data>
 
-### Dependencies - Affected WoT deliverables:
+### Dependencies - Affected WoT deliverables and/or work items:
 
 <List the affected WoT deliverables that have to be changed to enable this use case>
 
