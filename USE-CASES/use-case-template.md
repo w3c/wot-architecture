@@ -26,7 +26,16 @@
 
 ### Target Users
 
-<List all users that are involved in the use case, e.g. device manufacturer, gateway manufacturer, cloud provider>
+<List all stakeholders that are involved in the use case from the following list:
+- device owners
+- device user
+- cloud provider
+- service provider
+- device manufacturer
+- gateway manufacturer
+- network operator (potentially transparent for WoT use cases)
+- identity provider
+- directory service operator>
 
 ### Motivation:
 
@@ -40,9 +49,9 @@
 
 <List the type of expected data, e.g. weather and climate data, medical conditions, machine sensors, vehicle data>
 
-### Dependencies:
+### Dependencies - Affected WoT deliverables:
 
-<List the affected WoT deliverables>
+<List the affected WoT deliverables that have to be changed to enable this use case>
 
 ### Description:
 
@@ -54,7 +63,7 @@
 
 ### Gaps:
 
-<Describe any gaps that are not addressed in the current WoT work items>
+<Describe any gaps that are not addressed in the current WoT standards and building blocks>
 
 ### Existing standards:
 
