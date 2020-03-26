@@ -1,5 +1,11 @@
 ## Title: Media Use Case Information Bucket
 
+
+This documetn is not a full use case description. It is rather a collection of 
+thoughts and ideas to capture information and provide refercnes and have a common discussion basis.
+
+The intention is to trigger new ideas and collect them in a single document at this point.
+
 ### Submitter(s): 
 
 <Put your name here>
@@ -63,8 +69,7 @@
 - Multi-camera angles 
 
 * Voice control of a media playback device (integration of smart speakers from multiple vendors)
-
-* Describe proprietary (vendor specific) device control interfaces to control media playback on TV set.
+Describe proprietary (vendor specific) device control interfaces to control media playback on TV set.
 (proprietary implementations exist, open protocol is proposed?)
 
 #### Variants:
@@ -78,8 +83,8 @@
 ### Existing standards & related information:
 
 <Provide links to relevant standards that are relevant for this use case>
-
-Link to BBC R+D project.
+There are MANY TV standards and this would be a long list. Rather leave blank 
+unless a very specific standard provides more insight.
 
 ### Comments:
 
