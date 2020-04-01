@@ -34,6 +34,7 @@ Current spec does not address lifecycle.
 
 ### Expected Devices:
 
+
 <List the target devices, e.g. as a sensor, solar panel, air conditioner>
 
 ### Expected Data:
@@ -49,13 +50,32 @@ Current spec does not address lifecycle.
 Handle the entire device lifecycle: 
 Define terminology for lifecycle states and transitions.
 
+#### Actors (represent a physical person or group of persons (company))
+Manufacturer
+Service Provider
+Network Provider (potentially transparent for WoT use cases)
+Device Owner (User)
+Others?
+
+#### Roles:
+Depending on the use case, an actor can have multiple roles, 
+e.g. security maintainer.  
+Roles can be delegated.
+
 #### Variants:
 
-<Describe possible use case variants, if applicable>
+There are (at least) two different entities to consider:
+- Things / Devices
+- Consumers, e.g. cloud services or gateways
+
+In more complex use cases there are additional entities:
+- Intermediates
+- Directories
 
 ### Gaps:
 
-<Describe any gaps that are not addressed in the current WoT work items>
+The current architecture spec does not describe lifecycle todescribes the device lifecycle only.
+Interaction with other entities may introduce additional states and transitions.
 
 ### Existing standards:
 
@@ -63,3 +83,10 @@ Define terminology for lifecycle states and transitions.
 
 ### Comments:
 
+Draft lifecycle diagram:
+https://github.com/w3c/wot-architecture/blob/master/proposals/WoT%20lifecycle%20diagram-WoT%20new%20lifecycle.svg
+
+Lifecycle comparisons:
+https://github.com/w3c/wot-architecture/blob/master/proposals/Device-lifecycle-comparisons.pdf
+
+IoT Security Bootstrapping: https://github.com/w3c/wot-security/blob/master/presentations/2020-03-16-Bootstrapping%20IoT%20Security%20-%20The%20IETF%20Anima%20and%20OPC-UA%20Recipes.pdf
