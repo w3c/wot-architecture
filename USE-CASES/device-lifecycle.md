@@ -74,14 +74,27 @@ In more complex use cases there are additional entities:
 
 ### Gaps:
 
-The current architecture spec does not describe lifecycle todescribes the device lifecycle only.
-Interaction with other entities may introduce additional states and transitions.
+The current architecture spec does not describe device lifecycle in detail.
+A common lifecycle model helps to clarify terminology and structures the discussion
+in different groups.
+Interaction of a device with other entities such as directories may introduce 
+additional states and transitions.
 
 ### Existing standards:
 
 <Provide links to relevant standards that are relevant for this use case>
+WoT Security
+ETSI OneM2M
+OMA LwM2M
+OCF
+IEEE
+SIM cards / GSMA
+IETF 
+Application Lifecycle (W3C Multimodal Interaction WG)  
 
 ### Comments:
+
+Here are some documents that were created / discussed in the architecture TF.
 
 Draft lifecycle diagram:
 https://github.com/w3c/wot-architecture/blob/master/proposals/WoT%20lifecycle%20diagram-WoT%20new%20lifecycle.svg
@@ -89,4 +102,5 @@ https://github.com/w3c/wot-architecture/blob/master/proposals/WoT%20lifecycle%20
 Lifecycle comparisons:
 https://github.com/w3c/wot-architecture/blob/master/proposals/Device-lifecycle-comparisons.pdf
 
-IoT Security Bootstrapping: https://github.com/w3c/wot-security/blob/master/presentations/2020-03-16-Bootstrapping%20IoT%20Security%20-%20The%20IETF%20Anima%20and%20OPC-UA%20Recipes.pdf
+IoT Security Bootstrapping: 
+https://github.com/w3c/wot-security/blob/master/presentations/2020-03-16-Bootstrapping%20IoT%20Security%20-%20The%20IETF%20Anima%20and%20OPC-UA%20Recipes.pdf
