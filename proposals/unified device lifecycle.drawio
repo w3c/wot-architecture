@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-04-01T13:43:54.491Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36" etag="ykr_VWk3YGg461MRPZc5" version="12.9.3" type="github">
+<mxfile host="app.diagrams.net" modified="2020-04-01T13:52:07.249Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36" etag="oSwf-kojsI-AwRk7Rs5r" version="12.9.3" type="github">
   <diagram id="73htBAdFns5x5RNXRT5h" name="Page-1">
     <mxGraphModel dx="2189" dy="1014" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -123,9 +123,6 @@
         </mxCell>
         <mxCell id="NklPxvAMnmCEC8BFBDnq-18" value="Device" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
           <mxGeometry x="90" y="585" width="100" height="345" as="geometry" />
-        </mxCell>
-        <mxCell id="NklPxvAMnmCEC8BFBDnq-19" value="Directory" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;dashed=1;" vertex="1" parent="1">
-          <mxGeometry x="240" y="585" width="100" height="345" as="geometry" />
         </mxCell>
         <mxCell id="NklPxvAMnmCEC8BFBDnq-20" value="Consumer" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
           <mxGeometry x="396" y="585" width="100" height="335" as="geometry" />
