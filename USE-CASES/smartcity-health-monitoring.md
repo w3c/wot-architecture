@@ -34,19 +34,26 @@ significant foot traffic.
 A system to monitor the health of people in public places is useful to
 control the spread of infectious diseases.  In particular, we would like
 to identify individuals with temperatures outside the norm (i.e. running
-a fever) and then take appropriate action.
+a fever) and then take appropriate action.  Actions can include sending
+a notification or actuating a security device, such as a gate.
 
 This mechanism should be non-invasive and non-contact since the solution
 should not itself contribute to the spread of infectious diseases.
+
+Data may also be aggregated for statistics purposes, for example, to 
+identify the number of people in an area with elevated temperatures.
+This has additional requirements to avoid double-counting individuals.
 
 ### Expected Devices:
 
 One of the following:
 * A thermal camera.
-* Face detection (AI) service.
+* Face detection (AI) service
+     * May be on device or be an edge or cloud service.
 
 Optional:
 * RGB and/or depth camera registered with the thermal camera
+* Cloud service for data aggregation and analytics.
 * Some way to identify location (optional)
 Note that location might be static and configured during installation,
 but might also be based on a localization technology if the device needs to be 
@@ -71,10 +78,11 @@ Optional:
 * Integration with local IoT devices: gates, lights, or people (guards)
 * Bounding boxes around faces of identified people in image(s)
 * Data that can be used to uniquely identify a face (distinguish it from others)
+    * Aggregation system may output the total number of unique faces with fever
 
-Note: the system should be capable of notifying consumers,
-via a push mechanism, of fever detections.   
-This may be email or SMS.
+Note: the system should be capable of notifying consumers (such as security personnel),
+of fever detections.   
+This may be email, SMS, or some other mechanism, such as MQTT publication.
 
 It would also be useful to count unique individuals for statistics purposes,
 but not necessarily based on identifying particular people.  This is to
@@ -119,6 +127,7 @@ Additional features may be extracted to identify unique individuals.
 ### Gaps:
 
 <Describe any gaps that are not addressed in the current WoT work items>
+* Onboarding mechanism for rapidly deploying a large number of devices
 
 ### Existing standards:
 
