@@ -1,8 +1,8 @@
-## Title: GPS Tracker
+## Title: Smart City Localization
 
 ### Submitter(s): 
 
-Jennifer Lin
+Jennifer Lin (GovTech Singapore)
 
 ### Reviewer(s):
 
@@ -38,7 +38,7 @@ system.
 A reusable localization module is needed with a common network interface to
 include in these various applications.
 For outdoor applications, GPS 
-could be used, but indoors other localization technolgies might be 
+could be used, but indoors other localization technologies might be 
 used, such as WiFi triangulation or vision-based navigation (SLAM).
 Therefore the localization information should be technology-agnostic.
 
@@ -56,18 +56,23 @@ One of the following:
 
 * Sensor ID
 * Timestamp of last localization
-* Latitude
-* Longitude
-* Altitude
-* Accuracy information
-   * Gaussian covariance matrix
+* 2D location
+   * typically latitude and longitude
+   * May also be semantic, i.e. room in a building, exit
 
 Optional:
-* Localization technology (GPS, SLAM, etc).
+* Semantic location
+   * Possibly in addition to numerical lat/long location.
+* Altitude
+   * May also be semantic, i.e. floor of a building
+* Accuracy information
+   * Gaussian covariance matrix
+* Localization technology (GPS, SLAM, etc).  
+   * Note that multiple technologies might be used together.
+   * Include parameters such as sample interval
 * For each localization technology, data specific to that technology:
    * GPS: NMEA type
 * Historical data
-* Localization parameters such as interval, accuracy
 
 Note: the system should be capable of notifying consumers,
 via a push mechanism, of changes in location, in order to implement
@@ -104,6 +109,10 @@ These systems may also include geofencing notifications and mapping
 ### Existing standards:
 
 * NMEA: defines sentences from GPS devices
+* W3C Geolocalization API: https://www.w3.org/TR/geolocation-API/
+   * W3C Devices and Sensors WG is now handling
+* Open Geospatial Consortium: https://www.ogc.org/
+   * has standards defining semantics for identifying locations
 
 ### Comments:
 

@@ -2,7 +2,7 @@
 
 ### Submitter(s): 
 
-Jennifer Lin
+Jennifer Lin (GovTech Singapore)
 
 ### Reviewer(s):
 
@@ -70,10 +70,15 @@ Optional:
 * Localization technology (see localization use case)
 * Integration with local IoT devices: gates, lights, or people (guards)
 * Bounding boxes around faces of identified people in image(s)
+* Data that can be used to uniquely identify a face (distinguish it from others)
 
 Note: the system should be capable of notifying consumers,
 via a push mechanism, of fever detections.   
 This may be email or SMS.
+
+It would also be useful to count unique individuals for statistics purposes,
+but not necessarily based on identifying particular people.  This is to
+avoid counting the same person multiple times.
 
 ### Dependencies:
 
@@ -89,6 +94,7 @@ as the forehead.
 The estimated temperature is compared to high (and optionally, low)
 thresholds and a notification (or other action) is taken if the 
 temperature is outside the norm.
+Additional features may be extracted to identify unique individuals.
 
 #### Variants:
 
@@ -102,6 +108,13 @@ temperature is outside the norm.
 * Instead of simply a notification, an action may be taken, such as closing
   or refusing to open a gate at the entrance to a building, to prevent sick
   employees from entering the building.
+* To generate statistics, for example to count the number of people with
+  fevers, then unique individuals need to be indentified to avoid counting
+  the same person more than once.
+* The same sensors might be used to determine the number of people in
+  an area and send a notification if crowded conditions are detected, in
+  order to support social distancing behaviour (for instance, supporting
+  an app that notifies users when a destination is crowded) in a pandemic situation.
 
 ### Gaps:
 
