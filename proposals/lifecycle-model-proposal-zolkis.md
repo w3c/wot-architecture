@@ -57,8 +57,10 @@ IMHO we need the following information for each WoT state name candidate:
 **Why**: device is manufactured and flashed with a SW image. Possibly certified (e.g. OCF).
 **Name in other protocols** : manufactured
 **Actor** responsible to get to this state: manufacturer
+**Data**:
+- manufacturer credentials: OCF: optional, OneM2M: optional, LwM2M: optional, T2TRG: optional, OPC-UA: optional, Anima: required.
+
 **Capabilities**:
-- manufacturer certificate: OCF: optional, OneM2M: optional, LwM2M: optional, T2TRG: optional, OPC-UA: optional, Anima: required
 - identity: usually none, possibly manufacturer-default
 - operational level: only for onboarding (OCF), initial provisioning (M2M), bootstrap (LwM2M), bootstrapping (installation, commisioning in T2TRG, enrollment in OPC-UA, bootstrapping in Anima)
 - external interfaces: native mechanisms (e.g. support for onboarding methods/discovery)
@@ -67,8 +69,7 @@ IMHO we need the following information for each WoT state name candidate:
 **Preceding states** (from which one can reset to Manufactured state): any state except Destroyed
 **Next states**: Bootstrapped/Onboarded
 **Relationship** (why to change state):
-  - onboard the device in order to be usable by a provider (or to re-badge by vendor)
-  - security setup
+  - onboard the device in order to be usable by a provider (or to re-badge by vendor).
 
 **Actor** who triggers next state transition: provider/vendor, based on native built-in mechanisms and protocols.
 
@@ -77,8 +78,12 @@ IMHO we need the following information for each WoT state name candidate:
 This state may be skipped from WoT point of vew.
 **Name in other protocols** onboarding (OCF), initial provisioning (M2M), bootstrapping (LwM2M), bootstrapping (installation, commisioning) in T2TRG, bootstrapping (enrollment, trust list acquisition) in OPC-UA), bootstrapping in Anima
 **Actor** responsible to get to this state: provider/vendor
+**Data**:
+- manufacturer credentials
+- provider credentials, configuration data.
+
 **Capabilities**:
-- identity: given by new owner (provider/vendor or user)
+- identity: given by new owner (provider/vendor/user credentials)
 - operational level: native, usually modified SW image, run after rebooting the device. After onboarding is complete, it can identify and authenticate, can be configured for services.
 - operational for WoT: no
 - external interfaces: native mechanisms (e.g. support for further provisioning/configuration)
@@ -87,8 +92,7 @@ This state may be skipped from WoT point of vew.
 **Preceding states** (from which one can reset to Bootstrapped state): Operational/Maintenance
 **Next states**: Operational, Manufactured
 **Relationship** (why to change state to Operational):
-  - provision the device in order to be usable by a provider in a solution
-  - security setup
+  - provision the device in order to be usable by a provider in a solution.
 
 **Relationship** (why to change state to Manufactured):
   - "offboarding" the device, i.e. reset to factory defaults
@@ -99,8 +103,13 @@ This state may be skipped from WoT point of vew.
 **Why**: device gets operational in its native protocol (provisioned and configured).
 ** Name in other protocols ** : operational
 **Actor** responsible to get to this state: provider/vendor
+**Data**:
+- manufacturer credentials
+- provider credentials, configuration data
+- user configuration data, user data.
+
 **Capabilities**:
-- identity: given by new owner (provider/vendor or user)
+- identity: given by new owner (provider/vendor/user credentials)
 - provisioned for the solution
 - configured for the solution
 - operational level: native, fully functional.
@@ -111,8 +120,7 @@ This state may be skipped from WoT point of vew.
 **Preceding states**: Onboarded, Maintenance (Non-operational for maintenance)
 **Next states**: Maintenance, Onboarded (de-commission), Manufactured (reset to factory defaults)
 **Relationship** (why to change state to Maintenance):
-  - run the native mechanisms for SW update or reconfiguration or re-provisioning that requires stopping the normal operation of the device, including eventual rebooting)
-  - security setup
+  - run the native mechanisms for SW update or reconfiguration or re-provisioning that requires stopping the normal operation of the device, including eventual rebooting).
 
 **Relationship** (why to change state to Onboarded):
   - decommissioning the device, i.e. change solution or user but stay under the same owner (provider or user).
@@ -126,21 +134,26 @@ This state may be skipped from WoT point of vew.
 ### Operational state for WoT
 **Why**: device gets operational for WoT
 **Actor** responsible to get to this state: provider/vendor or user
+**Data**:
+- manufacturer credentials
+- provider credentials, configuration data
+- user configuration data, user data.
+
 **Capabilities**:
-- identity: given by provider/vendor or user
+- identity: given by provider/vendor/user credentials
 - provisioned for the solution
 - configured for the solution
 - operational level: native, fully functional.
 - operational for WoT: yes (including deploying WoT runtime, dependencies and system configuration, optionally WoT bootstrapping for WoT services, e.g. Thing Directory)
 - external interfaces: mainly WoT interface
+- WoT security configuration (required credentials, polices, etc).
 
 **Previous state**: Operational for [protocol]
 **Preceding states**: Operational for [protocol] , Maintenance (Non-operational for maintenance)
 **Next states**: Maintenance, Operational for [protocol], Onboarded (de-commission), Manufactured (reset to factory defaults)
 **Relationship** (why to change state to Maintenance):
   - run the native mechanisms for SW update or reconfiguration or re-provisioning that requires stopping the normal operation of the device, including eventual rebooting)
-  - managed either by the underlying native SW stack (to update that), or by WoT runtime (only to update WoT, if that requires stopping WoT services)
-  - security setup
+  - managed either by the underlying native SW stack (to update that), or by WoT runtime (only to update WoT, if that requires stopping WoT services).
 
 **Relationship** (why to change state to Operational for [protocol]):
   - decommissioning the device from WoT but keep the native operation.
@@ -162,6 +175,7 @@ T2TRG: there is `removed and replaced` but it's possible to recommission, theref
 OneM2M, LwM2M: not defined
 OCF: not explicitly defined
 **Actor** responsible to get to this state: provider/vendor or user, enforcement agent
+**Data**: none (all data destroyed).
 **Capabilities**: none
 **Previous state**: any
 **Preceding states**: any
