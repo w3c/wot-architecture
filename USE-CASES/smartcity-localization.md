@@ -69,7 +69,7 @@ Optional:
    * Gaussian covariance matrix
 * Localization technology (GPS, SLAM, etc).  
    * Note that multiple technologies might be used together.
-   * Include parameters such as sample interval
+   * Include parameters such as sample interval, accuracy
 * For each localization technology, data specific to that technology:
    * GPS: NMEA type
 * Historical data
