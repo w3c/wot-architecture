@@ -99,7 +99,10 @@ These systems may also include geofencing notifications and mapping
 
 ### Gaps:
 
-<Describe any gaps that are not addressed in the current WoT work items>
+There is no standardized TD vocabulary for representing location data.
+Location data can be point data, a path, an area or a volumentric object.
+Location information can be expressed using multiple standards, 
+the TD must be able to unambiguously describe location information.
 
 ### Existing standards:
 
