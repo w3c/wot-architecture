@@ -27,7 +27,7 @@ Michael McCool, Michael Lagally
 ### Target Users
 
 Agencies, companies and other organizations in a Smart City with 
-significant foot traffic.
+significant pedestrian traffic in a pandemic situation.
 
 ### Motivation:
 
@@ -80,9 +80,11 @@ Optional:
 * Data that can be used to uniquely identify a face (distinguish it from others)
     * Aggregation system may output the total number of unique faces with fever
 
-Note: the system should be capable of notifying consumers (such as security personnel),
+Note 1: the system should be capable of notifying consumers (such as security personnel),
 of fever detections.   
 This may be email, SMS, or some other mechanism, such as MQTT publication.
+
+Note 2: In all cases where images are captured, privacy considerations apply.
 
 It would also be useful to count unique individuals for statistics purposes,
 but not necessarily based on identifying particular people.  This is to
@@ -123,11 +125,15 @@ Additional features may be extracted to identify unique individuals.
   an area and send a notification if crowded conditions are detected, in
   order to support social distancing behaviour (for instance, supporting
   an app that notifies users when a destination is crowded) in a pandemic situation.
+* Cameras that provide video streams rather than still images.
 
 ### Gaps:
 
-<Describe any gaps that are not addressed in the current WoT work items>
 * Onboarding mechanism for rapidly deploying a large number of devices
+* Standard vocabulary for geolocation information
+* Implementations able to handle image payload formats, possibly in combination with non-image data (eg images and JSON in a single response)
+* Video streaming support (if we wish to serve video stream from the camera instead of still images)
+* Standard ways to specify notification mechanisms and data payloads for things like SMS and email (in addition to the expected MQTT, CoAP, and HTTP event mechansisms)
 
 ### Existing standards:
 
