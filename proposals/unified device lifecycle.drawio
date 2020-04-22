@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2020-04-02T16:11:38.275Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36" etag="rMGu8tmk8uARavgTkTqr" version="12.9.3" type="github">
+<mxfile host="app.diagrams.net" modified="2020-04-22T14:14:25.572Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.113 Safari/537.36" etag="Ss8IYnLWTMZ-fFATe5rP" version="12.9.6" type="github">
   <diagram id="73htBAdFns5x5RNXRT5h" name="Page-1">
-    <mxGraphModel dx="2088" dy="1163" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1895" dy="1114" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -337,7 +337,7 @@
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="dp1TcI3nAE2cxmefr7RG-1" value="Need to define the meaning of states&lt;br&gt;Relationship + Capabilities in each state&lt;br&gt;Colors to identify the actors or group of states?&lt;br&gt;Meta-states?" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="dp1TcI3nAE2cxmefr7RG-1" value="Need to define the meaning of states&lt;br&gt;Relationship + Capabilities in each state&lt;br&gt;Colors to identify the actors or group of states?&lt;br&gt;Meta-states?" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1000" y="585" width="300" height="210" as="geometry" />
         </mxCell>
       </root>
