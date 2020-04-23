@@ -31,6 +31,8 @@ including passively mobile sensor packs, packages,
 vehicles, and autonomous robots, where their location needs to
 be determined dynamically.
 
+TODO: Stakeholders/Users need to be further clarified. They include "city government, people counting service providers, police, network providers, ...
+
 ### Motivation:
 
 Smart Cities need to track a large number of mobile devices and sensors.
@@ -113,7 +115,10 @@ These systems may also include geofencing notifications and mapping
 
 ### Gaps:
 
-<Describe any gaps that are not addressed in the current WoT work items>
+There is no standardized TD vocabulary for representing location data.
+Location data can be point data, a path, an area or a volumentric object.
+Location information can be expressed using multiple standards, 
+the TD must be able to unambiguously describe location information.
 
 ### Existing standards:
 
