@@ -61,6 +61,14 @@
 
 <Describe possible use case variants, if applicable>
 
+#### Security Considerations:
+
+<Describe any issues related to security; if there are none, say "none" and justify>
+
+#### Privacy Considerations:
+
+<Describe any issues related to privacy; if there are none, say "none" and justify>
+
 ### Gaps:
 
 <Describe any gaps that are not addressed in the current WoT standards and building blocks>
