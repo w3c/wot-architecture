@@ -23,6 +23,14 @@
 ### Requirements:
 
 <short description of all requirements>
+  
+#### Security:
+
+<Describe security features needed; if there are none, say "none">
+
+#### Privacy:
+
+<Describe privacy features needed; if there are none, say "none">
 
 ### Related standards:
 
