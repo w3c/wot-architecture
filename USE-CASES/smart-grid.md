@@ -31,7 +31,7 @@ Michael Lagally (Oracle)
 - Virtual Power Plant (VPP) operators
 - Energy grid markets
 - Cloud providers where grid backend services are hosted and where Operation Technology bridges to Information Technology
-- Device manufacturers, owners, and users; devices include communication gateways, monito
+- Device manufacturers, owners, and users; devices include communication gateways, monitoring and control units
 
 ### Motivation:
 
