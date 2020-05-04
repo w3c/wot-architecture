@@ -26,7 +26,7 @@ Michael Lagally (Oracle)
 
 ### Target Users
 
-- Grid operators on all voltage levels (DSO, TSO, ...)
+- Grid operators on all voltage levels line Distribution System Operators (DSO), Transmission System Operators (TSO)
 - Plant operators (centralized as well as de-centralized producers)
 - VPP operators
 - Energy grid markets (to be discussed)
