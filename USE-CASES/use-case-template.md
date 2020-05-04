@@ -61,11 +61,11 @@
 
 <Describe possible use case variants, if applicable>
 
-#### Security Considerations:
+### Security Considerations:
 
 <Describe any issues related to security; if there are none, say "none" and justify>
 
-#### Privacy Considerations:
+### Privacy Considerations:
 
 <Describe any issues related to privacy; if there are none, say "none" and justify>
 
