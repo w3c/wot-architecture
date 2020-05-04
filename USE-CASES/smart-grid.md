@@ -28,13 +28,10 @@ Michael Lagally (Oracle)
 
 - Grid operators on all voltage levels line Distribution System Operators (DSO), Transmission System Operators (TSO)
 - Plant operators (centralized as well as de-centralized producers)
-- VPP operators
-- Energy grid markets (to be discussed)
-- Device owners
-- Device users
-- Cloud providers
-- Device manufacturers
-- Gateway manufacturers
+- Virtual Power Plant (VPP) operators
+- Energy grid markets
+- Cloud providers where grid backend services are hosted and where Operation Technology bridges to Information Technology
+- Device manufacturers, owners, and users; devices include communication gateways, monito
 
 ### Motivation:
 
@@ -47,8 +44,8 @@ A smart grid integrates all players in the electricity market into one overall s
 ### Expected Data:
 
 - Weather and climate data
-- Metering data (both production as well as consumption, 15 min. intervals)
-- Real time data from PMUs (phasor measurement units)
+- Metering data (both production as well as consumption as well as storage, e.g. 15 min. intervals)
+- Real time data from PMUs (Phasor Measurement Units)
 - Machine and equipment monitoring data (enabling health checks)
 - ...
 
@@ -63,14 +60,17 @@ The term Smart Grid refers to the communicative networking and control of power 
 #### Variants:
 
 ##### Decentralized Power Generation
-While electricity grids with centralized power generation have dominated up to now, the trend is moving towards decentralized generation plants, both for generation from fossil primary energy through small CHP plants and for generation from renewable sources such as photovoltaic systems, solar thermal power plants, wind turbines and biogas plants. This leads to a much more complex structure, primarily in the area of load control, voltage maintenance in the distribution grid and maintenance of grid stability. In contrast to medium to large power plants, smaller, decentralised generation plants also feed directly into the lower voltage levels such as the low-voltage grid or the medium-voltage grid.
+While electricity grids with centralized power generation have dominated up to now, the trend is moving towards decentralized generation plants, both for generation from fossil primary energy through small CHP plants and for generation from renewable sources such as photovoltaic systems, solar thermal power plants, wind turbines and biogas plants. This leads to a much more complex structure, primarily in the area of load control, voltage maintenance in the distribution grid and maintenance of grid stability. In contrast to medium to large power plants, smaller, decentralised generation plants also feed directly into the lower voltage levels such as the low-voltage grid or the medium-voltage grid. This use case variants also includes operation and control of energy storages like batteries.
 
 ##### Virtual Power Plants
 A Virtual Power Plant (VPP) is an aggregation of Distributed Energy Resources (DERs) that can act as an entity on energy markets or as an ancillary service to grid operation.
 The individual DERs often have a primary use on their own, with electric generation/consumption being a side-effect resp. secondary use. This results in negotiations/collaborations between many different parties e.g. such as the DER owner, the VPP operator, the grid operator and others.
 
 ##### Smart Metering
-For consumers, a major change is the installation of smart meters. Their core tasks are remote reading and the possibility to realize fluctuating prices within a day at short notice. All electricity meters must therefore be replaced by those with remote data transmission. 
+For consumers, a major change is the installation of smart meters. Their core tasks are remote reading and the possibility to realize fluctuating prices within a day at short notice. All electricity meters must therefore be replaced by those with remote data transmission.
+
+##### Other variants
+Emergency response, grid synchronization, grid black start
 
 ### Building Blocks:
 - Multi-Stakeholder Operation: Multiple involved parties have to find a common mode of operation
