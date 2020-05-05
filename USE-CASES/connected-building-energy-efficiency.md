@@ -2,11 +2,11 @@
 
 ### Submitter(s): 
 
-Farshid Tavakolizadeh
+Farshid Tavakolizadeh (Fraunhofer)
 
 ### Reviewer(s):
 
-<Suggest reviewers>
+Michael McCool (Intel)
 
 ### Tracker Issue ID:
 
@@ -32,10 +32,7 @@ Farshid Tavakolizadeh
 
 ### Motivation:
 
-<Provide a description of the problem that is solved by the use case and a reason why this use case is important for the users>
-
-Construction and renovation companies often deal with the challenge of delivering target energy-efficient buildings given budget and time constraints. Energy efficiency, as one of the key factors for renovation investments, depends on the availability of various data sources to support the renovation design and planning. These include climate data and building material along with residential comfort and energy consumption profiles. The profiles may be created using a combination of manual inputs and sensory data collected from residents.
-
+Construction and renovation companies often deal with the challenge of delivering target energy-efficient buildings given specific budget and time constraints. Energy efficiency, as one of the key factors for renovation investments, depends on the availability of various data sources to support the renovation design and planning. These include climate data and building material along with residential comfort and energy consumption profiles. The profiles are created using a combination of manual inputs and sensory data collected from residents.
 
 ### Expected Devices:
 
@@ -62,9 +59,7 @@ Z-wave Sensors:
 
 ### Description:
 
-<Provide a description from the users perspective>
-
-Renovation of residential buildings to improve energy efficiency requires a wide range of sensory information to understand the consumption model and existing weaknesses. As part of the pre-renovation activities, the renovation companies deploy various sensors to collect data over a period of time. Such sensors become part of a wireless sensor network (WSN) and expose data endpoint with the help of one or more gateway devices. The renovation companies need to discovery the data endpoints based on the physical location of the sensors, mapping to the building model, measurement type, or other meta information.
+Renovation of residential buildings to improve energy efficiency depend on a wide range of sensory information to understand the building conditions and consumption models. As part of the pre-renovation activities, the renovation companies deploy various sensors to collect relevant data over a period of time. Such sensors become part of a wireless sensor network (WSN) and expose data endpoint with the help of one or more gateway devices. Depending on the protocols, the endpoints require different interaction flows to securely access the current and historical measurements. The renovation applications need to discover the sensors, their endpoints and how to interact with them based on search criteria such as the physical location, mapping to the building model or measurement type.
 
 #### Variants:
 
@@ -76,17 +71,20 @@ Renovation of residential buildings to improve energy efficiency requires a wide
 
 #### Privacy Considerations:
 
-<Describe any issues related to privacy; if there are none, say "none" and justify>
+The TD may expose personal information about the building layout and residents.
 
 ### Gaps:
 
-<Describe any gaps that are not addressed in the current WoT standards and building blocks>
+There is no standard vocabulary for embedding application-specific meta data inside the TD. It is possible to extend the TD context and add additional fields but with too much flexibility, every application may end up with a completely different structure, making such information more difficult to discover. In this use-case, the application specific data are: 
+- the mapping between each thing and the space in the building model
+- various identifiers for each thing (e.g. sensor serial number, z-wave ID, SenML name)
+- indoor coordinates
 
-There is no standard way of embedding additional meta data about things inside the TD. It is possible to extend the TD context and add additional fields but with too much flexibility, every application may end up with a completely different structure, making such information more difficult to discover. In contrast, the OGC SensorThings model includes a `properties` property for a Thing which is a non-normative JSON Object for application-specific information (not to be confused with TD's properties which is a Map of instances of PropertyAffordance).
+There is no standard API specification for the WoT Thing Directory to maintain and query TDs.
 
 ### Existing standards:
 
-<Provide links to relevant standards that are relevant for this use case>
+- [OGC SensorThings](https://www.ogc.org/standards/sensorthings) model includes a `properties` property for each Thing which is a non-normative JSON Object for application-specific information (not to be confused with TD's `properties` which is a Map of instances of PropertyAffordance).
 
 ### Comments:
 
