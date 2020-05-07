@@ -25,13 +25,10 @@ Michael Lagally
 
 ### Target Users
 
-<List all users that are involved in the use case, e.g. device manufacturer gateway manufacturer, cloud provider>
-
 Device owners, cloud provider.
 
 ### Motivation:
 
-<Provide a description of the problem that is solved by the use case and a reason why this use case is important for the users>
 A digital twin is the virtual representation of a physical asset such as a machine, a vehicle, robot, sensor. 
 Using a digital twin allows businesses to analyze their physical assets to troubleshoot in real time, predict future problems, minimize downtime, and perform simulations to create new business opportunities.
 
@@ -80,8 +77,6 @@ The user benefits from using digital twins with the following scenarios:
 
 ### Variants:
 
-<Describe possible use case variants, if applicable>
-
 #### Virtual Twin
 
 The virtual twin is a representation of a physical device or an asset. A virtual twin uses a model that contains observed and desired attribute values and also uses a semantic model of the behavior of the device.
@@ -118,6 +113,7 @@ Prediction data offers insights into the operations of machines. Projecting thes
 ### Gaps:
 
 <Describe any gaps that are not addressed in the current WoT work items>
+WoT does not define a way to describe the behavior of a thing to use for a simulation.
 
 ### Existing standards:
 
