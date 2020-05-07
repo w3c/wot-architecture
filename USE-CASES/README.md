@@ -1,15 +1,17 @@
 This directory contains the use cases 
 for the next revision (V1.1) of the WoT architecture.
 
+Please put all your use cases into this directory adopting the format in <em>use-case-template.md</em>.
+
+Please avoid domain specific terminology, e.g. don't use MNO, telco. Better use network operator instead.
+
 # Stakeholders, actors and roles
 
 We use common terminology across the use cases to make sure 
 everybody has the same understanding and the descriptions match
 when we combine the use case in a single document.
 
-## Currently used in use case descriptions
-
-### Stakeholders/actors
+## Stakeholders amd actors
 
 device owners  
 device user  
@@ -21,54 +23,81 @@ network operator (potentially transparent for WoT use cases)
 identity provider  
 directory service operator?  
 
-Please avoid domain specific terminology, e.g. don't use MNO, telco. Better use network operator instead.
-
-Please put all your use cases into this directory adopting the format in <em>use-case-template.md</em>.
-
 ### Categories
 
 #### Retail
-Integrating and interconnecting multiple devices into the common retail workflow. 
-
+Integrating and interconnecting multiple devices into the common retail workflow.
 [Retail.md](retail.md)
 
-
 #### Audio/Video
-[]()
-media-information-references.md:## Title: Media Use Case Information Bucket
-[]()
-nhk-device-tv-sync.md:## Title: Home WoT devices work according to TV programs
+[Media Use Case Information Bucket](media-information-references.md)
+
+Synchronise Home WoT devices with TV program
+[nhk-device-tv-sync.md](nhk-device-tv-sync.md)
 
 #### Agriculture
-[]()
-smart-agriculture.md:## Title: Smart Agriculture (Greenhouse Horticulture)
+Smart Agriculture (Greenhouse Horticulture) to create an optimal environment for growing plants.
+[smart-agriculture.md](smart-agriculture.md)
 
 #### Smart City
-[]()
-smartcity-geolocation.md:## Title: Smart City Geolocation
+Managing mobile devices and sensors in a Smart City. 
+[smartcity-geolocation.md](smartcity-geolocation.md)
 
-#### Public Health
-[]()
-smartcity-health-monitoring.md:## Title: Public Health Monitoring
+Interactive Public Spaces
+[mmi-3-1_interactive-public-spaces.md](mmi-3-1_interactive-public-spaces.md)
 
-#### Smart Grid
+Meeting Room Event Assistance
+[mmi-3-2_meeting-room-event-assistance.md](mmi-3-2_meeting-room-event-assistance.md)
+
+#### Health
+##### Public Health
+Monitor the health of people in public places to
+control the spread of infectious diseases.
+[smartcity-health-monitoring.md](smartcity-health-monitoring.md)
+
+##### Private Health
+Health Notifiers
+[mmi-4-1_health-notifiers.md](mmi-4-1_health-notifiers.md)
+
+#### Manufacturing
+Monitoring production lines and plants and predicting and preventing fault conditions. 
+[big-data.md](big-data.md)
+
+#### Multi-Vendor System Integration 
+Analyze their physical assets to troubleshoot in real time, predict future problems, minimize downtime, and perform simulations.
+[Digital Twin](digital-twin.md)
+
+Multi vendor and protocol interoperability by communicating across different protocols. 
+[X-Protocol-Interworking.md](X-Protocol-Interworking.md)
+
+#### Multimodal System Integration
+
+Multimodal Recognition Support
+[mmi-5-1_multimodal-recognition-support.md](mmi-5-1_multimodal-recognition-support.md)
+
+Synergistic Interactions
+[mmi-5-2_enhancement-of-synergistic-interactions.md](mmi-5-2_enhancement-of-synergistic-interactions.md)
+
+#### Smart Home Accessibility
+Audiovisual Devices Acting as Smartphone Extensions
+[mmi-1-1_audiovisual-devices-as-smartphone-extensions.md](mmi-1-1_audiovisual-devices-as-smartphone-extensions.md)
+
+Unified Smart Home Control and Status
+[mmi-1-2_unified-smart-home-control-and-status.md](mmi-1-2_unified-smart-home-control-and-status.md)
+
+#### Automotive
+
+Smart Car Configuration Management
+[mmi-2-1_smart-car-configuration-management.md](mmi-2-1_smart-car-configuration-management.md)
+
+#### Energy / Smart Grid
 **PR available**
 []()
 
 #### Fleet Management
 **PR available**
+high level, needs more detail.
 []()
-
-#### Manufacturing
-big-data.md:## Title: Big Data for Manufacturing
-[]()
-
-#### Multi-Vendor System Integration
-[Digital Twin](digital-twin.md)
-
-#### Cross-protocol integration of data from devices across multiple vendors
-[Cross Protocol Interworking](X-Protocol Interworking.md)
-Examples: Smart city, factories, environment monitoring, smart home
 
 #### Data Streaming
 **Needs Contribution**
@@ -77,12 +106,3 @@ https://github.com/w3c/wot-architecture/issues/387
 #### Discovery
 **Needs Contribution**
 
-#### Accessibility
-mmi-1-1_audiovisual-devices-as-smartphone-extensions.md:## Title: Audiovisual Devices Acting as Smartphone Extensions
-mmi-1-2_unified-smart-home-control-and-status.md:## Title: Unified Smart Home Control and Status Interface
-mmi-2-1_smart-car-configuration-management.md:## Title: Smart Car Configuration Management
-mmi-3-1_interactive-public-spaces.md:## Title: Interactive Public Spaces
-mmi-3-2_meeting-room-event-assistance.md:## Title: Meeting Room Event Assistance
-mmi-4-1_health-notifiers.md:## Title: Health Notifiers
-mmi-5-1_multimodal-recognition-support.md:## Title: Multimodal Recognition Support
-mmi-5-2_enhancement-of-synergistic-interactions.md:## Title: Enhancement of Synergistic Interactions
