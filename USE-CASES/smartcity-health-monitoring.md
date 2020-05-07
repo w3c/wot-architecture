@@ -127,13 +127,25 @@ Additional features may be extracted to identify unique individuals.
   an app that notifies users when a destination is crowded) in a pandemic situation.
 * Cameras that provide video streams rather than still images.
 
+### Security Considerations:
+
+* Because PII is involved (see below) access should be controlled (only provided to authorized users) and communications protected (encrypted).
+
+### Privacy Considerations:
+
+* Images of people and their health status is involved.  
+   - If later these are made public then the health information of a particular person would be released publically. 
+   - There is also the possibility that the camera data could be in error, and should be confirmed with a more accurate sensor.
+   - This information needs to be treated as PII and protected: only distributed to authorized users, and deleted when no longer needed.  
+   - However, derived aggregate information can be kept and published.
+
 ### Gaps:
 
 * Onboarding mechanism for rapidly deploying a large number of devices
 * Standard vocabulary for geolocation information
 * Implementations able to handle image payload formats, possibly in combination with non-image data (eg images and JSON in a single response)
 * Video streaming support (if we wish to serve video stream from the camera instead of still images)
-* Standard ways to specify notification mechanisms and data payloads for things like SMS and email (in addition to the expected MQTT, CoAP, and HTTP event mechansisms)
+* Standard ways to specify notification mechanisms and data payloads for things like SMS and email (in addition to the expected MQTT, CoAP, and HTTP event mechanisms)
 
 ### Existing standards:
 
