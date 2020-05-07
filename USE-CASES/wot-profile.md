@@ -76,6 +76,7 @@ N/A
 
 ### Existing standards:
 
+various.
 
 ### Comments:
 
@@ -83,3 +84,7 @@ A strawman proposal for a profile specification has been submitted at: https://g
 
 An initial set of requirements is available here:
 https://github.com/w3c/wot-profile/edit/master/REQUIREMENTS/requirements.md
+
+
+Recommendations for commonalities and interoperability profiles of IoT platforms: 
+https://european-iot-pilots.eu/wp-content/uploads/2018/11/D06_02_WP06_H2020_CREATE-IoT_Final.pdf
