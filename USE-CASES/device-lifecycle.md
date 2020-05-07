@@ -1,4 +1,4 @@
-## Device Lifecycle
+## Title: Device Lifecycle
 
 ### Submitter(s): 
 

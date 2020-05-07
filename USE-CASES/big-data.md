@@ -27,12 +27,7 @@ Michael Lagally
 
 Device owners, cloud provider.
 
-
-<List all users that are involved in the use case, e.g. device manufacturer, gateway manufacturer, cloud provider>
-
 ### Motivation:
-
-<Provide a description of the problem that is solved by the use case and a reason why this use case is important for the users>
 
 Production lines for industrial manufacturing consist of multiple machines, where each machine incorporates sensors for various values.
 A failure of a single machine can cause defective products or a stop of the entire production. 
@@ -45,18 +40,16 @@ The results of this analysis can be used for optimizing consumption of raw mater
 ### Expected Devices:
 
 Various sensors, e.g. temperature, light, humidity, vibration, noise, air quality.
-<List the target devices, e.g. as a sensor, solar panel, air conditioner>
 
 ### Expected Data:
 
 Discrete sensor values, such as temperature, light, humidity, vibration, noise, air quality readings.
 The data can be delivered periodically or on demand.
  
-<List the type of expected data, e.g. weather and climate data, medical conditions, machine sensors, vehicle data>
-
 ### Dependencies:
 
-<List the affected WoT deliverables>
+Thing Description: groups of devices, aggregation / composition mechanism, thing templates
+Discovery/Onboarding: Onboarding of groups of devices
 
 ### Description:
 
@@ -74,9 +67,6 @@ For this purpose a set of rules can be defined by the user, which raises alerts 
 
 This enables the early detection of pending problems and reduces the risk of machine outages, quality problems or threats to the environment or life of humans.
 
-
-<Provide a description from the users perspective>
-
 #### Variants:
 
 <Describe possible use case variants, if applicable>
@@ -90,5 +80,7 @@ This enables the early detection of pending problems and reduces the risk of mac
 <Provide links to relevant standards that are relevant for this use case>
 
 ### Comments:
+
+See also Digital Twin use case.
 
 

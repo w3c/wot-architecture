@@ -1,4 +1,4 @@
-## Unified Smart Home Control and Status Interface
+## Title: Unified Smart Home Control and Status Interface
 
 ### Submitter(s): 
 

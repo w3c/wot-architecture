@@ -32,8 +32,6 @@ Hiroshi Fujisawa
 
 Person watching TV, Broadcasters
 
-<List all users that are involved in the use case, e.g. device manufacturer, gateway manufacturer, cloud provider>
-
 ### Motivation:
 
 <Provide a description of the problem that is solved by the use case and a reason why this use case is important for the users>
@@ -59,14 +57,11 @@ WoT devices work according to TV programs:
 - Cleaning Robot
 - Smart Light (such as Philips Hue)
 - Smart Mirror
-<List the target devices, e.g. as a sensor, solar panel, air conditioner>
 
 ### Expected Data:
 
 The trigger value of the scene of the TV program.
 Hybridcast connect application know the Thing Description of the devices in home. (Discovery?)
- 
-<List the type of expected data, e.g. weather and climate data, medical conditions, machine sensors, vehicle data>
 
 ### Dependencies:
 
@@ -83,9 +78,6 @@ Hybridcast Contact application receives the information and controlls smart home
 
 ![scenario_nhk](images/scenario_nhk.png)
 
-
-<Provide a description from the users perspective>
-
 #### Variants:
 
 <Describe possible use case variants, if applicable>
@@ -100,8 +92,6 @@ Hybridcast and Hybridcast Connect: a Japanese Integrated Broadcast-Broadband sys
 HbbTV, 
 ATSC 3.0, 
 ...etc.
-
-<Provide links to relevant standards that are relevant for this use case>
 
 ### Comments:
 

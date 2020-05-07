@@ -1,10 +1,12 @@
 ## Title: Media Use Case Information Bucket
 
 
-This documetn is not a full use case description. It is rather a collection of 
-thoughts and ideas to capture information and provide refercnes and have a common discussion basis.
+This document is not a full use case description. It is rather a collection of 
+thoughts and ideas to capture information and provide references and have a common discussion basis.
 
 The intention is to trigger new ideas and collect them in a single document at this point.
+
+The document is work in progress.
 
 ### Submitter(s): 
 
@@ -61,8 +63,6 @@ The intention is to trigger new ideas and collect them in a single document at t
 
 ### Description:
 
-<Provide a description from the users perspective>
-
 * Sync of media across different devices:
 - people in different homes watch the same content at the same time. Conversation about content.
 - Multi-room sync playback
@@ -83,8 +83,7 @@ Describe proprietary (vendor specific) device control interfaces to control medi
 ### Existing standards & related information:
 
 <Provide links to relevant standards that are relevant for this use case>
-There are MANY TV standards and this would be a long list. Rather leave blank 
-unless a very specific standard provides more insight.
+There are MANY TV standards and this would be a long list. Rather leave blank unless a very specific standard provides more insight.
 
 ### Comments:
 
