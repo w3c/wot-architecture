@@ -3,9 +3,9 @@ for the next revision (V1.1) of the WoT architecture.
 
 # Stakeholders, actors and roles
 
-We have to use common terminology across the use cases to make sure 
-everybod has the same understanding and the descriptions match,
-when we combine the use case in a document.
+We use common terminology across the use cases to make sure 
+everybody has the same understanding and the descriptions match
+when we combine the use case in a single document.
 
 ## Currently used in use case descriptions
 
@@ -21,59 +21,68 @@ network operator (potentially transparent for WoT use cases)
 identity provider  
 directory service operator?  
 
-Please avoid domain specific terminology, e.g. MNO, telco. Rather use network operator.
-
-<snip - consider to remove the section below>
-# Roles
-
-
-
-Manufacturer
-Service Provider
-Device Owner (User)
-Others?
-
-# Stakeholders 
-represent a physical person or group of persons (company)
-could be categorized per OSI layer model, consider top 3-4 categories (application, presentation, session, transport)
-
-Align with Security document
-
-Different roles:
-e.g. security maintainer
-Roles can be delegated
-Depending on the use case, an actor can have multiple roles
-</snip>
-
-
-
+Please avoid domain specific terminology, e.g. don't use MNO, telco. Better use network operator instead.
 
 Please put all your use cases into this directory adopting the format in <em>use-case-template.md</em>.
 
-### Initial set of use cases:
-- Cloud / Big Data
-https://github.com/w3c/wot-architecture/blob/master/USE-CASES/big-data.md
+### Categories
 
-- Thing Directory / Discovery
+#### Retail
+Integrating and interconnecting multiple devices into the common retail workflow. 
 
-- Data Streaming
+[Retail.md](retail.md)
+
+
+#### Audio/Video
+[]()
+media-information-references.md:## Title: Media Use Case Information Bucket
+[]()
+nhk-device-tv-sync.md:## Title: Home WoT devices work according to TV programs
+
+#### Agriculture
+[]()
+smart-agriculture.md:## Title: Smart Agriculture (Greenhouse Horticulture)
+
+#### Smart City
+[]()
+smartcity-geolocation.md:## Title: Smart City Geolocation
+
+#### Public Health
+[]()
+smartcity-health-monitoring.md:## Title: Public Health Monitoring
+
+#### Smart Grid
+**PR available**
+[]()
+
+#### Fleet Management
+**PR available**
+[]()
+
+#### Manufacturing
+big-data.md:## Title: Big Data for Manufacturing
+[]()
+
+#### Multi-Vendor System Integration
+[Digital Twin](digital-twin.md)
+
+#### Cross-protocol integration of data from devices across multiple vendors
+[Cross Protocol Interworking](X-Protocol Interworking.md)
+Examples: Smart city, factories, environment monitoring, smart home
+
+#### Data Streaming
+**Needs Contribution**
 https://github.com/w3c/wot-architecture/issues/387
 
-- Audio/Video
-https://github.com/w3c/wot-architecture/issues/8
+#### Discovery
+**Needs Contribution**
 
-- Accessibility  
-  Providing accessible interfaces to devices
-
-- Life Companion
-  Integrate multiple devices and services to automate parts of the user's life 
-  (e.g. morning routine, support aged people, accessibility)
-
-- Multi-Vendor system integration  
-  E.g. building management system integrating devices from multiple manufacturers (HVAC control)
-
-- Cross-protocol integration of data from devices across multiple vendors
-   Examples: Smart city, factories, environment onitoring, smart home
-   
-- Fleet management
-   Assets are moving across locations and networks, geofencing
+#### Accessibility
+mmi-1-1_audiovisual-devices-as-smartphone-extensions.md:## Title: Audiovisual Devices Acting as Smartphone Extensions
+mmi-1-2_unified-smart-home-control-and-status.md:## Title: Unified Smart Home Control and Status Interface
+mmi-2-1_smart-car-configuration-management.md:## Title: Smart Car Configuration Management
+mmi-3-1_interactive-public-spaces.md:## Title: Interactive Public Spaces
+mmi-3-2_meeting-room-event-assistance.md:## Title: Meeting Room Event Assistance
+mmi-4-1_health-notifiers.md:## Title: Health Notifiers
+mmi-5-1_multimodal-recognition-support.md:## Title: Multimodal Recognition Support
+mmi-5-2_enhancement-of-synergistic-interactions.md:## Title: Enhancement of Synergistic Interactions

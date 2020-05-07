@@ -1,7 +1,7 @@
 ## Title: Media Use Case Information Bucket
 
 
-This documetn is not a full use case description. It is rather a collection of 
+This document is not a full use case description. It is rather a collection of 
 thoughts and ideas to capture information and provide refercnes and have a common discussion basis.
 
 The intention is to trigger new ideas and collect them in a single document at this point.
