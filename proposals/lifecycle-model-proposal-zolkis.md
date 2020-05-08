@@ -26,10 +26,14 @@ The latter seems to be the main topic of the discussion.
 The main stakeholders are inherited from native protocols, which in turn are trying to solve the same use cases as the other protocols and therefore use stakeholder and state names that enable establishing a common terminology:
 - _manufacturer_
 - "vendor" or "service provider" or "site" or "solution provider", perhaps _provider_ being the best
-- _application_ (from the native protocols context)
-- _WoT application_ (e.g. a WoT script)
 - end user (aka _user_)
 - eventually _regulator_ (state, certification body, etc).
+
+In addition, some non-human actors:
+-  _application_ (from the native protocols context; for instance WoT is an application for OCF);
+- _WoT application_, e.g. a WoT script
+- _cloud application_, e.g. a distributed database system that may require certain identification schemes and will affect device provisioning.
+
 
 ### Candidate state names
 From WoT point of view, IMHO the following states make most sense:
