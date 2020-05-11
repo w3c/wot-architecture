@@ -69,6 +69,29 @@ by providing real-time visibility into worker status, location, and work environ
 
 - Use edge computing, in particular video analytics, in combination with IoT devices to deliver an enhanced 
   customer experience, better manage inventory, or otherwise improve the store workflow.
+  
+### Security Considerations:
+ 
+- Use the latest known industry standards for securing data at rest and over communication.
+  Always encrypt data.
+- Do not roll your own encryption algorithm.
+  Make sure to use well known open algorithms well vetted by industry experts.
+- Secure encryption keys. 
+  Whenever possible, have the WoT device build secure memory.
+  WoT Things generating identification data such as video, photograph, or other forms of passive biometrics,
+  should take special attention to create Things that are tamper proof.
+- Tamper proof in the WoT context means a layered security approach.
+  If an attacker gains physical access to the device or sensor, that alone should not represent access to private keys.
+
+### Privacy Considerations:
+ 
+As a general rule, personal consumer information should not be stored.
+That is especially true in the retail industry where a security breach could cause financial, reputation, and brand damage.
+If personal or information that can identify a consumer is to be stored,
+it should be to conduct business and with the explicit acknowledgment of the consumer.
+WoT vendors and integrators should always have a privacy policy and make it easily available.
+By default, devices should adopt an opt-out policy.
+That means, unless the consumer explicitly allowed for the data capture and storage, avoid doing it.
 
 ### Gaps:
 
