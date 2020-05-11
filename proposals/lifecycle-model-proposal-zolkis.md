@@ -42,7 +42,8 @@ From WoT point of view, IMHO the following states make most sense:
 - `Operational in [protocol name]`
 - `Non-operational due to maintenance in [protocol name]`
 (it may be under maintenance _and_ being operational, which needs no special handling)
-- `Operational for WoT`
+- `Operational for WoT` (an aspect of Operational)
+- `WoT maintenance` (an aspect of Maintenance; note that some updates may be possible in WoT Operational state, which needs no special handling)
 - `Destroyed` or `Permanently Disabled`: the device is physically destroyed and can never be used again. May not have a corresponding state in native protocols.
 
 ### Information needed in each state
@@ -74,9 +75,12 @@ IMHO we need the following information for each WoT state name candidate:
 
 **Previous state** (in normal provisioning flow): none
 **Preceding states** (reverse flow: from which states can revert to Manufactured state): any state except Destroyed
-**Next states**: Bootstrapped/Onboarded
-**Relationship** (why to change state):
+**Next states**: `Bootstrapped/Onboarded`, `Destroyed/Permanently disabled`
+**Relationship** (why to change state to Bootstrapped):
   - onboard the device in order to be usable by a provider (or to re-badge by vendor).
+
+**Relationship** (why to change state to Destroyed):
+  - destroy all data and make the device never usable again.
 
 **Actor** who triggers next state transition: provider/vendor, based on native built-in mechanisms and protocols.
 
@@ -104,6 +108,7 @@ This state may be skipped from WoT point of vew.
 
 **Relationship** (why to change state to Manufactured):
   - "offboarding" the device, i.e. reset to factory defaults
+  - data that is not specific to Manufactured state should be deleted
 
 **Actor** who triggers next state transition: provider/vendor or user, based on native built-in mechanisms and protocols.
 
@@ -165,9 +170,11 @@ This state may be skipped from WoT point of vew.
 
 **Relationship** (why to change state to Onboarded):
   - decommissioning the device, i.e. change solution or user but stay under the same owner (provider or user).
+  - data that is not specific to Onboarded state should be deleted
 
 **Relationship** (why to change state to Manufactured):
   - "offboarding" the device, i.e. reset to factory defaults
+  - data that is not specific to Manufactured state should be deleted
 
 **Relationship** (to the "Maintenance for WoT" aspect):
   - install WoT servient, bootstrap WoT services (it is still Maintenance state).
@@ -198,12 +205,15 @@ This state may be skipped from WoT point of vew.
 **Next states**: Maintenance for WoT, Maintenance, Operational for native protocol, Onboarded (de-commission), Manufactured (reset to factory defaults)
 **Relationship** (why to change state to Maintenance for WoT):
   - run the WoT mechanisms for WoT-specific service update (e.g. for Thing Directory) or reconfiguration or re-provisioning that requires stopping the WoT interfaces on the device).
+  - Note that those updates that do not require stopping WoT services may be done in `Operational for WoT` state.
 
 **Relationship** (why to change state to Maintenance):
   - run the native mechanisms for SW update or reconfiguration or re-provisioning that requires stopping the normal operation of the device, including eventual rebooting).
+  - in case of removing WoT, all WoT-specific data must be deleted.
 
 **Relationship** (why to change state to Operational):
   - stop WoT services and eventually remove WoT servient without interrupting native external interfaces.
+  - in case of removing WoT, all WoT-specific data must be deleted.
 
 **Actor** who triggers next state transition: provider/vendor or user, based on native built-in mechanisms and protocols.
 
@@ -232,10 +242,11 @@ This state may be skipped from WoT point of vew.
 **Next states**: Operational for WoT, Maintenance
 
 **Relationship** (why to change state to Operational for WoT):
-  - an aspect of Maintenance to Operational state transition: run the WoT external interfaces)
+  - an aspect of Maintenance to Operational state transition: start running the WoT external interfaces)
 
 **Relationship** (why to change state to Maintenance):
   - remove the WoT servient
+  - in case of removing WoT, all WoT-specific data must be deleted.
 
 **Actor** who triggers next state transition: provider/vendor or user, based on native built-in mechanisms and protocols.
 
@@ -249,7 +260,7 @@ This state may be skipped from WoT point of vew.
 - OCF: not explicitly defined
 
 **Actor** responsible to get to this state: provider/vendor or user, enforcement agent
-**Data**: none (all data destroyed).
+**Data**: none (all data must be destroyed, so that data recovery is not possible from the device).
 **Capabilities**: none
 **Previous state**: any
 **Preceding states**: any
