@@ -8,21 +8,18 @@ This proposal is assembled based on:
 
 A `native protocol` or `underlying protocol` in this document refers to an IoT protocol on which WoT can operate through protocol bindings, such as CoAP, OCF, MQTT, OneM2M, Lightweight M2M, Anima, OPC-UA, HTTP, WSS etc.
 
-
 ### Key Requirements
-
-1. WoT should be able to _describe the operational mode_ of the underlying device and protocol(s). For WoT to work, the precondition is that device must be operational in its native protocol domain. Once the underlying device and protocols are operational, there are two options to use it with WoT:
-- consume the device by creating a TD with native protocol bindings
+1. WoT should be able to _describe the operational mode_ of the underlying device and protocol(s). For WoT to work, the precondition is that device must be operatioTnal in its native protocol domain. Once the underlying device and protocols are operational, there are two options to use it with WoT:
+- consume the device by creating a Thing Description (TD) with native protocol bindings
 - install WoT servient on the device and expose/consume Things.
 2. For management use cases, WoT should be able to _describe the state_ in which the underlying native protocol stack is (for management use cases) even if that is not the operational state (in which WoT is directly interested). This can be done in two ways:
-  - either _exposing the native state names transparently_, i.e. we don't defines names for those states in Wot,
+  - either _exposing the native state names transparently_, i.e. we don't define names for those states in WoT,
   - or _mapping_ them to generalized WoT state names.
 The latter seems to be the main topic of the discussion.
 3. WoT should be able to _describe the security model_ of the device (in any state) as security is one of the key aspects during IoT device lifecycle. Since different protocols might use different terminology, a mapping of terms used in WoT is needed to be included.
 4. WoT may want to be also able to _describe state transitions_, especially what needs to be done to a device to bring it to operational state in its native protocol domain. An attempt on this is made in this document.
 
 ### Candidate stakeholder names
-
 The main stakeholders are inherited from native protocols, which in turn are trying to solve the same use cases as the other protocols and therefore use stakeholder and state names that enable establishing a common terminology:
 - _manufacturer_
 - "vendor" or "service provider" or "site" or "solution provider", perhaps _provider_ being the best
@@ -47,7 +44,6 @@ From WoT point of view, IMHO the following states make most sense:
 - `Destroyed` or `Permanently Disabled`: the device is physically destroyed and can never be used again. May not have a corresponding state in native protocols.
 
 ### Information needed in each state
-
 IMHO we need the following information for each WoT state name candidate:
 - the corresponding state in native protocols (e.g. CoAP/OCF, MQTT, OneM2M, LwM2M, OPC-UA/Anima, ...)
 - why the state is needed in the native protocol, i.e. what is the use case (relationship)
@@ -59,7 +55,6 @@ IMHO we need the following information for each WoT state name candidate:
 - possible _previous_ states + stakeholders + conditions that control the state transition (in direct provisioning flow)
 - possible _preceding_ states (in reverse flow: from which states can we revert to the current state)
 - possible next states + stakeholders+conditions that control the state transition.
-
 
 ### Manufactured state
 **Why**: device is manufactured and flashed with a SW image. Possibly certified (e.g. in OCF it runs in a special mode that only allows onboarding).
@@ -130,7 +125,12 @@ This state may be skipped from WoT point of vew.
 - external interfaces: native mechanisms.
 
 **Previous state**: Onboarded
-**Preceding states**: Onboarded, Maintenance
+**Preceding states**: Onboarded, MaintenanceD1: Onboarding: identity, ownership, provisioning/configuration servers. 
+D2: Provisioning/configuration for protocols and services.
+D3: Stop services for maintenance (SW and/or data). 
+R1: Resume services after maintenance. Data updated.
+R2: Factory reset. All data other than Manufactured-specific is deleted.
+R3: Destroy the device. All data deleted, no recovery possible.
 **Next states**: Maintenance, Onboarded (de-commission, not needing going through Maintenance state), Manufactured (reset to factory defaults without going to Maintenance state first)
 **Relationship** (why to change state to Maintenance):
   - run the native mechanisms for SW update or reconfiguration or re-provisioning that requires stopping the external interfaces and/or normal operation of the device, including eventual rebooting).
