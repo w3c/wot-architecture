@@ -71,17 +71,17 @@ by providing real-time visibility into worker status, location, and work environ
   customer experience, better manage inventory, or otherwise improve the store workflow.
   
 ### Security Considerations:
- 
-- Use the latest known industry standards for securing data at rest and over communication.
-  Always encrypt data.
-- Do not roll your own encryption algorithm.
-  Make sure to use well known open algorithms well vetted by industry experts.
-- Secure encryption keys. 
-  Whenever possible, have the WoT device build secure memory.
-  WoT Things generating identification data such as video, photograph, or other forms of passive biometrics,
-  should take special attention to create Things that are tamper proof.
-- Tamper proof in the WoT context means a layered security approach.
-  If an attacker gains physical access to the device or sensor, that alone should not represent access to private keys.
+
+- In retail, replay attacks can cause monetary loss, customers may be incorrectly charged or over-charged.
+- To avoid replay attacks, "Things" should implement a sequence number for each message and digital signature.
+- Servers ("Things" or "Cloud") should verify the signature and disallow for duplicated messages.
+- For "Things" relying on electronic payments, "Things" must comply with PCI-DSS requirements.
+- "Things" must never store credit card information.
+- Customer satisfaction and trust depends on availability, so attacks such as Denial-of-Service (DoS) need to be prevented or mitigated.
+- To prevent DoS, implement "Things" with early DoS detection.
+- Have an automated DoS system that will notify the controlling unit of the problem.
+- Implement IP white list, that could be part of the DoS early detection system.
+- Make sure your network perimeter is defended with up to date firewall software.
 
 ### Privacy Considerations:
  
