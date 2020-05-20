@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="tablestyle.css">
+<title>Web of Things (WoT): Use Cases and Requirements</title>
+<script class="remove"
+    src="https://www.w3.org/Tools/respec/respec-w3c-common"></script>
+<script class="remove">
+	var respecConfig = {
+		lint : {
+			"no-headingless-sections" : false,
+		},
+		specStatus : "ED",
+		noRecTrack : "true",
+		maxTocLevel : 6,
+		processVersion : 2017,
+		shortName : "wot-use-cases-requirements",
+		copyrightStart : 2018,
+		<!-- wg : "Web of Things Working Group",-->
+		wgURI : "https://www.w3.org/WoT/WG/",
+		<!-- wgPublicList : "public-wot-wg", -->
+		edDraftURI : "https://w3c.github.io/wot-use-cases/",
+		githubAPI : "https://api.github.com/repos/w3c/wot-use-cases/",
+		issueBase : "https://www.github.com/w3c/wot-use-cases//issues",
+		editors : [ {
+			name : "Michael Lagally",
+			w3cid : "47166",
+			company : "Oracle Corp.",
+			companyURL : "https://www.oracle.com/"
+		},
+		{
+			name : "NN1",
+			w3cid : "",
+			company : "",
+			companyURL : ""
+		},
+		{
+			name : "NN2",
+			w3cid : "",
+			company : "",
+			companyURL : ""
+		}],
+
+		otherLinks : [
+				{
+					key : "Contributors",
+					data : [ {
+						value : "In the GitHub repository",
+						href : "https://github.com/w3c/wot-security/graphs/contributors"
+					} ]
+				}, {
+					key : "Repository",
+					data : [ {
+						value : "We are on GitHub",
+						href : "https://github.com/w3c/wot-profile/"
+					}, {
+						value : "File a bug",
+						href : "https://github.com/w3c/wot-profile/issues"
+					}, {
+						value : "Contribute",
+						href : "https://github.com/w3c/wot-profile/pulls"
+					} ]
+				} ],
+		localBiblio : {
+			"JSON-SCHEMA" : {
+				title : "JSON Schema Validation: A Vocabulary for Structural Validation of JSON",
+				href : "https://tools.ietf.org/html/draft-handrews-json-schema-validation-01",
+				authors : [ "Austin Wright", "Henry Andrews", "Geraint Luff" ],
+				status : "Internet-Draft",
+				date : "19 March 2018",
+				publisher : "IETF"
+			},
+			"ISO-6709" : {
+				title : "ISO-6709:2008 : Standard representation of geographic point location by coordinates",
+				href : "https://www.iso.org/standard/39242.html",
+				status : "Published",
+				date : "2008-07",
+				publisher : "ISO"
+			},
+
+		}
+	};
+</script>
+</head>
+<body>
+	<section id="abstract">
+		<p>
+			The Web of Things is applicable to multiple IoT domains,
+			including Smart Home, Industrial, Smart City, Retail, and Health
+			applications, where usage of the W3C WoT standards can simplify the
+			development of IoT systems that combine devices from multiple vendors
+			and ecosystems.
+			During the last charter period of the WoT Working Group several 
+			specifications were developed to address requirements for
+			these domains.
+		</p>
+		<p>
+			This Use Case and Requirements Document is created
+			to collect new IoT use cases from various domains
+			that have been contributed by various stakeholders.
+			These serve as a baseline for identifying requirements 
+			for the standardisation work in the W3C WoT groups.
+		</p>
+	</section>
+	<section id="sotd">
+	</section>
+	<section id="intro">
+		<h2>Introduction</h2>
+		<p>
+			The World Wide Web Consortium (W3C) has published the Web of Things
+			(WoT) Architecture and Web of Things (WoT) Thing Description (TD) as
+			official W3C Recommendations in May 2020. These specifications enable
+			easy integration across Internet of Things platforms and applications.
+		</p>
+        <p>The W3C Web of Thing Architecture [[wot-architecture]] defines an
+            abstract architecture, the WoT Thing Description [[wot-thing-description]] 
+            defines a format to describes a broad spectrum of very different devices, 
+            which may be connected over various protocols.
+         </p>
+         <p>
+            During the inception phase of the WoT 1.0 specifications in 2017-2018
+            the WoT IG collected use cases and requirements to enable 
+            interoperability of Internet of Things (IoT) 
+			services on a worldwide basis.
+            Thes released specifications have been created to address the 
+            use cases and requirements for the first version of the WoT specifications,
+            which are documented in <a href="https://w3c.github.io/wot/ucr-doc/">
+            https://w3c.github.io/wot/ucr-doc/</a>
+            
+		<p>
+			The present document gathers and describes new use cases and requirements
+			for future standardisation work in the WoT standard.
+		</p>
+		   <section id="structure" class="ednote">TODO: Describe document structure,
+		   template headings, ...</section>
+
+		   <section id="domains" class="ednote">TODO: Domain Overview</section>
+		
+	</section>
+	<section id="definitions">
+		<h2>Definitions: Terminology, Stakeholders and Actors</h2>
+			<section id="terminology">
+			<h2>Terminology</h2>
+				The present document uses the terminology as the WoT Architecture [[wot-architecture]].
+		   <section id="new-terminology" class="ednote">TODO: Define additional terminology.</section>
+		   </section>
+		   <section id="stakeholders">
+				<h2>Stakeholders</h2>
+		   <section id="stakeholders" class="ednote">TODO: Describe stakeholder roles and tasks.</section>
+				<ul>
+					<li>device owners</li>
+					<li>device user</li>
+					<li>cloud provider</li>
+					<li>service provider</li>
+					<li>device manufacturer</li>
+					<li>gateway manufacturer</li>
+					<li>identity provider</li>
+					<li>directory service operator?</li>
+				</ul>				
+			</section>
+					
+	</section>
+	<section id="use-cases">
+		<h2>Use Cases</h2>
+		<section id="domains">
+	        <h2>Application Domains</h2>
+		    <section id="domains" class="ednote">TODO: Align / revisit domains with architecture document.</section>
+	        	           
+           <!-- Domains in the architecture document: -->
+           
+            <section id="smart-home">
+                <h3>Smart Home</h3>
+            </section>
+            
+            <section id="industrial">
+                <h3>Industrial</h3>
+             </section>
+             
+            <section id="transportation">
+                <h4 id="transportation">Transportation</h4>
+            </section>
+            
+            <section id="logistics">
+                <h4 id="logistics">Logistics</h4>
+            </section>
+
+            <section id="manufacturing">
+                <h4 id="manufacturing">Manufacturing</h4>
+            </section>
+
+            <section id="retail">
+                <h4 id="retail">Retail</h4>
+            </section>
+
+            <section id="sec-broadcast">
+                <h4 id="broadcast">Broadcast</h4>
+            </section>
+            
+            <section id="energy">
+                <h4 id="energy">Energy</h4>
+            </section>
+            
+            <section id="fleetmanagement">
+                <h4 id="fleetmanagement">Fleet Management</h4>
+            </section>
+            
+            <section id="agriculture">
+                <h3 id="agriculture">Agriculture</h3>
+            </section>
+            
+            <section id="smart-city">
+                <h3 id="smartcity">Smart City</h3>
+            </section>
+            
+            <section id="sec-smart-buildings">
+                <h3 id="smartbuildings">Smart Buildings</h3>
+            </section>
+                         
+            <section id="health">
+                <h3 id="health">Health</h3>
+            </section>
+        
+            <!--   section id="sec-utilities">
+                <h4 id="utilities">Utilities</h4>
+            </section>
+            
+            <section id="sec-oilandgas">
+                <h4 id="oilandgas">Oil and Gas</h4>
+            </section>
+            
+            <section id="sec-insurance">
+                <h4 id="insurance">Insurance</h4>
+            </section>
+            
+            <section id="sec-engineering-and-construction">
+                <h4 id="engineering-and-construction">Engineering
+                    and Construction</h4>
+            </section>
+            -->
+            
+            <section id="sec-healthcare">
+                <h3 id="healthcare">Healthcare</h3>
+            </section>
+            
+            <section id="sec-environmentmonitoring">
+                <h3 id="environmentmonitoring">Environment
+                    Monitoring</h3>
+            </section>
+            
+            <section id="automotive">
+                <h3 id="automotive">Automotive</h3>
+            </section>
+
+            <section id="other">
+                <h3 id="other">Cross domain</h3>
+            	<section id="accessibility">
+                	<h3 id="other">Accessibility</h3>
+                </section>
+            </section>
+
+
+
+<!--
+## Categories of new use cases 
+See: https://github.com/w3c/wot-architecture/blob/master/USE-CASES/README.md
+
+
+### Retail
+Integrating and interconnecting multiple devices into the common retail workflow.
+[Retail.md](retail.md)
+
+### Audio/Video
+[Media Use Case Information Bucket](media-information-references.md)
+
+Synchronise Home WoT devices with TV program
+[nhk-device-tv-sync.md](nhk-device-tv-sync.md)
+
+### Agriculture
+Smart Agriculture (Greenhouse Horticulture) to create an optimal environment for growing plants.
+[smart-agriculture.md](smart-agriculture.md)
+
+### Smart City
+Managing mobile devices and sensors in a Smart City. 
+[smartcity-geolocation.md](smartcity-geolocation.md)
+
+Interactive Public Spaces
+[mmi-3-1_interactive-public-spaces.md](mmi-3-1_interactive-public-spaces.md)
+
+Meeting Room Event Assistance
+[mmi-3-2_meeting-room-event-assistance.md](mmi-3-2_meeting-room-event-assistance.md)
+
+### Health
+#### Public Health
+Monitor the health of people in public places to
+control the spread of infectious diseases.
+[smartcity-health-monitoring.md](smartcity-health-monitoring.md)
+
+#### Private Health
+Health Notifiers
+[mmi-4-1_health-notifiers.md](mmi-4-1_health-notifiers.md)
+
+### Manufacturing
+Monitoring production lines and plants and predicting and preventing fault conditions. 
+[big-data.md](big-data.md)
+
+#### Multi-Vendor System Integration 
+Analyze their physical assets to troubleshoot in real time, predict future problems, minimize downtime, and perform simulations.
+[Digital Twin](digital-twin.md)
+
+Multi vendor and protocol interoperability by communicating across different protocols. 
+[X-Protocol-Interworking.md](X-Protocol-Interworking.md)
+
+### Multimodal System Integration
+
+Multimodal Recognition Support
+[mmi-5-1_multimodal-recognition-support.md](mmi-5-1_multimodal-recognition-support.md)
+
+Synergistic Interactions
+[mmi-5-2_enhancement-of-synergistic-interactions.md](mmi-5-2_enhancement-of-synergistic-interactions.md)
+
+### Smart Home Accessibility
+Audiovisual Devices Acting as Smartphone Extensions
+[mmi-1-1_audiovisual-devices-as-smartphone-extensions.md](mmi-1-1_audiovisual-devices-as-smartphone-extensions.md)
+
+Unified Smart Home Control and Status
+[mmi-1-2_unified-smart-home-control-and-status.md](mmi-1-2_unified-smart-home-control-and-status.md)
+
+### Automotive
+
+Smart Car Configuration Management
+[mmi-2-1_smart-car-configuration-management.md](mmi-2-1_smart-car-configuration-management.md)
+
+### Energy / Smart Grid
+**PR available**
+[]()
+
+### Fleet Management
+**PR available**
+high level, needs more detail.
+[]()
+
+### Data Streaming
+**Needs Contribution**
+https://github.com/w3c/wot-architecture/issues/387
+
+### Discovery
+**Needs Contribution**
+
+		
+Domains from the 1.0 UC document 
+		
+		<section id="domain-home_automation">
+			<h3>Domain: home automation</h3>
+			<section id="building-automation">
+			</section>
+			<section id="adaptive-building">
+			</section>
+			<section id="washing-machine">
+			</section>
+			<section id="integrated-home-automation">
+			</section>
+			<section id="Smart_home">
+			</section>
+			<section id="intelligent-hotel-room">
+			</section>
+		</section>
+		<section id="domain-logistics">
+			<h3>Domain: logistics</h3>
+		</section>
+		<section id="domain-manufacturing">
+			<h3>Domain: manufacturing</h3>
+			<section id="shift-of-function">
+			</section>
+			<section id="automation-factories">
+			</section>
+			<section id="smart-maintenance">
+			</section>
+			<section id="lifecycle-management">
+			</section>
+		</section>
+		<section id="domain-smart_grids">
+			<h3>Domain: smart grids</h3>
+			<section id="vpp">
+			</section>
+		</section>
+		<section id="domain-transportation">
+			<h3>Domain: transportation</h3>
+			<section id="emobility">
+			</section>
+		</section>
+		<section id="domain-smart_cities">
+			<h3>Domain: smart cities</h3>
+			<section id="flood-monitoring">
+			</section>
+		</section>
+		<section id="domain-healthcare_and_medical">
+			<h3>Domain: healthcare and medical</h3>
+			<section id="health-monitoring">
+			</section>
+			<section id="ecg">
+			</section>
+		</section>
+		<section id="cross-domain">
+			<h3>Domain: Cross Domain</h3>
+		</section>
+		<section id="domain-other">
+			<h3>Domain: other</h3>
+			<section id="device-management">
+			</section>
+			
+			-->
+			
+			
+			
+		</section>
+	</section>
+
+	<section id="requirements">
+		<h2>Requirements</h2>
+		<section id="functional">
+			<h2>Functional Requirements</h2>
+			<section id="arch">
+				<h2>Architecture</h2>
+			</section>
+			<section id="td">
+				<h2>Thing Description</h2>
+			</section>
+			<section id="profiles">
+				<h2>Thing Description Profiles</h2>
+			</section>
+			<section id="binding-templates">
+				<h2>Binding Templates</h2>
+			</section>
+			<section id="scripting">
+				<h2>Scripting</h2>
+			</section>
+			<section id="discovery">
+				<h2>Discovery</h2>
+			</section>
+			<section id="new-building-blocks">
+				<h2>New Building Blocks</h2>
+			</section>
+		</section>
+		<section id="non-functionals">
+			<h2>Non-Functional Requirements</h2>
+			<section id="security-privacy">
+				<h2>Security and Privacy</h2>
+			</section>
+		</section>
+	</section>
+</body>
+</html>
