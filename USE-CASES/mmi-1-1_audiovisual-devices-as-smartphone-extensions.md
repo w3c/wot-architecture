@@ -1,4 +1,4 @@
-## Audiovisual Devices Acting as Smartphone Extensions
+## Title: Audiovisual Devices Acting as Smartphone Extensions
 
 ### Submitter(s): 
 

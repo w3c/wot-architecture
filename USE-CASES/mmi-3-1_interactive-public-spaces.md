@@ -1,4 +1,4 @@
-## Interactive Public Spaces
+## Title: Interactive Public Spaces
 
 ### Submitter(s): 
 

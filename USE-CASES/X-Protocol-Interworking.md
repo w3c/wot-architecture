@@ -5,7 +5,7 @@ Michael Lagally
 
 ### Reviewer(s):
 
-<Suggest reviewers>
+Ege Korkan, Michael McCool, Michael Koster, Sebastian Käbisch
 
 ### Tracker Issue ID:
 
@@ -28,7 +28,7 @@ Device owners, cloud providers.
 
 ### Motivation:
 
-In home and industrial scenarios various devices are connected to a common network. These devices implement different protocols. To enable interoperability, an "agent" needs to communicate across different protocols. Platforms for this agent can be edge devices, gateways or cloud services.
+In smart city, home and industrial scenarios various devices are connected to a common network. These devices implement different protocols. To enable interoperability, an "agent" needs to communicate across different protocols. Platforms for this agent can be edge devices, gateways or cloud services.
 
 Interoperability across protocols is a must for all user scenarios that integrate devices from more than one protocol.
 

@@ -1,15 +1,17 @@
 This directory contains the use cases 
 for the next revision (V1.1) of the WoT architecture.
 
-# Stakeholders, actors and roles
+Please put all your use cases into this directory adopting the format in <em>use-case-template.md</em>.
 
-We have to use common terminology across the use cases to make sure 
-everybod has the same understanding and the descriptions match,
-when we combine the use case in a document.
+Please avoid domain specific terminology, e.g. don't use MNO, telco. Better use network operator instead.
 
-## Currently used in use case descriptions
+# Terminology
 
-### Stakeholders/actors
+We use common terminology across the use cases to make sure 
+everybody has the same understanding and the descriptions match
+when we combine the use case in a single document.
+
+## Stakeholders and actors
 
 device owners  
 device user  
@@ -21,59 +23,86 @@ network operator (potentially transparent for WoT use cases)
 identity provider  
 directory service operator?  
 
-Please avoid domain specific terminology, e.g. MNO, telco. Rather use network operator.
+## Categories
 
-<snip - consider to remove the section below>
-# Roles
+### Retail
+Integrating and interconnecting multiple devices into the common retail workflow.
+[Retail.md](retail.md)
 
+### Audio/Video
+[Media Use Case Information Bucket](media-information-references.md)
 
+Synchronise Home WoT devices with TV program
+[nhk-device-tv-sync.md](nhk-device-tv-sync.md)
 
-Manufacturer
-Service Provider
-Device Owner (User)
-Others?
+### Agriculture
+Smart Agriculture (Greenhouse Horticulture) to create an optimal environment for growing plants.
+[smart-agriculture.md](smart-agriculture.md)
 
-# Stakeholders 
-represent a physical person or group of persons (company)
-could be categorized per OSI layer model, consider top 3-4 categories (application, presentation, session, transport)
+### Smart City
+Managing mobile devices and sensors in a Smart City. 
+[smartcity-geolocation.md](smartcity-geolocation.md)
 
-Align with Security document
+Interactive Public Spaces
+[mmi-3-1_interactive-public-spaces.md](mmi-3-1_interactive-public-spaces.md)
 
-Different roles:
-e.g. security maintainer
-Roles can be delegated
-Depending on the use case, an actor can have multiple roles
-</snip>
+Meeting Room Event Assistance
+[mmi-3-2_meeting-room-event-assistance.md](mmi-3-2_meeting-room-event-assistance.md)
 
+### Health
+#### Public Health
+Monitor the health of people in public places to
+control the spread of infectious diseases.
+[smartcity-health-monitoring.md](smartcity-health-monitoring.md)
 
+#### Private Health
+Health Notifiers
+[mmi-4-1_health-notifiers.md](mmi-4-1_health-notifiers.md)
 
+### Manufacturing
+Monitoring production lines and plants and predicting and preventing fault conditions. 
+[big-data.md](big-data.md)
 
-Please put all your use cases into this directory adopting the format in <em>use-case-template.md</em>.
+#### Multi-Vendor System Integration 
+Analyze their physical assets to troubleshoot in real time, predict future problems, minimize downtime, and perform simulations.
+[Digital Twin](digital-twin.md)
 
-### Initial set of use cases:
-- Cloud / Big Data
-https://github.com/w3c/wot-architecture/blob/master/USE-CASES/big-data.md
+Multi vendor and protocol interoperability by communicating across different protocols. 
+[X-Protocol-Interworking.md](X-Protocol-Interworking.md)
 
-- Thing Directory / Discovery
+### Multimodal System Integration
 
-- Data Streaming
+Multimodal Recognition Support
+[mmi-5-1_multimodal-recognition-support.md](mmi-5-1_multimodal-recognition-support.md)
+
+Synergistic Interactions
+[mmi-5-2_enhancement-of-synergistic-interactions.md](mmi-5-2_enhancement-of-synergistic-interactions.md)
+
+### Smart Home Accessibility
+Audiovisual Devices Acting as Smartphone Extensions
+[mmi-1-1_audiovisual-devices-as-smartphone-extensions.md](mmi-1-1_audiovisual-devices-as-smartphone-extensions.md)
+
+Unified Smart Home Control and Status
+[mmi-1-2_unified-smart-home-control-and-status.md](mmi-1-2_unified-smart-home-control-and-status.md)
+
+### Automotive
+
+Smart Car Configuration Management
+[mmi-2-1_smart-car-configuration-management.md](mmi-2-1_smart-car-configuration-management.md)
+
+### Energy / Smart Grid
+**PR available**
+[]()
+
+### Fleet Management
+**PR available**
+high level, needs more detail.
+[]()
+
+### Data Streaming
+**Needs Contribution**
 https://github.com/w3c/wot-architecture/issues/387
 
-- Audio/Video
-https://github.com/w3c/wot-architecture/issues/8
+### Discovery
+**Needs Contribution**
 
-- Accessibility  
-  Providing accessible interfaces to devices
-
-- Life Companion
-  Integrate multiple devices and services to automate parts of the user's life 
-  (e.g. morning routine, support aged people, accessibility)
-
-- Multi-Vendor system integration  
-  E.g. building management system integrating devices from multiple manufacturers (HVAC control)
-
-- Cross-protocol integration of data from devices across multiple vendors
-   Examples: Smart city, factories, environment onitoring, smart home
-   
-- Fleet management
-   Assets are moving across locations and networks, geofencing
