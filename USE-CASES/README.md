@@ -13,17 +13,17 @@ when we combine the use case in a single document.
 
 ## Stakeholders and actors
 
-device owners  
-device user  
-cloud provider  
-service provider  
-device manufacturer   
-gateway manufacturer  
-network operator (potentially transparent for WoT use cases)  
-identity provider  
-directory service operator?  
+- device owners  
+- device user  
+- cloud provider  
+- service provider  
+- device manufacturer   
+- gateway manufacturer  
+- network operator (potentially transparent for WoT use cases)  
+- identity provider  
+- directory service operator?  
 
-## Categories
+## Categories and Domains
 
 ### Retail
 Integrating and interconnecting multiple devices into the common retail workflow.
