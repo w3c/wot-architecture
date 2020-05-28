@@ -24,15 +24,15 @@ Profile
 
 ### Requirements:
 
-- device virtualization<br>
-Enable to respond to the requests from consumers instead of the original corresponding to the virtual device and being offline<br>
+- device virtualization
+Enable to respond to the requests from consumers instead of the original corresponding to the virtual device and being offline
 Create and keep TD for a virtual device that has the same interaction affordances as those of the original thing, but the different URL that points to the intermediary
 
-- States for things (devices)<br>
-Enable to maintain states of things in TD<br>
-  for examples, such states should be managed:<br>
-  - running: the thing is available (has valid URL) and able to reply to consumers' requests<br>
-  - sleeping: the thing is available (has valid URL) but able to reply to consumers' requests because of it(device) suspending<br>
+- States for things (devices)
+Enable to maintain states of things in TD
+  for examples, such states should be managed:
+  - running: the thing is available (has valid URL) and able to reply to consumers' requests
+  - sleeping: the thing is available (has valid URL) but able to reply to consumers' requests because of it(device) suspending
   - stopping: thing is disabled (has no URL)
   
 Comments: may separate discussions for states during the onboarding process to states after onboarding. Perhaps application developers have much interested in states after onboarding.
