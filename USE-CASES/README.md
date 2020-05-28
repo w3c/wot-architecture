@@ -106,3 +106,8 @@ https://github.com/w3c/wot-architecture/issues/387
 ### Discovery
 **Needs Contribution**
 
+### Smart Building
+IoT in (commercial) buildings such as office buildings, hotels, airports, train stations and sport stadiums.
+[smart-building.md](smart-building.md)
+
+
