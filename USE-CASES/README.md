@@ -55,8 +55,11 @@ Monitor the health of people in public places to
 control the spread of infectious diseases.
 [smartcity-health-monitoring.md](smartcity-health-monitoring.md)
 
+Connected devices in ICU units.
+[MedicalDevices.md](MedicalDevices.md)
+
 #### Private Health
-Health Notifiers
+Health Notifiers.
 [mmi-4-1_health-notifiers.md](mmi-4-1_health-notifiers.md)
 
 ### Manufacturing
