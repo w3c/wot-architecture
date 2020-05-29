@@ -64,15 +64,15 @@ Monitoring production lines and plants and predicting and preventing fault condi
 [big-data.md](big-data.md)
 
 #### Multi-Vendor System Integration 
-Analyze their physical assets to troubleshoot in real time, predict future problems, minimize downtime, and perform simulations.
-[Digital Twin](digital-twin.md)
+Out of the box interoperability of devices.
+[wot-profile.md](wot-profile.md)
+
+Digital twin to analyze and troubleshoot physical assets in real time, predict future problems, minimize downtime, and perform simulations.
+[digital-twin.md](digital-twin.md)
 
 Multi vendor and protocol interoperability by communicating across different protocols. 
 [X-Protocol-Interworking.md](X-Protocol-Interworking.md)
 
-### Out of the box interoperability
-Plug and play interoperability of devices.
-[wot-profile.md](wot-profile.md)
 
 ### Multimodal System Integration
 Multimodal Recognition Support.
@@ -81,7 +81,7 @@ Multimodal Recognition Support.
 Synergistic Interactions
 [mmi-5-2_enhancement-of-synergistic-interactions.md](mmi-5-2_enhancement-of-synergistic-interactions.md)
 
-### Smart Home Accessibility
+### Accessibility
 Audiovisual Devices Acting as Smartphone Extensions
 [mmi-1-1_audiovisual-devices-as-smartphone-extensions.md](mmi-1-1_audiovisual-devices-as-smartphone-extensions.md)
 
@@ -100,15 +100,14 @@ Integrate all players in the electricity market into one overall system through 
 Fleet management, public transport, managing shipping, air cargo, train cargo, last mile transportation.
 [transportation.md](transportation.md)
 
-### Connected Building Energy Efficiency
-Sensor networks for optimizing energy consumption of buildings. 
-[connected-building-energy-efficiency.md](connected-building-energy-efficiency.md)
-
 ### Smart Building
 IoT in (commercial) buildings such as office buildings, hotels, airports, train stations and sport stadiums.
 [smart-building.md](smart-building.md)
 
-### Shared Devices
+Sensor networks for optimizing energy consumption of buildings. 
+[connected-building-energy-efficiency.md](connected-building-energy-efficiency.md)
+
+### Shared Devices and resources
 Standardized use of shared resources.
 [education.md](education.md)
 
