@@ -70,9 +70,12 @@ Analyze their physical assets to troubleshoot in real time, predict future probl
 Multi vendor and protocol interoperability by communicating across different protocols. 
 [X-Protocol-Interworking.md](X-Protocol-Interworking.md)
 
-### Multimodal System Integration
+### Out of the box interoperability
+Plug and play interoperability of devices.
+[wot-profile.md](wot-profile.md)
 
-Multimodal Recognition Support
+### Multimodal System Integration
+Multimodal Recognition Support.
 [mmi-5-1_multimodal-recognition-support.md](mmi-5-1_multimodal-recognition-support.md)
 
 Synergistic Interactions
@@ -86,28 +89,30 @@ Unified Smart Home Control and Status
 [mmi-1-2_unified-smart-home-control-and-status.md](mmi-1-2_unified-smart-home-control-and-status.md)
 
 ### Automotive
-
 Smart Car Configuration Management
 [mmi-2-1_smart-car-configuration-management.md](mmi-2-1_smart-car-configuration-management.md)
 
-### Energy / Smart Grid
-**PR available**
-[]()
+### Energy / Smart Grids
+Integrate all players in the electricity market into one overall system through the interaction of generation, storage, grid management and consumption.
+[smart-grid.md](smart-grid.md)
 
-### Fleet Management
-**PR available**
-high level, needs more detail.
-[]()
+### Transportation
+Fleet management, public transport, managing shipping, air cargo, train cargo, last mile transportation.
+[transportation.md](transportation.md)
 
-### Data Streaming
-**Needs Contribution**
-https://github.com/w3c/wot-architecture/issues/387
-
-### Discovery
-**Needs Contribution**
+### Connected Building Energy Efficiency
+Sensor networks for optimizing energy consumption of buildings. 
+[connected-building-energy-efficiency.md](connected-building-energy-efficiency.md)
 
 ### Smart Building
 IoT in (commercial) buildings such as office buildings, hotels, airports, train stations and sport stadiums.
 [smart-building.md](smart-building.md)
 
+### Shared Devices
+Standardized use of shared resources.
+[education.md](education.md)
+
+### Oauth2 Flows
+Use cases for each OAuth2 flow.
+[oauth.md](oauth.md)
 
