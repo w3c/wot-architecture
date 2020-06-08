@@ -66,7 +66,7 @@ Health Notifiers.
 Monitoring production lines and plants and predicting and preventing fault conditions. 
 [big-data.md](big-data.md)
 
-#### Multi-Vendor System Integration 
+### Multi-Vendor System Integration 
 Out of the box interoperability of devices.
 [wot-profile.md](wot-profile.md)
 
@@ -118,3 +118,6 @@ Standardized use of shared resources.
 Use cases for each OAuth2 flow.
 [oauth.md](oauth.md)
 
+### Device lifecycle
+Common lifecycle model.
+[device-lifecycle.md](device-lifecycle.md)
