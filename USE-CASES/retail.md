@@ -69,6 +69,29 @@ by providing real-time visibility into worker status, location, and work environ
 
 - Use edge computing, in particular video analytics, in combination with IoT devices to deliver an enhanced 
   customer experience, better manage inventory, or otherwise improve the store workflow.
+  
+### Security Considerations:
+
+- In retail, replay attacks can cause monetary loss, customers may be incorrectly charged or over-charged.
+- To avoid replay attacks, "Things" should implement a sequence number for each message and digital signature.
+- Servers ("Things" or "Cloud") should verify the signature and disallow for duplicated messages.
+- For "Things" relying on electronic payments, "Things" must comply with PCI-DSS requirements.
+- "Things" must never store credit card information.
+- Customer satisfaction and trust depends on availability, so attacks such as Denial-of-Service (DoS) need to be prevented or mitigated.
+- To prevent DoS, implement "Things" with early DoS detection.
+- Have an automated DoS system that will notify the controlling unit of the problem.
+- Implement IP white list, that could be part of the DoS early detection system.
+- Make sure your network perimeter is defended with up to date firewall software.
+
+### Privacy Considerations:
+ 
+As a general rule, personal consumer information should not be stored.
+That is especially true in the retail industry where a security breach could cause financial, reputation, and brand damage.
+If personal or information that can identify a consumer is to be stored,
+it should be to conduct business and with the explicit acknowledgment of the consumer.
+WoT vendors and integrators should always have a privacy policy and make it easily available.
+By default, devices should adopt an opt-out policy.
+That means, unless the consumer explicitly allowed for the data capture and storage, avoid doing it.
 
 ### Gaps:
 

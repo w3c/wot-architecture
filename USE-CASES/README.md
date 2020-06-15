@@ -13,17 +13,17 @@ when we combine the use case in a single document.
 
 ## Stakeholders and actors
 
-device owners  
-device user  
-cloud provider  
-service provider  
-device manufacturer   
-gateway manufacturer  
-network operator (potentially transparent for WoT use cases)  
-identity provider  
-directory service operator?  
+- device owners  
+- device user  
+- cloud provider  
+- service provider  
+- device manufacturer   
+- gateway manufacturer  
+- network operator (potentially transparent for WoT use cases)  
+- identity provider  
+- directory service operator?  
 
-## Categories
+## Categories and Domains
 
 ### Retail
 Integrating and interconnecting multiple devices into the common retail workflow.
@@ -55,30 +55,36 @@ Monitor the health of people in public places to
 control the spread of infectious diseases.
 [smartcity-health-monitoring.md](smartcity-health-monitoring.md)
 
+Connected devices in ICU units.
+[MedicalDevices.md](MedicalDevices.md)
+
 #### Private Health
-Health Notifiers
+Health Notifiers.
 [mmi-4-1_health-notifiers.md](mmi-4-1_health-notifiers.md)
 
 ### Manufacturing
 Monitoring production lines and plants and predicting and preventing fault conditions. 
 [big-data.md](big-data.md)
 
-#### Multi-Vendor System Integration 
-Analyze their physical assets to troubleshoot in real time, predict future problems, minimize downtime, and perform simulations.
-[Digital Twin](digital-twin.md)
+### Multi-Vendor System Integration 
+Out of the box interoperability of devices.
+[wot-profile.md](wot-profile.md)
+
+Digital twin to analyze and troubleshoot physical assets in real time, predict future problems, minimize downtime, and perform simulations.
+[digital-twin.md](digital-twin.md)
 
 Multi vendor and protocol interoperability by communicating across different protocols. 
 [X-Protocol-Interworking.md](X-Protocol-Interworking.md)
 
-### Multimodal System Integration
 
-Multimodal Recognition Support
+### Multimodal System Integration
+Multimodal Recognition Support.
 [mmi-5-1_multimodal-recognition-support.md](mmi-5-1_multimodal-recognition-support.md)
 
 Synergistic Interactions
 [mmi-5-2_enhancement-of-synergistic-interactions.md](mmi-5-2_enhancement-of-synergistic-interactions.md)
 
-### Smart Home Accessibility
+### Accessibility
 Audiovisual Devices Acting as Smartphone Extensions
 [mmi-1-1_audiovisual-devices-as-smartphone-extensions.md](mmi-1-1_audiovisual-devices-as-smartphone-extensions.md)
 
@@ -86,23 +92,32 @@ Unified Smart Home Control and Status
 [mmi-1-2_unified-smart-home-control-and-status.md](mmi-1-2_unified-smart-home-control-and-status.md)
 
 ### Automotive
-
 Smart Car Configuration Management
 [mmi-2-1_smart-car-configuration-management.md](mmi-2-1_smart-car-configuration-management.md)
 
-### Energy / Smart Grid
-**PR available**
-[]()
+### Energy / Smart Grids
+Integrate all players in the electricity market into one overall system through the interaction of generation, storage, grid management and consumption.
+[smart-grid.md](smart-grid.md)
 
-### Fleet Management
-**PR available**
-high level, needs more detail.
-[]()
+### Transportation
+Fleet management, public transport, managing shipping, air cargo, train cargo, last mile transportation.
+[transportation.md](transportation.md)
 
-### Data Streaming
-**Needs Contribution**
-https://github.com/w3c/wot-architecture/issues/387
+### Smart Building
+IoT in (commercial) buildings such as office buildings, hotels, airports, train stations and sport stadiums.
+[smart-building.md](smart-building.md)
 
-### Discovery
-**Needs Contribution**
+Sensor networks for optimizing energy consumption of buildings. 
+[connected-building-energy-efficiency.md](connected-building-energy-efficiency.md)
 
+### Shared Devices and resources
+Standardized use of shared resources.
+[education.md](education.md)
+
+### Oauth2 Flows
+Use cases for each OAuth2 flow.
+[oauth.md](oauth.md)
+
+### Device lifecycle
+Common lifecycle model.
+[device-lifecycle.md](device-lifecycle.md)
