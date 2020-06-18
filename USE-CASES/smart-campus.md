@@ -44,7 +44,7 @@ A campus has a wide range of IoT devices distributed across their grounds. These
 
   
 
-![Topology](https://drive.upm.es/index.php/s/ryXZAChj7VGbCCi/download)
+![Topology](images/smart-campus-topology.svg)
 
   
 
@@ -57,7 +57,7 @@ In this scenario, energy-related IoT devices monitor the energy use and income i
 
   
 
-![Sample](https://drive.upm.es/index.php/s/cVPExnRNIFXJA0j/download)
+![Sample](images/smart-campus-sample.svg)
 
   
 
