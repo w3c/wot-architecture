@@ -94,13 +94,28 @@ Application Lifecycle (W3C Multimodal Interaction WG)
 
 ### Comments:
 
-Here are some documents that were created / discussed in the architecture TF.
+All lifecycle contributions and discussion documents are available at:
+https://github.com/w3c/wot-architecture/blob/master/proposals/lifecycle
 
-Draft lifecycle diagram:
-https://github.com/w3c/wot-architecture/blob/master/proposals/WoT%20lifecycle%20diagram-WoT%20new%20lifecycle.svg
+
+documents that were created / discussed in the architecture TF.
 
 Lifecycle comparisons:
 https://github.com/w3c/wot-architecture/blob/master/proposals/Device-lifecycle-comparisons.pdf
 
+Lifecycle states:
+https://github.com/w3c/wot-architecture/blob/master/proposals/lifecycle/lifecycle-states.md
+
+Draft lifecycle diagram:
+https://github.com/w3c/wot-architecture/blob/master/proposals/lifecycle/WoT%20lifecycle%20diagram-WoT%20new%20lifecycle.svg
+
+Layered lifecycle:
+https://github.com/w3c/wot-architecture/blob/master/proposals/lifecycle/WoT%20layered%20%20lifecycle%20diagram-WoT%20new%20lifecycle.svg
+
+System lifecycle:
+https://github.com/w3c/wot-architecture/blob/master/proposals/lifecycle/unified%20device%20lifecycle.svg
+
 IoT Security Bootstrapping: 
 https://github.com/w3c/wot-security/blob/master/presentations/2020-03-16-Bootstrapping%20IoT%20Security%20-%20The%20IETF%20Anima%20and%20OPC-UA%20Recipes.pdf
+
+
