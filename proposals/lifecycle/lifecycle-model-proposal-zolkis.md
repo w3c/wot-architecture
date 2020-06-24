@@ -2,7 +2,7 @@
 ## Proposal for WoT device lifecycle model
 
 This proposal is assembled based on:
-- a [comparative analysis](https://github.com/w3c/wot-architecture/blob/master/proposals/Device-lifecycle-comparisons.pdf)
+- a [comparative analysis](https://github.com/w3c/wot-architecture/blob/master/proposals/lifecycle/Device-lifecycle-comparisons.pdf)
 - OPC-UA/Anima [presentation](https://github.com/w3c/wot-security/blob/master/presentations/2020-03-16-Bootstrapping%20IoT%20Security%20-%20The%20IETF%20Anima%20and%20OPC-UA%20Recipes.pdf)
 - discussion in [issue #476](https://github.com/w3c/wot-architecture/issues/476).
 
