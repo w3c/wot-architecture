@@ -32,6 +32,15 @@
 
 <Describe privacy features needed; if there are none, say "none">
 
+#### User Needs:
+
+<Describe additional needs of a human user; if there are none, say "none">
+
+#### Accessibility:
+
+<Describe accessibility requirements needed; if there are none, say "none">
+
+
 ### Related standards:
 
 <list related standards>
