@@ -28,11 +28,11 @@ https://github.com/w3c/wot-usecases/blob/master/USE-CASES/smart-campus.md
 
 <short description of all requirements>
 
-#### Connected Building Query Requirements
+#### Single Directory Query Requirements
 - TDs with title Terrace Temperature Sensor
 - TDs with properties.temperature
 
-#### Smart Campus Query Requirements
+#### Federated Directory Query Requirements
 - req1
   
 #### Security:
