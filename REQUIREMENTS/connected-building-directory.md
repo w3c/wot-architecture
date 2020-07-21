@@ -24,6 +24,7 @@ Discovery WIP spec
 ### Requirements:
 
 <short description of all requirements>
+  
 - The directory should contains metadata of all information sources such as sensors and storage endpoints
 - The directory should use Thing Description (TD) model for metadata of each information source
 - The directory should provide query capabilities to filter TDs based on their attributes
@@ -34,12 +35,14 @@ Discovery WIP spec
 #### Security:
 
 <Describe security features needed; if there are none, say "none">
+
 - The directory should provide TDs to authorized users only
 - The directory should allow registration and modification of TDs to authorized users only
 
 #### Privacy:
 
 <Describe privacy features needed; if there are none, say "none">
+
 - The directory should not expose information that can be used in an inference attack
 
 ### Related standards:
