@@ -29,8 +29,12 @@ https://github.com/w3c/wot-usecases/blob/master/USE-CASES/smart-campus.md
 <short description of all requirements>
 
 #### Single Directory Query Requirements
-- TDs with title Terrace Temperature Sensor
-- TDs with properties.temperature
+- TDs with an attribute value matching a given string exactly, as a substring, prefix, or suffix
+  - E.g. TDs with title containing "Temperature Sensor"
+- TDs with a specific attribute
+  - E.g. TDs with properties.temperature attribute
+- TDs created after a specific date-time
+  - E.g. TDs with created date after 2020-03-15
 
 #### Federated Directory Query Requirements
 - req1
