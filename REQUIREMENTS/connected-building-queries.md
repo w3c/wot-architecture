@@ -37,8 +37,12 @@ https://github.com/w3c/wot-usecases/blob/master/USE-CASES/smart-campus.md
   - E.g. TDs with created date after 2020-03-15
 
 #### Federated Directory Query Requirements
-- req1
+- TDs that belong to the directory matching an attribute value with a given string, as a substring, prefix, or suffix
+  - E.g. find TDs allocated in this directory contaning "Temperature Sensor"
+- TDs that belong to other directories that have a specific attribute
+  - E.g. find TDs allocated outside this directory with the property temperature
   
+
 #### Security:
 
 <Describe security features needed; if there are none, say "none">
