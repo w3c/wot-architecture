@@ -27,12 +27,12 @@ Discovery WIP spec
   
 - The directory should contain metadata of all information sources such as sensors and storage endpoints
 - The directory should use Thing Description (TD) model for metadata of each information source
-- The directory should allow express metadata and Thing Descriptions using domain specific ontologies (like SAREF)
+- The directory should allow expressing metadata and Thing Descriptions using domain specific ontologies (like SAREF)
 - The directory should provide query capabilities to filter TDs based on their attributes
 - Each TD must have a type from a specific domain ontology
 - The pagination attributes should not the invalidate SPARQL response format
 - The resource maintained within the directory should be of TD type
-- The dicrectory should be able to stored summaries of the TDs
+- The dicrectory should be able to store summaries of the TDs
   
 #### Security:
 
