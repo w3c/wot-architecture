@@ -14,4 +14,6 @@ Requirements:
 3. [Directory API and Information Model](connected-building-directory.md)
    - API requirements
    - Search response model
-   - Ontology, SAREF?
+   - SAREF vocabulary should be natively part of the TDs
+   - Directories should be part of the TDs, by being included in the TD ontology
+   - The concept directory in the ontology should have attributes that refer to physical features, like the response ratio.?
