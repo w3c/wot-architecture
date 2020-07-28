@@ -5,13 +5,13 @@ Requirements:
    - Federated registration of directories
    - TD summaries sent and maintained as part of registrations
 
-2. Directory queries
+2. [Directory queries](connected-building-directory-queries.md)
    - List of expected queries
    - SPARQL
    - JSONPath
    - XPath
 
-3. [Directory API and Information Model](connected-building-directory.md)
+3. [Directory Information Model](connected-building-directory-information-model.md)
    - API requirements
    - Search response model
    - SAREF vocabulary should be natively part of the TDs

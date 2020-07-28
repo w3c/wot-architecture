@@ -1,4 +1,4 @@
-## Title: Connected Building Directory
+## Title: Connected Building Directory Information Model
 
 ### Submitter(s): 
 

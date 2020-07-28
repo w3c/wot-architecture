@@ -1,4 +1,4 @@
-## Title: Connected Building Queries
+## Title: Connected Building Directory Queries
 
 ### Submitter(s): 
 
