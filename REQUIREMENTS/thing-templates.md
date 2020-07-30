@@ -60,8 +60,12 @@ https://w3c.github.io/wot-profile/#links
 
 It is expected that the inheritance mechanism adopts links that are defined in the link relationship work item.
 
-Todo: Consider adding protocol constraints
+Todo: 
+
+Consider adding protocol constraints
+
 Consider to use the scripting API to define exposed things with partial TDs
+
 Clear separation between *templates* and *partial TDs*
 
 Todo: 
