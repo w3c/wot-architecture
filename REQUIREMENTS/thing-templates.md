@@ -20,9 +20,13 @@ https://github.com/w3c/wot-architecture/blob/master/USE-CASES/big-data.md
 ### Affected WoT Deliverables:
 
 TD spec  
+
 Profile spec  
+
 Scripting API   
-Security best practices  
+
+Security best practices 
+
 Discovery  
 
 ### Requirements:
@@ -36,8 +40,12 @@ when things implement more than one template.
 ### Related standards:
 
 Web Linking: https://tools.ietf.org/html/rfc8288
+
 Link Relation Types for Web Services: https://tools.ietf.org/html/rfc8631
+
 Additional Link Relation Types: https://tools.ietf.org/html/rfc6903
+
+https://tools.ietf.org/html/rfc5988
 
 Link Relation Types - IANA registry: https://www.iana.org/assignments/link-relations/link-relations.xhtml
 
@@ -57,9 +65,13 @@ Consider to use the scripting API to define exposed things with partial TDs
 Clear separation between *templates* and *partial TDs*
 
 Todo: 
+
 address / consider whether these are separate aspects or separate requirements
+
 - Interface
+
 - Expose TDs in scripting API
+
 - Search patterns in directory services
 
 
