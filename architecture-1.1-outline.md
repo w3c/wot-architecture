@@ -23,7 +23,6 @@ New sections:
 * Digital Twin <MichaelL>
 * Discovery <MichaelM>
 * Directory <MichaelM>  
-
 6.2. Affordances  
 6.3. Web Thing  
 6.4. Interaction Model  
@@ -33,14 +32,13 @@ New: Lifecycle
 * System Lifecycle <MichaelL>  
 * Thing Lifecycle <Zoltan>  
 * Information Lifecycle <MichaelM>
-
 New: Semantic annotations  
 6.6. Protocol Bindings  
 6.7. WoT System Components and their Interconnectivity  
 
-7. WoT Building Blocks
-7.1. WoT Thing Description
-new: Thing Model Concept (Templates)
+7. WoT Building Blocks  
+7.1. WoT Thing Description  
+new: Thing Model Concept (Templates)  
 new: Discovery  
 7.2. WoT Binding Templates  
 7.3. WoT Scripting API  
