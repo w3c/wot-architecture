@@ -1,4 +1,4 @@
-## Title: Smart Agriculture: Horticulture
+## Title: Smart Agriculture: Greenhouse Horticulture
 Horizontal requirements for the gateway, the virtual devices and a TD related item.
 
 ### Submitter(s): 
