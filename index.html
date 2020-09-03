@@ -615,11 +615,15 @@ img.wot-arch-diagram {
                 (which include the supported Protocol Bindings), and links to related Things.
                 The WoT Thing Description format is the central building block of W3C WoT.</dd>
         </dl>
+
+        <section class="ednote">
+            TODO: Need to add definitions for discovery, thing templates, profiles, lifecycle.
+        </section>
+
     </section>
 
-    <section id="sec-use-cases" class="informative">
-        <h1>Use Cases</h1>
-
+    <section id="sec-application-domains" class="informative">
+        <h2>Application Domains (Verticals)</h2>
         <p>
             This section presents the application domains and use cases
             targeted by the W3C WoT and which are used to derive the
@@ -634,591 +638,596 @@ img.wot-arch-diagram {
         <p>The following sections are not exhaustive. Rather they
             serve as illustrations, where connected things can provide
             additional benefit or enable new scenarios.</p>
-        <section id="sec-application-domains">
-            <h2>Application Domains</h2>
-            <section id="consumer-use-cases">
-                <h3>Consumer</h3>
-                <p>In the consumer space there are multiple assets
-                    that benefit from being connected. Lights and air
-                    conditioners can be turned off based on room
-                    occupancy. Window blinds can be closed automatically
-                    based on weather conditions and presence. Energy and
-                    other resource consumption can be optimized based on
-                    usage patterns and predictions.</p>
-                <p>The consumer use cases in this section includes
-                    Smart Home use case.</p>
+       <section id="consumer-use-cases">
+            <h3>Consumer</h3>
+            <p>In the consumer space there are multiple assets
+                that benefit from being connected. Lights and air
+                conditioners can be turned off based on room
+                occupancy. Window blinds can be closed automatically
+                based on weather conditions and presence. Energy and
+                other resource consumption can be optimized based on
+                usage patterns and predictions.</p>
+            <p>The consumer use cases in this section includes
+                Smart Home use case.</p>
+            <p>
+                <a href="#smart-home"></a> shows an example of a
+                Smart Home. In this case, gateways are connected to
+                edge devices such as sensors, cameras and home
+                appliances through corresponding local communication
+                protocols such as KNX, ECHONET, ZigBee, DECT ULE and
+                Wi-SUN. Multiple gateways can exist in one home,
+                while each gateway can support multiple local
+                protocols.
+            </p>
+            <p>Gateways can be connected to the cloud through
+                the internet, while some appliances can be connected
+                to the cloud directly. Services running in the cloud
+                collect data from edge devices and analyze the data,
+                then provide value to users through the edge devices
+                and other UX devices.</p>
+            <figure id="smart-home">
+                <img src="images/wot-use-cases/smart-home.png"
+                        srcset="images/wot-use-cases/smart-home.svg"
+                    class="wot-arch-diagram" alt="smart home use case" />
+                <figcaption>Smart Home</figcaption>
+            </figure>
+            <p>Smart home provides consumer benefits such as
+                remote access and control, voice control and home
+                automation. Smart home also enables device
+                manufacturers to monitor and maintain devices
+                remotely. Smart home can realize value added
+                services such as energy management and security
+                surveillance.</p>
+        </section>
+        <section id="industrial-iot-usecases">
+            <h3>Industrial</h3>
+            <p>
+                The industrial use cases in this section are
+                applicable to different industry verticals. <br />
+                Due to the nature of overlaps in the application
+                scenarios, different verticals have similar use
+                cases.
+            </p>
+            <section>
+                <h4>Example: Smart Factory</h4>
                 <p>
-                    <a href="#smart-home"></a> shows an example of a
-                    Smart Home. In this case, gateways are connected to
-                    edge devices such as sensors, cameras and home
-                    appliances through corresponding local communication
-                    protocols such as KNX, ECHONET, ZigBee, DECT ULE and
-                    Wi-SUN. Multiple gateways can exist in one home,
-                    while each gateway can support multiple local
-                    protocols.
+                    <a href="#smart-factory"></a> shows an example
+                    of a Smart Factory. In this case, field-level,
+                    cell and line controllers automate different
+                    factory equipment based on industrial
+                    communication protocols such as PROFINET,
+                    Modbus, OPC UA TSN, EtherCAT, or CAN. An
+                    industrial edge device collects selected data
+                    from various controllers and makes it available
+                    to a cloud backend service, e.g., for remote
+                    monitoring via a dashboard or analyzes it for
+                    preventive maintenance.
                 </p>
-                <p>Gateways can be connected to the cloud through
-                    the internet, while some appliances can be connected
-                    to the cloud directly. Services running in the cloud
-                    collect data from edge devices and analyze the data,
-                    then provide value to users through the edge devices
-                    and other UX devices.</p>
-                <figure id="smart-home">
-                    <img src="images/wot-use-cases/smart-home.png"
-                         srcset="images/wot-use-cases/smart-home.svg"
-                        class="wot-arch-diagram" alt="smart home use case" />
-                    <figcaption>Smart Home</figcaption>
+                <figure id="smart-factory">
+                    <img
+                        src="images/wot-use-cases/smart_factory_new.png"
+                        srcset="images/wot-use-cases/smart_factory_new.svg"
+                        class="wot-arch-diagram" alt="smart factory use case" />
+                    <figcaption>Smart Factory</figcaption>
                 </figure>
-                <p>Smart home provides consumer benefits such as
-                    remote access and control, voice control and home
-                    automation. Smart home also enables device
-                    manufacturers to monitor and maintain devices
-                    remotely. Smart home can realize value added
-                    services such as energy management and security
-                    surveillance.</p>
             </section>
-            <section id="industrial-iot-usecases">
-                <h3>Industrial</h3>
-                <p>
-                    The industrial use cases in this section are
-                    applicable to different industry verticals. <br />
-                    Due to the nature of overlaps in the application
-                    scenarios, different verticals have similar use
-                    cases.
-                </p>
-                <section>
-                    <h4>Example: Smart Factory</h4>
-                    <p>
-                        <a href="#smart-factory"></a> shows an example
-                        of a Smart Factory. In this case, field-level,
-                        cell and line controllers automate different
-                        factory equipment based on industrial
-                        communication protocols such as PROFINET,
-                        Modbus, OPC UA TSN, EtherCAT, or CAN. An
-                        industrial edge device collects selected data
-                        from various controllers and makes it available
-                        to a cloud backend service, e.g., for remote
-                        monitoring via a dashboard or analyzes it for
-                        preventive maintenance.
-                    </p>
-                    <figure id="smart-factory">
-                        <img
-                            src="images/wot-use-cases/smart_factory_new.png"
-                            srcset="images/wot-use-cases/smart_factory_new.svg"
-                            class="wot-arch-diagram" alt="smart factory use case" />
-                        <figcaption>Smart Factory</figcaption>
-                    </figure>
-                </section>
-                <p>Smart factories require advanced monitoring of
-                    the connected manufacturing equipment as well of the
-                    manufactured products. They benefit from predictions
-                    of machine failures and early discovery of anomalies
-                    to prevent costly downtime and maintenance efforts.</p>
-                <p>Additionally, monitoring of connected
-                    manufacturing equipment and the environment at the
-                    production facility for the presence of poisonous
-                    gases, excessive noise or heat increases the safety
-                    of the workers and reduces the risks of incidents or
-                    accidents.</p>
-                <p>Real-time monitoring and KPI calculations of
-                    production equipment helps to detect productivity
-                    problems and optimize the supply chain.</p>
-            </section>
-            <section id="sec-transportationlogistics">
-                <h4 id="transportationlogistics">Transportation
-                    &amp; Logistics</h4>
-                <p>Monitoring of vehicles, fuel costs, maintenance
-                    needs and assignments helps to optimize the full
-                    utilization of the vehicle fleet.</p>
-                <p>Shipments can be tracked to be en-route to ensure
-                    consistent quality and condition of the transported
-                    goods. This is especially useful to assert the
-                    integrity of the cold-chain from warehouses to
-                    refrigerated trucks to delivery.</p>
-                <p>Centralized monitoring and management of stock in
-                    warehouses and yards can prevent out of stock and
-                    excessive stock situations.</p>
-            </section>
-            <section id="sec-utilities">
-                <h4 id="utilities">Utilities</h4>
-                <p>Automated reading of residential and C&amp;I
-                    (Commercial and Industrial) meters, and billing
-                    offers continuous insights into resource consumption
-                    and potential bottlenecks.</p>
-                <p>Monitoring the condition and output of
-                    distributed renewable energy generation equipment
-                    enables optimization of distributed energy
-                    resources.</p>
-                <p>Monitoring and remote-controlling of distribution
-                    equipment helps to automate the distribution
-                    process.</p>
-                <p>Continuous monitoring of generation and
-                    distribution infrastructure is improving safety of
-                    utilities crew in the field.</p>
-            </section>
-            <section id="sec-oilandgas">
-                <h4 id="oilandgas">Oil and Gas</h4>
-                <p>Offshore platform monitoring, leakage detection
-                    and prediction of pipelines as well as monitoring
-                    and controlling the levels in tanks and reservoirs
-                    helps to improve the industrial safety for the
-                    workforce as well as for the environment.</p>
-                <p>Automated calculation of a distributed stock
-                    through various storage tanks and delivery
-                    pipes/trucks allows for improved planning and
-                    resource optimization.</p>
-            </section>
-            <section id="sec-insurance">
-                <h4 id="insurance">Insurance</h4>
-                <p>Proactive Asset Monitoring of high value assets
-                    such as connected structures, fleet vehicles, etc.
-                    mitigates the risk of severe damage and high costs
-                    due to predictions and early detection of incidents.</p>
-                <p>Usage based insurance can be offered with usage
-                    tracking and customized insurance policies.</p>
-                <p>Predictive weather monitoring and re-routing
-                    fleet vehicles to covered garages can limit loss due
-                    to hail damage, tree damage.</p>
-            </section>
-            <section id="sec-engineering-and-construction">
-                <h4 id="engineering-and-construction">Engineering
-                    and Construction</h4>
-                <p>Monitoring for industrial safety reduces the
-                    risks of security hazards. Monitoring of assets at
-                    construction site can prevent damage and loss.</p>
-            </section>
-
-            <section id="sec-agriculture">
-                <h3 id="agriculture">Agriculture</h3>
-                <p>Soil condition monitoring and creating optimal
-                    plans for watering, fertilizing as well as
-                    monitoring the produce conditions optimize the
-                    quality and output of agricultural produce.</p>
-            </section>
-            <section id="sec-healthcare">
-                <h3 id="healthcare">Healthcare</h3>
-                <p>Data collection and analytics of clinical trial
-                    data helps to gain insights into new areas.</p>
-                <p>Remote patient monitoring mitigates the risk of
-                    undetected critical situations for elderly people
-                    and patients after hospitalization.</p>
-            </section>
-            <section id="sec-environmentmonitoring">
-                <h3 id="environmentmonitoring">Environment
-                    Monitoring</h3>
-                <p>Environment monitoring typically relies on a lot
-                    of distributed sensors that send their measurement
-                    data to common gateways, edge devices and cloud
-                    services.</p>
-                <p>Monitoring of air pollution, water pollution and
-                    other environmental risk factors such as fine dust,
-                    ozone, volatile organic compound, radioactivity,
-                    temperature, humidity to detect critical environment
-                    conditions can prevent unrecoverable health or
-                    environment damages.</p>
-            </section>
-            <section id="sec-smart-cities">
-                <h3 id="smartcities">Smart Cities</h3>
-                <p>Monitoring of Bridges, Dams, Levees, Canals for
-                    material condition, deterioration, vibrations
-                    discovers maintenance repair work and prevents
-                    significant damage. Monitoring of highways and
-                    providing appropriate signage ensures optimized
-                    traffic flow.</p>
-                <p>Smart Parking is optimizing and tracking the
-                    usage and availability of parking spaces and
-                    automates billing/reservations.</p>
-                <p>Smart control of street lights based on presence
-                    detection, weather predictions, etc. reduces cost.</p>
-                <p>Garbage containers can be monitored to optimize
-                    the waste management and the trash collection route.</p>
-            </section>
-            <section id="sec-smart-buildings">
-                <h3 id="smartbuildings">Smart Buildings</h3>
-                <p>Monitoring the energy usage throughout the
-                    building helps to optimize resource consumption and
-                    reduce waste.</p>
-                <p>Monitoring the equipment in the buildings such as
-                    HVAC, Elevators, etc. and fixing problems early
-                    improves the satisfaction of occupants.</p>
-            </section>
-            <section id="sec-connected-car">
-                <h3 id="connectedcar">Connected Car</h3>
-                <p>Monitoring of operation status, prediction of
-                    service needs optimizes maintenance needs and costs.
-                    Driver safety is enhanced with notifications of an
-                    early warning system for critical road and traffic
-                    conditions.</p>
-                <section id="connected-car-example">
-                    <h4 id="connectedcar-example">Connected Car
-                        Example</h4>
-                    <p>
-                        <a href="#connected-car"></a> shows an example
-                        of a Connected Car. In this case, a gateway
-                        connects to car components through CAN and to
-                        the car navigation system through a proprietary
-                        interface. Services running in the cloud collect
-                        data pushed from car components and analyze the
-                        data from multiple cars to determine traffic
-                        patterns. The gateway can also consume cloud
-                        services, in this case, to get traffic data and
-                        show it to the driver through the car navigation
-                        system.
-                    </p>
-                    <figure id="connected-car">
-                        <img
-                            src="images/wot-use-cases/connected-car.png"
-                            srcset="images/wot-use-cases/connected-car.svg"
-                            class="wot-arch-diagram" alt="connected car use case" />
-                        <figcaption>Connected Car</figcaption>
-                    </figure>
-                </section>
-            </section>
+            <p>Smart factories require advanced monitoring of
+                the connected manufacturing equipment as well of the
+                manufactured products. They benefit from predictions
+                of machine failures and early discovery of anomalies
+                to prevent costly downtime and maintenance efforts.</p>
+            <p>Additionally, monitoring of connected
+                manufacturing equipment and the environment at the
+                production facility for the presence of poisonous
+                gases, excessive noise or heat increases the safety
+                of the workers and reduces the risks of incidents or
+                accidents.</p>
+            <p>Real-time monitoring and KPI calculations of
+                production equipment helps to detect productivity
+                problems and optimize the supply chain.</p>
+        </section>
+        <section id="sec-transportationlogistics">
+            <h4 id="transportationlogistics">Transportation
+                &amp; Logistics</h4>
+            <p>Monitoring of vehicles, fuel costs, maintenance
+                needs and assignments helps to optimize the full
+                utilization of the vehicle fleet.</p>
+            <p>Shipments can be tracked to be en-route to ensure
+                consistent quality and condition of the transported
+                goods. This is especially useful to assert the
+                integrity of the cold-chain from warehouses to
+                refrigerated trucks to delivery.</p>
+            <p>Centralized monitoring and management of stock in
+                warehouses and yards can prevent out of stock and
+                excessive stock situations.</p>
+        </section>
+        <section id="sec-utilities">
+            <h4 id="utilities">Utilities</h4>
+            <p>Automated reading of residential and C&amp;I
+                (Commercial and Industrial) meters, and billing
+                offers continuous insights into resource consumption
+                and potential bottlenecks.</p>
+            <p>Monitoring the condition and output of
+                distributed renewable energy generation equipment
+                enables optimization of distributed energy
+                resources.</p>
+            <p>Monitoring and remote-controlling of distribution
+                equipment helps to automate the distribution
+                process.</p>
+            <p>Continuous monitoring of generation and
+                distribution infrastructure is improving safety of
+                utilities crew in the field.</p>
+        </section>
+        <section id="sec-oilandgas">
+            <h4 id="oilandgas">Oil and Gas</h4>
+            <p>Offshore platform monitoring, leakage detection
+                and prediction of pipelines as well as monitoring
+                and controlling the levels in tanks and reservoirs
+                helps to improve the industrial safety for the
+                workforce as well as for the environment.</p>
+            <p>Automated calculation of a distributed stock
+                through various storage tanks and delivery
+                pipes/trucks allows for improved planning and
+                resource optimization.</p>
+        </section>
+        <section id="sec-insurance">
+            <h4 id="insurance">Insurance</h4>
+            <p>Proactive Asset Monitoring of high value assets
+                such as connected structures, fleet vehicles, etc.
+                mitigates the risk of severe damage and high costs
+                due to predictions and early detection of incidents.</p>
+            <p>Usage based insurance can be offered with usage
+                tracking and customized insurance policies.</p>
+            <p>Predictive weather monitoring and re-routing
+                fleet vehicles to covered garages can limit loss due
+                to hail damage, tree damage.</p>
+        </section>
+        <section id="sec-engineering-and-construction">
+            <h4 id="engineering-and-construction">Engineering
+                and Construction</h4>
+            <p>Monitoring for industrial safety reduces the
+                risks of security hazards. Monitoring of assets at
+                construction site can prevent damage and loss.</p>
         </section>
 
-
-
-        <section id="sec-common-usecase-patterns">
-            <h1>Common Patterns</h1>
-            <p>
-            This section introduces common use case patterns that
-            illustrate how devices/things interact with controllers,
-            other devices, agents and servers.
-            In this section, we use the term <em>client role</em> as an
-            initiator of a transport protocol, and the term </em>server role</em>
-            as a passive component of a transport protocol.
-            This does not imply prescribing a specific role on any system component.
-            A device can be in a <em>client</em> and <em>server</em> role simultaneously.
-            </p>
-            <p>
-            One example of this dual role is a sensor, that registers itself with a cloud service
-            and regularly sends sensor readings to the cloud. 
-            In the response messages the cloud can adjust the transmission rate of the 
-            sensor's messages or select specific sensor attributes, that are to be transmitted in future messages.
-            Since the sensor registers itself with the cloud and initiates connections, it is in the 'client' role.
-            However, since it also reacts to requests, that are transmitted in response messages, it also fulfills a 'server' role.
-            </p>
-            <p>
-            The following sections illustrate the roles, tasks, and use case patterns with increasing complexity.
-            They are not exhaustive and are presented to motivate for the WoT architecture and building blocks
-            that are defined in later sections of this specification. 
-            </p>
-
-            <section id="device-controllers">
-                <h3>Device Controllers</h3>
+        <section id="sec-agriculture">
+            <h3 id="agriculture">Agriculture</h3>
+            <p>Soil condition monitoring and creating optimal
+                plans for watering, fertilizing as well as
+                monitoring the produce conditions optimize the
+                quality and output of agricultural produce.</p>
+        </section>
+        <section id="sec-healthcare">
+            <h3 id="healthcare">Healthcare</h3>
+            <p>Data collection and analytics of clinical trial
+                data helps to gain insights into new areas.</p>
+            <p>Remote patient monitoring mitigates the risk of
+                undetected critical situations for elderly people
+                and patients after hospitalization.</p>
+        </section>
+        <section id="sec-environmentmonitoring">
+            <h3 id="environmentmonitoring">Environment
+                Monitoring</h3>
+            <p>Environment monitoring typically relies on a lot
+                of distributed sensors that send their measurement
+                data to common gateways, edge devices and cloud
+                services.</p>
+            <p>Monitoring of air pollution, water pollution and
+                other environmental risk factors such as fine dust,
+                ozone, volatile organic compound, radioactivity,
+                temperature, humidity to detect critical environment
+                conditions can prevent unrecoverable health or
+                environment damages.</p>
+        </section>
+        <section id="sec-smart-cities">
+            <h3 id="smartcities">Smart Cities</h3>
+            <p>Monitoring of Bridges, Dams, Levees, Canals for
+                material condition, deterioration, vibrations
+                discovers maintenance repair work and prevents
+                significant damage. Monitoring of highways and
+                providing appropriate signage ensures optimized
+                traffic flow.</p>
+            <p>Smart Parking is optimizing and tracking the
+                usage and availability of parking spaces and
+                automates billing/reservations.</p>
+            <p>Smart control of street lights based on presence
+                detection, weather predictions, etc. reduces cost.</p>
+            <p>Garbage containers can be monitored to optimize
+                the waste management and the trash collection route.</p>
+        </section>
+        <section id="sec-smart-buildings">
+            <h3 id="smartbuildings">Smart Buildings</h3>
+            <p>Monitoring the energy usage throughout the
+                building helps to optimize resource consumption and
+                reduce waste.</p>
+            <p>Monitoring the equipment in the buildings such as
+                HVAC, Elevators, etc. and fixing problems early
+                improves the satisfaction of occupants.</p>
+        </section>
+        <section id="sec-connected-car">
+            <h3 id="connectedcar">Connected Car</h3>
+            <p>Monitoring of operation status, prediction of
+                service needs optimizes maintenance needs and costs.
+                Driver safety is enhanced with notifications of an
+                early warning system for critical road and traffic
+                conditions.</p>
+            <section id="connected-car-example">
+                <h4 id="connectedcar-example">Connected Car
+                    Example</h4>
                 <p>
-                    The first use case is a local device controlled by a
-                    user-operated remote controller as depicted in <a
-                        href="#smart-home-device"></a>. A remote
-                    controller can access an electronic appliance
-                    through the local home network directly. In this
-                    case, the remote controller can be implemented by a
-                    browser or native application.
+                    <a href="#connected-car"></a> shows an example
+                    of a Connected Car. In this case, a gateway
+                    connects to car components through CAN and to
+                    the car navigation system through a proprietary
+                    interface. Services running in the cloud collect
+                    data pushed from car components and analyze the
+                    data from multiple cars to determine traffic
+                    patterns. The gateway can also consume cloud
+                    services, in this case, to get traffic data and
+                    show it to the driver through the car navigation
+                    system.
                 </p>
-                <p>In this pattern, at least one device like the
-                    electronic appliance has a server role that can
-                    accept a request from the other devices and responds
-                    to them, and sometimes initiates a mechanical
-                    action. The other device like the remote controller
-                    has a client role that can send a message with a
-                    request, like to read a sensor value or to turn on
-                    the device.
-                    Moreover, to emit a current state or event notification of a device,
-                    the device may have a client role that can send a message
-                    to another device, which has server roles.
-                </p>
-                <figure id="smart-home-device">
+                <figure id="connected-car">
                     <img
-                        src="images/wot-use-cases/smart-home-device.png"
-                        srcset="images/wot-use-cases/smart-home-device.svg"
-                        class="wot-arch-diagram" alt="smart home device use case" />
-                    <figcaption>Device Control</figcaption>
-                </figure>
-            </section>
-            <section>
-                <h3>Thing-to-Thing</h3>
-                <p>
-                    <a href="#smart-home-t2t"></a> shows an example of a
-                    direct Thing-to-Thing interaction. The scenario is
-                    as follows: a sensor detects a change of the room
-                    condition, for example the temperature exceeding a
-                    threshold, and issues a control message like "turn
-                    on" to the electronic appliance. The sensor unit can
-                    issue some trigger messages to other devices.
-                </p>
-                <p>In this case, when two devices that have server
-                    roles are connected, at least one device must have
-                    also a client role that issues a message to the
-                    other to actuate or notify.</p>
-                <figure id="smart-home-t2t">
-                    <img src="images/wot-use-cases/smart-home-t2t.png"
-                         srcset="images/wot-use-cases/smart-home-t2t.svg"
-                         class="wot-arch-diagram" alt="smart home t2t use case" />
-                    <figcaption>Control Agent</figcaption>
-                </figure>
-            </section>
-            <section>
-                <h3>Remote Access</h3>
-                <p>
-                    This use case contains a mobile remote controller
-                    (e.g., on a smartphone) as shown in <a
-                        href="#smart-home-multi"></a>. The remote
-                    controller can switch between different network
-                    connections and protocols, e.g., between a cellular
-                    network and a home network, which is using protocols
-                    such as Wi-Fi and Bluetooth. When the controller is
-                    in the home network it is a trusted device and no
-                    additional security or access control is required.
-                    When it is outside of the trusted network,
-                    additional access control and security mechanisms
-                    must be applied to ensure a trusted relationship.
-                    Note that in this scenario the network connectivity
-                    may change due to switching between different
-                    network access points or cellular base stations.
-                </p>
-                <p>
-                    In this pattern, the remote controller and the
-                    electronic appliance have a client and a server role
-                    as in the related scenario in <a
-                        href="#smart-home-device"></a>.
-                </p>
-                <figure id="smart-home-multi">
-                    <img src="images/wot-use-cases/smart-home-multi.png"
-                         srcset="images/wot-use-cases/smart-home-multi.svg"
-                         class="wot-arch-diagram" alt="smart home multi use case" />
-                    <figcaption>Multiple Network Interfaces</figcaption>
-                </figure>
-            </section>
-            <section>
-                <h3>Smart Home Gateways</h3>
-                <p>
-                    <a href="#smart-home-gateway"></a> shows a use case
-                    using a Smart Home Gateway. The gateway
-                    is placed between a home network and the Internet.
-                    It manages electronic appliances inside the
-                    house and can receive commands from a remote
-                    controller over the Internet, e.g., from a
-                    smartphone as in the previous use case. It is also
-                    is a virtual representation of a device. The Smart
-                    Home Gateway typically offers proxy and firewall
-                    functionality.
-                </p>
-                <p>In this pattern, the home gateway has both a
-                    client and a server role. When the remote controller actuates the electronic appliance,
-                    it can connect to the
-                    electronic appliance in the client role and to the
-                    remote controller with the server role.
-                    When the electronic appliance emits a message to the
-                    remote controller, the gateway act as server roles
-                    for the electric appliance, and it act as client roles
-                    for the remote controller.
-                 </p>
-                <figure id="smart-home-gateway">
-                    <img
-                        src="images/wot-use-cases/smart-home-gateway.png"
-                        srcset="images/wot-use-cases/smart-home-gateway.svg"
-                        class="wot-arch-diagram" alt="smart home gateway use case" />
-                    <figcaption>Smart Home Gateway</figcaption>
-                </figure>
-            </section>
-            <section>
-                <h3>Edge Devices</h3>
-                <p>
-                    An Edge Device or Edge Gateway is similar to a Smart
-                    Home Gateway. We use the term to indicate additional
-                    tasks that are carried out by the edge gateway.
-                    Whereas the home gateway in <a
-                        href="#edge-device"></a> primarily just
-                    bridges between the public and the trusted network,
-                    the edge device has local compute capabilities and
-                    typically bridges between different protocols. Edge
-                    devices are typically used in industrial solutions,
-                    where they can provide preprocessing, filtering and
-                    aggregation of data provided by connected devices
-                    and sensors.
-                </p>
-                <figure id="edge-device">
-                    <img src="images/wot-use-cases/edge-device.png"
-                         srcset="images/wot-use-cases/edge-device.svg"
-                         class="wot-arch-diagram" alt="edge device use case" />
-                    <figcaption>Edge device</figcaption>
-                </figure>
-            </section>
-            <section>
-                <h3>Digital Twins</h3>
-                <p>A digital twin is a virtual representation, i.e.
-                    a model of a device or a group of devices that
-                    resides on a cloud server or edge device. It can be
-                    used to represent real-world devices which may not
-                    be continuously online, or to run simulations of new
-                    applications and services, before they get deployed
-                    to the real devices.</p>
-                <figure id="digital-twin">
-                    <img src="images/wot-use-cases/digital-twin.png"
-                         srcset="images/wot-use-cases/digital-twin.svg"
-                         class="wot-arch-diagram" alt="digital twin use case" />
-                    <figcaption>Digital Twin</figcaption>
-                </figure>
-                <p>Digital twins can model a single device, or they
-                    can aggregate multiple devices in a virtual
-                    representation of the combined devices.</p>
-                <figure id="digital-twin-multiple-devices">
-                    <img
-                        src="images/wot-use-cases/digital-twin-multiple-devices.png"
-                        srcset="images/wot-use-cases/digital-twin-multiple-devices.svg"
-                        class="wot-arch-diagram" alt="digital twin multiple devices use case" />
-                    <figcaption>Digital Twin for Multiple
-                        Devices</figcaption>
-                </figure>
-
-                <p>Digital twins can be realized in different ways,
-                    depending on whether a device is already connected
-                    to the cloud, or whether it is connected to a
-                    gateway, which itself is connected to the cloud.</p>
-                <section>
-                    <h4>Cloud-ready Devices</h4>
-                    <p>
-                        <a href="#smart-home-cloud1"></a> shows an
-                        example where electronic appliances are
-                        connected directly to the cloud. The cloud
-                        mirrors the appliances and, acting as a digital
-                        twin, can receive commands from remote
-                        controllers (e.g., a smartphone). Authorized
-                        controllers can be located anywhere, as the
-                        digital twin is globally reachable.
-
-                    </p>
-                    <figure id="smart-home-cloud1">
-                        <img
-                            src="images/wot-use-cases/smart-home-cloud1a.png"
-                            srcset="images/wot-use-cases/smart-home-cloud1a.svg"
-                            class="wot-arch-diagram" alt="smart home cloud use case 1" />
-                        <figcaption>Appliance twin for a
-                            Cloud-ready Devices</figcaption>
-                    </figure>
-                </section>
-                <section>
-                    <h3>Legacy Devices</h3>
-                    <p>
-                        <a href="#smart-home-cloud2"></a> shows an
-                        example where legacy electronic appliances
-                        cannot directly connect to the cloud. Here, a
-                        gateway is needed to relay the connection. The
-                        gateway works as:
-                    </p>
-                    <ul>
-                        <li>integrator of a variety of legacy
-                            communication protocols both in the physical
-                            and logical view</li>
-                        <li>firewall toward the Internet</li>
-                        <li>privacy filter which substitutes real
-                            image and/or speech, and logs data locally</li>
-                        <li>local agent in case the network
-                            connection is interrupted</li>
-                        <li>emergency services running locally when
-                            fire alarms and similar events occur</li>
-                    </ul>
-                    <p>The cloud mirrors the gateway with all
-                        connected appliances and acts as a digital twin
-                        that manages them in the cloud in conjunction
-                        with the gateway. Furthermore, the cloud can
-                        receive commands from remote controllers (e.g.,
-                        a smartphone), which can be located anywhere.</p>
-                    <figure id="smart-home-cloud2">
-                        <img
-                            src="images/wot-use-cases/smart-home-cloud2.png"
-                            srcset="images/wot-use-cases/smart-home-cloud2.svg"
-                            class="wot-arch-diagram" alt="smart home cloud use case 2" />
-                        <figcaption>A Digital Twin for a
-                            Legacy Device</figcaption>
-                    </figure>
-                </section>
-            </section>
-            <section>
-                <h3>Multi-Cloud</h3>
-                <p>Typical IoT deployments consist of multiple
-                    (thousands) of devices. Without a standardized
-                    mechanism, the management of firmware updates for
-                    specific clouds require a lot of effort and hinders
-                    wider scale IoT adoption.</p>
-                <p>The primary benefit of a standardized mechanism
-                    for describing devices and device types is the
-                    capability of deploying devices to different cloud
-                    environments without the need of doing customization
-                    at device software / firmware level, i.e.,  installing
-                    cloud specific code to a device. This implies that
-                    the solution is flexible enough to describe devices
-                    in a way that allows on-boarding and using devices
-                    in multiple IoT cloud environments.</p>
-                <p>This drives adoption of Web of Things devices,
-                    since it enables easy usage of new devices in an
-                    existing deployment, as well as migration of
-                    existing devices from one cloud to the other.</p>
-            </section>
-
-            <section>
-                <h3>Cross-domain Collaboration</h3>
-                <p>
-                    <a href="#cross-domain"></a> show an example of a
-                    cross-domain collaboration. In this case, each
-                    system involves other systems in other domains, such
-                    as Smart Factory with Smart City, Smart City with
-                    Smart Home. This type of system is called
-                    "Symbiotic" ecosystem, as shown in [[IEC-FOTF]].
-                    There are two collaboration models: direct
-                    collaboration and indirect collaboration. In the
-                    direct collaboration model, systems exchange
-                    information directly with each other in a
-                    peer-to-peer manner. In the indirect collaboration,
-                    systems exchange information via some collaboration
-                    platform. In order to maintain and continue this
-                    collaboration, each system provides the metadata of
-                    their capabilities and interfaces and adapts itself
-                    to others.
-                </p>
-                <figure id="cross-domain">
-                    <img src="images/wot-use-cases/cross-domain-direct.png"
-                         srcset="images/wot-use-cases/cross-domain-direct.svg"
-                        class="wot-arch-diagram" alt="cross domain direct use case" />
-                    <img src="images/wot-use-cases/cross-domain-indirect.png"
-                         srcset="images/wot-use-cases/cross-domain-indirect.svg"
-                        class="wot-arch-diagram" alt="cross domain indirect use case" />
-                    <figcaption>Cross-domain collaboration</figcaption>
+                        src="images/wot-use-cases/connected-car.png"
+                        srcset="images/wot-use-cases/connected-car.svg"
+                        class="wot-arch-diagram" alt="connected car use case" />
+                    <figcaption>Connected Car</figcaption>
                 </figure>
             </section>
         </section>
-        <section id="sec-use-case-summary">
-            <h2>Summary</h2>
+    </section>
+
+
+
+    <section id="sec-common-deployment-patterns" class="informative">
+        <h1>System Topoplogies (Horizontals)</h1>
+        <p>
+        This section introduces common deployment patterns that
+        illustrate how devices/things interact with controllers,
+        other devices, agents and servers.
+        In this section, we use the term <em>client role</em> as an
+        initiator of a transport protocol, and the term </em>server role</em>
+        as a passive component of a transport protocol.
+        This does not imply prescribing a specific role on any system component.
+        A device can be in a <em>client</em> and <em>server</em> role simultaneously.
+        </p>
+        <p>
+        One example of this dual role is a sensor, that registers itself with a cloud service
+        and regularly sends sensor readings to the cloud. 
+        In the response messages the cloud can adjust the transmission rate of the 
+        sensor's messages or select specific sensor attributes, that are to be transmitted in future messages.
+        Since the sensor registers itself with the cloud and initiates connections, it is in the 'client' role.
+        However, since it also reacts to requests, that are transmitted in response messages, it also fulfills a 'server' role.
+        </p>
+        <p>
+        The following sections illustrate the roles, tasks, and use case patterns with increasing complexity.
+        They are not exhaustive and are presented to motivate for the WoT architecture and building blocks
+        that are defined in later sections of this specification. 
+        </p>
+
+        <section id="device-controllers">
+            <h3>Device Controllers</h3>
             <p>
-                The previous section described various architecture
-                patterns. In these patterns, some functional entities
-                such as the devices including the legacy devices,
-                controllers, gateways and cloud servers are located at
-                physical locations such as inside building, outside
-                buildings, and data centers. <a href="#usecase-overview"></a>
-                is an overview that shows the combinations and
-                communication paths of these entities.
+                The first use case is a local device controlled by a
+                user-operated remote controller as depicted in <a
+                    href="#smart-home-device"></a>. A remote
+                controller can access an electronic appliance
+                through the local home network directly. In this
+                case, the remote controller can be implemented by a
+                browser or native application.
+            </p>
+            <p>In this pattern, at least one device like the
+                electronic appliance has a server role that can
+                accept a request from the other devices and responds
+                to them, and sometimes initiates a mechanical
+                action. The other device like the remote controller
+                has a client role that can send a message with a
+                request, like to read a sensor value or to turn on
+                the device.
+                Moreover, to emit a current state or event notification of a device,
+                the device may have a client role that can send a message
+                to another device, which has server roles.
+            </p>
+            <figure id="smart-home-device">
+                <img
+                    src="images/wot-use-cases/smart-home-device.png"
+                    srcset="images/wot-use-cases/smart-home-device.svg"
+                    class="wot-arch-diagram" alt="smart home device use case" />
+                <figcaption>Device Control</figcaption>
+            </figure>
+        </section>
+        <section>
+            <h3>Thing-to-Thing</h3>
+            <p>
+                <a href="#smart-home-t2t"></a> shows an example of a
+                direct Thing-to-Thing interaction. The scenario is
+                as follows: a sensor detects a change of the room
+                condition, for example the temperature exceeding a
+                threshold, and issues a control message like "turn
+                on" to the electronic appliance. The sensor unit can
+                issue some trigger messages to other devices.
+            </p>
+            <p>In this case, when two devices that have server
+                roles are connected, at least one device must have
+                also a client role that issues a message to the
+                other to actuate or notify.</p>
+            <figure id="smart-home-t2t">
+                <img src="images/wot-use-cases/smart-home-t2t.png"
+                        srcset="images/wot-use-cases/smart-home-t2t.svg"
+                        class="wot-arch-diagram" alt="smart home t2t use case" />
+                <figcaption>Control Agent</figcaption>
+            </figure>
+        </section>
+        <section>
+            <h3>Remote Access</h3>
+            <p>
+                This use case contains a mobile remote controller
+                (e.g., on a smartphone) as shown in <a
+                    href="#smart-home-multi"></a>. The remote
+                controller can switch between different network
+                connections and protocols, e.g., between a cellular
+                network and a home network, which is using protocols
+                such as Wi-Fi and Bluetooth. When the controller is
+                in the home network it is a trusted device and no
+                additional security or access control is required.
+                When it is outside of the trusted network,
+                additional access control and security mechanisms
+                must be applied to ensure a trusted relationship.
+                Note that in this scenario the network connectivity
+                may change due to switching between different
+                network access points or cellular base stations.
             </p>
             <p>
-                In a transport protocol layer, each entity arbitrarily
-                selects a suitable role for communications.  For example,
-                a device may act as a server when the device provides a service
-                to indefinite number of applications.  On the other hand,
-                if a device has limited or intermittent network connectivity,
-                they may act as a client and actively send message to an application
-                when network is available.  Regardless of this,
-                in application layer, an application sees that a device provides abstract
-                interfaces to interact and the application can interact with the device
-                using their abstract interfaces.
+                In this pattern, the remote controller and the
+                electronic appliance have a client and a server role
+                as in the related scenario in <a
+                    href="#smart-home-device"></a>.
             </p>
-            <figure id="usecase-overview">
-                <img src="images/wot-use-cases/use-case-summary.png"
-                     srcset="images/wot-use-cases/use-case-summary.svg"
-                     class="wot-arch-diagram" alt="use case summary" />
-                <figcaption>Use Case Overview</figcaption>
+            <figure id="smart-home-multi">
+                <img src="images/wot-use-cases/smart-home-multi.png"
+                        srcset="images/wot-use-cases/smart-home-multi.svg"
+                        class="wot-arch-diagram" alt="smart home multi use case" />
+                <figcaption>Multiple Network Interfaces</figcaption>
+            </figure>
+        </section>
+        <section>
+            <h3>Smart Home Gateways</h3>
+            <p>
+                <a href="#smart-home-gateway"></a> shows a use case
+                using a Smart Home Gateway. The gateway
+                is placed between a home network and the Internet.
+                It manages electronic appliances inside the
+                house and can receive commands from a remote
+                controller over the Internet, e.g., from a
+                smartphone as in the previous use case. It is also
+                is a virtual representation of a device. The Smart
+                Home Gateway typically offers proxy and firewall
+                functionality.
+            </p>
+            <p>In this pattern, the home gateway has both a
+                client and a server role. When the remote controller actuates the electronic appliance,
+                it can connect to the
+                electronic appliance in the client role and to the
+                remote controller with the server role.
+                When the electronic appliance emits a message to the
+                remote controller, the gateway act as server roles
+                for the electric appliance, and it act as client roles
+                for the remote controller.
+                </p>
+            <figure id="smart-home-gateway">
+                <img
+                    src="images/wot-use-cases/smart-home-gateway.png"
+                    srcset="images/wot-use-cases/smart-home-gateway.svg"
+                    class="wot-arch-diagram" alt="smart home gateway use case" />
+                <figcaption>Smart Home Gateway</figcaption>
+            </figure>
+        </section>
+        <section>
+            <h3>Edge Devices</h3>
+            <section class="ednote">
+                TODO: (McCool) Check if the current text still fits with recent edge computing activities.
+            </section>
+
+            <p>
+                An Edge Device or Edge Gateway is similar to a Smart
+                Home Gateway. We use the term to indicate additional
+                tasks that are carried out by the edge gateway.
+                Whereas the home gateway in <a
+                    href="#edge-device"></a> primarily just
+                bridges between the public and the trusted network,
+                the edge device has local compute capabilities and
+                typically bridges between different protocols. Edge
+                devices are typically used in industrial solutions,
+                where they can provide preprocessing, filtering and
+                aggregation of data provided by connected devices
+                and sensors.
+            </p>
+            <figure id="edge-device">
+                <img src="images/wot-use-cases/edge-device.png"
+                        srcset="images/wot-use-cases/edge-device.svg"
+                        class="wot-arch-diagram" alt="edge device use case" />
+                <figcaption>Edge device</figcaption>
+            </figure>
+        </section>
+        <section>
+            <h3>Digital Twins</h3>
+            <p>A digital twin is a virtual representation, i.e.
+                a model of a device or a group of devices that
+                resides on a cloud server or edge device. It can be
+                used to represent real-world devices which may not
+                be continuously online, or to run simulations of new
+                applications and services, before they get deployed
+                to the real devices.</p>
+            <figure id="digital-twin">
+                <img src="images/wot-use-cases/digital-twin.png"
+                        srcset="images/wot-use-cases/digital-twin.svg"
+                        class="wot-arch-diagram" alt="digital twin use case" />
+                <figcaption>Digital Twin</figcaption>
+            </figure>
+            <p>Digital twins can model a single device, or they
+                can aggregate multiple devices in a virtual
+                representation of the combined devices.</p>
+            <figure id="digital-twin-multiple-devices">
+                <img
+                    src="images/wot-use-cases/digital-twin-multiple-devices.png"
+                    srcset="images/wot-use-cases/digital-twin-multiple-devices.svg"
+                    class="wot-arch-diagram" alt="digital twin multiple devices use case" />
+                <figcaption>Digital Twin for Multiple
+                    Devices</figcaption>
+            </figure>
+
+            <p>Digital twins can be realized in different ways,
+                depending on whether a device is already connected
+                to the cloud, or whether it is connected to a
+                gateway, which itself is connected to the cloud.</p>
+            <section>
+                <h4>Cloud-ready Devices</h4>
+                <p>
+                    <a href="#smart-home-cloud1"></a> shows an
+                    example where electronic appliances are
+                    connected directly to the cloud. The cloud
+                    mirrors the appliances and, acting as a digital
+                    twin, can receive commands from remote
+                    controllers (e.g., a smartphone). Authorized
+                    controllers can be located anywhere, as the
+                    digital twin is globally reachable.
+
+                </p>
+                <figure id="smart-home-cloud1">
+                    <img
+                        src="images/wot-use-cases/smart-home-cloud1a.png"
+                        srcset="images/wot-use-cases/smart-home-cloud1a.svg"
+                        class="wot-arch-diagram" alt="smart home cloud use case 1" />
+                    <figcaption>Appliance twin for a
+                        Cloud-ready Devices</figcaption>
+                </figure>
+            </section>
+            <section>
+                <h3>Legacy Devices</h3>
+                <p>
+                    <a href="#smart-home-cloud2"></a> shows an
+                    example where legacy electronic appliances
+                    cannot directly connect to the cloud. Here, a
+                    gateway is needed to relay the connection. The
+                    gateway works as:
+                </p>
+                <ul>
+                    <li>integrator of a variety of legacy
+                        communication protocols both in the physical
+                        and logical view</li>
+                    <li>firewall toward the Internet</li>
+                    <li>privacy filter which substitutes real
+                        image and/or speech, and logs data locally</li>
+                    <li>local agent in case the network
+                        connection is interrupted</li>
+                    <li>emergency services running locally when
+                        fire alarms and similar events occur</li>
+                </ul>
+                <p>The cloud mirrors the gateway with all
+                    connected appliances and acts as a digital twin
+                    that manages them in the cloud in conjunction
+                    with the gateway. Furthermore, the cloud can
+                    receive commands from remote controllers (e.g.,
+                    a smartphone), which can be located anywhere.</p>
+                <figure id="smart-home-cloud2">
+                    <img
+                        src="images/wot-use-cases/smart-home-cloud2.png"
+                        srcset="images/wot-use-cases/smart-home-cloud2.svg"
+                        class="wot-arch-diagram" alt="smart home cloud use case 2" />
+                    <figcaption>A Digital Twin for a
+                        Legacy Device</figcaption>
+                </figure>
+            </section>
+        </section>
+        <section>
+            <h3>Multi-Cloud</h3>
+            <p>Typical IoT deployments consist of multiple
+                (thousands) of devices. Without a standardized
+                mechanism, the management of firmware updates for
+                specific clouds require a lot of effort and hinders
+                wider scale IoT adoption.</p>
+            <p>The primary benefit of a standardized mechanism
+                for describing devices and device types is the
+                capability of deploying devices to different cloud
+                environments without the need of doing customization
+                at device software / firmware level, i.e.,  installing
+                cloud specific code to a device. This implies that
+                the solution is flexible enough to describe devices
+                in a way that allows on-boarding and using devices
+                in multiple IoT cloud environments.</p>
+            <p>This drives adoption of Web of Things devices,
+                since it enables easy usage of new devices in an
+                existing deployment, as well as migration of
+                existing devices from one cloud to the other.</p>
+        </section>
+
+        <section>
+            <h3>Cross-domain Collaboration</h3>
+            <p>
+                <a href="#cross-domain"></a> show an example of a
+                cross-domain collaboration. In this case, each
+                system involves other systems in other domains, such
+                as Smart Factory with Smart City, Smart City with
+                Smart Home. This type of system is called
+                "Symbiotic" ecosystem, as shown in [[IEC-FOTF]].
+                There are two collaboration models: direct
+                collaboration and indirect collaboration. In the
+                direct collaboration model, systems exchange
+                information directly with each other in a
+                peer-to-peer manner. In the indirect collaboration,
+                systems exchange information via some collaboration
+                platform. In order to maintain and continue this
+                collaboration, each system provides the metadata of
+                their capabilities and interfaces and adapts itself
+                to others.
+            </p>
+            <figure id="cross-domain">
+                <img src="images/wot-use-cases/cross-domain-direct.png"
+                        srcset="images/wot-use-cases/cross-domain-direct.svg"
+                    class="wot-arch-diagram" alt="cross domain direct use case" />
+                <img src="images/wot-use-cases/cross-domain-indirect.png"
+                        srcset="images/wot-use-cases/cross-domain-indirect.svg"
+                    class="wot-arch-diagram" alt="cross domain indirect use case" />
+                <figcaption>Cross-domain collaboration</figcaption>
             </figure>
         </section>
     </section>
+
+    <section id="sec-system-integration">
+        <h2>System Integration</h2>
+        <p>
+            The previous section described various architecture
+            patterns. In these patterns, some functional entities
+            such as the devices including the legacy devices,
+            controllers, gateways and cloud servers are located at
+            physical locations such as inside building, outside
+            buildings, and data centers. <a href="#usecase-overview"></a>
+            is an overview that shows the combinations and
+            communication paths of these entities.
+        </p>
+        <p>
+            In a transport protocol layer, each entity arbitrarily
+            selects a suitable role for communications.  For example,
+            a device may act as a server when the device provides a service
+            to indefinite number of applications.  On the other hand,
+            if a device has limited or intermittent network connectivity,
+            they may act as a client and actively send message to an application
+            when network is available.  Regardless of this,
+            in application layer, an application sees that a device provides abstract
+            interfaces to interact and the application can interact with the device
+            using their abstract interfaces.
+        </p>
+        <figure id="usecase-overview">
+            <img src="images/wot-use-cases/use-case-summary.png"
+                    srcset="images/wot-use-cases/use-case-summary.svg"
+                    class="wot-arch-diagram" alt="use case summary" />
+            <figcaption>Use Case Overview</figcaption>
+        </figure>
+    </section>
+
+    <!-- REQUIREMENTS -->
+
     <section id="sec-requirements" class="normative">
         <h1>Requirements</h1>
         <p>
@@ -1229,6 +1238,10 @@ img.wot-arch-diagram {
             <h2>Functional Requirements</h2>
             <p>This section defines the properties required in an
                 abstract Web of Things (WoT) architecture.</p>
+
+            <section class="ednote">
+                TODO: New requirements from new use cases need to be added here.
+            </section>
             <section id="sec-requirements-principles">
                 <h3>Common Principles</h3>
                 <ul>
@@ -1443,6 +1456,10 @@ img.wot-arch-diagram {
                 technical requirements derived from the abstract
                 architecture.
             </p>
+            <section class="ednote">
+                TODO: New requirements from new use cases need to be added here.
+            </section>
+
             <section>
                 <h3>Components in the Web of Things and the Web
                     of Things Architecture</h3>
@@ -1575,7 +1592,7 @@ img.wot-arch-diagram {
     </section>
 
     <section id="sec-wot-architecture">
-        <h1>WoT Architecture</h1>
+        <h1>Abstract WoT System Architecture</h1>
         <p>
             <em>This section is normative.</em>
         </p>
@@ -1586,7 +1603,16 @@ img.wot-arch-diagram {
             As the Web of Things addresses stakeholders from different domains, certain aspects of Web technology are explained in more detail, in particular the concept of hypermedia.
         </p>
         <section id="sec-architecture-overview">
-            <h2>Overview</h2>
+            <h2>System Components</h2>
+
+            <section class="ednote">
+                TODO: Create introductory text that introduces the concepts from the succeeding chapters.
+            </section>
+
+            <section id="thing">
+                <h3>Things and Consumers</h3> 
+            </section>
+
             <p>
                 A <a>Thing</a> is the abstraction of a physical or virtual entity (e.g., a device or a room) and is described by standardized metadata.
                 <span class="rfc2119-assertion" id="arch-td-metadata">
@@ -1631,6 +1657,17 @@ img.wot-arch-diagram {
                 The main <a>TD</a> acts as entry point and only contain general metadata and potentially overarching capabilities.
                 This allows grouping of certain aspects of more complex Things.
             </p>
+
+            <section id="thing-models">
+                <h3>Thing Models (Templates)</h3> 
+                <section class="ednote">
+                    TODO: Create section.
+                </section>
+            </section>
+
+            <section id="links">
+                <h3>Links</h3> 
+            </section>
             <p>
                 Linking does not only apply to hierarchical <a>Things</a>, but relations between Things and other resources in general.
                 Link relation types express how Things relate, for instance, a switch controlling a light or a room monitored by a motion sensor.
@@ -1658,6 +1695,10 @@ img.wot-arch-diagram {
                 usually because of IPv4 Network Address Translation (NAT) or firewall devices.
                 To remedy this situation, W3C WoT allows for <a>Intermediaries</a> between <a>Things</a> and <a>Consumers</a>.
             </p>
+
+            <section id="intermediary">
+                <h3>Intermediaries</h3> 
+            </section>
             <p>    
                 <a>Intermediaries</a> can act as proxies for <a>Things</a>, where the <a>Intermediary</a> has a <a>WoT Thing Description</a> similar to the original <a>Thing</a>,
                 but which points to the <a>WoT Interface</a> provided by the <a>Intermediary</a>.
@@ -1782,6 +1823,46 @@ img.wot-arch-diagram {
                 <figcaption>Architectural Aspects of a Thing</figcaption>
             </figure>
         </section>
+
+        <!-- Lifecycle -->
+
+        <section id="lifecycle">
+            <h2>Lifecycle</h2>
+            <section class="ednote">
+                TODO: Create introductory text that introduces the succeeding chapters.
+                Explain the difference between 
+                System Lifecycle <MichaelL>
+                Thing Lifecycle <Zoltan>
+                Information Lifecycle <MichaelM>
+            </section>
+
+            <section id="system-lifecycle">
+                <h3>System Lifecycle</h3>
+                <section class="ednote">
+                    TODO: Create text for System Lifecycle <MichaelL>
+                    Thing Lifecycle <Zoltan>
+                    Information Lifecycle <MichaelM>
+                </section>
+            </section>
+
+            <section id="thing-lifecycle">
+                <h3>Thing Lifecycle</h3>
+                <section class="ednote">
+                    TODO: Create text for Thing Lifecycle <Zoltan>
+                    Information Lifecycle <MichaelM>
+                </section>
+            </section>
+
+            <section id="information-lifecycle">
+                <h3>Information Lifecycle</h3>
+                <section class="ednote">
+                    TODO: Create text for Information Lifecycle <MichaelM>
+                </section>
+            </section>
+        </section>
+
+        <!-- Interaction Model -->
+
         <section id="sec-interaction-model">
             <h2>Interaction Model</h2>
             <p>
@@ -2523,6 +2604,24 @@ img.wot-arch-diagram {
                 can access IoT devices and make use of their data.
             </p>
         </section>
+
+        <!-- Thing Model -->
+
+        <section id="thing-model">
+            <h2>Thing Model</h2>
+            <section class="ednote">
+                TODO: Create text that introduces the concepts of a thing model.
+            </section>
+        </section>
+
+        <section id="discovery">
+            <h2>Discovery</h2>
+            <section class="ednote">
+                TODO: Create text that introduces the discovery specification.
+            </section>
+        </section>
+
+
         <section id="sec-binding-templates" class="informative">
             <h3>WoT Binding Templates</h3>
             <p> The IoT uses a variety of protocols for accessing
