@@ -26,20 +26,20 @@ Ryuichi Matsukura
 ### Requirements:
 
 #### Gateway
-* Connects the physical devices with various interfaces.
+* Connects the physical devices with various protocol interfaces.
 * Integrates the access way of the physical devices into one. 
 * Allows secure access to the physical devices from the cloud beyond firewalls.
-* Enpowers the physical devices with preformance constraints.
+* Empowers the physical devices with performance constraints.
 * Creates the virtual devices correspoding to the physical devices.
 
 #### Virtual devices
-* Respond to the consumers on behalf of the physical devices when their sleeping.
+* Respond to the consumers on behalf of the physical devices when their offline / disconnected.
 * Have the same TDs as the physical devices, but is distinct from them.
 * Relay the messages to/from the physical devices.
-* Have current phyiscal device status, such as active, inactive and sleeping.
+* Have current physical device status, such as active, inactive and sleeping.
 
 #### Unit
-* Uses the vocabularies already defined extenally. 
+* Uses the vocabularies already defined by other standards. 
 
 ### Related standards:
 
