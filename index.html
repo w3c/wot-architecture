@@ -620,6 +620,7 @@ img.wot-arch-diagram {
             TODO: Need to add definitions for discovery, thing templates, profiles, lifecycle.
         </section>
 
+
     </section>
 
     <section id="sec-application-domains" class="informative">
@@ -1835,14 +1836,66 @@ img.wot-arch-diagram {
                 Thing Lifecycle <Zoltan>
                 Information Lifecycle <MichaelM>
             </section>
+            
 
             <section id="system-lifecycle">
                 <h3>System Lifecycle</h3>
-                <section class="ednote">
-                    TODO: Create text for System Lifecycle <MichaelL>
-                    Thing Lifecycle <Zoltan>
-                    Information Lifecycle <MichaelM>
+                <p>
+                    In a system that applies the WoT architecture principles different entities interact with each other and exchange information between them.
+                    Each entity (consumer, thing, directory, ...) has its own (intrinsic) lifecycle. 
+                    For an application scenario, where things are combined into common operation flows, the entire system follows a lifecycle.
+                    This lifecycle requires a certain flow of information and a sequence of operations that need to be carried out during the lifetime of the application.  
+                </p>
+                <p>
+                    To give a practical example:
+                    A thing has to go through some initial setup and configuration steps, before it can be used by others. 
+                    This may include the provisioning of keys, performing configuration operations, onboarding it to a consumer, 
+                    registering it with a thing directory and other actions. 
+                    When a thing has to be permanently removed from an application, the system has to undergo some state changes to decomission it from consumers, 
+                    remove security credentials, deregister it from directories etc.
+                    These activities change the state of individual system components which impact the entire systen state.
+                    For example a thing, that has been deregistered from a directory service can no longer be looked up. 
+                    It is dependent on the use case if the thing can still continue to be used.
+                </p>
+
+                <p>
+                    We distinguish two fundamentally different application scenarios:
+                </p><p>
+                    In the simple scenario the thing and the consumer have a direct relationship and gets onboarded to the consumer directly.
+                    In the alternative case, a thing is registered with a directory and the consumer has to discover/lookup the thing before it can be initially used.
+
+                </p>
+                <section id="simple-system-lifecycle">
+                    <h3>Simple System Lifecycle</h3>
+                    <section class="ednote">
+                        TODO: Create text for Simple System Lifecycle <MichaelL>
+                    </section>
+    
+                    <figure id="lifecycle-1">
+                        <img
+                            src="images/message-flows/lifecycle-1.svg"
+                            srcset="images/message-flows/lifecycle-1.svg"
+                            class="wot-arch-diagram" alt="Simple System Lifecycle" />
+                        <figcaption>Plain System Lifecycle</figcaption>
+                    </figure>
                 </section>
+     
+                <section id="system-lifecycle-no-directory">
+                    <h3>System Lifecycle with Registration</h3>
+                    <section class="ednote">
+                        TODO: Create text for System Lifecycle with Registration <MichaelL>
+                    </section>
+    
+                    <figure id="lifecycle-2">
+                        <img
+                            src="images/message-flows/lifecycle-2.svg"
+                            srcset="images/message-flows/lifecycle-2.svg"
+                            class="wot-arch-diagram" alt="Simple System Lifecycle" />
+                        <figcaption>System lifecycle with registration</figcaption>
+                    </figure> 
+                </section>
+ 
+
             </section>
 
             <section id="thing-lifecycle">
