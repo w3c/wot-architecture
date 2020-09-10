@@ -1,0 +1,127 @@
+<mxfile host="app.diagrams.net" modified="2020-09-10T13:25:42.703Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36" etag="zdmGWO5hyqmKl0c8eYyI" version="13.5.5" type="github">
+  <diagram id="P043whf23QamJgNe1Ofm" name="Page-1">
+    <mxGraphModel dx="1895" dy="-110" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2sqond1rTH6ZDEFuhJtR-1" value="" style="shape=umlLifeline;participant=umlActor;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;labelBackgroundColor=#ffffff;outlineConnect=0;" parent="1" vertex="1">
+          <mxGeometry x="-10" y="1000" width="20" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="2sqond1rTH6ZDEFuhJtR-2" value="register" style="html=1;verticalAlign=bottom;startArrow=none;endArrow=block;startSize=8;startFill=0;" parent="1" source="2sqond1rTH6ZDEFuhJtR-1" target="2sqond1rTH6ZDEFuhJtR-8" edge="1">
+          <mxGeometry x="0.3153" relative="1" as="geometry">
+            <mxPoint x="290" y="1125" as="sourcePoint" />
+            <mxPoint x="350" y="1125" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="170" y="1115" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2sqond1rTH6ZDEFuhJtR-3" value="onboard" style="html=1;verticalAlign=bottom;endArrow=block;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="598.5" y="1174" as="sourcePoint" />
+            <mxPoint x="445.5" y="1174" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="530" y="1174" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2sqond1rTH6ZDEFuhJtR-4" value="bootstrap" style="html=1;verticalAlign=bottom;endArrow=block;" parent="1" source="2sqond1rTH6ZDEFuhJtR-1" target="2sqond1rTH6ZDEFuhJtR-7" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="490" y="955" as="sourcePoint" />
+            <mxPoint x="570" y="955" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="80" y="1085" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2sqond1rTH6ZDEFuhJtR-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" parent="1" source="2sqond1rTH6ZDEFuhJtR-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="60" y="1280" />
+              <mxPoint x="60" y="1280" />
+            </Array>
+            <mxPoint x="139.5" y="1280" as="sourcePoint" />
+            <mxPoint x="289.5" y="1280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2sqond1rTH6ZDEFuhJtR-6" value="deregister" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;" parent="2sqond1rTH6ZDEFuhJtR-5" vertex="1" connectable="0">
+          <mxGeometry x="0.0733" y="-18" relative="1" as="geometry">
+            <mxPoint x="-19.5" y="-28" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2sqond1rTH6ZDEFuhJtR-7" value="Device" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" parent="1" vertex="1">
+          <mxGeometry x="90" y="1000" width="100" height="390" as="geometry" />
+        </mxCell>
+        <mxCell id="2sqond1rTH6ZDEFuhJtR-8" value="Directory" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="240" y="1000" width="100" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="2sqond1rTH6ZDEFuhJtR-9" value="Consumer" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" parent="1" vertex="1">
+          <mxGeometry x="396" y="1000" width="100" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="2sqond1rTH6ZDEFuhJtR-10" value="activate" style="html=1;verticalAlign=bottom;endArrow=block;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint y="1191" as="sourcePoint" />
+            <mxPoint x="140" y="1191" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="70" y="1191" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2sqond1rTH6ZDEFuhJtR-11" value="" style="shape=umlLifeline;participant=umlActor;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;labelBackgroundColor=#ffffff;outlineConnect=0;" parent="1" vertex="1">
+          <mxGeometry x="589" y="1000" width="20" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="2sqond1rTH6ZDEFuhJtR-12" value="deactivate" style="html=1;verticalAlign=bottom;endArrow=block;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="-0.5" y="1249" as="sourcePoint" />
+            <mxPoint x="139.5" y="1249" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="60" y="1249" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2sqond1rTH6ZDEFuhJtR-13" value="decomission" style="html=1;verticalAlign=bottom;endArrow=block;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint y="1309" as="sourcePoint" />
+            <mxPoint x="140" y="1309" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2sqond1rTH6ZDEFuhJtR-14" value="use" style="html=1;verticalAlign=bottom;endArrow=block;dashed=1;entryX=0.5;entryY=0.594;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="598.5" y="1221.07" as="sourcePoint" />
+            <mxPoint x="140" y="1220.9999999999998" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="430" y="1221.07" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2sqond1rTH6ZDEFuhJtR-15" value="discover" style="html=1;verticalAlign=bottom;endArrow=block;dashed=1;" parent="1" source="2sqond1rTH6ZDEFuhJtR-11" target="2sqond1rTH6ZDEFuhJtR-8" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="330" y="1080" as="sourcePoint" />
+            <mxPoint x="410" y="1080" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="440" y="1150" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2sqond1rTH6ZDEFuhJtR-16" value="offboard" style="html=1;verticalAlign=bottom;endArrow=block;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="598.5" y="1250" as="sourcePoint" />
+            <mxPoint x="445.5" y="1250" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="540" y="1250" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2sqond1rTH6ZDEFuhJtR-17" value="destroy" style="html=1;verticalAlign=bottom;endArrow=block;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="-0.5" y="1340" as="sourcePoint" />
+            <mxPoint x="139.5" y="1340" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
