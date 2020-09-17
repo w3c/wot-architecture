@@ -30,15 +30,28 @@ Connect a thing description with a thing model.
 
 There is already a RFC / Iana naming scheme for link relatinos, we can adopt those.
 
+If the type is a URL, a link is the natural chice for represnting it.
+
 when you think about how you model things in UML: inheritance, implementation, aggregation
 
-"Source", to identify a directory.
+"Source"/"Search", to identify the source from which the TD was obtained (e.g. a device, database, directory)
 "Inheritance/implements" for Thing Model - TD relationship
 "Containment": "contained by" or "is contained" - system components
 "Aggregation": set of entities
 "Collection": 
-"Metadata", e.g. company, maintainer, ...
+"Metadata", e.g. company, maintainer, license ...
+"Documentation": 
+("Current")
+"Previous": version of the document
+"member", "Item"
+"manifest": point to SW implementing the TD
+"Profile": denote compliance
 
+#### Not in IANA list:
+"proxy-to" (security or protocol proxy or both)
+"twin-of"
+"shadow": caching data
+"simulation", could be a shadow or a twin
 
 ### Entity types:
 * Thing model
@@ -65,6 +78,7 @@ when you think about how you model things in UML: inheritance, implementation, a
 ### Other references:
 
 
+https://www.iana.org/go/rfc8288
   
 Link relations:
 https://www.iana.org/assignments/link-relations/link-relations.xhtml
