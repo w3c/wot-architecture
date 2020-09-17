@@ -1,8 +1,8 @@
-## Title: <title>
+## Title: Link Relation Types
 
 ### Submitter(s): 
 
-arch call on Sept 17th.
+Results of the brainstorming discussion in arch call on Sept 17th.
 
 ### Reviewer(s):
 
@@ -74,6 +74,7 @@ when you think about how you model things in UML: inheritance, implementation, a
 ### Related standards:
 
 <list related standards>
+Any more IoT specific link relation types: Platform Industry 4.0?
 
 ### Other references:
 
