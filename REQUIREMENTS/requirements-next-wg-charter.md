@@ -10,7 +10,7 @@ Understand and describe requirements of new use cases, architectural patterns, a
 Link Relation Types: (Architecture, Thing Description)
 Define link relation types for specific relationships.
 
-Thing Description Templates: (Architecture, Profile, Thing Description)
+Thing Models (previously known as Thing Description Templates): (Architecture, Profile, Thing Description)
 Define a mechanism to describe classes of things and an inheritance mechanism. and define how Thing Descriptions can defined in a modular way.
 
 Complex Interactions: (Architecture, Thing Description, Profile)

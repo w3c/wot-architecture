@@ -60,9 +60,9 @@ URL templates for protocol endpoints are optional.
 Thing model contraints must appear in the thing description with possible additional details.
 Overriding of elements inherited from the thing model is not permitted.
 
-A template is a blueprint that describes the affordances, i.e. the structure and interface.
+A thing model is a blueprint that describes the affordances, i.e. the structure and interface.
 Define an inheritance mechanism and corresponding handling of namespaces to avoid naming conflicts,
-when things implement more than one template.
+when things implement more than one thing model.
 
 
 #### Open issues: 
@@ -101,7 +101,7 @@ Consider adding protocol constraints
 
 Consider to use the scripting API to define exposed things with partial TDs
 
-Clear separation between *templates* and *partial TDs*
+Clear separation between *thing models* and *partial TDs*
 
 Todo: 
 
