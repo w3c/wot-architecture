@@ -117,6 +117,14 @@
           status: "Version 2.0.2",
           date: "April 2019"
         },
+        "WOT-USE-CASES": {
+          href: "https://w3c.github.io/wot-usecases/",
+          title: "Web of Things (WoT) Use Cases",
+          publisher: "W3C",
+          authors: ["Michael Lagally", "Michael McCool", "Ryuichi Matsukura", "Tomoaki Mizushima"],
+          status: "Editor's Draft",
+          date: "Oct 2020"
+        },
         "LWM2M": {
           href: "http://openmobilealliance.org/release/LightweightM2M/V1_1-20180710-A/OMA-TS-LightweightM2M_Core-V1_1-20180710-A.pdf",
           title: "Lightweight Machine to Machine Technical Specification: Core",
@@ -635,6 +643,13 @@
     <p>The following sections are not exhaustive. Rather they
       serve as illustrations, where connected things can provide
       additional benefit or enable new scenarios.</p>
+
+      <section class="ednote" title="Use Cases">
+        WoT use cases are being collected and organized in the
+        <a href="https://github.com/w3c/wot-a">https://github.com/w3c/wot-usecases</a> repository.  
+        A detailed use case document is being prepared and is expected to be published as a W3C Note [[WOT-USE-CASES]].
+        A draft is available at <a href="https://w3c.github.io/wot-usecases/">https://w3c.github.io/wot-usecases/</a>.
+      </section>
     <section id="consumer-use-cases">
       <h3>Consumer</h3>
       <p>In the consumer space there are multiple assets
@@ -1208,6 +1223,12 @@
       <em>This section is normative.</em>
     </p>
 
+      <section class="ednote" title="Use Cases and Requirements">
+        WoT requirements are being collected and organized in the 
+        <a href="https://github.com/w3c/wot-architecture">https://github.com/w3c/wot-architecture</a> repository.  
+        Requirements are in turn derived from WoT Use Cases [[WOT-USE-CASES]].
+      </section>
+
     <section id="sec-functional-requirement">
       <h2>Functional Requirements</h2>
       <p>This section defines the properties required in an
@@ -1729,11 +1750,7 @@
         such as Thing-to-Thing, Thing-to-Gateway, Thing-to-Cloud, Gateway-to-Cloud, and even cloud federation,
         i.e., interconnecting cloud computing environments of two or more service providers, for IoT applications.
         <a href="#architecture-abstract"></a> gives an overview how the WoT concepts introduced above can be applied and
-        combined to address the use cases described in the WoT Use Cases document.
-      <section class="ednote">
-        <h2> TODO: add reference.
-        </h2>
-      </section>
+        combined to address the use cases described in the WoT Use Cases document [[WOT-USE-CASES]].
       </p>
       <figure id="architecture-abstract">
         <img src="images/architecture/overview.png" srcset="images/architecture/overview.svg" class="wot-arch-diagram"
