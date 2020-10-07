@@ -49,7 +49,5 @@ https://www.w3.org/2020/03/12-wot-arch-minutes.html
 
 ### Comments:
 
-The profile specification already contains a section about GPS location data:
-https://w3c.github.io/wot-profile/#mandatory-fields-0
-
-This can serve as a baseline.
+The profile specification already contained a section about GPS location data in a previous draft.
+This has been carried over to the thing description as a baseline.
