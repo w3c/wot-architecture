@@ -1,6 +1,6 @@
 ## Title: Link Relation Types
 
-### Submitter(s): 
+### Submitter(s):
 
 Results of the brainstorming discussion in arch call on Sept 17th.
 
@@ -37,9 +37,9 @@ when you think about how you model things in UML: inheritance, implementation, a
 - "Inheritance/implements" for Thing Model - TD relationship
 - "Containment": "contained by" or "is contained" - system components
 - "Aggregation": set of entities
-- "Collection": 
+- "Collection":
 - "Metadata", e.g. company, maintainer, license ...
-- "Documentation": 
+- "Documentation":
 - ("Current")
 - "Previous": version of the document
 - "member", "Item"
@@ -78,10 +78,10 @@ Any more IoT specific link relation types: Platform Industry 4.0?
 ### Other references:
 
 https://www.iana.org/go/rfc8288
-  
+
 Link relations:
 https://www.iana.org/assignments/link-relations/link-relations.xhtml
-  
+
 
 ### Comments:
 
