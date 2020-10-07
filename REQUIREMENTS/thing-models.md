@@ -16,7 +16,9 @@ Michael McCool, Sebastian Käbisch, Michael Koster, Ege Korkan, ...
 
 https://github.com/w3c/wot-architecture/blob/master/USE-CASES/digital-twin.md   
 https://github.com/w3c/wot-architecture/blob/master/USE-CASES/big-data.md
+
 Discovery.md
+
 Link relation types
 
 ### Affected WoT Deliverables:
