@@ -32,7 +32,14 @@ Discovery WIP spec
 - Each TD must have a type from a specific domain ontology
 - The pagination attributes should not the invalidate SPARQL response format
 - The resource maintained within the directory should be of TD type
-- The dicrectory should be able to store summaries of the TDs
+- The directory should be able to store summaries of the TDs
+- The directory should be able to produce summaries of the TDs
+- Summaries of TDs must be RDF, specifically JSON-LD 1.1 when possible
+- Directory should be a concept in the TD ontology
+- Directories may register TDs containing the Directory concept and summaries (when possible) of their registered TDs
+- Directory should support federated discovery queries as a special type of semantic discovery
+- Federated discovery must use SPARQL as query language and an attribute to be triggered (eg. /sparql?query=...&federation=true)
+
   
 #### Security:
 
