@@ -16,4 +16,6 @@ Requirements:
    - Search response model
    - SAREF vocabulary should be natively part of the TDs
    - Directories should be part of the TDs, by being included in the TD ontology
-   - The concept directory in the ontology should have attributes that refer to physical features, like the response ratio.?
+   - The concept directory in the ontology should have attributes that refer to physical features, like the response ratio, hit ratio, average answering times, and others
+   - Directories may implement a summarization technique for the stored TDs
+   - Directories will share TDs containing the concept of Directory and summaries (when possible) of their registered TDs
