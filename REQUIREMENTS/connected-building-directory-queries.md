@@ -26,7 +26,13 @@ https://github.com/w3c/wot-usecases/blob/master/USE-CASES/smart-campus.md
 
 ### Requirements:
 
-<short description of all requirements>
+- TD ontology must cover the concept of Directory
+- Federated directories should be able to produce a summary of their TDs registered
+- Federated directories can register a TD containing the Directory concept and a set of summaries (when possible) of the TDs stored in such Directory
+- Federated discovery is a specific type of semantic discovery
+- Federated directories trigger the federated discovery when a semantic discovery request is received with a particular parameter (e.g./sparql?query=..&federate=true)
+- Federated discovery may have parameters to delimit the life of the federation (time out, max directories visited during federation, etc.)
+- Federated discovery must output aggregated results from all the Federated directories registered in the former Federated Directory
 
 #### Single Directory Query Requirements
 - TDs with an attribute value matching a given string exactly, as a substring, prefix, or suffix
@@ -46,7 +52,6 @@ https://github.com/w3c/wot-usecases/blob/master/USE-CASES/smart-campus.md
 #### Security:
 
 <Describe security features needed; if there are none, say "none">
-
 
 #### Privacy:
 
