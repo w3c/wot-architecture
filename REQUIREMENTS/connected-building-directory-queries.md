@@ -14,9 +14,8 @@ Andrea Cimmino, Farshid Tavakolizadeh
 
 ### Use case reference(s):
 
-https://github.com/w3c/wot-usecases/blob/master/USE-CASES/connected-building-energy-efficiency.md
-
-https://github.com/w3c/wot-usecases/blob/master/USE-CASES/smart-campus.md
+- [Connected Building Energy Efficiency](https://github.com/w3c/wot-usecases/blob/master/USE-CASES/processed/connected-building-energy-efficiency.md)
+- [Cross-Domain Discovery in a Smart Campus](https://github.com/w3c/wot-usecases/blob/master/USE-CASES/processed/smart-campus.md)
 
 ### Affected WoT Deliverables:
 
@@ -44,7 +43,7 @@ https://github.com/w3c/wot-usecases/blob/master/USE-CASES/smart-campus.md
 
 #### Federated Directory Query Requirements
 - TDs that belong to the directory matching an attribute value with a given string, as a substring, prefix, or suffix
-  - E.g. find TDs allocated in this directory contaning "Temperature Sensor"
+  - E.g. find TDs allocated in this directory containing "Temperature Sensor"
 - TDs that belong to other directories that have a specific attribute
   - E.g. find TDs allocated outside this directory with the property temperature
   

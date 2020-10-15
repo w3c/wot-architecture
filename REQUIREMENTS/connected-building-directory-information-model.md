@@ -14,7 +14,8 @@ Andrea Cimmino, Farshid Tavakolizadeh
 
 ### Use case reference(s):
 
-https://github.com/w3c/wot-usecases/blob/master/USE-CASES/connected-building-energy-efficiency.md
+- [Connected Building Energy Efficiency](https://github.com/w3c/wot-usecases/blob/master/USE-CASES/processed/connected-building-energy-efficiency.md)
+- [Cross-Domain Discovery in a Smart Campus](https://github.com/w3c/wot-usecases/blob/master/USE-CASES/processed/smart-campus.md)
 
 ### Affected WoT Deliverables:
 
