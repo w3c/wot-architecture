@@ -2631,7 +2631,7 @@
       </section>
     </section>
     <section id="sec-wot-servient-architecture-high-level">
-      <h2>WoT System Components and Their Interconnectivity</h2>
+      <h2>WoT System Components and their Interconnectivity</h2>
 
       <p>Section <a href="#sec-architecture-overview"></a> described the
         WoT architecture in terms of the abstract WoT architecture components
@@ -2645,14 +2645,13 @@
       <p>This section uses system configuration diagrams to illustrate
         how <a>Servients</a> work together to build systems based on the WoT architecture.</p>
 
-            <section id="thing-models">
-                <h3>Thing Models</h3>
-                <!-- formerly known as Thing Templates -->
-                <section class="ednote">
-                    <h3>TODO:</h3>
-                    Create section.
-                </section>
-            </section>
+      <p>A <a>Thing</a> can be implemented by a <a>Servient</a>. In a <a>Thing</a>, 
+        a <a>Servient</a> software stack contains a representation of 
+        a <a>Thing</a> called <a>Exposed Thing</a>, and makes its <a>WoT Interface</a> 
+        available  to <a>Consumers</a> of the <a>Thing</a>.
+        This <a>Exposed Thing</a> may be used by other software components on 
+        the <a>Servient</a> (e.g., applications) to implement the behavior of the thing.</p>
+
 
       <figure id="servient-thing-exposedThing">
         <img src="images/architecture/servient-thing-exposedThing.png"
