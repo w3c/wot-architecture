@@ -44,6 +44,7 @@ when you think about how you model things in UML: inheritance, implementation, a
 - "Previous": version of the document
 - "member", "Item"
 - "manifest": point to SW implementing the TD
+- "alternate": point to other rappresenatations of the Web Thing. (i.e. HTML document, RDF ...)
 - "Profile": denote compliance
 
 #### Not in IANA list:
@@ -51,6 +52,7 @@ when you think about how you model things in UML: inheritance, implementation, a
 - "twin-of"
 - "shadow": caching data
 - "simulation", could be a shadow or a twin
+- "application", refers to a companion application
 
 ### Entity types:
 * Thing model
