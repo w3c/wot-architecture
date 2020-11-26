@@ -117,9 +117,9 @@
           status: "Version 2.0.2",
           date: "April 2019"
         },
-        "WOT-USE-CASES": {
+        "WOT-USE-CASES-REQUIREMENTS": {
           href: "https://w3c.github.io/wot-usecases/",
-          title: "Web of Things (WoT) Use Cases",
+          title: "Web of Things (WoT) Use Cases and Requirements",
           publisher: "W3C",
           authors: ["Michael Lagally", "Michael McCool", "Ryuichi Matsukura", "Tomoaki Mizushima"],
           status: "Editor's Draft",
@@ -252,8 +252,8 @@
       architecture for the W3C Web of Things.
       This abstract architecture is based on a
       set of requirements that were derived from use cases for
-      multiple application domains, both given in this document.
-      A set of modular building blocks are also identified whose detailed
+      multiple application domains as described in [[WOT-USE-CASES-REQUIREMENTS]].
+      A set of modular building blocks were identified whose detailed
       specifications are given in other documents.
       This document describes how these building blocks are related and work together.
       The WoT abstract architecture defines a basic conceptual
@@ -339,9 +339,6 @@
     <ul>
       <li>a set of application domains in <a href="#sec-application-domains"></a>
         that were considered to identify use cases for the W3C WoT Architecture,
-      </li>
-      <li>a set of requirements for WoT implementations in
-        <a href="#sec-requirements"></a>,
       </li>
       <li>a definition of the abstract architecture in
         <a href="#sec-wot-architecture"></a>
@@ -676,9 +673,9 @@
 
       <section class="ednote" title="Use Cases">
         <h2>Note:</h2>
-        WoT use cases are being collected and organized in the
+        WoT use cases and requirements are being collected and organized in the
         <a href="https://github.com/w3c/wot-a">https://github.com/w3c/wot-usecases</a> repository.  
-        A detailed use case document is being prepared and is expected to be published as a W3C Note [[WOT-USE-CASES]].
+        A detailed <em>Use Cases and Requirements</em> document is being prepared and will be published as a W3C Note [[WOT-USE-CASES-REQUIREMENTS]].
         A draft is available at <a href="https://w3c.github.io/wot-usecases/">https://w3c.github.io/wot-usecases/</a>.
       </section>
     <section id="consumer-use-cases">
@@ -1247,377 +1244,6 @@
     </figure>
   </section>
 
-  <!-- REQUIREMENTS -->
-
-  <section id="sec-requirements" class="normative">
-    <h1>Requirements</h1>
-    <p>
-      <em>This section is normative.</em>
-    </p>
-
-      <section class="ednote" title="Use Cases and Requirements">
-        <h2>Note:</h2>
-        WoT requirements are being collected and organized in the 
-        <a href="https://github.com/w3c/wot-architecture">https://github.com/w3c/wot-architecture</a> repository.  
-        Requirements are in turn derived from WoT Use Cases [[WOT-USE-CASES]].
-      </section>
-
-    <section id="sec-functional-requirement">
-      <h2>Functional Requirements</h2>
-      <p>This section defines the properties required in an
-        abstract Web of Things (WoT) architecture.</p>
-
-      <section class="ednote">
-        <h2>TODO: New requirements from new use cases need to be added here.
-          Add a link to the requirements section in the github repo.
-        </h2>
-      </section>
-      <section id="sec-requirements-principles">
-        <h3>Common Principles</h3>
-        <ul>
-          <li>WoT architecture should enable mutual
-            interworking of different eco-systems using web
-            technology.</li>
-          <li>WoT architecture should be based on the web
-            architecture using RESTful APIs.</li>
-          <li>WoT architecture should allow to use
-            multiple payload formats which are commonly used
-            in the web.</li>
-          <li>WoT architecture must enable different device
-            architectures and must not force a client or server
-            implementation of system components.</li>
-          <li>Flexibility
-            <p>There are a wide variety of physical
-              device configurations for WoT
-              implementations. The WoT abstract
-              architecture should be able to be mapped to
-              and cover all of the variations.</p>
-          </li>
-          <li>Compatibility
-            <p>There are already many existing IoT
-              solutions and ongoing IoT standardization
-              activities in many business fields. The WoT
-              should provide a bridge between these
-              existing and developing IoT solutions and
-              Web technology based on WoT concepts. The
-              WoT should be upwards compatible with
-              existing IoT solutions and current
-              standards.</p>
-          </li>
-          <li>Scalability
-            <p>WoT must be able to scale for IoT
-              solutions that incorporate thousands to
-              millions of devices. These devices may offer
-              the same capabilities even though they are
-              created by different manufacturers.</p>
-          </li>
-          <li>Interoperability
-            <p>WoT must provide interoperability across
-              device and cloud manufacturers. It must be
-              possible to take a WoT enabled device and
-              connect it with a cloud service from
-              different manufacturers out of the box.</p>
-          </li>
-        </ul>
-      </section>
-      <section id="sec-requirements-thing-functionalities">
-        <h3>Thing Functionalities</h3>
-        <ul>
-          <li>WoT architecture should allow things to
-            have functionalities such as
-            <ul>
-              <li>reading thing's status information</li>
-              <li>updating thing's status information
-                which might cause actuation</li>
-              <li>subscribing to, receiving and
-                unsubscribing to notifications of
-                changes of the thing's status
-                information.</li>
-              <li>invoking functions with input and
-                output parameters which would cause
-                certain actuation or calculation.</li>
-              <li>subscribing to, receiving and
-                unsubscribing to event notifications
-                that are more general than just reports
-                of state transitions.
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </section>
-      <section id="sec-requirements-search-and-discovery">
-        <h3>Search and Discovery</h3>
-        <ul>
-          <li>WoT architecture should allow clients to
-            know thing's attributes, functionalities and
-            their access points, prior to access to the
-            thing itself.</li>
-          <li>WoT architecture should allow clients to
-            search things by its attributes and
-            functionalities.</li>
-          <li>WoT architecture should allow semantic
-            search of things providing required
-            functionalities based on a unified vocabulary,
-            regardless of naming of the functionalities.</li>
-        </ul>
-      </section>
-      <section id="sec-requirements-description-mechanism">
-        <h3>Description Mechanism</h3>
-        <ul>
-          <li>WoT architecture should support a common
-            description mechanism which enables describing
-            things and their functions.</li>
-          <li>Such descriptions should be not only
-            human-readable, but also machine-readable.</li>
-          <li>Such descriptions should allow semantic
-            annotation of its structure and described
-            contents.</li>
-          <li>Such description should be able to be
-            exchanged using multiple formats which are
-            commonly used in the web.</li>
-        </ul>
-      </section>
-      <section id="sec-requirements-description-of-attributes">
-        <h3>Description of Attributes</h3>
-        <ul>
-          <li>WoT architecture should allow describing
-            thing's attributes such as
-            <ul>
-              <li>name</li>
-              <li>explanation</li>
-              <li>version of spec, format and
-                description itself</li>
-              <li>links to other related things and
-                metadata information</li>
-            </ul>
-          </li>
-          <li>Such descriptions should support
-            internationalization.</li>
-        </ul>
-      </section>
-      <section id="sec-requirements-description-of-functionalities">
-        <h3>Description of Functionalities</h3>
-        <ul>
-          <li>WoT architecture should allow describing
-            thing's functionalities which is shown in <a href="#sec-requirements-thing-functionalities"></a>
-          </li>
-        </ul>
-      </section>
-      <section id="sec-requirements-network">
-        <h3>Network</h3>
-        <ul>
-          <li>WoT architecture should support multiple
-            web protocols which are commonly used.</li>
-          <li>Such protocols include
-            <ol>
-              <li>protocols commonly used in the
-                internet and</li>
-              <li>protocols commonly used in the
-                local area network</li>
-            </ol>
-          </li>
-          <li>WoT architecture should allow using
-            multiple web protocols to access to the same
-            functionality.</li>
-          <li>WoT architecture should allow using a
-            combination of multiple protocols to the
-            functionalities of the same thing (e.g., HTTP and
-            WebSocket).</li>
-        </ul>
-      </section>
-      <section id="sec-requirements-deployment">
-        <h3>Deployment</h3>
-        <ul>
-          <li>WoT architecture should support a wide
-            variety of thing capabilities such as edge
-            devices with resource restrictions and virtual
-            things on the cloud, based on the same model.</li>
-          <li>WoT architecture should support multiple
-            levels of thing hierarchy with intermediate
-            entities such as gateways and proxies.</li>
-          <li>WoT architecture should support accessing
-            things in the local network from the outside of
-            the local network (the internet or another local
-            network), considering network address
-            translation.</li>
-        </ul>
-      </section>
-      <section id="sec-requirements-application">
-        <h3>Application</h3>
-        <ul>
-          <li>WoT architecture should allow describing
-            applications for a wide variety of things such
-            as edge device, gateway, cloud and UI/UX device,
-            using web standard technology based on the same
-            model.</li>
-        </ul>
-      </section>
-      <section id="sec-requirements-legacy-adoption">
-        <h3>Legacy Adoption</h3>
-        <ul>
-          <li>WoT architecture should allow mapping of
-            legacy IP and non-IP protocols to web protocols,
-            supporting various topologies, where
-            such legacy protocols are terminated and
-            translated.
-          </li>
-          <li>WoT architecture should allow transparent
-            use of existing IP protocols without
-            translation, which follow RESTful architecture.</li>
-
-          <li>WoT architecture must not enforce client or server
-            roles on devices and services.
-            An IoT device can be either a client or a server,
-            or both, depending on the system architecture;
-            the same is true of edge and cloud services.
-          </li>
-        </ul>
-      </section>
-    </section>
-    <section id="sec-technical-requirements">
-      <h2>Technical Requirements</h2>
-      <p>
-        <a href="#sec-common-deployment-patterns"></a> defines the
-        Web of Things abstract architecture by showing various
-        system topologies. This section describes
-        technical requirements derived from the abstract
-        architecture.
-      </p>
-      <section class="ednote">
-        <h2>TODO: New requirements from new use cases need to be added here.</h2>
-      </section>
-
-      <section>
-        <h3>Components in the Web of Things and the Web
-          of Things Architecture</h3>
-        <p>The use cases help to identify basic components
-          such as devices and applications, that access and
-          control those devices, proxies (i.e., gateways and
-          edge devices) that are located between devices.
-          An additional component useful in some use cases
-          is the directory, which assists with discovery.</p>
-        <p>Those components are connected to the internet or
-          field networks in offices, factories or other
-          facilities. Note that all components involved may be
-          connected to a single network in some cases,
-          however, in general components can be deployed
-          across multiple networks.</p>
-      </section>
-      <section>
-        <h3>Devices</h3>
-        <p>
-          Access to devices is made using a description of
-          their functions and interfaces. This description is
-          called <em>Thing Description (TD)</em>. A <em>Thing
-            Description</em> includes a general metadata about
-          the device, information models representing
-          functions, transport protocol description for
-          operating on information models, and security
-          information.
-        </p>
-        <p>General metadata contains device identifiers
-          (URI), device information such as serial number,
-          production date, location and other human readable
-          information.</p>
-        <p>Information models defines device attributes, and
-          represent device’s internal settings, control
-          functionality and notification functionality.
-          Devices that have the same functionality have the
-          same information model regardless of the transport
-          protocols used.</p>
-        <p>Because many systems based on Web of Things
-          architecture are crossing system Domains,
-          vocabularies and meta data (e.g., ontologies) used in
-          information models should be commonly understood by
-          involved parties. In addition to REST transports,
-          PubSub transports are also supported.</p>
-        <p>Security information includes descriptions about
-          authentication, authorization and secure
-          communications. Devices are required to put TDs
-          either inside them or at locations external to the
-          devices, and to make TDs accessible so that other
-          components can find and access them.</p>
-      </section>
-      <section>
-        <h3>Applications</h3>
-        <p>Applications need to be able to generate and use network
-          and program interfaces based on metadata (descriptions).</p>
-        <p>Applications have to be able to obtain these
-          descriptions through the network,
-          therefore, need to be able to conduct search
-          operations and acquire the necessary descriptions over the
-          network.</p>
-      </section>
-      <section>
-        <h3>Digital Twins</h3>
-        <p>Digital Twins need to generate program interfaces
-          internally based on metadata (descriptions),
-          and to represent virtual devices by using those
-          program interfaces. A twin has to produce a description for
-          the virtual device and make it externally available.</p>
-        <p>Identifiers of virtual devices need to be newly
-          assigned, therefore, are different from the original
-          devices. This makes sure that virtual devices and
-          the original devices are clearly recognized as
-          separate entities. Transport and security mechanisms
-          and settings of the virtual devices can be different
-          from original devices if necessary. Virtual devices
-          are required to have descriptions provided either directly by
-          the twin or to have them available at external
-          locations. In either case it is required to make the
-          descriptions available so that other components can find and
-          use the devices associated with them.</p>
-      </section>
-      <section>
-        <h3>Discovery</h3>
-        <p>For TDs of devices and virtual devices to be
-          accessible from devices, applications and twins,
-          there needs to be a common way to share TDs.
-          Directories can serve this requirement by providing
-          functionalities to allow devices and twins
-          themselves automatically or the users to manually
-          register the descriptions.</p>
-        <p>Descriptions of the devices and virtual devices
-          need to be searchable by external entities.
-          Directories have to be able to process search
-          operations with search keys such as keywords from
-          the general description in the device description or
-          information models.</p>
-      </section>
-      <section>
-        <h3>Security</h3>
-        <p>Security information related to devices and
-          virtual devices needs to be described in device
-          descriptions. This includes information for
-          authentication/authorization and payload
-          encryption.</p>
-        <p>WoT architecture should support multiple security
-          mechanism commonly used in the web, such as Basic,
-          Digest, Bearer and OAuth2.0.</p>
-      </section>
-      <section>
-        <h3>Accessibility</h3>
-        <p>The Web of Things primarily targets
-          machine-to-machine communication. The humans
-          involved are usually developers that integrate
-          Things into applications. End-users will be faced
-          with the front-ends of the applications or the
-          physical user interfaces provided by devices
-          themselves. Both are out of scope of the W3C WoT
-          specifications. Given the focus on IoT instead of
-          users, accessibility is not a direct requirement,
-          and hence is not addressed within this specification.</p>
-        <p>There is, however, an interesting aspect on
-          accessibility: Fulfilling the requirements above
-          enables machines to understand the network-facing
-          API of devices. This can be utilized by
-          accessibility tools to provide user interfaces of
-          different modality, thereby removing barriers to
-          using physical devices and IoT-related applications.</p>
-      </section>
-    </section>
-  </section>
-
   <section id="sec-wot-architecture">
     <h1>Abstract WoT System Architecture</h1>
     <p>
@@ -1785,7 +1411,7 @@
         such as Thing-to-Thing, Thing-to-Gateway, Thing-to-Cloud, Gateway-to-Cloud, and even cloud federation,
         i.e., interconnecting cloud computing environments of two or more service providers, for IoT applications.
         <a href="#architecture-abstract"></a> gives an overview how the WoT concepts introduced above can be applied and
-        combined to address the use cases described in the WoT Use Cases document [[WOT-USE-CASES]].
+        combined to address the use cases described in the <em>WoT Use Cases and Requirements</em> document [[WOT-USE-CASES-REQUIREMENTS]].
       </p>
       <figure id="architecture-abstract">
         <img src="images/architecture/overview.png" srcset="images/architecture/overview.svg" class="wot-arch-diagram"
@@ -3544,11 +3170,7 @@
       <h2>Topology of WoT Systems and Deployment Scenarios</h2>
       <p>Various topologies and deployment scenarios of WoT systems are discussed in this section.
         These are only example patterns and other interconnection topologies are also possible.
-        The topologies described here are derived from the Web of Things Use Cases
-        <!-- todo: add document reference to use case document
-            (<a href="#sec-use-cases"></a>)-->
-        as well as the technical requirements extracted from them
-        (<a href="#sec-requirements"></a>).
+        The topologies described here are derived from the Web of Things Use Cases and Requirements [[WOT-USE-CASES-REQUIREMENTS]].
       </p>
       <section id="sec-deployment-app-dev">
         <h2>Consumer and Thing on the Same Network</h2>
@@ -4169,7 +3791,7 @@
   <section id="changes" class="appendix">
     <h1>Recent Specification Changes</h1>
 
-    <h2 id="changes-from-recommendation-1.0">Changes from [[wot-architecture]]</h2>
+    <h2 id="changes-from-recommendation-1.0">Changes from the 1.0 version of [[wot-architecture]]</h2>
     <ul>
       <li>New chapter: Lifecycle</li>
       <li>New terminology: Thing Model.</li>
@@ -4183,6 +3805,7 @@
         <li>Various editors notes with placeholders for planned contributions.</li>
         <li> References to github repositories for use cases and requirements.</li>
       </li>
+      <li>Requirement chapter was moved to the <em>WoT Use Cases and Requirements</em> document [[WOT-USE-CASES-REQUIREMENTS]].</li>
     </ul>
 
   </section>
