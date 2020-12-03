@@ -1,6 +1,8 @@
 # Web of Things (WoT) Architecture Requirements
 
-This directory contains the  requirements for the next revision (V1.1) 
-of the WoT architecture.
+The requirements and all related issues have been moved to a new location: https://github.com/w3c/wot-usecases.
+corresponding work and discussions will happen in the use case task force.
 
-Please create a MR with your changes to the requirements.md in a branch.
+**All future requirements as well as new issues should be created in the new repository.**
+
+**This directory is frozen and only available for archive and reference purposes.**
