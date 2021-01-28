@@ -15,16 +15,17 @@
       },
       doJsonLd: true,
       group: "wg/wot",
-      specStatus: "FPWD",
-      shortName: "wot-architecture",
+      specStatus: "ED",
+      shortName: "wot-architecture11",
       copyrightStart: 2017,
+      wgPatentPolicy: "PP2017",
       wgPublicList: "public-wot-wg",
       github: {
         repoURL: "https://github.com/w3c/wot-architecture",
         branch: "master"
       },
-      previousPublishDate: "2019-05-16",
-      previousMaturity: "CR",
+      previousPublishDate: "2020-11-24",
+      previousMaturity: "FPWD",
       editors: [
         {
           name: "Michael Lagally",
@@ -674,7 +675,7 @@
       <section class="ednote" title="Use Cases">
         <h2>Note:</h2>
         WoT use cases and requirements are being collected and organized in the
-        <a href="https://github.com/w3c/wot-a">https://github.com/w3c/wot-usecases</a> repository.  
+        <a href="https://github.com/w3c/wot-usecases">https://github.com/w3c/wot-usecases</a> repository.  
         A detailed <em>Use Cases and Requirements</em> document is being prepared and will be published as a W3C Note [[WOT-USE-CASES-REQUIREMENTS]].
         A draft is available at <a href="https://w3c.github.io/wot-usecases/">https://w3c.github.io/wot-usecases/</a>.
       </section>
@@ -1368,7 +1369,7 @@
         To remedy this situation, W3C WoT allows for <a>Intermediaries</a> between <a>Things</a> and <a>Consumers</a>.
       </p>
 
-      <section id="intermediary">
+      <section id="intermediaries">
         <h3>Intermediaries</h3>
       </section>
       <p>
@@ -1564,7 +1565,7 @@
             <!-- Lagally -->
           </section>
 
-          <figure id="lifecycle-1">
+          <figure id="fig-simple-system-lifecycle">
             <img src="images/message-flows/lifecycle-1.svg" srcset="images/message-flows/lifecycle-1.svg"
               class="wot-arch-diagram" alt="Simple System Lifecycle" />
             <figcaption>Plain System Lifecycle</figcaption>
@@ -1574,7 +1575,7 @@
         <section id="system-lifecycle-no-directory">
           <h3>System Lifecycle with Registration</h3>
           <section class="ednote">
-            <h3>TODO: Create text for System Lifecycle with Registration <MichaelL>
+            <h3>TODO: Create text for System Lifecycle with Registration &lt;MichaelL&gt;
             </h3>
           </section>
 
@@ -1613,9 +1614,9 @@
           </p>
           <p>
             Various provisioning schemes are being used in IoT protocol suites.
-            The text in this section is based on <a href="proposals/">proposals</a>
+            The text in this section is based on <a href="https://github.com/w3c/wot-architecture/tree/master/proposals">proposals</a>
             and studies,
-            <a href="proposals/lifecycle/Device-lifecycle-comparisons.pdf">
+            <a href="https://w3c.github.io/wot-architecture/proposals/lifecycle/Device-lifecycle-comparisons.pdf">
             comparing various provisioning schemes</a>, such as OCF, OneM2M,
             Lightweight OneM2M, Thing to Thing Research Group (T2TRG),
             OPC-UA/Anima, etc.
@@ -1715,7 +1716,7 @@
                 </li>
             </ul>
           </p>
-          <figure id="lifecycle-1">
+          <figure id="fig-device-lifecycle">
             <img src="images/architecture/device-lifecycle-1.svg"
                     srcset="images/architecture/device-lifecycle-1.svg"
                     class="wot-arch-diagram" alt="Device Lifecycle" />
@@ -2577,7 +2578,7 @@
     <section id="core-profile">
       <h3>Core Profile</h3>
       <section class="ednote">
-        <h2>TODO: Create text for Core Profile<MichaelL>
+        <h2>TODO: Create text for Core Profile &lt;MichaelL&gt;
         </h2>
       </section>
     </section>
