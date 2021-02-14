@@ -609,8 +609,8 @@
       <dd>
         A <a>Partial TD</a> is an object that follows the same hierarchical structure of the <a>TD</a> information model, 
         but it is not required to contain all the mandatory elements. 
-        <p class="note">
-          An example usage of a <a>Partial TD</a> is in <a>WoT Scripting API</a> as an input for the creation of <a>Exposed Things</a>. 
+        <p>
+          Note: An example usage of a <a>Partial TD</a> is in <a>WoT Scripting API</a> as an input for the creation of <a>Exposed Things</a>. 
           See the <a href="https://www.w3.org/TR/2020/NOTE-wot-scripting-api-20201124/#the-produce-method">produce</a> method for more details.
         </p></dd>
       <dt>
@@ -621,8 +621,8 @@
         It is a valid object structure that can be validated syntactically against a part of the TD datamodel 
 	defined in chapter 5 of the TD spec, however the fragment may omit some context that allows full validation.
 
-        <p class="note">
-	In JSON represention it must be a valid JSON document, however could be just an inner structure 
+        <p>
+	Note: In JSON represention it must be a valid JSON document, however could be just an inner structure 
 	omitting outer elements, curly braces etc. present in a full TD.
 		
 	As a use case the <a>TD Fragment</a> is useful for Discovery results returned by a JSON-Path query.
