@@ -435,12 +435,24 @@
       <dd>Linked Data vocabulary that can be used in the WoT
         Thing Description, but is not defined by W3C WoT.</dd>
       <dt>
+        <dfn>Edge Computer</dfn>
+      </dt>
+      <dd>A form of <a>Edge Device</a> that focuses on providing
+        compute services, such as AI interferencing, that support
+        other services.
+      </dd>
+      <dt>
         <dfn>Edge Device</dfn>
       </dt>
-      <dd>A device that provides an entry point into
-        enterprise or service provider core networks. Examples
-        include gateways, routers, switches, multiplexers, and a
-        variety of other access devices.</dd>
+      <dd>A device located near to and providing network,
+        orchestration, or other services to other devices.
+        Examples
+        include Gateways, Hubs, Edge Computers,
+        routers, switches, multiplexers, and a
+        variety of other access devices.
+        Note that these functions may in practice be combined
+        into a single physical device.
+      </dd>
       <dt>
         <dfn>Event</dfn>
       </dt>
@@ -460,6 +472,22 @@
       <dd>To create an Exposed Thing software abstraction in the
         local runtime environment to manage the state of a Thing
         and interface with the behavior implementation.</dd>
+      <dt>
+        <dfn>Gateway</dfn>
+      </dt>
+      <dd>An <a>Edge Device</a> that provides relatively lightweight
+      network functions such as firewalls, proxies, or DHCP servers.
+      A Gateway typically provides an entry point into
+      enterprise or service provider core networks while also
+      providing network services to the local network.
+      See also <a>Hub</a> and <a>Edge Computer</a>.</dd>
+      <dt>
+        <dfn>Hub</dfn>
+      </dt>
+      <dd>An <a>Edge Device</a> that provides local support services
+      for WoT systems such as Shadows, TD Directories, protocol translations,
+      orchestration, or dashboards.
+      See also <a>Gateway</a>.</dd>
       <dt>
         <dfn>Hypermedia Control</dfn>
       </dt>
@@ -590,6 +618,18 @@
         blocks. A Servient can host and expose Things and/or host Consumers that consume Things.
         Servients can support multiple Protocol Bindings to enable
         interaction with different IoT platforms.</dd>
+      <dt>
+        <dfn>Shadow</dfn>
+      </dt>
+      <dd>A Shadow mirrors the state of another Thing (which
+       may not be always accessible, e.g. due to power savings modes) 
+       and provides
+       a copy of its interactions, although possibly translated into
+       another protocol.
+       Supporting Shadows is a common function of a <a>Hub</a>.
+       Compare with <a>Digital Twin</a>, which is similar to a Shadows but
+       also supports additional services such as simulation and prediction.
+      </dd>
       <dt>
         <dfn>Subprotocol</dfn>
       </dt>
