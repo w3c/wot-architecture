@@ -124,6 +124,14 @@
           status: "Editor's Draft",
           date: "Oct 2020"
         },
+        "WOT-DISCOVERY": {
+          href: "https://www.w3.org/TR/wot-discovery/",
+          title: "Web of Things (WoT) Discovery",
+          publisher: "W3C",
+          authors: ["Andrea Cimmino","Michael McCool","Farshid Tavakolizadeh","Kunihiko Toumura"],
+          status: "Working Draft",
+          date: "Nov 2020"
+        },
         "LWM2M": {
           href: "http://openmobilealliance.org/release/LightweightM2M/V1_1-20180710-A/OMA-TS-LightweightM2M_Core-V1_1-20180710-A.pdf",
           title: "Lightweight Machine to Machine Technical Specification: Core",
@@ -365,7 +373,8 @@
   <section id="terminology" class="informative">
     <h1>Terminology</h1>
 
-    <p>This specification uses the following terms as defined here.
+    <p>All WoT specifications, including this one, 
+       use the following terms as defined here.
       The WoT prefix is used to avoid ambiguity for terms that are
       (re)defined specifically for Web of Things concepts.</p>
     <dl>
@@ -502,6 +511,22 @@
         We use the same definition as [[ISO-IEC-29100]].
       </dd>
       <dt>
+        <dfn>Partial TD</dfn>
+      </dt>
+      <dd>
+        A <a>Partial TD</a> is an object that follows the same 
+        hierarchical structure of the <a>TD</a> information model, 
+        but it is not required to contain all the mandatory elements. 
+        <p class=note>
+        When serialized as JSON-LD, a Partial TD
+        can be structurally validated by using the JSON Schema
+        for a TD but with all "required" clauses omitted.
+        </p>
+        <p class=note>
+          An example usage of a <a>Partial TD</a> is in <a>WoT Scripting API</a> as an input for the creation of <a>Exposed Things</a>. 
+          See the <a href="https://www.w3.org/TR/2020/NOTE-wot-scripting-api-20201124/#the-produce-method">produce</a> method for more details.
+        </p></dd>
+      <dt>
         <dfn>Privacy</dfn>
       </dt>
       <dd>Freedom from intrusion into the private life or affairs of an individual when that intrusion results from
@@ -576,6 +601,14 @@
       </dt>
       <dd>Short for WoT Thing Description.</dd>
       <dt>
+        <dfn>TDD</dfn>
+      </dt>
+      <dd>Short for WoT Thing Description Directory.</dd>
+      <dt>
+        <dfn>TD Element</dfn>
+      </dt>
+      <dd>Short for WoT Thing Description Element.</dd>
+      <dt>
         <dfn>TD Vocabulary</dfn>
       </dt>
       <dd>A controlled Linked Data vocabulary by W3C WoT to
@@ -590,11 +623,18 @@
         Thing Description, whereas a virtual entity is the
         composition of one or more Things.</dd>
       <dt>
-        <dfn>Thing Directory</dfn>
+        <dfn>Thing Description Directory</dfn>
       </dt>
-      <dd>A directory service for TDs that provides a Web
-        interface to register TDs (similar to [[?CoRE-RD]]) and look them up
-        (e.g., using SPARQL queries or the CoRE RD lookup interface [[?CoRE-RD]]).</dd>
+      <dd>A directory service for TDs,
+        defined in 
+        the WoT Discovery document
+        [[WOT-DISCOVERY]] 
+        that provides a Web
+        interface to register TDs and look them up
+        based on content
+        using various form of query, e.g. SPARQL.
+        The acronym
+        TDD should be used to avoid confusion with TD.</dd>
       <dt>
         <dfn>Thing Model</dfn>
       </dt>
@@ -603,29 +643,30 @@
         shared for an entire group of <a>Things</a>. Compared to a Thing Description, a Thing Model does not contain enough 
         information to identify or interact with a Thing instance.</dd>
       <dt>
-        <dfn>Partial TD</dfn>
+        <dfn>TD Element</dfn>
       </dt>
       <dd>
-        A <a>Partial TD</a> is an object that follows the same hierarchical structure of the <a>TD</a> information model, 
-        but it is not required to contain all the mandatory elements. 
-        <p class=note>
-          An example usage of a <a>Partial TD</a> is in <a>WoT Scripting API</a> as an input for the creation of <a>Exposed Things</a>. 
-          See the <a href="https://www.w3.org/TR/2020/NOTE-wot-scripting-api-20201124/#the-produce-method">produce</a> method for more details.
-        </p></dd>
-      <dt>
-        <dfn>TD Fragment</dfn>
-      </dt>
-      <dd>
-        A <a>TD Fragment</a> is a substructure of the data model of a TD.
-        It is a valid object structure that can be validated syntactically against a part of the TD datamodel 
-	defined in chapter 5 of the TD spec, however the fragment may omit some context that allows full validation.
+        A <a>TD Element</a> is a substructure of the data model of a TD.
+        It is a valid object, array, 
+        or basic data element (number or string) structure that 
+        can be validated 
+        syntactically against a part of the TD datamodel 
+	defined in chapter 5 of the TD spec.
+        However, a TD element may omit some context that allows 
+        full validation.
 
         <p class=note>
-	In JSON represention it must be a valid JSON document, however could be just an inner structure 
-	omitting outer elements, curly braces etc. present in a full TD.
+	In JSON represention a TD Element 
+        must be a valid JSON Element syntactically, 
+        however could be just an inner structure 
+	omitting outer elements, present in a full TD. 
 		
-	As a use case the <a>TD Fragment</a> is useful for Discovery results returned by a JSON-Path query.
-        See the <a href="https://www.w3.org/TR/wot-discovery/">Discovery</a> specification for more details.
+	As a use case the <a>TD Element</a> 
+        is useful for Discovery results returned by a JSON-Path query.
+        See the 
+        WoT Discovery document
+        [[WOT-DISCOVERY]]
+        for more details.
         </p>
       </dd>
       <dt>
