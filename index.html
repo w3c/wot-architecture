@@ -196,8 +196,8 @@
           title: "Information technology — Security techniques — Privacy framework",
           publisher: "ISO",
           date: "2011"
-        },
-        "WOT-THING-DESCRIPTION": {
+        }
+        , "WOT-THING-DESCRIPTION": {
           title: "Web of Things (WoT) Thing Description 1.1"
           , href: "https://www.w3.org/TR/wot-thing-description11/"
           , authors: [
@@ -205,6 +205,18 @@
             , "Takuki Kamiya"
             , "Michael McCool"
             , "Victor Charpenay"
+          ]
+          , publisher: "W3C"
+          , date: "November 2020"
+        }
+        , "WOT-DISCOVERY": {
+          title: "Web of Things (WoT) Discovery"
+          , href: "https://www.w3.org/TR/wot-discovery/"
+          , authors: [
+            "Andrea Cimmino"
+            , "Michael McCool"
+            , "Farshid Tavakolizadeh"
+            , "Kunihiko Toumura"
           ]
           , publisher: "W3C"
           , date: "November 2020"
@@ -420,6 +432,10 @@
         real-world devices which may not be continuously online,
         or to run simulations of new applications and services,
         before they get deployed to the real devices.</dd>
+      <dt><dfn data-lt="WoT Discovery">Discovery</dfn>
+      <dd>Mechanisms defined by WoT for distributing and accessing
+        WoT Thing Descriptions on the network, 
+        either locally or remotely.</dd>
       <dt>
         <dfn>Domain-specific Vocabulary</dfn>
       </dt>
@@ -677,7 +693,7 @@
 
     <section class="ednote">
       <h2>TODO</h2>
-	Need to add definitions for discovery, profiles, lifecycle.
+	Need to add definitions for profiles, lifecycle.
     </section>
 
   </section>
@@ -1776,7 +1792,7 @@
                     operation. Also, the device may be commissioned in a
                     given environment. These may involve communication with
                     a server, for instance a <a>Thing Directory</a> or
-                    discovery services.
+                    <a>Discovery</a> services.
                 </li>
                 <li>
                     <strong>Settings</strong>: the device remains in
@@ -1996,7 +2012,7 @@
           </span>
         </p>
         <p>
-          In the Web of Things, links are used for discovery and to express relations between <a>Things</a>
+          In the Web of Things, links are used for <a>Discovery</a> and to express relations between <a>Things</a>
           (e.g., hierarchical or functional)
           and relations to other documents on the Web
           (e.g., manuals or alternative representations such as CAD models).
@@ -2547,12 +2563,12 @@
         of which are described using hypermedia controls.
       </p>
       <p> Ideally, the <a>TD</a> is created and/or hosted by the <a>Thing</a>
-        itself and retrieved upon discovery. Yet it can also be
+        itself and retrieved upon <a>Discovery</a>. Yet it can also be
         hosted externally when a <a>Thing</a> has resource restrictions
         (e.g., limited memory space, limited power) or when an existing device
         is retrofitted to become part of the Web of Things. A
-        common pattern to improve discovery (e.g., for constrained devices) and to
-        facilitate device management is to register <a>TDs</a> with a directory.
+        common pattern to improve <a>Discovery</a> (e.g., for constrained devices) and to
+        facilitate device management is to register <a>TDs</a> with a directory service.
         It is recommended that Consumers use a <a>TD</a> caching mechanism combined with
         a notification mechanism, which will inform them when it is required to fetch
         a new version of the <a>TD</a>, in case the <a>Thing</a> is updated.
@@ -2618,13 +2634,9 @@
 
     <section id="discovery">
       <h2>Discovery</h2>
-      <section class="ednote">
-        <h2>TODO</h2> 
-        Create text that introduces the discovery specification.
-          Add a link to Discovery FPWD.
-          Additional content will be added past FPWD.  
-          <!-- Owner: McCool -->
-      </section>
+      <p>The <a>WoT Discovery</a> specification
+        [[?WOT-DISCOVERY]] defines mechanisms for distributing and accessing
+        WoT Thing Descriptions.
     </section>
 
     <!-- Binding Templates -->
