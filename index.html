@@ -640,8 +640,8 @@
 	In JSON represention it must be a valid JSON document, however could be just an inner structure 
 	omitting outer elements, curly braces etc. present in a full TD.
 		
-	As a use case the <a>TD Fragment</a> is useful for Discovery results returned by a JSON-Path query.
-        See the <a href="https://www.w3.org/TR/wot-discovery/">Discovery</a> specification for more details.
+	As a use case the <a>TD Fragment</a> is useful for <a>Discovery</a> results returned by a JSON-Path query.
+        See the <a>WoT Discovery</a> specification [[?WOT-DISCOVERY]] for more details.
         </p>
       </dd>
       <dt>
@@ -2636,7 +2636,38 @@
       <h2>Discovery</h2>
       <p>The <a>WoT Discovery</a> specification
         [[?WOT-DISCOVERY]] defines mechanisms for distributing and accessing
-        WoT Thing Descriptions.
+        WoT Thing Descriptions over the network.  These mechanisms are meant to 
+        simplify access to WoT Things and services, particularly in an ad-hoc
+        manner.  
+        One of the primary design requirements of the <a>Discovery</a> mechanisms 
+        is to protect the security and privacy of both consumers and providers of WoT
+        data and metadata.  In particular, <a>WoT Discovery</a> is designed not only 
+        to protect and control access to <a>WoT Thing Descriptions</a>, but also
+        is designed to protect queries about such data and metadata.  
+        </p><p>
+        <a>WoT Discovery</a> is 
+        not limited by the bounds of local area networks and also supports remote
+        discovery.
+        In order to accomodate existing discovery technologies while providing
+        strong privacy and security, <a>WoT Discovery</a> uses a two-phase process.
+        In the first phase, an "introduction" is made using one of several
+        first-contact mechanisms.  Introduction mechanisms are not intended to 
+        provide strong security or privacy guarantees.  In particular, 
+        any introduction mechanism should
+        not provide detailed metadata but instead should simply result in 
+        one or more URLs at which metadata
+        may be accessed, if and only if the user has the appropriate access rights.
+        After a suitable authentication and authorization process (based on existing
+        mechanisms to protect web services), the second
+        "exploration" stage of discovery provides sophisticated (but protected)
+        query mechanisms to explore and retrieve WoT metadata.  Two exploration
+        mechanisms are provided, supporting both peer-to-peer discovery 
+        and directory services.  Peer-to-peer discovery allows
+        a <a>Thing</a> to provide its own <a>WoT Thing Description</a> directly.
+        Directory services scalably maintain searchable databases of <a>WoT Thing Descriptions</a>.
+        Both lightweight syntactic query mechanisms and more powerful semantic
+        query mechanisms are supported by directory services.
+        </p>
     </section>
 
     <!-- Binding Templates -->
