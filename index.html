@@ -593,6 +593,13 @@
         including communication metadata of WoT Binding
         Templates.</dd>
       <dt>
+        <dfn>TD Context Extension</dfn>
+      </dt>
+      <dd>A mechanism to extend <a>Thing Descriptions</a> with additional <a>Vocabulary
+        Terms</a> using <code>@context</code> as specified in JSON-LD[[?JSON-LD11]]. 
+        It is the basis for semantic annotations and extensions to core
+      mechanisms such as Protocol Bindings, Security Schemes, and Data Schemas.</dd>
+      <dt>
         <dfn>Thing</dfn> or <dfn>Web Thing</dfn>
       </dt>
       <dd>An abstraction of a physical or a virtual entity
@@ -641,6 +648,23 @@
       </dt>
       <dd>An instance of a Thing that represents a Thing that is located
         on another system component.</dd>
+      <dt>
+        <dfn>Vocabulary</dfn>
+      </dt>
+      <dd>
+        A collection of <a>Vocabulary Terms</a>, identified by a namespace IRI.
+      </dd>
+      <dt>
+        <dfn>Term</dfn>
+        and
+        <dfn>Vocabulary Term</dfn>
+      </dt>
+      <dd>
+        A character string. When a <a>Term</a> is part of a <a>Vocabulary</a>, i.e., prefixed by
+        a namespace IRI[[RFC3987]], it is called a <a>Vocabulary Term</a>. For the sake of readability,
+        <a>Vocabulary Terms</a> present in this document are always written in a compact
+        form and not as full IRIs.
+      </dd>
       <dt>
         <dfn>WoT Interface</dfn>
       </dt>
