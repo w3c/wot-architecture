@@ -518,6 +518,16 @@
         We use the same definition as [[ISO-IEC-29100]].
       </dd>
       <dt>
+        <dfn>Partial TD</dfn>
+      </dt>
+      <dd>
+        A <a>Partial TD</a> is an object that follows the same hierarchical structure of the <a>TD</a> information model, 
+        but it is not required to contain all the mandatory elements. 
+        <p class=note>
+          An example usage of a <a>Partial TD</a> is in <a>WoT Scripting API</a> as an input for the creation of <a>Exposed Things</a>. 
+          See the <a href="https://www.w3.org/TR/2020/NOTE-wot-scripting-api-20201124/#the-produce-method">produce</a> method for more details.
+        </p></dd>
+      <dt>
         <dfn>Privacy</dfn>
       </dt>
       <dd>Freedom from intrusion into the private life or affairs of an individual when that intrusion results from
@@ -599,6 +609,13 @@
         including communication metadata of WoT Binding
         Templates.</dd>
       <dt>
+        <dfn>TD Context Extension</dfn>
+      </dt>
+      <dd>A mechanism to extend <a>Thing Descriptions</a> with additional <a>Vocabulary
+        Terms</a> using <code>@context</code> as specified in JSON-LD[[?JSON-LD11]]. 
+        It is the basis for semantic annotations and extensions to core
+      mechanisms such as Protocol Bindings, Security Schemes, and Data Schemas.</dd>
+      <dt>
         <dfn>Thing</dfn> or <dfn>Web Thing</dfn>
       </dt>
       <dd>An abstraction of a physical or a virtual entity
@@ -618,16 +635,6 @@
         capabilities. It describes the <a>Properties</a>, <a>Actions</a>, and <a>Events</a> and common metadata that are 
         shared for an entire group of <a>Things</a>. Compared to a Thing Description, a Thing Model does not contain enough 
         information to identify or interact with a Thing instance.</dd>
-      <dt>
-        <dfn>Partial TD</dfn>
-      </dt>
-      <dd>
-        A <a>Partial TD</a> is an object that follows the same hierarchical structure of the <a>TD</a> information model, 
-        but it is not required to contain all the mandatory elements. 
-        <p class=note>
-          An example usage of a <a>Partial TD</a> is in <a>WoT Scripting API</a> as an input for the creation of <a>Exposed Things</a>. 
-          See the <a href="https://www.w3.org/TR/2020/NOTE-wot-scripting-api-20201124/#the-produce-method">produce</a> method for more details.
-        </p></dd>
       <dt>
         <dfn>TD Fragment</dfn>
       </dt>
@@ -657,6 +664,23 @@
       </dt>
       <dd>An instance of a Thing that represents a Thing that is located
         on another system component.</dd>
+      <dt>
+        <dfn>Vocabulary</dfn>
+      </dt>
+      <dd>
+        A collection of <a>Vocabulary Terms</a>, identified by a namespace IRI.
+      </dd>
+      <dt>
+        <dfn>Term</dfn>
+        and
+        <dfn>Vocabulary Term</dfn>
+      </dt>
+      <dd>
+        A character string. When a <a>Term</a> is part of a <a>Vocabulary</a>, i.e., prefixed by
+        a namespace IRI[[RFC3987]], it is called a <a>Vocabulary Term</a>. For the sake of readability,
+        <a>Vocabulary Terms</a> present in this document are always written in a compact
+        form and not as full IRIs.
+      </dd>
       <dt>
         <dfn>WoT Interface</dfn>
       </dt>
