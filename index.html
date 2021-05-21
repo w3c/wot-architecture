@@ -2586,13 +2586,20 @@
         about the provided services and related resources, both
         of which are described using hypermedia controls.
       </p>
-      <p> Ideally, the <a>TD</a> is created and/or hosted by the <a>Thing</a>
-        itself and retrieved upon <a>Discovery</a>. Yet it can also be
-        hosted externally when a <a>Thing</a> has resource restrictions
-        (e.g., limited memory space, limited power) or when an existing device
-        is retrofitted to become part of the Web of Things. A
-        common pattern to improve <a>Discovery</a> (e.g., for constrained devices) and to
-        facilitate device management is to register <a>TDs</a> with a directory service.
+      <p>A <a>TD</a> can created and/or hosted by the <a>Thing</a>
+        itself and retrieved upon direct (peer-to-peer) <a>Discovery</a>. 
+        It can also be hosted externally and this is especially
+        appropriate when a <a>Thing</a> has resource restrictions
+        (e.g., limited memory space, limited power), uses a specialized protocol
+        requiring translation in a hub, or when it is necessary to use an existing device
+        (often called "brownfield" devices). 
+        as part of the Web of Things but the device itself cannot be easily
+        modified to self-host a TD. 
+        To support external <a>Discovery</a> and to
+        facilitate device management a <a>Directory</a> service with a standardized
+        API is defined as one available mechanism for <a>WoT Discovery</a>.
+        <a>TDs</a> can be registered with a <a>Directory</a> by the devices themselves
+        or by an external agent; the latter will usually be required in the case of brownfield devices.
         It is recommended that Consumers use a <a>TD</a> caching mechanism combined with
         a notification mechanism, which will inform them when it is required to fetch
         a new version of the <a>TD</a>, in case the <a>Thing</a> is updated.
