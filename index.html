@@ -90,6 +90,12 @@
           publisher: "ETSI",
           date: "November 2015"
         },
+        "SOLID": {
+          href: "https://solidproject.org/TR/",
+          title: "Solid Technical Reports",
+          publisher: "W3C Solid CG",
+          date: "April 2021"
+        },
         "HCI": {
           href: "https://www.interaction-design.org/literature/book/the-encyclopedia-of-human-computer-interaction-2nd-ed",
           title: "The Encyclopedia of Human-Computer Interaction, 2nd Ed",
@@ -623,11 +629,14 @@
         Thing Description, whereas a virtual entity is the
         composition of one or more Things.</dd>
       <dt>
-        <dfn>Thing Directory</dfn>
+        <dfn>Thing Description Directory</dfn> or <dfn>Directory</dfn>
       </dt>
       <dd>A directory service for TDs that provides a Web
-        interface to register TDs (similar to [[?CoRE-RD]]) and look them up
-        (e.g., using SPARQL queries or the CoRE RD lookup interface [[?CoRE-RD]]).</dd>
+        interface to register TDs and look them up
+        (e.g., using JSONPath or SPARQL queries).
+        A recommended API and feature set is defined in [[WOT-DISCOVERY]], and is
+        used as an optional part of the <a>WoT Discovery</a> process.
+      </dd>
       <dt>
         <dfn>Thing Model</dfn>
       </dt>
@@ -1804,7 +1813,7 @@
                     certificates, out-of-band key provisioning, connecting
                     to a provisioning server (a quite common scenario). When
                     provisioning directly to WoT, the device may be registered
-                    with a <a>Thing Directory</a> in this stage. During or
+                    with a <a>Thing Description Directory</a> in this stage. During or
                     after this process, in some protocol suites rebooting in
                     a different mode of operation might be also needed.
                 </li>
@@ -1815,7 +1824,7 @@
                     databases etc), and these resources are configured for
                     operation. Also, the device may be commissioned in a
                     given environment. These may involve communication with
-                    a server, for instance a <a>Thing Directory</a> or
+                    a server, for instance a <a>Thing Description Directory</a> or
                     <a>Discovery</a> services.
                 </li>
                 <li>
@@ -2588,16 +2597,17 @@
       </p>
       <p>A <a>TD</a> can created and/or hosted by the <a>Thing</a>
         itself and retrieved upon direct (peer-to-peer) <a>Discovery</a>. 
-        It can also be hosted externally and this is especially
+        A <a>TD</a> can also be provided externally and this is especially
         appropriate when a <a>Thing</a> has resource restrictions
         (e.g., limited memory space, limited power), uses a specialized protocol
-        requiring translation in a hub, or when it is necessary to use an existing device
+        requiring translation in a hub (in which case the <a>TD</a> would describe the
+        translated network interface), or when it is necessary to use an existing device
         (often called "brownfield" devices). 
         as part of the Web of Things but the device itself cannot be easily
         modified to self-host a TD. 
         To support external <a>Discovery</a> and to
-        facilitate device management a <a>Directory</a> service with a standardized
-        API is defined as one available mechanism for <a>WoT Discovery</a>.
+        facilitate device management, a <a>Directory</a> service with a standardized
+        API is defined as one available mechanism for <a>TD</a> <a>Discovery</a> and retrieval.
         <a>TDs</a> can be registered with a <a>Directory</a> by the devices themselves
         or by an external agent; the latter will usually be required in the case of brownfield devices.
         It is recommended that Consumers use a <a>TD</a> caching mechanism combined with
@@ -2668,36 +2678,64 @@
       <p>The <a>WoT Discovery</a> specification
         [[?WOT-DISCOVERY]] defines mechanisms for distributing and accessing
         WoT Thing Descriptions over the network.  These mechanisms are meant to 
-        simplify access to WoT Things and services, particularly in an ad-hoc
-        manner.  
-        One of the primary design requirements of the <a>Discovery</a> mechanisms 
+        simplify access to WoT Things and services and their integration, 
+        particularly in ad-hoc situations.  
+        <a>WoT Discovery</a> mechanisms are
+        not limited by the bounds of local area networks and also support remote
+        discovery.
+        </p><p>
+        One of the primary design requirements of the recommended <a>WoT Discovery</a> mechanisms 
         is to protect the security and privacy of both consumers and providers of WoT
-        data and metadata.  In particular, <a>WoT Discovery</a> is designed not only 
+        data and metadata.
+        In particular, the <a>WoT Discovery</a> process is designed not only 
         to protect and control access to <a>WoT Thing Descriptions</a>, but also
         is designed to protect queries about such data and metadata.  
         </p><p>
-        <a>WoT Discovery</a> is 
-        not limited by the bounds of local area networks and also supports remote
-        discovery.
         In order to accomodate existing discovery technologies while providing
         strong privacy and security, <a>WoT Discovery</a> uses a two-phase process.
         In the first phase, an "introduction" is made using one of several
         first-contact mechanisms.  Introduction mechanisms are not intended to 
-        provide strong security or privacy guarantees.  In particular, 
-        any introduction mechanism should
-        not provide detailed metadata but instead should simply result in 
+        provide strong security or privacy guarantees, and this allows a variety
+        of existing discovery mechanisms with relatively weak security to be used.   
+        <span class="rfc2119-assertion" id="discovery-no-metadata-in-introduction">
+        Any <a>Discovery</a> introduction mechanism used with WoT MUST NOT 
+        provide detailed metadata but instead should simply result in 
         one or more URLs at which metadata
-        may be accessed, if and only if the user has the appropriate access rights.
+        may be accessed, if and only if the user can authenticate and 
+        has the appropriate authorization (access rights).</span>
+        <span class="rfc2119-assertion">Introduction URLs MUST NOT themselves include any metadata,
+        e.g. a human-readable device type or name.</span>  Randomly generated URLs are recommended.
         After a suitable authentication and authorization process (based on existing
-        mechanisms to protect web services), the second
+        mechanisms to protect web services and negotiation mechanisms), a second
         "exploration" stage of discovery provides sophisticated (but protected)
-        query mechanisms to explore and retrieve WoT metadata.  Two exploration
-        mechanisms are provided, supporting both peer-to-peer discovery 
-        and directory services.  Peer-to-peer discovery allows
-        a <a>Thing</a> to provide its own <a>WoT Thing Description</a> directly.
-        Directory services scalably maintain searchable databases of <a>WoT Thing Descriptions</a>.
+        query mechanisms to explore and retrieve WoT metadata.  
+        <span class="rfc2119-assertion" id="discovery-metadata-after-authorization">
+        Any <a>Discovery</a> mechanism MUST only provide metadata and <a>TDs</a>
+        after appropriate best-practice authentication and authorization.</span>
+        Suitable best-practice security mechanisms for authentication and authorization for 
+        different circumstances are discussed in [[WOT-SECURITY]].  
+        Suitable mechanisms for managing access controls and keys are also discussed
+        in [[SOLID]].
+        </p><p>
+        In addition to a discussion of several suitable introduction mechanisms,
+        exploration
+        mechanisms are provided in the <a>WoT Discovery</a> process described in [[WOT-DISCOVERY]],
+        supporting both peer-to-peer "direct" discovery and directory services.  
+        Peer-to-peer discovery allows
+        a <a>Thing</a> to host and provide its own <a>WoT Thing Description</a> directly.
+        <a>Directory</a> services scalably maintain searchable databases of <a>WoT Thing Descriptions</a>.
         Both lightweight syntactic query mechanisms and more powerful semantic
-        query mechanisms are supported by directory services.
+        query mechanisms are supported by <a>Directory</a> services.
+        The <a>Directory</a> service defined in [[!WOT-DISCOVERY]] also includes 
+        features to support privacy such as explicit deregistration deletion as well as
+        automatic timeout-based deletion and notifications to support change management.
+        </p><p>
+        The <a>Discovery</a> mechanisms defined in [[!WOT-DISCOVERY]] are not mandatory, but
+        they are designed to meet the above requirements and their use will enhance 
+        interoperability and usability.
+        <span class="rfc2119-assertion" id="discovery-should-use-standard">Whenever
+        possible, the <a>Discovery</a> mechanisms defined in [[!WOT-DISCOVERY]]
+        SHOULD be used to distribute <a>TDs</a>.</span>
         </p>
     </section>
 
@@ -3225,7 +3263,7 @@
         that are in the roles of <a>Consumers</a> or <a>Intermediaries</a>.
         TDs may be published in various different ways: the TD
         might be registered with a management system such as
-        a <a>Thing Directory</a> service, or a <a>Thing</a>
+        a <a>Thing Description Directory</a> service, or a <a>Thing</a>
         may provide the requesters with a TD upon receiving a request for a TD.
         It is even possible to statically associate a TD with <a>Thing</a>
         in certain application scenarios.
@@ -3233,10 +3271,12 @@
       <p> A <a>Servient</a> in the role of a <a>Consumer</a> obtains the TD of a <a>Thing</a>
         using a discovery mechanism and creates a <a>Consumed Thing</a> based on the obtained TD.
         The concrete discovery mechanism depends on the individual deployment scenario:
-        It could be provided by a management system such as a <a>Thing Directory</a>,
-        a discovery protocol, through static assignment, etc.
+        It could be provided by a management system such as a <a>Thing Description Directory</a>,
+        a discovery protocol, through static assignment, etc.  As discussed
+        elsewhere, use of the <a>Discovery</a> mechanisms defined in
+        [[?WOT-DISCOVERY]] is recommended whenever possible.
       </p>
-      <p> However, it should be noted that TDs describing
+      <p>However, it should be noted that TDs describing
         devices associated with an identifiable person may potentially
         be used to infer privacy-sensitive information.
         Constraints on the distribution of such TDs must therefore be
@@ -3248,7 +3288,7 @@
         at a high level in <a href="#sec-security-considerations"></a>
         and a more detailed discussion is given in the
         [[?WOT-THING-DESCRIPTION]]
-        specification.
+        specification and are addressed in the [[?WOT-DISCOVERY]] specification.
       </p>
       <p>Internal system functions of a device, such as interacting with attached sensors and actuators,
         can also optionally be represented as <a>Consumed Thing</a> abstractions.
@@ -3461,7 +3501,7 @@
         </p>
       </section>
       <section id="sec-deployment-discovery-with-directory">
-        <h2>Discovery Using a Thing Directory</h2>
+        <h2>Discovery Using a Thing Description Directory</h2>
         <!-- "application" and "device" are used intentionally here instead of client or server, since they
      might be either! -->
         <p> Once local devices (and possibly services)
@@ -3479,29 +3519,29 @@
           To make the metadata of local devices implemented as <a>Things</a>
           available to the cloud applications,
           their metadata
-          can be registered with a <a>Thing Directory</a> service.
+          can be registered with a <a>Thing Description Directory</a> service.
           This metadata is specifically the TDs of the local devices modified to
           reflect the <a>Public Security Metadata</a> and communication metadata
           (<a>Protocol Bindings</a>)
           provided by the remote <a>Intermediary</a>.
           A client application then can obtain the metadata
           it needs to communicate with local devices to
-          achieve its functionality by querying the <a>Thing Directory</a>.
+          achieve its functionality by querying the <a>Thing Description Directory</a>.
         </p>
         <figure id="deployment-cloud-directory">
           <img src="images/deployments/arch-deploy-service-directory.png"
             srcset="images/deployments/arch-deploy-service-directory.svg" class="wot-arch-diagram"
             alt="cloud directory" />
-          <figcaption>Cloud Service with Thing Directory</figcaption>
+          <figcaption>Cloud Service with Thing Description Directory</figcaption>
         </figure>
         <p> In more complex situations, not shown in the figure, there
           may also be cloud services that act as <a>Things</a>.
-          These can also register themselves with a <a>Thing Directory</a>.
-          Since a <a>Thing Directory</a> is a Web service, it should be visible
+          These can also register themselves with a <a>Thing Description Directory</a>.
+          Since a <a>Thing Description Directory</a> is a Web service, it should be visible
           to the local devices through the NAT or firewall device
           and its interface can even be provided with its own TD.
           Local devices acting as <a>Consumers</a> can then
-          discover the <a>Things</a> in the cloud via a <a>Thing Directory</a>
+          discover the <a>Things</a> in the cloud via a <a>Thing Description Directory</a>
           and connect to the <a>Things</a> directly or via the local
           <a>Intermediary</a> if, for instance, protocol translation is needed.
         </p>
@@ -3523,12 +3563,12 @@
           Below, two mechanisms are
           explained, each using a figure, to show how this can be achieved.</p>
         <section id="sec-deployment-service-to-service-synchronized">
-          <h3>Connection Through Thing Directory Synchronization</h3>
+          <h3>Connection Through Thing Description Directory Synchronization</h3>
           <p> In <a href="#deployment-service-sync-directory"></a>,
-            two <a>Thing Directories</a>
+            two instances of a <a>Thing Description Directory</a>
             synchronize information, which makes it possible
             for <a>Consumer</a> A to obtain the information of
-            <a>Thing</a> B through <a>Thing Directory</a> A. As described in
+            <a>Thing</a> B through <a>Thing Description Directory</a> A. As described in
             previous sections, remote <a>Intermediary</a> B maintains a shadow
             implementation of <a>Thing</a> B.
             By obtaining the TD of this shadow
@@ -3550,9 +3590,9 @@
             B is created in remote <a>Intermediary</a> B, the shadow’s TD is
             simultaneously synchronized into remote <a>Intermediary</a> A.
             Remote <a>Intermediary</a> A in turn creates its own shadow of
-            <a>Thing</a> B, and registers the TD with <a>Thing Directory</a>
+            <a>Thing</a> B, and registers the TD with <a>Thing Description Directory</a>
             A. With this mechanism, synchronization between
-            <a>Thing Directories</a> is not necessary.
+            <a>Thing Description Directory</a> services is not necessary.
           </p>
           <figure id="deployment-service-sync-intermediary">
             <img src="images/deployments/arch-deploy-service-sync-intermediary.png"
