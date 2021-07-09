@@ -2549,10 +2549,16 @@
       architectural aspects of a <a>Thing</a>.
       In this figure the WoT building blocks
       are highlighted with black outlines.
+      The <a>WoT Thing Description</a> is a key building block that 
+      provides metadata describing a <a>Thing</a> and its network interface.
       Security, a cross-cutting concern,
       is separated into public and protected private components.
       The <a>WoT Scripting API</a> is optional and the
       <a>Binding Templates</a> are informative.
+      The <a>WoT Discovery</a> building block defines mechanisms for 
+      distributing <a>Thing Descriptions</a>; a <a>Thing</a> can provide
+      <a>Thing Descriptions</a> directly as shown, or they can be provided
+      by a directory service.
     </p>
     <figure id="arch-building-blocks">
       <img src="images/bblocks/abstract.png" srcset="images/bblocks/abstract.svg" class="wot-arch-diagram"
@@ -2562,11 +2568,12 @@
     </figure>
     <p> In the following sections we will provide additional
       information on each WoT building block:
-      the <a href="#sec-thing-description">WoT Thing
-        Description</a>, the <a href="#sec-binding-templates">WoT Binding Templates</a>,
+      the <a href="#sec-thing-description">WoT Thing Description</a>, 
+      <a href="#sec-discovery">WoT Discovery</a>, 
+      the <a href="#sec-binding-templates">WoT Binding Templates</a>,
       and the <a href="#sec-scripting-api">WoT Scripting API</a>.
       Security, although it is a cross-cutting concern, can
-      be considered a fourth building block.
+      be considered an additional building block.
     </p>
 
     <section id="sec-thing-description">
@@ -2749,7 +2756,7 @@
 
     <!-- Discovery -->
 
-    <section id="discovery">
+    <section id="sec-discovery">
       <h2>Discovery</h2>
       <p>The <a>WoT Discovery</a> specification
         [[?WOT-DISCOVERY]] defines mechanisms for distributing and accessing
