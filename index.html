@@ -731,6 +731,80 @@
 
   </section>
 
+  <!-- Device categories -->
+  <section id="device-categoriesdevices">
+      <h2>Device Categories</h2>	  
+      <p>
+        In a deployment of WoT conforming to the <a href="https://www.w3.org/TR/wot-architecture/#architecture-abstract">WoT Abstract Architecture</a>
+        we see different device types with typical characteristics.
+        They range (sorted in the order of footprint and capabilities) 
+        from small embedded <em>node</em> devices to <em>gateways</em> or <em>hubs</em> 
+        to powerful <em>edge</em> devices and <em>cloud</em> servers.
+        Interoperability between these devices implies that a core set of features and functionalities
+        is available on <em>all</em> of them.
+      </p>
+      
+      <p>The following device categories describe the footprint and characteristics of typical representants of these classes.
+       This is used to identify the possible features and use cases for these device classes.</p>
+      
+       <p>
+      We are aligned with the classes defined by the IETF [[RFC7228]] for constrained devices,
+      however put the bounds on typical sizes of RAM / Flash in the real world.
+      Note that this is not a strict categorisation, categories may overlap and not all memory may be available for user applications.</p>
+      
+      <table>
+      <tr>
+        <th>Category</th> 
+        <th>data size (RAM)</th>
+        <th>code size (Flash, ROM, ...)</th>
+        <th>Typical Representant</th>
+      </tr>  
+      <tr>
+        <td>Class-0, C0</td>
+        <td><< 10 KiB</td>
+        <td><< 100 KiB</td>
+        <td>unsecure sensor nodes</td>
+      </tr>
+      <tr>
+        <td>Class-1, C1</td>
+        <td>~ 10 KiB</td>
+        <td>~ 100 KiB</td>
+        <td>secure sensor node</td>
+      </tr><tr>
+        <td>Class-2, C2</td>
+        <td>~ 64 KiB</td>
+        <td>~ 256 KiB</td>
+        <td>nodeMCU</td>
+      </tr>
+      </tr><tr>
+        <td>Class-3, C3</td>
+        <td>~ 64-256 KiB</td>
+        <td>~ 256 KiB - several MBs</td>
+        <td>ISP gateway</td>
+      </tr>
+      </tr><tr>
+        <td>Class-4, C4</td>
+        <td>~  256 KiB -  several MB</td>
+        <td>~  1 MB - several MB</td>
+        <td>gateway/hub</td>
+      </tr>
+      </tr><tr>
+        <td>Class-5, C5</td>
+        <td>~ 1 GB</td>
+        <td>~ 1 GB</td>
+        <td>edge</td>
+      </tr>
+      </tr><tr>
+        <td>Class-6, C6</td>
+        <td>~ several GB</td>
+        <td>~ several GB</td>
+        <td>cloud</td>
+      </tr>
+      </table>
+      
+      </p>
+        </section>
+
   <section id="sec-application-domains" class="informative">
     <h2>Application Domains (Verticals)</h2>
     <p>
@@ -2662,79 +2736,6 @@
 
         </section>
 
-        <!-- Device categories -->
-        <section id="device-categoriesdevices">
-          <h2>Device Categories</h2>	  
-      <p>
-        In a deployment of WoT conforming to the <a href="https://www.w3.org/TR/wot-architecture/#architecture-abstract">WoT Abstract Architecture</a>
-        we see different device types with typical characteristics.
-        They range (sorted in the order of footprint and capabilities) 
-        from small embedded <em>node</em> devices to <em>gateways</em> or <em>hubs</em> 
-        to powerful <em>edge</em> devices and <em>cloud</em> servers.
-        Interoperability between these devices implies that a core set of features and functionalities
-        is available on <em>all</em> of them.
-      </p>
-      
-      <p>The following device categories describe the footprint and characteristics of typical representants of these classes.
-       This is used to identify the possible features and use cases for these device classes.</p>
-      
-       <p>
-      We are aligned with the classes defined by the IETF [[RFC7228]] for constrained devices,
-      however put the bounds on typical sizes of RAM / Flash in the real world.
-      Note that this is not a strict categorisation, categories may overlap and not all memory may be available for user applications.</p>
-      
-      <table>
-      <tr>
-        <th>Category</th> 
-        <th>data size (RAM)</th>
-        <th>code size (Flash, ROM, ...)</th>
-        <th>Typical Representant</th>
-      </tr>  
-      <tr>
-        <td>Class-0, C0</td>
-        <td><< 10 KiB</td>
-        <td><< 100 KiB</td>
-        <td>unsecure sensor nodes</td>
-      </tr>
-      <tr>
-        <td>Class-1, C1</td>
-        <td>~ 10 KiB</td>
-        <td>~ 100 KiB</td>
-        <td>secure sensor node</td>
-      </tr><tr>
-        <td>Class-2, C2</td>
-        <td>~ 64 KiB</td>
-        <td>~ 256 KiB</td>
-        <td>nodeMCU</td>
-      </tr>
-      </tr><tr>
-        <td>Class-3, C3</td>
-        <td>~ 64-256 KiB</td>
-        <td>~ 256 KiB - several MBs</td>
-        <td>ISP gateway</td>
-      </tr>
-      </tr><tr>
-        <td>Class-4, C4</td>
-        <td>~  256 KiB -  several MB</td>
-        <td>~  1 MB - several MB</td>
-        <td>gateway/hub</td>
-      </tr>
-      </tr><tr>
-        <td>Class-5, C5</td>
-        <td>~ 1 GB</td>
-        <td>~ 1 GB</td>
-        <td>edge</td>
-      </tr>
-      </tr><tr>
-        <td>Class-6, C6</td>
-        <td>~ several GB</td>
-        <td>~ several GB</td>
-        <td>cloud</td>
-      </tr>
-      </table>
-      
-      </p>
-        </section>
       
 
     <section id="core-profile">
