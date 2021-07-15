@@ -736,7 +736,7 @@
       <h2>Device Categories</h2>	  
       <p>
         In a deployment of WoT conforming to the <a href="https://www.w3.org/TR/wot-architecture/#architecture-abstract">WoT Abstract Architecture</a>
-        we see different device types with typical characteristics.
+        we see a variety of different device types.
         They range (sorted in the order of footprint and capabilities) 
         from small embedded <em>node</em> devices to <em>gateways</em> or <em>hubs</em> 
         to powerful <em>edge</em> devices and <em>cloud</em> servers.
@@ -744,37 +744,46 @@
         is available on <em>all</em> of them.
       </p>
       
-      <p>The following device categories describe the footprint and characteristics of typical representants of these classes.
-       This is used to identify the possible features and use cases for these device classes.</p>
+      <p> 
+        The following device categories describe the footprint and characteristics of 
+        typical representatives of these classes.
+        This is used to identify the possible features and use cases for these device classes.
+      </p>
       
-       <p>
-      We are aligned with the classes defined by the IETF [[RFC7228]] for constrained devices,
-      however put the bounds on typical sizes of RAM / Flash in the real world.
-      Note that this is not a strict categorisation, categories may overlap and not all memory may be available for user applications.</p>
+      <p> 
+        These categories are aligned with the classes defined by the IETF [[RFC7228]] for constrained devices,
+        however the classes have been extended to larger devices and 
+        bounds on typical sizes of RAM and Flash/ROM are provided.  
+        Memory and storage size are both easier to quantify and more limiting than performance, 
+        so that is the basis of this categorization.
+        This is not a strict categorisation.
+        Categories may overlap and not all memory may be available for user applications.
+      </p>
       
       <table>
       <tr>
         <th>Category</th> 
         <th>data size (RAM)</th>
         <th>code size (Flash, ROM, ...)</th>
-        <th>Typical Representant</th>
+        <th>Typical Representative</th>
       </tr>  
       <tr>
         <td>Class-0, C0</td>
         <td>&lt;&lt; 10 KiB</td>
         <td>&lt;&lt; 100 KiB</td>
-        <td>unsecure sensor nodes</td>
+        <td>unsecure sensor nodes</td> <!-- could call this a "microcontroller" -->
       </tr>
       <tr>
         <td>Class-1, C1</td>
         <td>~ 10 KiB</td>
         <td>~ 100 KiB</td>
-        <td>secure sensor node</td>
+        <td>secure sensor node</td> <!-- could just call this a "node" or "basic node" -->
       </tr><tr>
         <td>Class-2, C2</td>
         <td>~ 64 KiB</td>
         <td>~ 256 KiB</td>
-        <td>nodeMCU</td>
+        <td>nodeMCU</td> 
+        <!-- could just call this an "advanced node" or just a "node" if above is "basic node" -->
       </tr>
       </tr><tr>
         <td>Class-3, C3</td>
@@ -801,9 +810,18 @@
         <td>cloud</td>
       </tr>
       </table>
-      
+
+      <p class="ednote" title="Category Names">
+      Category names should be further discussed.  
+      In particular, a NodeMCU is a particular product
+      and either we should not use it, or give similar (and multiple) examples in the other
+      categories.  
+      We can also leave security out of the names but perhaps discuss it 
+      an expected protocol support separately
+      (i.e. which classes we expect to be the minimum necessary to support TLS/HTML/HTTP, DTLS/CoAP, etc),
+      as it's not black and white (which unsecure/secure implies).
       </p>
-        </section>
+  </section>
 
   <section id="sec-application-domains" class="informative">
     <h2>Application Domains (Verticals)</h2>
