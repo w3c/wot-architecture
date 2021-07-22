@@ -1499,11 +1499,54 @@
 
       <section id="thing-models">
         <h3>Thing Models</h3>
-        <!-- formerly known as Thing Templates -->
-        <section class="ednote">
-          <h2>TODO</h2>
-	  Create section.
-        </section>
+        <p>
+          In some IoT application scenarios, a fully detailed <a>Thing Description</a>, e.g., with 
+          communication metadata is not necessary. This can be the case when IoT ecosystems may 
+          implicitly handle communication separately. Communication metadata maybe also not available
+          at the beginning of a Thing lifecycle phase since a new entity has not yet been deployed (e.g., IP address is not yet known). 
+          Sometimes, also a kind of class definition is required that forces capability definitions that should be 
+          available for all created instances (e.g., large-scale production of new devices).
+        </p>
+
+        <p>
+          A <em>Thing Model</em>  enables the opportunity to define the basic information model of a <a>Thing</a> to address such kind of scenarios.
+          <em>Thing Model</em> can be seen as a template for <a>Thing Descriptions</a>, however, that have less restriction as 
+          driven in <a href="#sec-vocabulary-definition"></a> and <a href="#sec-td-serialization"></a>. Typically <a>Thing Model</a> examples 
+          does not contain any instance-specific information such as protocol specific data like IP addresses. However, instead of having, e.g., concrete URLs, 
+          <a>Thing Model</a> allows the usage of URL templates.  
+          </p>
+
+          <section class="ednote" title="TODO">
+            <h3>TODO</h3>
+            Illustration should be provided that shows the differentiation of TD and TM.
+          </section>
+
+          <p>
+            The Thing Model enables:
+            <ul>
+            <li> onboard and manage of multiple <a>Thing</a> models, e.g., by a cloud service. </li>
+            <li> simulate of devices/<a>Things</a> that have not yet been developed.</li>
+            <li> develop common applications across devices from different manufacturers that share a common <a>Thing</a> model.</li>
+            <li> combining multiple models into a <a>Thing</a>.
+            <li> implementation support of a concrete <a>Thing</a>.
+            </ul>
+            </p>
+            <p>
+            The <a>Thing Model</a> is a logical description of the interface and possible interaction with <a>Thing</a>'s
+            <a>Properties</a>, <a>Actions</a>, and <a>Events</a>, however it does not contain <a>Thing</a> instance-specific
+            information, such as concrete protocol usage (e.g., IP address), or even a serial number and GPS location.
+            However, Thing Models allows to include, e.g., security schemes if they apply to the entire class of instances the 
+            model describes. They might have URLs (e.g., like token servers) that might need to be omitted or parameterized 
+            (with templates) although in a lot of cases these might also be given. 
+            </p>
+        
+        
+            <p>
+                <a>Thing Model</a> can be serialized in the same JSON-based format as a Thing Description which also allows JSON-LD processing. 
+                Note that a <a>Thing Model</a> cannot be validated in the same way as <a>Thing Description</a> instances due to some missing 
+                mandatory terms.
+            </p>
+
       </section>
 
       <section id="links">
