@@ -440,7 +440,7 @@
         before they get deployed to the real devices.</dd>
       <dt><dfn data-lt="WoT Discovery">Discovery</dfn>
       <dd>Mechanisms defined by WoT for distributing and accessing
-        WoT Thing Descriptions on the network, 
+        <a>WoT Thing Descriptions</a> on the network, 
         either locally or remotely.</dd>
       <dt>
         <dfn>Domain-specific Vocabulary</dfn>
@@ -606,7 +606,11 @@
       <dt>
         <dfn>TD</dfn>
       </dt>
-      <dd>Short for WoT Thing Description.</dd>
+      <dd>Short for <a>WoT Thing Description</a>.</dd>
+      <dt>
+        <dfn>TDD</dfn>
+      </dt>
+      <dd>Short for <a>WoT Thing Description Directory</a>.</dd>
       <dt>
         <dfn>TD Vocabulary</dfn>
       </dt>
@@ -629,7 +633,7 @@
         Thing Description, whereas a virtual entity is the
         composition of one or more Things.</dd>
       <dt>
-        <dfn>Thing Description Directory</dfn> or <dfn>Directory</dfn>
+        <dfn data-lt="WoT Thing Description Directory">Thing Description Directory</dfn> 
       </dt>
       <dd>A directory service for TDs that provides a Web
         interface to register TDs and look them up
@@ -729,6 +733,98 @@
 	Need to add definitions for profiles, lifecycle.
     </section>
 
+  </section>
+
+  <!-- Device categories -->
+  <section id="device-categoriesdevices">
+      <h2>Device Categories</h2>	  
+      <p>
+        In a deployment of WoT conforming to the <a href="https://www.w3.org/TR/wot-architecture/#architecture-abstract">WoT Abstract Architecture</a>
+        we see a variety of different device types.
+        They range (sorted in the order of footprint and capabilities) 
+        from small embedded <em>node</em> devices to <em>gateways</em> or <em>hubs</em> 
+        to powerful <em>edge</em> devices and <em>cloud</em> servers.
+        Interoperability between these devices implies that a core set of features and functionalities
+        is available on <em>all</em> of them.
+      </p>
+      
+      <p> 
+        The following device categories describe the footprint and characteristics of 
+        typical representatives of these classes.
+        This is used to identify the possible features and use cases for these device classes.
+      </p>
+      
+      <p> 
+        These categories are aligned with the classes defined by the IETF [[RFC7228]] for constrained devices,
+        however the classes have been extended to larger devices and 
+        bounds on typical sizes of RAM and Flash/ROM are provided.  
+        Memory and storage size are both easier to quantify and more limiting than performance, 
+        so that is the basis of this categorization.
+        This is not a strict categorisation.
+        Categories may overlap and not all memory may be available for user applications.
+      </p>
+      
+      <table>
+      <tr>
+        <th>Category</th> 
+        <th>data size (RAM)</th>
+        <th>code size (Flash, ROM, ...)</th>
+        <th>Typical Representative</th>
+      </tr>  
+      <tr>
+        <td>Class-0, C0</td>
+        <td>&lt;&lt; 10 KiB</td>
+        <td>&lt;&lt; 100 KiB</td>
+        <td>unsecure sensor nodes</td> <!-- could call this a "microcontroller" -->
+      </tr>
+      <tr>
+        <td>Class-1, C1</td>
+        <td>~ 10 KiB</td>
+        <td>~ 100 KiB</td>
+        <td>secure sensor node</td> <!-- could just call this a "node" or "basic node" -->
+      </tr><tr>
+        <td>Class-2, C2</td>
+        <td>~ 64 KiB</td>
+        <td>~ 256 KiB</td>
+        <td>nodeMCU</td> 
+        <!-- could just call this an "advanced node" or just a "node" if above is "basic node" -->
+      </tr>
+      </tr><tr>
+        <td>Class-3, C3</td>
+        <td>~ 64-256 KiB</td>
+        <td>~ 256 KiB - several MBs</td>
+        <td>ISP gateway</td>
+      </tr>
+      </tr><tr>
+        <td>Class-4, C4</td>
+        <td>~  256 KiB -  several MB</td>
+        <td>~  1 MB - several MB</td>
+        <td>gateway/hub</td>
+      </tr>
+      </tr><tr>
+        <td>Class-5, C5</td>
+        <td>~ 1 GB</td>
+        <td>~ 1 GB</td>
+        <td>edge</td>
+      </tr>
+      </tr><tr>
+        <td>Class-6, C6</td>
+        <td>~ several GB</td>
+        <td>~ several GB</td>
+        <td>cloud</td>
+      </tr>
+      </table>
+
+      <p class="ednote" title="Category Names">
+      Category names should be further discussed.  
+      In particular, a NodeMCU is a particular product
+      and either we should not use it, or give similar (and multiple) examples in the other
+      categories.  
+      We can also leave security out of the names but perhaps discuss it 
+      an expected protocol support separately
+      (i.e. which classes we expect to be the minimum necessary to support TLS/HTML/HTTP, DTLS/CoAP, etc),
+      as it's not black and white (which unsecure/secure implies).
+      </p>
   </section>
 
   <section id="sec-application-domains" class="informative">
@@ -992,7 +1088,7 @@
 
 
   <section id="sec-common-deployment-patterns" class="informative">
-    <h1>System Topoplogies (Horizontals)</h1>
+    <h1>System Topologies (Horizontals)</h1>
     <p>
       This section introduces common deployment patterns that
       illustrate how devices/things interact with controllers,
@@ -1403,11 +1499,54 @@
 
       <section id="thing-models">
         <h3>Thing Models</h3>
-        <!-- formerly known as Thing Templates -->
-        <section class="ednote">
-          <h2>TODO</h2>
-	  Create section.
-        </section>
+        <p>
+          In some IoT application scenarios, a fully detailed <a>Thing Description</a>, e.g., with 
+          communication metadata is not necessary. This can be the case when IoT ecosystems may 
+          implicitly handle communication separately. Communication metadata maybe also not available
+          at the beginning of a Thing lifecycle phase since a new entity has not yet been deployed (e.g., IP address is not yet known). 
+          Sometimes, also a kind of class definition is required that forces capability definitions that should be 
+          available for all created instances (e.g., large-scale production of new devices).
+        </p>
+
+        <p>
+          A <em>Thing Model</em>  enables the opportunity to define the basic information model of a <a>Thing</a> to address such kind of scenarios.
+          <em>Thing Model</em> can be seen as a template for <a>Thing Descriptions</a>, however, that have less restriction as 
+          driven in <a href="#sec-vocabulary-definition"></a> and <a href="#sec-td-serialization"></a>. Typically <a>Thing Model</a> examples 
+          does not contain any instance-specific information such as protocol specific data like IP addresses. However, instead of having, e.g., concrete URLs, 
+          <a>Thing Model</a> allows the usage of URL templates.  
+          </p>
+
+          <section class="ednote" title="TODO">
+            <h3>TODO</h3>
+            Illustration should be provided that shows the differentiation of TD and TM.
+          </section>
+
+          <p>
+            The Thing Model enables:
+            <ul>
+            <li> onboard and manage of multiple <a>Thing</a> models, e.g., by a cloud service. </li>
+            <li> simulate of devices/<a>Things</a> that have not yet been developed.</li>
+            <li> develop common applications across devices from different manufacturers that share a common <a>Thing</a> model.</li>
+            <li> combining multiple models into a <a>Thing</a>.
+            <li> implementation support of a concrete <a>Thing</a>.
+            </ul>
+            </p>
+            <p>
+            The <a>Thing Model</a> is a logical description of the interface and possible interaction with <a>Thing</a>'s
+            <a>Properties</a>, <a>Actions</a>, and <a>Events</a>, however it does not contain <a>Thing</a> instance-specific
+            information, such as concrete protocol usage (e.g., IP address), or even a serial number and GPS location.
+            However, Thing Models allows to include, e.g., security schemes if they apply to the entire class of instances the 
+            model describes. They might have URLs (e.g., like token servers) that might need to be omitted or parameterized 
+            (with templates) although in a lot of cases these might also be given. 
+            </p>
+        
+        
+            <p>
+                <a>Thing Model</a> can be serialized in the same JSON-based format as a Thing Description which also allows JSON-LD processing. 
+                Note that a <a>Thing Model</a> cannot be validated in the same way as <a>Thing Description</a> instances due to some missing 
+                mandatory terms.
+            </p>
+
       </section>
 
       <section id="links">
@@ -2234,6 +2373,27 @@
                   operation on Things to update the
                   data of selected writable Properties in a single interaction.</td>
               </tr>
+                <td>observeallproperties</td>
+                <td>Identifies the observeallproperties operation on
+                  Properties to be notified with new data when any Property is
+                  updated.</td>
+              </tr>
+              </tr>
+                <td>unobserveallproperties</td>
+                <td>Identifies the unobserveallproperties operation on
+                  Properties to stop notifications from all Properties in a 
+                  single interaction.</td>
+              </tr>
+              </tr>
+                <td>subscribeallevents</td>
+                <td>Identifies the subscribeallevents operation on Events to subscribe
+                  to notifications from all Events in a single interaction.</td>
+              </tr>
+              </tr>
+                <td>unsubscribeallevents</td>
+                <td>Identifies the unsubscribeallevents operation on Events to unsubscribe
+                  from notifications from all Events in a single interaction.</td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -2535,7 +2695,7 @@
     <p> The Web of Things (WoT) building blocks allow the
       implementation of systems that conform with the abstract WoT
       Architecture. The specifics of these building blocks are
-      defined in separate specification; this section provides an
+      defined in separate specifications; this section provides an
       overview and a summary.
     </p>
     <p> The WoT building blocks support each of the architectural
@@ -2549,24 +2709,31 @@
       architectural aspects of a <a>Thing</a>.
       In this figure the WoT building blocks
       are highlighted with black outlines.
+      The <a>WoT Thing Description</a> is a key building block that 
+      provides metadata describing a <a>Thing</a> and its network interface.
       Security, a cross-cutting concern,
       is separated into public and protected private components.
       The <a>WoT Scripting API</a> is optional and the
       <a>Binding Templates</a> are informative.
+      The <a>WoT Discovery</a> building block defines mechanisms for 
+      distributing <a>Thing Descriptions</a>; a <a>Thing</a> can provide
+      <a>Thing Descriptions</a> directly, or they can be provided
+      by a <a>Thing Description Directory</a> service.
     </p>
     <figure id="arch-building-blocks">
-      <img src="images/bblocks/abstract.png" srcset="images/bblocks/abstract.svg" class="wot-arch-diagram"
+      <img src="images/bblocks/abstract2.png" srcset="images/bblocks/abstract2.svg" class="wot-arch-diagram"
         alt="wot building blocks" />
       <figcaption>Relationship of WoT Building Blocks
         to the Architectural Aspects of a Thing.</figcaption>
     </figure>
     <p> In the following sections we will provide additional
       information on each WoT building block:
-      the <a href="#sec-thing-description">WoT Thing
-        Description</a>, the <a href="#sec-binding-templates">WoT Binding Templates</a>,
+      the <a href="#sec-thing-description">WoT Thing Description</a>, 
+      the <a href="#sec-discovery">WoT Discovery</a> mechanisms, 
+      the <a href="#sec-binding-templates">WoT Binding Templates</a>,
       and the <a href="#sec-scripting-api">WoT Scripting API</a>.
       Security, although it is a cross-cutting concern, can
-      be considered a fourth building block.
+      be considered an additional building block.
     </p>
 
     <section id="sec-thing-description">
@@ -2592,27 +2759,8 @@
           Metadata</a>; and communications metadata
         defining <a>Protocol Bindings</a>. The <a>TD</a> can be seen as the <em>index.html
           for <a>Things</a></em>, as it provides the entry point to learn
-        about the provided services and related resources, both
+        about the services and related resources provided by a <a>Thing</a>, both
         of which are described using hypermedia controls.
-      </p>
-      <p>A <a>TD</a> can created and/or hosted by the <a>Thing</a>
-        itself and retrieved upon direct (peer-to-peer) <a>Discovery</a>. 
-        A <a>TD</a> can also be provided externally and this is especially
-        appropriate when a <a>Thing</a> has resource restrictions
-        (e.g., limited memory space, limited power), uses a specialized protocol
-        requiring translation in a hub (in which case the <a>TD</a> would describe the
-        translated network interface), or when it is necessary to use an existing device
-        (often called "brownfield" devices). 
-        as part of the Web of Things but the device itself cannot be easily
-        modified to self-host a TD. 
-        To support external <a>Discovery</a> and to
-        facilitate device management, a <a>Directory</a> service with a standardized
-        API is defined as one available mechanism for <a>TD</a> <a>Discovery</a> and retrieval.
-        <a>TDs</a> can be registered with a <a>Directory</a> by the devices themselves
-        or by an external agent; the latter will usually be required in the case of brownfield devices.
-        It is recommended that Consumers use a <a>TD</a> caching mechanism combined with
-        a notification mechanism, which will inform them when it is required to fetch
-        a new version of the <a>TD</a>, in case the <a>Thing</a> is updated.
       </p>
       <p> For semantic interoperability, <a>TDs</a> may make use
         of a domain-specific vocabulary, for which explicit
@@ -2634,6 +2782,15 @@
         uniform format for developers to document and retrieve
         all the details necessary to create applications that
         can access IoT devices and make use of their data.
+      </p>
+      <p> TDs must be known or accessible to be useful to other
+       systems and devices. The <a href="#sec-discovery">WoT Discovery</a> building block,
+       described in more detail below,
+       defines mechanisms by which this may be accomplished for
+       both self-describing devices and for situations (brownfield devices,
+       constrained devices, devices with specialized protocols, sleeping
+       devices, etc.) in which having
+       a separate service providing the TD is more suitable.
       </p>
     </section>
 
@@ -2766,63 +2923,109 @@
 
     <!-- Discovery -->
 
-    <section id="discovery">
-      <h2>Discovery</h2>
+    <section id="sec-discovery">
+      <h2>WoT Discovery</h2>
       <p>The <a>WoT Discovery</a> specification
         [[?WOT-DISCOVERY]] defines mechanisms for distributing and accessing
-        WoT Thing Descriptions over the network.  These mechanisms are meant to 
-        simplify access to WoT Things and services and their integration, 
-        particularly in ad-hoc situations.  
+        <a>WoT Thing Descriptions</a> over the network.  
+        These mechanisms are meant to 
+        simplify access to <a>Things</a> and services and support their integration.
         <a>WoT Discovery</a> mechanisms are
-        not limited by the bounds of local area networks and also support remote
+        not limited by the bounds of local area networks and can also support remote
         discovery.
+        They are also designed to act as extensions of existing search and discovery
+        standards.
         </p><p>
-        One of the primary design requirements of the recommended <a>WoT Discovery</a> mechanisms 
+        One of the primary design requirements of the  
+        <a>WoT Discovery</a> building block 
         is to protect the security and privacy of both consumers and providers of WoT
         data and metadata.
-        In particular, the <a>WoT Discovery</a> process is designed not only 
+        In particular, <a>WoT Discovery</a> mechanisms are designed not only 
         to protect and control access to <a>WoT Thing Descriptions</a>, but also
-        is designed to protect queries about such data and metadata.  
+        are designed to protect queries about such data and metadata, and
+        to avoid accidental distribution of direct or inferrable metadata.  
         </p><p>
         In order to accomodate existing discovery technologies while providing
-        strong privacy and security, <a>WoT Discovery</a> uses a two-phase process.
-        In the first phase, an "introduction" is made using one of several
-        first-contact mechanisms.  Introduction mechanisms are not intended to 
+        strong privacy and security, <a>WoT Discovery</a> uses a two-stage process.
+        In the first stage, an "introduction" is made using one of several
+        first-contact mechanisms.  
+        In the second stage, called "exploration", 
+        actual <a>TDs</a> are made available,
+        but only after suitable authentication and authorization.
+        
+    <section id="sec-discovery-introductions">
+      <h3>Introduction Mechanisms</h3>
+        <p>
+        Introduction mechanisms are not intended to 
         provide strong security or privacy guarantees, and this allows a variety
-        of existing discovery mechanisms with relatively weak security to be used.   
+        of existing discovery mechanisms with relatively weak security to be used,
+        as long as they satisfy the following requirements:
+        <ul>
+        <li>
         <span class="rfc2119-assertion" id="discovery-no-metadata-in-introduction">
-        Any <a>Discovery</a> introduction mechanism used with WoT MUST NOT 
-        provide detailed metadata but instead should simply result in 
-        one or more URLs at which metadata
+        Any introduction mechanism used for <a>WoT Discovery</a> MUST NOT 
+        provide metadata but instead should simply result in 
+        one or more opaque URLs at which metadata
         may be accessed, if and only if the user can authenticate and 
         has the appropriate authorization (access rights).</span>
-        <span class="rfc2119-assertion">Introduction URLs MUST NOT themselves include any metadata,
-        e.g. a human-readable device type or name.</span>  Randomly generated URLs are recommended.
+        </li>
+        <li>
+        <span class="rfc2119-assertion">Introduction URLs MUST NOT 
+        themselves include any metadata,
+        e.g. a human-readable device type or name.</span>  
+        Randomly generated URLs are recommended.
+        </li>
+        </ul>
+        </p><p>
+    </section>
+    <section id="sec-discovery-exploration">
+      <h3>Exploration Mechanisms</h3>
+        <p>
         After a suitable authentication and authorization process (based on existing
-        mechanisms to protect web services and negotiation mechanisms), a second
-        "exploration" stage of discovery provides sophisticated (but protected)
+        mechanisms to protect web services and existing protocol security
+        negotiation mechanisms), <a>WoT Discovery</a> defines a set of second stage
+        "exploration" mechanisms that provide actual access to metadata.
+        </p><p>
+        The first and simplest exploration mechanism defines how to fetch a <a>TD</a>
+        directly from the device itself. This supports ad-hoc peer-to-peer discovery.
+        However, in many circumstances (including but not limited to management of 
+        large collections of TDs), an alternative exploration mechanism,
+        the <a>WoT Thing Description Directory</a> (<a>TDD</a>) service, 
+        is more appropriate.
+        </p><p>
+        A <a>TDD</a> provides sophisticated (but protected)
         query mechanisms to explore and retrieve WoT metadata.  
+        <a>TDDs</a> also provide change notification mechanisms 
+        to support secure distribution of
+        <a>TD</a> updates to authorized consumers.
         <span class="rfc2119-assertion" id="discovery-metadata-after-authorization">
-        Any <a>Discovery</a> mechanism MUST only provide metadata and <a>TDs</a>
+        </p><p>
+        Any <a>WoT Discovery</a> "exploration"
+        implementation MUST only provide metadata and <a>TDs</a>
         after appropriate best-practice authentication and authorization.</span>
         Suitable best-practice security mechanisms for authentication and authorization for 
         different circumstances are discussed in [[WOT-SECURITY]].  
         Suitable mechanisms for managing access controls and keys are also discussed
         in [[SOLID]].
+        </p><p> 
+        <a>TDDs</a> are not just a convenience feature but are essential in several
+        WoT use cases.
+        Using a <a>TDD</a> is appropriate when a <a>Thing</a> has resource restrictions
+        (e.g., limited memory space, limited power), uses a specialized protocol
+        requiring translation by an intermediary (in which case the <a>TD</a> provided by 
+        the <a>TDD</a> would describe the
+        translated network interface supported by the intermediary), 
+        or when it is necessary to use an existing device
+        (often called "brownfield" devices) 
+        as part of the Web of Things but the device itself cannot be easily
+        modified to self-host a TD. 
         </p><p>
-        In addition to a discussion of several suitable introduction mechanisms,
-        exploration
-        mechanisms are provided in the <a>WoT Discovery</a> process described in [[WOT-DISCOVERY]],
-        supporting both peer-to-peer "direct" discovery and directory services.  
-        Peer-to-peer discovery allows
-        a <a>Thing</a> to host and provide its own <a>WoT Thing Description</a> directly.
-        <a>Directory</a> services scalably maintain searchable databases of <a>WoT Thing Descriptions</a>.
-        Both lightweight syntactic query mechanisms and more powerful semantic
-        query mechanisms are supported by <a>Directory</a> services.
-        The <a>Directory</a> service defined in [[!WOT-DISCOVERY]] also includes 
-        features to support privacy such as explicit deregistration deletion as well as
-        automatic timeout-based deletion and notifications to support change management.
-        </p><p>
+        <a>TDs</a> can be registered with a <a>TDD</a> by the devices themselves
+        or by an external agent.
+        Use of an external agent will usually be required in the case of brownfield devices.
+        </p>
+       </section>
+        <p>
         The <a>Discovery</a> mechanisms defined in [[!WOT-DISCOVERY]] are not mandatory, but
         they are designed to meet the above requirements and their use will enhance 
         interoperability and usability.
