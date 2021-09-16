@@ -2819,13 +2819,105 @@
 
         </section>
 
-      
+    <section id="wot-profiles">
+      <h3>Profiles</h3>
+      <p>
+      The WoT Profile Specification defines a WoT Core Profile, 
+      which enables out of the box interoperability among things 
+      and devices. Out of the box interoperability implies, 
+      that devices can be integrated into various application 
+      scenarios without deep level adaptations. 
+      Typically only minor configuration operations are necessary 
+      (such as entering a network key, or IP address) to use the 
+      device in a certain scenario. 
+      These actions can be done by anyone without specific training.
+      </p>
+      <p>
+        In the core profile  we define a mapping to
+        HTTP(S). It is envisioned, that future versions of this document
+        contain additional mapping to Web Sockets and other protocols.
+      </p>
 
-    <section id="core-profile">
-      <h3>Core Profile</h3>
-      <section class="ednote">
-        <h2>TODO: Create text for Core Profile &lt;MichaelL&gt;
-        </h2>
+      <section>
+        <h3 id="profile-description-methodology">Profiling Methodology</h3>
+        <p>
+          A profile is a set of constraints and rules, which
+          provide additional semantic guarantees that are applied
+          to the <a>WoT Thing Description</a> specification. These constraints define a
+          subset of valid <a>WoT Thing Descriptions</a> by defining
+          additional rules on various aspects of the <a>WoT Thing
+            Description</a> specification.
+        </p>
+  
+        <table class="def">
+          <tr>
+            <th>Constraints on</th>
+            <th>Rationale</th>
+            <th>Examples</th>
+          </tr>
+          <tr>
+            <td>vocabulary of Thing Description classes</td>
+            <td>guaranteed set of metadata fields</td>
+            <td>Make specific vocabulary terms mandatory,
+              remove others</td>
+          </tr>
+          <tr>
+            <td>class relationships</td>
+            <td>unambiguous structure</td>
+            <td>limited cardinality, e.g. only one form per
+              operation per interaction affordance.</td>
+          </tr>
+          <tr>
+            <td>values of vocabulary terms</td>
+            <td>simplified processing</td>
+            <td>Limit the length of characters per string.
+              Always use arrays, where the spec permits a
+              string or an array of strings.</td>
+          </tr>
+          <tr>
+            <td>data schemas</td>
+            <td>simplified processing</td>
+            <td>No arbitrary nested objects or arrays of
+              arrays.</td>
+          </tr>
+          <tr>
+            <td>security</td>
+            <td>reduced implementation effort</td>
+            <td>Only a restricted set of security
+              mechanisms.</td>
+          </tr>
+          <tr>
+            <td>protocol binding</td>
+            <td>guaranteed protocol semantics</td>
+            <td>limited protocol(s) and protocol features,
+              Example: predefined mapping of http verbs (GET/PUT) to
+              operation verbs, similar constraints for other protocols.</td>
+          </tr>
+        </table>
+  
+  
+        <p>These constraints and rules fall into two categories:</p>
+        <ul>
+          <li>constraints for the data model.</li>
+          <li>constraints for the protocol binding.</li>
+        </ul>
+  
+        <p>These two categories are orthogonal to each other,
+          i.e. a data model that conforms to a profile can be
+          mapped to different protocols. The protocol binding for
+          each protocol may contain additional (protocol-specific)
+          constraints.</p>
+  
+        <p>A profile is not exclusive, i.e. a thing may conform
+          to multiple profiles. Profiles can build on top of each
+          other or overlap, extended profiles can be built on top
+          of the core profile.</p>
+  
+        <figure id="WoT-Profiles">
+          <img src="images/profiles/WoT Profiles.png" class="wot-profiles" alt="WoT Profiles" />
+          <figcaption>WoT Core Profile - Other Profiles</figcaption>
+        </figure>
+        </p>
       </section>
     </section>
 
