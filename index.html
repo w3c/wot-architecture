@@ -1444,40 +1444,19 @@
       </section>
 
       <p>
-        A <a>Thing</a> is the abstraction of a physical or virtual entity (e.g., a device or a room) and is described by
-        standardized metadata.
-        <span class="rfc2119-assertion" id="arch-td-metadata">
-          In W3C WoT, the description metadata MUST be a WoT Thing Description (TD) [[?WOT-THING-DESCRIPTION]].
-        </span>
-        <span class="rfc2119-assertion" id="arch-td-consumers-process">
-          <a>Consumers</a> MUST be able to parse and process the <a>TD</a> representation format, which is based on JSON
-          [[!RFC8259]].
-        </span>
-        The format can be processed either through classic JSON libraries or a JSON-LD processor,
-        as the underlying information model is graph-based and its serialization compatible with JSON-LD 1.1
-        [[?JSON-LD11]].
-        The use of a JSON-LD processor for processing a TD additionally enables semantic processing
-        including transformation to RDF triples, semantic inference and accomplishing tasks given
-        based on ontological terms, which would make <a>Consumers</a> behave more autonomous.
-        A <a>TD</a> is instance-specific (i.e., describes an individual Thing, not types of Things)
-        and is the default external, textual (Web) representation of a <a>Thing</a>.
-        <span class="rfc2119-assertion" id="arch-other-thing-representations">
-          There MAY be other representations of a <a>Thing</a> such as an HTML-based user interface,
-          simply an image of the physical entity,
-          or even non-Web representations in closed systems.
-        </span>
-      </p>
+        A <a>Thing</a> is an abstraction of a physical or virtual entity (e.g., a device or a room)
+	and is described by standardized metadata.  A <a>Consumer</a> is an entity that can read and interpret
+	the standardized metadata for a <a>Thing</a> in order to communicate with that <a>Thing</a>.
       <p>
-        <span class="rfc2119-assertion" id="arch-td-mandatory">
-          To be a <a>Thing</a>, however, at least one <a>TD</a> representation MUST be available.
-        </span>
-        The <a>WoT Thing Description</a> is a standardized, machine-understandable representation format
+        The <a>WoT Thing Description</a> (TD) is a standardized, machine-understandable metadata representation format
         that allows <a>Consumers</a> to discover and interpret the capabilities of a <a>Thing</a> (through semantic
         annotations)
         and to adapt to different implementations (e.g., different protocols or data structures) when interacting with a
-        Thing,
+	<a>Thing</a>,
         thereby enabling interoperability across different <a>IoT platforms</a>, i.e., different ecosystems and
         standards.
+	The <a>WoT Thing Model</a> (TM) is likewise a standardized, machine-readable metadata representation
+	format for describing classes of <a>Things</a>, such as a product line with common capabilities.
       </p>
       <figure id="consumer-thing">
         <img src="images/architecture/consumer-thing.png" srcset="images/architecture/consumer-thing.svg"
@@ -1497,19 +1476,65 @@
         This allows grouping of certain aspects of more complex Things.
       </p>
 
-      <section id="thing-models">
+      <section id="metadata">
+        <h3>Metadata</h3>
+	<p class="issue" data-number="595"></p>	
+	<p>
+	  The WoT architecture provides metadata formats to describe both specific instances 
+	  of </a>Things</a> and classes of <a>Things</a>.  The metadata format for instances are called
+	  <a>Thing Descriptions</a> while those for classes are called <a>Thing Models</a>.
+	</p>
+        <section id="metadata-thing-descriptions">
+        <h3>Thing Descriptions</h3>
+	<p>A <a>Thing</a> instance is described by standardized metadata.</a>
+        <span class="rfc2119-assertion" id="arch-td-metadata">
+   	  In W3C WoT, the description metadata for a <a>Thing</a> instance
+	  MUST be available as a <a>WoT Thing Description</a> (TD) [[?WOT-THING-DESCRIPTION]].
+        </span>
+        <span class="rfc2119-assertion" id="arch-td-consumers-process">
+          <a>Consumers</a> MUST be able to parse and process the <a>TD</a> representation format, which is based on JSON
+          [[!RFC8259]].
+        </span>
+        The format can be processed either through classic JSON libraries or a JSON-LD processor,
+        as the underlying information model is graph-based and its serialization compatible with JSON-LD 1.1
+        [[?JSON-LD11]].
+        The use of a JSON-LD processor for processing a TD additionally enables semantic processing
+        including transformation to RDF triples, semantic inference and accomplishing tasks given
+        based on ontological terms, which would make <a>Consumers</a> behave more autonomous.
+        A <a>TD</a> is instance-specific (i.e., describes an individual Thing, not types of Things)
+        and is the default external, textual (Web) representation of a <a>Thing</a>.
+        <span class="rfc2119-assertion" id="arch-other-thing-representations">
+          There MAY be other representations of a <a>Thing</a> such as an HTML-based user interface,
+          simply an image of the physical entity,
+          or even non-Web representations in closed systems.
+        </span>
+        <span class="rfc2119-assertion" id="arch-td-mandatory">
+          To be considered a <a>Thing</a>, however, at least one <a>TD</a> representation MUST be available.
+        </span>
+      </p>
+        </section>
+        <section id="metadata-thing-models">
         <h3>Thing Models</h3>
+	<p>
+	  A <a>Thing Model</a> class definition can be used to define capabilities that should be 
+	  available for all of a set of <a>Things</a>, for example, for large-scale production of devices
+	  in a product line.  In this case the <a>Thing Model</a> defines the common capabilities of
+	  all devices in the product line, but omits information specific to a particular device.
+	</p>
         <p>
-          In some IoT application scenarios, a fully detailed <a>Thing Description</a>, e.g., with 
-          communication metadata is not necessary. This can be the case when IoT ecosystems may 
-          implicitly handle communication separately. Communication metadata maybe also not available
-          at the beginning of a Thing lifecycle phase since a new entity has not yet been deployed (e.g., IP address is not yet known). 
-          Sometimes, also a kind of class definition is required that forces capability definitions that should be 
-          available for all created instances (e.g., large-scale production of new devices).
+	  A <a>Thing Model</a> may also be used when complete information for an instance
+	  is not available or is not necessary.
+          For example, some IoT ecosystems implicitly handle communication separately.
+	  In such a case, a fully detailed <a>Thing Description</a>, e.g. with 
+          communication metadata, is not necessary. 
+	  Communication metadata may also not available
+          at the beginning of a Thing lifecycle phase since a new entity has not yet been deployed 
+	  (e.g. the IP address is not yet known). 
         </p>
 
         <p>
-          A <em>Thing Model</em>  enables the opportunity to define the basic information model of a <a>Thing</a> to address such kind of scenarios.
+          A <em>Thing Model</em>  enables the opportunity to define the basic information model 
+	  of a <a>Thing</a> to address such kind of scenarios.
           <em>Thing Model</em> can be seen as a template for <a>Thing Descriptions</a>, however, that have less restriction as 
           driven in <a href="#sec-vocabulary-definition"></a> and <a href="#sec-td-serialization"></a>. Typically <a>Thing Model</a> examples 
           does not contain any instance-specific information such as protocol specific data like IP addresses. However, instead of having, e.g., concrete URLs, 
@@ -1546,7 +1571,7 @@
                 Note that a <a>Thing Model</a> cannot be validated in the same way as <a>Thing Description</a> instances due to some missing 
                 mandatory terms.
             </p>
-
+       </section>
       </section>
 
       <section id="links">
