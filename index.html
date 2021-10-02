@@ -412,9 +412,9 @@
         created by a native WoT Runtime, or instantiated
         as an object through the WoT Scripting API.</dd>
         <dt>
-          <dfn>Content Type / Media Type</dfn>
+          <dfn>Content Type</dfn>
         </dt>
-        <dd>Identifier for the format of the message body. Also known as MIME type [[!RFC2046]]. </dd>
+        <dd>Identifier for the format of the message body. Also known as media type and MIME type [[!RFC2046]]. </dd>
       <dt>
         <dfn>Consuming a Thing</dfn>
       </dt>
@@ -3068,7 +3068,7 @@
 
     <section id="sec-binding-templates" class="informative">
       <h3>WoT Binding Templates</h3>
-      <p> The IoT uses a variety of protocols for accessing
+      <!-- <p> The IoT uses a variety of protocols for accessing
         devices, since no single protocol is appropriate in all
         contexts. Thus, a central challenge for the Web of
         Things is to enable interactions with the plethora of
@@ -3078,16 +3078,17 @@
         over a suitable network protocol. WoT is tackling this
         variety through <a>Protocol Bindings</a>, which must meet a
         number of constraints (see <a href="#sec-protocol-bindings"></a>).
-      </p>
+      </p> -->
       <p> The non-normative <a>WoT Binding Templates</a> specification
         [[?WOT-BINDING-TEMPLATES]] provides a collection of
-        communication metadata blueprints that give guidance on
-        how to interact with different <a>IoT platforms</a>.
-        When describing a particular IoT device or service,
-        the <a>Binding Template</a> for the corresponding <a>IoT Platform</a>
-        can be used to look up the communication metadata that
-        must be provided in the <a>Thing Description</a> to
-        support that platform.
+        blueprints that give guidance on how to interact with different <a>Things</a> 
+        that use different <a>transfer protocols</a>, <a>content types</a> or that are 
+        part different <a>IoT platforms</a> (e.g., OCF, oneM2M, OMA LWM2M, OPC UA) 
+        that require certain combinations of  <a>transfer protocols</a> and 
+        <a>content types</a>. When describing a particular IoT device or service, the 
+        <a>Binding Template</a> for the corresponding <a>IoT Platform</a> can be used
+        to look up the communication metadata that must be provided in the
+         <a>Thing Description</a> to  support that platform.
       </p>
       <figure id="fig-binding-templates">
         <img src="images/bblocks/binding-templates.png" srcset="images/bblocks/binding-templates.svg"
@@ -3095,80 +3096,12 @@
         <figcaption>From Binding Templates to Protocol Bindings</figcaption>
       </figure>
       <p> <a href="#fig-binding-templates"></a> shows how <a>Binding
-          Templates</a> are applied. A <a>WoT Binding Template</a>
-        is created only once for each <a>IoT Platform</a> and
-        can then be reused in all <a>TDs</a> for devices of that
-        platform. The <a>Consumer</a> that is processing a <a>TD</a> must implement
-        the required <a>Protocol Binding</a> by including a
-        corresponding protocol stack and by configuring the
-        stack (or its messages) according to the information
-        given in the <a>TD</a>.
+          Templates</a> are used. Based on the protocol, media type or platform binding, 
+          a <a>TD</a> is created. The <a>Consumer</a> that is processing a <a>TD</a> must 
+          implement the required <a>Binding Template</a> by including a corresponding 
+          protocol stack, media type encoder/decoder or platforms stack and by configuring
+           the stack (or its messages) according to the information given in the <a>TD</a>.
       </p>
-      <p>
-        The communication metadata of
-        <a>Protocol Bindings</a> spans five dimensions:
-      </p>
-      <ul>
-        <li>
-          <b>IoT Platform:</b>
-          <p>
-            <a>IoT Platforms</a> often
-            introduce proprietary modifications at the
-            application layer such as platform-specific HTTP
-            header fields or CoAP options. Forms (see <a href="#sec-hypermedia-forms"></a>) may contain the
-            necessary information to apply these tweaks in
-            additional form fields defined for the
-            application-layer protocol used.
-          </p>
-        </li>
-        <li>
-          <b>Media Type:</b>
-          <p>
-            <a>IoT Platforms</a> often differ in the representation formats
-            (a.k.a. serializations) used for exchanging data.
-            The media type [[!RFC2046]] identifies these formats,
-            while media type parameters may specify them further.
-            Forms may contain the media type and optional parameters in
-            additional form fields such as a content type field known from HTTP,
-            which combines media type and its potential parameters
-            (e.g., <code>text/plain; charset=utf-8</code>).
-          </p>
-        </li>
-        <li>
-          <b>Transfer Protocol:</b>
-          <p>
-            The Web of Things uses the term <a>transfer protocol</a> for the underlying, standardized
-            application-layer protocol without application-specific options or <a>subprotocol</a> mechanisms.
-            The URI scheme of the form submission target contains the information required to
-            identify the <a>transfer protocol</a>,
-            e.g., HTTP, CoAPS, or WebSocket through <code>http:</code>, <code>coaps:</code>, or <code>ws:</code>, resp.
-          </p>
-        </li>
-        <li>
-          <b>Subprotocol:</b>
-          <p>
-            <a>Transfer protocols</a> may have extension mechanisms that must be known to interact successfully.
-            Such <a>subprotocols</a> cannot be identified from the URI scheme alone and must be declared explicitly.
-            Examples are the push notification workarounds for HTTP such as long polling [[?RFC6202]] or Server-Sent
-            Events [[?HTML]].
-            Forms may contain the necessary information to identify the <a>subprotocol</a> in additional form fields.
-          </p>
-        </li>
-        <li>
-          <b>Security:</b>
-          <p>
-            Security mechanisms can be applied at different layers of the communication stack
-            and might be used together, often to complement each other.
-            Examples are (D)TLS [[?RFC8446]]/[[?RFC6347]],
-            IPSec [[?RFC4301]],
-            OAuth [[?RFC6749]], and
-            ACE [[?RFC7744]].
-            Due to the cross-cutting nature of security, the necessary information to apply the right mechanism
-            may be given within the general metadata of the <a>Thing</a>
-            and/or specialized for each <a>Interaction Affordance</a> or form.
-          </p>
-        </li>
-      </ul>
     </section>
 
     <!-- Scripting -->
