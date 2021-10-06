@@ -604,7 +604,7 @@
       <dt>
         <dfn>Subprotocol</dfn>
       </dt>
-      <dd>An extension mechanism to a transfer protocol that
+      <dd>An extension mechanism to a transport protocol that
         must be known to interact successfully.
         An example is long polling for HTTP.</dd>
       <dt>
@@ -669,7 +669,7 @@
         </p>
       </dd>
       <dt>
-        <dfn>Transfer Protocol</dfn>
+        <dfn>Transport Protocol</dfn>
       </dt>
       <dd>The underlying, standardized application layer
         protocol without application-specific requirements or
@@ -2494,7 +2494,7 @@
           Hypermedia controls rely on URIs [[!RFC3986]] to identify link and submission targets.
           Thereby, the URI scheme (the first component up to ":") identifies the
           communication protocol to be used for <a>Interaction Affordance</a>s with the Thing.
-          W3C WoT refers to these protocols as <a>transfer protocols</a>.
+          W3C WoT refers to these protocols as <a>transport protocols</a>.
         </p>
       </section>
       <section id="sec-standard-method">
@@ -2508,7 +2508,7 @@
           <a>Interaction Affordance</a>s, for instance by proxies or to translate
           between Protocol Bindings [[?REST]]. Furthermore, it
           allows <a>Consumers</a> to have re-usable protocol
-          stacks of common <a>transfer protocols</a> such as HTTP, CoAP, or MQTT,
+          stacks of common <a>transport protocols</a> such as HTTP, CoAP, or MQTT,
           avoiding Thing-specific code or plugins for <a>Consumers</a>.
         </p>
       </section>
@@ -3082,9 +3082,9 @@
       <p> The non-normative <a>WoT Binding Templates</a> specification
         [[?WOT-BINDING-TEMPLATES]] provides a collection of
         blueprints that give guidance on how to interact with different <a>Things</a> 
-        that use different <a>transfer protocols</a>, <a>content types</a> or that are 
+        that use different <a>transport protocols</a>, <a>content types</a> or that are 
         part different <a>IoT platforms</a> (e.g., OCF, oneM2M, OMA LWM2M, OPC UA) 
-        that require certain combinations of  <a>transfer protocols</a> and 
+        that require certain combinations of  <a>transport protocols</a> and 
         <a>content types</a>. When describing a particular IoT device or platform, the 
         <a>Binding Template</a> for the corresponding <a>IoT Platform</a> can be used
         to look up the communication metadata that must be provided in the
@@ -3099,7 +3099,7 @@
           Templates</a> are used. Based on the protocol, media type or platform binding, 
           a <a>TD</a> is created. The <a>Consumer</a> that is processing a <a>TD</a> must 
           implement the required <a>Binding Template</a> by including a corresponding 
-          protocol stack, media type encoder/decoder or platforms stack and by configuring
+          protocol stack, media type encoder/decoder or platform stack and by configuring
            the stack (or its messages) according to the information given in the <a>TD</a>.
       </p>
     </section>
