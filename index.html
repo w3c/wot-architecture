@@ -3,7 +3,7 @@
 <head>
   <meta charset='utf-8'>
   <title>Web of Things (WoT) Architecture 1.1</title>
-  <script src='https://www.w3.org/Tools/respec/respec-w3c'> async class='remove'</script>
+  <script class="remove" src="https://www.w3.org/Tools/respec/respec-w3c"></script>
   <script class="remove">
     var respecConfig = {
       lint: {
@@ -1455,7 +1455,7 @@
 	<a>Thing</a>,
         thereby enabling interoperability across different <a>IoT platforms</a>, i.e., different ecosystems and
         standards.
-	The <a>WoT Thing Model</a> (TM) is likewise a standardized, machine-readable metadata representation
+	The WoT <a>Thing Model</a> (TM) is likewise a standardized, machine-readable metadata representation
 	format for describing classes of <a>Things</a>, such as a product line with common capabilities.
       </p>
       <figure id="consumer-thing">
@@ -1478,7 +1478,6 @@
 
       <section id="metadata">
         <h3>Metadata</h3>
-	<p class="issue" data-number="595"></p>	
 	<p>
 	  The WoT architecture provides metadata formats to describe both specific instances 
 	  of </a>Things</a> and classes of <a>Things</a>.  The metadata format for instances are called
@@ -1536,8 +1535,10 @@
           A <em>Thing Model</em>  enables the opportunity to define the basic information model 
 	  of a <a>Thing</a> to address such kind of scenarios.
           <em>Thing Model</em> can be seen as a template for <a>Thing Descriptions</a>, however, that have less restriction as 
-          driven in <a href="#sec-vocabulary-definition"></a> and <a href="#sec-td-serialization"></a>. Typically <a>Thing Model</a> examples 
-          does not contain any instance-specific information such as protocol specific data like IP addresses. However, instead of having, e.g., concrete URLs, 
+          defined in sections "TD Information Model"and section "Representation Format" 
+          of the [[?WOT-THING-DESCRIPTION]]. Typically <a>Thing Model</a> examples 
+          does not contain any instance-specific information such as protocol specific data like IP addresses. 
+          However, instead of having, e.g., concrete URLs, 
           <a>Thing Model</a> allows the usage of URL templates.  
           </p>
 
