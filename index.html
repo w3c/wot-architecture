@@ -2828,25 +2828,25 @@
 
 
 
-        <section id="thing-model">
-            <h2>Thing Model</h2>
+    <section id="thing-model">
+      <h2>Thing Model</h2>
 
-		<p>The <a>Thing Model</a> offers the opportunity to define a template-based model for
-		    <a>Thing Description</a> instances. A <a>Thing Model</a> has no
-			specific or only partial communication- and  security-based information. This kind
-			of missing information is supplemented by the creation of <a>Thing Description</a>
-			instantiation.
-		</p>
+      <p>The <a>Thing Model</a> offers the opportunity to define a template-based model for
+          <a>Thing Description</a> instances. A <a>Thing Model</a> has no
+        specific or only partial communication- and  security-based information. This kind
+        of missing information is supplemented by the creation of <a>Thing Description</a>
+        instantiation.
+      </p>
 
-		<p>
-	        A <a>Thing Model</a> mainly describes the <a>Properties</a>, <a>Actions</a>, and <a>Events</a> and
-                common metadata which then should be valid for all instantiated <a>Thing Descriptions</a>. This paradigm
-                can be compared with abstract class or interface definitions (~Thing Model) in object-oriented programming to
-		create objects (~Thing Descriptions).Such <a>Thing Models</a> get relevant for, e.g., mass production of IoT devices,
- 		onboard scenarios such in cloud services, or to simulate of device <a>Things</a> that have not yet been developed.
-	        </p>
+		  <p>
+        A <a>Thing Model</a> mainly describes the <a>Properties</a>, <a>Actions</a>, and <a>Events</a> and
+        common metadata which then should be valid for all instantiated <a>Thing Descriptions</a>. This paradigm
+        can be compared with abstract class or interface definitions (~Thing Model) in object-oriented programming to
+		    create objects (~Thing Descriptions).Such <a>Thing Models</a> get relevant for, e.g., mass production of IoT devices,
+ 		    onboard scenarios such in cloud services, or to simulate of device <a>Things</a> that have not yet been developed.
+      </p>
 
-        </section>
+    </section>
 
     <section id="wot-profiles">
       <h3>Profiles</h3>
@@ -3083,11 +3083,10 @@
         [[?WOT-BINDING-TEMPLATES]] provides a collection of
         blueprints that give guidance on how to interact with different <a>Things</a> 
         that use different <a>transport protocols</a>, <a>content types</a> or that are 
-        part different <a>IoT platforms</a> (e.g., OCF, oneM2M, OMA LWM2M, OPC UA) 
-        that require certain combinations of  <a>transport protocols</a> and 
-        <a>content types</a>. When describing a particular IoT device or platform, the 
-        <a>Binding Template</a> for the corresponding <a>IoT Platform</a> can be used
-        to look up the communication metadata that must be provided in the
+        part different <a>IoT platforms</a> or standards (e.g., OCF, oneM2M, OMA LWM2M, OPC UA) 
+        that require certain combinations of <a>transport protocols</a> and 
+        <a>content types</a>. When describing a particular IoT device or platform, the corresponding
+        <a>Binding Template</a> can be used to look up the communication metadata that must be provided in the
          <a>Thing Description</a> to  support that platform.
       </p>
       <figure id="fig-binding-templates">
@@ -3097,11 +3096,61 @@
       </figure>
       <p> <a href="#fig-binding-templates"></a> shows how <a>Binding
           Templates</a> are used. Based on the protocol, media type or platform binding, 
-          a <a>TD</a> is created. The <a>Consumer</a> that is processing a <a>TD</a> must 
-          implement the required <a>Binding Template</a> by including a corresponding 
+          a <a>TD</a> is created. The <a>Consumer</a> that is processing a <a>TD</a> 
+          implements the required <a>Binding Template</a> by including a corresponding 
           protocol stack, media type encoder/decoder or platform stack and by configuring
            the stack (or its messages) according to the information given in the <a>TD</a>.
       </p>
+
+      <p>
+        The <a>Binding Templates</a> spans three dimensions:
+      </p>
+      <ul>
+        <li>
+          <b>Protocol</b>
+          <p>
+            The Web of Things uses the term <a>transport protocol</a> for the underlying, standardized
+            application-layer protocol without application-specific options or <a>subprotocol</a> mechanisms.
+            The URI scheme of the form submission target contains the information required to
+            identify the <a>transport protocol</a>, e.g., HTTP, CoAPS, or WebSocket through 
+            <code>http</code>, <code>coaps</code>, or <code>ws</code>, respectively.
+          </p>
+          <ul>
+            <li>
+                <b>Subprotocol</b>
+                <p>
+                  <a>Transport protocols</a> may have extension mechanisms that must be known to interact successfully.
+                  Such <a>subprotocols</a> cannot be identified from the URI scheme alone and must be declared explicitly
+                  using the <code>subprotocol</code> field inside forms.
+                  Examples for HTTP are long polling [[?RFC6202]] (<code>longpoll</code>) or 
+                  Server-Sent Events [[?HTML]] (<code>sse</code>).
+                </p>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <b>Payload Representation</b>
+          <p>
+            Representation formats (a.k.a. serializations) used for exchanging data can differ between protocols, 
+            <a>IoT Platforms</a> and standards.
+            The media type [[!RFC2046]] identifies these formats, while media type parameters may specify them further.
+            Forms may contain the media type and optional parameters in additional form fields such as a content type 
+            field known from HTTP, which combines media type and its potential parameters
+            (e.g., <code>text/plain; charset=utf-8</code>).
+          </p>
+        </li>
+        <li>
+          <b>Platforms and Standards</b>
+          <p>
+            <a>IoT Platforms</a> and standards often introduce proprietary modifications at the application layer such as 
+            platform-specific HTTP header fields or CoAP options. 
+            They can also contain specific payload structures on top of the media types that need to be accurately 
+            incorporated into each message between the Thing and its Consumer.
+            Together with the protocol modification, payload representation specific to different platforms can be represented
+            in <a>TDs</a> using the best practices documented in binding templates for platforms and standards.
+          </p>
+        </li>
+      </ul>
     </section>
 
     <!-- Scripting -->
