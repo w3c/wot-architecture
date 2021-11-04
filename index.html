@@ -2460,8 +2460,7 @@
             Interaction Affordances MUST include one or more Protocol Bindings.
           </span>
           <span class="rfc2119-assertion" id="arch-hypermedia-protocol-binding">
-            Protocol Bindings MUST be serialized as hypermedia controls (see <a href="#sec-hypermedia-controls"><span
-                class="rfc2119-assertion" id="arch-hypermedia-controles"></span></a>) to be self-descriptive on how to
+            Protocol Bindings MUST be serialized as <a href="#sec-hypermedia-controls">hypermedia controls</a> to be self-descriptive on how to
             activate the Interaction Affordance.
           </span>
           <span class="rfc2119-assertion" id="arch-hypermedia-origin">
@@ -2988,7 +2987,7 @@
         as long as they satisfy the following requirements:
         <ul>
         <li>
-        <span class="rfc2119-assertion" id="discovery-no-metadata-in-introduction">
+        <span class="rfc2119-assertion" id="arch-discovery-no-metadata-in-introduction">
         Any introduction mechanism used for <a>WoT Discovery</a> MUST NOT 
         provide metadata but instead should simply result in 
         one or more opaque URLs at which metadata
@@ -2996,8 +2995,8 @@
         has the appropriate authorization (access rights).</span>
         </li>
         <li>
-        <span class="rfc2119-assertion">Introduction URLs MUST NOT 
-        themselves include any metadata,
+        <span class="rfc2119-assertion" id="arch-discovery-no-metadata-in-introduction-urls">
+        Introduction URLs MUST NOT themselves include any metadata,
         e.g. a human-readable device type or name.</span>  
         Randomly generated URLs are recommended.
         </li>
@@ -3024,8 +3023,7 @@
         <a>TDDs</a> also provide change notification mechanisms 
         to support secure distribution of
         <a>TD</a> updates to authorized consumers.
-        <span class="rfc2119-assertion" id="discovery-metadata-after-authorization">
-        </p><p>
+        <span class="rfc2119-assertion" id="arch-discovery-metadata-after-authorization">
         Any <a>WoT Discovery</a> "exploration"
         implementation MUST only provide metadata and <a>TDs</a>
         after appropriate best-practice authentication and authorization.</span>
@@ -3055,7 +3053,7 @@
         The <a>Discovery</a> mechanisms defined in [[!WOT-DISCOVERY]] are not mandatory, but
         they are designed to meet the above requirements and their use will enhance 
         interoperability and usability.
-        <span class="rfc2119-assertion" id="discovery-should-use-standard">Whenever
+        <span class="rfc2119-assertion" id="arch-discovery-should-use-standard">Whenever
         possible, the <a>Discovery</a> mechanisms defined in [[!WOT-DISCOVERY]]
         SHOULD be used to distribute <a>TDs</a>.</span>
         </p>
