@@ -3086,7 +3086,7 @@
         part different <a>IoT platforms</a> or standards (e.g., OCF, oneM2M, OMA LWM2M, OPC UA) 
         that require certain combinations of <a>transport protocols</a> and 
         <a>content types</a>. When describing a particular IoT device or platform, the corresponding
-        <a>Binding Template</a> can be used to look up the communication metadata that must be provided in the
+        <a>Binding Template</a> can be used to look up the communication metadata that is to be provided in the
          <a>Thing Description</a> to  support that platform.
       </p>
       <figure id="fig-binding-templates">
@@ -3097,9 +3097,10 @@
       <p> <a href="#fig-binding-templates"></a> shows how <a>Binding
           Templates</a> are used. Based on the protocol, media type or platform binding, 
           a <a>TD</a> is created. The <a>Consumer</a> that is processing a <a>TD</a> 
-          implements the required <a>Binding Template</a> by including a corresponding 
+          implements the required <a>Binding Template</a> that is present in the TD by including a corresponding 
           protocol stack, media type encoder/decoder or platform stack and by configuring
-           the stack (or its messages) according to the information given in the <a>TD</a>.
+           the stack (or its messages) according to the information given in the <a>TD</a> such as 
+	  serialization format of the messages and header options.
       </p>
 
       <p>
@@ -3111,8 +3112,8 @@
           <p>
             The Web of Things uses the term <a>transport protocol</a> for the underlying, standardized
             application-layer protocol without application-specific options or <a>subprotocol</a> mechanisms.
-            The URI scheme of the form submission target contains the information required to
-            identify the <a>transport protocol</a>, e.g., HTTP, CoAPS, or WebSocket through 
+            The URI scheme found in the form of an <a>Interaction Affordance</a> and the associated protocol endpoint URI 
+            contains the information required to identify the <a>transport protocol</a>, e.g., HTTP, CoAPS, or WebSocket through 
             <code>http</code>, <code>coaps</code>, or <code>ws</code>, respectively.
           </p>
           <ul>
@@ -3146,7 +3147,7 @@
             platform-specific HTTP header fields or CoAP options. 
             They can also contain specific payload structures on top of the media types that need to be accurately 
             incorporated into each message between the Thing and its Consumer.
-            Together with the protocol modification, payload representation specific to different platforms can be represented
+            Both the protocol modification and payload representation specific to different platforms can be represented
             in <a>TDs</a> using the best practices documented in binding templates for platforms and standards.
           </p>
         </li>
