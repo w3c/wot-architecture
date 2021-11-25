@@ -399,6 +399,10 @@
         (e.g., toggling a lamp on or off)
         or triggers a process on the Thing (e.g., dim a lamp over time).</dd>
       <dt>
+        <dfn data-lt="WoT Anonymous Thing Description">Anonymous TD</dfn>
+      </dt>
+      <dd>A Thing Description without a user-defined identifier (`id` attribute).</dd>
+      <dt>
         <dfn data-lt="WoT Binding Templates">Binding
           Templates</dfn>
       </dt>
@@ -447,6 +451,12 @@
         <a>WoT Thing Descriptions</a> on the network, 
         either locally or remotely.</dd>
       <dt>
+        <dfn data-lt="WoT Discoverer">Discoverer</dfn>
+      </dt>
+      <dd>An entity that generates and registers a TD with an exploration service
+        on behalf of a <a>Thing</a> which may not be able to do it for itself.
+      </dd>
+      <dt>
         <dfn>Domain-specific Vocabulary</dfn>
       </dt>
       <dd>Linked Data vocabulary that can be used in the WoT
@@ -464,6 +474,13 @@
       <dd>An Interaction Affordance that describes an event source,
         which asynchronously pushes event data to Consumers
         (e.g., overheating alerts).</dd>
+      <dt>
+        <dfn data-lt="WoT Exploration">Exploration</dfn>
+      </dt>
+      <dd>A discovery mechanism that provides access to detailed metadata in the 
+        form of one or more Thing Descriptions.  Exploration mechanisms are in
+        general protected by security mechanism and are accessible only to authorized users.
+      </dd>
       <dt>
         <dfn>Exposed Thing</dfn>
       </dt>
@@ -508,6 +525,14 @@
         original Thing.
         For Consumers, an Intermediary may be indistinguishable from a Thing, following the Layered System constraint of
         REST.</dd>
+      <dt>
+        <dfn data-lt="WoT Introduction">Introduction</dfn>
+      </dt>
+      <dd>A "first contact" discovery mechanism, whose result is a URL that
+        references an exploration mechanism.  Introduction mechanisms themselves
+        should not directly provide metadata, and in general are designed to be 
+        open.
+      </dd>
       <dt>
         <dfn>IoT Platform</dfn>
       </dt>
@@ -2976,23 +3001,23 @@
         </p><p>
         In order to accomodate existing discovery technologies while providing
         strong privacy and security, <a>WoT Discovery</a> uses a two-stage process.
-        In the first stage, an "introduction" is made using one of several
+        In the first stage, an "<a>introduction</a>" is made using one of several
         first-contact mechanisms.  
-        In the second stage, called "exploration", 
+        In the second stage, called "<a>exploration</a>", 
         actual <a>TDs</a> are made available,
         but only after suitable authentication and authorization.
         
     <section id="sec-discovery-introductions">
       <h3>Introduction Mechanisms</h3>
         <p>
-        Introduction mechanisms are not intended to 
+        <a>Introduction</a> mechanisms are not intended to 
         provide strong security or privacy guarantees, and this allows a variety
         of existing discovery mechanisms with relatively weak security to be used,
         as long as they satisfy the following requirements:
         <ul>
         <li>
         <span class="rfc2119-assertion" id="arch-discovery-no-metadata-in-introduction">
-        Any introduction mechanism used for <a>WoT Discovery</a> MUST NOT 
+        Any <a>introduction</a> mechanism used for <a>WoT Discovery</a> MUST NOT 
         provide metadata but instead should simply result in 
         one or more opaque URLs at which metadata
         may be accessed, if and only if the user can authenticate and 
@@ -3000,7 +3025,7 @@
         </li>
         <li>
         <span class="rfc2119-assertion" id="arch-discovery-no-metadata-in-introduction-urls">
-        Introduction URLs MUST NOT themselves include any metadata,
+        <a>Introduction</a> URLs MUST NOT themselves include any metadata,
         e.g. a human-readable device type or name.</span>  
         Randomly generated URLs are recommended.
         </li>
@@ -3013,12 +3038,12 @@
         After a suitable authentication and authorization process (based on existing
         mechanisms to protect web services and existing protocol security
         negotiation mechanisms), <a>WoT Discovery</a> defines a set of second stage
-        "exploration" mechanisms that provide actual access to metadata.
+        "<a>exploration</a>" mechanisms that provide actual access to metadata.
         </p><p>
-        The first and simplest exploration mechanism defines how to fetch a <a>TD</a>
+        The first and simplest <a>exploration</a> mechanism defines how to fetch a <a>TD</a>
         directly from the device itself. This supports ad-hoc peer-to-peer discovery.
         However, in many circumstances (including but not limited to management of 
-        large collections of TDs), an alternative exploration mechanism,
+        large collections of TDs), an alternative <a>exploration</a> mechanism,
         the <a>WoT Thing Description Directory</a> (<a>TDD</a>) service, 
         is more appropriate.
         </p><p>
