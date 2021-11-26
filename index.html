@@ -774,23 +774,28 @@
         <th>data size (RAM)</th>
         <th>code size (Flash, ROM, ...)</th>
         <th>Typical Representative</th>
+        <th>Remarks, typical application scenarios</th>
       </tr>  
       <tr>
         <td>Class-0, C0</td>
         <td>&lt;&lt; 10 KiB</td>
         <td>&lt;&lt; 100 KiB</td>
-        <td>unsecure sensor nodes</td> <!-- could call this a "microcontroller" -->
+        <td>small footprint microcontrollers</td>
+        <td>Sensor nodes without secure communication</td>
       </tr>
       <tr>
         <td>Class-1, C1</td>
         <td>~ 10 KiB</td>
         <td>~ 100 KiB</td>
-        <td>secure sensor node</td> <!-- could just call this a "node" or "basic node" -->
+        <td>microcontrollers</td> <!-- could just call this a "node" or "basic node" -->
+        <td>Sensors that typically supports secure communication protocols such as TLS, DTLS</td>
       </tr><tr>
         <td>Class-2, C2</td>
         <td>~ 64 KiB</td>
         <td>~ 256 KiB</td>
-        <td>nodeMCU</td> 
+        <td>connected limited device</td> 
+        <td>Small embedded devices such as M2M communication nodes, smart meters, sensor nodes and other embedded appliances, 
+          home appliances, low-end TV set-top boxes, and point of sale terminals are some examples.</td>
         <!-- could just call this an "advanced node" or just a "node" if above is "basic node" -->
       </tr>
       </tr><tr>
@@ -798,36 +803,37 @@
         <td>~ 64-256 KiB</td>
         <td>~ 256 KiB - several MBs</td>
         <td>ISP gateway</td>
+        <td>Small home and industrial gateways</td>
       </tr>
       </tr><tr>
         <td>Class-4, C4</td>
         <td>~  256 KiB -  several MB</td>
         <td>~  1 MB - several MB</td>
         <td>gateway/hub</td>
+        <td></td>
       </tr>
       </tr><tr>
         <td>Class-5, C5</td>
         <td>~ 1 GB</td>
         <td>~ 1 GB</td>
         <td>edge</td>
+        <td></td>
       </tr>
       </tr><tr>
         <td>Class-6, C6</td>
         <td>~ several GB</td>
         <td>~ several GB</td>
         <td>cloud</td>
+        <td></td>
       </tr>
       </table>
 
-      <p class="ednote" title="Category Names">
-      Category names should be further discussed.  
-      In particular, a NodeMCU is a particular product
-      and either we should not use it, or give similar (and multiple) examples in the other
-      categories.  
-      We can also leave security out of the names but perhaps discuss it 
-      an expected protocol support separately
-      (i.e. which classes we expect to be the minimum necessary to support TLS/HTML/HTTP, DTLS/CoAP, etc),
-      as it's not black and white (which unsecure/secure implies).
+      <p class="note" title="Category Names">
+      Category borders are soft borders and categories are not exclusive, 
+      i.e. there are application scenarios that 
+      can be implemented by devices from several categories.
+      For secure communications we consider devices that support TLS/HTTP, DTLS/CoAP, 
+      and similar secure protocols.
       </p>
   </section>
 
