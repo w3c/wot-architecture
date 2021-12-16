@@ -2113,8 +2113,18 @@
       <section>
         <h3>Properties</h3>
         <p>
-          A Property is an Interaction Affordance that exposes the state of the Thing. 
-		The state exposed by a Property can be retrievable (readable), updatable (writeable), and/or observable.
+          A Property is an Interaction Affordance that exposes the state of the Thing.
+          <span class="rfc2119-assertion" id="arch-property-readable">
+            The state exposed by a Property MUST be retrievable (readable).
+          </span>
+          <span class="rfc2119-assertion" id="arch-property-writable">
+            Optionally, the state exposed by a Property MAY be updated (writeable).
+          </span>
+          <span class="rfc2119-assertion" id="arch-property-observable">
+            <a>Things</a> MAY choose to make Properties observable by pushing the new state after a change
+            (cf. Observing Resources [[?RFC7641]]).
+          </span>
+          Write-only state should be updated through an Action.
         </p>
         <p>
           <span class="rfc2119-assertion" id="arch-property-dataschema">
