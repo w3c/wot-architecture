@@ -422,7 +422,8 @@
         <dt>
           <dfn>Content Type</dfn>
         </dt>
-        <dd>Identifier for the format of the message body. Also known as media type and MIME type [[!RFC2046]]. </dd>
+        <dd>Identifier for the format of the message body. 
+          Also known as media type and MIME type [[RFC2046]]. </dd>
       <dt>
         <dfn>Consuming a Thing</dfn>
       </dt>
@@ -1428,37 +1429,36 @@
         <figcaption>Cross-domain collaboration</figcaption>
       </figure>
     </section>
-  </section>
-
-  <section id="sec-system-integration" class="informative">
-    <h2>System Integration</h2>
-    <p>
-      The previous section described various architecture
-      patterns. In these patterns, some functional entities
-      such as the devices including the legacy devices,
-      controllers, gateways and cloud servers are located at
-      physical locations such as inside building, outside
-      buildings, and data centers. <a href="#usecase-overview"></a>
-      is an overview that shows the combinations and
-      communication paths of these entities.
-    </p>
-    <p>
-      In a transport protocol layer, each entity arbitrarily
-      selects a suitable role for communications. For example,
-      a device may act as a server when the device provides a service
-      to indefinite number of applications. On the other hand,
-      if a device has limited or intermittent network connectivity,
-      they may act as a client and actively send message to an application
-      when network is available. Regardless of this,
-      in application layer, an application sees that a device provides abstract
-      interfaces to interact and the application can interact with the device
-      using their abstract interfaces.
-    </p>
-    <figure id="usecase-overview">
-      <img src="images/wot-use-cases/use-case-summary.png" srcset="images/wot-use-cases/use-case-summary.svg"
-        class="wot-arch-diagram" alt="use case summary" />
-      <figcaption>Use Case Overview</figcaption>
-    </figure>
+    <section id="sec-system-integration" class="informative">
+      <h2>System Integration</h2>
+      <p>
+        The previous section described various architecture
+        patterns. In these patterns, some functional entities
+        such as the devices including the legacy devices,
+        controllers, gateways and cloud servers are located at
+        physical locations such as inside building, outside
+        buildings, and data centers. <a href="#usecase-overview"></a>
+        is an overview that shows the combinations and
+        communication paths of these entities.
+      </p>
+      <p>
+        In a transport protocol layer, each entity arbitrarily
+        selects a suitable role for communications. For example,
+        a device may act as a server when the device provides a service
+        to indefinite number of applications. On the other hand,
+        if a device has limited or intermittent network connectivity,
+        they may act as a client and actively send message to an application
+        when network is available. Regardless of this,
+        in application layer, an application sees that a device provides abstract
+        interfaces to interact and the application can interact with the device
+        using their abstract interfaces.
+      </p>
+      <figure id="usecase-overview">
+        <img src="images/wot-use-cases/use-case-summary.png" srcset="images/wot-use-cases/use-case-summary.svg"
+          class="wot-arch-diagram" alt="use case summary" />
+        <figcaption>Use Case Overview</figcaption>
+      </figure>
+    </section>
   </section>
 
   <section id="sec-wot-architecture">
@@ -1467,16 +1467,24 @@
       <em>This section is normative.</em>
     </p>
     <p>
-      To address the use cases in Section 4 and fulfill the requirements in Section 5,
+      To address the requirements and use cases that were gathered in [[?WOT-USE-CASES-REQUIREMENTS]]
       the Web of Things (WoT) builds on top of the concept of Web Things &ndash; usually simply called <a>Things</a>
-      &ndash; that can be used by so-called <a>Consumers</a>.
+      &ndash; that can be used by so-called <a>Consumers</a>. <a>Consumers</a> can interact with a <a>Thing</a>
+      directly, or they use <a>intermediaries</a> for indirect communication.
+    </p><p>
+      These concepts are applicable for the various application domains of section <a href="#sec-application-domains"></a>.
+      </p><p>
       This section provides the background and normative assertions to define the overall W3C Web of Things
       architecture.
+    </p><p>
       As the Web of Things addresses stakeholders from different domains, certain aspects of Web technology are
       explained in more detail, in particular the concept of hypermedia.
     </p>
     <section id="sec-architecture-overview">
-      <h2>System Components</h2>
+      <h2>System Concepts</h2>
+      <p>This section introduces the fundamental concepts of the Web of Things. 
+        It introduces the Thing abstraction that is described with <a>Thing Descriptions</a> and <a>Thing Models</a>, 
+        which then can be used by <a>Consumers</a>.</p>
 
       <section class="ednote" title="TODO">
 	<h3>TODO</h3>
