@@ -1534,10 +1534,7 @@
    	  In W3C WoT, the description metadata for a <a>Thing</a> instance
 	  MUST be available as a <a>WoT Thing Description</a> (TD) [[?WOT-THING-DESCRIPTION]].
         </span>
-        <span class="rfc2119-assertion" id="arch-td-consumers-process">
-          <a>Consumers</a> MUST be able to parse and process the <a>TD</a> representation format, which is based on JSON
-          [[!RFC8259]].
-        </span>
+
         The format can be processed either through classic JSON libraries or a JSON-LD processor,
         as the underlying information model is graph-based and its serialization compatible with JSON-LD 1.1
         [[?JSON-LD11]].
@@ -2321,10 +2318,6 @@
               href="#table-operation-types">Table 1</a>.
           </li>
           <li>
-            <span class="rfc2119-assertion" id="arch-op-extension">
-              The set of predefined operation types MAY be augmented by <em>Extension operation types</em> chosen by
-              applications.
-            </span>
             <span class="rfc2119-assertion" id="arch-op-extension-uri">
               Extension operation types MUST be URIs [[!RFC3986]] that uniquely identify the type.
             </span>
