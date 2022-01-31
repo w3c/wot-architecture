@@ -4203,7 +4203,8 @@
       visible URL and so are not able to participate in the 
       CA system expected by browsers to enable use of HTTP/TLS (HTTPS).
       It is often the case in this situation that plain HTTP is used
-      and the only security protecting the communication is network security.
+      and the only security protecting the communication is network 
+      encryption, for example WEP, which is relatively weak.
       </p>
       <dl>
         <dt>Mitigation:</dt>
@@ -4217,7 +4218,7 @@
 	using a segmented network. For example, in the home environment,
 	a separate WiFi network can be used for IoT devices, and routers
 	often provide a "guest" network that can be used for this purpose.
-	In a commercial and industrial environments, 
+	In commercial and industrial environments, 
 	explict installation of pre-shared
 	keys can be used to allow browsers to access local services
 	while using TLS.  In this case however it should be noted that
