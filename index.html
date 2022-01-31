@@ -399,7 +399,7 @@
         (e.g., toggling a lamp on or off)
         or triggers a process on the Thing (e.g., dim a lamp over time).</dd>
       <dt>
-        <dfn data-lt="WoT Anonymous Thing Description">Anonymous TD</dfn>
+        <dfn data-lt="WoT Anonymous Thing Description" class="lint-ignore">Anonymous TD</dfn>
       </dt>
       <dd>A Thing Description without a user-defined identifier (`id` attribute).</dd>
       <dt>
@@ -425,7 +425,7 @@
         <dd>Identifier for the format of the message body. 
           Also known as media type and MIME type [[RFC2046]]. </dd>
       <dt>
-        <dfn>Consuming a Thing</dfn>
+        <dfn class="lint-ignore">Consuming a Thing</dfn>
       </dt>
       <dd>To parse and process a TD document and from it create a Consumed
         Thing software abstraction as interface for the application in the local
@@ -456,7 +456,7 @@
         <a>WoT Thing Descriptions</a> on the network, 
         either locally or remotely.</dd>
       <dt>
-        <dfn data-lt="WoT Discoverer">Discoverer</dfn>
+        <dfn data-lt="WoT Discoverer" class="lint-ignore">Discoverer</dfn>
       </dt>
       <dd>An entity that generates and registers a TD with an exploration service
         on behalf of a <a>Thing</a> which may not be able to do it for itself.
@@ -474,7 +474,7 @@
         include gateways, routers, switches, multiplexers, and a
         variety of other access devices.</dd>
       <dt>
-        <dfn data-lt="WoT Enriched Thing Description">Enriched TD</dfn>
+        <dfn data-lt="WoT Enriched Thing Description" class="lint-ignore">Enriched TD</dfn>
       </dt>
       <dd>A Thing Description embedded with additional attributes
         for bookkeeping and discovery.</dd>
@@ -499,7 +499,7 @@
         The abstraction might be created by a native WoT Runtime,
         or instantiated as an object through the WoT Scripting API.</dd>
       <dt>
-        <dfn>Exposing a Thing</dfn>
+        <dfn class="lint-ignore">Exposing a Thing</dfn>
       </dt>
       <dd>To create an Exposed Thing software abstraction in the
         local runtime environment to manage the state of a Thing
@@ -551,7 +551,7 @@
         application-facing APIs, data model, and protocols or
         protocol configurations.</dd>
       <dt>
-        <dfn>Metadata</dfn>
+        <dfn class="lint-ignore">Metadata</dfn>
       </dt>
       <dd>Data that provides a description of an entity's abstract characteristics.
         For example, a <a>Thing Description</a> is Metadata for a <a>Thing</a>.</dd>
@@ -573,7 +573,7 @@
           See the <a href="https://www.w3.org/TR/2020/NOTE-wot-scripting-api-20201124/#the-produce-method">produce</a> method for more details.
         </p></dd>
       <dt>
-        <dfn>Privacy</dfn>
+        <dfn class="lint-ignore">Privacy</dfn>
       </dt>
       <dd>Freedom from intrusion into the private life or affairs of an individual when that intrusion results from
         undue or illegal gathering and use of data about that individual.
@@ -585,7 +585,7 @@
         <dfn>Private Security Data</dfn>
       </dt>
       <dd>
-        Private Security Data is that component of a Thing's Security Configuration that is
+        Private Security Data is that component of a Thing's <a>Security Configuration</a> that is
         kept secret and is not shared with other devices or users. An example would be private keys in a PKI
         system. Ideally such data is stored in a separate memory inaccessible to the application
         and is only used via abstract operations, such as signing, that do not reveal the secret
@@ -602,12 +602,12 @@
       </dt>
       <dd>The mapping from an Interaction Affordance to concrete messages of a specific protocol,
         thereby informing Consumers how to activate the Interaction Affordance.
-        W3C WoT serializes Protocol Bindings as hypermedia controls.</dd>
+        W3C WoT serializes Protocol Bindings as <a>hypermedia controls</a>.</dd>
       <dt>
         <dfn>Public Security Metadata</dfn>
       </dt>
       <dd>
-        Public Security Metadata is that component of a Thing's Security Configuration which
+        Public Security Metadata is that component of a Thing's <a>Security Configuration</a> which
         describes the security mechanisms and access rights necessary to access a Thing.
         It does not include any secret information or concrete data (including public keys), and does
         not by itself, provide access to the Thing. Instead, it describes the mechanisms by which access
@@ -651,14 +651,14 @@
       </dt>
       <dd>Short for <a>WoT Thing Description Directory</a>.</dd>
       <dt>
-        <dfn>TD Vocabulary</dfn>
+        <dfn class="lint-ignore">TD Vocabulary</dfn>
       </dt>
       <dd>A controlled Linked Data vocabulary by W3C WoT to
         tag the metadata of Things in the WoT Thing Description
         including communication metadata of WoT Binding
         Templates.</dd>
       <dt>
-        <dfn>TD Context Extension</dfn>
+        <dfn class="lint-ignore">TD Context Extension</dfn>
       </dt>
       <dd>A mechanism to extend <a>Thing Descriptions</a> with additional <a>Vocabulary
         Terms</a> using <code>@context</code> as specified in JSON-LD[[?JSON-LD11]]. 
@@ -755,7 +755,7 @@
         Runtime. It is comparable to the Web browser APIs.
         The WoT Scripting API is an optional building block for W3C WoT.</dd>
       <dt>
-        <dfn>WoT Servient</dfn>
+        <dfn class="lint-ignore">WoT Servient</dfn>
       </dt>
       <dd>Synonym for Servient.</dd>
       <dt>
@@ -1423,7 +1423,7 @@
       <h3>Virtual Things</h3>    
       <section class="ednote" title="TODO">
       <h3>TODO</h3>
-      Create a description and a diagram for a virtual thing scenario,
+      Create a description and a diagram for a <a>virtual thing</a> scenario,
       as described in the use case for 
       <a href="https://w3c.github.io/wot-usecases/#USE-CASES/Retail-virtual-thing">Virtual Thing</a>
       </section>
@@ -1498,7 +1498,7 @@
     </p>
     <p>
       To address the requirements and use cases that were gathered in [[?WOT-USE-CASES-REQUIREMENTS]]
-      the Web of Things (WoT) builds on top of the concept of Web Things &ndash; usually simply called <a>Things</a>
+      the Web of Things (WoT) builds on top of the concept of <a>Web Things</a> &ndash; usually simply called <a>Things</a>
       &ndash; that can be used by so-called <a>Consumers</a>. <a>Consumers</a> can interact with a <a>Thing</a>
       directly, or they use <a>intermediaries</a> for indirect communication.
     </p><p>
@@ -1795,8 +1795,8 @@
     <section id="sec-web-thing">
       <h2>Web Thing</h2>
       <p>
-        A Web Thing has four architectural aspects of interest:
-        its <em>behavior</em>, its <em><a>Interaction Affordances</a></em>, its <em>security configuration</em>,
+        A <a>Web Thing</a> has four architectural aspects of interest:
+        its <em>behavior</em>, its <em><a>Interaction Affordances</a></em>, its <em><a>security configuration</a></em>,
         and its <em><a>Protocol Bindings</a></em>,
         as depicted in <a href="#arch-webthing"></a>.
         The behavior aspect of a <a>Thing</a> includes both the autonomous behavior and the handlers for the
@@ -1808,7 +1808,7 @@
         <a>Interaction Affordance</a> to concrete messages of a certain protocol.
         In general, different concrete protocols may be used to
         support different subsets of <a>Interaction Affordances</a>,
-        even within a single Thing. The security configuration
+        even within a single Thing. The <a>security configuration</a>
         aspect of a Thing represents the mechanisms used to
         control access to the <a>Interaction Affordances</a> and the management of
         related <a>Public Security Metadata</a> and <a>Private Security Data</a>.
@@ -2224,8 +2224,8 @@
         which can be dereferenced by the Web browser (i.e., the link can be followed).
         But also machines can follow links in a meaningful way, when the Web link is further described
         by a relation type and a set of target attributes.
-        A hypermedia control is the machine-understandable description of <em>how</em> to activate an affordance.
-        Hypermedia controls usually originate from a Web server and are discovered in-band while a Web client is
+        A <a>hypermedia control</a> is the machine-understandable description of <em>how</em> to activate an affordance.
+        <a>Hypermedia controls</a> usually originate from a Web server and are discovered in-band while a Web client is
         interacting with the server.
         This way, Web servers can drive clients through Web applications dynamically,
         by taking their current state and other factors such as authorization into account.
@@ -2233,7 +2233,7 @@
         (e.g., RPC, WS-* Web services, HTTP services with fixed URI-method-response definitions).
       </p>
       <p>
-        W3C WoT makes use of two kinds of hypermedia controls:
+        W3C WoT makes use of two kinds of <a>hypermedia controls</a>:
         <em> Web links</em> [[!RFC8288]], the well-established control to navigate the Web,
         and Web forms as a more powerful control to enable any kind of operation.
         Links are already used in other IoT standards and <a>IoT platforms</a> such as
@@ -2297,7 +2297,7 @@
           and left parts blank to be filled by the <a>Consumers</a> (or Web client in general).
         </p>
         <p>
-          W3C WoT defines forms as new hypermedia control.
+          W3C WoT defines forms as new <a>hypermedia control</a>.
           Note that the definition in CoRAL is virtually identical, and hence compatible [[?CoRAL]].
           A form is comprised of:
         </p>
@@ -2418,7 +2418,7 @@
             Protocol Bindings MUST be serialized as <a href="#sec-hypermedia-controls">hypermedia controls</a> to be self-descriptive on how to
             activate the Interaction Affordance.
           </span>
-          The authority of the hypermedia controls can be the <a>Thing</a> itself, producing the <a>TD</a> document
+          The authority of the <a>hypermedia controls</a> can be the <a>Thing</a> itself, producing the <a>TD</a> document
           at runtime (based on its current state and including network parameters such as its IP address)
           or serving it from memory with only the current network parameters inserted.
           The authority can also be an external entity that has full and up-to-date knowledge of the <a>Thing</a>
@@ -2426,7 +2426,7 @@
           This enables a loose coupling between <a>Things</a> and <a>Consumers</a>, allowing for an independent
           lifecycle and evolution.
           <span class="rfc2119-assertion" id="arch-hypermedia-caching">
-            The hypermedia controls MAY be cached outside the <a>Thing</a>
+            The <a>hypermedia controls</a> MAY be cached outside the <a>Thing</a>
             and used for offline processing if caching metadata is available to determine the freshness.
           </span>
         </p>
@@ -2717,20 +2717,20 @@
         defining <a>Protocol Bindings</a>. The <a>TD</a> can be seen as the <em>index.html
           for <a>Things</a></em>, as it provides the entry point to learn
         about the services and related resources provided by a <a>Thing</a>, both
-        of which are described using hypermedia controls.
+        of which are described using <a>hypermedia controls</a>.
       </p>
       <p> For semantic interoperability, <a>TDs</a> may make use
-        of a domain-specific vocabulary, for which explicit
+        of a <a>domain-specific vocabulary</a>, for which explicit
         extension points are provided. However, development of
-        any particular domain-specific vocabulary is currently
+        any particular <a>domain-specific vocabulary</a> is currently
         out-of-scope of the W3C WoT standardization activity.
       </p>
       <p> Three examples of potentially useful external IoT
         vocabularies are SAREF [[?SAREF]], Schema Extensions for IoT
         [[?IOT-SCHEMA-ORG]], and the W3C Semantic Sensor Network
         ontology [[?VOCAB-SSN]]. Use of such external vocabularies in <a>TDs</a> is
-        optional. In the future additional domain-specific
-        vocabularies may be developed and used with <a>TDs</a>.
+        optional. In the future additional <a>domain-specific
+        vocabularies</a> may be developed and used with <a>TDs</a>.
       </p>
       <p> Overall, the <a>WoT Thing Description</a> building block
         fosters interoperability in two ways: First, <a>TDs</a>
