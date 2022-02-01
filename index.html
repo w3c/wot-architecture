@@ -669,8 +669,7 @@
       </dt>
       <dd>An abstraction of a physical or a virtual entity
         whose metadata and interfaces are described by a WoT
-        Thing Description, whereas a virtual entity is the
-        composition of one or more Things.</dd>
+        Thing Description.</dd>
       <dt>
         <dfn data-lt="WoT Thing Description Directory">Thing Description Directory</dfn> 
       </dt>
@@ -714,8 +713,11 @@
       <dt>
         <dfn>Virtual Thing</dfn>
       </dt>
-      <dd>An instance of a Thing that represents a Thing that is located
-        on another system component.</dd>
+      <dd>A virtual entity that represents a thing that conforms to a TD 
+          but does not have a direct physical representant. It may be a software simulation,
+	      a composition of one or more Things which may be located on different system components, 
+	      or an abstract entity, such as a named location or a geofence.	    
+	  </dd>
       <dt>
         <dfn>Vocabulary</dfn>
       </dt>
@@ -1420,16 +1422,20 @@
     </section>
 
     <section id="virtual-thing">
-      <h3>Virtual Things</h3>    
-      <section class="ednote" title="TODO">
-      <h3>TODO</h3>
-      Create a description and a diagram for a <a>virtual thing</a> scenario,
-      as described in the use case for 
-      <a href="https://w3c.github.io/wot-usecases/#USE-CASES/Retail-virtual-thing">Virtual Thing</a>
+      <h3>Virtual Things</h3>   
+	<p>
+	 A virtual thing is an abstraction of a physical entity that does not have a direct physical counterpart.
+	 It can be used to describe abstract interfaces with a TD that are decoupled from individual devices. 
+	 The purpose is to decouple a functional interface that defines the behavior
+	 from the specific implementations of devices among several manufacturers.
+	 The interface remains stable and is independent from the actual implementation of things behind that interface.
+	</p> 
+	<p>
+	  The virtual thing guarantees that 
+	 devices can be replaced without affecting the implementation of the consumer, 
+	 who can continue using the device as he did before.
+	</p>    
       </section>
-    </section>
-
-
     <section>
       <h3>Cross-domain Collaboration</h3>
       <p>
