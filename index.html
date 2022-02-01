@@ -1659,6 +1659,7 @@
         <h3>Links</h3>
       </section>
       <p>
+	Links can represent relationships between things, between things and thing models, and between thing models.       
         Linking does not only apply to hierarchical <a>Things</a>, but relations between Things and other resources in
         general.
         Link relation types express how Things relate, for instance, a switch controlling a light or a room monitored by
@@ -1666,11 +1667,14 @@
         Other resources related to a <a>Thing</a> can be manuals, catalogs for spare parts, CAD files, a graphical UI,
         or any other document on the Web.
         Overall, Web linking among Things makes the Web of Things navigable, for both humans and machines.
-        This can be further facilitated by providing Thing directories that manage a catalog of available <a>Things</a>,
+        This can be further facilitated by providing Thing directories that manage a catalog of <a>Things</a>,
         usually by caching their TD representation.
+	</p>
+	<p>
         In summary,
         <span class="rfc2119-assertion" id="arch-td-linking"><a>WoT Thing Descriptions</a>
-          MAY link to other <a>Things</a> and other resources on the Web to form a Web of Things.
+		and <a>WoT Thing Models</a> MAY link to other <a>Things</a>, <a>WoT Thing Models</a>,
+		and other resources on the Web to form a Web of Things.
         </span>
       </p>
       <figure id="linked-things">
@@ -1679,8 +1683,9 @@
         <figcaption>Linked Things</figcaption>
       </figure>
       <p>
-        Things must be hosted on networked system components with a software stack to realize interaction through a
-        network-facing interface, the <a>WoT Interface</a> of a <a>Thing</a>.
+        <span class="rfc2119-assertion" id="arch-rel-types">Things MUST be hosted on networked system components 
+	with a software stack to realize interaction through a
+		network-facing interface, the <a>WoT Interface</a> of a <a>Thing</a>.</span>
         One example of this is an HTTP server running on an embedded device with sensors and actuators interfacing the
         physical entity behind the <a>Thing</a> abstraction.
         However, W3C WoT does not mandate where <a>Things</a> are hosted; it can be on the IoT device directly, an
