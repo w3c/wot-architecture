@@ -1824,32 +1824,32 @@
 
     <section id="lifecycle">
       <h2>Lifecycle</h2>
-      <section class="issue">
-        <h2>Reorganisation of this section is still under discussion and the current contents reflect a snapshot that is subject to change.</h2>
-          Issue: https://github.com/w3c/wot-architecture/issues/561 contains the details.
-          
-          TODO:Create introductory text that introduces the succeeding chapters.
-          Explain the difference between
-          <ul>
-          <li>System Lifecycle </li>
-          <li>Thing Lifecycle </li>
-          <li>Information Lifecycle</li>
-            </ul>
-        </h2>
-      </section>
+
+      <p>
+        In a deployment, that applies the WoT architecture principles, different entities interact with each other and
+        exchange information between them.
+        Elements of a WoT deployment are devices, intermediaries, consumers and directories.
+        Each element has its own (intrinsic) Thing lifecycle.
+        These elements build a system, where the entire system has a <em>System lifecycle</em>, 
+        i.e. the system has several states and transitions through some states to become operational.
+        This implies that devices go through their lifecycle to becomer operational, and devices 
+        must be known to others before they can be used. 
+      </p>
+      <p>
+        The following sections describe the <em>System lifecycle</em> and the <em>Thing lifecycle</em>. 
+        They contain sample flows to illustrate the different states and phases of Things in a deployment. 
+        One of the purposes of this section is to clarify terminology and ensure that a the concepts of a 
+        common lifecycle model are considered by implementers of Web Things.
+      </p>
 
       <section id="system-lifecycle">
         <h3>System Lifecycle</h3>
         <p>
-          In a system that applies the WoT architecture principles different entities interact with each other and
-          exchange information between them.
-          Each entity (consumer, thing, directory, ...) has its own (intrinsic) lifecycle.
           For an application scenario, where things are combined into common operation flows, the entire system follows
           a lifecycle.
           This lifecycle requires a certain flow of information and a sequence of operations that need to be carried out
-          during the lifetime of the application.
-        </p>
-        <p>
+          during the lifetime of the application to become operational.
+       <p>
           To give a practical example:
           A thing has to go through some initial setup and configuration steps, before it can be used by others.
           This may include the provisioning of keys, performing configuration operations, onboarding it to a consumer,
@@ -1861,16 +1861,16 @@
           For example a thing, that has been deregistered from a directory service can no longer be looked up.
           It is dependent on the use case if the thing can still continue to be used.
         </p>
-
         <p>
-          We distinguish two fundamentally different application scenarios:
+          We distinguish two application scenarios:
         </p>
         <p>
           In the simple scenario the thing and the consumer have a direct relationship and gets onboarded to the
           consumer directly.
-          In the alternative case, a thing is registered with a directory and the consumer has to discover/lookup the
-          thing before it can be initially used.
-
+        </p><p>
+          In the alternative more complex case, a thing is registered with a directory and the consumer has to 
+          discover/lookup the thing, before it can be used.
+        </p>
         </p>
         <section id="simple-system-lifecycle">
           <h3>Simple System Lifecycle</h3>
