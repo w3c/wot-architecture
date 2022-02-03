@@ -1841,69 +1841,63 @@
         One of the purposes of this section is to clarify terminology and ensure that a the concepts of a 
         common lifecycle model are considered by implementers of Web Things.
       </p>
+      <p>
+        The actor in the left hand side of these diagrams can be understood as the device owner or manufacturer.
+        The actor on the right is the end user, who uses the device in an application.
+      </p>
 
-      <section id="system-lifecycle">
-        <h3>System Lifecycle</h3>
+      <section id="simple-system-lifecycle">
+        <h3>Simple System Lifecycle</h3>
         <p>
-          For an application scenario, where things are combined into common operation flows, the entire system follows
-          a lifecycle.
-          This lifecycle requires a certain flow of information and a sequence of operations that need to be carried out
-          during the lifetime of the application to become operational.
-       <p>
-          To give a practical example:
-          A thing has to go through some initial setup and configuration steps, before it can be used by others.
-          This may include the provisioning of keys, performing configuration operations, onboarding it to a consumer,
-          registering it with a thing directory and other actions.
-          When a thing has to be permanently removed from an application, the system has to undergo some state changes
-          to decommission it from consumers,
-          remove security credentials, deregister it from directories etc.
-          These activities change the state of individual system components which impact the entire system state.
-          For example a thing, that has been deregistered from a directory service can no longer be looked up.
-          It is dependent on the use case if the thing can still continue to be used.
-        </p>
-        <p>
-          We distinguish two application scenarios:
-        </p>
-        <p>
-          In the simple scenario the thing and the consumer have a direct relationship and gets onboarded to the
-          consumer directly.
-        </p><p>
-          In the alternative more complex case, a thing is registered with a directory and the consumer has to 
-          discover/lookup the thing, before it can be used.
-        </p>
-        </p>
-        <section id="simple-system-lifecycle">
-          <h3>Simple System Lifecycle</h3>
-          <section class="ednote">
-            <h3>TODO</h3>
-	    Create text for Simple System Lifecycle. 
-            <!-- Lagally -->
-          </section>
+          The following sequence diagram shows an example of the flow of system that consists of 
+          two directly communicating devices.
+      </p>
+      <p>
+        Before a device can be used in this scenario, it has to be bootstrapped and onboarded to the consumer.
+        In the onboarding operation the consumer and the device get to know each other - this may either be
+        performed by a discovery process, or via a registration operation, where the consumer is registered 
+        with the device or vice-versa.
+      </p>
+      <p>
+        After an activation step (which may consist of several operations, such as provisioning, configuration etc.)
+        the device and consumer are in regular operation mode.
+        When the device is no longer required in this scenario, it will be offboarded from the consumer. 
+        After this operation it can be decomissioned and destroyed. 
+      </p>
 
-          <figure id="fig-simple-system-lifecycle">
-            <img src="images/message-flows/lifecycle-1.svg" srcset="images/message-flows/lifecycle-1.svg"
-              class="wot-arch-diagram" alt="Simple System Lifecycle" />
-            <figcaption>Plain System Lifecycle</figcaption>
-          </figure>
-        </section>
-
-        <section id="system-lifecycle-no-directory">
-          <h3>System Lifecycle with Registration</h3>
-          <section class="ednote">
-            <h3>TODO
-            </h3>
-	    Create text for System Lifecycle with Registration &lt;MichaelL&gt;.
-          </section>
-
-          <figure id="lifecycle-2">
-            <img src="images/message-flows/lifecycle-2.svg" srcset="images/message-flows/lifecycle-2.svg"
-              class="wot-arch-diagram" alt="Simple System Lifecycle" />
-            <figcaption>System lifecycle with registration</figcaption>
-          </figure>
-        </section>
+        <figure id="fig-simple-system-lifecycle">
+          <img src="images/message-flows/lifecycle-1.svg" srcset="images/message-flows/lifecycle-1.svg"
+            class="wot-arch-diagram" alt="Simple System Lifecycle" />
+          <figcaption>Simple System Lifecycle</figcaption>
+        </figure>
       </section>
 
-      <section id="thing-lifecycle">
+      <section id="system-lifecycle-no-directory">
+        <h3>System Lifecycle with Registration</h3>
+        <p>
+          The following sequence diagram shows an example of the flow of system that contains three entities: 
+          a device, a consumer and a directory.
+        </p>
+      <p>
+        This flow is very similar to the flow in the previous section, in addition it contains a directory entity, 
+        which maintains a catalog of devices. In WoT this catalog is a set of <em>thing descriptions</em>
+        After a device is bootstrapped like in the previous scenario, it is registered with the directory.
+      </p>
+      <p>
+        The directory acts as an information broker between the actor on the left and the actor on 
+        the consumer side. This decouples the device owner from the consumer, where the discovery
+        acts as a middle man to enable discovery for consumers.
+      </p>
+
+        <figure id="lifecycle-2">
+          <img src="images/message-flows/lifecycle-2.svg" srcset="images/message-flows/lifecycle-2.svg"
+            class="wot-arch-diagram" alt="Simple System Lifecycle" />
+          <figcaption>System lifecycle with registration</figcaption>
+        </figure>
+      </section>
+    </section>
+
+    <section id="thing-lifecycle">
         <h3>Thing Lifecycle</h3>
           <p>
             Bootstrapping and provisioning devices is an essential part of
@@ -2097,16 +2091,41 @@
                 </li>
             </ul>
           </p>
-      </section>
 
-      <section id="information-lifecycle">
-        <h3>Information Lifecycle</h3>
-        <section class="ednote">
-          <h2>TODO
-            <!-- McCool -->
-          </h2>
-	  Create text for Information Lifecycle.
-        </section>
+      <section id="system-lifecycle">
+        <h3>System Lifecycle</h3>
+        <p>
+          For an application scenario, where things are combined into common operation flows, the entire system follows
+          a lifecycle.
+          This lifecycle requires a certain flow of information and a sequence of operations that need to be carried out
+          during the lifetime of the application to become operational.
+       <p>
+          To give a practical example:
+          A thing has to go through some initial setup and configuration steps, before it can be used by others.
+          This may include the provisioning of keys, performing configuration operations, onboarding it to a consumer,
+          registering it with a thing directory and other actions.
+          When a thing has to be permanently removed from an application, the system has to undergo some state changes
+          to decommission it from consumers,
+          remove security credentials, deregister it from directories etc.
+          These activities change the state of individual system components which impact the entire system state.
+          For example a thing, that has been deregistered from a directory service can no longer be looked up.
+          It is dependent on the use case if the thing can still continue to be used.
+        </p>
+        <p>
+          We distinguish two application scenarios:
+        </p>
+        <p>
+          In the simple scenario the thing and the consumer have a direct relationship and gets onboarded to the
+          consumer directly.
+        </p><p>
+          In the alternative more complex case, a thing is registered with a directory and the consumer has to 
+          discover/lookup the thing, before it can be used.
+        </p>
+        <p>
+          Both scenarios are described in the following sections.
+        </p>
+        
+
       </section>
     </section>
 
