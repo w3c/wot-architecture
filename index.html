@@ -2091,41 +2091,6 @@
                 </li>
             </ul>
           </p>
-
-      <section id="system-lifecycle">
-        <h3>System Lifecycle</h3>
-        <p>
-          For an application scenario, where things are combined into common operation flows, the entire system follows
-          a lifecycle.
-          This lifecycle requires a certain flow of information and a sequence of operations that need to be carried out
-          during the lifetime of the application to become operational.
-       <p>
-          To give a practical example:
-          A thing has to go through some initial setup and configuration steps, before it can be used by others.
-          This may include the provisioning of keys, performing configuration operations, onboarding it to a consumer,
-          registering it with a thing directory and other actions.
-          When a thing has to be permanently removed from an application, the system has to undergo some state changes
-          to decommission it from consumers,
-          remove security credentials, deregister it from directories etc.
-          These activities change the state of individual system components which impact the entire system state.
-          For example a thing, that has been deregistered from a directory service can no longer be looked up.
-          It is dependent on the use case if the thing can still continue to be used.
-        </p>
-        <p>
-          We distinguish two application scenarios:
-        </p>
-        <p>
-          In the simple scenario the thing and the consumer have a direct relationship and gets onboarded to the
-          consumer directly.
-        </p><p>
-          In the alternative more complex case, a thing is registered with a directory and the consumer has to 
-          discover/lookup the thing, before it can be used.
-        </p>
-        <p>
-          Both scenarios are described in the following sections.
-        </p>
-        
-
       </section>
     </section>
 
