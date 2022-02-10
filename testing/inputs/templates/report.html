@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <title>Web of Things (WoT) Thing Description: Implementation Report</title>
+    <title>Web of Things (WoT) Architecture: Implementation Report</title>
     <link rel="stylesheet" type="text/css" href="https://www.w3.org/StyleSheets/general.css"/>
     <style type="text/css" xml:space="preserve">
 /*<![CDATA[*/
@@ -117,14 +117,18 @@ pre.example {
 <div class="head">
   <a href="http://www.w3.org/"><img src="https://www.w3.org/Icons/w3c_home" alt="W3C" width="72" height="48"></a>
   <h1 id="h_ir">
-    Web of Things (WoT) Thing Description:<br/>
+    Web of Things (WoT) Architecture:<br/>
     Implementation Report
   </h1>
   <p>
     <b>Version</b>: {{LastModified}}
   </p>
   <p>
-    <b>Editors</b>:<br>
+    <b>Editors (Tentative)</b>:<br>
+    Michael Lagally (Oracle)<br>
+    Ryuichi Matsukura (Fujitsu Ltd.)<br>
+    Toru Kawaguchi (Panasonic Corp.)<br>
+    Kunihiko Toumura (Hitachi)<br>
     Michael McCool (Intel)<br>
     Ege Korkan (Siemens / Technical University of Munich)
   </p>
@@ -182,12 +186,12 @@ pre.example {
 
 <h2 id="h_intro"><a id="intro" name="intro">1. Introduction</a> </h2>
 <p>
-  The <a href="http://www.w3.org/TR/wot-thing-description/">Web of Things (WoT) Thing Description</a>
-  specification entered the <a href="https://www.w3.org/TR/2019/CR-wot-thing-description-20190516/">Candidate Recommendation</a> 
-  period for the second time on 6 November 2019.
+  The <a href="http://www.w3.org/TR/wot-architecture/">Web of Things (WoT) Architecture</a>
+  document entered the <a href="https://www.w3.org/TR/2019/CR-wot-architecture-YYYYMMDD/">Candidate Recommendation</a> 
+  period for the second time on DD-MM-2022.
 </p>
 <p>
-  The planned date for entering Proposed Recommendation is 10 December 2019.
+  The planned date for entering Proposed Recommendation is DD-MM-2022.
   This document summarizes the results from the Web of Things (WoT) TD implementer reports received and
   describes the process that the Web of Things (WoT) Working Group followed in preparing this <em>Implementation Report (IR)</em>.
 </p>
@@ -215,15 +219,15 @@ pre.example {
 	<li>Clarification and improvement through the exposition of the specification</li>
 	<li>Disposing of comments that were communicated to the WG during the CR period.
         These comments and their resolution are detailed in the
-        <a href="https://github.com/w3c/wot-thing-description/issues">GitHub Issue tracker</a>
-        with the label <a href="https://github.com/w3c/wot-thing-description/issues?q=label%3A%22CR+period%22">CR&nbsp;period</a>.</li>
+        <a href="https://github.com/w3c/wot-architecture/issues">GitHub Issue tracker</a>
+        with the label <a href="https://github.com/w3c/wot-architecture/issues?q=label%3A%22CR+period%22">CR&nbsp;period</a>.</li>
 	<li>Preparation of this Implementation Report.</li>
 </ol>
 
 <h2 id="h_participate"><a id="participate" name="participate">3. Participating in the Implementation Report</a></h2>
 <p>
   Implementers were invited to contribute to the assessment of the
-  <a href="https://www.w3.org/TR/2019/CR-wot-thing-description-20190516/">Web of Things (WoT) Thing Description Candidate Recommendation</a>
+  <a href="https://www.w3.org/TR/2022/CR-wot-architecture-2022MMDD/">Web of Things (WoT) Architecture Candidate Recommendation</a>
   by submitting implementer reports describing the
   coverage of their implementations with respect to the test assertions outlined
   in the <a href="#automated_validation_results">table below</a>.
@@ -241,7 +245,7 @@ pre.example {
   mailing list <a href="mailto:public-wot-wg@w3.org">wot-wg@w3.org</a>
   (<a href="http://lists.w3.org/Archives/Public/public-wot-wg/">archive</a>)
   and as issues on the GitHub repository
-  <a href="https://github.com/w3c/wot-thing-description/issues">https://github.com/w3c/wot-thing-description</a>.
+  <a href="https://github.com/w3c/wot-architecture/issues">https://github.com/w3c/wot-architecture</a>.
 </p>
 
 <h2 id="h_pr_entrance_crit"><a id="pr_entrance_crit" name="pr_entrance_crit">4. Entrance criteria for the Proposed Recommendation phase</a></h2>
@@ -253,8 +257,7 @@ pre.example {
 <ol>
   <li>
     Sufficient reports of implementation experience have been
-    gathered to demonstrate that Things can be described by Thing Descriptions
-    in sufficient detail to allow interoperabilty.
+    gathered to demonstrate interoperabilty.
   </li>
   <li>
     Specific Implementation Report requirements (<a href="#report_reqs">outlined below</a>) have been met.
@@ -335,29 +338,16 @@ pre.example {
 <ul>
   <li>Conformance testing results</li>
   <li>Interoperability testing results</li>
-  <li>All possible combinations of metadata that TDs could describe</li>
+  <li>All possible combinations of Things that TDs could describe (since this is an infinite set)</li>
 </ul>
 
 <h2 id="h_systems"><a id="test-systems" name="test-systems">6. Systems</a></h2>
 <p>
   This section contains descriptions of each of the implementations
-  of the WoT Thing Description specification
+  of the WoT Architecture specification
   from all organizations that submitted implementer reports.
   Each implementation represents a working system
-  that either exposes or consumes at least one WoT Thing Description.
-  Implementations that expose a network interface
-  described by a Thing Description will be referred to as "servers".
-  Implementations that consume Thing Descriptions
-  will be referred to as "clients".
-  Note that these terms will be used with these specific definitions 
-  in the following regardless of which device initiates
-  network requests.  Normally the client initiates requests and the
-  server responds.  However, in some protocols or sub-protocols that
-  support push notifications (such as webhooks or MQTT) the usual
-  relationship of initiator/responder may be reversed.
-  In some cases a given implementation may be used for multiple Things
-  and a single Thing may also act as both client and server on
-  multiple interfaces.
+  that is based on the WoT Architecture.
 </p>
 <p>
   We only count systems with mostly independent code bases
@@ -375,13 +365,13 @@ pre.example {
 <h2 id="h_security"><a id="security" name="security">7. Security</a></h2>
 <p>
   The
-  <a href="https://www.w3.org/TR/wot-thing-description">Web of Things (WoT) Thing Description</a>
-  specification includes features to support security.
+  <a href="https://www.w3.org/TR/wot-architecture">Web of Things (WoT) Architecture</a>
+  specification describes systems that include features to support security.
   Functional aspects of assertions associated with security features are validated
   in the same fashion as other functional features.
   In addition, however, the
   <a href="https://www.w3.org/2016/12/wot-wg-2016.html">Web of Things (WoT) WG Charter</a>
-  requires the development of a test plan that includes adversarial testing.
+  requires the development of a test plan.
   An appropriate security test plan, including a description
   of how existing web service penetration testing tools can be used,
   in addition to a description of more general security and privacy considerations,
@@ -392,13 +382,14 @@ pre.example {
 <h2 id="h_test_results"><a id="test_results" name="test_results">8. Test results</a></h2>
 <p>
   The aim of this section is to summarize the assertions from the
-  <a href="http://www.w3.org/TR/wot-thing-description">Web of Things (WoT) Thing Description</a>
-  specification and summarize the results from the implementation
+  <a href="http://www.w3.org/TR/wot-architecture">Web of Things (WoT) Architecture</a>
+  document and summarize the results from the implementation
   reports received in the CR period.
   The tables in each section below lists all assertions derived from the
-  <a href="http://www.w3.org/TR/wot-thing-description">Web of Things (WoT) Thing Description</a>
-  specification.
-  The results are broken into two parts: those for which automated testing has been implemented,
+  <a href="http://www.w3.org/TR/wot-architecture">Web of Things (WoT) Architecture</a>
+  document.
+  The results are broken into two parts: 
+  those for which automated testing has been implemented,
   and those for which it has not and manual testing and reporting was necessary.
 </p>
 <p>
