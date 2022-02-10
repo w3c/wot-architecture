@@ -1,0 +1,1253 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Web of Things (WoT) Thing Description: Implementation Report</title>
+    <link rel="stylesheet" type="text/css" href="https://www.w3.org/StyleSheets/general.css">
+    <style type="text/css" xml:space="preserve">
+/*<![CDATA[*/
+body {
+  margin: 2rem;
+}
+code {
+  background-color: rgba(27,31,35,.05);
+  border-radius: 3px;
+  margin: 0;
+  padding: .2em .4em;
+}
+h2 { font-size: 150% }
+h3 { font-size: 120%; font-weight: bold }
+h4 { font-size: 110%; font-weight: bold}
+.tocline { list-style: none; }
+
+table {
+  margin: auto;
+  width: 100%;
+  background-color: rgb(180,180,180);
+  border: black;
+  border-width: 1px;
+}
+th { background-color: rgb(180,255,180); }
+th.rotate {
+  /* adjust as necessary... */
+  height: 180px;
+  white-space: nowrap;
+}
+th.rotate>div {
+  transform: 
+    /* translate(25px, 51px) 
+        rotate(315deg);
+    */
+    rotate(90deg);
+  width: 30px;
+}
+th.rotate>div>span {
+  /* border-bottom: 1px solid #ccc;
+  */
+  padding: 5px 10px;
+}
+td.baseassertion { background-color: rgb(234,255,234); }
+td.tabassertion { background-color: rgb(234,255,255); }
+td.defassertion { background-color: rgb(255,255,234); }
+td.extraassertion { background-color: rgb(200,200,255); }
+td.atrisk {
+  /* background-color: rgb(255,200,255) */
+  background-color: yellow;
+}
+
+td.result {
+  text-align: right;
+  padding: 2px 4px 2px 4px;
+}
+td.failed { background-color: rgb(255,200,200); }
+td.passed { background-color: rgb(128,255,128); }
+td.secure { background-color: rgb(0,255,0); }
+td.missing { background-color: rgb(255,100,100); }
+.comment { color: green; font-style: italic; }
+.remove { text-decoration: line-through; color: black; }
+.new { color: red; }
+.working { background-color: rgb(255,234,234); padding:0.2em; }
+.fill-in { background-color: rgb(255,234,234); }
+
+table.testlist {
+  border: black;
+  border-width: 1px;
+}
+
+table.grammars th, table.commands th, able.attrs th, table.testlist th {
+  background-color: rgb(180,255,180);
+  font-size: 10pt;
+  vertical-align: top;
+}
+table.grammars td, table.commands td, table.attrs td, table.testlist td {
+  /* background-color: rgb(234,255,234); */
+  font-size: 10pt;
+  vertical-align: top;
+}
+
+table.attrs {
+  margin-top: 5px;
+}
+
+pre.example {
+  font-family: "Courier New", monospace;
+  white-space: pre;
+  background-color: rgb(204,204,255);
+  padding: 0.5em;
+  border: none;
+  border-width: 0;
+  margin-left: 0;
+  font-size: 100%;
+  width: 100%;
+}
+
+.testimonial {
+  font-style: italic;
+  margin: 0 2rem 0 2rem;
+}
+
+.at-risk {
+  background-color: yellow;
+}
+/*]]>*/
+    </style>
+  </head>
+  <body>
+
+<div class="head">
+  <a href="http://www.w3.org/"><img src="https://www.w3.org/Icons/w3c_home" alt="W3C" width="72" height="48"></a>
+  <h1 id="h_ir">
+    Web of Things (WoT) Thing Description:<br>
+    Implementation Report
+  </h1>
+  <p>
+    <b>Version</b>: 10 Feb 2022
+  </p>
+  <p>
+    <b>Editors</b>:<br>
+    Michael McCool (Intel)<br>
+    Ege Korkan (Siemens / Technical University of Munich)
+  </p>
+
+  <p class="copyright"><a href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2019 <a href="http://www.w3.org/"><acronym title="World Wide Web Consortium">W3C</acronym></a><sup>®</sup> (<a href="http://www.csail.mit.edu/"><acronym title="Massachusetts Institute of Technology">MIT</acronym></a>, <a href="http://www.ercim.org/"><acronym title="European Research Consortium for Informatics and Mathematics">ERCIM</acronym></a>, <a href="http://www.keio.ac.jp/">Keio</a>), All Rights Reserved. W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a> rules apply.</p>
+  <hr title="Separator for header">
+</div>
+
+<h2 id="h_toc"><a id="toc" name="toc">Table of Contents</a></h2>
+<ul>
+  <li class="tocline">1. <a href="#intro">Introduction</a>
+  <ul>
+    <li class="tocline">1.1 <a href="#objectives">Implementation Report objectives</a></li>
+    <li class="tocline">1.2 <a href="#non_objectives">Implementation Report non-objectives</a></li>
+  </ul>
+  </li>
+  <li class="tocline">2. <a href="#cr_work">Work during the Candidate Recommendation period</a></li>
+  <li class="tocline">3. <a href="#participate">Participating in the Implementation Report</a></li>
+  <li class="tocline">4. <a href="#pr_entrance_crit">Entrance criteria for the Proposed Recommendation phase</a></li>
+  <li class="tocline">5. <a href="#report_reqs">Implementation Report requirements</a>
+  <ul>
+    <li class="tocline">5.1 <a href="#DetailedReqs">Detailed requirements</a></li>
+    <li class="tocline">5.2 <a href="#NotesOnTesting">Notes on testing</a></li>
+    <li class="tocline">5.3 <a href="#out_of_scope">Out of scope</a></li>
+  </ul>
+  </li>
+  <li class="tocline">6. <a href="#test-systems">Systems</a></li>
+  <ul id="systems-toc">
+        <!--
+    <li class="tocline">6.x <a href="#impl-ORG">ORG</a></li>
+        -->
+  <li class="tocline">
+	6.1 <a href="#impl-ORG">Polytechnic University of Madrid (UPM)</a></li>
+<li class="tocline">
+	6.2 <a href="#impl-hitachi">Hitachi, Ltd.</a></li>
+<li class="tocline">
+	6.3 <a href="#impl-intel">Intel Corporation</a></li>
+<li class="tocline">
+	6.4 <a href="#impl-siemens">Siemens AG</a></li>
+</ul>
+  <li class="tocline">7. <a href="#security">Security</a></li>
+  <li class="tocline">8. <a href="#test_results">Test results</a>
+    <ul>
+      <li class="tocline">8.1 <a href="#automated_validation_results">Automated validation results</a></li>
+      <li class="tocline">8.2 <a href="#manual_validation_results">Manual validation results</a></li>
+<!--
+      <li class="tocline">8.3 <a href="#test_interop">Interoperability results</a></li>
+-->
+      
+  </ul>
+  </li>
+  <li class="tocline">
+    <a href="#appendix">Appendix</a>
+    <ul>
+<!--
+      <li class="tocline"><a href="#testspecB">Test specifications</a></li>
+-->
+      
+      <li class="tocline"><a href="#ack">Acknowledgements</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="h_intro"><a id="intro" name="intro">1. Introduction</a> </h2>
+<p>
+  The <a href="http://www.w3.org/TR/wot-thing-description/">Web of Things (WoT) Thing Description</a>
+  specification entered the <a href="https://www.w3.org/TR/2019/CR-wot-thing-description-20190516/">Candidate Recommendation</a> 
+  period for the second time on 6 November 2019.
+</p>
+<p>
+  The planned date for entering Proposed Recommendation is 10 December 2019.
+  This document summarizes the results from the Web of Things (WoT) TD implementer reports received and
+  describes the process that the Web of Things (WoT) Working Group followed in preparing this <em>Implementation Report (IR)</em>.
+</p>
+
+<h4 id="h_objectives"><a id="objectives" name="objectives">1.1 Implementation Report objectives</a></h4>
+<ul>
+	<li>Must verify that the specification is implementable.</li>
+</ul>
+
+<h4 id="h_non_objectives"><a id="non_objectives" name="non_objectives">1.2 Implementation Report non-objectives</a></h4>
+<ul>
+	<li>The IR does not attempt full conformance testing of implementations.</li>
+</ul>
+<p>
+  Although results were generated with a combination of automated and manual tests,
+  the automated tests were only meant to provide assistance to implementers in preparing their individual implementation
+  test reports.
+</p>
+
+<h2 id="h_cr_work"><a id="cr_work" name="cr_work">2. Work during the Candidate Recommendation period</a></h2>
+<p>
+  During the CR period, the Working Group carried out the following activities:
+</p>
+<ol>
+	<li>Clarification and improvement through the exposition of the specification</li>
+	<li>Disposing of comments that were communicated to the WG during the CR period.
+        These comments and their resolution are detailed in the
+        <a href="https://github.com/w3c/wot-thing-description/issues">GitHub Issue tracker</a>
+        with the label <a href="https://github.com/w3c/wot-thing-description/issues?q=label%3A%22CR+period%22">CR&nbsp;period</a>.</li>
+	<li>Preparation of this Implementation Report.</li>
+</ol>
+
+<h2 id="h_participate"><a id="participate" name="participate">3. Participating in the Implementation Report</a></h2>
+<p>
+  Implementers were invited to contribute to the assessment of the
+  <a href="https://www.w3.org/TR/2019/CR-wot-thing-description-20190516/">Web of Things (WoT) Thing Description Candidate Recommendation</a>
+  by submitting implementer reports describing the
+  coverage of their implementations with respect to the test assertions outlined
+  in the <a href="#automated_validation_results">table below</a>.
+</p>
+<p>
+  Implementer reports were collected through the W3C WoT Interest Group's
+  <a href="https://www.w3.org/2016/07/wot-ig-charter.html#scope">PlugFest</a> activity and collected
+  in the GitHub repository
+  <a href="https://github.com/w3c/wot/tree/master/testing/tests/2019-05/">https://github.com/w3c/wot</a>
+  under <code>testing/tests/2019-05/</code>.
+</p>
+<p>
+  Comments on this document, or requests made for
+  further information were posted to the Working Group's public
+  mailing list <a href="mailto:public-wot-wg@w3.org">wot-wg@w3.org</a>
+  (<a href="http://lists.w3.org/Archives/Public/public-wot-wg/">archive</a>)
+  and as issues on the GitHub repository
+  <a href="https://github.com/w3c/wot-thing-description/issues">https://github.com/w3c/wot-thing-description</a>.
+</p>
+
+<h2 id="h_pr_entrance_crit"><a id="pr_entrance_crit" name="pr_entrance_crit">4. Entrance criteria for the Proposed Recommendation phase</a></h2>
+<p>
+  The Web of Things (WoT) Working Group established the following
+  entrance criteria for the Proposed Recommendation phase in the
+  Request for CR:
+</p>
+<ol>
+  <li>
+    Sufficient reports of implementation experience have been
+    gathered to demonstrate that Things can be described by Thing Descriptions
+    in sufficient detail to allow interoperabilty.
+  </li>
+  <li>
+    Specific Implementation Report requirements (<a href="#report_reqs">outlined below</a>) have been met.
+  </li>
+  <li>
+    The Working Group has formally addressed and responded to all
+    public comments received by the Working Group.
+  </li>
+</ol>
+<p>
+  All three of these criteria have been met.
+<!--
+  Hard to count since some implementations have multiple components, and some are shared.  Omit.
+  A total of N implementations were documented by M different organizations.
+-->
+  The testimonials below indicate the broad base of support
+  for the specification. All of the required features had at least
+  two implementations.
+  All of the optional features also received at least one implementation.
+  However, these optional features do not have
+  conformance requirements that have an impact on interoperability.
+</p>
+
+<h2 id="h_report_reqs"><a id="report_reqs" name="report_reqs">5. Implementation Report requirements</a></h2>
+
+<h4 id="h_DetailedReqs"><a id="DetailedReqs" name="DetailedReqs">5.1 Detailed requirements</a></h4>
+<ol>
+	<li>
+    Testimonials from implementers are included in the IR when
+    provided to document the utility and implementability of the
+    specification.
+  </li>
+	<li>
+    IR must cover all specified features in the specification. For
+    each feature the IR should indicate:
+    <ul>
+	     <li>Feature status: required, optional, other.</li>
+	     <li>Feature utility/usefulness based on feedback from implementers.</li>
+	     <li>Implementability of the feature specification.</li>
+    </ul>
+  </li>
+  <li>
+    Feature status is a factor in test coverage in the report:
+    <ul>
+		  <li>
+        Required specification features must have at least two
+        implementations. Implementations that do not implement a required
+        specification feature must document the reason for not implementing
+        the feature.
+      </li>
+		  <li>
+        Optional specification features must have at least one implementation.
+        Implementations that do not implement an optional specification
+        feature should document the reason for not implementing the feature.
+      </li>
+	  </ul>
+	</li>
+</ol>
+<p>
+  Feature status is in practice indicated by
+  <a href="https://tools.ietf.org/html/rfc2119">RFC&nbsp;2119</a> assertions
+  associated with the feature.  Features defined using any assertions
+  containing the words MUST are considered required.
+  Features defined using MAY and SHOULD assertions are considered optional.
+</p>
+
+<h4 id="h_NotesOnTesting"><a id="NotesOnTesting" name="NotesOnTesting">5.2 Notes on testing</a></h4>
+<ol>
+  <li>
+    An implementer report must indicate the outcome of evaluating 
+    the implementation with respect to each of the assertions defined in the specification.
+    Possible outcomes are <code>pass</code>, <code>fail</code>, or <code>not-impl</code> (not implemented).
+  </li>
+</ol>
+
+<h4 id="h_out_of_scope"><a id="out_of_scope" name="out_of_scope">5.3 Out of scope</a></h4>
+<p>This implementation Report will not cover:</p>
+<ul>
+  <li>Conformance testing results</li>
+  <li>Interoperability testing results</li>
+  <li>All possible combinations of metadata that TDs could describe</li>
+</ul>
+
+<h2 id="h_systems"><a id="test-systems" name="test-systems">6. Systems</a></h2>
+<p>
+  This section contains descriptions of each of the implementations
+  of the WoT Thing Description specification
+  from all organizations that submitted implementer reports.
+  Each implementation represents a working system
+  that either exposes or consumes at least one WoT Thing Description.
+  Implementations that expose a network interface
+  described by a Thing Description will be referred to as "servers".
+  Implementations that consume Thing Descriptions
+  will be referred to as "clients".
+  Note that these terms will be used with these specific definitions 
+  in the following regardless of which device initiates
+  network requests.  Normally the client initiates requests and the
+  server responds.  However, in some protocols or sub-protocols that
+  support push notifications (such as webhooks or MQTT) the usual
+  relationship of initiator/responder may be reversed.
+  In some cases a given implementation may be used for multiple Things
+  and a single Thing may also act as both client and server on
+  multiple interfaces.
+</p>
+<p>
+  We only count systems with mostly independent code bases
+  as distinct implementations.
+  There are however some cases (documented in the following) where
+  implementations shared components but were still considered substantially
+  independent implementations.  In cases where a substantial component
+  was shared across implementations the features supported by that
+  component were only counted once.
+</p>
+<div id="systems-impl">
+  <!-- system implementation descriptions will be inserted here -->
+<div class="impl" id="impl-ORG">
+<h3>Polytechnic University of Madrid (UPM)</h3>
+<div class="testimonial">
+<p>To Do</p>
+</div>
+
+<h4 id="impl-upm-1">To Do: TD Producer</h4>
+<p>To Do</p>
+</div><div class="impl" id="impl-hitachi">   
+<h3>Hitachi, Ltd.</h3>   
+<div class="testimonial">
+<p>
+Hitachi understands the importance of standardization
+to make the world seamlessly connected, and strongly supports W3C's activities.
+</p>
+<p>
+Hitachi expects that standardization of Web of Things enables easy integration
+across various Things and IoT platforms.  We create a tool for
+rapid application development using Node-RED,
+called Node generator.
+</p>
+</div>
+
+<h4 id="impl-hitachi-nodegen">Node generator for Node-RED: TD Consumer</h4>
+<p>
+<a href="https://github.com/node-red/node-red-nodegen">Node generator</a> is command line tool to generate <a href="https://nodered.org/">Node-RED</a> node modules from several
+ various sources including Thing Description of Web of Things. 
+ Using this tool, node developers can dramatically reduce their time 
+ to implement Node-RED node modules.
+</p>
+</div><div class="impl" id="impl-intel">
+<h3>Intel Corporation</h3>   
+<div class="testimonial">
+<p>
+Intel supports this specification as it enables interoperation between devices
+from different manufacturers, supporting the growth of an ecosystem of interoperating
+IoT services and easing barriers to adoption.
+</p>
+<p>
+Three separate implementations were developed, all based on Node.js.
+The core implementations focused on basic local network access without built-in security.
+A separate project, used by all three implementations, provided security (encryption and
+authentication) by means of a reverse proxy. 
+For the purposes of validation this reverse proxy was considered a shared component of all three implementations, 
+and the features it implemented were only counted once in the results.
+</p>
+</div>
+
+<h4 id="impl-intel-security">Security Proxy: Shared Component</h4>
+<p>
+This component, shared across all implementations provided by Intel, was a reverse proxy service that provided
+authentication (via various mechanisms indicated by the schemes indicated in the Thing
+Description) and encrypted transport termination.
+The reverse proxy service was made accessible over a secure tunnel, and depending on the circumstances,
+was run in the cloud, on a gateway computer, or locally on a device.
+As this component implemented the security features in all other implementations
+from Intel, for the purposes of validation
+these features are only recorded as being supported in a single implementation.
+</p>
+
+<h4 id="impl-intel-ocf">OCF Metadata Translator: TD Producer</h4>
+<p>
+This implementation translated metadata made available by devices implemented using
+the OCF standard and re-expressed that metadata in the form of WoT Thing Descriptions.
+The actual network interfaces were however provided either by the OCF devices themselves
+directly via CoAP, or via a CoAP/HTTP bridge developed by OCF. 
+The metadata
+translator also had the ability to add semantic markup to the generated WoT Thing Descriptions,
+using a database that related OCF Resource Types to iotschema.org capabilities.
+It also had the capability to register generated TDs with directory services.
+Secure interfaces (e.g. HTTPS combined with an authentication scheme) were provided
+via a reverse proxy attached to the HTTP interface provided by the OCF CoAP/HTTP bridge.
+</p>
+<p>
+The OCF devices were based on the OCF Smart Home Demo and included both
+real and simulated devices. Real devices used for testing included
+</p><ol>
+<li>ON\OFF Lights (various: MOSFET, Relay, LEDs),</li>
+<li>RGB Light,</li>
+<li>Potentiometer (analog input),</li>
+<li>Toggle Switch,</li>
+<li>Pushbutton,</li>
+<li>IR Motion Sensor,</li>
+<li>Illuminance Sensor, and</li>
+<li>Buzzer.</li>
+</ol>
+There were also multiple instances of many of these devices, each given 
+unique identifiers.
+<p></p>
+
+<h4 id="impl-intel-speak">WebSpeak: TD Producer</h4>
+<p>
+This implementation provided a service to convert text to speech.  English
+text set to its network interface was spoken audibily.  This service was used to
+test several accessibility scenarios, including automatic conversion of visible status
+and event information to spoken announcements in order to support blind users.
+This implementation only supported an HTTP network interface, without security.
+Secure interfaces (eg HTTPS combined with an authentication scheme) were provided
+via a reverse proxy attached to the HTTP interface.
+The TDs for this service were generated using a template mechanism,
+and the service also had the capability to automatically register these
+TDs with a directory service.
+</p>
+
+<h4 id="impl-intel-camera">Simple Web Camera: TD Producer</h4>
+<p>
+This implementation provided a service to capture still images from a camera
+and provide them over its network interface.  This was used to test various aspects
+of actions, including support for inputs and outputs with different content types.
+The service was also capaple of introspecting the parameters made available via any
+particular attached video4linux camera
+and made those parameters available as WoT Thing Description properties.
+This implementation only supported an HTTP network interface, without security.
+Secure interfaces (eg HTTPS combined with an authentication scheme) were provided
+via a reverse proxy attached to the HTTP interface.
+The TDs for this service were generated using a template mechanism,
+and the service also had the capability to automatically register these
+TDs with a directory service.
+</p>
+
+<h4 id="impl-intel-inference">Object Identifier: TD Producer</h4>
+<p>
+This implementation provided a service to detect, recognize, and localize
+objects in an image using a hardware-accelerated neural network.
+This was implemented using a service running on a gateway.
+This was used to test various aspects of actions, 
+including support for inputs and outputs with different content types,
+but in an opposite way to the camera. The camera accepted JSON to localize a
+region of interest and output an image; the object identification
+service took a JPEG image and output JSON listing the objects recognized and
+their location.
+This implementation only supported an HTTP network interface, without security.
+Secure interfaces (eg HTTPS combined with an authentication scheme) were provided
+via a reverse proxy attached to the HTTP interface.
+The TDs for this service were generated using a template mechanism,
+and the service also had the capability to automatically register these
+TDs with a directory service.
+</p>
+</div><div class="impl" id="impl-siemens">   
+<h3>Siemens AG</h3>   
+<div class="testimonial">
+<p>
+Siemens supports this specification as it allows manufacturers
+to attach metadata to heterogeneous IoT devices and services in a uniform way.
+The extensible model with a standardized serialization format in particular remedies interoperability challenges 
+with an installed base of long-lived industrial devices.
+Furthermore, 
+this specification is a central building block for several digitalization topics such as 
+device onboarding, 
+device management, 
+digital twins, 
+and 
+data analytics.
+</p>
+<p>
+Siemens commits to several open-source implementations of W3C Web of Things, 
+which are managed in the public Eclipse Thingweb project.
+Siemens also implemented concepts of this specification in products and 
+aims at aligning the implementations and opening the features to customers 
+once this specification reaches REC status.
+</p>
+</div>
+
+<h4 id="impl-siemens-node-wot">node-wot: TD Consumer and Producer</h4>
+<p>
+The node-wot implementation is a Node.js-based framework for WoT Servients.
+It features an implementation of the WoT Scripting API to both consume TDs to instantiate Consumed Things 
+and produce Exposed Things that provide a TD.
+The node-wot implementation supports several Protocol Bindings including 
+HTTP, CoAP, WebSockets, and MQTT,
+with corresponding security mechanisms such as 
+DTLS (CoAP); 
+TLS (HTTP, MQTT),
+Basic, Digest, and Bearer Token authentication (HTTP), 
+PSK (CoAP), and 
+username/password authentication (MQTT). 
+</p>
+<h4 id="impl-siemens-thingweb-directory">Thingweb Directory: TD Consumer and Producer</h4>
+<p>
+The Thingweb Directory provides a directory service written in Java to register TDs 
+and look them up through queries (primarily SPARQL).
+The implementation consumes TDs registered with it through a web API,
+represent their metadata in a KnowledgeGraph, and (re-)produces TDs to return the results of queries.
+Currently it supports HTTP and CoAP bindings.
+</p>
+<h4 id="impl-siemens-wot-fxui">WoT-fxUI: TD Consumer</h4>
+<p>
+WoT-fxUI is a generic user interface (UI) for Things based on Java with JavaFX.
+It consumes TDs to render UI elements that allow human users to interact with Things.
+The implementation currently supports HTTP and CoAP bindings.
+</p>
+</div></div>
+
+<h2 id="h_security"><a id="security" name="security">7. Security</a></h2>
+<p>
+  The
+  <a href="https://www.w3.org/TR/wot-thing-description">Web of Things (WoT) Thing Description</a>
+  specification includes features to support security.
+  Functional aspects of assertions associated with security features are validated
+  in the same fashion as other functional features.
+  In addition, however, the
+  <a href="https://www.w3.org/2016/12/wot-wg-2016.html">Web of Things (WoT) WG Charter</a>
+  requires the development of a test plan that includes adversarial testing.
+  An appropriate security test plan, including a description
+  of how existing web service penetration testing tools can be used,
+  in addition to a description of more general security and privacy considerations,
+  is included in
+  <a href="http://www.w3.org/TR/wot-security">Web of Things (WoT) Security and Privacy Guidelines</a>.
+</p>
+
+<h2 id="h_test_results"><a id="test_results" name="test_results">8. Test results</a></h2>
+<p>
+  The aim of this section is to summarize the assertions from the
+  <a href="http://www.w3.org/TR/wot-thing-description">Web of Things (WoT) Thing Description</a>
+  specification and summarize the results from the implementation
+  reports received in the CR period.
+  The tables in each section below lists all assertions derived from the
+  <a href="http://www.w3.org/TR/wot-thing-description">Web of Things (WoT) Thing Description</a>
+  specification.
+  The results are broken into two parts: those for which automated testing has been implemented,
+  and those for which it has not and manual testing and reporting was necessary.
+</p>
+<p>
+  The headers for these tables are described as follows:
+</p>
+<ul>
+  <li>
+    The <b>ID</b> column uniquely identifies the assertion.
+    and links to the assertion in the context of the specification.
+  </li>
+  <li>
+    The <b>Category</b> column groups assertions by function.
+  </li>
+  <li>
+    The <b>Req</b> column is a Y/N value indicating
+    whether the assertion is for a feature which is required.
+    Note however that the feature may only be required if another feature is
+    also used or in a particular context, as indicated in
+    the <b>Context</b> column.
+  </li>
+  <li>
+    The <b>Context</b> column indicates that the "required" status of this feature depends on the use
+    of other features.
+    If the context is itself optional,
+    then the value of <b>Req</b> actually indicates whether the feature is required
+    if the indicated context exists.
+  </li>
+  <li>
+    The <b>Assertion</b> column specifies the constraint which must be met.
+    Note that this text may contain errors as it is automatically drawn
+    from the specification source before ReSpec processing, so automatic
+    content provided by ReSpec such as section headings will be missing.
+    If the assertion is actually given in a tabular form in the
+    specification, appropriate text is generated but this may not match the
+    text in the specification itself.  To fully understand the assertion please
+    look at the assertion in context in the specification using the provided
+    hyperlink.
+  </li>
+  <li>
+    The <b>Parent</b> column indicates another more general assertion that this one is a specialization of.
+    A specialization indicates a more restrictive context or provides additional detail to facilitate testing.
+    The more general assertion is only considered to have a "pass" status if all its required
+    or implmented specializations in a given implementation have a "pass" status.
+  </li>
+  <li>
+    The <b>Result</b> column is annotated with the number of
+    <code>pass</code> (<b>P</b>),
+    <code>fail</code> (<b>F</b>), and
+    <code>not-impl</code> (<b>N</b>)
+    status results in the individual implementer reports.
+  </li>
+  <li>
+    The <b>T</b> column indicates the total number of implementations (or implementation components in the case
+    of shared components) reporting a status (of any kind) on each assertion.
+    The totals do not sum to a consistent value since not all implementations have provided information on all
+    assertions.
+  </li>
+</ul>
+<p>
+  In the case of assertions with multiple mutually exclusive options (for example, enumerated values)
+  each of these options may be tested separately and the results combined.
+  In this case the 'pass' and 'total' values reported are the minimum value of any of the more detailed tests,
+  while the 'fail' and 'not implemented' values report the maximum value of any of these tests.
+  Since minimum and maximum value may be drawn from different detailed tests, the
+  sum of the 'pass', 'fail', and 'not implemented' cases may not equal the 'total'.
+  Instead the total represents the number of implementations for which all options were tested.
+  For such cases the "child" assertions have underscores in their names
+  prior to each value tested and the table row is also rendered in a 
+  different color.
+</p>
+<!--
+<p class="at-risk">
+  Assertions which have been indicated as at-risk in the CR publication
+  are indicated using yellow highlighting.  
+  If these have insufficient implementation
+  experience (fewer than two independent implementations for mandatory features
+  and one for optional features) they
+  may be removed from the final Recommendation.
+</p>
+-->
+
+<h3 id="h_automated_validation_results"><a id="automated_validation_results" name="automated_validation_results">8.1 Automated Validation Results</a></h3>
+<p>
+  The following assertions have been validated by automated testing using the
+  <a href="http://plugfest.thingweb.io/playground/">ThingWeb Playground</a>
+  <a href="https://github.com/thingweb/thingweb-playground/">AssertionTester</a>.
+</p>
+
+<table id="testresults" class="testlist" summary="assertions and tests" cellspacing="1" cellpadding="2" width="100%">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Category</th>
+      <th>Req</th>
+      <th>Context</th>
+      <th>Assertion</th>
+      <th>Parent</th>
+      <th colspan="4">Results</th>
+    </tr>
+    <tr>
+      <th colspan="6"></th>
+      <th>P</th>
+      <th>F</th>
+      <th>N</th>
+      <th>T</th>
+    </tr>
+  </thead>
+  <tbody>
+<!--
+    <tr>
+      <th colspan="10">Section Title</th>
+    </tr>
+-->
+  
+<tr id="arch-action-dataschema" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-action-dataschema">arch-action-dataschema</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            If the data is not fully specified by the Protocol Binding used (e.g., through a media type),
+            Actions MAY contain data schemas for optional input parameters and output results.
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-action-functions" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-action-functions">arch-action-functions</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            An Action MAY manipulate state that is not directly exposed (cf. Properties),
+            manipulate multiple Properties at a time, or manipulate Properties based on internal logic (e.g., toggle).
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-action-process" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-action-process">arch-action-process</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            Invoking an Action MAY also trigger a process on the Thing that manipulates state
+            (including physical state through actuators) over time.
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-affordances" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-affordances">arch-affordances</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">In
+          addition to navigation affordances (i.e., Web links),
+          Things MAY offer three other types of Interaction Affordances
+          defined by this specification: Properties, Actions, and Events.
+        </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-discovery-metadata-after-authorization" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-discovery-metadata-after-authorization">arch-discovery-metadata-after-authorization</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+        Any WoT Discovery "exploration"
+        implementation MUST only provide metadata and TDs
+        after appropriate best-practice authentication and authorization.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-discovery-no-metadata-in-introduction" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-discovery-no-metadata-in-introduction">arch-discovery-no-metadata-in-introduction</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+        Any introduction mechanism used for WoT Discovery MUST NOT 
+        provide metadata but instead should simply result in 
+        one or more opaque URLs at which metadata
+        may be accessed, if and only if the user can authenticate and 
+        has the appropriate authorization (access rights).</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-discovery-no-metadata-in-introduction-urls" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-discovery-no-metadata-in-introduction-urls">arch-discovery-no-metadata-in-introduction-urls</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+        Introduction URLs MUST NOT themselves include any metadata,
+        e.g. a human-readable device type or name.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-discovery-should-use-standard" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-discovery-should-use-standard">arch-discovery-should-use-standard</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Whenever
+        possible, the Discovery mechanisms defined in [[!WOT-DISCOVERY]]
+        SHOULD be used to distribute TDs.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-event-dataschema" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-event-dataschema">arch-event-dataschema</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            If the data is not fully specified by the Protocol Binding used (e.g., through a media type),
+            Events MAY contain data schemas for the event data and possible subscription control messages
+            (e.g., to subscribe with a Webhook callback URI).
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-event-trigger" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-event-trigger">arch-event-trigger</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            Events MAY be triggered through conditions that are not exposed as Properties.
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-form-iris" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-form-iris">arch-form-iris</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            Form contexts and submission targets MUST both be
+            Internationalized Resource Identifiers (IRIs)
+            [[!RFC3987]].
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-form-iris2" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-form-iris2">arch-form-iris2</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            Form context and submission target MAY point to
+            the same resource or different resources, where the
+            submission target resource implements the operation
+            for the context.
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-hypermedia" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-hypermedia">arch-hypermedia</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            Interaction Affordances MUST include one or more Protocol Bindings.
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-hypermedia-caching" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-hypermedia-caching">arch-hypermedia-caching</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            The hypermedia controls MAY be cached outside the Thing
+            and used for offline processing if caching metadata is available to determine the freshness.
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-hypermedia-protocol-binding" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-hypermedia-protocol-binding">arch-hypermedia-protocol-binding</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            Protocol Bindings MUST be serialized as hypermedia controls to be self-descriptive on how to
+            activate the Interaction Affordance.
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-id-correlation" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-id-correlation">arch-id-correlation</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+          An identifier in the WoT Thing Description MUST allow for the correlation of multiple TDs
+          representing the same original Thing or ultimately unique physical entity.
+        </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-intermediary-td-extra-protocols" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-intermediary-td-extra-protocols">arch-intermediary-td-extra-protocols</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            If necessary, a TD generated by an Intermediary MAY contain
+            interfaces for other communication protocols.
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-media-type" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-media-type">arch-media-type</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">All
+            data (a.k.a. content) exchanged when activating Interaction Affordances
+            MUST be identified by a media type [[!RFC2046]] in the Protocol Binding.
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-media-type-extra" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-media-type-extra">arch-media-type-extra</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            Protocol Bindings MAY have additional information that specifies representation formats
+            in more detail than the media type alone.
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-op-expected-request" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-op-expected-request">arch-op-expected-request</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            Form fields are optional and MAY further specify the
+            expected request message for the given operation.
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-op-extension-comparison" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-op-extension-comparison">arch-op-extension-comparison</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+              Extension operation types MUST be compared as strings using a case-insensitive comparison.
+            </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-op-extension-lowercase" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-op-extension-lowercase">arch-op-extension-lowercase</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+              Nevertheless, all-lowercase URIs SHOULD be used for extension operation types.
+            </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-op-extension-uri" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-op-extension-uri">arch-op-extension-uri</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+              Extension operation types MUST be URIs [[!RFC3986]] that uniquely identify the type.
+            </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-op-form-fields-protocol" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-op-form-fields-protocol">arch-op-form-fields-protocol</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            Form fields MAY depend on the protocol used for the
+            submission target as specified in the URI scheme.
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-op-request-method" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-op-request-method">arch-op-request-method</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            The request method MUST identify one method of
+            the standard set of the protocol identified by the
+            submission target URI scheme.
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-op-wellknown" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-op-wellknown">arch-op-wellknown</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+              Well-known operation types MUST follow the ABNF
+              LOALPHA *( LOALPHA / DIGIT / "." / "-" ).
+            </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-other-thing-representations" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-other-thing-representations">arch-other-thing-representations</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+          There MAY be other representations of a Thing such as an HTML-based user interface,
+          simply an image of the physical entity,
+          or even non-Web representations in closed systems.
+        </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-property-dataschema" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-property-dataschema">arch-property-dataschema</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            If the data is not fully specified by the Protocol Binding used (e.g., through a media type),
+            Properties MAY contain one data schema for the exposed state.
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-rel-type-lowercase" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-rel-type-lowercase">arch-rel-type-lowercase</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            Nevertheless, all-lowercase URIs SHOULD be used for extension relation types. [[!RFC8288]]
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-rel-types" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-rel-types">arch-rel-types</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            Extension relation types MUST be compared as strings using a case-insensitive comparison.
+            (If they are serialized in a different format they are to be converted to URIs).
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-schema" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-schema">arch-schema</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Thus,
+            the corresponding Interaction Affordances SHOULD
+            declare a data schema to provide more detailed
+            syntactic metadata for the data exchanged.
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-td-linking" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-td-linking">arch-td-linking</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">WoT Thing Descriptions
+          MAY link to other Things and other resources on the Web to form a Web of Things.
+        </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-td-mandatory" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-td-mandatory">arch-td-mandatory</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+          To be considered a Thing, however, at least one TD representation MUST be available.
+        </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-td-metadata" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-td-metadata">arch-td-metadata</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+   	  In W3C WoT, the description metadata for a Thing instance
+	  MUST be available as a WoT Thing Description (TD) [[?WOT-THING-DESCRIPTION]].
+        </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr></tbody>
+</table>
+
+<h3 id="h_manual_validation_results"><a id="manual_validation_results" name="manual_validation_results">8.2 Manual validation results</a></h3>
+<p>
+  The following assertions have been manually validated by the implementers.
+</p>
+<table id="manualresults" class="testlist" summary="manual assertions" cellspacing="1" cellpadding="2" width="100%">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Category</th>
+      <th>Req</th>
+      <th>Context</th>
+      <th>Assertion</th>
+      <th>Parent</th>
+      <th colspan="4">Results</th>
+    </tr>
+    <tr>
+      <th colspan="6"></th>
+      <th>P</th>
+      <th>F</th>
+      <th>N</th>
+      <th>T</th>
+    </tr>
+  </thead>
+  <tbody>
+<!--
+    <tr>
+      <th colspan="10">Section Title</th>
+    </tr>
+-->
+  </tbody>
+</table>
+
+
+
+<h1 id="h_appendix"><a id="appendix" name="appendix">Appendix</a></h1>
+
+<!-- automatically extracted assertion list and test specs will go here -->
+
+		
+<h2 id="h_ack"><a id="ack" name="ack">Acknowledgements</a></h2>
+<p>
+  The Web of Things Working Group would like to acknowledge the contributions to the making of this document from the following individuals in various capacities.</p>
+<p>
+</p><ul>
+<li>Michael Koster (SmartThings)</li>
+<li>Dave Raggett (ERCIM)</li>
+<li>Takahisa Suzuki, Takeshi Sano and Ryuichi Matsukura (Fujitsu)</li>
+<li>Kunihiko Toumura (Hitachi)</li>
+<li>Matthias Kovatsch (Huawei)</li>
+<li>Michael McCool (Intel)</li>
+<li>Michael Lagally (Oracle)</li>
+<li>Takeshi Yamada and Toru Kawaguchi (Panasonic)</li>
+<li>Sebastian Käbisch, Daniel Peintner, Victor Charpenay and Christian Glomb (Siemens)</li>
+<li>Ege Korkan (Siemens / Technical University of Munich)</li>
+</ul>
+<p></p>
+<div class="navbar">
+  <hr>
+</div>
+
+
+
+</body></html>
