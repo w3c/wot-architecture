@@ -447,17 +447,16 @@
       <dt>
         <dfn>Digital Twin</dfn>
       </dt>
-      <dd>A digital twin is type of <a>Virtual Thing</a>,
-        specifically
-        a <a>Service</a> that resides on a cloud or edge node 
-	and represents another device or a group of devices.
-	Digital Twins can be used to represent and provide 
+      <dd>A digital twin is type of <a>Virtual Thing</a>
+        that resides on a cloud or edge node. 
+	Digital Twins may be used to represent and provide 
 	a network interface for
-        real-world devices which may not be continuously online,
-        or to run simulations of new applications and services
-        before they get deployed to the real devices.
-	They may also be used to maintain a history of past
-	state or behviour or to predict future state of behaviour.
+        real-world devices which may not be continuously online
+	(see also <a>Shadows</a>),
+        may be able to run simulations of new applications and services
+        before they get deployed to the real devices,
+	may be able to maintain a history of past state or behaviour, 
+	and may be able to predict future state or behaviour.
 	Digital Twins typically have more functionality than
 	simple <a>Shadows</a>.
       </dd>
@@ -646,6 +645,18 @@
         blocks. A Servient can host and expose Things and/or host Consumers that consume Things.
         Servients can support multiple Protocol Bindings to enable
         interaction with different IoT platforms.</dd>
+      <dt>
+        <dfn>Shadow</dfn>
+      </dt>
+      <dd>A Shadow is a <a>Virtual Thing</a> that
+      maintains a copy of the state and mediates interactions with another
+      <a>Thing</a> which may not be immediately available due to network
+      connectivity, power savings modes, or other factors.
+      A Shadow aims to achive eventual consistency with the state
+      of the Thing it represents.
+      If a Shadow has more advanced functionality than simply caching state
+      it may be better to refer to it as a <a>Digital Twin</a>.
+      </dd>
       <dt>
         <dfn>Subprotocol</dfn>
       </dt>
