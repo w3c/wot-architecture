@@ -405,6 +405,11 @@
       </dt>
       <dd>A Thing Description without a user-defined identifier (`id` attribute).</dd>
       <dt>
+        <dfn>Connected Device</dfn>
+      </dt>
+      <dd>
+      A synonym for <a>Device</a>.</dd>
+      <dt>
         <dfn data-lt="WoT Binding Templates">Binding
           Templates</dfn>
       </dt>
@@ -445,14 +450,28 @@
         and corresponding data items that are passed between <a>Things</a>
         and <a>Consumers</a> during interactions.</dd>
       <dt>
+        <dfn>Device</dfn>
+      </dt>
+      <dd>A Device is a physical entity that has a network interface.
+      Devices can be described by a <a>Thing Description</a> and are a kind of <a>Thing</a>.
+      A synonym for <a>Connected Device</a>.
+      Compare with <a>Service</a>.</dd>
+      <dt>
         <dfn>Digital Twin</dfn>
       </dt>
-      <dd>A digital twin is a virtual representation of a
-        device or a group of devices that resides on a cloud
-        or edge node. It can be used to represent
-        real-world devices which may not be continuously online,
-        or to run simulations of new applications and services,
-        before they get deployed to the real devices.</dd>
+      <dd>A digital twin is type of <a>Virtual Thing</a>
+        that resides on a cloud or edge node. 
+	Digital Twins may be used to represent and provide 
+	a network interface for
+        real-world devices which may not be continuously online
+	(see also <a>Shadows</a>),
+        may be able to run simulations of new applications and services
+        before they get deployed to the real devices,
+	may be able to maintain a history of past state or behaviour, 
+	and may be able to predict future state or behaviour.
+	Digital Twins typically have more functionality than
+	simple <a>Shadows</a>.
+      </dd>
       <dt><dfn data-lt="WoT Discovery">Discovery</dfn>
       <dd>Mechanisms defined by WoT for distributing and accessing
         <a>WoT Thing Descriptions</a> on the network, 
@@ -632,12 +651,34 @@
       <dd>The combination of Public Security Metadata, Private Security Data, and any other configuration
         information (such as public keys) necessary to operationally configure the security mechanisms of a Thing.</dd>
       <dt>
+        <dfn>Service</dfn>
+      </dt>
+      <dd>A Service is a software entity that has a network interface.
+      Services can be described by a <a>Thing Description</a> and are a kind of <a>Thing</a>.
+      See also <a>Virtual Thing</a>.
+      Compare with <a>Device</a>.</dd>
+      <dt>
         <dfn>Servient</dfn>
       </dt>
       <dd>A software stack that implements the WoT building
         blocks. A Servient can host and expose Things and/or host Consumers that consume Things.
         Servients can support multiple Protocol Bindings to enable
         interaction with different IoT platforms.</dd>
+      <dt>
+        <dfn>Shadow</dfn>
+      </dt>
+      <dd>A Shadow is a <a>Virtual Thing</a> that
+      maintains a copy of the state and mediates interactions with another
+      <a>Thing</a>.
+      <!--
+      which may not be immediately available due to network
+      connectivity, power savings modes, or other factors.
+      -->
+      A Shadow aims to achieve eventual consistency with the state
+      of the Thing it represents.
+      If a Shadow has more functionality than simply mirroring state
+      it may be better to refer to it as a <a>Digital Twin</a>.
+      </dd>
       <dt>
         <dfn>Subprotocol</dfn>
       </dt>
@@ -716,8 +757,16 @@
       <dt>
         <dfn>Virtual Thing</dfn>
       </dt>
-      <dd>An instance of a Thing that represents a Thing that is located
-        on another system component.</dd>
+      <dd>A <a>Service</a> that 
+       represents,
+       augments the functionality of,
+       provides an improved interface to,
+       or 
+       stands in place of
+       one or more other <a>Things</a>.
+       A Virtual Thing will often act as an <a>Intermediary</a>.
+       Examples include <a>Shadows</a> and <a>Digital Twins</a>.
+      </dd>
       <dt>
         <dfn>Vocabulary</dfn>
       </dt>
@@ -4270,6 +4319,11 @@
 
     <h2 id="changes-from-recommendation-1.0">Changes from the 1.0 version of [[wot-architecture]]</h2>
     <ul>
+      <li>Add definitions for Connected Device (a.k.a. Device), Service, and Shadow.  
+	  Update definitions for
+	  Virtual Thing and Digital Twin.  
+	  Narrow definition of Virtual Thing to
+	  a Service that mediates with one of more other Things.</li>
       <li>Split Security and Privacy Considerations into separate chapters.</li>
       <li>New chapter: Lifecycle.</li>
       <li>New terminology: Thing Model.</li>
