@@ -1898,200 +1898,199 @@
     </section>
 
     <section id="thing-lifecycle">
-        <h3>Thing Lifecycle</h3>
-          <p>
-            Bootstrapping and provisioning devices is an essential part of
-            setting up devices in all IoT protocol suites.
-          </p>
-          <p>
-            The main scenarios for provisioning devices with WoT are as
-            follows:
-            <ul>
-                <li>
-                    A device is already provisioned and operational in a
-                    given deployment. Make it work with WoT.
-                </li>
-                <li>
-                    A device is already provisioned and operational in a
-                    given deployment. For management purposes, <em>describe</em>
-                    the device lifecycle stages in a <a>Thing Description</a>.
-                </li>
-                <li>
-                    Bootstrap and provision a device directly with WoT, in
-                    order to become operational for WoT.
-                </li>
-            </ul>
-          </p>
-          <p>
-            Various provisioning schemes are being used in IoT protocol suites.
-            The text in this section is based on <a href="https://github.com/w3c/wot-architecture/tree/master/proposals">proposals</a>
-            and studies,
-            <a href="https://w3c.github.io/wot-architecture/proposals/lifecycle/Device-lifecycle-comparisons.pdf">
-            comparing various provisioning schemes</a>, such as OCF, OneM2M,
-            Lightweight OneM2M, Thing to Thing Research Group (T2TRG),
-            OPC-UA/Anima, etc.
-          </p>
-          <p class="ednote">
-            The provisioning model presented in this section resembles most
-            with the T2TRG provisioning model.
-          </p>
-          <p>
-            Common elements of device bootstrapping and provisioning across
-            various IoT protocol suites are as follows:
-            <ul>
-                <li>
-                    Establish the chain of trust, e.g. secure storage, keys,
-                    certificates. This may involve various solutions, such
-                    as manufacturer certificates, out-of-band key provisioning,
-                    connecting to a provisioning server, etc.
-                </li>
-                <li>
-                    Establish device ownership, using a provisioning tool or
-                    service. For instance, the device can be owned by a network
-                    entity, or network service, or service provider, or the
-                    end user.
-                </li>
-                <li>
-                    Provision the device with the access control lists for
-                    the tenants or various levels of users.
-                </li>
-                <li>
-                    Provision the device with access to the services it uses.
-                </li>
-                <li>
-                    Configure the device with used and the exposed services.
-                </li>
-                <li>
-                    Provision and configure the WoT runtime in the device.
-                </li>
-                <li>
-                    Update the configurations or provisioning data.
-                </li>
-                <li>
-                    Decommission a user, application, service, or provisioning.
-                </li>
-                <li>
-                    Return the device to the initial state before provisioning
-                    (e.g. factory reset).
-                </li>
-                <li>
-                    Decommission and irreversibly destroy a device.
-                </li>
-            </ul>
-          </p>
-          <p>
-            Taken into account these provisioning flows, in general a device
-            can be in one of the following states:
-            <ul>
-                <li>
-                    <strong>Manufactured</strong>: the device is flashed with
-                    a software image. In the case it is certified for a certain
-                    protocol suite, it may be permitted or capable of doing
-                    only limited operations, such as a certain bootstrapping
-                     procedure.
-                </li>
-                <li>
-                    <strong>Bootstrapped</strong>: the device has an identity
-                    and ownership established, being ready for the next
-                    provisioning steps, like configuration, service provisioning
-                    etc.
-                    This state has different names in various protocol suites,
-                    for instance it is called <em>onboarded</em> in OCF,
-                    <em>bootstrapped</em> in T2TRG, OPC-UA, Anima, LwM2M,
-                    <em>initial provisioning</em> in OneM2M, etc.
-                </li>
-                <li>
-                    <strong>Operational</strong>: the device is provisioned
-                    and configured, working in normal mode. Some configuration
-                    is possible without leaving this state. That may include
-                    installing and uninstalling applications, reconfiguring
-                    settings, etc.
-                    Note that a device can be operational in its own native
-                    protocol suite and managed by a WoT gateway, or can be
-                    operational for WoT (which may be an application on the device),
-                    or may be operational for Wot and directly provisioned for
-                    WoT.
-                </li>
-                <li>
-                    <strong>Maintenance</strong>: the device operational state
-                    is interrupted for updating its software and/or configuration.
-                </li>
-                <li>
-                    <strong>Destroyed</strong>: the device has been wiped out
-                    of all data and software. Hardware kill features may
-                    be activated. The device may be physically destroyed and
-                    never used again. This state is relevant for device management purposes.
-                    It does not exist in OneM2M, LwM2M, OCF, T2TRG and is
-                    called <em>End-of-life</em> in OPC-UA and Anima.
-                </li>
-            </ul>
-          </p>
-          <figure id="fig-device-lifecycle">
-            <img src="images/architecture/device-lifecycle-1.svg"
-                    srcset="images/architecture/device-lifecycle-1.svg"
-                    class="wot-arch-diagram" alt="Device Lifecycle" />
-            <figcaption>Device Lifecycle</figcaption>
-          </figure>
-          <p>
-            The most typical transitions between lifecycle states are the
-            following:
-            <ul>
-                <li>
-                    <strong>Bootstrapping</strong> (or onboarding): the device
-                    is provisioned with an identity, the chain of trust is
-                    established, e.g. secure storage, keys, certificates.
-                    This may involve various solutions, such as manufacturer
-                    certificates, out-of-band key provisioning, connecting
-                    to a provisioning server (a quite common scenario). When
-                    provisioning directly to WoT, the device may be registered
-                    with a <a>Thing Description Directory</a> in this stage. During or
-                    after this process, in some protocol suites rebooting in
-                    a different mode of operation might be also needed.
-                </li>
-                <li>
-                    <strong>Provisioning, configuration, commissioning</strong>:
-                    the device is provisioned with all resources needed for
-                    its operation (services, applications, access control,
-                    databases etc), and these resources are configured for
-                    operation. Also, the device may be commissioned in a
-                    given environment. These may involve communication with
-                    a server, for instance a <a>Thing Description Directory</a> or
-                    <a>Discovery</a> services.
-                </li>
-                <li>
-                    <strong>Settings</strong>: the device remains in
-                    <em>Operational</em> state, but may update system, service
-                    or application settings. In some cases, this may include
-                    installing and removing applications.
-                </li>
-                <li>
-                    <strong>Update</strong>: the device stops normal
-                    operation for undergoing updates in the
-                    <em>Maintenance</em> state, similar to the ones
-                    during provisioning. This may include installing new
-                    software, or removing, installing or updating resources
-                    and their configuration.
-                    It may also include re-commissioning.
-                    Returning to <em>Operational</em> state may be achieved
-                    by resuming operation with updated resources, or may
-                    require a restart of services, or rebooting the device.
-                </li>
-                <li>
-                    <strong>Re-bootstrapping</strong>: the device identity,
-                    owner and related resources may be changed as described
-                    in the <em>Bootstrapping</em> process.
-                </li>
-                <li>
-                    <strong>Factory Reset</strong>: the device is returned
-                    to its factory default state.
-                </li>
-                <li>
-                    <strong>Destroy</strong>: the device is erased from all
-                    data, software and may be physically destroyed.
-                </li>
-            </ul>
-          </p>
-      </section>
+      <h3>Thing Lifecycle</h3>
+      <p>
+        Bootstrapping and provisioning devices is an essential part of
+        setting up devices in all IoT protocol suites.
+      </p>
+      <p>
+        The main scenarios for provisioning devices with WoT are as
+        follows:
+      <ul>
+        <li>
+          A device is already provisioned and operational in a
+          given deployment. Make it work with WoT.
+        </li>
+        <li>
+          A device is already provisioned and operational in a
+          given deployment. For management purposes, <em>describe</em>
+          the device lifecycle stages in a <a>Thing Description</a>.
+        </li>
+        <li>
+          Bootstrap and provision a device directly with WoT, in
+          order to become operational for WoT.
+        </li>
+      </ul>
+      </p>
+      <p>
+        Various provisioning schemes are being used in IoT protocol suites.
+        The text in this section is based on <a
+          href="https://github.com/w3c/wot-architecture/tree/master/proposals">proposals</a>
+        and studies,
+        <a href="https://w3c.github.io/wot-architecture/proposals/lifecycle/Device-lifecycle-comparisons.pdf">
+          comparing various provisioning schemes</a>, such as OCF, OneM2M,
+        Lightweight OneM2M, Thing to Thing Research Group (T2TRG),
+        OPC-UA/Anima, etc.
+      </p>
+      <p class="ednote">
+        The provisioning model presented in this section resembles most
+        with the T2TRG provisioning model.
+      </p>
+      <p>
+        Common elements of device bootstrapping and provisioning across
+        various IoT protocol suites are as follows:
+      <ul>
+        <li>
+          Establish the chain of trust, e.g. secure storage, keys,
+          certificates. This may involve various solutions, such
+          as manufacturer certificates, out-of-band key provisioning,
+          connecting to a provisioning server, etc.
+        </li>
+        <li>
+          Establish device ownership, using a provisioning tool or
+          service. For instance, the device can be owned by a network
+          entity, or network service, or service provider, or the
+          end user.
+        </li>
+        <li>
+          Provision the device with the access control lists for
+          the tenants or various levels of users.
+        </li>
+        <li>
+          Provision the device with access to the services it uses.
+        </li>
+        <li>
+          Configure the device with used and the exposed services.
+        </li>
+        <li>
+          Provision and configure the WoT runtime in the device.
+        </li>
+        <li>
+          Update the configurations or provisioning data.
+        </li>
+        <li>
+          Decommission a user, application, service, or provisioning.
+        </li>
+        <li>
+          Return the device to the initial state before provisioning
+          (e.g. factory reset).
+        </li>
+        <li>
+          Decommission and irreversibly destroy a device.
+        </li>
+      </ul>
+      </p>
+      <p>
+        Taken into account these provisioning flows, in general a device
+        can be in one of the following states:
+      <ul>
+        <li>
+          <strong>Manufactured</strong>: the device is flashed with
+          a software image. In the case it is certified for a certain
+          protocol suite, it may be permitted or capable of doing
+          only limited operations, such as a certain bootstrapping
+          procedure.
+        </li>
+        <li>
+          <strong>Bootstrapped</strong>: the device has an identity
+          and ownership established, being ready for the next
+          provisioning steps, like configuration, service provisioning
+          etc.
+          This state has different names in various protocol suites,
+          for instance it is called <em>onboarded</em> in OCF,
+          <em>bootstrapped</em> in T2TRG, OPC-UA, Anima, LwM2M,
+          <em>initial provisioning</em> in OneM2M, etc.
+        </li>
+        <li>
+          <strong>Operational</strong>: the device is provisioned
+          and configured, working in normal mode. Some configuration
+          is possible without leaving this state. That may include
+          installing and uninstalling applications, reconfiguring
+          settings, etc.
+          Note that a device can be operational in its own native
+          protocol suite and managed by a WoT gateway, or can be
+          operational for WoT (which may be an application on the device),
+          or may be operational for Wot and directly provisioned for
+          WoT.
+        </li>
+        <li>
+          <strong>Maintenance</strong>: the device operational state
+          is interrupted for updating its software and/or configuration.
+        </li>
+        <li>
+          <strong>Destroyed</strong>: the device has been wiped out
+          of all data and software. Hardware kill features may
+          be activated. The device may be physically destroyed and
+          never used again. This state is relevant for device management purposes.
+          It does not exist in OneM2M, LwM2M, OCF, T2TRG and is
+          called <em>End-of-life</em> in OPC-UA and Anima.
+        </li>
+      </ul>
+      </p>
+      <figure id="fig-device-lifecycle">
+        <img src="images/architecture/device-lifecycle-1.svg" srcset="images/architecture/device-lifecycle-1.svg"
+          class="wot-arch-diagram" alt="Device Lifecycle" />
+        <figcaption>Device Lifecycle</figcaption>
+      </figure>
+      <p>
+        The most typical transitions between lifecycle states are the
+        following:
+      <ul>
+        <li>
+          <strong>Bootstrapping</strong> (or onboarding): the device
+          is provisioned with an identity, the chain of trust is
+          established, e.g. secure storage, keys, certificates.
+          This may involve various solutions, such as manufacturer
+          certificates, out-of-band key provisioning, connecting
+          to a provisioning server (a quite common scenario). When
+          provisioning directly to WoT, the device may be registered
+          with a <a>Thing Description Directory</a> in this stage. During or
+          after this process, in some protocol suites rebooting in
+          a different mode of operation might be also needed.
+        </li>
+        <li>
+          <strong>Provisioning, configuration, commissioning</strong>:
+          the device is provisioned with all resources needed for
+          its operation (services, applications, access control,
+          databases etc), and these resources are configured for
+          operation. Also, the device may be commissioned in a
+          given environment. These may involve communication with
+          a server, for instance a <a>Thing Description Directory</a> or
+          <a>Discovery</a> services.
+        </li>
+        <li>
+          <strong>Settings</strong>: the device remains in
+          <em>Operational</em> state, but may update system, service
+          or application settings. In some cases, this may include
+          installing and removing applications.
+        </li>
+        <li>
+          <strong>Update</strong>: the device stops normal
+          operation for undergoing updates in the
+          <em>Maintenance</em> state, similar to the ones
+          during provisioning. This may include installing new
+          software, or removing, installing or updating resources
+          and their configuration.
+          It may also include re-commissioning.
+          Returning to <em>Operational</em> state may be achieved
+          by resuming operation with updated resources, or may
+          require a restart of services, or rebooting the device.
+        </li>
+        <li>
+          <strong>Re-bootstrapping</strong>: the device identity,
+          owner and related resources may be changed as described
+          in the <em>Bootstrapping</em> process.
+        </li>
+        <li>
+          <strong>Factory Reset</strong>: the device is returned
+          to its factory default state.
+        </li>
+        <li>
+          <strong>Destroy</strong>: the device is erased from all
+          data, software and may be physically destroyed.
+        </li>
+      </ul>
+      </p>
     </section>
 
     <!-- Interaction Model -->
