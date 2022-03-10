@@ -262,14 +262,14 @@
       domains.
       Overall, the goal of the WoT is to preserve and complement existing
       IoT standards and solutions. In general, the W3C WoT architecture is
-      designed to describe what exists rather than to prescribe
-      what to implement.
+      designed to describe what exists, and only prescribes new mechanisms
+      when necessary.
     </p>
     <p>This <em>WoT Architecture</em> specification describes the abstract
       architecture for the W3C Web of Things.
       This abstract architecture is based on a
       set of requirements that were derived from use cases for
-      multiple application domains as described in [[WOT-USE-CASES-REQUIREMENTS]].
+      multiple application domains.
       A set of modular building blocks were identified whose detailed
       specifications are given in other documents.
       This document describes how these building blocks are related and work together.
@@ -339,7 +339,8 @@
         since the W3C WoT cannot constrain the behavior of such systems, it can only
         describe them.
         In this document we also discuss privacy and security risks and their mitigation
-        at a high level in section <a href="#sec-security-considerations"></a>.
+        at a high level in sections <a href="#sec-security-considerations"></a>
+        and <a href="#sec-privacy-considerations"></a>.
       </li>
     </ul>
     <p>This specification also covers non-normative architectural aspects
@@ -372,7 +373,8 @@
       <li>and a discussion, at a high level, of
         security and privacy considerations to be aware of when
         implementing a system based on the W3C WoT architecture in
-        <a href="#sec-security-considerations"></a>.
+        <a href="#sec-security-considerations"></a> and
+        <a href="#sec-privacy-considerations"></a>, respectively.
       </li>
     </ul>
     <p>Additional requirements, use cases, conceptual features and new building blocks will be
@@ -402,6 +404,11 @@
         <dfn data-lt="WoT Anonymous Thing Description" class="lint-ignore">Anonymous TD</dfn>
       </dt>
       <dd>A Thing Description without a user-defined identifier (`id` attribute).</dd>
+      <dt>
+        <dfn>Connected Device</dfn>
+      </dt>
+      <dd>
+      A synonym for <a>Device</a>.</dd>
       <dt>
         <dfn data-lt="WoT Binding Templates">Binding
           Templates</dfn>
@@ -443,14 +450,28 @@
         and corresponding data items that are passed between <a>Things</a>
         and <a>Consumers</a> during interactions.</dd>
       <dt>
+        <dfn>Device</dfn>
+      </dt>
+      <dd>A Device is a physical entity that has a network interface.
+      Devices can be described by a <a>Thing Description</a> and are a kind of <a>Thing</a>.
+      A synonym for <a>Connected Device</a>.
+      Compare with <a>Service</a>.</dd>
+      <dt>
         <dfn>Digital Twin</dfn>
       </dt>
-      <dd>A digital twin is a virtual representation of a
-        device or a group of devices that resides on a cloud
-        or edge node. It can be used to represent
-        real-world devices which may not be continuously online,
-        or to run simulations of new applications and services,
-        before they get deployed to the real devices.</dd>
+      <dd>A digital twin is type of <a>Virtual Thing</a>
+        that resides on a cloud or edge node. 
+	Digital Twins may be used to represent and provide 
+	a network interface for
+        real-world devices which may not be continuously online
+	(see also <a>Shadows</a>),
+        may be able to run simulations of new applications and services
+        before they get deployed to the real devices,
+	may be able to maintain a history of past state or behaviour, 
+	and may be able to predict future state or behaviour.
+	Digital Twins typically have more functionality than
+	simple <a>Shadows</a>.
+      </dd>
       <dt><dfn data-lt="WoT Discovery">Discovery</dfn>
       <dd>Mechanisms defined by WoT for distributing and accessing
         <a>WoT Thing Descriptions</a> on the network, 
@@ -570,7 +591,6 @@
         but it is not required to contain all the mandatory elements. 
         <p class=note>
           An example usage of a <a>Partial TD</a> is in <a>WoT Scripting API</a> as an input for the creation of <a>Exposed Things</a>. 
-          See the <a href="https://www.w3.org/TR/2020/NOTE-wot-scripting-api-20201124/#the-produce-method">produce</a> method for more details.
         </p></dd>
       <dt>
         <dfn class="lint-ignore">Privacy</dfn>
@@ -630,12 +650,34 @@
       <dd>The combination of Public Security Metadata, Private Security Data, and any other configuration
         information (such as public keys) necessary to operationally configure the security mechanisms of a Thing.</dd>
       <dt>
+        <dfn>Service</dfn>
+      </dt>
+      <dd>A Service is a software entity that has a network interface.
+      Services can be described by a <a>Thing Description</a> and are a kind of <a>Thing</a>.
+      See also <a>Virtual Thing</a>.
+      Compare with <a>Device</a>.</dd>
+      <dt>
         <dfn>Servient</dfn>
       </dt>
       <dd>A software stack that implements the WoT building
         blocks. A Servient can host and expose Things and/or host Consumers that consume Things.
         Servients can support multiple Protocol Bindings to enable
         interaction with different IoT platforms.</dd>
+      <dt>
+        <dfn>Shadow</dfn>
+      </dt>
+      <dd>A Shadow is a <a>Virtual Thing</a> that
+      maintains a copy of the state and mediates interactions with another
+      <a>Thing</a>.
+      <!--
+      which may not be immediately available due to network
+      connectivity, power savings modes, or other factors.
+      -->
+      A Shadow aims to achieve eventual consistency with the state
+      of the Thing it represents.
+      If a Shadow has more functionality than simply mirroring state
+      it may be better to refer to it as a <a>Digital Twin</a>.
+      </dd>
       <dt>
         <dfn>Subprotocol</dfn>
       </dt>
@@ -681,7 +723,7 @@
         used as an optional part of the <a>WoT Discovery</a> process.
       </dd>
       <dt>
-        <dfn>Thing Model</dfn>
+        <dfn data-lt="WoT Thing Model">Thing Model</dfn>
       </dt>
       <dd>A <a>Thing Model</a> is a description for a class of Things that have the same 
         capabilities. It describes the <a>Properties</a>, <a>Actions</a>, and <a>Events</a> and common metadata that are 
@@ -714,8 +756,16 @@
       <dt>
         <dfn>Virtual Thing</dfn>
       </dt>
-      <dd>An instance of a Thing that represents a Thing that is located
-        on another system component.</dd>
+      <dd>A <a>Service</a> that 
+       represents,
+       augments the functionality of,
+       provides an improved interface to,
+       or 
+       stands in place of
+       one or more other <a>Things</a>.
+       A Virtual Thing will often act as an <a>Intermediary</a>.
+       Examples include <a>Shadows</a> and <a>Digital Twins</a>.
+      </dd>
       <dt>
         <dfn>Vocabulary</dfn>
       </dt>
@@ -766,12 +816,6 @@
         (which include the supported Protocol Bindings), and links to related Things.
         The WoT Thing Description format is the central building block of W3C WoT.</dd>
     </dl>
-
-    <section class="ednote">
-      <h2>TODO</h2>
-	Need to add definitions for profiles, lifecycle.
-    </section>
-
   </section>
 
   <!-- Device categories -->
@@ -873,9 +917,9 @@
   </section>
 
   <section id="sec-application-domains" class="informative">
-    <h2>Application Domains (Verticals)</h2>
+    <h2>Application Domains</h2>
     <p>
-      This section presents the application domains and use cases
+      This section presents the application domains
       targeted by the W3C WoT and which are used to derive the
       abstract architecture discussed in <a href="#sec-building-blocks"></a>.
     </p>
@@ -1133,7 +1177,7 @@
 
 
   <section id="sec-common-deployment-patterns" class="informative">
-    <h1>System Topologies (Horizontals)</h1>
+    <h1>Common Deployment Patterns</h1>
     <p>
       This section introduces common deployment patterns that
       illustrate how devices/things interact with controllers,
@@ -1157,6 +1201,14 @@
       The following sections illustrate the roles, tasks, and use case patterns with increasing complexity.
       They are not exhaustive and are presented to motivate for the WoT architecture and building blocks
       that are defined in later sections of this specification.
+    </p>
+    <p>
+    This section also makes use of the concept of a Trusted Environment,
+    which is a set of devices that allow relatively unrestricted
+    access to one another.  This is a common approach but carries some
+    risks, which are discussed in section
+    <a href="#sec-security-consideration-trusted-environment-risks"></a>,
+    along with mitigations of these risks.
     </p>
 
     <section id="telemetry">
@@ -1515,16 +1567,6 @@
       <p>This section introduces the fundamental concepts of the Web of Things. 
         It introduces the Thing abstraction that is described with <a>Thing Descriptions</a> and <a>Thing Models</a>, 
         which then can be used by <a>Consumers</a>.</p>
-
-      <section class="ednote" title="TODO">
-	<h3>TODO</h3>
-	Create introductory text that introduces the concepts from the following chapters.
-      </section>
-
-      <section id="thing">
-        <h3>Things and Consumers</h3>
-      </section>
-
       <p>
         A <a>Thing</a> is an abstraction of a physical or virtual entity (e.g., a device or a room)
 	and is described by standardized metadata.  A <a>Consumer</a> is an entity that can read and interpret
@@ -1659,6 +1701,7 @@
         <h3>Links</h3>
       </section>
       <p>
+	Links can represent relationships between things, between things and thing models, and between thing models.       
         Linking does not only apply to hierarchical <a>Things</a>, but relations between Things and other resources in
         general.
         Link relation types express how Things relate, for instance, a switch controlling a light or a room monitored by
@@ -1666,11 +1709,14 @@
         Other resources related to a <a>Thing</a> can be manuals, catalogs for spare parts, CAD files, a graphical UI,
         or any other document on the Web.
         Overall, Web linking among Things makes the Web of Things navigable, for both humans and machines.
-        This can be further facilitated by providing Thing directories that manage a catalog of available <a>Things</a>,
+        This can be further facilitated by providing Thing directories that manage a catalog of <a>Things</a>,
         usually by caching their TD representation.
+	</p>
+	<p>
         In summary,
         <span class="rfc2119-assertion" id="arch-td-linking"><a>WoT Thing Descriptions</a>
-          MAY link to other <a>Things</a> and other resources on the Web to form a Web of Things.
+		and <a>WoT Thing Models</a> MAY link to other <a>Things</a>, <a>WoT Thing Models</a>,
+		and other resources on the Web to form a Web of Things.
         </span>
       </p>
       <figure id="linked-things">
@@ -1679,8 +1725,9 @@
         <figcaption>Linked Things</figcaption>
       </figure>
       <p>
-        Things must be hosted on networked system components with a software stack to realize interaction through a
-        network-facing interface, the <a>WoT Interface</a> of a <a>Thing</a>.
+        <span class="rfc2119-assertion" id="arch-rel-types">Things MUST be hosted on networked system components 
+	with a software stack to realize interaction through a
+		network-facing interface, the <a>WoT Interface</a> of a <a>Thing</a>.</span>
         One example of this is an HTTP server running on an embedded device with sensors and actuators interfacing the
         physical entity behind the <a>Thing</a> abstraction.
         However, W3C WoT does not mandate where <a>Things</a> are hosted; it can be on the IoT device directly, an
@@ -1928,168 +1975,169 @@
           and studies,
           <a href="https://w3c.github.io/wot-architecture/proposals/lifecycle/Device-lifecycle-comparisons.pdf">
             comparing various provisioning schemes</a>, such as OCF, OneM2M,
-          Lightweight OneM2M, Thing to Thing Research Group (T2TRG),
-          OPC-UA/Anima, etc.
-        </p>
-        <p class="ednote">
-          The provisioning model presented in this section resembles most
-          with the T2TRG provisioning model.
-        </p>
-        <p>
-          Common elements of device bootstrapping and provisioning across
-          various IoT protocol suites are as follows:
-        <ul>
-          <li>
-            Establish the chain of trust, e.g. secure storage, keys,
-            certificates. This may involve various solutions, such
-            as manufacturer certificates, out-of-band key provisioning,
-            connecting to a provisioning server, etc.
-          </li>
-          <li>
-            Establish device ownership, using a provisioning tool or
-            service. For instance, the device can be owned by a network
-            entity, or network service, or service provider, or the
-            end user.
-          </li>
-          <li>
-            Provision the device with the access control lists for
-            the tenants or various levels of users.
-          </li>
-          <li>
-            Provision the device with access to the services it uses.
-          </li>
-          <li>
-            Configure the device with used and the exposed services.
-          </li>
-          <li>
-            Provision and configure the WoT runtime in the device.
-          </li>
-          <li>
-            Update the configurations or provisioning data.
-          </li>
-          <li>
-            Decommission a user, application, service, or provisioning.
-          </li>
-          <li>
-            Return the device to the initial state before provisioning
-            (e.g. factory reset).
-          </li>
-          <li>
-            Decommission and irreversibly destroy a device.
-          </li>
-        </ul>
-        </p>
-        <p>
-          Taken into account these provisioning flows, in general a device
-          can be in one of the following states:
-        <ul>
-          <li>
-            <strong>Manufactured</strong>: the device is flashed with
-            a software image. In the case it is certified for a certain
-            protocol suite, it may be permitted or capable of doing
-            only limited operations, such as a certain bootstrapping
-            procedure.
-          </li>
-          <li>
-            <strong>Bootstrapped</strong>: the device has an identity
-            and ownership established, being ready for the next
-            provisioning steps, like configuration, service provisioning
-            etc.
-            This state has different names in various protocol suites,
-            for instance it is called <em>onboarded</em> in OCF,
-            <em>bootstrapped</em> in T2TRG, OPC-UA, Anima, LwM2M,
-            <em>initial provisioning</em> in OneM2M, etc.
-          </li>
-          <li>
-            <strong>Operational</strong>: the device is provisioned
-            and configured, working in normal mode. Some configuration
-            is possible without leaving this state. That may include
-            installing and uninstalling applications, reconfiguring
-            settings, etc.
-            Note that a device can be operational in its own native
-            protocol suite and managed by a WoT gateway, or can be
-            operational for WoT (which may be an application on the device),
-            or may be operational for Wot and directly provisioned for
-            WoT.
-          </li>
-          <li>
-            <strong>Maintenance</strong>: the device operational state
-            is interrupted for updating its software and/or configuration.
-          </li>
-          <li>
-            <strong>Destroyed</strong>: the device has been wiped out
-            of all data and software. Hardware kill features may
-            be activated. The device may be physically destroyed and
-            never used again. This state is relevant for device management purposes.
-            It does not exist in OneM2M, LwM2M, OCF, T2TRG and is
-            called <em>End-of-life</em> in OPC-UA and Anima.
-          </li>
-        </ul>
-        </p>
-        <figure id="fig-device-lifecycle">
-          <img src="images/architecture/device-lifecycle-1.svg" srcset="images/architecture/device-lifecycle-1.svg"
-            class="wot-arch-diagram" alt="Device Lifecycle" />
-          <figcaption>Device Lifecycle</figcaption>
-        </figure>
-        <p>
-          The most typical transitions between lifecycle states are the
-          following:
-        <ul>
-          <li>
-            <strong>Bootstrapping</strong> (or onboarding): the device
-            is provisioned with an identity, the chain of trust is
-            established, e.g. secure storage, keys, certificates.
-            This may involve various solutions, such as manufacturer
-            certificates, out-of-band key provisioning, connecting
-            to a provisioning server (a quite common scenario). When
-            provisioning directly to WoT, the device may be registered
-            with a <a>Thing Description Directory</a> in this stage. During or
-            after this process, in some protocol suites rebooting in
-            a different mode of operation might be also needed.
-          </li>
-          <li>
-            <strong>Provisioning, configuration, commissioning</strong>:
-            the device is provisioned with all resources needed for
-            its operation (services, applications, access control,
-            databases etc), and these resources are configured for
-            operation. Also, the device may be commissioned in a
-            given environment. These may involve communication with
-            a server, for instance a <a>Thing Description Directory</a> or
-            <a>Discovery</a> services.
-          </li>
-          <li>
-            <strong>Settings</strong>: the device remains in
-            <em>Operational</em> state, but may update system, service
-            or application settings. In some cases, this may include
-            installing and removing applications.
-          </li>
-          <li>
-            <strong>Update</strong>: the device stops normal
-            operation for undergoing updates in the
-            <em>Maintenance</em> state, similar to the ones
-            during provisioning. This may include installing new
-            software, or removing, installing or updating resources
-            and their configuration.
-            It may also include re-commissioning.
-            Returning to <em>Operational</em> state may be achieved
-            by resuming operation with updated resources, or may
-            require a restart of services, or rebooting the device.
-          </li>
-          <li>
-            <strong>Re-bootstrapping</strong>: the device identity,
-            owner and related resources may be changed as described
-            in the <em>Bootstrapping</em> process.
-          </li>
-          <li>
-            <strong>Factory Reset</strong>: the device is returned
-            to its factory default state.
-          </li>
-          <li>
-            <strong>Destroy</strong>: the device is erased from all
-            data, software and may be physically destroyed.
-          </li>
-        </ul>
-        </p>
+            Lightweight OneM2M, Thing to Thing Research Group (T2TRG),
+            OPC-UA/Anima, etc.
+          </p>
+          <p class="ednote">
+            The provisioning model presented in this section resembles most
+            with the T2TRG provisioning model.
+          </p>
+          <p>
+            Common elements of device bootstrapping and provisioning across
+            various IoT protocol suites are as follows:
+            <ul>
+                <li>
+                    Establish the chain of trust, e.g. secure storage, keys,
+                    certificates. This may involve various solutions, such
+                    as manufacturer certificates, out-of-band key provisioning,
+                    connecting to a provisioning server, etc.
+                </li>
+                <li>
+                    Establish device ownership, using a provisioning tool or
+                    service. For instance, the device can be owned by a network
+                    entity, or network service, or service provider, or the
+                    end user.
+                </li>
+                <li>
+                    Provision the device with the access control lists for
+                    the tenants or various levels of users.
+                </li>
+                <li>
+                    Provision the device with access to the services it uses.
+                </li>
+                <li>
+                    Configure the device with used and the exposed services.
+                </li>
+                <li>
+                    Provision and configure the WoT runtime in the device.
+                </li>
+                <li>
+                    Update the configurations or provisioning data.
+                </li>
+                <li>
+                    Decommission a user, application, service, or provisioning.
+                </li>
+                <li>
+                    Return the device to the initial state before provisioning
+                    (e.g. factory reset).
+                </li>
+                <li>
+                    Decommission and irreversibly destroy a device.
+                </li>
+            </ul>
+          </p>
+          <p>
+            Taken into account these provisioning flows, in general a device
+            can be in one of the following states:
+            <ul>
+                <li>
+                    <strong>Manufactured</strong>: the device is flashed with
+                    a software image. In the case it is certified for a certain
+                    protocol suite, it may be permitted or capable of doing
+                    only limited operations, such as a certain bootstrapping
+                     procedure.
+                </li>
+                <li>
+                    <strong>Bootstrapped</strong>: the device has an identity
+                    and ownership established, being ready for the next
+                    provisioning steps, like configuration, service provisioning
+                    etc.
+                    This state has different names in various protocol suites,
+                    for instance it is called <em>onboarded</em> in OCF,
+                    <em>bootstrapped</em> in T2TRG, OPC-UA, Anima, LwM2M,
+                    <em>initial provisioning</em> in OneM2M, etc.
+                </li>
+                <li>
+                    <strong>Operational</strong>: the device is provisioned
+                    and configured, working in normal mode. Some configuration
+                    is possible without leaving this state. That may include
+                    installing and uninstalling applications, reconfiguring
+                    settings, etc.
+                    Note that a device can be operational in its own native
+                    protocol suite and managed by a WoT gateway, or can be
+                    operational for WoT (which may be an application on the device),
+                    or may be operational for Wot and directly provisioned for
+                    WoT.
+                </li>
+                <li>
+                    <strong>Maintenance</strong>: the device operational state
+                    is interrupted for updating its software and/or configuration.
+                </li>
+                <li>
+                    <strong>Destroyed</strong>: the device has been wiped out
+                    of all data and software. Hardware kill features may
+                    be activated. The device may be physically destroyed and
+                    never used again. This state is relevant for device management purposes.
+                    It does not exist in OneM2M, LwM2M, OCF, T2TRG and is
+                    called <em>End-of-life</em> in OPC-UA and Anima.
+                </li>
+            </ul>
+          </p>
+          <figure id="fig-device-lifecycle">
+            <img src="images/architecture/device-lifecycle-1.svg"
+                    srcset="images/architecture/device-lifecycle-1.svg"
+                    class="wot-arch-diagram" alt="Device Lifecycle" />
+            <figcaption>Device Lifecycle</figcaption>
+          </figure>
+          <p>
+            The most typical transitions between lifecycle states are the
+            following:
+            <ul>
+                <li>
+                    <strong>Bootstrapping</strong> (or onboarding): the device
+                    is provisioned with an identity, the chain of trust is
+                    established, e.g. secure storage, keys, certificates.
+                    This may involve various solutions, such as manufacturer
+                    certificates, out-of-band key provisioning, connecting
+                    to a provisioning server (a quite common scenario). When
+                    provisioning directly to WoT, the device may be registered
+                    with a <a>Thing Description Directory</a> in this stage. During or
+                    after this process, in some protocol suites rebooting in
+                    a different mode of operation might be also needed.
+                </li>
+                <li>
+                    <strong>Provisioning, configuration, commissioning</strong>:
+                    the device is provisioned with all resources needed for
+                    its operation (services, applications, access control,
+                    databases etc), and these resources are configured for
+                    operation. Also, the device may be commissioned in a
+                    given environment. These may involve communication with
+                    a server, for instance a <a>Thing Description Directory</a> or
+                    <a>Discovery</a> services.
+                </li>
+                <li>
+                    <strong>Settings</strong>: the device remains in
+                    <em>Operational</em> state, but may update system, service
+                    or application settings. In some cases, this may include
+                    installing and removing applications.
+                </li>
+                <li>
+                    <strong>Update</strong>: the device stops normal
+                    operation for undergoing updates in the
+                    <em>Maintenance</em> state, similar to the ones
+                    during provisioning. This may include installing new
+                    software, or removing, installing or updating resources
+                    and their configuration.
+                    It may also include re-commissioning.
+                    Returning to <em>Operational</em> state may be achieved
+                    by resuming operation with updated resources, or may
+                    require a restart of services, or rebooting the device.
+                </li>
+                <li>
+                    <strong>Re-bootstrapping</strong>: the device identity,
+                    owner and related resources may be changed as described
+                    in the <em>Bootstrapping</em> process.
+                </li>
+                <li>
+                    <strong>Factory Reset</strong>: the device is returned
+                    to its factory default state.
+                </li>
+                <li>
+                    <strong>Destroy</strong>: the device is erased from all
+                    data, software and may be physically destroyed.
+                </li>
+            </ul>
+          </p>
       </section>
     </section>
 
@@ -3094,8 +3142,8 @@
       </p>
       <p> The non-normative <a>WoT Scripting API</a> specification [[?WOT-SCRIPTING-API]] defines
         the structure and algorithms of the programming
-        interface that allows scripts to discover, fetch, consume,
-        produce, and expose <a>WoT Thing Descriptions</a>. The
+        interface that allows scripts to discover, consume,
+        and expose <a>WoT Thing Descriptions</a>. The
         runtime system of the <a>WoT Scripting API</a> instantiates local
         objects that act as an interface to other <a>Things</a> and
         their <a>Interaction Affordances</a> (<a>Properties</a>,
@@ -3503,7 +3551,7 @@
         be taken, such as filtering out IDs or human-readable information
         if this is not strictly necessary for a particular use case.
         Privacy issues are discussed
-        at a high level in <a href="#sec-security-considerations"></a>
+        at a high level in <a href="#sec-privacy-considerations"></a>
         and a more detailed discussion is given in the
         [[?WOT-THING-DESCRIPTION]]
         specification and are addressed in the [[?WOT-DISCOVERY]] specification.
@@ -3825,23 +3873,24 @@
   </section>
 
   <section id="sec-security-considerations" class="informative">
-    <h1>Security and Privacy Considerations</h1>
+    <h1>Security Considerations</h1>
     <p class="ednote">
-        Needs to be updated to include points noted in <a href="https://github.com/w3c/wot-architecture/issues/672">Architecture Issue 672</a>.
+        Need to be updated to include points noted in <a href="https://github.com/w3c/wot-architecture/issues/672">Architecture Issue 672</a>.
+	Also needs to be refactored into separate sections, which is going to require
+	rewriting the intro (see the next section).  Also the ids and references all need to be updated...
     </p>
     <p>
-      Security and privacy are a cross-cutting issues that need to be considered
+      Security is a cross-cutting issue that needs to be considered
       in all <a href="#sec-building-blocks">WoT
         building blocks</a> and WoT implementations. This chapter
       summarizes some general issues and guidelines to help
-      preserve the security and privacy of concrete WoT implementations.
+      preserve the security of concrete WoT implementations.
       However, these are only general guidelines and an abstract architecture
-      such as described in this document cannot, itself, guarantee security and
-      privacy.
+      such as described in this document cannot, itself, guarantee security.
       Instead the details of a concrete implementation need to be considered.
-      For a more detailed and complete analysis of security and
-      privacy issues, see the <em>WoT Security and Privacy Guidelines</em>
-      specification [[?WOT-SECURITY]].
+      For a more detailed and complete analysis of security (and
+      privacy) issues, see the <em>WoT Security and Privacy Guidelines</em>
+      document [[?WOT-SECURITY]].
     </p>
     <p>Overall, the goal of the WoT is to describe the existing
       access mechanisms and properties of IoT devices and
@@ -3857,26 +3906,25 @@
     <p>
       However, especially for new systems,
       the WoT architecture should <em>enable</em> the use
-      of best practices in security and privacy.
+      of best practices.
       In general, the WoT security
       architecture must support the goals and mechanisms of the
       IoT protocols and systems it connects to. These systems vary
       in their security requirements and risk tolerance, so
       security mechanisms will also vary based on these factors.
     </p>
-    <p>Security and privacy are especially important in the IoT
+    <p>Security are especially important in the IoT
       domain since IoT devices need to operate autonomously and, in
-      many cases, have access to both personal data and/or can be
-      in control of safety-critical systems.
+      many cases, may be in control of safety-critical systems.
       IoT devices are subject to different and in some
       cases higher risks than IT systems. It is also important to
       protect IoT systems so that they cannot be used to launch
       attacks on other computer systems.
     </p>
-    <p>In general, security and privacy cannot be guaranteed. It
+    <p>In general, security cannot be guaranteed. It
       is not possible for the WoT to turn an insecure system into
       a secure one. However, the WoT architecture needs to do
-      no harm: it should support security and privacy at least as
+      no harm: it should support security at least as
       well as the systems it describes and supports.
     </p>
     <section id="sec-security-consideration-td-risks">
@@ -3884,12 +3932,12 @@
       <p>
         The metadata contained in a <a>WoT Thing Description</a>
         (TD) is potentially sensitive. As a best practice, TDs
-        should be used together with integrity protection
-        mechanisms and access control policies, and should be
-        provided only to authorized users.
+        should be used together with appropriate integrity protection
+        mechanisms and access control policies, with the goal of 
+        providing it only to authorized users.
       </p>
-      <p>Please refer to the Security and Privacy
-        Consideration section of the WoT Thing Description
+      <p>Please refer to the Privacy Considerations 
+        sections of the WoT Thing Description
         specification for additional details and discussion of
         these points.</p>
       <section id="sec-security-consideration-td-private">
@@ -3924,62 +3972,6 @@
             is ever stored in TDs.</dd>
         </dl>
       </section>
-      <section id="sec-security-consideration-td-pii">
-        <h5>Thing Description Personally Identifiable
-          Information Risk</h5>
-        <p>Thing descriptions can potentially contain
-          <a>Personally Identifiable Information</a> of various
-          types. Even if it is not explicit,
-          a TD and its association with an identifiable person
-          can be used to infer information about
-          that person. For example, the association of
-          fingerprintable TDs exposed by mobile devices
-          whose location can be determined can be a tracking
-          risk. Even if a particular device instance cannot
-          be identified, the type of device represented
-          by a TD, when associated with a person, may constitute
-          personal information. For example, a medical device
-          may be used to infer that the user has a medical condition.
-        </p>
-
-        <p>Generally, Personally Identifiable Information in
-          a TD should be limited as much as possible. In some
-          cases, however, it cannot be avoided. The potential
-          presence of both direct and inferencable
-          PII in a TD means that TD should be
-          treated like other forms of PII. They should be
-          stored and transmitted in a secure fashion, should
-          only be provided to authorized users, should
-          only be cached for limited times, should be deleted
-          upon request, should only be used for the purpose
-          for which they were provided with user consent, and
-          they should otherwise satisfy all requirements
-          (including any legal requirements) for
-          the use of PII.</p>
-        <dl>
-          <dt>Mitigation:</dt>
-          <dd>Storage of PII in TDs should be minimized
-            as much as possible. Even without explicit PII
-            in TDs, a tracking and identification privacy
-            risk may exist. To minimize this risk, TDs
-            should generally be treated as if they contained PII and
-            subject to the same management policies as other
-            PII. They should only be provided to authorized
-            Consumers.
-            Information unnecessary for a specific use case
-            should not be exposed in TDs whenever possible.
-            For example, explicit type and instance identifying information in TDs should
-            also not be included if it is not needed by the use case.
-            Even if required by the use case,
-            to minimize tracking risks, distributed and limited-scope
-            identifiers should be used whenever possible rather than
-            globally unique identifiers.
-            Other forms of information,
-            such as human-readable descriptions, may also
-            be omitted in some use cases to reduce fingerprinting risks.
-          </dd>
-        </dl>
-      </section>
       <section id="sec-security-consideration-td-cm">
         <h5>Thing Description Communication Metadata Risk</h5>
         <p>
@@ -4007,7 +3999,7 @@
       </section>
     </section>
     <section id="sec-security-consideration-scripting-risks">
-      <h2>WoT Scripting API Security and Privacy Risks</h2>
+      <h2>WoT Scripting API Risks</h2>
       <p>
         The <a>WoT Runtime</a> implementation and the <a>WoT
           Scripting API</a> should have mechanisms to prevent
@@ -4019,7 +4011,7 @@
         mitigations.
       </p>
       <section id="sec-security-consideration-cross-script">
-        <h5>Cross-Script Security and Privacy Risk</h5>
+        <h5>Cross-Script Security Risk</h5>
         <p>
           In basic WoT setups, all scripts running inside the
           <a>WoT Runtime</a> are considered trusted,
@@ -4029,7 +4021,7 @@
           depending on device capabilities, deployment use
           case scenarios, and risk level it might be desirable
           to do so. For example, if one script handles
-          sensitive privacy-related PII data and is
+          sensitive data and is
           well-audited, it might be desirable to separate it
           from the rest of the script instances to minimize
           the risk of data exposure in case some other script
@@ -4044,8 +4036,8 @@
           <dd>
             The <a>WoT Runtime</a> should perform isolation of
             script instances and their data in cases when
-            scripts handle privacy-related or other critical
-            security data. Similarly, the <a>WoT Runtime</a>
+            scripts handle sensitive data. 
+	    Similarly, the <a>WoT Runtime</a>
             implementation should perform isolation of <a>WoT
               Runtime</a> instances and their data if a WoT
             device has more than one tenant. Such isolation
@@ -4059,8 +4051,7 @@
         </dl>
       </section>
       <section id="sec-security-consideration-device-direct-access">
-        <h5>Physical Device Direct Access Security and
-          Privacy Risk</h5>
+        <h5>Physical Device Direct Access Risk</h5>
         <p>In case a script is compromised or malfunctions
           the underlying physical device (and potentially
           surrounded environment) can be damaged if a script
@@ -4091,7 +4082,7 @@
       </section>
     </section>
     <section id="sec-security-consideration-runtime-risks">
-      <h2>WoT Runtime Security and Privacy Risks</h2>
+      <h2>WoT Runtime Risks</h2>
       <section id="sec-security-consideration-update-provisioning">
         <h5>Provisioning and Update Security Risk</h5>
         <p>
@@ -4118,8 +4109,7 @@
         </dl>
       </section>
       <section id="sec-security-consideration-credentials-storage">
-        <h5>Security Credentials Storage Security and
-          Privacy Risk</h5>
+        <h5>Security Credentials Storage Risk</h5>
         <p>
           Typically the <a>WoT Runtime</a> needs to store the
           security credentials that are provisioned to a WoT
@@ -4153,6 +4143,147 @@
         </dl>
       </section>
     </section>
+    <section id="sec-security-consideration-trusted-environment-risks">
+      <h2>Trusted Environment Risks</h2>
+      <p>
+      In section
+      <a href="#sec-common-deployment-patterns"></a>
+      several usage scenarios are presented
+      that include the concept of a trusted environment and a security 
+      boundary. Entities that are members of a trusted environment
+      all share access to a common set of resources (such as a local
+      network) and are implictly granted certain access rights to
+      each other.  A common example would be a WiFi LAN in the home
+      where access to the WEP password allows devices to communicate
+      with each other without any further access controls.
+      Allowing implicit access rights like this and using a single
+      shared secret for a large number of entities means that a single
+      malicious actor with access to the trusted environment can
+      cause significant damage.
+      </p>
+      <p>
+      One common IoT situation is the use of an HTTP/HTML browser to
+      access locally hosted web services in a home environment.
+      Such locally hosted web services may not have a publically
+      visible URL and so are not able to participate in the 
+      CA system expected by browsers to enable use of HTTP/TLS (HTTPS).
+      It is often the case in this situation that plain HTTP is used
+      and the only security protecting the communication is network 
+      encryption, for example WEP, which is relatively weak.
+      </p>
+      <dl>
+        <dt>Mitigation:</dt>
+        <dd>Trust relationships should be as restricted as possible,
+	and ideally pairwise and limited to precisely the access
+	required.  
+	As noted, in some situations this is difficult to manage and
+	implicit access such as described is used, and may even be 
+	assumed by certain entities, such as browsers.
+	However, even in these cases security can be strengthened by
+	using a segmented network. For example, in the home environment,
+	a separate WiFi network can be used for IoT devices, and routers
+	often provide a "guest" network that can be used for this purpose.
+	In commercial and industrial environments, 
+	explict installation of pre-shared
+	keys can be used to allow browsers to access local services
+	while using TLS.  In this case however it should be noted that
+	using a single key for a large number of services is
+	equivalent to the situation above.  However, once TLS is
+	enabled other security mechanisms that assume secure transport
+	can be used to provide fine-grained access control.
+        </dd>
+      </dl>
+    </section>
+  </section>
+  <section id="sec-privacy-considerations" class="informative">
+    <h1>Privacy Considerations</h1>
+    <p>
+      Privacy is a cross-cutting issue that needs to be considered
+      in all <a href="#sec-building-blocks">WoT
+        building blocks</a> and WoT implementations. This chapter
+      summarizes some general issues and guidelines to help
+      preserve the privacy of concrete WoT implementations.
+      However, these are only general guidelines and an abstract architecture
+      such as described in this document cannot, itself, guarantee privacy.
+      Instead the details of a concrete implementation need to be considered.
+      For a more detailed and complete analysis of privacy (and security) issues, 
+      see the <em>WoT Security and Privacy Guidelines</em>
+      specification [[?WOT-SECURITY]].
+    </p>
+    <section id="sec-security-consideration-td-risks">
+      <h2>WoT Thing Description Risks</h2>
+      <p>
+        The metadata contained in a <a>WoT Thing Description</a>
+        (TD) is potentially sensitive, and even if it does
+	not explictly contain personally-identifiable information (PII)
+	it may be possible to infer PII from it. As a best practice, TDs
+        should be used together with appropriate integrity protection
+        mechanisms and access control policies, with the goal of 
+        providing it only to authorized users.
+	In general, many of the <a href="sec-security-considerations">Security Considerations</a>
+	discussed in the previous section can also be seen as privacy risks, when
+	they relate the undesired an unauthorized disclosure of information.
+      </p>
+      <p>Please refer to the Privacy Considerations 
+        sections of the WoT Thing Description
+        specification for additional details and discussion of
+        these points.</p>
+      <section id="sec-security-consideration-td-pii">
+        <h5>Thing Description Personally Identifiable
+          Information Risk</h5>
+        <p>Thing descriptions can potentially contain
+          <a>Personally Identifiable Information</a> (PII) of various
+          types. Even if it is not explicit,
+          a TD and its association with an identifiable person
+          can be used to infer information about
+          that person. For example, the association of
+          fingerprintable TDs exposed by mobile devices
+          whose location can be determined can be a tracking
+          risk. Even if a particular device instance cannot
+          be identified, the type of device represented
+          by a TD, when associated with a person, may constitute
+          personal information. For example, a medical device
+          may be used to infer that the user has a medical condition.
+        </p>
+        <p>Generally, Personally Identifiable Information in
+          a TD should be limited as much as possible. In some
+          cases, however, it cannot be avoided. The potential
+          presence of both direct and inferencable
+          PII in a TD means that TD as a whole should be
+          treated like other forms of PII. They should be
+          stored and transmitted in a secure fashion, should
+          only be provided to authorized users, should
+          only be cached for limited times, should be deleted
+          upon request, should only be used for the purpose
+          for which they were provided with user consent, and
+          they should otherwise satisfy all requirements
+          (including any legal requirements) for
+          the use of PII.</p>
+        <dl>
+          <dt>Mitigation:</dt>
+          <dd>Storage of explicit PII in TDs should be minimized
+            as much as possible. Even without explicit PII
+            in TDs, a tracking and identification privacy
+            risk may exist. To minimize this risk, TDs
+            should generally be treated as if they contained PII and
+            subject to the same management policies as other
+            PII. They should only be provided to authorized
+            Consumers.
+            Information unnecessary for a specific use case
+            should not be exposed in TDs whenever possible.
+            For example, explicit type and instance identifying information in TDs should
+            also not be included if it is not needed by the use case.
+            Even if required by the use case,
+            to minimize tracking risks, distributed and limited-scope
+            identifiers should be used whenever possible rather than
+            globally unique identifiers.
+            Other forms of information,
+            such as human-readable descriptions, may also
+            be omitted in some use cases to reduce fingerprinting risks.
+          </dd>
+        </dl>
+      </section>
+    </section>
   </section>
 
   <section id="changes" class="appendix">
@@ -4160,7 +4291,13 @@
 
     <h2 id="changes-from-recommendation-1.0">Changes from the 1.0 version of [[wot-architecture]]</h2>
     <ul>
-      <li>New chapter: Lifecycle</li>
+      <li>Add definitions for Connected Device (a.k.a. Device), Service, and Shadow.  
+	  Update definitions for
+	  Virtual Thing and Digital Twin.  
+	  Narrow definition of Virtual Thing to
+	  a Service that mediates with one of more other Things.</li>
+      <li>Split Security and Privacy Considerations into separate chapters.</li>
+      <li>New chapter: Lifecycle.</li>
       <li>New terminology: Thing Model.</li>
       <li>Chapter restructuring and renaming:
         <ul>
