@@ -1871,115 +1871,109 @@
 
     <section id="lifecycle">
       <h2>Lifecycle</h2>
-      <section class="issue">
-        <h2>Reorganisation of this section is still under discussion and the current contents reflect a snapshot that is subject to change.</h2>
-          Issue: https://github.com/w3c/wot-architecture/issues/561 contains the details.
-          
-          TODO:Create introductory text that introduces the succeeding chapters.
-          Explain the difference between
-          <ul>
-          <li>System Lifecycle </li>
-          <li>Thing Lifecycle </li>
-          <li>Information Lifecycle</li>
-            </ul>
-        </h2>
+
+      <p>
+        In a deployment, that applies the WoT architecture principles, different entities interact with each other and
+        exchange information between them.
+        Elements of a WoT deployment are devices, intermediaries, consumers and directories.
+        Each element has its own (intrinsic) Thing lifecycle.
+        These elements build a system, where the entire system has a <em>System lifecycle</em>, 
+        i.e. the system has several states and transitions through some states to become operational.
+        This implies that devices go through their lifecycle to becomer operational, and devices 
+        must be known to others before they can be used. 
+      </p>
+      <p>
+        The following sections describe the <em>System lifecycle</em> and the <em>Thing lifecycle</em>. 
+        They contain sample flows to illustrate the different states and phases of Things in a deployment. 
+        One of the purposes of this section is to clarify terminology and ensure that a the concepts of a 
+        common lifecycle model are considered by implementers of Web Things.
+      </p>
+      <p>
+        The actor in the left hand side of these diagrams can be understood as the device owner or manufacturer.
+        The actor on the right is the end user, who uses the device in an application.
+      </p>
+
+      <section id="simple-system-lifecycle">
+        <h3>Simple System Lifecycle</h3>
+        <p>
+          The following sequence diagram shows an example of the flow of system that consists of 
+          two directly communicating devices.
+      </p>
+      <p>
+        Before a device can be used in this scenario, it has to be bootstrapped and onboarded to the consumer.
+        In the onboarding operation the consumer and the device get to know each other - this may either be
+        performed by a discovery process, or via a registration operation, where the consumer is registered 
+        with the device or vice-versa.
+      </p>
+      <p>
+        After an activation step (which may consist of several operations, such as provisioning, configuration etc.)
+        the device and consumer are in regular operation mode.
+        When the device is no longer required in this scenario, it will be offboarded from the consumer. 
+        After this operation it can be decomissioned and destroyed. 
+      </p>
+
+        <figure id="fig-simple-system-lifecycle">
+          <img src="images/message-flows/lifecycle-1.svg" srcset="images/message-flows/lifecycle-1.svg"
+            class="wot-arch-diagram" alt="Simple System Lifecycle" />
+          <figcaption>Simple System Lifecycle</figcaption>
+        </figure>
       </section>
 
-      <section id="system-lifecycle">
-        <h3>System Lifecycle</h3>
+      <section id="system-lifecycle-no-directory">
+        <h3>System Lifecycle with Registration</h3>
         <p>
-          In a system that applies the WoT architecture principles different entities interact with each other and
-          exchange information between them.
-          Each entity (consumer, thing, directory, ...) has its own (intrinsic) lifecycle.
-          For an application scenario, where things are combined into common operation flows, the entire system follows
-          a lifecycle.
-          This lifecycle requires a certain flow of information and a sequence of operations that need to be carried out
-          during the lifetime of the application.
+          The following sequence diagram shows an example of the flow of system that contains three entities: 
+          a device, a consumer and a directory.
         </p>
-        <p>
-          To give a practical example:
-          A thing has to go through some initial setup and configuration steps, before it can be used by others.
-          This may include the provisioning of keys, performing configuration operations, onboarding it to a consumer,
-          registering it with a thing directory and other actions.
-          When a thing has to be permanently removed from an application, the system has to undergo some state changes
-          to decommission it from consumers,
-          remove security credentials, deregister it from directories etc.
-          These activities change the state of individual system components which impact the entire system state.
-          For example a thing, that has been deregistered from a directory service can no longer be looked up.
-          It is dependent on the use case if the thing can still continue to be used.
-        </p>
+      <p>
+        This flow is very similar to the flow in the previous section, in addition it contains a directory entity, 
+        which maintains a catalog of devices. In WoT this catalog is a set of <em>thing descriptions</em>
+        After a device is bootstrapped like in the previous scenario, it is registered with the directory.
+      </p>
+      <p>
+        The directory acts as an information broker between the actor on the left and the actor on 
+        the consumer side. This decouples the device owner from the consumer, where the discovery
+        acts as a middle man to enable discovery for consumers.
+      </p>
 
-        <p>
-          We distinguish two fundamentally different application scenarios:
-        </p>
-        <p>
-          In the simple scenario the thing and the consumer have a direct relationship and gets onboarded to the
-          consumer directly.
-          In the alternative case, a thing is registered with a directory and the consumer has to discover/lookup the
-          thing before it can be initially used.
-
-        </p>
-        <section id="simple-system-lifecycle">
-          <h3>Simple System Lifecycle</h3>
-          <section class="ednote">
-            <h3>TODO</h3>
-	    Create text for Simple System Lifecycle. 
-            <!-- Lagally -->
-          </section>
-
-          <figure id="fig-simple-system-lifecycle">
-            <img src="images/message-flows/lifecycle-1.svg" srcset="images/message-flows/lifecycle-1.svg"
-              class="wot-arch-diagram" alt="Simple System Lifecycle" />
-            <figcaption>Plain System Lifecycle</figcaption>
-          </figure>
-        </section>
-
-        <section id="system-lifecycle-no-directory">
-          <h3>System Lifecycle with Registration</h3>
-          <section class="ednote">
-            <h3>TODO
-            </h3>
-	    Create text for System Lifecycle with Registration &lt;MichaelL&gt;.
-          </section>
-
-          <figure id="lifecycle-2">
-            <img src="images/message-flows/lifecycle-2.svg" srcset="images/message-flows/lifecycle-2.svg"
-              class="wot-arch-diagram" alt="Simple System Lifecycle" />
-            <figcaption>System lifecycle with registration</figcaption>
-          </figure>
-        </section>
+        <figure id="lifecycle-2">
+          <img src="images/message-flows/lifecycle-2.svg" srcset="images/message-flows/lifecycle-2.svg"
+            class="wot-arch-diagram" alt="Simple System Lifecycle" />
+          <figcaption>System lifecycle with registration</figcaption>
+        </figure>
       </section>
 
       <section id="thing-lifecycle">
         <h3>Thing Lifecycle</h3>
-          <p>
-            Bootstrapping and provisioning devices is an essential part of
-            setting up devices in all IoT protocol suites.
-          </p>
-          <p>
-            The main scenarios for provisioning devices with WoT are as
-            follows:
-            <ul>
-                <li>
-                    A device is already provisioned and operational in a
-                    given deployment. Make it work with WoT.
-                </li>
-                <li>
-                    A device is already provisioned and operational in a
-                    given deployment. For management purposes, <em>describe</em>
-                    the device lifecycle stages in a <a>Thing Description</a>.
-                </li>
-                <li>
-                    Bootstrap and provision a device directly with WoT, in
-                    order to become operational for WoT.
-                </li>
-            </ul>
-          </p>
-          <p>
-            Various provisioning schemes are being used in IoT protocol suites.
-            The text in this section is based on <a href="https://github.com/w3c/wot-architecture/tree/master/proposals">proposals</a>
-            and studies,
-            <a href="https://w3c.github.io/wot-architecture/proposals/lifecycle/Device-lifecycle-comparisons.pdf">
+        <p>
+          Bootstrapping and provisioning devices is an essential part of
+          setting up devices in all IoT protocol suites.
+        </p>
+        <p>
+          The main scenarios for provisioning devices with WoT are as
+          follows:
+        <ul>
+          <li>
+            A device is already provisioned and operational in a
+            given deployment. Make it work with WoT.
+          </li>
+          <li>
+            A device is already provisioned and operational in a
+            given deployment. For management purposes, <em>describe</em>
+            the device lifecycle stages in a <a>Thing Description</a>.
+          </li>
+          <li>
+            Bootstrap and provision a device directly with WoT, in
+            order to become operational for WoT.
+          </li>
+        </ul>
+        </p>
+        <p>
+          Various provisioning schemes are being used in IoT protocol suites.
+          The text in this section is based on <a
+            href="https://github.com/w3c/wot-architecture/tree/master/proposals">proposals</a>
+          and studies,
+          <a href="https://w3c.github.io/wot-architecture/proposals/lifecycle/Device-lifecycle-comparisons.pdf">
             comparing various provisioning schemes</a>, such as OCF, OneM2M,
             Lightweight OneM2M, Thing to Thing Research Group (T2TRG),
             OPC-UA/Anima, etc.
