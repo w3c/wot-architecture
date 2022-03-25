@@ -18,6 +18,7 @@
       shortName: "wot-architecture11",
       copyrightStart: 2017,
       wgPublicList: "public-wot-wg",
+      implementationReportURI: "https://w3c.github.io/wot-architecture/testing/report.html",
       github: {
         repoURL: "https://github.com/w3c/wot-architecture",
         branch: "master"
@@ -36,18 +37,20 @@
           company: "Fujitsu Ltd.",
           companyURL: "https://www.fujitsu.com/"
         }, {
-          name: "Toru Kawaguchi",
-          w3cid: "79307",
-          company: "Panasonic Corp.",
-          companyURL: "https://www.panasonic.com/"
-        }, {
           name: "Kunihiko Toumura",
           w3cid: "83488",
           company: "Hitachi, Ltd.",
           companyURL: "https://www.hitachi.com/"
-        }, {
+        }],
+      formerEditors: [
+        {
           name: "Kazuo Kajimoto",
-          note: "Former Editor, when at Panasonic"
+          note: "when at Panasonic"
+        }, {
+          name: "Toru Kawaguchi",
+          w3cid: "79307",
+          company: "Panasonic Corp.",
+          companyURL: "https://www.panasonic.com/"
         }],
       otherLinks: [
         {
@@ -285,10 +288,11 @@
     <p>
       This document describes an abstract architecture design.
       However, there is an
-      <a href="https://w3c.github.io/wot-thing-description/testing/report.html">Implementation Report</a>
-      that describes a set of concrete implementations based on the associated <em>WoT Thing Description</em>
-      specification.
-      These are implementations following the W3C Web of Things architecture.
+      <a href="https://w3c.github.io/wot-architecture/testing/report.html">Implementation Report</a>
+      that describes a set of concrete implementations 
+      following the W3C Web of Things architecture.
+      It also references the other implementation
+      reports for the various WoT building blocks.
     </p>
   </section>
   <section id="introduction" class="informative">
@@ -492,7 +496,7 @@
       </dt>
       <dd>A device that provides an entry point into
         enterprise or service provider core networks. Examples
-        include gateways, routers, switches, multiplexers, and a
+        include hubs, gateways, routers, switches, multiplexers, and a
         variety of other access devices.</dd>
       <dt>
         <dfn data-lt="WoT Enriched Thing Description" class="lint-ignore">Enriched TD</dfn>
@@ -816,10 +820,9 @@
         (which include the supported Protocol Bindings), and links to related Things.
         The WoT Thing Description format is the central building block of W3C WoT.</dd>
     </dl>
-  </section>
 
-  <!-- Device categories -->
-  <section id="device-categoriesdevices" class="informative">
+    <!-- Device categories -->
+    <section id="device-categoriesdevices">
       <h2>Device Categories</h2>	  
       <p>
         In a deployment of WoT conforming to the <a href="https://www.w3.org/TR/wot-architecture/#architecture-abstract">WoT Abstract Architecture</a>
@@ -914,6 +917,7 @@
       For secure communications we consider devices that support TLS/HTTP, DTLS/CoAP, 
       and similar secure protocols.
       </p>
+    </section>
   </section>
 
   <section id="sec-application-domains" class="informative">
@@ -1332,6 +1336,7 @@
       <section class="ednote" title="TODO">
 	<h3>TODO</h3>
         This section will be expanded to capture recent activities.
+        In particular, it would be a good place to discuss hubs and "star" topologies.
         <!-- McCool -->
       </section>
 
@@ -1709,7 +1714,7 @@
         Other resources related to a <a>Thing</a> can be manuals, catalogs for spare parts, CAD files, a graphical UI,
         or any other document on the Web.
         Overall, Web linking among Things makes the Web of Things navigable, for both humans and machines.
-        This can be further facilitated by providing Thing directories that manage a catalog of <a>Things</a>,
+        This can be further facilitated by providing <a>Thing Description Directories</a> that manage a catalog of <a>Things</a>,
         usually by caching their TD representation.
 	</p>
 	<p>
@@ -3845,7 +3850,7 @@
             <img src="images/deployments/arch-deploy-service-sync-directory.png"
               srcset="images/deployments/arch-deploy-service-sync-directory.svg" class="wot-arch-diagram"
               alt="service sync directory" />
-            <figcaption>Multiple Cloud Connections Through Thing
+            <figcaption>Multiple Cloud Connections Through Thing Description
               Directory Synchronization</figcaption>
           </figure>
         </section>
