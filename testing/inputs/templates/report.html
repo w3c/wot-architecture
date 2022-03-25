@@ -101,10 +101,12 @@ pre.example {
   width: 100%;
 }
 
+/*
 .testimonial {
   font-style: italic;
   margin: 0 2rem 0 2rem;
 }
+*/
 
 .at-risk {
   background-color: yellow;
@@ -155,19 +157,25 @@ pre.example {
     <li class="tocline">5.3 <a href="#out_of_scope">Out of scope</a></li>
   </ul>
   </li>
-  <li class="tocline">6. <a href="#test-systems">Systems</a></li>
-  <ul id="systems-toc">
+  <li class="tocline">6. <a href="#sec-testimonials">Testimonials</a></li>
+  <ul id="testimonials-toc">
         <!--
     <li class="tocline">6.x <a href="#impl-ORG">ORG</a></li>
         -->
   </ul>
-  <li class="tocline">7. <a href="#security">Security</a></li>
-  <li class="tocline">8. <a href="#test_results">Test results</a>
+  <li class="tocline">7. <a href="#test-systems">Implementations</a></li>
+  <ul id="systems-toc">
+        <!--
+    <li class="tocline">7.x <a href="#impl-ORG">ORG</a></li>
+        -->
+  </ul>
+  <li class="tocline">8. <a href="#security">Security</a></li>
+  <li class="tocline">9. <a href="#test_results">Test results</a>
     <ul>
-      <li class="tocline">8.1 <a href="#automated_validation_results">Automated validation results</a></li>
-      <li class="tocline">8.2 <a href="#manual_validation_results">Manual validation results</a></li>
+      <li class="tocline">9.1 <a href="#automated_validation_results">Automated validation results</a></li>
+      <li class="tocline">9.2 <a href="#manual_validation_results">Manual validation results</a></li>
 <!--
-      <li class="tocline">8.3 <a href="#test_interop">Interoperability results</a></li>
+      <li class="tocline">9.3 <a href="#test_interop">Interoperability results</a></li>
 -->
       {{InteropTOC}}
   </ul>
@@ -341,7 +349,16 @@ pre.example {
   <li>All possible combinations of Things that TDs could describe (since this is an infinite set)</li>
 </ul>
 
-<h2 id="h_systems"><a id="test-systems" name="test-systems">6. Systems</a></h2>
+<h2 id="h_testimonials"><a id="sec-testimonials" name="sec-testimonials">6. Testimonials</a></h2>
+<p>
+  This section contains testimonials from organizations
+  supporting the WoT specifications.
+</p>
+<div id="testimonials">
+  <!-- system testimonials will be inserted here -->
+</div>
+
+<h2 id="h_systems"><a id="test-systems" name="test-systems">7. Implementations</a></h2>
 <p>
   This section contains descriptions of each of the implementations
   of the WoT Architecture specification
@@ -362,7 +379,7 @@ pre.example {
   <!-- system implementation descriptions will be inserted here -->
 </div>
 
-<h2 id="h_security"><a id="security" name="security">7. Security</a></h2>
+<h2 id="h_security"><a id="security" name="security">8. Security</a></h2>
 <p>
   The
   <a href="https://www.w3.org/TR/wot-architecture">Web of Things (WoT) Architecture</a>
@@ -379,7 +396,7 @@ pre.example {
   <a href="http://www.w3.org/TR/wot-security">Web of Things (WoT) Security and Privacy Guidelines</a>.
 </p>
 
-<h2 id="h_test_results"><a id="test_results" name="test_results">8. Test results</a></h2>
+<h2 id="h_test_results"><a id="test_results" name="test_results">9. Test results</a></h2>
 <p>
   The aim of this section is to summarize the assertions from the
   <a href="http://www.w3.org/TR/wot-architecture">Web of Things (WoT) Architecture</a>
@@ -388,9 +405,11 @@ pre.example {
   The tables in each section below lists all assertions derived from the
   <a href="http://www.w3.org/TR/wot-architecture">Web of Things (WoT) Architecture</a>
   document.
+  <!--
   The results are broken into two parts: 
   those for which automated testing has been implemented,
   and those for which it has not and manual testing and reporting was necessary.
+  -->
 </p>
 <p>
   The headers for these tables are described as follows:
@@ -471,11 +490,14 @@ pre.example {
 </p>
 -->
 
-<h3 id="h_automated_validation_results"><a id="automated_validation_results" name="automated_validation_results">8.1 Automated Validation Results</a></h3>
+<h3 id="h_automated_validation_results"><a id="automated_validation_results" name="automated_validation_results">9.1 Automated Validation Results</a></h3>
 <p>
-  The following assertions have been validated by automated testing using the
+  The following assertions have been validated by automated testing. 
+  <!--
+  using the
   <a href="http://plugfest.thingweb.io/playground/">ThingWeb Playground</a>
   <a href="https://github.com/thingweb/thingweb-playground/">AssertionTester</a>.
+  -->
 </p>
 
 <table id="testresults" class="testlist" summary="assertions and tests" cellspacing="1" cellpadding="2" width="100%">
@@ -506,7 +528,7 @@ pre.example {
   </tbody>
 </table>
 
-<h3 id="h_manual_validation_results"><a id="manual_validation_results" name="manual_validation_results">8.2 Manual validation results</a></h3>
+<h3 id="h_manual_validation_results"><a id="manual_validation_results" name="manual_validation_results">9.2 Manual validation results</a></h3>
 <p>
   The following assertions have been manually validated by the implementers.
 </p>

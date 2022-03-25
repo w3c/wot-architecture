@@ -99,10 +99,12 @@ pre.example {
   width: 100%;
 }
 
+/*
 .testimonial {
   font-style: italic;
   margin: 0 2rem 0 2rem;
 }
+*/
 
 .at-risk {
   background-color: yellow;
@@ -153,21 +155,63 @@ pre.example {
     <li class="tocline">5.3 <a href="#out_of_scope">Out of scope</a></li>
   </ul>
   </li>
-  <li class="tocline">6. <a href="#test-systems">Systems</a></li>
-  <ul id="systems-toc">
+  <li class="tocline">6. <a href="#sec-testimonials">Testimonials</a></li>
+  <ul id="testimonials-toc">
         <!--
     <li class="tocline">6.x <a href="#impl-ORG">ORG</a></li>
         -->
   <li class="tocline">
-	6.1 <a href="#impl-intel">Organization</a></li>
+	6.1 <a href="#testimonial-bosch-io">Bosch.IO GmbH</a></li>
+<li class="tocline">
+	6.2 <a href="#testimonial-echonet">ECHONET Consortium</a></li>
+<li class="tocline">
+	6.3 <a href="#testimonial-hitachi">Hitachi, Ltd.</a></li>
+<li class="tocline">
+	6.4 <a href="#testimonial-intel">Intel Corporation</a></li>
+<li class="tocline">
+	6.5 <a href="#testimonial-siemens">Siemens AG</a></li>
 </ul>
-  <li class="tocline">7. <a href="#security">Security</a></li>
-  <li class="tocline">8. <a href="#test_results">Test results</a>
+  <li class="tocline">7. <a href="#test-systems">Implementations</a></li>
+  <ul id="systems-toc">
+        <!--
+    <li class="tocline">7.x <a href="#impl-ORG">ORG</a></li>
+        -->
+  <li class="tocline">
+	7.1 <a href="#impl-ditto-WoT">Eclipse Ditto: TD ExposerEclipse Ditto WoT Model: Tool</a></li>
+<li class="tocline">
+	7.2 <a href="#impl-ditto-wot-model">Eclipse Ditto: TD ExposerEclipse Ditto WoT Model: Tool</a></li>
+<li class="tocline">
+	7.3 <a href="#impl-echonet-proxy">echonet-wot-proxy: Intermediary</a></li>
+<li class="tocline">
+	7.4 <a href="#impl-editdor">Eclipse EdiTDor: Tool and Producer</a></li>
+<li class="tocline">
+	7.5 <a href="#impl-hitachi-nodegen">Node generator for Node-RED: TD ConsumerTBD: TD ExposerTBD: TD ExposerTBD: Discoverer</a></li>
+<li class="tocline">
+	7.6 <a href="#impl-hitachi-node-red">Node generator for Node-RED: TD ConsumerTBD: TD ExposerTBD: TD ExposerTBD: Discoverer</a></li>
+<li class="tocline">
+	7.7 <a href="#impl-hitachi-esp-idf">Node generator for Node-RED: TD ConsumerTBD: TD ExposerTBD: TD ExposerTBD: Discoverer</a></li>
+<li class="tocline">
+	7.8 <a href="#impl-hitachi-nrwotdisc">Node generator for Node-RED: TD ConsumerTBD: TD ExposerTBD: TD ExposerTBD: Discoverer</a></li>
+<li class="tocline">
+	7.9 <a href="#impl-intel-nodejs">intel-nodejs: TD Exposerintel-proxy: Intermediary</a></li>
+<li class="tocline">
+	7.10 <a href="#impl-intel-proxy">intel-nodejs: TD Exposerintel-proxy: Intermediary</a></li>
+<li class="tocline">
+	7.11 <a href="#NHK">NHK: Emulated WoT Devices</a></li>
+<li class="tocline">
+	7.12 <a href="#impl-eclipse-nodewot">Eclipse node-wot: Consumer and Exposer</a></li>
+<li class="tocline">
+	7.13 <a href="#impl-playground">Thing Description Playground: Tool</a></li>
+<li class="tocline">
+	7.14 <a href="#impl-saywot">Siemens sayWoT!: Exposer and Consumer</a></li>
+</ul>
+  <li class="tocline">8. <a href="#security">Security</a></li>
+  <li class="tocline">9. <a href="#test_results">Test results</a>
     <ul>
-      <li class="tocline">8.1 <a href="#automated_validation_results">Automated validation results</a></li>
-      <li class="tocline">8.2 <a href="#manual_validation_results">Manual validation results</a></li>
+      <li class="tocline">9.1 <a href="#automated_validation_results">Automated validation results</a></li>
+      <li class="tocline">9.2 <a href="#manual_validation_results">Manual validation results</a></li>
 <!--
-      <li class="tocline">8.3 <a href="#test_interop">Interoperability results</a></li>
+      <li class="tocline">9.3 <a href="#test_interop">Interoperability results</a></li>
 -->
       
   </ul>
@@ -341,7 +385,97 @@ pre.example {
   <li>All possible combinations of Things that TDs could describe (since this is an infinite set)</li>
 </ul>
 
-<h2 id="h_systems"><a id="test-systems" name="test-systems">6. Systems</a></h2>
+<h2 id="h_testimonials"><a id="sec-testimonials" name="sec-testimonials">6. Testimonials</a></h2>
+<p>
+  This section contains testimonials from organizations
+  supporting the WoT specifications.
+</p>
+<div id="testimonials">
+  <!-- system testimonials will be inserted here -->
+<div class="testimonial" id="testimonial-bosch-io">
+  <h3>Bosch.IO GmbH</h3>
+  <p>
+    Bosch.IO is convinced that I(o)T cannot be done alone and that collaboration
+    via Open Source software and open standards are key to provide
+    interoperability in the heterogenous IoT landscape.
+  </p>
+  <p>
+    We reached the conclusion that WoT Thing Models are a very capable modeling
+    approach to describe capabilities of thing/device classes, having the
+    benefit of relying on JSON-LD for providing additional semantic context.
+    What we were seeking for, modeling thing/device classes, is even taken one
+    step further by being able to introspect a thing's capabilities on the
+    instance level via its WoT Thing Description, including its API endpoints.
+  </p>
+  <p>
+    By adopting the latest W3C Working Draft 11 March 2022 of WoT Thing Description
+    1.1 in Eclipse Ditto, an Open Source Digital Twin framework initiated by
+    Bosch.IO and still under very active development, Ditto can link to Thing
+    Models and automatically create and provide Thing Descriptions for its
+    managed digital twins.
+  </p>
+</div><div class="testimonial" id="testimonial-echonet">
+  <h3>ECHONET Consortium</h3>
+    <p>
+    We support the WoT.
+    </p>
+    <p>
+    An intermediary was developed to expose TDs of 4 types of ECHONET Lite devices (illuminance sensor, temperature sensor, light, air-conditioner). This is a demo system shows the interoperability of ECHONET Lite protocol and WoT.
+    </p>
+    <p>Note: <i>a formal consent will be needed when publishing this work in the implementation report. Please discuss with us for the formal consent.</i></p>
+</div><div class="testimonial" id="testimonial-hitachi">
+  <h3>Hitachi, Ltd.</h3>
+  <p>(DRAFT)</p>
+  <p>
+    Hitachi understands the importance of standardization to make the world seamlessly connected, 
+    and strongly supports W3C's activities.
+  </p>
+  <p>
+    Hitachi expects that standardization of Web of Things enables easy integration across 
+    various Things and IoT platforms. We create a tool for rapid application development using Node-RED, 
+    called Node generator.
+  </p>
+</div><div class="testimonial" id="testimonial-intel">
+  <h3>Intel Corporation</h3>
+    <p>(DRAFT)</p>
+    <p>
+    Intel supports this specification as it enables interoperation between devices
+    from different manufacturers, supporting the growth of an ecosystem of interoperating
+    IoT services and easing barriers to adoption.
+    </p>
+    <p>
+    Two TD Exposers (Things) were developed and a security proxy were developed, all based on Node.js.
+    The Things focused on supporting basic local network access without built-in access controls.
+    A separate project, used by all the TD Exposers, provided security (encryption and
+    authentication) by means of a reverse proxy.
+    For the purposes of counting implementations, the two TD Exposers were considered one
+    implementation since they share a significant amount of code.
+    </p>
+</div><div class="testimonial" id="testimonial-siemens">
+  <h3>Siemens AG</h3>
+    <p>
+      Siemens supports this specification as it allows manufacturers to attach
+      metadata to heterogeneous IoT devices and services in a uniform way. The
+      extensible model with a standardized serialization format in particular
+      remedies interoperability challenges with an installed base of long-lived
+      industrial devices. Furthermore, this specification is a central building
+      block for several digitalization topics such as device onboarding, device
+      management, digital twins, and data analytics.
+    </p>
+    <p>
+      Siemens commits to several open-source implementations of W3C Web of
+      Things, which are managed in the public Eclipse Thingweb and Eclipse
+      EdiTDor projects.
+    </p>
+    <p>
+      Siemens also implements WoT in its
+      <a href="https://www.evosoft.com/digitalisierungsangebot/saywot/">sayWoT!</a>
+      offering that can be used in IoT systems to manage a variety of protocols
+      in different applications domains.
+    </p>
+</div></div>
+
+<h2 id="h_systems"><a id="test-systems" name="test-systems">7. Implementations</a></h2>
 <p>
   This section contains descriptions of each of the implementations
   of the WoT Architecture specification
@@ -360,20 +494,75 @@ pre.example {
 </p>
 <div id="systems-impl">
   <!-- system implementation descriptions will be inserted here -->
-<div class="impl" id="impl-intel">
-  <h3>Organization</h3>
-  <div class="testimonial">
-    <p>
-    Intel supports this specification as it {{reason}}. 
-    </p>
-    <p>
-    {{Introduction}}
-    </p>
-  </div>
-
-  <h4 id="impl-intel-nodejs">{{implementation_name}}: {{implementation_category}}</h4>
+<div class="impl" id="impl-ditto-WoT">
+  <h3>Eclipse Ditto: TD Exposer</h3>
   <p>
-  Two services based on a shared NodeJS codebase:
+    A service that provides APIs for managing digital twins and interacting with
+    the abstracted devices. Fetches linked Thing Models of digital twins and
+    provides instance specific Thing Descriptions for them.
+  </p>
+  <p><b>Usage:</b> Service</p>
+  <p><b>Public Repository:</b> https://github.com/eclipse/ditto</p>
+  <p>
+    <b>Website:</b> https://www.eclipse.org/ditto/basic-wot-integration.html
+  </p>
+  <p><b>Contributing Member Organizations:</b> Bosch.IO</p>
+</div><div class="impl" id="impl-ditto-wot-model">
+  <h3>Eclipse Ditto WoT Model: Tool</h3>
+  <p>
+    Eclipse Ditto offers a Java Module to use TDs and TMs inside Java
+    environments with concepts native to Java, e.g. providing a builder API for
+    creating new TM/TD instances and rendering those to JSON strings and vice
+    versa.
+  </p>
+  <p><b>Usage:</b> Library</p>
+  <p>
+    <b>Public Repository:</b>
+    https://github.com/eclipse/ditto/tree/master/wot/model
+  </p>
+  <p><b>Contributing Member Organizations:</b> Bosch.IO</p>
+</div><div class="impl" id="impl-echonet-proxy">
+  <h3>echonet-wot-proxy: Intermediary</h3>
+  <p>
+  This is an intermediary that connects ECHONET Lite devices into the W3C WoT and allows WoT clients to interact with them via provided TDs.
+  </p><p>
+ This intermediary extends the node-wot library.
+  </p>
+</div><div class="impl" id="impl-editdor">
+  <h3>Eclipse EdiTDor: Tool and Producer</h3>
+  <p>
+    The Eclipse EdiTDor implementation is a web application for simply designing
+    W3C Thing Descriptions and Thing Models.
+  </p>
+  <p><b>Usage:</b> Web Application</p>
+  <p>
+    <b>Public Repository:</b> https://github.com/eclipse/editdor
+    <b>Website:</b> https://eclipse.github.io/editdor/
+  </p>
+  <p><b>Contributing Member Organizations:</b> Siemens AG, Bosch.IO</p>
+</div><div class="impl" id="impl-hitachi-nodegen">
+  <h3>Node generator for Node-RED: TD Consumer</h3>
+  <p>
+    <a href="https://github.com/node-red/node-red-nodegen">Node generator</a> is
+    command line tool to generate
+    <a href="https://nodered.org/">Node-RED</a> node modules from several
+    various sources including Thing Description of Web of Things. Using this
+    tool, node developers can dramatically reduce their time to implement
+    Node-RED node modules.
+  </p>
+</div><div class="impl" id="impl-hitachi-node-red">
+  <h3>TBD: TD Exposer</h3>
+  <p>TBD</p>
+</div><div class="impl" id="impl-hitachi-esp-idf">
+  <h3>TBD: TD Exposer</h3>
+  <p>TBD</p>
+</div><div class="impl" id="impl-hitachi-nrwotdisc">
+  <h3>TBD: Discoverer</h3>
+  <p>TBD</p>
+</div><div class="impl" id="impl-intel-nodejs">
+  <h3>intel-nodejs: TD Exposer</h3>
+  <p>
+  Two services based on a shared NodeJS codebase (not using node-wot):
   </p><ul>
 	 <li>A simple camera service that interfaces 
 	 with V4L (Video for Linux) to capture still images
@@ -382,12 +571,91 @@ pre.example {
 	 <li>A simple text-to-speech output service based on espeak.
 	 </li>
   </ul>
- Not based on node-wot.
   <p></p>
-
+</div><div class="impl" id="impl-intel-proxy">
+  <h3>intel-proxy: Intermediary</h3>
+  <p>
+  This is a reverse proxy service that provides
+  authentication (via various mechanisms indicated by the schemes indicated in the Thing
+  Description) and encrypted transport (TLS) termination.
+  The reverse proxy service was made accessible over a secure tunnel, 
+  and depending on the circumstances,
+  can be run in the cloud, on a gateway computer, or locally on a device.
+  </p>
+  <p>
+  The secure endpoints provided by this service are not given in TDs for the 
+  service itself, but added to the TDs for the Things it services.
+  </p>
+</div><div class="impl" id="NHK">
+  <h3>NHK: Emulated WoT Devices</h3>
+  <p>
+    <a href="https://github.com/w3c/wot-testing/tree/main/events/2021.09.Online/Projects/NHK">WoT device emulator (Android
+       App) </a>
+    <a href="https://github.com/nhkrd/antwapp4hc">Hybrid TV Emulator AndroidTV App</a>
+   
+  </p><ul>
+	 <li> Android app becomes a WoT Device.
+	 </li>
+  </ul>
+  <p></p>
+</div><div class="impl" id="impl-eclipse-nodewot">
+  <h3>Eclipse node-wot: Consumer and Exposer</h3>
+  <p>
+    The Eclipse node-wot implementation is a Node.js-based framework for WoT Servients.
+    It features an implementation of the WoT Scripting API to both consume TDs
+    to instantiate Consumed Things and produce Exposed Things that provide a TD.
+    The Eclipse node-wot implementation supports several Protocol Bindings including
+    HTTP, CoAP, WebSockets, MQTT, Firestore, OPC-UA, Modbus, M-Bus and NETCONF with 
+    corresponding security mechanisms such as DTLS (CoAP); TLS (HTTP, MQTT), Basic, 
+    Digest, and Bearer Token authentication (HTTP), PSK (CoAP), and 
+    username/password authentication (MQTT). 
+  </p>
+  <p>
+    <b>Usage:</b> It can be included in bigger projects as a dependency, 
+    used as a Command Line Interface or as a browser library.
+  </p>
+  <p>
+    <b>Public Repository:</b> https://github.com/eclipse/thingweb.node-wot
+  </p>
+  <p>
+    <b>Contributing Member Organizations:</b> Siemens AG, Invited Experts
+  </p>
+</div><div class="impl" id="impl-playground">
+  <h3>Thing Description Playground: Tool</h3>
+  <p>
+    The Thing Description Playground implementation is a set of tools that
+    allows one to validate TDs, as well to transform them into different
+    representations such as OpenAPI and AsyncAPI. It also allows to detect
+    implemented assertions of the TD spec by looking at a TD, which is how the
+    implementation report for the TD is generated.
+  </p>
+  <p>
+    <b>Usage:</b> It can be included in bigger projects as a dependency, used as
+    a Command Line Interface or as a web application library.
+  </p>
+  <p>
+    <b>Public Repository:</b> https://github.com/thingweb/thingweb-playground
+    <b>Website:</b> http://plugfest.thingweb.io/playground/
+  </p>
+  <p><b>Contributing Member Organizations:</b> Siemens AG</p>
+</div><div class="impl" id="impl-saywot">
+  <h3>Siemens sayWoT!: Exposer and Consumer</h3>
+  <p>
+    sayWoT! is an industrial-grade implementation that allows integration of devices 
+    into Siemens software products like 
+    <a href="https://new.siemens.com/global/en/products/automation/industry-software/apps-and-digital-services-for-process-industry.html">Asset Performance Suite</a>, 
+    <a href="https://new.siemens.com/global/en/products/buildings/automation/desigo/building-management/desigo-cc.html">Desigo CC</a> 
+    in a semantically-described and standardized way. 
+    sayWoT! is implemented in golang for optimal scalability and cross-architecture compatability.
+  </p>
+  <p><b>Usage:</b> Service in the cloud or on premise, Command Line Interface</p>
+  <p>
+    <b>Website:</b> https://www.evosoft.com/en/digitalization-offering/saywot/
+  </p>
+  <p><b>Contributing Member Organizations:</b> Siemens AG</p>
 </div></div>
 
-<h2 id="h_security"><a id="security" name="security">7. Security</a></h2>
+<h2 id="h_security"><a id="security" name="security">8. Security</a></h2>
 <p>
   The
   <a href="https://www.w3.org/TR/wot-architecture">Web of Things (WoT) Architecture</a>
@@ -404,7 +672,7 @@ pre.example {
   <a href="http://www.w3.org/TR/wot-security">Web of Things (WoT) Security and Privacy Guidelines</a>.
 </p>
 
-<h2 id="h_test_results"><a id="test_results" name="test_results">8. Test results</a></h2>
+<h2 id="h_test_results"><a id="test_results" name="test_results">9. Test results</a></h2>
 <p>
   The aim of this section is to summarize the assertions from the
   <a href="http://www.w3.org/TR/wot-architecture">Web of Things (WoT) Architecture</a>
@@ -413,9 +681,11 @@ pre.example {
   The tables in each section below lists all assertions derived from the
   <a href="http://www.w3.org/TR/wot-architecture">Web of Things (WoT) Architecture</a>
   document.
+  <!--
   The results are broken into two parts: 
   those for which automated testing has been implemented,
   and those for which it has not and manual testing and reporting was necessary.
+  -->
 </p>
 <p>
   The headers for these tables are described as follows:
@@ -496,11 +766,14 @@ pre.example {
 </p>
 -->
 
-<h3 id="h_automated_validation_results"><a id="automated_validation_results" name="automated_validation_results">8.1 Automated Validation Results</a></h3>
+<h3 id="h_automated_validation_results"><a id="automated_validation_results" name="automated_validation_results">9.1 Automated Validation Results</a></h3>
 <p>
-  The following assertions have been validated by automated testing using the
+  The following assertions have been validated by automated testing. 
+  <!--
+  using the
   <a href="http://plugfest.thingweb.io/playground/">ThingWeb Playground</a>
   <a href="https://github.com/thingweb/thingweb-playground/">AssertionTester</a>.
+  -->
 </p>
 
 <table id="testresults" class="testlist" summary="assertions and tests" cellspacing="1" cellpadding="2" width="100%">
@@ -1021,7 +1294,7 @@ pre.example {
 	<td class="result missing">0</td></tr></tbody>
 </table>
 
-<h3 id="h_manual_validation_results"><a id="manual_validation_results" name="manual_validation_results">8.2 Manual validation results</a></h3>
+<h3 id="h_manual_validation_results"><a id="manual_validation_results" name="manual_validation_results">9.2 Manual validation results</a></h3>
 <p>
   The following assertions have been manually validated by the implementers.
 </p>
