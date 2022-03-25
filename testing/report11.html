@@ -119,7 +119,7 @@ pre.example {
     Implementation Report
   </h1>
   <p>
-    <b>Version</b>: 10 Feb 2022
+    <b>Version</b>: 25 Mar 2022
   </p>
   <p>
     <b>Editors (Tentative)</b>:<br>
@@ -158,7 +158,9 @@ pre.example {
         <!--
     <li class="tocline">6.x <a href="#impl-ORG">ORG</a></li>
         -->
-  </ul>
+  <li class="tocline">
+	6.1 <a href="#impl-intel">Organization</a></li>
+</ul>
   <li class="tocline">7. <a href="#security">Security</a></li>
   <li class="tocline">8. <a href="#test_results">Test results</a>
     <ul>
@@ -358,7 +360,32 @@ pre.example {
 </p>
 <div id="systems-impl">
   <!-- system implementation descriptions will be inserted here -->
-</div>
+<div class="impl" id="impl-intel">
+  <h3>Organization</h3>
+  <div class="testimonial">
+    <p>
+    Intel supports this specification as it {{reason}}. 
+    </p>
+    <p>
+    {{Introduction}}
+    </p>
+  </div>
+
+  <h4 id="impl-intel-nodejs">{{implementation_name}}: {{implementation_category}}</h4>
+  <p>
+  Two services based on a shared NodeJS codebase:
+  </p><ul>
+	 <li>A simple camera service that interfaces 
+	 with V4L (Video for Linux) to capture still images
+         from a USB camera.
+	 </li>
+	 <li>A simple text-to-speech output service based on espeak.
+	 </li>
+  </ul>
+ Not based on node-wot.
+  <p></p>
+
+</div></div>
 
 <h2 id="h_security"><a id="security" name="security">7. Security</a></h2>
 <p>
@@ -909,8 +936,21 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="arch-rel-types" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-rel-types">arch-rel-types</a></td>
+<tr id="arch-rel-types-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-rel-types-1">arch-rel-types-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Things MUST be hosted on networked system components 
+	with a software stack to realize interaction through a
+		network-facing interface, the WoT Interface of a Thing.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-rel-types-2" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-rel-types-2">arch-rel-types-2</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -944,7 +984,8 @@ pre.example {
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">WoT Thing Descriptions
-          MAY link to other Things and other resources on the Web to form a Web of Things.
+		and WoT Thing Models MAY link to other Things, WoT Thing Models,
+		and other resources on the Web to form a Web of Things.
         </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
