@@ -1232,19 +1232,43 @@
     </p>
 
     <section id="telemetry">
-      <h3>Telemetry</h3>    
-      <section class="ednote" title="TODO">
-      <h3>TODO</h3>
-      Create a description and a diagram for a telemetry scenario.
-      </section>
+      <h3>Telemetry</h3>  
+      <p>
+        Telemetry is the monitoring of remove devices, which implies automatic transmission to, and processing
+        of measurements and other data on a <a>Consumer</a>. 
+        Data may be transported over various communication channels, both wireless and wired.
+        Examples include GSM networks, Bluetooth, WiFi, Ethernet, and other wired standards.
+      </p>
+      <p>
+        Remote metering devices include one or multiple sensors, in some cases they also contain an actuator.
+        In many cases the sensor data is transmitted at regular intervals, on a state change, 
+        or as a response to a request by the <a>Consumer</a>.
+      </p><p>
+        Remote metering devices are frequently small embedded systems with very limited resources. 
+        They may be battery powered and have to minimize power consumption through various measures,
+        e.g. sleep modes.
+        These devices will sleep most of the time and wont't transmit any data to conserve energy.
+        They only wake up on certain events (e.g. when a switch is toggled).
+        When a device state changes, an event is sent to the consumer. 
+        After that the devices goes to sleep mode again.
+      </p>
+      <p>
+        Typical user scenarios are monitoring of various assets, examples include smart cities, 
+        factories, fleets, environmental monitoring and health monitoring. 
+        Some deployments may require monitoring of a high number of geographically distributed assets,
+        others only include a few devices, as in a smart home.
+        A common pattern is the one-to-many relationship between a single <a>Consumer</a> and multiple devices.
+      </p>
     </section>
 
     <section id="device-controllers">
       <h3>Device Controllers</h3>
       <p>
-        The first use case is a local device controlled by a
-        user-operated remote controller as depicted in <a href="#smart-home-device"></a>. A remote
-        controller can access an electronic appliance
+        A common deployment pattern is a local device controlled by a
+        user-operated remote controller as depicted in <a href="#smart-home-device"></a>. 
+      </p>
+      <p>
+        A remote controller can access an electronic appliance
         through the local home network directly. In this
         case, the remote controller can be implemented by a
         browser or native application.
@@ -3965,7 +3989,7 @@
         <h5>Thing Description Private Security Data Risk</h5>
         <p>
           TDs are designed to carry only <a>Public Security Metadata</a>.
-          Producers of TDs must ensure that no <a>Private
+          <a>Producers</a> of TDs must ensure that no <a>Private
             Security Data</a> is included in <a>TDs</a>.
           There should be a strict separation of
           <a>Public Security Metadata</a> and <a>Private Security Data</a>.
