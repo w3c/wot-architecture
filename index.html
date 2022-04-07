@@ -1233,9 +1233,14 @@
         Remote metering devices include one or multiple sensors, in some cases they also contain an actuator.
         In many cases the sensor data is transmitted at regular intervals, on a state change, 
         or as a response to a request by the <a>Consumer</a>.
+      </p><p>
         Remote metering devices are frequently small embedded systems with very limited resources. 
-        These may be battery powered and have to minimize power consumption through various measures,
+        They may be battery powered and have to minimize power consumption through various measures,
         e.g. sleep modes.
+        These devices will sleep most of the time and wont't transmit any data to conserve energy.
+        They only wake up on certain events (e.g. when a switch is toggled).
+        When a device state changes, an event is sent to the consumer. 
+        After that the devices goes to sleep mode again.
       </p>
       <p>
         Typical user scenarios are monitoring of various assets, examples include smart cities, 
