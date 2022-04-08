@@ -2373,16 +2373,16 @@
           and left parts blank to be filled by the <a>Consumers</a> (or Web client in general).
         </p>
         <p>
-          W3C WoT defines forms as new <a>hypermedia control</a>.
+          W3C WoT defines forms as a new <a>hypermedia control</a>.
           Note that the definition in CoRAL is virtually identical, and hence compatible [[?CoRAL]].
           A form is comprised of:
         </p>
         <ul>
-          <li>a form context,</li>
-          <li>an operation type,</li>
-          <li>a submission target,</li>
-          <li>a request method, and</li>
-          <li>optionally form fields.</li>
+          <li>a form context ([[[#context-and-submission-target]]]),</li>
+          <li>a submission target ([[[#context-and-submission-target]]]),</li>
+          <li>an operation type ([[[#operation-types]]]),</li>
+          <li>a request method ([[[#request-method]]]), and</li> 
+          <li>optional form fields ([[[#protocol-options]]]).</li>
         </ul>
         <p>
           A form can be viewed as a statement of "To perform an
@@ -2395,77 +2395,93 @@
           <code>submission target</code>
           " where the optional form fields may further describe the required request.
         </p>
-        <p>
-          <span class="rfc2119-assertion" id="arch-form-iris">
-            Form contexts and submission targets MUST both be
-            Internationalized Resource Identifiers (IRIs)
-            [[!RFC3987]].
-          </span>
-          However, in the common case, they will
-          also be URIs [[!RFC3986]], because many protocols
-          (such as HTTP) do not support IRIs.</p>
-        <p>
-          <span class="rfc2119-assertion" id="arch-form-iris2">
-            Form context and submission target MAY point to
-            the same resource or different resources, where the
-            submission target resource implements the operation
-            for the context.
-          </span></p>
-        <p>The operation type identifies the semantics of
-          the operation. Operation types are denoted similar
-          to link relation types:</p>
-        <ul>
-          <li>
-            <span class="rfc2119-assertion" id="arch-op-wellknown">
-              Well-known operation types MUST follow the ABNF
-              <code style="white-space: nowrap;">LOALPHA *( LOALPHA / DIGIT / "." / "-" )</code>.
+
+        <section id="context-and-submission-target">
+          <h4>Context and Submission Target</h4>
+          <p>
+            <span class="rfc2119-assertion" id="arch-form-iris">
+              Form contexts and submission targets MUST both be
+              Internationalized Resource Identifiers (IRIs)
+              [[!RFC3987]].
             </span>
-          </li>
-          <li>
-            <span class="rfc2119-assertion" id="arch-op-extension-uri">
-              Extension operation types MUST be URIs [[!RFC3986]] that uniquely identify the type.
-            </span>
-            <span class="rfc2119-assertion" id="arch-op-extension-comparison">
-              Extension operation types MUST be compared as strings using a case-insensitive comparison.
-            </span>
-            <span class="rfc2119-assertion" id="arch-op-extension-lowercase">
-              Nevertheless, all-lowercase URIs SHOULD be used for extension operation types.
-            </span>
-          </li>
-        </ul>
-        <p>
-          <span class="rfc2119-assertion" id="arch-op-request-method">
-            The request method MUST identify one method of
-            the standard set of the protocol identified by the
-            submission target URI scheme.
-          </span>
-        </p>
-        <p>
-          <span class="rfc2119-assertion" id="arch-op-expected-request">
-            Form fields are optional and MAY further specify the
-            expected request message for the given operation.
-          </span>
-          Note that this is not limited to the payload, but may affect also protocol headers.
-          <span class="rfc2119-assertion" id="arch-op-form-fields-protocol">
-            Form fields MAY depend on the protocol used for the
-            submission target as specified in the URI scheme.
-          </span>
-          Examples are HTTP header fields,
-          CoAP options, the protocol-independent media type [[!RFC2046]] including parameters (i.e., full content type)
-          for the request payload, or information about the expected response.
-        </p>
-        <p class="ednote">As of this specification, the
-          well-known operation types are a fixed set that
-          results from the WoT <a>Interaction Model</a>. Other
-          specifications may define further well-known
-          operation types that are valid for their respective
-          document format or form serialization. Later versions of
-          this specification or another specification may set up an IANA registry in
-          the future to enable extension and a more
-          generic Web form model that may be applied beyond
-          WoT specifications.
-        </p>
+            However, in the common case, they will
+            also be URIs [[!RFC3986]], because many protocols
+            (such as HTTP) do not support IRIs.</p>
+          <p>
+            <span class="rfc2119-assertion" id="arch-form-iris2">
+              Form context and submission target MAY point to
+              the same resource or different resources, where the
+              submission target resource implements the operation
+              for the context.
+            </span></p>
+          <p>
+        </section>
+
+        <section id="operation-types">
+          <h4>Operation Types</h4>
+          <p>
+              Form Operation Types describe the intended semantics of performing the operation
+              described by the form.
+          </p>
+          <p>
+              For example, the Property interaction allows read and write operations, denoted by <code>readproperty</code> 
+              and <code>writeproperty</code>. The protocol binding may contain a form for the read operation and a different
+              form for the write operation. The value of the <code>op</code> attribute of the form
+              indicates which form is which and allows the Consumer to select the correct
+              form for the required operation.
+          </p>
+          <p>
+              Please see [[WOT-THING-DESCRIPTION]] for a full list of operation types and their meanings.
+          </p>
+
+        </section>
+
+        <section id="request-method">
+          <h4>Request Method</h4>
+        
+          <p>
+            Each target protocol may specify different method names for similar
+            operations, and there may be semantic differences between similar method names of
+            different protocols. Additionally, platforms may use different methods
+            for realizing a particular WoT Interaction Affordance. For example, <code>POST</code> may
+            be used for writing a Property value in one platform, while <code>PUT</code> may be
+            used in another. For these reasons, W3C WoT requires the ability to specify
+            which method to use for a particular interaction. 
+          </p>
+
+          <p>
+              <span class="rfc2119-assertion" id="arch-op-request-method">
+                Thus, the request method MUST identify one method of the standard set of the protocol identified by the
+                submission target URI scheme.
+              </span>
+          </p>
+        </section>
+
+        <section id="protocol-options">
+          <h2>Protocol Methods and Options</h2>
+  
+          <p>
+              Header options in various protocols sometimes must be included in a protocol binding in order to
+              successfully interact with the underlying protocol. For example, the Thing might require the Consumer to set
+               the <code>Accept</code> header to <code>application/json</code> for reading a property.
+               <span class="rfc2119-assertion" id="arch-op-expected-request">
+                Thus, the optional form fields MAY further specify the expected request message for the given operation.
+              </span>
+              <span class="rfc2119-assertion" id="arch-op-form-fields-protocol">
+                Form fields MAY depend on the protocol used for the submission target as specified in the URI scheme.
+              </span>
+          </p>
+
+          <p>
+              Additionally, protocols may have defined sub-protocols that can be used for some interaction
+              types. For example, to receive asynchronous notifications using HTTP, some
+              servers may support long polling (<code>longpoll</code>), WebSub [[WebSub]]
+              (<code>websub</code>) and Server-Sent Events [[eventsource]] (<code>sse</code>).
+          </p>
+  
       </section>
+        
+    </section>
     </section>
     <section id="sec-protocol-bindings">
       <h2>Protocol Bindings</h2>
