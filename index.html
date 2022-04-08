@@ -2511,11 +2511,12 @@
         <h3>URIs</h3>
         <p>
           Hypermedia controls rely on URIs [[!RFC3986]] to identify link and submission targets.
-          Thereby, the URI scheme (the first component up to ":") identifies the
+          Thereby, the URI scheme (the first component up to <code>:</code>) identifies the
           communication protocol to be used for <a>Interaction Affordance</a>s with the Thing.
           W3C WoT refers to these protocols as <a>transport protocols</a>.
         </p>
       </section>
+    </section>
       <section id="media-types">
         <h3>Media Types</h3>
         <p>
@@ -2537,8 +2538,8 @@
           This needs to be considered in particular when describing data to be sent to <a>Things</a>.
           There might also be standardized transformations on the data such as content coding [[?RFC7231]].
           <span class="rfc2119-assertion" id="arch-media-type-extra">
-            Protocol Bindings MAY have additional information that specifies representation formats
-            in more detail than the media type alone.
+            Protocol Bindings MAY have additional information through the use of external ontologies that specifies
+             representation formats in more detail than the media type alone.
           </span>
         </p>
         <p>
@@ -2552,7 +2553,6 @@
           </span>
         </p>
       </section>
-    </section>
     <section id="sec-wot-servient-architecture-high-level">
       <h2>WoT System Components and their Interconnectivity</h2>
 
