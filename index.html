@@ -3998,19 +3998,19 @@
         <dl>
           <dt>Mitigation:</dt>
 	  <dd>
-	  <span class="rfc2119-assertion" id="security-consideration-separate-security-data">
+	  <span class="rfc2119-assertion" id="arch-security-consideration-separate-security-data">
           There SHOULD be a strict separation of
           <a>Public Security Metadata</a> and <a>Private Security Data</a>.
           </span>
-	  <span class="rfc2119-assertion" id="security-consideration-public-metadata-only">
+	  <span class="rfc2119-assertion" id="arch-security-consideration-public-metadata-only">
 	  <a>Producers</a> of TDs and extensions meant to be used in TDs
           MUST ensure that only <a>Public Security Metadata</a>
           is ever stored in TDs.</span>
-	  <span class="rfc2119-assertion" id="security-consideration-auth-private-data">
+	  <span class="rfc2119-assertion" id="arch-security-consideration-auth-private-data">
 	  Authentication and authorization 
 	  SHOULD be established based on separately managed <a>Private Security Data</a>.
 	  </span>
-	  <span class="rfc2119-assertion" id="security-consideration-no-private-security-data">
+	  <span class="rfc2119-assertion" id="arch-security-consideration-no-private-security-data">
           <a>Producers</a> of TDs MUST ensure that no <a>Private
           Security Data</a> is included in <a>TDs</a>.
           </span>
@@ -4036,11 +4036,11 @@
           Configure any communication security metadata for an
 	  <a>IoT Platform</a> used with WoT following
 	  best practices for that <a>IoT Platform</a>.
-	  <span class="rfc2119-assertion" id="security-consideration-communication-binding">
+	  <span class="rfc2119-assertion" id="arch-security-consideration-communication-binding">
             Whenever possible, TD creators SHOULD use the vetted communication
             metadata provided in the <a>WoT Binding Templates</a>. 
           </span>
-	  <span class="rfc2119-assertion" id="security-consideration-communication-platform">
+	  <span class="rfc2119-assertion" id="arch-security-consideration-communication-platform">
             When generating TDs for an IoT
             ecosystem not covered by the <a>WoT Binding
               Templates</a>, TD creators SHOULD ensure that all the security
@@ -4064,7 +4064,7 @@
         mitigations.
       </p>
       <p>
-      <span class="rfc2119-assertion" id="security-consideration-other-programming-mechanisms">
+      <span class="rfc2119-assertion" id="arch-security-consideration-other-programming-mechanisms">
 	In general, 
 	these risks and mitigations should also be applied to any system
 	that supports programmable behavior for WoT systems,
@@ -4095,12 +4095,12 @@
         <dl>
           <dt>Mitigation:</dt>
           <dd>
-	    <span class="rfc2119-assertion" id="security-consideration-isolation-sensitive">
+	    <span class="rfc2119-assertion" id="arch-security-consideration-isolation-sensitive">
             The <a>WoT Runtime</a> SHOULD perform isolation of
             script instances and their data in cases when
             scripts handle sensitive data. 
 	    </span>
-	    <span class="rfc2119-assertion" id="security-consideration-isolation-tenants">
+	    <span class="rfc2119-assertion" id="arch-security-consideration-isolation-tenants">
 	    Similarly, the <a>WoT Runtime</a>
             implementation SHOULD perform isolation of <a>WoT
               Runtime</a> instances and their data if a WoT
@@ -4129,18 +4129,18 @@
         <dl>
           <dt>Mitigation:</dt>
           <dd>
-	    <span class="rfc2119-assertion" id="security-consideration-avoid-direct">
+	    <span class="rfc2119-assertion" id="arch-security-consideration-avoid-direct">
             The <a>WoT Runtime</a> SHOULD NOT directly
             expose native device interfaces to the
             script developers. 
 	    </span>
-	    <span class="rfc2119-assertion" id="security-consideration-use-hal">
+	    <span class="rfc2119-assertion" id="arch-security-consideration-use-hal">
 	    A <a>WoT Runtime</a>
             implementation SHOULD provide a hardware
             abstraction layer for accessing the native
             device interfaces. 
 	    </span>
-	    <span class="rfc2119-assertion" id="security-consideration-hal-refuse-unsafe">
+	    <span class="rfc2119-assertion" id="arch-security-consideration-hal-refuse-unsafe">
 	    Hardware abstraction
             layers SHOULD refuse to execute commands that
             might put the device (or environment) to an
@@ -4173,7 +4173,7 @@
         <dl>
           <dt>Mitigation:</dt>
           <dd>
-	    <span class="rfc2119-assertion" id="security-consideration-secure-update">
+	    <span class="rfc2119-assertion" id="arch-security-consideration-secure-update">
             Post-manufacturing provisioning or update of
             scripts, the <a>WoT Runtime</a> itself or any
             related data SHOULD be done in a secure fashion.
@@ -4200,19 +4200,19 @@
         <dl>
           <dt>Mitigation:</dt>
           <dd>
-	    <span class="rfc2119-assertion" id="security-consideration-secure-cred-storage">
+	    <span class="rfc2119-assertion" id="arch-security-consideration-secure-cred-storage">
             The <a>WoT Runtime</a> SHOULD securely store any
             provisioned security credentials, guaranteeing
             their integrity and confidentiality. 
 	    </span>
-	    <span class="rfc2119-assertion" id="security-consideration-secure-cred-isolation">
+	    <span class="rfc2119-assertion" id="arch-security-consideration-secure-cred-isolation">
 	    In case
             there are more than one tenant on a single
             WoT-enabled device, a <a>WoT Runtime</a>
             implementation should guarantee isolation of
             each tenant's provisioned security credentials.
 	    </span>
-	    <span class="rfc2119-assertion" id="security-consideration-no-expose-cred">
+	    <span class="rfc2119-assertion" id="arch-security-consideration-no-expose-cred">
             Additionally, in order to minimize a risk that
             provisioned security credentials get
             compromised, the <a>WoT Runtime</a>
@@ -4220,7 +4220,7 @@
             scripts to query the provisioned security
             credentials.
 	    </span>
-	    <span class="rfc2119-assertion" id="security-consideration-limit-cred-access">
+	    <span class="rfc2119-assertion" id="arch-security-consideration-limit-cred-access">
 	    Such credentials (or even better,
             abstract operations that use them but do not
             expose them) SHOULD only be accessible to the underlying 
@@ -4261,7 +4261,7 @@
       <dl>
         <dt>Mitigation:</dt>
         <dd>
-	<span class="rfc2119-assertion" id="security-consideration-limit-trust">
+	<span class="rfc2119-assertion" id="arch-security-consideration-limit-trust">
 	Trust relationships SHOULD be as restricted as possible,
 	ideally pairwise and limited to precisely the access
 	required.  
@@ -4269,14 +4269,14 @@
 	As noted, in some situations this is difficult to manage and
 	implicit access such as described is used, and may even be 
 	assumed by certain entities, such as browsers.
-	<span class="rfc2119-assertion" id="security-consideration-segmented-network">
+	<span class="rfc2119-assertion" id="arch-security-consideration-segmented-network">
 	In the case of implicit access control via access to a common network
 	a segmented network SHOULD be used.
 	</span>
 	For example, in the home environment,
 	a separate WiFi network can be used for IoT devices, and routers
 	often provide a "guest" network that can be used for this purpose.
-	<span class="rfc2119-assertion" id="security-consideration-use-psk">
+	<span class="rfc2119-assertion" id="arch-security-consideration-use-psk">
 	In commercial and industrial environments, 
 	explict installation of pre-shared
 	keys SHOULD be used to allow browsers to access local services
@@ -4357,27 +4357,27 @@
         <dl>
           <dt>Mitigation:</dt>
           <dd>
-	    <span class="rfc2119-assertion" id="privacy-consideration-min-explicit-pii">
+	    <span class="rfc2119-assertion" id="arch-privacy-consideration-min-explicit-pii">
 	    Storage of explicit PII in TDs SHOULD be minimized
             as much as possible. 
 	    </span>
 	    Even without explicit PII
             in TDs, a tracking and identification privacy
             risk may exist. 
-	    <span class="rfc2119-assertion" id="privacy-consideration-explicit-pii"> 
+	    <span class="rfc2119-assertion" id="arch-privacy-consideration-explicit-pii"> 
 	    TDs that can be associated with a person
 	    SHOULD generally be treated as if they contained PII and
             subject to the same management policies as other PII, even if they
 	    do not explicitly contain it.
 	    </span>
-	    <span class="rfc2119-assertion" id="privacy-consideration-dist-td-auth"> 
+	    <span class="rfc2119-assertion" id="arch-privacy-consideration-dist-td-auth"> 
 	    Distribution mechanisms for TDs SHOULD ensure they are 
 	    only provided to authorized Consumers.
 	    </span>
 	    Note that the <a>WoT Discovery</a> mechanism is designed to address this
 	    specific issue, as long as it is used with authentication and access
 	    controls on exploration services.
-	    <span class="rfc2119-assertion" id="privacy-consideration-no-unness-info-td"> 
+	    <span class="rfc2119-assertion" id="arch-privacy-consideration-no-unness-info-td"> 
             Unnecessary information
             SHOULD NOT be exposed in TDs whenever possible.
 	    </span>
