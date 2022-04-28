@@ -3917,13 +3917,8 @@
     </section>
   </section>
 
-  <section id="sec-security-considerations" class="informative">
+  <section id="sec-security-considerations">
     <h1>Security Considerations</h1>
-    <p class="ednote">
-        Need to be updated to include points noted in <a href="https://github.com/w3c/wot-architecture/issues/672">Architecture Issue 672</a>.
-	Also needs to be refactored into separate sections, which is going to require
-	rewriting the intro (see the next section).  Also the ids and references all need to be updated...
-    </p>
     <p>
       Security is a cross-cutting issue that needs to be considered
       in all <a href="#sec-building-blocks">WoT
@@ -3989,20 +3984,10 @@
         <h5>Thing Description Private Security Data Risk</h5>
         <p>
           TDs are designed to carry only <a>Public Security Metadata</a>.
-          <a>Producers</a> of TDs must ensure that no <a>Private
-            Security Data</a> is included in <a>TDs</a>.
-          There should be a strict separation of
-          <a>Public Security Metadata</a> and <a>Private Security Data</a>.
-          A TD should contain only
-          <a>Public Security Metadata</a>, letting <a>Consumers</a> know what
-          they need to do to access as system if and only if
-          they have authorization. Authorization in turn
-          should be based on separately managed private
-          information.
-        </p>
-        <p>The built-in TD security schemes defined in the
+          The built-in TD security schemes defined in the
           TD specification intentionally do not support the encoding of
-          <a>Private Security Data</a>. However, there is a risk that
+          <a>Private Security Data</a>. 
+	  However, there is a risk that
           other fields such as
           human-readable descriptions might be misused
           to encode this information, or new
@@ -4012,33 +3997,56 @@
         </p>
         <dl>
           <dt>Mitigation:</dt>
-          <dd>Creators of TDs and extensions meant to be used in TDs
-            must ensure that only <a>Public Security Metadata</a>
-            is ever stored in TDs.</dd>
+	  <dd>
+	  <span class="rfc2119-assertion" id="security-consideration-separate-security-data">
+          There SHOULD be a strict separation of
+          <a>Public Security Metadata</a> and <a>Private Security Data</a>.
+          </span>
+	  <span class="rfc2119-assertion" id="security-consideration-public-metadata-only">
+	  <a>Producers</a> of TDs and extensions meant to be used in TDs
+          MUST ensure that only <a>Public Security Metadata</a>
+          is ever stored in TDs.</span>
+	  <span class="rfc2119-assertion" id="security-consideration-auth-private-data">
+	  Authentication and authorization 
+	  SHOULD be established based on separately managed <a>Private Security Data</a>.
+	  </span>
+	  <span class="rfc2119-assertion" id="security-consideration-no-private-security-data">
+          <a>Producers</a> of TDs MUST ensure that no <a>Private
+          Security Data</a> is included in <a>TDs</a>.
+          </span>
+	  </dd>
         </dl>
       </section>
       <section id="sec-security-consideration-td-cm">
         <h5>Thing Description Communication Metadata Risk</h5>
         <p>
-          The <a>WoT Binding Templates</a> must correctly
-          support the security mechanisms employed by the
-          underlying <a>IoT Platform</a> for that platform to
-          be considered eligible for use with WoT. Due to the
+	  Without best-practice configuration of security mechanisms, communication
+	  with IoT devices is at greater risk of being intercepted or compromised.
+	  <!-- Following is true, but doesn't really fit here.
+          Due to the
           automation of network interactions necessary to
           deploy IoT at scale, operators need to ensure that <a>Things</a>
           are exposed and consumed in a way that is compliant
           with their security policies.
+	  -->
         </p>
         <dl>
           <dt>Mitigation:</dt>
           <dd>
-            Whenever possible, TD creators should use the vetted communication
-            metadata provided in the <a>WoT Binding
-              Templates</a>. When generating TDs for an IoT
+          Configure any communication security metadata for an
+	  <a>IoT Platform</a> used with WoT following
+	  best practices for that <a>IoT Platform</a>.
+	  <span class="rfc2119-assertion" id="security-consideration-communication-binding">
+            Whenever possible, TD creators SHOULD use the vetted communication
+            metadata provided in the <a>WoT Binding Templates</a>. 
+          </span>
+	  <span class="rfc2119-assertion" id="security-consideration-communication-platform">
+            When generating TDs for an IoT
             ecosystem not covered by the <a>WoT Binding
-              Templates</a>, ensure that all the security
+              Templates</a>, TD creators SHOULD ensure that all the security
             requirements of the <a>IoT Platform</a> are
             satisfied.
+          </span>
           </dd>
         </dl>
       </section>
@@ -4054,6 +4062,14 @@
           Scripting API</a> should consider the following
         security and privacy risks and implement the recommended
         mitigations.
+      </p>
+      <p>
+      <span class="rfc2119-assertion" id="security-consideration-other-programming-mechanisms">
+	In general, 
+	these risks and mitigations should also be applied to any system
+	that supports programmable behavior for WoT systems,
+	not just the <a>WoT Scripting API</a>.
+      </span>
       </p>
       <section id="sec-security-consideration-cross-script">
         <h5>Cross-Script Security Risk</h5>
@@ -4079,13 +4095,18 @@
         <dl>
           <dt>Mitigation:</dt>
           <dd>
-            The <a>WoT Runtime</a> should perform isolation of
+	    <span class="rfc2119-assertion" id="security-consideration-isolation-sensitive">
+            The <a>WoT Runtime</a> SHOULD perform isolation of
             script instances and their data in cases when
             scripts handle sensitive data. 
+	    </span>
+	    <span class="rfc2119-assertion" id="security-consideration-isolation-tenants">
 	    Similarly, the <a>WoT Runtime</a>
-            implementation should perform isolation of <a>WoT
+            implementation SHOULD perform isolation of <a>WoT
               Runtime</a> instances and their data if a WoT
-            device has more than one tenant. Such isolation
+            device has more than one tenant. 
+	    </span>
+	    Such isolation
             can be performed within the <a>WoT Runtime</a>
             using platform security mechanisms available on
             the device. For more information see Sections
@@ -4108,15 +4129,24 @@
         <dl>
           <dt>Mitigation:</dt>
           <dd>
-            The <a>WoT Runtime</a> should avoid directly
-            exposing the native device interfaces to the
-            script developers. Instead a <a>WoT Runtime</a>
-            implementation should provide a hardware
+	    <span class="rfc2119-assertion" id="security-consideration-avoid-direct">
+            The <a>WoT Runtime</a> SHOULD NOT directly
+            expose native device interfaces to the
+            script developers. 
+	    </span>
+	    <span class="rfc2119-assertion" id="security-consideration-use-hal">
+	    A <a>WoT Runtime</a>
+            implementation SHOULD provide a hardware
             abstraction layer for accessing the native
-            device interfaces. Such hardware abstraction
-            layer should refuse to execute commands that
+            device interfaces. 
+	    </span>
+	    <span class="rfc2119-assertion" id="security-consideration-hal-refuse-unsafe">
+	    Hardware abstraction
+            layers SHOULD refuse to execute commands that
             might put the device (or environment) to an
-            unsafe state. Additionally, in order to reduce
+            unsafe state. 
+	    </span>
+	    Additionally, in order to reduce
             the damage to a physical WoT device in cases a
             script gets compromised, it is important to
             minimize the number of interfaces that are
@@ -4143,9 +4173,11 @@
         <dl>
           <dt>Mitigation:</dt>
           <dd>
+	    <span class="rfc2119-assertion" id="security-consideration-secure-update">
             Post-manufacturing provisioning or update of
             scripts, the <a>WoT Runtime</a> itself or any
-            related data should be done in a secure fashion.
+            related data SHOULD be done in a secure fashion.
+	    </span>
             A set of recommendations for secure update and
             post-manufacturing provisioning can be found in
             the <em>WoT Security and Privacy Guidelines</em>
@@ -4168,22 +4200,32 @@
         <dl>
           <dt>Mitigation:</dt>
           <dd>
-            The <a>WoT Runtime</a> should securely store any
+	    <span class="rfc2119-assertion" id="security-consideration-secure-cred-storage">
+            The <a>WoT Runtime</a> SHOULD securely store any
             provisioned security credentials, guaranteeing
-            their integrity and confidentiality. In case
+            their integrity and confidentiality. 
+	    </span>
+	    <span class="rfc2119-assertion" id="security-consideration-secure-cred-isolation">
+	    In case
             there are more than one tenant on a single
             WoT-enabled device, a <a>WoT Runtime</a>
             implementation should guarantee isolation of
             each tenant's provisioned security credentials.
+	    </span>
+	    <span class="rfc2119-assertion" id="security-consideration-no-expose-cred">
             Additionally, in order to minimize a risk that
             provisioned security credentials get
             compromised, the <a>WoT Runtime</a>
-            implementation should not expose any API for
+            implementation SHOULD NOT expose any API for
             scripts to query the provisioned security
-            credentials. Such credentials (or even better,
+            credentials.
+	    </span>
+	    <span class="rfc2119-assertion" id="security-consideration-limit-cred-access">
+	    Such credentials (or even better,
             abstract operations that use them but do not
-            expose them) should only be accessible to the <a>Protocol
-              Binding</a> implementation that uses them.
+            expose them) SHOULD only be accessible to the underlying 
+            protocol implementation that uses them.
+	    </span>
           </dd>
         </dl>
       </section>
@@ -4218,29 +4260,37 @@
       </p>
       <dl>
         <dt>Mitigation:</dt>
-        <dd>Trust relationships should be as restricted as possible,
-	and ideally pairwise and limited to precisely the access
+        <dd>
+	<span class="rfc2119-assertion" id="security-consideration-limit-trust">
+	Trust relationships SHOULD be as restricted as possible,
+	ideally pairwise and limited to precisely the access
 	required.  
+	</span>
 	As noted, in some situations this is difficult to manage and
 	implicit access such as described is used, and may even be 
 	assumed by certain entities, such as browsers.
-	However, even in these cases security can be strengthened by
-	using a segmented network. For example, in the home environment,
+	<span class="rfc2119-assertion" id="security-consideration-segmented-network">
+	In the case of implicit access control via access to a common network
+	a segmented network SHOULD be used.
+	</span>
+	For example, in the home environment,
 	a separate WiFi network can be used for IoT devices, and routers
 	often provide a "guest" network that can be used for this purpose.
+	<span class="rfc2119-assertion" id="security-consideration-use-psk">
 	In commercial and industrial environments, 
 	explict installation of pre-shared
-	keys can be used to allow browsers to access local services
-	while using TLS.  In this case however it should be noted that
-	using a single key for a large number of services is
-	equivalent to the situation above.  However, once TLS is
+	keys SHOULD be used to allow browsers to access local services
+	while using TLS.
+	</span>
+	Using a single key for a large number of services is
+	equivalent to the "implicit access" situation above.  However, once TLS is
 	enabled other security mechanisms that assume secure transport
 	can be used to provide fine-grained access control.
         </dd>
       </dl>
     </section>
   </section>
-  <section id="sec-privacy-considerations" class="informative">
+  <section id="sec-privacy-considerations">
     <h1>Privacy Considerations</h1>
     <p>
       Privacy is a cross-cutting issue that needs to be considered
@@ -4290,7 +4340,7 @@
           personal information. For example, a medical device
           may be used to infer that the user has a medical condition.
         </p>
-        <p>Generally, Personally Identifiable Information in
+	<p>Generally, <a>Personally Identifiable Information</a> in
           a TD should be limited as much as possible. In some
           cases, however, it cannot be avoided. The potential
           presence of both direct and inferencable
@@ -4306,18 +4356,33 @@
           the use of PII.</p>
         <dl>
           <dt>Mitigation:</dt>
-          <dd>Storage of explicit PII in TDs should be minimized
-            as much as possible. Even without explicit PII
+          <dd>
+	    <span class="rfc2119-assertion" id="privacy-consideration-min-explicit-pii">
+	    Storage of explicit PII in TDs SHOULD be minimized
+            as much as possible. 
+	    </span>
+	    Even without explicit PII
             in TDs, a tracking and identification privacy
-            risk may exist. To minimize this risk, TDs
-            should generally be treated as if they contained PII and
-            subject to the same management policies as other
-            PII. They should only be provided to authorized
-            Consumers.
-            Information unnecessary for a specific use case
-            should not be exposed in TDs whenever possible.
+            risk may exist. 
+	    <span class="rfc2119-assertion" id="privacy-consideration-explicit-pii"> 
+	    TDs that can be associated with a person
+	    SHOULD generally be treated as if they contained PII and
+            subject to the same management policies as other PII, even if they
+	    do not explicitly contain it.
+	    </span>
+	    <span class="rfc2119-assertion" id="privacy-consideration-dist-td-auth"> 
+	    Distribution mechanisms for TDs SHOULD ensure they are 
+	    only provided to authorized Consumers.
+	    </span>
+	    Note that the <a>WoT Discovery</a> mechanism is designed to address this
+	    specific issue, as long as it is used with authentication and access
+	    controls on exploration services.
+	    <span class="rfc2119-assertion" id="privacy-consideration-no-unness-info-td"> 
+            Unnecessary information
+            SHOULD NOT be exposed in TDs whenever possible.
+	    </span>
             For example, explicit type and instance identifying information in TDs should
-            also not be included if it is not needed by the use case.
+            only be included if it is needed by the use case.
             Even if required by the use case,
             to minimize tracking risks, distributed and limited-scope
             identifiers should be used whenever possible rather than
@@ -4336,6 +4401,7 @@
 
     <h2 id="changes-from-recommendation-1.0">Changes from the 1.0 version of [[wot-architecture]]</h2>
     <ul>
+      <li>Make Security Considerations and Privacy Considerations normative.</li>
       <li>Add definitions for Connected Device (a.k.a. Device), Service, and Shadow.  
 	  Update definitions for
 	  Virtual Thing and Digital Twin.  
