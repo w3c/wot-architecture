@@ -3984,29 +3984,10 @@
         <h5>Thing Description Private Security Data Risk</h5>
         <p>
           TDs are designed to carry only <a>Public Security Metadata</a>.
-	  <span class="rfc2119-assertion" id="security-consideration-no-private-security-data">
-          <a>Producers</a> of TDs MUST ensure that no <a>Private
-            Security Data</a> is included in <a>TDs</a>.
-          </span>
-	  <span class="rfc2119-assertion" id="security-consideration-separate-security-data">
-          There SHOULD be a strict separation of
-          <a>Public Security Metadata</a> and <a>Private Security Data</a>.
-          </span>
-	  <span class="rfc2119-assertion" id="security-consideration-only-public-security-data">
-          A TD SHOULD contain only
-          <a>Public Security Metadata</a>, letting <a>Consumers</a> know what
-          they need to do to access a system if and only if
-          they have authorization. 
-	  </span>
-	  <span class="rfc2119-assertion" id="security-consideration-auth-private-data">
-	  Authorization 
-          SHOULD be based on separately managed private
-          information.
-	  </span>
-        </p>
-        <p>The built-in TD security schemes defined in the
+          The built-in TD security schemes defined in the
           TD specification intentionally do not support the encoding of
-          <a>Private Security Data</a>. However, there is a risk that
+          <a>Private Security Data</a>. 
+	  However, there is a risk that
           other fields such as
           human-readable descriptions might be misused
           to encode this information, or new
@@ -4016,10 +3997,23 @@
         </p>
         <dl>
           <dt>Mitigation:</dt>
-	  <dd><span class="rfc2119-assertion" id="security-consideration-public-metadata-only">
-	    Creators of TDs and extensions meant to be used in TDs
-            MUST ensure that only <a>Public Security Metadata</a>
-            is ever stored in TDs.</span>
+	  <dd>
+	  <span class="rfc2119-assertion" id="security-consideration-separate-security-data">
+          There SHOULD be a strict separation of
+          <a>Public Security Metadata</a> and <a>Private Security Data</a>.
+          </span>
+	  <span class="rfc2119-assertion" id="security-consideration-public-metadata-only">
+	  <a>Producers</a> of TDs and extensions meant to be used in TDs
+          MUST ensure that only <a>Public Security Metadata</a>
+          is ever stored in TDs.</span>
+	  <span class="rfc2119-assertion" id="security-consideration-auth-private-data">
+	  Authentication and authorization 
+	  SHOULD be established based on separately managed <a>Private Security Data</a>.
+	  </span>
+	  <span class="rfc2119-assertion" id="security-consideration-no-private-security-data">
+          <a>Producers</a> of TDs MUST ensure that no <a>Private
+          Security Data</a> is included in <a>TDs</a>.
+          </span>
 	  </dd>
         </dl>
       </section>
@@ -4059,8 +4053,6 @@
     </section>
     <section id="sec-security-consideration-scripting-risks">
       <h2>WoT Scripting API Risks</h2>
-      <!-- The following perhaps should be generalized to any automation/orchestration/programming
-	      system, not just the scripting API -->
       <p>
         The <a>WoT Runtime</a> implementation and the <a>WoT
           Scripting API</a> should have mechanisms to prevent
@@ -4070,6 +4062,12 @@
           Scripting API</a> should consider the following
         security and privacy risks and implement the recommended
         mitigations.
+      </p>
+      <p>
+	In general, 
+	these risks and mitigations should also be applied to any system
+	that supports programmable behavior for WoT systems,
+	not just the <a>WoT Scripting API</a>.
       </p>
       <section id="sec-security-consideration-cross-script">
         <h5>Cross-Script Security Risk</h5>
@@ -4374,6 +4372,9 @@
 	    Distribution mechanisms for TDs SHOULD ensure they are 
 	    only provided to authorized Consumers.
 	    </span>
+	    Note that the <a>WoT Discovery</a> mechanism is designed to address this
+	    specific issue, as long as it is used with authentication and access
+	    controls on exploration services.
 	    <span class="rfc2119-assertion" id="privacy-consideration-no-unness-info-td"> 
             Unnecessary information
             SHOULD NOT be exposed in TDs whenever possible.
