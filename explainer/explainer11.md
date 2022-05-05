@@ -23,7 +23,6 @@ The architecture document lays the foundation for the WoT building block specifi
 - the <a href="https://w3c.github.io/wot-thing-description/">WoT Thing Description</a> (REC Track),
 - the <a href="https://w3c.github.io/wot-profile/">WoT Profile</a>,
 - the <a href="https://w3c.github.io/wot-binding-templates/">WoT Binding Templates</a>,
-- the <a href="https://w3c.github.io/wot-profile/">WoT Profile</a>,
 - the <a href="https://w3c.github.io/wot-discovery/">WoT Discovery</a>, and
 - the <a href="https://w3c.github.io/wot-security/">WoT Security and Privacy Considerations</a>.
 
@@ -146,7 +145,7 @@ to implement each interaction in a concrete protocol
 (what we will call the protocol binding),
 and its security configuration.
 
-<img src="https://github.com/w3c/wot-architecture/blob/master/images/wot-abstract-arch.png"/>
+<img src="../images/wot-abstract-arch.png"/>
 
 The behavior aspect of a WoT Thing 
 includes both lifecycle management
@@ -192,7 +191,7 @@ building blocks do not map 1:1 to these architectural aspects.
 The WoT Thing Description in particular connects in some
 way to all the aspects.
 
-<img src="https://github.com/w3c/wot-architecture/blob/master/images/wot-building-blocks-abstract.png"/>
+<img src="../images/wot-building-blocks-abstract.png"/>
 
 #### WoT Thing Description
 The primary building block is the
@@ -212,13 +211,17 @@ processing and semantic annotation and inteferencing.
 #### WoT Profile
 The WoT profile 
 <a href="https://w3c.github.io/wot-profile/">WoT Profile</a>, 
-defines a Profiling Mechanism and a WoT Core Profile,
+defines a Profiling Mechanism and a HTTP Baseline Profile,
 which enables out-of-the-box interoperability among things and devices.
 Out-of-the-box interoperability implies that devices can be integrated together
 into various application scenarios without deep level adaptations.
 Typically only minor configuration operations are necessary
 (such as entering a network key, or IP address) to use the device in a certain scenario.
 These actions can be done by anyone without specific training.
+In addition, the WoT Profile specification defines the HTTP SSE Profile 
+and the HTTP Webhook profile. These enable asynchronous notifications.
+The HTTP SSE Profile is using the SSE protocol, the HTTP Webhook Profile 
+uses a WebHook mechanism.
 
 #### WoT Discovery
 // TODO: add description 
