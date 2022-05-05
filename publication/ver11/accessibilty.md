@@ -45,8 +45,9 @@ was not in the scope of our current charter.
 
 ### [no] There is a defined way for a non-visual rendering to be created.	
 No.
-### [no] Content can be resized.	
-No specified mechanism.
+### [possible] Content can be resized.	
+No specified mechanism, although it would be possible for a WoT Thing
+implementation supporting a display function to provide this capability.
 ### [possible] Luminosity and hue contrast can adapt to user requirements.	
 No specified mechanism, although WoT TDs for lights usually have such controls, and WoT supports them.
 ### [possible] Text presentation attributes can be changed.
