@@ -1,49 +1,52 @@
-# Web of Things Architecture Explained
+# Web of Things (WoT) Architecture Explained
 
 The W3C Web of Things (WoT) was created to counter the fragmentation of the IoT market:
 The variety of pre-existing standards and vendor-specific platforms in the various verticals (i.e., application domains) has led to data and application silos and many difficult system integration problems.
 By some estimates, [up to 40% of the value of the IoT](https://www.mckinsey.com/business-functions/digital-mckinsey/our-insights/the-internet-of-things-the-value-of-digitizing-the-physical-world) is only acheivable through interoperabilty, which is the primary goal of the Web of Things.
 
 W3C WoT acknowledges that the IoT emerged from and incorporates various established ecosystems with existing platforms and standards that reflect the diversified requirements of IoT applications (e.g., network protocols, data models).
-Thus, W3C WoT uses Web technology to **formally describe the interfaces** of IoT devices and platforms to ease the integration across ecosystems and application domains.
-The idea is that rich metadata based on URIs, hypermedia controls, and collaborative schema definitions (cf. [schema.org]()) allows clients to adapt to the peculiarities of a given IoT platform by configuring its (vanilla) protocol stack with the metadata (e.g., only one CoAP stack for OCF, oneM2M, LwM2M, and dotdot -- or re-using the same HTTP API instead of generating custom stubs for each "RESTful API").
+Thus, rather than attempting to establish yet another competing ecosystem,
+W3C WoT uses Web technology to **formally describe the interfaces** of IoT devices and platforms, including those in existing ecosystems, to ease the integration across ecosystems and application domains.
+The idea is that rich metadata based on URIs, hypermedia controls, and collaborative schema definitions (cf. [schema.org](https://schema.org)) allows clients to adapt to the peculiarities of a given IoT platform by configuring its (vanilla) protocol stack with appropriate metadata (e.g., enabling the use of only one CoAP stack for OCF, oneM2M, LwM2M, and dotdot -- or re-using the same HTTP API instead of generating custom stubs for each "RESTful API").
 
-The WoT Architecture document serves as an umbrella for all WoT specifications, and hence also sets the general goals of the W3C Web of Things.
-It defines the abstract architecture and spans the design space for current and future so-called building blocks, which are specified in separate documents.
-Specifically, the purpose of the WoT Architecture document is to provide
+The WoT Architecture document serves as an umbrella for all WoT specifications, and sets the general goals of the W3C Web of Things.
+It defines the abstract architecture and the design space for current and future building blocks, each of which are specified in separate documents.
+Specifically, the purpose of the WoT Architecture document is to provide:
+- basic terminology definitions;
+- use cases and derived requirements the W3C WoT Architecture should satisfy;
+- definitions of basic concepts and architectural constraints;
+- an overview of the WoT building blocks and their interplay; and
+- a guide for mapping the abstract architecture onto a variety of concrete deployment scenarios.
 
-- the basic terminology,
-- use cases and derived requirements the W3C WoT Architecture should satisfy,
-- definitions of the basic concepts and architectural constraints,
-- an overview over the WoT building block documents and their interplay, and
-- a guide for mapping the abstract architecture onto a variety of concrete deployment scenarios
-
-The architecture document lays the foundation for the WoT building block specifications:
+The architecture document lays the foundation for the following WoT building block specifications:
 
 - the <a href="https://w3c.github.io/wot-thing-description/">WoT Thing Description</a> (REC Track),
 - the <a href="https://w3c.github.io/wot-profile/">WoT Profile</a>,
 - the <a href="https://w3c.github.io/wot-binding-templates/">WoT Binding Templates</a>,
 - the <a href="https://w3c.github.io/wot-discovery/">WoT Discovery</a>, and
-- the <a href="https://w3c.github.io/wot-security/">WoT Security and Privacy Considerations</a>.
+- the <a href="https://w3c.github.io/wot-security/">WoT Security and Privacy Guidelines</a>.
 
-Of these, the WoT Security and Privacy Considerations provide a general analysis that cross-cuts the other building blocks, each of which also include their own specific security and privacy considerations.
+Of these, the WoT Security and Privacy Guidelines provide a general analysis that cross-cuts the other building blocks, each of which also include their own specific security and privacy considerations.
+
+In addition, the following optional/informative building blocks are defined:
+* <a href="https://w3c.github.io/wot-scripting-api/">WoT Scripting API</a>, and
+* <a href="https://w3c.github.io/wot-binding-templates/">WoT Binding Templates</a>.
 
 ## Goals
-
-* Simplify the integration of different IoT devices and platforms.
-* Complement existing IoT standards and platforms.
-* Build upon the Web architecture, in particular URIs, registered representation formats (media types), and hypermedia.
-* Allow for IP-based IoT protocols other than HTTP (given they fulfill the Uniform Interface constraint of REST).
-* Allow for different integration patterns: at the device level, gateway/edge node, and the cloud.
+The goals of the W3C Web of Things are to:
+* simplify the integration of different IoT devices and platforms;
+* complement existing IoT standards and platforms;
+* build upon the Web architecture, in particular URIs, registered representation formats (media types), and hypermedia;
+* allow for IP-based IoT protocols other than HTTP (given they fulfill the Uniform Interface constraint of REST); and
+* allow for different integration patterns: at the device level, gateway/edge node, and the cloud.
 
 ## Non-goals
-
-* Not trying to establish a new vertical solution for the IoT.
-* Not defining domain-specific aspects.
-* Not defining any new security mechanisms.
+The W3C Web of Things is *not* trying to achieve any of the following:
+* establishing a new vertical solution for the IoT;
+* defining domain-specific aspects of IoT systems; nor
+* defining any new security mechanisms.
 
 ## Application domains and use cases
-
 A set of use cases for a set of IoT application domains were collected to drive the 
 requirements for the WoT architecture.
 These use cases were chosen to be typical of IoT applications but were not meant
@@ -53,7 +56,7 @@ where connected things using WoT could provide additional benefit or enable new 
 
 These use cases and requirements are published at <a href="https://www.w3.org/TR/wot-usecases/">WoT Usecases and Requirements</a>.
 
-Application domains and use considered included 
+Application domains and use cases considered included 
 
 ### 1. Horizontal use cases that address multiple domains
 
@@ -88,7 +91,6 @@ Application domains and use considered included
 
 
 ## Key scenarios and common patterns
-
 Analysis of the use cases resulted in a set of common patterns of
 network and device configuration summarized in the following figure, which
 combines many of the patterns.  IoT services are often composed of services 
@@ -97,17 +99,20 @@ User interfaces are often exposed via the web or through applications on
 mobile devices such as phones.
 Devices themselves might be mobile and so their network location should
 not be tied to their physical location nor should such devices be
-treated as being continuously connected; an example is the connected car.
+treated as being continuously connected. 
+An example is the connected car,
+which will frequently be disconnected and when connected, connected through
+different network access points.
 Devices are often located behind firewalls and
-NATs in which case proxies may be required for traversal and visibility
+NATs (network address translators) 
+in which case proxies may be required for traversal and visibility
 outside the local network.  Digital twins may be required to mirror state
 for devices that are not continuously online for power-saving, mobility, or other reasons.
-Many usage scenarios involving timely action in the case of alerts
-require the use of "push" event notification and cannot rely
+Many usage scenarios involving timely action in the case of alerts.
+This may require the use of "push" event notification and cannot rely
 on pure request/response patterns driven by the client.
 
 ## Detailed design discussion
-
 The architecture document defines a common WoT Architecture and serves as an entry point and
 introduction to several other documents defining the WoT Building Blocks.
 
@@ -128,7 +133,8 @@ The main requirement for an IoT device or service to operate as part of a WoT sy
 (and be considered a "WoT Thing") is that _it must be described in a WoT Thing Description_.
 The WoT Thing Description provides basic metadata about a WoT Thing, 
 such as a name, description, and 
-id, and also provides all the metadata needed to interact with a device.
+id, and also provides all the metadata needed to interact with a device
+via its network interface.
 
 The Web of Things defines specific building blocks to allow the implementation of systems that
 conform with the abstract WoT Architecture.
@@ -157,7 +163,8 @@ network interactions, sensing, and actuation during "normal operation".
 The interaction aspect of a Thing can be described in terms
 of generic and abstract operations like setting and getting a property, 
 invoking an action, or subscribing to an event notification, among others.
-The WoT architecture separates these abstract interactions from their implementation in 
+The WoT architecture separates these abstract interactions from their 
+implementation in 
 particular protocols in order to enhance interoperability.
 A single WoT Thing may, in general, use multiple protocols,
 including but not limited to HTTP, CoAP, and MQTT.
@@ -224,16 +231,37 @@ The HTTP SSE Profile is using the SSE protocol, the HTTP Webhook Profile
 uses a WebHook mechanism.
 
 #### WoT Discovery
-// TODO: add description 
+The 
+<a href="https://w3c.github.io/wot-thing-description/">WoT Discovery</a>
+building block defines a process for distributing and obtaining WoT Thing Descriptions.
+It uses a two-stage architecture to manage the distribution of 
+WoT Thing Descriptions, using an open "introduction" services whose only
+purpose is to point to access-controlled "exploration" services.  
+WoT Discovery also allows for internet-wide discovery.  It is not limited
+to the local network.
 
+To preserve security and privacy, 
+in general WoT Discovery "exploration" services require
+authentication and authorization and only they, not "introductions",
+can distribute metadata.
+A variety of "introduction" services are defined based on existing 
+discovery mechanisms.  
+In fact, any mechanism that returns the URL of an "exploration" service
+may be used as an "introduction".
+Two "exploration" services are defined
+supporting both a queryable directory service for collections of Thing Descriptions
+and a self-description mechanism for devices providing their own
+Thing Descriptions directly.
 
 #### WoT Scripting API
-A second (optional) building block is the WoT Scripting API.
+An optional building block is the 
+[WoT Scripting API](https://w3c.github.io/wot-scripting-api/)
 This building block allows the definition of the behavior
 of a WoT Thing (responses to interactions) as well as
 the Consumption (parsing and use)
 and Exposure (construction and publication) of
 WoT Thing Descriptions.
+
 This building block is optional because devices can choose to
 implement behaviors and construct or consume WoT Thing Descriptions by other
 means than using the WoT Scripting API.
@@ -266,7 +294,7 @@ that explain how to encode the metadata needed to interact with different IoT pl
 in a WoT Thing Description.
 
 #### WoT Security and Privacy Considerations
-The final building block is security, which is a cross-cutting concern.
+The final building blocks are security and privacy, which are cross-cutting concerns.
 IoT devices and services generally have strong security and privacy requirements,
 and the WoT Architecture deals with this aspect of WoT systems in several ways.
 
@@ -280,8 +308,13 @@ private information (eg keys) rather than depending on security through obscurit
 Second, the WoT Scripting API is designed to not have direct access to
 private keying information.  This must be provisioned separately.
 
-Third, general security and privacy considerations, testing,
-and best practices are covered in separate publications.
+Third, WoT Discovery specifies a mechanism by which metadata can be
+security distributed only to entities with authorization to access it.
+
+Fourth, general security and privacy considerations, testing,
+and best practices are covered in a
+<a href="https://w3c.github.io/wot-security/">WoT Security and Privacy Guidelines</a>
+document.
 
 ## Considered alternatives
 
