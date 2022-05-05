@@ -8,8 +8,10 @@ including:
 * [Web of Things (WoT) Thing Description 1.1 (update)](https://www.w3.org/TR/wot-thing-description11/)
 * [Web of Things (WoT) Discovery (new)](https://www.w3.org/TR/wot-discovery/)
 * [Web of Things (WoT) Profile (new)](https://www.w3.org/TR/wot-profile/)
+* [Web of Things (WoT) Scripting API (update, informative)](https://www.w3.org/TR/wot-scripting-api/)
 Where a response is specifically relevant to a particular deliverable that 
-will be identified.
+will be identified.  
+"WoT TD" will be used as a short form for "WoT Thing Description".
 
 In general, WoT is concerned with enabling access to IoT devices at the protocol
 and network interaction level.  The deliverables currently do not directly address
@@ -54,15 +56,21 @@ No specified mechanism, although it would be possible for a WoT Thing
 implementation supporting a display function to provide this capability.
 ### [possible] Luminosity and hue contrast can adapt to user requirements.	
 No specified mechanism, 
-although WoT TDs for lights usually have such controls, and WoT supports them,
+although 
+[WoT TDs](https://www.w3.org/TR/wot-thing-description11/)
+for lights usually have such controls, and WoT supports them,
 so it would be possible to built systems using WoT with luminosity and hue that
 can be adapted to user needs.
 ### [possible] Text presentation attributes can be changed.
-No specified mechanism, although WoT TDS for WoT Things 
+No specified mechanism, although 
+[WoT TDs](https://www.w3.org/TR/wot-thing-description11/)
+for WoT Things 
 with visual displays may support controls
 that allow attributes of text, such as font and boldness, to be modified.
 ### [possible] Visual presentation of pointers and cursors can be adjusted.
-No specified mechanism, although WoT TDs may support such controls.
+No specified mechanism, although 
+[WoT TDs](https://www.w3.org/TR/wot-thing-description11/)
+may support such controls.
 ### [no] Changing content presentation does not render it unreadable.
 No specified mechanism for changing content presentation, 
 and in particular there are no controls *preventing* unreadability.
@@ -117,12 +125,14 @@ WoT does not constrain the behavior of such devices but does make information
 available which can be used to enhance their accessibility.
 
 ### [yes] There is a mechanism to label user input controls in an unambiguous and clear manner.
-WoT TDs have a "title" attribute for interactions
+[WoT TDs](https://www.w3.org/TR/wot-thing-description11/)
+have a "title" attribute for interactions
 which can be used to label an associated input control (but only if the device
 with the input control is capable of displaying text in association with the control, 
 which is often not the case).
 ### [yes] Authors can associate extended help information with a control.
-WoT TDs, in addition to "title", also have a "description" field which can contain extended text.
+[WoT TDs](https://www.w3.org/TR/wot-thing-description11/),
+in addition to "title", also have a "description" field which can contain extended text.
 In addition, a "link" can be used to hyperlink external documentation.
 ### [partial] If there is an input error, it is possible to associate the error message clearly with the specific control that is in error.
 To the extent that interactions in TDs are associated with input controls, then an error on
@@ -171,7 +181,9 @@ an entire Thing Description.
 There are mechanisms to add "titles" (and "descriptions") to 
 individual interactions described in a Thing Description.
 ### [yes] Authors can clearly indicate the target of a hyperlink and function of a control.
-Hyperlinks in WoT Thing Descriptions include the target URL and a relation type (specifying the function).
+Hyperlinks in 
+[WoT TDs](https://www.w3.org/TR/wot-thing-description11/)
+include the target URL and a relation type (specifying the function).
 ### [yes] Authors can indicate content language, for the page as a whole and for blocks of content.	
 There is a mechanism to define a default language, and also for textual content to be provided in
 multiple languages clearly identified with language tags.
@@ -180,26 +192,37 @@ There is no built-in mechanism to support definitions or expansion of specialize
 Authors, however, can of course expand acronyms in the text they provide.
 ### [no] Authors can support correct machine pronunciation of ambiguously spelled terms (e.g., in the phrase "I am content with this content" there are different correct pronunciations of the lexeme "content").
 ### [yes] Authors can identify regions of content, particularly the "main" region.	
-WoT TDs have a prescribed structure that limit where content can be placed, and there is one
+[WoT TDs](https://www.w3.org/TR/wot-thing-description11/)
+have a prescribed structure that limit where content can be placed, and there is one
 top-level such location.
 ### [yes] Declarative mechanisms (that have accessibility semantics pre-defined in the spec) are used to implement technology features whenever possible.
-The WoT Thing Description, which the WoT architecture is based on, is declarative in nature.
+[WoT TDs](https://www.w3.org/TR/wot-thing-description11/),
+which the WoT architecture is based on, are declarative in nature.
 ### [yes] There are unambiguous ways to express relationships between units of content, such as object nesting, ID referencing, etc.
 Linking through URIs is the supported mechanism for relating different documents.
-Within a single WoT Thing Description, JSON Pointers and named objects are also used.
-WoT Thing Descriptions also have a mandatory nesting structure which is validated.
+Within a single 
+[WoT TD](https://www.w3.org/TR/wot-thing-description11/),
+JSON Pointers and named objects are also used.
+[WoT TDs](https://www.w3.org/TR/wot-thing-description11/)
+also have a mandatory nesting structure which is validated.
 ### [yes] Prefer structural semantics to presentational semantics.
-WoT Thing Descriptions are structural in nature.  
+[WoT TDs](https://www.w3.org/TR/wot-thing-description11/)
+are structural in nature.  
 ### [not applicable] When providing presentational semantics, they can be easily mapped to structural semantics, e.g., to support restyling or meaningful exposure to accessibility APIs.
-WoT Thing Descriptions have no presentational semantics.
+[WoT TDs](https://www.w3.org/TR/wot-thing-description11/)
+have no presentational semantics.
 ### [no] Support a comprehensive set of authoring use cases to minimize the need for alternative content. (e.g., don't make authors resort to text in images to get the style they want).
 Where text is required, it can only be text, not images, and vice-versa.
 However, images are only supported in the specific case of icons for Things and interactions,
 and there is always associated textual elements in these cases also.
 ### [yes] Semantics allow precise and replicable location information in the document to be determined.
-Referencing a specific location within a WoT Thing Description can be done with a JSON Pointer.
+Referencing a specific location within a 
+[WoT TDs](https://www.w3.org/TR/wot-thing-description11/)
+can be done with a JSON Pointer, which is included as the fragment identifier
+in the IANA Consideration.
 ### [yes] Semantics exist to convey meaning that is commonly conveyed via presentation.	
-WoT Thing Descriptions are structural and declarative in nature, not presentational.
+[WoT TDs](https://www.w3.org/TR/wot-thing-description11/)
+are structural and declarative in nature, not presentational.
 
 ## If technology provides time-based visual media (see also the Media Accessibility Checklist)
 WoT itself does not directly provide support for time-based visual media, 
@@ -220,7 +243,9 @@ WoT does not constrain the display of media.
 WoT Things controlling media playback can and usually do have such controls, although they are not enforced by WoT.
 Defining interfaces for specific device classes was considered out of scope of the current WoT charter.
 ### [possible] Users can send output to alternate device.
-It would be possible to use a WoT Thing Description to describe a device with such
+It would be possible to use a 
+[WoT TD](https://www.w3.org/TR/wot-thing-description11/)
+to describe a device with such
 functionality, but it is not mandatory.
 
 ## If technology provides audio
@@ -240,7 +265,9 @@ Defining interfaces for specific device classes was considered out of scope of t
 ### [n/a] Contrast between foreground and background audio is sufficient.
 WoT does not directly control or constrain this aspect of audio.
 ### [possible] Unnecessary background audio can be muted separately from the foreground audio.
-It would be possible to use a WoT Thing Description to describe a device with such
+It would be possible to use a 
+[WoT TD](https://www.w3.org/TR/wot-thing-description11/)
+to describe a device with such
 functionality, but it is not mandatory.
 ### [n/a] Technology does not include triggers for audiosensitive seizures or allows those triggers to be disabled.
 WoT does not include a mechanism to prohibit such triggers from devices adhering to 
@@ -269,7 +296,8 @@ textual information (titles) that can be used as a replacement.
 
 ## If technology creates objects that don't have an inherent text representation
 ### [yes] There is a mechanism to create short text alternatives that label the object.
-WoT TDs allow the embedding of textual titles and descriptions for interaction and Things.
+[WoT TDs](https://www.w3.org/TR/wot-thing-description11/)
+allow the embedding of textual titles and descriptions for interaction and Things.
 ### [yes] There is a mechanism to create extended text alternatives for fallback content.
 Both short and long text (title and descriptions) are supported.
 In addition, links to external documentation can be referenced for the entire Thing.
@@ -307,26 +335,54 @@ Content is generally either text or JSON.  Text can be rendered into speech if n
 and JSON provides structured data that can be transformed into an accessible output.
 
 ## If technology defines an API
-A Scripting API is defined for WoT in an associated informative document but its use is not
-mandatory.  In general, the API is defined to read and produce declarative content: the WoT
-Thing Description (TD).
+The 
+[WoT Scripting API](https://www.w3.org/TR/wot-scripting-api/)
+is defined in an associated informative document but its use is not
+mandatory.
+In general, 
+the 
+[WoT Scripting API](https://www.w3.org/TR/wot-scripting-api/)
+is defined to read and produce declarative content: the WoT
+Thing Description (TD), and to allow programmatic interaction with the 
+network affordances described by these TDs.
+TDs, in turn, are actually describing *network* APIs.
 
-The WoT Discovery mechanism also provides a network API which, however, does not modify TDs except
+The 
+[WoT Discovery](https://www.w3.org/TR/wot-discovery/)
+mechanism also provides a network API which, 
+however, does not modify TDs except
 for adding a new annotations (timestamps, etc).
 
 ### [yes] If the API can be used for structured content, it provides features to represent all aspects of the content including hidden accessibility features.
-The WoT Scripting API provides access to all aspects of a WoT TD relevant for accessibility.
+The 
+[WoT Scripting API](https://www.w3.org/TR/wot-scripting-api/)
+provides access to all aspects of a 
+[WoT TD](https://www.w3.org/TR/wot-thing-description11/)
+relevant for accessibility.
 Exceptions are security metadata, which is provided out-of-band, but is functional.
 ### [n/a] If the API relies on user agents to generate a user interface, the specification provides guidance about accessibility requirements needed to enable full interaction with the API.
+Not applicable.
 
 ## If technology defines a transmission protocol
-The WoT Discovery specification defines a network API for a directory and guidance on how to use existing
-discovery mechanisms such as DNS-SD.  Protocol Bindings describe how to use WoT with existing protocols such
+The 
+[WoT Discovery](https://www.w3.org/TR/wot-discovery/)
+specification defines a network API for a directory and guidance on how to 
+use existing
+discovery mechanisms such as DNS-SD.  
+WoT Protocol Bindings describe how to use WoT with existing protocols such
 as MTTP or MQTT to define Things which use these protocols.
 
 ### [yes] Use of the protocol does not cause any aspect of the content, including metadata which could contain important accessibility information, to be removed.	
-In general WoT does not remove information from existing protocols.  There are cases, however, where
-information might be removed from a TD after negotation if it is not required by the Consumer.
+In general WoT does not remove information from existing protocols.  
+There are cases, however, where
+information might be removed from a TD after negotiation 
+if it is not required by the Consumer.  
+For example, title and descriptions in languages not
+requested by the Consumer or interactions that are not accessible with
+the access rights of the Consumer might be removed from the TD to 
+save bandwidth.
 ### [yes] It is possible to use third-party accessibility enhancement services while using the protocol.	
-The whole purpose of the WoT TD is to allow IoT devices to be more accessible to third-party applications
+The whole purpose of the 
+[WoT TD](https://www.w3.org/TR/wot-thing-description11/)
+is to allow IoT devices to be more accessible to third-party applications
 by providing additional metadata in a standardized format.
