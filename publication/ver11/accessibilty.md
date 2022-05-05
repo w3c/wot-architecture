@@ -1,9 +1,15 @@
 # Results of accessibility self-review for Web of Things (WoT) Architecture
 
 Answers to accessibility (FAST) review checklist [(from here)](https://w3c.github.io/apa/fast/checklist.html)
-for the Web of Things (WoT) architecture as a whole.
-These answers are generally written to be applicable to all WoT deliverables.
-Where a response is specifically relevant to a particular deliverable that will be identified.
+for the Web of Things (WoT).
+These answers are generally written to be applicable to all WoT deliverables,
+including:
+* [Web of Things (WoT) Architecture 1.1 (update)](https://www.w3.org/TR/wot-architecture11/)
+* [Web of Things (WoT) Thing Description 1.1 (update)](https://www.w3.org/TR/wot-thing-description11/)
+* [Web of Things (WoT) Discovery (new)](https://www.w3.org/TR/wot-discovery/)
+* [Web of Things (WoT) Profile (new)](https://www.w3.org/TR/wot-profile/)
+Where a response is specifically relevant to a particular deliverable that 
+will be identified.
 
 ## If technology allows visual rendering of content
 The WoT architecture does not directly support visual rendering of content.
