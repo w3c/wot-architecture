@@ -1,15 +1,5 @@
 # Web of Things Architecture Explained
 
-
-Editors Note:
-> Initial draft for the architecture explainer.
-> Some material should be refactored from TD 1.0 explainer. See https://github.com/w3c/wot-thing-description/pull/1397
-> Profiles and discovery need to be added.
-
-> Needed for wide review. Suggest that we use the Architectural explainer for general introductions, and TD, Discovery, and Profile explainers to add detail and provide use cases, justifications, requirements, and examples for their specific deliverables.
-
-> See above PR for links to instructions for writing explainers.
-
 The W3C Web of Things (WoT) was created to counter the fragmentation of the IoT market:
 The variety of pre-existing standards and vendor-specific platforms in the various verticals (i.e., application domains) has led to data and application silos and many difficult system integration problems.
 By some estimates, [up to 40% of the value of the IoT](https://www.mckinsey.com/business-functions/digital-mckinsey/our-insights/the-internet-of-things-the-value-of-digitizing-the-physical-world) is only acheivable through interoperabilty, which is the primary goal of the Web of Things.
@@ -31,8 +21,9 @@ Specifically, the purpose of the WoT Architecture document is to provide
 The architecture document lays the foundation for the WoT building block specifications:
 
 - the <a href="https://w3c.github.io/wot-thing-description/">WoT Thing Description</a> (REC Track),
+- the <a href="https://w3c.github.io/wot-profile/">WoT Profile</a>,
 - the <a href="https://w3c.github.io/wot-binding-templates/">WoT Binding Templates</a>,
-- the <a href="https://w3c.github.io/wot-scripting-api/">WoT Scripting API</a>, and
+- the <a href="https://w3c.github.io/wot-discovery/">WoT Discovery</a>, and
 - the <a href="https://w3c.github.io/wot-security/">WoT Security and Privacy Considerations</a>.
 
 Of these, the WoT Security and Privacy Considerations provide a general analysis that cross-cuts the other building blocks, each of which also include their own specific security and privacy considerations.
@@ -53,27 +44,48 @@ Of these, the WoT Security and Privacy Considerations provide a general analysis
 
 ## Application domains and use cases
 
-A set of use cases in a set of IoT application domains were used to drive the 
+A set of use cases for a set of IoT application domains were collected to drive the 
 requirements for the WoT architecture.
 These use cases were chosen to be typical of IoT applications but were not meant
 to be exhaustive.
 Rather, the use cases served as concrete illustrations or exemplars,
 where connected things using WoT could provide additional benefit or enable new scenarios.
 
-// TODO: Add use case document reference, update the list
+These use cases and requirements are published at <a href="https://www.w3.org/TR/wot-usecases/">WoT Usecases and Requirements</a>.
 
 Application domains and use considered included 
-consumer (lights, window blinds, energy management), 
-smart factory (equipment monitoring, failure prediction, poisonous gas detection,
-vehicle tracking, shipment tracking, meter reading, distributed energy resource (DER)
-management, storage tank monitoring), 
-insurance (usage tracking, predictive weather monitoring),
-agriculture (soil condition monitoring and planning, production monitoring),
-healthcare (clinical trial data collection, remote patient monitoring),
-environment (pollution monitoring),
-smart cities and buildings (infrastructure monitoring, traffic monitoring and signage, street lights, building energy optimization),
-and 
-connected car (service prediction, road condition early warning).
+
+### 1. Horizontal use cases that address multiple domains
+
+| Domain                            | Use Cases |
+| --------------------------------- | ----------- |
+| Discovery                         | Metadata distribution |
+| Multi-Vendor System Integration   | Out of the box interoperability |
+| Digital Twin                      | Virtual twin, Predictive Twin, Twin Projections  |
+| Cross Protocol Interworking       | Interworking across different protocols |
+| Multimodal System Integration     | Multimodal Recognition, Synergistic Interactions |
+| Accessibility                     | Accessbility extensions of personal devices |
+| Security                          | Oauth2 |
+| Lifecycle                         | Device lifecycle |
+| Virtual Reality / Augmented Reality | Augmented virtual guide|
+| Edge Computing                    | low latency processing, always on scenarios  |
+
+### 2. Domain specific (vertical) use cases for a single application domain
+
+| Domain           | Use Cases   |
+| ---------------- | ----------- |
+| Agriculture      |Greenhouse and Open-field agricultire |
+| Smart City       |Geolocation, Dashboard, Interactive Public Spaces, Smart Campus|
+| Building Technologies  | Smart Buildings, Energy Efficiency, Building Management |
+| Manufacturing    | Discrete and continuous manufacturing |
+| Retail           | Common retail workflows |
+| Health           | Public and private health |
+| Energy           | Energy distribution, smart grid |
+| Transportation   | Infrastructure, Cargo, People |
+| Automotive       | Smart cars, |
+| Smart Home       | TV synchronisation, presence |
+| Education        | Shared devices |
+
 
 ## Key scenarios and common patterns
 
@@ -94,54 +106,6 @@ Many usage scenarios involving timely action in the case of alerts
 require the use of "push" event notification and cannot rely
 on pure request/response patterns driven by the client.
 
-<img src="https://github.com/w3c/wot-architecture/blob/master/images/arch-use-case-overview.png"/>
-
-## Requirements
-
-Functional and technical requirements were then derived from the use case 
-and common pattern analysis.  A summary of these requirements is given below.
-
-// TODO: remove the section, link to use cases document
-
-Functional requirements include the need to:
-* support the mutual interworking of different ecosystems using web technology, including RESTful APIs;
-* support multiple payload formats including those commonly used on the web;
-* be flexible enough to support a wide variety of physical device configurations;
-* be compatible with as many other IoT standards as possible;
-* be scalable to thousands to millions of devices;
-* provide interoperability between devices from multiple manufacturers;
-* support common functionalities such as reading and writing properties,
-  invoking actions,
-  and subscribing/unsubscribing to event notifications;
-* support a common metadata description mechanism that is both human and
-  machine readable, that supports a mechanism for extensible semantic annotation,
-  and supports internationalization;
-* support the network protocols in use for both the web and IoT devices;
-* support devices with resource restrictions;
-* support services running on gateways or in the cloud;
-* support multilevel and segmented networks (proxies, gateways, NAT traversal, etc);
-* support application orchestration; and
-* support legacy devices, either directly (if IP-based protocols) 
-  or by mapping them through adaptation layers (is using non-IP protocols).
-
-Technical requirements include the need for:
-* proxy services to act as intermediaries between sections of segmented networks;
-* twins to act as intermediaries for devices that may not be continuously online;
-* discovery mechanisms to find devices and recover their metadata;
-* directories to manage metadata and provide it for devices that may not be continuously online;
-* unique identifiers for devices;
-* internationalized human-readable metadata for devices;
-* descriptions of the available interactions of devices;
-* information models for the data payloads and arguments for all interactions;
-* semantic annotations for devices, their interactions, and their data, using extensible
-  domain-specific vocabulary;
-* details of the binding of each interaction to specific network protocols;
-* details of the security mechanisms used for each interaction, including
-  information about the necessary authorization, authentication, and confidentiality measures
-  (this is of course limited to public information; private keying material is NOT 
-  to be included in the metadata); and
-* support for pub/sub protocols in addition to RESTful web protocols.
-
 ## Detailed design discussion
 
 The architecture document defines a common WoT Architecture and serves as an entry point and
@@ -157,6 +121,8 @@ systems composed of devices and services supporting many standards, platforms, a
 in multiple verticals.
 The abstract architecture also defines a set of reference patterns and terminology that can
 be used to avoid confusion when describing a WoT system.
+
+<img src="../images/arch-use-case-overview.png"/>
 
 The main requirement for an IoT device or service to operate as part of a WoT system 
 (and be considered a "WoT Thing") is that _it must be described in a WoT Thing Description_.
@@ -179,7 +145,7 @@ to implement each interaction in a concrete protocol
 (what we will call the protocol binding),
 and its security configuration.
 
-<img src="https://github.com/w3c/wot-architecture/blob/master/images/wot-abstract-arch.png"/>
+<img src="../images/wot-abstract-arch.png"/>
 
 The behavior aspect of a WoT Thing 
 includes both lifecycle management
@@ -215,8 +181,6 @@ and authorized users, devices, and services.
 
 ### Building Blocks
 
-// TODO: add profiles, discovery
-
 The WoT Building Blocks support each of the architectural aspects discussed
 in the previous section
 and are the actual focus of our standardization effort.
@@ -227,7 +191,7 @@ building blocks do not map 1:1 to these architectural aspects.
 The WoT Thing Description in particular connects in some
 way to all the aspects.
 
-<img src="https://github.com/w3c/wot-architecture/blob/master/images/wot-building-blocks-abstract.png"/>
+<img src="../images/wot-building-blocks-abstract.png"/>
 
 #### WoT Thing Description
 The primary building block is the
@@ -243,6 +207,25 @@ We define the term Interaction Affordances to refer to the metadata describing t
 A WoT Thing Description also supports but does not require RDF/JSON-LD
 (<a href="https://www.w3.org/standards/semanticweb/data">Linked Data</a>)
 processing and semantic annotation and inteferencing.
+
+#### WoT Profile
+The WoT profile 
+<a href="https://w3c.github.io/wot-profile/">WoT Profile</a>, 
+defines a Profiling Mechanism and a HTTP Baseline Profile,
+which enables out-of-the-box interoperability among things and devices.
+Out-of-the-box interoperability implies that devices can be integrated together
+into various application scenarios without deep level adaptations.
+Typically only minor configuration operations are necessary
+(such as entering a network key, or IP address) to use the device in a certain scenario.
+These actions can be done by anyone without specific training.
+In addition, the WoT Profile specification defines the HTTP SSE Profile 
+and the HTTP Webhook profile. These enable asynchronous notifications.
+The HTTP SSE Profile is using the SSE protocol, the HTTP Webhook Profile 
+uses a WebHook mechanism.
+
+#### WoT Discovery
+// TODO: add description 
+
 
 #### WoT Scripting API
 A second (optional) building block is the WoT Scripting API.
