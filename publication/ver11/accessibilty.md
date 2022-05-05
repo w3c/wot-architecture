@@ -11,6 +11,30 @@ including:
 Where a response is specifically relevant to a particular deliverable that 
 will be identified.
 
+In general, WoT is concerned with enabling access to IoT devices at the protocol
+and network interaction level.  The deliverables currently do not directly address
+aspects of user interfaces such as visual display or physical I/O devices.
+However, the purpose of WoT is to integrate physical devices with network controls,
+and in fact these physical devices will have physical inputs and outputs that
+are relevant to accessibility, especially when integrated with other systems,
+including web browsers, to provide data and control.  
+
+WoT has the potential to enable enhanced
+accessiblity by permitting, for example, the integration of custom input devices
+into web technology, or the ability to control devices such as locks or switches
+by alternative controls, or remapping of sensor outputs into different sensory 
+modes (for example, remapping an indicator light on a device into an audible alert),
+or the mapping of data from web services into alternative output devices.
+Unfortunately fully enabling many of these use cases will require additional
+standards work and implementation effort not in the scope of the current charter.
+However, the current specifications have laid the technical foundations that
+allow for these use cases to be addressed in the future.
+
+Many of the following questions are designed to be interpreted in the context of
+web browser rendering of content.  
+We have re-interpreted these questions in the context 
+of user interfaces supported by WoT-enabled IoT devices.
+
 ## If technology allows visual rendering of content
 The WoT architecture does not directly support visual rendering of content.
 Some devices adhering to WoT standards may have visual display aspects, for example
