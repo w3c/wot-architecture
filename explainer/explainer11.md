@@ -28,7 +28,8 @@ The architecture document lays the foundation for the following WoT building blo
 
 Of these, the WoT Security and Privacy Guidelines provide a general analysis that cross-cuts the other building blocks, each of which also include their own specific security and privacy considerations.
 
-In addition, the following optional/informative building blocks are defined:
+In addition, the following informative building blocks are defined, 
+which complement the core of the Web of Things:
 * <a href="https://w3c.github.io/wot-scripting-api/">WoT Scripting API</a>, and
 * <a href="https://w3c.github.io/wot-binding-templates/">WoT Binding Templates</a>.
 
@@ -38,11 +39,11 @@ The goals of the W3C Web of Things are to:
 * complement existing IoT standards and platforms;
 * build upon the Web architecture, in particular URIs, registered representation formats (media types), and hypermedia;
 * allow for IP-based IoT protocols other than HTTP (given they fulfill the Uniform Interface constraint of REST); and
-* allow for different integration patterns: at the device level, gateway/edge node, and the cloud.
+* allow for different integration patterns: at the device level, gateway/edge node, and the cloud, including support for digital twins.
 
 ## Non-goals
 The W3C Web of Things is *not* trying to achieve any of the following:
-* establishing a new vertical solution for the IoT;
+* establishing a new vertical solution for IoT systems;
 * defining domain-specific aspects of IoT systems; nor
 * defining any new security mechanisms.
 
@@ -293,26 +294,27 @@ This building block provides a collection of communication metadata blueprints
 that explain how to encode the metadata needed to interact with different IoT platforms
 in a WoT Thing Description.
 
-#### WoT Security and Privacy Considerations
+#### WoT Security and Privacy 
 The final building blocks are security and privacy, which are cross-cutting concerns.
 IoT devices and services generally have strong security and privacy requirements,
 and the WoT Architecture deals with this aspect of WoT systems in several ways.
+For example:
+* The WoT Thing Description itself supports the description of public
+  security metadata so that consumers of a WoT Thing know what mechanisms they
+  need to support to gain access.
+  This follows security best practices
+  of documenting security mechanisms and controlling access through specific
+  private information (eg keys) rather than depending on security through obscurity.
+* The WoT Scripting API is designed to not have direct access to
+  private keying information.  This must be provisioned separately.
+* WoT Discovery specifies a mechanism by which metadata can be
+  distributed only to entities with authorization to access it, and also
+  provides functions to delete metadata or have it automatically expire.
 
-First, the WoT Thing Description itself supports the description of public
-security metadata so that consumers of a WoT Thing know what mechanisms they
-need to support to gain access.
-This follows security best practices
-of documenting security mechanisms and controlling access through specific
-private information (eg keys) rather than depending on security through obscurity.
-
-Second, the WoT Scripting API is designed to not have direct access to
-private keying information.  This must be provisioned separately.
-
-Third, WoT Discovery specifies a mechanism by which metadata can be
-security distributed only to entities with authorization to access it.
-
-Fourth, general security and privacy considerations, testing,
-and best practices are covered in a
+These are just some highlights.
+Normative security and privacy consideration sections are included in each deliverable.
+In addition, general security and privacy considerations, threat and risk models, 
+testing, and best practice guidance are covered in a separate
 <a href="https://w3c.github.io/wot-security/">WoT Security and Privacy Guidelines</a>
 document.
 
