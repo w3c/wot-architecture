@@ -4340,8 +4340,19 @@
             (for example, the content of queries).
           </dd>
           <dt>Private Networks:<dt>
-          <dd>
           <dd><span class="rfc2119-assertion" 
+              id="arch-security-consideration-tls-mandatory">When a Thing is made 
+            available on a private network then it SHOULD be protected by secure
+            transport such as TLS or DTLS.
+          </span>
+          The risk increases with the sensitivity of the data being protected,
+          the potential for damage, and with the number of people given access 
+          to the private network. 
+          Secure transport is a higher priority in higher risk situations such 
+          as a factory network; 
+          in such cases, it is also more practical to install pre-shared keys.
+          In low-risk situations, the following is permissable:
+          <span class="rfc2119-assertion" 
               id="arch-security-consideration-tls-optional-on-lan">
            Private networks such as a LAN, protected by a firewall, MAY use the 
            <a href="#sec-security-consideration-trusted-environment-risks">Trusted 
