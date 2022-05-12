@@ -4309,6 +4309,92 @@
         </dd>
       </dl>
     </section>
+    <section id="sec-security-consideration-secure-transport">
+      <h2>Secure Transport</h2>
+      <p>
+      As noted in
+      <a href="#sec-security-consideration-trusted-environment-risks"></a>,
+      there are situations in which secure transports, such as TLS, are not
+      feasible or are difficult to set up, such as on a local LAN within a home.
+      Unfortunately, generally access control mechanisms in HTTP 
+      are generally designed to be used with secure transport and can be 
+      easily bypassed without it.  In particular, it is relatively easy to
+      capture passwords and tokens from unencrypted protocol interactions
+      which can be intercepted by a third party.  In addition, man-in-the-middle
+      attacks can be easily implemented without TLS providing server authentication. 
+      </p>
+      <dl>
+        <dt>Mitigation:</dt>
+        <dd>
+          <p>
+            Because of the practical difficulties in setting up TLS in all
+            situations, we cannot make a blanket assertion that it is always 
+            required.  Instead we provide a set of requirements for different use
+            cases:
+          </p>
+          <dl>
+          <dt>Public Networks:<dt>
+          <dd><span class="rfc2119-assertion" 
+              id="arch-security-consideration-tls-mandatory">When a Thing is made 
+            available on the public internet so it can
+            be accessed by anyone, from anywhere, then it MUST be protected by secure
+            transport such as TLS or DTLS.
+          </span>
+            A Thing available on the public internet will have a public
+            URL and so normal CA mechanisms to provide certificates are available.
+            This should be done even if there are no access controls on the endpoint,
+            for example when providing a publically accessible service,
+            because secure transport also protects the privacy of requestors
+            (for example, the content of queries).
+          </dd>
+          <dt>Private Networks:<dt>
+          <dd><span class="rfc2119-assertion" 
+              id="arch-security-consideration-tls-mandatory">When a Thing is made 
+            available on a private network then it SHOULD be protected by secure
+            transport such as TLS or DTLS.
+          </span>
+          The risk increases with the sensitivity of the data being protected,
+          the potential for damage, and with the number of people given access 
+          to the private network. 
+          Secure transport is a higher priority in higher risk situations such 
+          as a factory network; 
+          in such cases, it is also more practical to install pre-shared keys.
+          In low-risk situations, the following is permissable:
+          <span class="rfc2119-assertion" 
+              id="arch-security-consideration-tls-optional-on-lan">
+           Private networks such as a LAN, protected by a firewall, MAY use the 
+           <a href="#sec-security-consideration-trusted-environment-risks">Trusted 
+           Environment</a> approach of depending on network security only</a>.
+           This is not generally recommended but may be necessary for practical
+           reasons.  Please see the referenced security consideration for
+           additional risks and mitigations with this approach. 
+          </dd>
+          <dt>Brownfield Devices:<dt>
+          <dd>WoT is descriptive and an accurate description of existing
+           "brownfield" devices may reveal they are not secure.  
+           For example, a specific
+           device may use HTTP without TLS, which is not secure even if it 
+           uses access controls such as a password.
+           It is often not possible to upgrade such devices to support stronger
+           security.
+           In these cases, the above two mitigations still apply.  If exposed
+           on a private network, the 
+           <a href="#sec-security-consideration-trusted-environment-risks">Trusted 
+           Environment</a> approach should be used, with access limited as much
+           as possible.
+           If it is desired to expose such a device on the public internet,
+           additional steps should be taken the enhance its security.  In particular,
+           a proxy can be used to ensure that communications over the public
+           network use secure transport.  A proxy can also be used to provide
+           access controls.
+          </dd>
+          </dl>
+          <p>Additional considerations apply if a Thing can reveal
+          <a>Personally Identifiable Information</a> (PII).
+          See <a href="#arch-privacy-consideration-access-controls"></a>.
+        </dd>
+      </dl>
+    </section>
   </section>
   <section id="sec-privacy-considerations">
     <h1>Privacy Considerations</h1>
@@ -4330,7 +4416,7 @@
       <p>
         The metadata contained in a <a>WoT Thing Description</a>
         (TD) is potentially sensitive, and even if it does
-	not explictly contain personally-identifiable information (PII)
+	      not explictly contain <a>Personally Identifiable Information</a> (PII)
 	it may be possible to infer PII from it. As a best practice, TDs
         should be used together with appropriate integrity protection
         mechanisms and access control policies, with the goal of 
@@ -4414,6 +4500,48 @@
         </dl>
       </section>
     </section>
+    <section id="arch-privacy-consideration-access-controls">
+      <h2>Access to Personally Identifiable Information</h2>
+      <p>In addition to the risks of revealing <a>Personally Identifiable Information</a> (PII) through metadata
+      discussed in <a href="#sec-security-consideration-td-pii"></a>,
+      the data returned by Things can itself be sensitive.
+      For example, a Thing could be monitoring the location or
+      health of a specific person.  Information associated with a 
+      person should be treated as PII even if it is not immediately
+      obvious that it is sensitive, since it could be combined with
+      other information to reveal sensitive information.
+      </p>
+      <dl>
+        <dt>Mitigation:</dt>
+        <dd>
+	      <span class="rfc2119-assertion" id="arch-privacy-consideration-access-control-mandatory">
+Things returning data or metadata (such as TDs) associated with a person MUST use some form of access control.
+	    </span>
+      A special case of this is a <a>Thing Description Directory</a>,
+      as described in [[WOT-DISCOVERY]], which is a Thing that returns 
+      Thing Descriptions as data.  Such directory services are included
+      in the above statement and 
+      required to use access control if the TDs describe Things associated with
+      identifiable people.  In the case of services
+      returning Thing Descriptions, the following also applies: 
+	      <span class="rfc2119-assertion" id="arch-privacy-consideration-access-control-mandatory">
+Services returning Thing Descriptions with immutable IDs MUST use some form of access control.
+	    </span>
+      Specifically, in both of these situations, the <code>nosec</code> security
+      scheme described in [[WOT-THING-DESCRIPTION]] cannot be used,
+      as it provides no access control.
+      Following the principle that Thing Descriptions describing
+      Things associated with specific persons should be treated as
+      PII, even if they do not explictly contain it, this implies
+      that directories providing such TDs cannot use <code>nosec</code>.
+      Again it should be noted that access controls are generally only
+      effective when secure transport is also available;
+      see <a href="#sec-security-consideration-secure-transport"></a>.
+      Use of access controls without secure transport, at best,
+      only discourages casual access by unauthorized parties.
+        </dd>
+     </dl>
+	  </section>
   </section>
 
   <section id="changes" class="appendix">
