@@ -1373,13 +1373,6 @@
     </section>
     <section>
       <h3>Edge Devices</h3>
-      <section class="ednote" title="TODO">
-	<h3>TODO</h3>
-        This section will be expanded to capture recent activities.
-        In particular, it would be a good place to discuss hubs and "star" topologies.
-        <!-- McCool -->
-      </section>
-
       <p>
         An Edge Device or Edge Gateway is similar to a Smart
         Home Gateway. We use the term to indicate additional
@@ -1451,12 +1444,25 @@
 
       <section id="orchestration">
         <h3>Orchestration</h3>    
-        <section class="ednote" title="TODO">
-        <h3>TODO</h3>
-        Create a description and a diagram for a orchestration scenarios that involve multiple things.
-        These are part of multiple use cases, see <a href="https://w3c.github.io/wot-usecases/">
-          Web of Things (WoT): Use Cases and Requirements</a> for details.
-         </section>
+        <p>Orchestration of devices and operation flows provides capabilities that go 
+          beyond the simple isolated usage of a device.
+          An orchestrated set of devices can provide combined operations, 
+          that affect the state of multiple devices with a single operation.</p>
+          <p>
+          These operations combine individual operations into a combined operation flow,
+          the flow may have several alternative paths, that are chosen based 
+          on some device state or property values. 
+        </p>
+        <p>Orchestrated devices can be deployed in various topologies and can be
+          connected via different networks. The system, that is built from these 
+          devices, can provide capabilities, that combine and exceed the capabilities of 
+          individual devices.
+        </p>  
+        <p>A typical orchestration example is a smart home, where various sensors 
+          (temperature, occupancy, humidity, light, air quality, door sensors) are
+          interworking and provide operation flows for situations like entering or leaving the house,
+          morning/evening routine, adjusting light and temperature based on presence, and much more.  
+        </p>  
       </section>
   
       <section>
@@ -2023,7 +2029,7 @@
             Lightweight OneM2M, Thing to Thing Research Group (T2TRG),
             OPC-UA/Anima, etc.
           </p>
-          <p class="ednote">
+          <p class="note">
             The provisioning model presented in this section resembles most
             with the T2TRG provisioning model.
           </p>
@@ -2454,7 +2460,7 @@
           CoAP options, the protocol-independent media type [[!RFC2046]] including parameters (i.e., full content type)
           for the request payload, or information about the expected response.
         </p>
-        <p class="ednote">As of this specification, the
+        <p class="note">As of this specification, the
           well-known operation types are a fixed set that
           results from the WoT <a>Interaction Model</a>. Other
           specifications may define further well-known
