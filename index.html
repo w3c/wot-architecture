@@ -499,8 +499,12 @@
       <dt>
         <dfn data-lt="WoT Discoverer" class="lint-ignore">Discoverer</dfn>
       </dt>
-      <dd>An entity that generates and registers a TD with an exploration service
-        on behalf of a <a>Thing</a> which may not be able to do it for itself.
+      <dd>An entity which acts as a client of a WoT Discovery process to discover 
+        and fetch a <a>Thing Description</a>, 
+        e.g. by being introduced to and searching a 
+        <a>Thing Description Directory</a> exploration service or by
+        fetching a <a>Thing Description</a> directly from 
+        the well-known endpoint on a Thing.
       </dd>
       <dt>
         <dfn>Domain-specific Vocabulary</dfn>
@@ -658,6 +662,14 @@
         It does not include any secret information or concrete data (including public keys), and does
         not by itself, provide access to the Thing. Instead, it describes the mechanisms by which access
         may be obtained by authorized users, including how they must authenticate themselves.
+      </dd>
+      <dt>
+        <dfn data-lt="WoT Registrant" class="lint-ignore">Registrant</dfn>
+      </dt>
+      <dd>An entity which registers a <a>Thing Description</a>
+        with a <a>Thing Description Directory</a>. 
+        This entity may or may not be the <a>Thing</a> that
+        the registered <a>Thing Description</a> describes.
       </dd>
       <dt>
         <dfn>Security</dfn>
