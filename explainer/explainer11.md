@@ -13,7 +13,6 @@ The WoT Architecture document serves as an umbrella for all WoT specifications, 
 It defines the abstract architecture and the design space for current and future building blocks, each of which are specified in separate documents.
 Specifically, the purpose of the WoT Architecture document is to provide:
 - basic terminology definitions;
-- use cases and derived requirements the W3C WoT Architecture should satisfy;
 - definitions of basic concepts and architectural constraints;
 - an overview of the WoT building blocks and their interplay; and
 - a guide for mapping the abstract architecture onto a variety of concrete deployment scenarios.
