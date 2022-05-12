@@ -2338,10 +2338,8 @@
           <li>optionally target attributes.</li>
         </ul>
         <p>
-          Link relation types are either a set of predefined tokens that are registered with IANA [[?IANA-RELATIONS]],
-          which must adhere to the ABNF [[!RFC5234]]
-          <code style="white-space: nowrap;">LOALPHA *( LOALPHA / DIGIT / "." / "-" )</code> (e.g.,
-          <code>stylesheet</code>),
+          Link relation types are either a set of predefined tokens that are registered with IANA [[?IANA-RELATIONS]], 
+          (e.g. <code>stylesheet</code>),
           or extension types in the form of URIs [[!RFC3986]].
           <span class="rfc2119-assertion" id="arch-rel-types">
             Extension relation types MUST be compared as strings using a case-insensitive comparison.
@@ -2415,12 +2413,6 @@
           the operation. Operation types are denoted similar
           to link relation types:</p>
         <ul>
-          <li>
-            <span class="rfc2119-assertion" id="arch-op-wellknown">
-              Well-known operation types MUST follow the ABNF
-              <code style="white-space: nowrap;">LOALPHA *( LOALPHA / DIGIT / "." / "-" )</code>.
-            </span>
-          </li>
           <li>
             <span class="rfc2119-assertion" id="arch-op-extension-uri">
               Extension operation types MUST be URIs [[!RFC3986]] that uniquely identify the type.
