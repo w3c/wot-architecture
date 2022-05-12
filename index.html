@@ -2865,7 +2865,7 @@
     <section id="wot-profiles">
       <h3>Profiles</h3>
       <p>
-      The WoT Profile Specification defines a WoT Core Profile, 
+      The WoT Profile Specification defines a WoT Baseline Profile, 
       which enables out of the box interoperability among things 
       and devices. Out of the box interoperability implies, 
       that devices can be integrated into various application 
@@ -2876,9 +2876,19 @@
       These actions can be done by anyone without specific training.
       </p>
       <p>
-        In the core profile  we define a mapping to
-        HTTP(S). It is envisioned, that future versions of this document
-        contain additional mapping to Web Sockets and other protocols.
+        The HTTP Baseline Profile defines a mapping to
+        HTTP(S).
+        The HTTP Baseline Profile is complemented by two other profiles
+        that provide protocol bindings for the event mechanism:
+        <ul>
+          <li>HTTP SSE Profile for Server Sent Events</li>
+          <li>HTTP Webhooks Profile for Webhooks</li>
+        </ul>
+        These profiles can be used stand alone, or a device can implement a 
+        combination of them.
+        
+        It is envisioned, that other profiles will be defined in the future,
+        that contain mappings to other protocols.
       </p>
 
       <section>
@@ -2954,11 +2964,11 @@
         <p>A profile is not exclusive, i.e. a thing may conform
           to multiple profiles. Profiles can build on top of each
           other or overlap, extended profiles can be built on top
-          of the core profile.</p>
+          of a baseline profile.</p>
   
         <figure id="WoT-Profiles">
           <img src="images/profiles/WoT Profiles.png" class="wot-profiles" alt="WoT Profiles" />
-          <figcaption>WoT Core Profile - Other Profiles</figcaption>
+          <figcaption>WoT Baseline Profile - Other Profiles</figcaption>
         </figure>
         </p>
       </section>
