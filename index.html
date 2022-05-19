@@ -1811,7 +1811,7 @@
         <a>Edge device</a> such as a gateway, or the cloud.
       </p>
       <p>
-        A typical deployment challenge is a scenario, where local networks are not reachable from the Internet,
+        A typical deployment challenge is a scenario where local networks are not reachable from the Internet,
         usually because of IPv4 Network Address Translation (NAT) or firewall devices.
         To remedy this situation, W3C WoT allows for <a>Intermediaries</a> between <a>Things</a> and <a>Consumers</a>.
       </p>
@@ -1825,14 +1825,11 @@
         but which points to the <a>WoT Interface</a> provided by the <a>Intermediary</a>.
         <a>Intermediaries</a> may also augment existing <a>Things</a> with additional capabilities or compose a new
         <a>Thing</a> out of multiple available <a>Things</a>,
-        thereby forming a virtual entity.
-        To <a>Consumers</a>, <a>Intermediaries</a> look like <a>Things</a>, as they possess <a>WoT Thing
-          Descriptions</a> and provide a <a>WoT Interface</a>,
-        and hence might be indistinguishable from <a>Things</a> in a layered system architecture like the Web [[?REST]].
-        <span class="rfc2119-assertion" id="arch-id-correlation">
-          An identifier in the <a>WoT Thing Description</a> MUST allow for the correlation of multiple <a>TDs</a>
-          representing the same original <a>Thing</a> or ultimately unique physical entity.
-        </span>
+        thereby forming a <a>Virtual Thing</a>.
+        To <a>Consumers</a>, <a>Intermediaries</a> are just another kind of <a>Thing</a>, as they possess <a>WoT Thing
+          Descriptions</a> and provide a <a>WoT Interface</a>.
+        They may be indistinguishable from <a>Things</a> directly representing physical devices
+        in a layered system architecture like the Web [[?REST]].
       </p>
       <figure id="intermediary">
         <img src="images/architecture/intermediary.png" srcset="images/architecture/intermediary.svg"
