@@ -552,10 +552,9 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             If the data is not fully specified by the Protocol Binding used (e.g., through a media type),
-            Actions MAY contain data schemas for optional input parameters and output results.
-          </td>
+            Actions MAY contain data schemas for optional input parameters and output results.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -566,10 +565,9 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             An Action MAY manipulate state that is not directly exposed (cf. Properties),
-            manipulate multiple Properties at a time, or manipulate Properties based on internal logic (e.g., toggle).
-          </td>
+            manipulate multiple Properties at a time, or manipulate Properties based on internal logic (e.g., toggle).</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -580,10 +578,9 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             Invoking an Action MAY also trigger a process on the Thing that manipulates state
-            (including physical state through actuators) over time.
-          </td>
+            (including physical state through actuators) over time.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -594,11 +591,10 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">In
+	<td class="atrisk">In
           addition to navigation affordances (i.e., Web links),
           Things MAY offer three other types of Interaction Affordances
-          defined by this specification: Properties, Actions, and Events.
-        </td>
+          defined by this specification: Properties, Actions, and Events.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -609,7 +605,7 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
         Any WoT Discovery "exploration"
         implementation MUST only provide metadata and TDs
         after appropriate best-practice authentication and authorization.</td>
@@ -623,7 +619,7 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
         Any introduction mechanism used for WoT Discovery MUST NOT 
         provide metadata but instead should simply result in 
         one or more opaque URLs at which metadata
@@ -639,7 +635,7 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
         Introduction URLs MUST NOT themselves include any metadata,
         e.g. a human-readable device type or name.</td>
 	<td class="baseassertion"></td>
@@ -652,7 +648,7 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">Whenever
+	<td class="atrisk">Whenever
         possible, the Discovery mechanisms defined in [[!WOT-DISCOVERY]]
         SHOULD be used to distribute TDs.</td>
 	<td class="baseassertion"></td>
@@ -665,11 +661,10 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             If the data is not fully specified by the Protocol Binding used (e.g., through a media type),
             Events MAY contain data schemas for the event data and possible subscription control messages
-            (e.g., to subscribe with a Webhook callback URI).
-          </td>
+            (e.g., to subscribe with a Webhook callback URI).</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -680,9 +675,8 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            Events MAY be triggered through conditions that are not exposed as Properties.
-          </td>
+	<td class="atrisk">
+            Events MAY be triggered through conditions that are not exposed as Properties.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -693,11 +687,10 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             Form contexts and submission targets MUST both be
             Internationalized Resource Identifiers (IRIs)
-            [[!RFC3987]].
-          </td>
+            [[!RFC3987]].</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -708,12 +701,11 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             Form context and submission target MAY point to
             the same resource or different resources, where the
             submission target resource implements the operation
-            for the context.
-          </td>
+            for the context.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -724,9 +716,8 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            Interaction Affordances MUST include one or more Protocol Bindings.
-          </td>
+	<td class="atrisk">
+            Interaction Affordances MUST include one or more Protocol Bindings.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -737,10 +728,9 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             The hypermedia controls MAY be cached outside the Thing
-            and used for offline processing if caching metadata is available to determine the freshness.
-          </td>
+            and used for offline processing if caching metadata is available to determine the freshness.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -751,24 +741,9 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             Protocol Bindings MUST be serialized as hypermedia controls to be self-descriptive on how to
-            activate the Interaction Affordance.
-          </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="arch-id-correlation" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-id-correlation">arch-id-correlation</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-          An identifier in the WoT Thing Description MUST allow for the correlation of multiple TDs
-          representing the same original Thing or ultimately unique physical entity.
-        </td>
+            activate the Interaction Affordance.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -779,10 +754,9 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             If necessary, a TD generated by an Intermediary MAY contain
-            interfaces for other communication protocols.
-          </td>
+            interfaces for other communication protocols.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -793,10 +767,9 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">All
+	<td class="atrisk">All
             data (a.k.a. content) exchanged when activating Interaction Affordances
-            MUST be identified by a media type [[!RFC2046]] in the Protocol Binding.
-          </td>
+            MUST be identified by a media type [[!RFC2046]] in the Protocol Binding.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -807,10 +780,9 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             Protocol Bindings MAY have additional information that specifies representation formats
-            in more detail than the media type alone.
-          </td>
+            in more detail than the media type alone.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -821,49 +793,9 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             Form fields are optional and MAY further specify the
-            expected request message for the given operation.
-          </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="arch-op-extension-comparison" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-op-extension-comparison">arch-op-extension-comparison</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-              Extension operation types MUST be compared as strings using a case-insensitive comparison.
-            </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="arch-op-extension-lowercase" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-op-extension-lowercase">arch-op-extension-lowercase</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-              Nevertheless, all-lowercase URIs SHOULD be used for extension operation types.
-            </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="arch-op-extension-uri" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-op-extension-uri">arch-op-extension-uri</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-              Extension operation types MUST be URIs [[!RFC3986]] that uniquely identify the type.
-            </td>
+            expected request message for the given operation.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -874,10 +806,9 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             Form fields MAY depend on the protocol used for the
-            submission target as specified in the URI scheme.
-          </td>
+            submission target as specified in the URI scheme.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -888,11 +819,10 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             The request method MUST identify one method of
             the standard set of the protocol identified by the
-            submission target URI scheme.
-          </td>
+            submission target URI scheme.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -903,37 +833,10 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
           There MAY be other representations of a Thing such as an HTML-based user interface,
           simply an image of the physical entity,
-          or even non-Web representations in closed systems.
-        </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="arch-privacy-consideration-access-control-mandatory-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-access-control-mandatory-1">arch-privacy-consideration-access-control-mandatory-1</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-Things returning data or metadata (such as TDs) associated with a person MUST use some form of access control.
-	    </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="arch-privacy-consideration-access-control-mandatory-2" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-access-control-mandatory-2">arch-privacy-consideration-access-control-mandatory-2</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-Services returning Thing Descriptions with immutable IDs MUST use some form of access control.
-	    </td>
+          or even non-Web representations in closed systems.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -944,10 +847,9 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion"> 
+	<td class="atrisk"> 
 	    Distribution mechanisms for TDs SHOULD ensure they are 
-	    only provided to authorized Consumers.
-	    </td>
+	    only provided to authorized Consumers.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -958,12 +860,23 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion"> 
+	<td class="atrisk"> 
 	    TDs that can be associated with a person
 	    SHOULD generally be treated as if they contained PII and
             subject to the same management policies as other PII, even if they
-	    do not explicitly contain it.
-	    </td>
+	    do not explicitly contain it.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-privacy-consideration-immutable-id-access-control-mandatory" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-immutable-id-access-control-mandatory">arch-privacy-consideration-immutable-id-access-control-mandatory</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+Services returning Thing Descriptions with immutable IDs MUST use some form of access control.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -974,10 +887,9 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	    Storage of explicit PII in TDs SHOULD be minimized
-            as much as possible. 
-	    </td>
+            as much as possible.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -988,10 +900,21 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion"> 
+	<td class="atrisk"> 
             Unnecessary information
-            SHOULD NOT be exposed in TDs whenever possible.
-	    </td>
+            SHOULD NOT be exposed in TDs whenever possible.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-privacy-consideration-pii-access-control-mandatory" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-pii-access-control-mandatory">arch-privacy-consideration-pii-access-control-mandatory</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+Things returning data or metadata (such as TDs) associated with a person MUST use some form of access control.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1002,10 +925,9 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             If the data is not fully specified by the Protocol Binding used (e.g., through a media type),
-            Properties MAY contain one data schema for the exposed state.
-          </td>
+            Properties MAY contain one data schema for the exposed state.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1016,9 +938,8 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            Nevertheless, all-lowercase URIs SHOULD be used for extension relation types. [[!RFC8288]]
-          </td>
+	<td class="atrisk">
+            Nevertheless, all-lowercase URIs SHOULD be used for extension relation types [[!RFC8288]].</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1029,7 +950,7 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">Things MUST be hosted on networked system components 
+	<td class="atrisk">Things MUST be hosted on networked system components 
 	with a software stack to realize interaction through a
 		network-facing interface, the WoT Interface of a Thing.</td>
 	<td class="baseassertion"></td>
@@ -1042,10 +963,9 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             Extension relation types MUST be compared as strings using a case-insensitive comparison.
-            (If they are serialized in a different format they are to be converted to URIs).
-          </td>
+            (If they are serialized in a different format they are to be converted to URIs).</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1056,11 +976,10 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">Thus,
+	<td class="atrisk">Thus,
             the corresponding Interaction Affordances SHOULD
             declare a data schema to provide more detailed
-            syntactic metadata for the data exchanged.
-          </td>
+            syntactic metadata for the data exchanged.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1071,10 +990,9 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	  Authentication and authorization 
-	  SHOULD be established based on separately managed Private Security Data.
-	  </td>
+	  SHOULD be established based on separately managed Private Security Data.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1085,11 +1003,10 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             The WoT Runtime SHOULD NOT directly
             expose native device interfaces to the
-            script developers. 
-	    </td>
+            script developers.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1100,10 +1017,9 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             Whenever possible, TD creators SHOULD use the vetted communication
-            metadata provided in the WoT Binding Templates. 
-          </td>
+            metadata provided in the WoT Binding Templates.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1114,13 +1030,12 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             When generating TDs for an IoT
             ecosystem not covered by the WoT Binding
               Templates, TD creators SHOULD ensure that all the security
             requirements of the IoT Platform are
-            satisfied.
-          </td>
+            satisfied.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1131,12 +1046,11 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	    Hardware abstraction
             layers SHOULD refuse to execute commands that
             might put the device (or environment) to an
-            unsafe state. 
-	    </td>
+            unsafe state.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1147,11 +1061,10 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             The WoT Runtime SHOULD perform isolation of
             script instances and their data in cases when
-            scripts handle sensitive data. 
-	    </td>
+            scripts handle sensitive data.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1162,12 +1075,11 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	    Similarly, the WoT Runtime
             implementation SHOULD perform isolation of WoT
               Runtime instances and their data if a WoT
-            device has more than one tenant. 
-	    </td>
+            device has more than one tenant.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1178,12 +1090,11 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	    Such credentials (or even better,
             abstract operations that use them but do not
             expose them) SHOULD only be accessible to the underlying 
-            protocol implementation that uses them.
-	    </td>
+            protocol implementation that uses them.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1194,11 +1105,10 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	Trust relationships SHOULD be as restricted as possible,
 	ideally pairwise and limited to precisely the access
-	required.  
-	</td>
+	required.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1209,14 +1119,13 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             Additionally, in order to minimize a risk that
             provisioned security credentials get
             compromised, the WoT Runtime
             implementation SHOULD NOT expose any API for
             scripts to query the provisioned security
-            credentials.
-	    </td>
+            credentials.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1227,10 +1136,9 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
           Producers of TDs MUST ensure that no Private
-          Security Data is included in TDs.
-          </td>
+          Security Data is included in TDs.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1241,12 +1149,11 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	In general, 
 	these risks and mitigations should also be applied to any system
 	that supports programmable behavior for WoT systems,
-	not just the WoT Scripting API.
-      </td>
+	not just the WoT Scripting API.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1257,7 +1164,7 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	  Producers of TDs and extensions meant to be used in TDs
           MUST ensure that only Public Security Metadata
           is ever stored in TDs.</td>
@@ -1271,13 +1178,12 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	    In case
             there are more than one tenant on a single
             WoT-enabled device, a WoT Runtime
             implementation should guarantee isolation of
-            each tenant's provisioned security credentials.
-	    </td>
+            each tenant's provisioned security credentials.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1288,11 +1194,10 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             The WoT Runtime SHOULD securely store any
             provisioned security credentials, guaranteeing
-            their integrity and confidentiality. 
-	    </td>
+            their integrity and confidentiality.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1303,11 +1208,10 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
             Post-manufacturing provisioning or update of
             scripts, the WoT Runtime itself or any
-            related data SHOULD be done in a secure fashion.
-	    </td>
+            related data SHOULD be done in a secure fashion.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1318,10 +1222,9 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	In the case of implicit access control via access to a common network
-	a segmented network SHOULD be used.
-	</td>
+	a segmented network SHOULD be used.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1332,10 +1235,9 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
           There SHOULD be a strict separation of
-          Public Security Metadata and Private Security Data.
-          </td>
+          Public Security Metadata and Private Security Data.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1346,11 +1248,10 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">When a Thing is made 
+	<td class="atrisk">When a Thing is made 
             available on the public internet so it can
             be accessed by anyone, from anywhere, then it MUST be protected by secure
-            transport such as TLS or DTLS.
-          </td>
+            transport such as TLS or DTLS.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1361,10 +1262,9 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">When a Thing is made 
+	<td class="atrisk">When a Thing is made 
             available on a private network then it SHOULD be protected by secure
-            transport such as TLS or DTLS.
-          </td>
+            transport such as TLS or DTLS.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1375,14 +1275,10 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
            Private networks such as a LAN, protected by a firewall, MAY use the 
            Trusted 
-           Environment approach of depending on network security only.
-           This is not generally recommended but may be necessary for practical
-           reasons.  Please see the referenced security consideration for
-           additional risks and mitigations with this approach. 
-          </td>
+           Environment approach of depending on network security only.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1393,12 +1289,11 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	    A WoT Runtime
             implementation SHOULD provide a hardware
             abstraction layer for accessing the native
-            device interfaces. 
-	    </td>
+            device interfaces.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1409,12 +1304,11 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
 	In commercial and industrial environments, 
 	explict installation of pre-shared
 	keys SHOULD be used to allow browsers to access local services
-	while using TLS.
-	</td>
+	while using TLS.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1425,10 +1319,9 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">WoT Thing Descriptions
+	<td class="atrisk">WoT Thing Descriptions
 		and WoT Thing Models MAY link to other Things, WoT Thing Models,
-		and other resources on the Web to form a Web of Things.
-        </td>
+		and other resources on the Web to form a Web of Things.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1439,9 +1332,8 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-          To be considered a Thing, however, at least one TD representation MUST be available.
-        </td>
+	<td class="atrisk">
+          To be considered a Thing, however, at least one TD representation MUST be available.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1452,10 +1344,9 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
    	  In W3C WoT, the description metadata for a Thing instance
-	  MUST be available as a WoT Thing Description (TD) [[?WOT-THING-DESCRIPTION]].
-        </td>
+	  MUST be available as a WoT Thing Description (TD) [[?WOT-THING-DESCRIPTION]].</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
