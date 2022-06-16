@@ -121,7 +121,7 @@ pre.example {
     Implementation Report
   </h1>
   <p>
-    <b>Version</b>: 7 Apr 2022
+    <b>Version</b>: 16 Jun 2022
   </p>
   <p>
     <b>Editors</b>:<br>
@@ -156,50 +156,14 @@ pre.example {
         <!--
     <li class="tocline">6.x <a href="#impl-ORG">ORG</a></li>
         -->
-  <li class="tocline">
-	6.1 <a href="#testimonial-bosch-io">Bosch.IO GmbH</a></li>
-<li class="tocline">
-	6.2 <a href="#testimonial-echonet">ECHONET Consortium</a></li>
-<li class="tocline">
-	6.3 <a href="#testimonial-hitachi">Hitachi, Ltd.</a></li>
-<li class="tocline">
-	6.4 <a href="#testimonial-intel">Intel Corporation</a></li>
-<li class="tocline">
-	6.5 <a href="#testimonial-siemens">Siemens AG</a></li>
-</ul>
+  </ul>
   <li class="tocline">7. <a href="#test-systems">Implementations</a></li>
   <ul id="systems-toc">
         <!--
     <li class="tocline">7.x <a href="#impl-ORG">ORG</a></li>
         -->
   <li class="tocline">
-	7.1 <a href="#impl-ditto-WoT">Eclipse Ditto: TD ExposerEclipse Ditto WoT Model: Tool</a></li>
-<li class="tocline">
-	7.2 <a href="#impl-ditto-wot-model">Eclipse Ditto: TD ExposerEclipse Ditto WoT Model: Tool</a></li>
-<li class="tocline">
-	7.3 <a href="#impl-echonet-proxy">echonet-wot-proxy: Intermediary</a></li>
-<li class="tocline">
-	7.4 <a href="#impl-editdor">Eclipse EdiTDor: Tool and Producer</a></li>
-<li class="tocline">
-	7.5 <a href="#impl-hitachi-nodegen">Node generator for Node-RED: TD ConsumerTBD: TD ExposerTBD: TD ExposerTBD: Discoverer</a></li>
-<li class="tocline">
-	7.6 <a href="#impl-hitachi-node-red">Node generator for Node-RED: TD ConsumerTBD: TD ExposerTBD: TD ExposerTBD: Discoverer</a></li>
-<li class="tocline">
-	7.7 <a href="#impl-hitachi-esp-idf">Node generator for Node-RED: TD ConsumerTBD: TD ExposerTBD: TD ExposerTBD: Discoverer</a></li>
-<li class="tocline">
-	7.8 <a href="#impl-hitachi-nrwotdisc">Node generator for Node-RED: TD ConsumerTBD: TD ExposerTBD: TD ExposerTBD: Discoverer</a></li>
-<li class="tocline">
-	7.9 <a href="#impl-intel-nodejs">intel-nodejs: TD Exposerintel-proxy: Intermediary</a></li>
-<li class="tocline">
-	7.10 <a href="#impl-intel-proxy">intel-nodejs: TD Exposerintel-proxy: Intermediary</a></li>
-<li class="tocline">
-	7.11 <a href="#NHK">NHK: Emulated WoT Devices</a></li>
-<li class="tocline">
-	7.12 <a href="#impl-eclipse-nodewot">Eclipse node-wot: Consumer and Exposer</a></li>
-<li class="tocline">
-	7.13 <a href="#impl-playground">Thing Description Playground: Tool</a></li>
-<li class="tocline">
-	7.14 <a href="#impl-saywot">Siemens sayWoT!: Exposer and Consumer</a></li>
+	6.1 <a href="#impl-intel">Organization</a></li>
 </ul>
   <li class="tocline">8. <a href="#security">Security</a></li>
   <li class="tocline">9. <a href="#test_results">Test results</a>
@@ -388,88 +352,7 @@ pre.example {
 </p>
 <div id="testimonials">
   <!-- system testimonials will be inserted here -->
-<div class="testimonial" id="testimonial-bosch-io">
-  <h3>Bosch.IO GmbH</h3>
-  <p>
-    Bosch.IO is convinced that I(o)T cannot be done alone and that collaboration
-    via Open Source software and open standards are key to provide
-    interoperability in the heterogenous IoT landscape.
-  </p>
-  <p>
-    We reached the conclusion that WoT Thing Models are a very capable modeling
-    approach to describe capabilities of thing/device classes, having the
-    benefit of relying on JSON-LD for providing additional semantic context.
-    What we were seeking for, modeling thing/device classes, is even taken one
-    step further by being able to introspect a thing's capabilities on the
-    instance level via its WoT Thing Description, including its API endpoints.
-  </p>
-  <p>
-    By adopting the latest W3C Working Draft 11 March 2022 of WoT Thing Description
-    1.1 in Eclipse Ditto, an Open Source Digital Twin framework initiated by
-    Bosch.IO and still under very active development, Ditto can link to Thing
-    Models and automatically create and provide Thing Descriptions for its
-    managed digital twins.
-  </p>
-</div><div class="testimonial" id="testimonial-echonet">
-  <h3>ECHONET Consortium</h3>
-    <p>
-    We support the WoT.
-    </p>
-    <p>
-    An intermediary was developed to expose TDs of 4 types of ECHONET Lite devices (illuminance sensor, temperature sensor, light, air-conditioner). This is a demo system shows the interoperability of ECHONET Lite protocol and WoT.
-    </p>
-    <p>Note: <i>a formal consent will be needed when publishing this work in the implementation report. Please discuss with us for the formal consent.</i></p>
-</div><div class="testimonial" id="testimonial-hitachi">
-  <h3>Hitachi, Ltd.</h3>
-  <p>(DRAFT)</p>
-  <p>
-    Hitachi understands the importance of standardization to make the world seamlessly connected, 
-    and strongly supports W3C's activities.
-  </p>
-  <p>
-    Hitachi expects that standardization of Web of Things enables easy integration across 
-    various Things and IoT platforms. We create a tool for rapid application development using Node-RED, 
-    called Node generator.
-  </p>
-</div><div class="testimonial" id="testimonial-intel">
-  <h3>Intel Corporation</h3>
-    <p>(DRAFT)</p>
-    <p>
-    Intel supports this specification as it enables interoperation between devices
-    from different manufacturers, supporting the growth of an ecosystem of interoperating
-    IoT services and easing barriers to adoption.
-    </p>
-    <p>
-    Two TD Exposers (Things) were developed and a security proxy were developed, all based on Node.js.
-    The Things focused on supporting basic local network access without built-in access controls.
-    A separate project, used by all the TD Exposers, provided security (encryption and
-    authentication) by means of a reverse proxy.
-    For the purposes of counting implementations, the two TD Exposers were considered one
-    implementation since they share a significant amount of code.
-    </p>
-</div><div class="testimonial" id="testimonial-siemens">
-  <h3>Siemens AG</h3>
-    <p>
-      Siemens supports this specification as it allows manufacturers to attach
-      metadata to heterogeneous IoT devices and services in a uniform way. The
-      extensible model with a standardized serialization format in particular
-      remedies interoperability challenges with an installed base of long-lived
-      industrial devices. Furthermore, this specification is a central building
-      block for several digitalization topics such as device onboarding, device
-      management, digital twins, and data analytics.
-    </p>
-    <p>
-      Siemens commits to several open-source implementations of W3C Web of
-      Things, which are managed in the public Eclipse Thingweb and Eclipse
-      EdiTDor projects.
-    </p>
-    <p>
-      Siemens also implements WoT in its
-      <a href="https://www.evosoft.com/digitalisierungsangebot/saywot/">sayWoT!</a>
-      offering that can be used in IoT systems to manage a variety of protocols
-      in different applications domains.
-    </p>
-</div></div>
+</div>
 
 <h2 id="h_systems"><a id="test-systems" name="test-systems">7. Implementations</a></h2>
 <p>
@@ -490,75 +373,20 @@ pre.example {
 </p>
 <div id="systems-impl">
   <!-- system implementation descriptions will be inserted here -->
-<div class="impl" id="impl-ditto-WoT">
-  <h3>Eclipse Ditto: TD Exposer</h3>
+<div class="impl" id="impl-intel">
+  <h3>Organization</h3>
+  <div class="testimonial">
+    <p>
+    Intel supports this specification as it {{reason}}. 
+    </p>
+    <p>
+    {{Introduction}}
+    </p>
+  </div>
+
+  <h4 id="impl-intel-nodejs">{{implementation_name}}: {{implementation_category}}</h4>
   <p>
-    A service that provides APIs for managing digital twins and interacting with
-    the abstracted devices. Fetches linked Thing Models of digital twins and
-    provides instance specific Thing Descriptions for them.
-  </p>
-  <p><b>Usage:</b> Service</p>
-  <p><b>Public Repository:</b> https://github.com/eclipse/ditto</p>
-  <p>
-    <b>Website:</b> https://www.eclipse.org/ditto/basic-wot-integration.html
-  </p>
-  <p><b>Contributing Member Organizations:</b> Bosch.IO</p>
-</div><div class="impl" id="impl-ditto-wot-model">
-  <h3>Eclipse Ditto WoT Model: Tool</h3>
-  <p>
-    Eclipse Ditto offers a Java Module to use TDs and TMs inside Java
-    environments with concepts native to Java, e.g. providing a builder API for
-    creating new TM/TD instances and rendering those to JSON strings and vice
-    versa.
-  </p>
-  <p><b>Usage:</b> Library</p>
-  <p>
-    <b>Public Repository:</b>
-    https://github.com/eclipse/ditto/tree/master/wot/model
-  </p>
-  <p><b>Contributing Member Organizations:</b> Bosch.IO</p>
-</div><div class="impl" id="impl-echonet-proxy">
-  <h3>echonet-wot-proxy: Intermediary</h3>
-  <p>
-  This is an intermediary that connects ECHONET Lite devices into the W3C WoT and allows WoT clients to interact with them via provided TDs.
-  </p><p>
- This intermediary extends the node-wot library.
-  </p>
-</div><div class="impl" id="impl-editdor">
-  <h3>Eclipse EdiTDor: Tool and Producer</h3>
-  <p>
-    The Eclipse EdiTDor implementation is a web application for simply designing
-    W3C Thing Descriptions and Thing Models.
-  </p>
-  <p><b>Usage:</b> Web Application</p>
-  <p>
-    <b>Public Repository:</b> https://github.com/eclipse/editdor
-    <b>Website:</b> https://eclipse.github.io/editdor/
-  </p>
-  <p><b>Contributing Member Organizations:</b> Siemens AG, Bosch.IO</p>
-</div><div class="impl" id="impl-hitachi-nodegen">
-  <h3>Node generator for Node-RED: TD Consumer</h3>
-  <p>
-    <a href="https://github.com/node-red/node-red-nodegen">Node generator</a> is
-    command line tool to generate
-    <a href="https://nodered.org/">Node-RED</a> node modules from several
-    various sources including Thing Description of Web of Things. Using this
-    tool, node developers can dramatically reduce their time to implement
-    Node-RED node modules.
-  </p>
-</div><div class="impl" id="impl-hitachi-node-red">
-  <h3>TBD: TD Exposer</h3>
-  <p>TBD</p>
-</div><div class="impl" id="impl-hitachi-esp-idf">
-  <h3>TBD: TD Exposer</h3>
-  <p>TBD</p>
-</div><div class="impl" id="impl-hitachi-nrwotdisc">
-  <h3>TBD: Discoverer</h3>
-  <p>TBD</p>
-</div><div class="impl" id="impl-intel-nodejs">
-  <h3>intel-nodejs: TD Exposer</h3>
-  <p>
-  Two services based on a shared NodeJS codebase (not using node-wot):
+  Two services based on a shared NodeJS codebase:
   </p><ul>
 	 <li>A simple camera service that interfaces 
 	 with V4L (Video for Linux) to capture still images
@@ -567,88 +395,9 @@ pre.example {
 	 <li>A simple text-to-speech output service based on espeak.
 	 </li>
   </ul>
+ Not based on node-wot.
   <p></p>
-</div><div class="impl" id="impl-intel-proxy">
-  <h3>intel-proxy: Intermediary</h3>
-  <p>
-  This is a reverse proxy service that provides
-  authentication (via various mechanisms indicated by the schemes indicated in the Thing
-  Description) and encrypted transport (TLS) termination.
-  The reverse proxy service was made accessible over a secure tunnel, 
-  and depending on the circumstances,
-  can be run in the cloud, on a gateway computer, or locally on a device.
-  </p>
-  <p>
-  The secure endpoints provided by this service are not given in TDs for the 
-  service itself, but added to the TDs for the Things it services.
-  </p>
-</div><div class="impl" id="NHK">
-  <h3>NHK: Emulated WoT Devices</h3>
-  <p>
-    <a href="https://github.com/w3c/wot-testing/tree/main/events/2021.09.Online/Projects/NHK">WoT device emulator (Android
-       App) </a>
-    <a href="https://github.com/nhkrd/antwapp4hc">Hybrid TV Emulator AndroidTV App</a>
-   
-  </p><ul>
-	 <li> Android app becomes a WoT Device.
-	 </li>
-  </ul>
-  <p></p>
-</div><div class="impl" id="impl-eclipse-nodewot">
-  <h3>Eclipse node-wot: Consumer and Exposer</h3>
-  <p>
-    The Eclipse node-wot implementation is a Node.js-based framework for WoT Servients.
-    It features an implementation of the WoT Scripting API to both consume TDs
-    to instantiate Consumed Things and produce Exposed Things that provide a TD.
-    The Eclipse node-wot implementation supports several Protocol Bindings including
-    HTTP, CoAP, WebSockets, MQTT, Firestore, OPC-UA, Modbus, M-Bus and NETCONF with 
-    corresponding security mechanisms such as DTLS (CoAP); TLS (HTTP, MQTT), Basic, 
-    Digest, and Bearer Token authentication (HTTP), PSK (CoAP), and 
-    username/password authentication (MQTT). 
-  </p>
-  <p>
-    <b>Usage:</b> It can be included in bigger projects as a dependency, 
-    used as a Command Line Interface or as a browser library.
-  </p>
-  <p>
-    <b>Public Repository:</b> https://github.com/eclipse/thingweb.node-wot
-  </p>
-  <p>
-    <b>Contributing Member Organizations:</b> Siemens AG, Invited Experts
-  </p>
-</div><div class="impl" id="impl-playground">
-  <h3>Thing Description Playground: Tool</h3>
-  <p>
-    The Thing Description Playground implementation is a set of tools that
-    allows one to validate TDs, as well to transform them into different
-    representations such as OpenAPI and AsyncAPI. It also allows to detect
-    implemented assertions of the TD spec by looking at a TD, which is how the
-    implementation report for the TD is generated.
-  </p>
-  <p>
-    <b>Usage:</b> It can be included in bigger projects as a dependency, used as
-    a Command Line Interface or as a web application library.
-  </p>
-  <p>
-    <b>Public Repository:</b> https://github.com/thingweb/thingweb-playground
-    <b>Website:</b> http://plugfest.thingweb.io/playground/
-  </p>
-  <p><b>Contributing Member Organizations:</b> Siemens AG</p>
-</div><div class="impl" id="impl-saywot">
-  <h3>Siemens sayWoT!: Exposer and Consumer</h3>
-  <p>
-    sayWoT! is an industrial-grade implementation that allows integration of devices 
-    into Siemens software products like 
-    <a href="https://new.siemens.com/global/en/products/automation/industry-software/apps-and-digital-services-for-process-industry.html">Asset Performance Suite</a>, 
-    <a href="https://new.siemens.com/global/en/products/buildings/automation/desigo/building-management/desigo-cc.html">Desigo CC</a> 
-    in a semantically-described and standardized way. 
-    sayWoT! is implemented in golang for optimal scalability and cross-architecture compatability.
-  </p>
-  <p><b>Usage:</b> Service in the cloud or on premise, Command Line Interface</p>
-  <p>
-    <b>Website:</b> https://www.evosoft.com/en/digitalization-offering/saywot/
-  </p>
-  <p><b>Contributing Member Organizations:</b> Siemens AG</p>
+
 </div></div>
 
 <h2 id="h_security"><a id="security" name="security">8. Security</a></h2>
@@ -799,7 +548,7 @@ pre.example {
 -->
   
 <tr id="arch-action-dataschema" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-action-dataschema">arch-action-dataschema</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-action-dataschema">arch-action-dataschema</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
@@ -813,7 +562,7 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="arch-action-functions" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-action-functions">arch-action-functions</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-action-functions">arch-action-functions</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
@@ -827,7 +576,7 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="arch-action-process" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-action-process">arch-action-process</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-action-process">arch-action-process</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
@@ -841,7 +590,7 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="arch-affordances" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-affordances">arch-affordances</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-affordances">arch-affordances</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
@@ -856,7 +605,7 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="arch-discovery-metadata-after-authorization" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-discovery-metadata-after-authorization">arch-discovery-metadata-after-authorization</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-discovery-metadata-after-authorization">arch-discovery-metadata-after-authorization</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -870,7 +619,7 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="arch-discovery-no-metadata-in-introduction" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-discovery-no-metadata-in-introduction">arch-discovery-no-metadata-in-introduction</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-discovery-no-metadata-in-introduction">arch-discovery-no-metadata-in-introduction</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -886,7 +635,7 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="arch-discovery-no-metadata-in-introduction-urls" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-discovery-no-metadata-in-introduction-urls">arch-discovery-no-metadata-in-introduction-urls</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-discovery-no-metadata-in-introduction-urls">arch-discovery-no-metadata-in-introduction-urls</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -899,7 +648,7 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="arch-discovery-should-use-standard" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-discovery-should-use-standard">arch-discovery-should-use-standard</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-discovery-should-use-standard">arch-discovery-should-use-standard</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
@@ -912,7 +661,7 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="arch-event-dataschema" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-event-dataschema">arch-event-dataschema</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-event-dataschema">arch-event-dataschema</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
@@ -927,7 +676,7 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="arch-event-trigger" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-event-trigger">arch-event-trigger</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-event-trigger">arch-event-trigger</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
@@ -940,7 +689,7 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="arch-form-iris" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-form-iris">arch-form-iris</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-form-iris">arch-form-iris</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -955,7 +704,7 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="arch-form-iris2" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-form-iris2">arch-form-iris2</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-form-iris2">arch-form-iris2</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
@@ -971,7 +720,7 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="arch-hypermedia" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-hypermedia">arch-hypermedia</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-hypermedia">arch-hypermedia</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -984,7 +733,7 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="arch-hypermedia-caching" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-hypermedia-caching">arch-hypermedia-caching</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-hypermedia-caching">arch-hypermedia-caching</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
@@ -998,7 +747,7 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="arch-hypermedia-protocol-binding" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-hypermedia-protocol-binding">arch-hypermedia-protocol-binding</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-hypermedia-protocol-binding">arch-hypermedia-protocol-binding</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -1012,7 +761,7 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="arch-id-correlation" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-id-correlation">arch-id-correlation</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-id-correlation">arch-id-correlation</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -1026,7 +775,7 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="arch-intermediary-td-extra-protocols" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-intermediary-td-extra-protocols">arch-intermediary-td-extra-protocols</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-intermediary-td-extra-protocols">arch-intermediary-td-extra-protocols</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
@@ -1040,7 +789,7 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="arch-media-type" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-media-type">arch-media-type</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-media-type">arch-media-type</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -1054,7 +803,7 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="arch-media-type-extra" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-media-type-extra">arch-media-type-extra</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-media-type-extra">arch-media-type-extra</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
@@ -1068,7 +817,7 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="arch-op-expected-request" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-op-expected-request">arch-op-expected-request</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-op-expected-request">arch-op-expected-request</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
@@ -1082,7 +831,7 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="arch-op-extension-comparison" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-op-extension-comparison">arch-op-extension-comparison</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-op-extension-comparison">arch-op-extension-comparison</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -1095,7 +844,7 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="arch-op-extension-lowercase" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-op-extension-lowercase">arch-op-extension-lowercase</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-op-extension-lowercase">arch-op-extension-lowercase</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
@@ -1108,7 +857,7 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="arch-op-extension-uri" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-op-extension-uri">arch-op-extension-uri</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-op-extension-uri">arch-op-extension-uri</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -1121,7 +870,7 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="arch-op-form-fields-protocol" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-op-form-fields-protocol">arch-op-form-fields-protocol</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-op-form-fields-protocol">arch-op-form-fields-protocol</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
@@ -1135,7 +884,7 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="arch-op-request-method" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-op-request-method">arch-op-request-method</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-op-request-method">arch-op-request-method</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -1149,22 +898,8 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="arch-op-wellknown" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-op-wellknown">arch-op-wellknown</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-              Well-known operation types MUST follow the ABNF
-              LOALPHA *( LOALPHA / DIGIT / "." / "-" ).
-            </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
 <tr id="arch-other-thing-representations" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-other-thing-representations">arch-other-thing-representations</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-other-thing-representations">arch-other-thing-representations</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
@@ -1178,8 +913,92 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
+<tr id="arch-privacy-consideration-access-control-mandatory-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-access-control-mandatory-1">arch-privacy-consideration-access-control-mandatory-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+Things returning data or metadata (such as TDs) associated with a person MUST use some form of access control.
+	    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-privacy-consideration-access-control-mandatory-2" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-access-control-mandatory-2">arch-privacy-consideration-access-control-mandatory-2</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+Services returning Thing Descriptions with immutable IDs MUST use some form of access control.
+	    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-privacy-consideration-dist-td-auth" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-dist-td-auth">arch-privacy-consideration-dist-td-auth</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion"> 
+	    Distribution mechanisms for TDs SHOULD ensure they are 
+	    only provided to authorized Consumers.
+	    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-privacy-consideration-explicit-pii" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-explicit-pii">arch-privacy-consideration-explicit-pii</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion"> 
+	    TDs that can be associated with a person
+	    SHOULD generally be treated as if they contained PII and
+            subject to the same management policies as other PII, even if they
+	    do not explicitly contain it.
+	    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-privacy-consideration-min-explicit-pii" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-min-explicit-pii">arch-privacy-consideration-min-explicit-pii</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	    Storage of explicit PII in TDs SHOULD be minimized
+            as much as possible. 
+	    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-privacy-consideration-no-unness-info-td" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-no-unness-info-td">arch-privacy-consideration-no-unness-info-td</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion"> 
+            Unnecessary information
+            SHOULD NOT be exposed in TDs whenever possible.
+	    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
 <tr id="arch-property-dataschema" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-property-dataschema">arch-property-dataschema</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-property-dataschema">arch-property-dataschema</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
@@ -1193,7 +1012,7 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="arch-rel-type-lowercase" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-rel-type-lowercase">arch-rel-type-lowercase</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-rel-type-lowercase">arch-rel-type-lowercase</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
@@ -1206,7 +1025,7 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="arch-rel-types-1" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-rel-types-1">arch-rel-types-1</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-rel-types-1">arch-rel-types-1</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -1219,7 +1038,7 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="arch-rel-types-2" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-rel-types-2">arch-rel-types-2</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-rel-types-2">arch-rel-types-2</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -1233,7 +1052,7 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="arch-schema" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-schema">arch-schema</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-schema">arch-schema</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
@@ -1247,8 +1066,362 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
+<tr id="arch-security-consideration-auth-private-data" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-auth-private-data">arch-security-consideration-auth-private-data</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	  Authentication and authorization 
+	  SHOULD be established based on separately managed Private Security Data.
+	  </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-security-consideration-avoid-direct" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-avoid-direct">arch-security-consideration-avoid-direct</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            The WoT Runtime SHOULD NOT directly
+            expose native device interfaces to the
+            script developers. 
+	    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-security-consideration-communication-binding" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-communication-binding">arch-security-consideration-communication-binding</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            Whenever possible, TD creators SHOULD use the vetted communication
+            metadata provided in the WoT Binding Templates. 
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-security-consideration-communication-platform" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-communication-platform">arch-security-consideration-communication-platform</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            When generating TDs for an IoT
+            ecosystem not covered by the WoT Binding
+              Templates, TD creators SHOULD ensure that all the security
+            requirements of the IoT Platform are
+            satisfied.
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-security-consideration-hal-refuse-unsafe" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-hal-refuse-unsafe">arch-security-consideration-hal-refuse-unsafe</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	    Hardware abstraction
+            layers SHOULD refuse to execute commands that
+            might put the device (or environment) to an
+            unsafe state. 
+	    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-security-consideration-isolation-sensitive" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-isolation-sensitive">arch-security-consideration-isolation-sensitive</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            The WoT Runtime SHOULD perform isolation of
+            script instances and their data in cases when
+            scripts handle sensitive data. 
+	    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-security-consideration-isolation-tenants" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-isolation-tenants">arch-security-consideration-isolation-tenants</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	    Similarly, the WoT Runtime
+            implementation SHOULD perform isolation of WoT
+              Runtime instances and their data if a WoT
+            device has more than one tenant. 
+	    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-security-consideration-limit-cred-access" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-limit-cred-access">arch-security-consideration-limit-cred-access</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	    Such credentials (or even better,
+            abstract operations that use them but do not
+            expose them) SHOULD only be accessible to the underlying 
+            protocol implementation that uses them.
+	    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-security-consideration-limit-trust" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-limit-trust">arch-security-consideration-limit-trust</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	Trust relationships SHOULD be as restricted as possible,
+	ideally pairwise and limited to precisely the access
+	required.  
+	</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-security-consideration-no-expose-cred" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-no-expose-cred">arch-security-consideration-no-expose-cred</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            Additionally, in order to minimize a risk that
+            provisioned security credentials get
+            compromised, the WoT Runtime
+            implementation SHOULD NOT expose any API for
+            scripts to query the provisioned security
+            credentials.
+	    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-security-consideration-no-private-security-data" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-no-private-security-data">arch-security-consideration-no-private-security-data</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+          Producers of TDs MUST ensure that no Private
+          Security Data is included in TDs.
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-security-consideration-other-programming-mechanisms" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-other-programming-mechanisms">arch-security-consideration-other-programming-mechanisms</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	In general, 
+	these risks and mitigations should also be applied to any system
+	that supports programmable behavior for WoT systems,
+	not just the WoT Scripting API.
+      </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-security-consideration-public-metadata-only" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-public-metadata-only">arch-security-consideration-public-metadata-only</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	  Producers of TDs and extensions meant to be used in TDs
+          MUST ensure that only Public Security Metadata
+          is ever stored in TDs.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-security-consideration-secure-cred-isolation" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-secure-cred-isolation">arch-security-consideration-secure-cred-isolation</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	    In case
+            there are more than one tenant on a single
+            WoT-enabled device, a WoT Runtime
+            implementation should guarantee isolation of
+            each tenant's provisioned security credentials.
+	    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-security-consideration-secure-cred-storage" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-secure-cred-storage">arch-security-consideration-secure-cred-storage</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            The WoT Runtime SHOULD securely store any
+            provisioned security credentials, guaranteeing
+            their integrity and confidentiality. 
+	    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-security-consideration-secure-update" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-secure-update">arch-security-consideration-secure-update</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+            Post-manufacturing provisioning or update of
+            scripts, the WoT Runtime itself or any
+            related data SHOULD be done in a secure fashion.
+	    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-security-consideration-segmented-network" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-segmented-network">arch-security-consideration-segmented-network</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	In the case of implicit access control via access to a common network
+	a segmented network SHOULD be used.
+	</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-security-consideration-separate-security-data" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-separate-security-data">arch-security-consideration-separate-security-data</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+          There SHOULD be a strict separation of
+          Public Security Metadata and Private Security Data.
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-security-consideration-tls-mandatory-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-tls-mandatory-1">arch-security-consideration-tls-mandatory-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">When a Thing is made 
+            available on the public internet so it can
+            be accessed by anyone, from anywhere, then it MUST be protected by secure
+            transport such as TLS or DTLS.
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-security-consideration-tls-mandatory-2" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-tls-mandatory-2">arch-security-consideration-tls-mandatory-2</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">When a Thing is made 
+            available on a private network then it SHOULD be protected by secure
+            transport such as TLS or DTLS.
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-security-consideration-tls-optional-on-lan" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-tls-optional-on-lan">arch-security-consideration-tls-optional-on-lan</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+           Private networks such as a LAN, protected by a firewall, MAY use the 
+           Trusted 
+           Environment approach of depending on network security only.
+           This is not generally recommended but may be necessary for practical
+           reasons.  Please see the referenced security consideration for
+           additional risks and mitigations with this approach. 
+          </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-security-consideration-use-hal" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-use-hal">arch-security-consideration-use-hal</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	    A WoT Runtime
+            implementation SHOULD provide a hardware
+            abstraction layer for accessing the native
+            device interfaces. 
+	    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-security-consideration-use-psk" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-use-psk">arch-security-consideration-use-psk</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+	In commercial and industrial environments, 
+	explict installation of pre-shared
+	keys SHOULD be used to allow browsers to access local services
+	while using TLS.
+	</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
 <tr id="arch-td-linking" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-td-linking">arch-td-linking</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-td-linking">arch-td-linking</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
@@ -1262,7 +1435,7 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="arch-td-mandatory" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-td-mandatory">arch-td-mandatory</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-td-mandatory">arch-td-mandatory</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -1275,7 +1448,7 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="arch-td-metadata" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#arch-td-metadata">arch-td-metadata</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-td-metadata">arch-td-metadata</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
