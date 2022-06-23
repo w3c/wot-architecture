@@ -4330,10 +4330,10 @@
       there are situations in which secure transports, such as TLS, are not
       feasible or are difficult to set up, such as on a local LAN within a home.
       Unfortunately, generally access control mechanisms in HTTP 
-      are generally designed to be used with secure transport and can be 
+      are designed to be used with secure transport and can be 
       easily bypassed without it.  In particular, it is relatively easy to
       capture passwords and tokens from unencrypted protocol interactions
-      which can be intercepted by a third party.  In addition, man-in-the-middle
+      which can be intercepted by a third party.  Also, man-in-the-middle
       attacks can be easily implemented without TLS providing server authentication. 
       </p>
       <dl>
@@ -4402,6 +4402,30 @@
            access controls.
           </dd>
           </dl>
+          <p>
+          <span class="rfc2119-assertion" 
+              id="arch-security-consideration-tls-1-3">
+            When secure transport over TCP is appropriate,
+            then TLS 1.3 [[RFC8446]]
+            SHOULD be used.</span>
+          <span class="rfc2119-assertion" 
+              id="arch-security-consideration-tls-1-2">
+            If TLS 1.3 cannot be used for compatibility reasons
+            but secure transport over TCP is appropriate,
+            TLS 1.2 [[RFC5246]]
+            MAY be used.</span>
+          <span class="rfc2119-assertion" 
+              id="arch-security-consideration-dtls-1-3">
+            When secure transport over UDP is appropriate,
+            then DTLS 1.3 [[RFC9147]]
+            SHOULD be used.</span>
+          <span class="rfc2119-assertion" 
+              id="arch-security-consideration-dtls-1-2">
+            If DTLS 1.3 cannot be used for compatibility reasons
+            but secure transport over UDP is appropriate,
+            then DTLS 1.2 [[RFC6347]]
+            MAY be used.</span>
+          </p>
           <p>Additional considerations apply if a Thing can reveal
           <a>Personally Identifiable Information</a> (PII).
           See <a href="#arch-privacy-consideration-access-controls"></a>.
