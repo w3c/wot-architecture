@@ -4425,6 +4425,14 @@
             but secure transport over UDP is appropriate,
             then DTLS 1.2 [[RFC6347]]
             MAY be used.</span>
+          <span class="rfc2119-assertion"
+              id="arch-security-consideration-no-earlier-tls-or-dtls">
+            Versions of DLTS or TLS earlier than 1.2 MUST NOT be used for 
+            new development.
+          </span>
+          Existing Things using earlier versions of TLS or DTLS can be 
+          described by WoT metadata (e.g. Thing Descriptions) but should
+          be considered insecure.
           </p>
           <p>Additional considerations apply if a Thing can reveal
           <a>Personally Identifiable Information</a> (PII).
