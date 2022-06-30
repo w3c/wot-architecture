@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang='en-US'>
 <head>
+  <link rel="stylesheet" href="testing/atrisk.css">
   <meta charset='utf-8'>
   <title>Web of Things (WoT) Architecture 1.1</title>
   <script class="remove" src="https://www.w3.org/Tools/respec/respec-w3c"></script>
@@ -1718,8 +1719,7 @@
 	<p>A <a>Thing</a> instance is described by standardized metadata.</a>
         <span class="rfc2119-assertion" id="arch-td-metadata">
    	  In W3C WoT, the description metadata for a <a>Thing</a> instance
-	  MUST be available as a <a>WoT Thing Description</a> (TD) [[?WOT-THING-DESCRIPTION]].
-        </span>
+	  MUST be available as a <a>WoT Thing Description</a> (TD) [[?WOT-THING-DESCRIPTION]].</span>
 
         The format can be processed either through classic JSON libraries or a JSON-LD processor,
         as the underlying information model is graph-based and its serialization compatible with JSON-LD 1.1
@@ -1732,11 +1732,9 @@
         <span class="rfc2119-assertion" id="arch-other-thing-representations">
           There MAY be other representations of a <a>Thing</a> such as an HTML-based user interface,
           simply an image of the physical entity,
-          or even non-Web representations in closed systems.
-        </span>
+          or even non-Web representations in closed systems.</span>
         <span class="rfc2119-assertion" id="arch-td-mandatory">
-          To be considered a <a>Thing</a>, however, at least one <a>TD</a> representation MUST be available.
-        </span>
+          To be considered a <a>Thing</a>, however, at least one <a>TD</a> representation MUST be available.</span>
       </p>
         </section>
         <section id="metadata-thing-models">
@@ -1822,8 +1820,7 @@
         In summary,
         <span class="rfc2119-assertion" id="arch-td-linking"><a>WoT Thing Descriptions</a>
 		and <a>WoT Thing Models</a> MAY link to other <a>Things</a>, <a>WoT Thing Models</a>,
-		and other resources on the Web to form a Web of Things.
-        </span>
+		and other resources on the Web to form a Web of Things.</span>
       </p>
       <figure id="linked-things">
         <img src="images/architecture/linked-things.png" srcset="images/architecture/linked-things.svg"
@@ -2273,8 +2270,7 @@
         <span class="rfc2119-assertion" id="arch-affordances">In
           addition to navigation affordances (i.e., Web links),
           <a>Things</a> MAY offer three other types of <a>Interaction Affordances</a>
-          defined by this specification: <a>Properties</a>, <a>Actions</a>, and <a>Events</a>.
-        </span>
+          defined by this specification: <a>Properties</a>, <a>Actions</a>, and <a>Events</a>.</span>
         While this narrow waist allows to decouple <a>Consumers</a> and <a>Things</a>,
         these four types of <a>Interaction Affordances</a> are still able to model virtually all interaction
         possibilities found in IoT devices and services.
@@ -2292,8 +2288,7 @@
         <p>
           <span class="rfc2119-assertion" id="arch-property-dataschema">
             If the data is not fully specified by the Protocol Binding used (e.g., through a media type),
-            Properties MAY contain one <a>data schema</a> for the exposed state.
-          </span>
+            Properties MAY contain one <a>data schema</a> for the exposed state.</span>
         </p>
         <p>
           Examples of Properties are sensor values (read-only), stateful actuators (read-write),
@@ -2307,18 +2302,15 @@
           An Action is an Interaction Affordance that allows to invoke a function of the Thing.
           <span class="rfc2119-assertion" id="arch-action-functions">
             An Action MAY manipulate state that is not directly exposed (cf. Properties),
-            manipulate multiple Properties at a time, or manipulate Properties based on internal logic (e.g., toggle).
-          </span>
+            manipulate multiple Properties at a time, or manipulate Properties based on internal logic (e.g., toggle).</span>
           <span class="rfc2119-assertion" id="arch-action-process">
             Invoking an Action MAY also trigger a process on the Thing that manipulates state
-            (including physical state through actuators) over time.
-          </span>
+            (including physical state through actuators) over time.</span>
         </p>
         <p>
           <span class="rfc2119-assertion" id="arch-action-dataschema">
             If the data is not fully specified by the Protocol Binding used (e.g., through a media type),
-            Actions MAY contain <a>data schemas</a> for optional input parameters and output results.
-          </span>
+            Actions MAY contain <a>data schemas</a> for optional input parameters and output results.</span>
         </p>
         <p>
           Examples of Actions are changing multiple Properties simultaneously,
@@ -2333,15 +2325,13 @@
           the Consumer.
           Here not state, but state transitions (i.e., events) are communicated.
           <span class="rfc2119-assertion" id="arch-event-trigger">
-            Events MAY be triggered through conditions that are not exposed as Properties.
-          </span>
+            Events MAY be triggered through conditions that are not exposed as Properties.</span>
         </p>
         <p>
           <span class="rfc2119-assertion" id="arch-event-dataschema">
             If the data is not fully specified by the Protocol Binding used (e.g., through a media type),
             Events MAY contain <a>data schemas</a> for the event data and possible subscription control messages
-            (e.g., to subscribe with a Webhook callback URI).
-          </span>
+            (e.g., to subscribe with a Webhook callback URI).</span>
         </p>
         <p>
           Examples of Events are discrete events such as an alarm or samples of a time series that are pushed regularly.
@@ -2401,11 +2391,9 @@
           or extension types in the form of URIs [[!RFC3986]].
           <span class="rfc2119-assertion" id="arch-rel-types">
             Extension relation types MUST be compared as strings using a case-insensitive comparison.
-            (If they are serialized in a different format they are to be converted to URIs).
-          </span>
+            (If they are serialized in a different format they are to be converted to URIs).</span>
           <span class="rfc2119-assertion" id="arch-rel-type-lowercase">
-            Nevertheless, all-lowercase URIs SHOULD be used for extension relation types. [[!RFC8288]]
-          </span>
+            Nevertheless, all-lowercase URIs SHOULD be used for extension relation types [[!RFC8288]].</span>
         </p>
         <p>
           In the Web of Things, links are used for <a>Discovery</a> and to express relations between <a>Things</a>
@@ -2455,8 +2443,7 @@
           <span class="rfc2119-assertion" id="arch-form-iris">
             Form contexts and submission targets MUST both be
             Internationalized Resource Identifiers (IRIs)
-            [[!RFC3987]].
-          </span>
+            [[!RFC3987]].</span>
           However, in the common case, they will
           also be URIs [[!RFC3986]], because many protocols
           (such as HTTP) do not support IRIs.</p>
@@ -2465,8 +2452,7 @@
             Form context and submission target MAY point to
             the same resource or different resources, where the
             submission target resource implements the operation
-            for the context.
-          </span></p>
+            for the context.</span></p>
         <p>The operation type identifies the semantics of
           the operation. Operation types are denoted similar
           to link relation types.</p>
@@ -2474,19 +2460,16 @@
           <span class="rfc2119-assertion" id="arch-op-request-method">
             The request method MUST identify one method of
             the standard set of the protocol identified by the
-            submission target URI scheme.
-          </span>
+            submission target URI scheme.</span>
         </p>
         <p>
           <span class="rfc2119-assertion" id="arch-op-expected-request">
             Form fields are optional and MAY further specify the
-            expected request message for the given operation.
-          </span>
+            expected request message for the given operation.</span>
           Note that this is not limited to the payload, but may affect also protocol headers.
           <span class="rfc2119-assertion" id="arch-op-form-fields-protocol">
             Form fields MAY depend on the protocol used for the
-            submission target as specified in the URI scheme.
-          </span>
+            submission target as specified in the URI scheme.</span>
           Examples are HTTP header fields,
           CoAP options, the protocol-independent media type [[!RFC2046]] including parameters (i.e., full content type)
           for the request payload, or information about the expected response.
@@ -2525,12 +2508,10 @@
         <h3>Hypermedia-driven</h3>
         <p>
           <span class="rfc2119-assertion" id="arch-hypermedia">
-            Interaction Affordances MUST include one or more Protocol Bindings.
-          </span>
+            Interaction Affordances MUST include one or more Protocol Bindings.</span>
           <span class="rfc2119-assertion" id="arch-hypermedia-protocol-binding">
             Protocol Bindings MUST be serialized as <a href="#sec-hypermedia-controls">hypermedia controls</a> to be self-descriptive on how to
-            activate the Interaction Affordance.
-          </span>
+            activate the Interaction Affordance.</span>
           The authority of the <a>hypermedia controls</a> can be the <a>Thing</a> itself, producing the <a>TD</a> document
           at runtime (based on its current state and including network parameters such as its IP address)
           or serving it from memory with only the current network parameters inserted.
@@ -2540,8 +2521,7 @@
           lifecycle and evolution.
           <span class="rfc2119-assertion" id="arch-hypermedia-caching">
             The <a>hypermedia controls</a> MAY be cached outside the <a>Thing</a>
-            and used for offline processing if caching metadata is available to determine the freshness.
-          </span>
+            and used for offline processing if caching metadata is available to determine the freshness.</span>
         </p>
       </section>
       <section id="sec-arch-URIs">
@@ -2559,8 +2539,7 @@
         <p>
           <span class="rfc2119-assertion" id="arch-media-type">All
             data (a.k.a. content) exchanged when activating Interaction Affordances
-            MUST be identified by a media type [[!RFC2046]] in the Protocol Binding.
-          </span>
+            MUST be identified by a media type [[!RFC2046]] in the Protocol Binding.</span>
           Media types are labels to identify representation formats, for instance
           <code>application/json</code>
           for JSON [[RFC8259]] or
@@ -2576,8 +2555,7 @@
           There might also be standardized transformations on the data such as content coding [[?RFC7231]].
           <span class="rfc2119-assertion" id="arch-media-type-extra">
             Protocol Bindings MAY have additional information that specifies representation formats
-            in more detail than the media type alone.
-          </span>
+            in more detail than the media type alone.</span>
         </p>
         <p>
           Note that many media types only identify a generic
@@ -2586,8 +2564,7 @@
           <span class="rfc2119-assertion" id="arch-schema">Thus,
             the corresponding Interaction Affordances SHOULD
             declare a <em><a>data schema</a></em> to provide more detailed
-            syntactic metadata for the data exchanged.
-          </span>
+            syntactic metadata for the data exchanged.</span>
         </p>
     </section>
     <section id="sec-wot-servient-architecture-high-level">
@@ -2750,8 +2727,7 @@
           a new identifier.
           <span class="rfc2119-assertion" id="arch-intermediary-td-extra-protocols">
             If necessary, a TD generated by an <a>Intermediary</a> MAY contain
-            interfaces for other communication protocols.
-          </span>
+            interfaces for other communication protocols.</span>
         </p>
       </section>
     </section>
@@ -4059,20 +4035,17 @@
 	  <dd>
 	  <span class="rfc2119-assertion" id="arch-security-consideration-separate-security-data">
           There SHOULD be a strict separation of
-          <a>Public Security Metadata</a> and <a>Private Security Data</a>.
-          </span>
+          <a>Public Security Metadata</a> and <a>Private Security Data</a>.</span>
 	  <span class="rfc2119-assertion" id="arch-security-consideration-public-metadata-only">
 	  <a>Producers</a> of TDs and extensions meant to be used in TDs
           MUST ensure that only <a>Public Security Metadata</a>
           is ever stored in TDs.</span>
 	  <span class="rfc2119-assertion" id="arch-security-consideration-auth-private-data">
 	  Authentication and authorization 
-	  SHOULD be established based on separately managed <a>Private Security Data</a>.
-	  </span>
+	  SHOULD be established based on separately managed <a>Private Security Data</a>.</span>
 	  <span class="rfc2119-assertion" id="arch-security-consideration-no-private-security-data">
           <a>Producers</a> of TDs MUST ensure that no <a>Private
-          Security Data</a> is included in <a>TDs</a>.
-          </span>
+          Security Data</a> is included in <a>TDs</a>.</span>
 	  </dd>
         </dl>
       </section>
@@ -4097,15 +4070,13 @@
 	  best practices for that <a>IoT Platform</a>.
 	  <span class="rfc2119-assertion" id="arch-security-consideration-communication-binding">
             Whenever possible, TD creators SHOULD use the vetted communication
-            metadata provided in the <a>WoT Binding Templates</a>. 
-          </span>
+            metadata provided in the <a>WoT Binding Templates</a>.</span>
 	  <span class="rfc2119-assertion" id="arch-security-consideration-communication-platform">
             When generating TDs for an IoT
             ecosystem not covered by the <a>WoT Binding
               Templates</a>, TD creators SHOULD ensure that all the security
             requirements of the <a>IoT Platform</a> are
-            satisfied.
-          </span>
+            satisfied.</span>
           </dd>
         </dl>
       </section>
@@ -4127,8 +4098,7 @@
 	In general, 
 	these risks and mitigations should also be applied to any system
 	that supports programmable behavior for WoT systems,
-	not just the <a>WoT Scripting API</a>.
-      </span>
+	not just the <a>WoT Scripting API</a>.</span>
       </p>
       <section id="sec-security-consideration-cross-script">
         <h5>Cross-Script Security Risk</h5>
@@ -4157,14 +4127,12 @@
 	    <span class="rfc2119-assertion" id="arch-security-consideration-isolation-sensitive">
             The <a>WoT Runtime</a> SHOULD perform isolation of
             script instances and their data in cases when
-            scripts handle sensitive data. 
-	    </span>
+            scripts handle sensitive data.</span>
 	    <span class="rfc2119-assertion" id="arch-security-consideration-isolation-tenants">
 	    Similarly, the <a>WoT Runtime</a>
             implementation SHOULD perform isolation of <a>WoT
               Runtime</a> instances and their data if a WoT
-            device has more than one tenant. 
-	    </span>
+            device has more than one tenant.</span>
 	    Such isolation
             can be performed within the <a>WoT Runtime</a>
             using platform security mechanisms available on
@@ -4191,20 +4159,17 @@
 	    <span class="rfc2119-assertion" id="arch-security-consideration-avoid-direct">
             The <a>WoT Runtime</a> SHOULD NOT directly
             expose native device interfaces to the
-            script developers. 
-	    </span>
+            script developers.</span>
 	    <span class="rfc2119-assertion" id="arch-security-consideration-use-hal">
 	    A <a>WoT Runtime</a>
             implementation SHOULD provide a hardware
             abstraction layer for accessing the native
-            device interfaces. 
-	    </span>
+            device interfaces.</span>
 	    <span class="rfc2119-assertion" id="arch-security-consideration-hal-refuse-unsafe">
 	    Hardware abstraction
             layers SHOULD refuse to execute commands that
             might put the device (or environment) to an
-            unsafe state. 
-	    </span>
+            unsafe state.</span>
 	    Additionally, in order to reduce
             the damage to a physical WoT device in cases a
             script gets compromised, it is important to
@@ -4235,8 +4200,7 @@
 	    <span class="rfc2119-assertion" id="arch-security-consideration-secure-update">
             Post-manufacturing provisioning or update of
             scripts, the <a>WoT Runtime</a> itself or any
-            related data SHOULD be done in a secure fashion.
-	    </span>
+            related data SHOULD be done in a secure fashion.</span>
             A set of recommendations for secure update and
             post-manufacturing provisioning can be found in
             the <em>WoT Security and Privacy Guidelines</em>
@@ -4262,29 +4226,25 @@
 	    <span class="rfc2119-assertion" id="arch-security-consideration-secure-cred-storage">
             The <a>WoT Runtime</a> SHOULD securely store any
             provisioned security credentials, guaranteeing
-            their integrity and confidentiality. 
-	    </span>
+            their integrity and confidentiality.</span>
 	    <span class="rfc2119-assertion" id="arch-security-consideration-secure-cred-isolation">
 	    In case
             there are more than one tenant on a single
             WoT-enabled device, a <a>WoT Runtime</a>
             implementation should guarantee isolation of
-            each tenant's provisioned security credentials.
-	    </span>
+            each tenant's provisioned security credentials.</span>
 	    <span class="rfc2119-assertion" id="arch-security-consideration-no-expose-cred">
             Additionally, in order to minimize a risk that
             provisioned security credentials get
             compromised, the <a>WoT Runtime</a>
             implementation SHOULD NOT expose any API for
             scripts to query the provisioned security
-            credentials.
-	    </span>
+            credentials.</span>
 	    <span class="rfc2119-assertion" id="arch-security-consideration-limit-cred-access">
 	    Such credentials (or even better,
             abstract operations that use them but do not
             expose them) SHOULD only be accessible to the underlying 
-            protocol implementation that uses them.
-	    </span>
+            protocol implementation that uses them.</span>
           </dd>
         </dl>
       </section>
@@ -4323,15 +4283,13 @@
 	<span class="rfc2119-assertion" id="arch-security-consideration-limit-trust">
 	Trust relationships SHOULD be as restricted as possible,
 	ideally pairwise and limited to precisely the access
-	required.  
-	</span>
+	required.</span>
 	As noted, in some situations this is difficult to manage and
 	implicit access such as described is used, and may even be 
 	assumed by certain entities, such as browsers.
 	<span class="rfc2119-assertion" id="arch-security-consideration-segmented-network">
 	In the case of implicit access control via access to a common network
-	a segmented network SHOULD be used.
-	</span>
+	a segmented network SHOULD be used.</span>
 	For example, in the home environment,
 	a separate WiFi network can be used for IoT devices, and routers
 	often provide a "guest" network that can be used for this purpose.
@@ -4339,8 +4297,7 @@
 	In commercial and industrial environments, 
 	explict installation of pre-shared
 	keys SHOULD be used to allow browsers to access local services
-	while using TLS.
-	</span>
+	while using TLS.</span>
 	Using a single key for a large number of services is
 	equivalent to the "implicit access" situation above.  However, once TLS is
 	enabled other security mechanisms that assume secure transport
@@ -4377,8 +4334,7 @@
               id="arch-security-consideration-tls-mandatory-pub">When a Thing is made 
             available on the public internet so it can
             be accessed by anyone, from anywhere, then it MUST be protected by secure
-            transport such as TLS or DTLS.
-          </span>
+            transport such as TLS or DTLS.</span>
             A Thing available on the public internet will have a public
             URL and so normal CA mechanisms to provide certificates are available.
             This should be done even if there are no access controls on the endpoint,
@@ -4390,8 +4346,7 @@
           <dd><span class="rfc2119-assertion" 
               id="arch-security-consideration-tls-recommended-priv">When a Thing is made 
             available on a private network then it SHOULD be protected by secure
-            transport such as TLS or DTLS.
-          </span>
+            transport such as TLS or DTLS.</span>
           The risk increases with the sensitivity of the data being protected,
           the potential for damage, and with the number of people given access 
           to the private network. 
@@ -4403,7 +4358,7 @@
               id="arch-security-consideration-tls-optional-on-lan">
            Private networks such as a LAN, protected by a firewall, MAY use the 
            <a href="#sec-security-consideration-trusted-environment-risks">Trusted 
-           Environment</a> approach of depending on network security only</a>.
+           Environment</a> approach of depending on network security only</a>.</span>
            This is not generally recommended but may be necessary for practical
            reasons.  Please see the referenced security consideration for
            additional risks and mitigations with this approach. 
@@ -4536,8 +4491,7 @@
           <dd>
 	    <span class="rfc2119-assertion" id="arch-privacy-consideration-min-explicit-pii">
 	    Storage of explicit PII in TDs SHOULD be minimized
-            as much as possible. 
-	    </span>
+            as much as possible.</span>
 	    Even without explicit PII
             in TDs, a tracking and identification privacy
             risk may exist. 
@@ -4545,19 +4499,16 @@
 	    TDs that can be associated with a person
 	    SHOULD generally be treated as if they contained PII and
             subject to the same management policies as other PII, even if they
-	    do not explicitly contain it.
-	    </span>
+	    do not explicitly contain it.</span>
 	    <span class="rfc2119-assertion" id="arch-privacy-consideration-dist-td-auth"> 
 	    Distribution mechanisms for TDs SHOULD ensure they are 
-	    only provided to authorized Consumers.
-	    </span>
+	    only provided to authorized Consumers.</span>
 	    Note that the <a>WoT Discovery</a> mechanism is designed to address this
 	    specific issue, as long as it is used with authentication and access
 	    controls on exploration services.
 	    <span class="rfc2119-assertion" id="arch-privacy-consideration-no-unness-info-td"> 
             Unnecessary information
-            SHOULD NOT be exposed in TDs whenever possible.
-	    </span>
+            SHOULD NOT be exposed in TDs whenever possible.</span>
             For example, explicit type and instance identifying information in TDs should
             only be included if it is needed by the use case.
             Even if required by the use case,
@@ -4585,9 +4536,8 @@
       <dl>
         <dt>Mitigation:</dt>
         <dd>
-	      <span class="rfc2119-assertion" id="arch-privacy-consideration-access-control-mandatory-person">
-Things returning data or metadata (such as TDs) associated with a person MUST use some form of access control.
-	    </span>
+	      <span class="rfc2119-assertion" id="arch-privacy-consideration-pii-access-control-mandatory">
+Things returning data or metadata (such as TDs) associated with a person MUST use some form of access control.</span>
       A special case of this is a <a>Thing Description Directory</a>,
       as described in [[WOT-DISCOVERY]], which is a Thing that returns 
       Thing Descriptions as data.  Such directory services are included
@@ -4595,9 +4545,8 @@ Things returning data or metadata (such as TDs) associated with a person MUST us
       required to use access control if the TDs describe Things associated with
       identifiable people.  In the case of services
       returning Thing Descriptions, the following also applies: 
-	      <span class="rfc2119-assertion" id="arch-privacy-consideration-access-control-mandatory-immutable">
-Services returning Thing Descriptions with immutable IDs MUST use some form of access control.
-	    </span>
+	      <span class="rfc2119-assertion" id="arch-privacy-consideration-immutable-id-access-control-mandatory">
+Services returning Thing Descriptions with immutable IDs MUST use some form of access control.</span>
       Specifically, in both of these situations, the <code>nosec</code> security
       scheme described in [[WOT-THING-DESCRIPTION]] cannot be used,
       as it provides no access control.
