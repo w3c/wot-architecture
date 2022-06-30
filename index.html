@@ -4536,7 +4536,7 @@
       <dl>
         <dt>Mitigation:</dt>
         <dd>
-	      <span class="rfc2119-assertion" id="arch-privacy-consideration-pii-access-control-mandatory">
+	      <span class="rfc2119-assertion" id="arch-privacy-consideration-access-control-mandatory-person">
 Things returning data or metadata (such as TDs) associated with a person MUST use some form of access control.</span>
       A special case of this is a <a>Thing Description Directory</a>,
       as described in [[WOT-DISCOVERY]], which is a Thing that returns 
@@ -4545,7 +4545,7 @@ Things returning data or metadata (such as TDs) associated with a person MUST us
       required to use access control if the TDs describe Things associated with
       identifiable people.  In the case of services
       returning Thing Descriptions, the following also applies: 
-	      <span class="rfc2119-assertion" id="arch-privacy-consideration-immutable-id-access-control-mandatory">
+	      <span class="rfc2119-assertion" id="arch-privacy-consideration-id-access-control-mandatory-immutable">
 Services returning Thing Descriptions with immutable IDs MUST use some form of access control.</span>
       Specifically, in both of these situations, the <code>nosec</code> security
       scheme described in [[WOT-THING-DESCRIPTION]] cannot be used,
