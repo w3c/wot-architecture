@@ -3118,17 +3118,29 @@
 
     <section id="sec-binding-templates" class="informative">
       <h3>WoT Binding Templates</h3>
-      <!-- <p> The IoT uses a variety of protocols for accessing
+
+      <p>
+        The <a>Binding Templates</a> address the aspect that an application client (a <a>Consumer</a>) can use the <a>Thing Description</a> to 
+        extract the specific metadata of the protocols (e.g. about HTTP, MQTT, Modbus, etc.), payload formats (binary, JSON, CBOR, EXI, etc.) and their possible
+        usage in an IoT platform context (e.g., ECHONET, OPC UA).
+        The metadata can be passed for example to a network implementation interface to establish interaction with the desired <a>Thing</a> and to serialize / desirialize
+        the payload messages. In that context, <a>Binding Templates</a> includes the consideration of three kinds of bindings: Protocol binding, Payload format binding, and Platform binding.  
+      </p>
+
+      <!--
+      <p> The IoT uses a variety of protocols for accessing
         devices, since no single protocol is appropriate in all
         contexts. Thus, a central challenge for the Web of
         Things is to enable interactions with the plethora of
-        different <a>IoT platforms</a> (e.g., OCF, oneM2M, OMA
-        LWM2M, OPC UA) and devices that do not follow any
+        different <a>IoT platforms</a> (e.g., OMA
+        LWM2M, OPC UA, oneM2M) and devices that do not follow any
         particular standard, but provide an eligible interface
         over a suitable network protocol. WoT is tackling this
         variety through <a>Protocol Bindings</a>, which must meet a
         number of constraints (see <a href="#sec-protocol-bindings"></a>).
-      </p> -->
+      </p> 
+      -->
+
       <p> The non-normative <a>WoT Binding Templates</a> specification
         [[?WOT-BINDING-TEMPLATES]] provides a collection of
         blueprints that give guidance on how to interact with different <a>Things</a> 
