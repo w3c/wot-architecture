@@ -1817,7 +1817,7 @@
         <figcaption>Linked Things</figcaption>
       </figure>
       <p>
-        <span class="rfc2119-assertion" id="arch-rel-types">Things MUST be hosted on networked system components 
+        <span class="rfc2119-assertion" id="arch-networked">Things MUST be hosted on networked system components 
 	with a software stack to realize interaction through a
 		network-facing interface, the <a>WoT Interface</a> of a <a>Thing</a>.</span>
         One example of this is an HTTP server running on an embedded device with sensors and actuators interfacing the
@@ -2855,7 +2855,7 @@
 
 
 
-    <section id="thing-model">
+    <section id="sec-thing-model">
       <h2>Thing Model</h2>
 
       <p>The <a>Thing Model</a> offers the opportunity to define a template-based model for
@@ -2980,7 +2980,7 @@
           of a baseline profile.</p>
   
         <figure id="WoT-Profiles">
-          <img src="images/profiles/WoT Profiles.png" class="wot-profiles" alt="WoT Profiles" />
+          <img src="images/profiles/WoTProfiles.png" class="wot-profiles" alt="WoT Profiles" />
           <figcaption>WoT Baseline Profile - Other Profiles</figcaption>
         </figure>
         </p>
@@ -4348,7 +4348,7 @@
           <dl>
           <dt>Public Networks:<dt>
           <dd><span class="rfc2119-assertion" 
-              id="arch-security-consideration-tls-mandatory">When a Thing is made 
+              id="arch-security-consideration-tls-mandatory-pub">When a Thing is made 
             available on the public internet so it can
             be accessed by anyone, from anywhere, then it MUST be protected by secure
             transport such as TLS or DTLS.
@@ -4362,7 +4362,7 @@
           </dd>
           <dt>Private Networks:<dt>
           <dd><span class="rfc2119-assertion" 
-              id="arch-security-consideration-tls-mandatory">When a Thing is made 
+              id="arch-security-consideration-tls-recommended-priv">When a Thing is made 
             available on a private network then it SHOULD be protected by secure
             transport such as TLS or DTLS.
           </span>
@@ -4424,7 +4424,7 @@
       see the <em>WoT Security and Privacy Guidelines</em>
       specification [[?WOT-SECURITY]].
     </p>
-    <section id="sec-security-consideration-td-risks">
+    <section id="sec-privacy-consideration-td-risks">
       <h2>WoT Thing Description Risks</h2>
       <p>
         The metadata contained in a <a>WoT Thing Description</a>
@@ -4442,7 +4442,7 @@
         sections of the WoT Thing Description
         specification for additional details and discussion of
         these points.</p>
-      <section id="sec-security-consideration-td-pii">
+      <section id="sec-privacy-consideration-td-pii">
         <h5>Thing Description Personally Identifiable
           Information Risk</h5>
         <p>Thing descriptions can potentially contain
@@ -4516,7 +4516,7 @@
     <section id="arch-privacy-consideration-access-controls">
       <h2>Access to Personally Identifiable Information</h2>
       <p>In addition to the risks of revealing <a>Personally Identifiable Information</a> (PII) through metadata
-      discussed in <a href="#sec-security-consideration-td-pii"></a>,
+      discussed in <a href="#sec-privacy-consideration-td-pii"></a>,
       the data returned by Things can itself be sensitive.
       For example, a Thing could be monitoring the location or
       health of a specific person.  Information associated with a 
@@ -4527,7 +4527,7 @@
       <dl>
         <dt>Mitigation:</dt>
         <dd>
-	      <span class="rfc2119-assertion" id="arch-privacy-consideration-access-control-mandatory">
+	      <span class="rfc2119-assertion" id="arch-privacy-consideration-access-control-mandatory-person">
 Things returning data or metadata (such as TDs) associated with a person MUST use some form of access control.
 	    </span>
       A special case of this is a <a>Thing Description Directory</a>,
@@ -4537,7 +4537,7 @@ Things returning data or metadata (such as TDs) associated with a person MUST us
       required to use access control if the TDs describe Things associated with
       identifiable people.  In the case of services
       returning Thing Descriptions, the following also applies: 
-	      <span class="rfc2119-assertion" id="arch-privacy-consideration-access-control-mandatory">
+	      <span class="rfc2119-assertion" id="arch-privacy-consideration-access-control-mandatory-immutable">
 Services returning Thing Descriptions with immutable IDs MUST use some form of access control.
 	    </span>
       Specifically, in both of these situations, the <code>nosec</code> security
