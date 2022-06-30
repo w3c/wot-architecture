@@ -381,13 +381,6 @@
       <li>a set of common deployment patterns in
         <a href="#sec-common-deployment-patterns"></a>,
       </li>
-      <li>
-        examples for 
-        cross domain collaboration in 
-        <a href="#sec-cross-domain-collaboration"></a>
-        and system integration 
-        <a href="#sec-system-integration"></a>,
-      </li>
       <li>a definition of the abstract architecture in
         <a href="#sec-wot-architecture"></a>,
       </li>
@@ -767,6 +760,10 @@
         It is the basis for semantic annotations and extensions to core
       mechanisms such as Protocol Bindings, Security Schemes, and Data Schemas.</dd>
       <dt>
+        <dfn class="lint-ignore">TD Server</dfn>
+      </dt>
+      <dd>Short for <a>Thing Description Server</a>.</dd>
+      <dt>
         <dfn>Thing</dfn> or <dfn>Web Thing</dfn>
       </dt>
       <dd>An abstraction of a physical or a virtual entity
@@ -780,6 +777,14 @@
         interface to register TDs and look them up
         (e.g., using JSONPath or SPARQL queries).
         A recommended API and feature set is defined in [[WOT-DISCOVERY]], and is
+        used as an optional part of the <a>WoT Discovery</a> process.
+      </dd>
+      <dt>
+        <dfn data-lt="WoT Thing Description Server">Thing Description Server</dfn> 
+      </dt>
+      <dd>A Thing Description Server is a web resource, addressed by a URL, that can provide
+        a Thing Description when accessed.
+        Its requirements are defined in [[WOT-DISCOVERY]], and is
         used as an optional part of the <a>WoT Discovery</a> process.
       </dd>
       <dt>
@@ -1567,7 +1572,6 @@
         A Virtual Thing will often act as an <a>Intermediary</a>.
         Examples include <a>Shadows</a> and <a>Digital Twins</a>.
       </p>
-    </section>
     </section>
 
 
