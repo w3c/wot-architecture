@@ -4,7 +4,7 @@
 <meta name="generator" content=
 "HTML Tidy for HTML5 for Linux version 5.6.0">
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 32.1.9">
+<meta name="generator" content="ReSpec 32.1.10">
 <meta name="viewport" content=
 "width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
@@ -13,6 +13,7 @@
 .warning{padding:.5em;border-left-width:.5em;border-left-style:solid}
 span.warning{padding:.1em .5em .15em}
 .issue.closed span.issue-number{text-decoration:line-through}
+.issue.closed span.issue-number::after{content:" (Closed)";font-size:smaller}
 .warning{border-color:#f11;border-width:.2em;border-style:solid;background:#fbe9e9}
 .warning-title:before{content:"⚠";font-size:1.3em;float:left;padding-right:.3em;margin-top:-.3em}
 li.task-list-item{list-style:none}
@@ -40,6 +41,7 @@ dfn{cursor:pointer}
 .dfn-panel li{margin-left:1em}
 .dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
 </style>
+<link rel="stylesheet" href="testing/atrisk.css">
 <title>Web of Things (WoT) Architecture 1.1</title>
 
 <style id="respec-mainstyle">
@@ -119,7 +121,884 @@ dd{margin-left:0}
 </style>
 <meta name="description" content=
 "The W3C Web of Things (WoT) is intended to enable interoperability across IoT platforms and application domains. Overall, the goal of the WoT is to preserve and complement existing IoT standards and solutions. In general, the W3C WoT architecture is designed to describe what exists, and only prescribes new mechanisms when necessary.">
-
+<link rel="canonical" href=
+"https://www.w3.org/TR/wot-architecture11/">
+<script type="application/ld+json">
+{
+  "@context": [
+    "http://schema.org",
+    {
+      "@vocab": "http://schema.org/",
+      "@language": "en-US",
+      "w3p": "http://www.w3.org/2001/02pd/rec54#",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "datePublished": {
+        "@type": "http://www.w3.org/2001/XMLSchema#date"
+      },
+      "inLanguage": {
+        "@language": null
+      },
+      "isBasedOn": {
+        "@type": "@id"
+      },
+      "license": {
+        "@type": "@id"
+      }
+    }
+  ],
+  "id": "https://www.w3.org/TR/wot-architecture11/",
+  "type": [
+    "TechArticle",
+    "w3p:WD"
+  ],
+  "name": "Web of Things (WoT) Architecture 1.1",
+  "inLanguage": "en-US",
+  "license": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
+  "datePublished": "2022-07-01",
+  "copyrightHolder": {
+    "name": "World Wide Web Consortium",
+    "url": "https://www.w3.org/"
+  },
+  "discussionUrl": "https://github.com/w3c/wot-architecture/issues/",
+  "alternativeHeadline": "",
+  "isBasedOn": "https://www.w3.org/TR/2020/WD-wot-architecture11-20201124/",
+  "description": "The W3C Web of Things (WoT) is intended to enable\n      interoperability across IoT platforms and application\n      domains.\n      Overall, the goal of the WoT is to preserve and complement existing\n      IoT standards and solutions. In general, the W3C WoT architecture is\n      designed to describe what exists, and only prescribes new mechanisms\n      when necessary.",
+  "editor": [
+    {
+      "type": "Person",
+      "name": "Michael Lagally",
+      "worksFor": {
+        "name": "Oracle Corp.",
+        "url": "https://www.oracle.com/"
+      }
+    },
+    {
+      "type": "Person",
+      "name": "Ryuichi Matsukura",
+      "worksFor": {
+        "name": "Fujitsu Ltd.",
+        "url": "https://www.fujitsu.com/"
+      }
+    },
+    {
+      "type": "Person",
+      "name": "Kunihiko Toumura",
+      "worksFor": {
+        "name": "Hitachi, Ltd.",
+        "url": "https://www.hitachi.com/"
+      }
+    }
+  ],
+  "contributor": [],
+  "citation": [
+    {
+      "id": "https://w3c.github.io/wot-usecases/",
+      "type": "TechArticle",
+      "name": "Web of Things (WoT) Use Cases and Requirements",
+      "url": "https://w3c.github.io/wot-usecases/",
+      "creator": [
+        {
+          "name": "Michael Lagally"
+        },
+        {
+          "name": "Michael McCool"
+        },
+        {
+          "name": "Ryuichi Matsukura"
+        },
+        {
+          "name": "Tomoaki Mizushima"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://httpwg.org/specs/rfc8288.html",
+      "type": "TechArticle",
+      "name": "Web Linking",
+      "url": "https://httpwg.org/specs/rfc8288.html",
+      "creator": [
+        {
+          "name": "M. Nottingham"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc3986",
+      "type": "TechArticle",
+      "name": "Uniform Resource Identifier (URI): Generic Syntax",
+      "url": "https://www.rfc-editor.org/rfc/rfc3986",
+      "creator": [
+        {
+          "name": "T. Berners-Lee"
+        },
+        {
+          "name": "R. Fielding"
+        },
+        {
+          "name": "L. Masinter"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc3987",
+      "type": "TechArticle",
+      "name": "Internationalized Resource Identifiers (IRIs)",
+      "url": "https://www.rfc-editor.org/rfc/rfc3987",
+      "creator": [
+        {
+          "name": "M. Duerst"
+        },
+        {
+          "name": "M. Suignard"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc2046",
+      "type": "TechArticle",
+      "name": "Multipurpose Internet Mail Extensions (MIME) Part Two: Media Types",
+      "url": "https://www.rfc-editor.org/rfc/rfc2046",
+      "creator": [
+        {
+          "name": "N. Freed"
+        },
+        {
+          "name": "N. Borenstein"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc8259",
+      "type": "TechArticle",
+      "name": "The JavaScript Object Notation (JSON) Data Interchange Format",
+      "url": "https://www.rfc-editor.org/rfc/rfc8259",
+      "creator": [
+        {
+          "name": "T. Bray, Ed."
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://w3c.github.io/wot-security/",
+      "type": "TechArticle",
+      "name": "Web of Things (WoT) Security and Privacy Guidelines",
+      "url": "https://w3c.github.io/wot-security/",
+      "creator": [
+        null,
+        {
+          "name": "Michael McCool"
+        },
+        {
+          "name": "Elena Reshetova"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://solidproject.org/TR/",
+      "type": "TechArticle",
+      "name": "Solid Technical Reports",
+      "url": "https://solidproject.org/TR/",
+      "publisher": {
+        "name": "W3C Solid CG"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/wot-discovery/",
+      "type": "TechArticle",
+      "name": "Web of Things (WoT) Discovery",
+      "url": "https://www.w3.org/TR/wot-discovery/",
+      "creator": [
+        {
+          "name": "Andrea Cimmino"
+        },
+        {
+          "name": "Michael McCool"
+        },
+        {
+          "name": "Farshid Tavakolizadeh"
+        },
+        {
+          "name": "Kunihiko Toumura"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc8446",
+      "type": "TechArticle",
+      "name": "The Transport Layer Security (TLS) Protocol Version 1.3",
+      "url": "https://www.rfc-editor.org/rfc/rfc8446",
+      "creator": [
+        {
+          "name": "E. Rescorla"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc5246",
+      "type": "TechArticle",
+      "name": "The Transport Layer Security (TLS) Protocol Version 1.2",
+      "url": "https://www.rfc-editor.org/rfc/rfc5246",
+      "creator": [
+        {
+          "name": "T. Dierks"
+        },
+        {
+          "name": "E. Rescorla"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc9147",
+      "type": "TechArticle",
+      "name": "The Datagram Transport Layer Security (DTLS) Protocol Version 1.3",
+      "url": "https://www.rfc-editor.org/rfc/rfc9147",
+      "creator": [
+        {
+          "name": "E. Rescorla"
+        },
+        {
+          "name": "H. Tschofenig"
+        },
+        {
+          "name": "N. Modadugu"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc6347",
+      "type": "TechArticle",
+      "name": "Datagram Transport Layer Security Version 1.2",
+      "url": "https://www.rfc-editor.org/rfc/rfc6347",
+      "creator": [
+        {
+          "name": "E. Rescorla"
+        },
+        {
+          "name": "N. Modadugu"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/wot-thing-description11/",
+      "type": "TechArticle",
+      "name": "Web of Things (WoT) Thing Description 1.1",
+      "url": "https://www.w3.org/TR/wot-thing-description11/",
+      "creator": [
+        {
+          "name": "Sebastian Kaebisch"
+        },
+        {
+          "name": "Takuki Kamiya"
+        },
+        {
+          "name": "Michael McCool"
+        },
+        {
+          "name": "Victor Charpenay"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/wot-architecture/",
+      "type": "TechArticle",
+      "name": "Web of Things (WoT) Architecture",
+      "url": "https://www.w3.org/TR/wot-architecture/",
+      "creator": [
+        {
+          "name": "Matthias Kovatsch"
+        },
+        {
+          "name": "Ryuichi Matsukura"
+        },
+        {
+          "name": "Michael Lagally"
+        },
+        {
+          "name": "Toru Kawaguchi"
+        },
+        {
+          "name": "Kunihiko Toumura"
+        },
+        {
+          "name": "Kazuo Kajimoto"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc2119",
+      "type": "TechArticle",
+      "name": "Key words for use in RFCs to Indicate Requirement Levels",
+      "url": "https://www.rfc-editor.org/rfc/rfc2119",
+      "creator": [
+        {
+          "name": "S. Bradner"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc8174",
+      "type": "TechArticle",
+      "name": "Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words",
+      "url": "https://www.rfc-editor.org/rfc/rfc8174",
+      "creator": [
+        {
+          "name": "B. Leiba"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/wot-binding-templates/",
+      "type": "TechArticle",
+      "name": "Web of Things (WoT) Binding Templates",
+      "url": "https://www.w3.org/TR/wot-binding-templates/",
+      "creator": [
+        {
+          "name": "Michael Koster"
+        },
+        {
+          "name": "Ege Korkan"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/wot-scripting-api/",
+      "type": "TechArticle",
+      "name": "Web of Things (WoT) Scripting API",
+      "url": "https://www.w3.org/TR/wot-scripting-api/",
+      "creator": [
+        {
+          "name": "Zoltan Kis"
+        },
+        {
+          "name": "Daniel Peintner"
+        },
+        {
+          "name": "Cristiano Aguzzi"
+        },
+        {
+          "name": "Johannes Hund"
+        },
+        {
+          "name": "Kazuaki Nimura"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://www.iso.org/obp/ui/#iso:std:iso-iec:29100:ed-1:v1:en",
+      "type": "TechArticle",
+      "name": "Information technology — Security techniques — Privacy framework",
+      "url": "https://www.iso.org/obp/ui/#iso:std:iso-iec:29100:ed-1:v1:en",
+      "publisher": {
+        "name": "ISO"
+      }
+    },
+    {
+      "id": "https://www.iso.org/obp/ui/#iso:std:iso-iec:2382:ed-1:v1:en",
+      "type": "TechArticle",
+      "name": "Information technology — Vocabulary",
+      "url": "https://www.iso.org/obp/ui/#iso:std:iso-iec:2382:ed-1:v1:en",
+      "publisher": {
+        "name": "ISO"
+      }
+    },
+    {
+      "id": "https://www.iso.org/obp/ui/#iso:std:iso-iec:27000:ed-5:v1:en",
+      "type": "TechArticle",
+      "name": "Information technology — Security techniques — Information security management systems — Overview and vocabulary",
+      "url": "https://www.iso.org/obp/ui/#iso:std:iso-iec:27000:ed-5:v1:en",
+      "publisher": {
+        "name": "ISO"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/json-ld11/",
+      "type": "TechArticle",
+      "name": "JSON-LD 1.1",
+      "url": "https://www.w3.org/TR/json-ld11/",
+      "creator": [
+        {
+          "name": "Gregg Kellogg"
+        },
+        {
+          "name": "Pierre-Antoine Champin"
+        },
+        {
+          "name": "Dave Longley"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc7228",
+      "type": "TechArticle",
+      "name": "Terminology for Constrained-Node Networks",
+      "url": "https://www.rfc-editor.org/rfc/rfc7228",
+      "creator": [
+        {
+          "name": "C. Bormann"
+        },
+        {
+          "name": "M. Ersue"
+        },
+        {
+          "name": "A. Keranen"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.iec.ch/whitepaper/pdf/iecWP-futurefactory-LR-en.pdf",
+      "type": "TechArticle",
+      "name": "Factory of the future",
+      "url": "https://www.iec.ch/whitepaper/pdf/iecWP-futurefactory-LR-en.pdf",
+      "publisher": {
+        "name": "IEC"
+      }
+    },
+    {
+      "id": "https://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf",
+      "type": "TechArticle",
+      "name": "REST: Architectural Styles and the Design of Network-based Software Architectures",
+      "url": "https://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf",
+      "creator": [
+        {
+          "name": "Roy Thomas Fielding"
+        }
+      ],
+      "publisher": {
+        "name": "University of California, Irvine"
+      }
+    },
+    {
+      "id": "https://www.interaction-design.org/literature/book/the-encyclopedia-of-human-computer-interaction-2nd-ed",
+      "type": "TechArticle",
+      "name": "The Encyclopedia of Human-Computer Interaction, 2nd Ed",
+      "url": "https://www.interaction-design.org/literature/book/the-encyclopedia-of-human-computer-interaction-2nd-ed",
+      "publisher": {
+        "name": "Interaction Design Foundation"
+      }
+    },
+    {
+      "type": "TechArticle",
+      "name": "The Psychology of Everyday Things",
+      "creator": [
+        {
+          "name": "Donald A. Norman"
+        }
+      ],
+      "publisher": {
+        "name": "Basic Books"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc7641",
+      "type": "TechArticle",
+      "name": "Observing Resources in the Constrained Application Protocol (CoAP)",
+      "url": "https://www.rfc-editor.org/rfc/rfc7641",
+      "creator": [
+        {
+          "name": "K. Hartke"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc6690",
+      "type": "TechArticle",
+      "name": "Constrained RESTful Environments (CoRE) Link Format",
+      "url": "https://www.rfc-editor.org/rfc/rfc6690",
+      "creator": [
+        {
+          "name": "Z. Shelby"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "http://openmobilealliance.org/release/LightweightM2M/V1_1-20180710-A/OMA-TS-LightweightM2M_Core-V1_1-20180710-A.pdf",
+      "type": "TechArticle",
+      "name": "Lightweight Machine to Machine Technical Specification: Core",
+      "url": "http://openmobilealliance.org/release/LightweightM2M/V1_1-20180710-A/OMA-TS-LightweightM2M_Core-V1_1-20180710-A.pdf",
+      "publisher": {
+        "name": "OMA SpecWorks"
+      }
+    },
+    {
+      "id": "https://openconnectivity.org/developer/specifications",
+      "type": "TechArticle",
+      "name": "OCF Core Specification",
+      "url": "https://openconnectivity.org/developer/specifications",
+      "publisher": {
+        "name": "Open Connectivity Foundation"
+      }
+    },
+    {
+      "id": "https://tools.ietf.org/html/draft-hartke-t2trg-coral",
+      "type": "TechArticle",
+      "name": "The Constrained RESTful Application Language (CoRAL)",
+      "url": "https://tools.ietf.org/html/draft-hartke-t2trg-coral",
+      "creator": [
+        {
+          "name": "Klaus Hartke"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.iana.org/assignments/link-relations/",
+      "type": "TechArticle",
+      "name": "Link Relations",
+      "url": "https://www.iana.org/assignments/link-relations/",
+      "publisher": {
+        "name": "IANA"
+      }
+    },
+    {
+      "id": "https://httpwg.org/specs/rfc7231.html",
+      "type": "TechArticle",
+      "name": "Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content",
+      "url": "https://httpwg.org/specs/rfc7231.html",
+      "creator": [
+        {
+          "name": "R. Fielding, Ed."
+        },
+        {
+          "name": "J. Reschke, Ed."
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc7252",
+      "type": "TechArticle",
+      "name": "The Constrained Application Protocol (CoAP)",
+      "url": "https://www.rfc-editor.org/rfc/rfc7252",
+      "creator": [
+        {
+          "name": "Z. Shelby"
+        },
+        {
+          "name": "K. Hartke"
+        },
+        {
+          "name": "C. Bormann"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.html",
+      "type": "TechArticle",
+      "name": "MQTT Version 3.1.1 Plus Errata 01",
+      "url": "http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.html",
+      "creator": [
+        {
+          "name": "Andrew Banks"
+        },
+        {
+          "name": "Rahul Gupta"
+        }
+      ],
+      "publisher": {
+        "name": "OASIS Standard"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc7049",
+      "type": "TechArticle",
+      "name": "Concise Binary Object Representation (CBOR)",
+      "url": "https://www.rfc-editor.org/rfc/rfc7049",
+      "creator": [
+        {
+          "name": "C. Bormann"
+        },
+        {
+          "name": "P. Hoffman"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.w3.org/DesignIssues/LinkedData.html",
+      "type": "TechArticle",
+      "name": "Linked Data Design Issues",
+      "url": "https://www.w3.org/DesignIssues/LinkedData.html",
+      "creator": [
+        {
+          "name": "Tim Berners-Lee"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://sites.google.com/site/smartappliancesproject/ontologies/reference-ontology",
+      "type": "TechArticle",
+      "name": "Smart Appliances REFerence (SAREF) ontology",
+      "url": "https://sites.google.com/site/smartappliancesproject/ontologies/reference-ontology",
+      "publisher": {
+        "name": "ETSI"
+      }
+    },
+    {
+      "id": "https://www.w3.org/community/iotschema/",
+      "type": "TechArticle",
+      "name": "Schema Extensions for IoT Community Group",
+      "url": "https://www.w3.org/community/iotschema/"
+    },
+    {
+      "id": "https://www.w3.org/TR/vocab-ssn/",
+      "type": "TechArticle",
+      "name": "Semantic Sensor Network Ontology",
+      "url": "https://www.w3.org/TR/vocab-ssn/",
+      "creator": [
+        {
+          "name": "Armin Haller"
+        },
+        {
+          "name": "Krzysztof Janowicz"
+        },
+        {
+          "name": "Simon Cox"
+        },
+        {
+          "name": "Danh Le Phuoc"
+        },
+        {
+          "name": "Kerry Taylor"
+        },
+        {
+          "name": "Maxime Lefrançois"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc6202",
+      "type": "TechArticle",
+      "name": "Known Issues and Best Practices for the Use of Long Polling and Streaming in Bidirectional HTTP",
+      "url": "https://www.rfc-editor.org/rfc/rfc6202",
+      "creator": [
+        {
+          "name": "S. Loreto"
+        },
+        {
+          "name": "P. Saint-Andre"
+        },
+        {
+          "name": "S. Salsano"
+        },
+        {
+          "name": "G. Wilkins"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://html.spec.whatwg.org/multipage/",
+      "type": "TechArticle",
+      "name": "HTML Standard",
+      "url": "https://html.spec.whatwg.org/multipage/",
+      "creator": [
+        {
+          "name": "Anne van Kesteren"
+        },
+        {
+          "name": "Domenic Denicola"
+        },
+        {
+          "name": "Ian Hickson"
+        },
+        {
+          "name": "Philip Jägenstedt"
+        },
+        {
+          "name": "Simon Pieters"
+        }
+      ],
+      "publisher": {
+        "name": "WHATWG"
+      }
+    },
+    {
+      "id": "https://tc39.es/ecma262/multipage/",
+      "type": "TechArticle",
+      "name": "ECMAScript Language Specification",
+      "url": "https://tc39.es/ecma262/multipage/",
+      "publisher": {
+        "name": "Ecma International"
+      }
+    },
+    {
+      "id": "https://www.itu.int/rec/T-REC-Y.2070-201501-I",
+      "type": "TechArticle",
+      "name": "ITU-T Rec. Y.4409/Y.2070 (01/2015) Requirements and architecture of the home energy management system and home network services ",
+      "url": "https://www.itu.int/rec/T-REC-Y.2070-201501-I",
+      "publisher": {
+        "name": "ITU-T"
+      }
+    },
+    {
+      "id": "https://pdfs.semanticscholar.org/3ee3/a2e8ce93fbf9ba14ad54e12adaeb1f3ca392.pdf",
+      "type": "TechArticle",
+      "name": "Mobile Service Interaction with the Web of Things",
+      "url": "https://pdfs.semanticscholar.org/3ee3/a2e8ce93fbf9ba14ad54e12adaeb1f3ca392.pdf",
+      "creator": [
+        {
+          "name": "E. Rukzio, M. Paolucci"
+        },
+        {
+          "name": "M. Wagner, H. Berndt"
+        },
+        {
+          "name": "J. Hamard"
+        },
+        {
+          "name": "A. Schmidt"
+        }
+      ],
+      "publisher": {
+        "name": "Proceedings of 13th International Conference on Telecommunications (ICT 2006), Funchal, Madeira island, Portugal"
+      }
+    },
+    {
+      "id": "http://dret.net/netdret/docs/wilde-irep07-015-restful-things.pdf",
+      "type": "TechArticle",
+      "name": "Putting Things to REST",
+      "url": "http://dret.net/netdret/docs/wilde-irep07-015-restful-things.pdf",
+      "creator": [
+        {
+          "name": "Erik Wilde"
+        }
+      ],
+      "publisher": {
+        "name": "UCB iSchool Report 2007-015, UC Berkeley, Berkeley, CA, USA"
+      }
+    },
+    {
+      "id": "https://www.vs.inf.ethz.ch/publ/papers/ostermai-poster-2008.pdf",
+      "type": "TechArticle",
+      "name": "Poster Abstract: Dyser – Towards a Real-Time Search Engine for the Web of Things",
+      "url": "https://www.vs.inf.ethz.ch/publ/papers/ostermai-poster-2008.pdf",
+      "creator": [
+        {
+          "name": "Benedikt Ostermaier"
+        },
+        {
+          "name": "B. Maryam Elahi"
+        },
+        {
+          "name": "Kay Römer"
+        },
+        {
+          "name": "Michael Fahrmair"
+        },
+        {
+          "name": "Wolfgang Kellerer"
+        }
+      ],
+      "publisher": {
+        "name": "Proceedings of ACM SenSys 2008, Raleigh, NC, USA"
+      }
+    },
+    {
+      "id": "https://ieeexplore.ieee.org/abstract/document/5678452",
+      "type": "TechArticle",
+      "name": "A Resource Oriented Architecture for the Web of Things",
+      "url": "https://ieeexplore.ieee.org/abstract/document/5678452",
+      "creator": [
+        {
+          "name": "Dominique Guinard"
+        },
+        {
+          "name": "Vlad Trifa"
+        },
+        {
+          "name": "Erik Wilde"
+        }
+      ],
+      "publisher": {
+        "name": "Proceedings of Internet of Things 2010 International Conference (IoT 2010). Tokyo, Japan"
+      }
+    }
+  ]
+}
+</script>
 <style>
 var{position:relative;cursor:pointer}
 var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
@@ -138,11 +1017,11 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   },
   "doJsonLd": true,
   "group": "wg/wot",
-  "specStatus": "ED",
+  "specStatus": "WD",
   "shortName": "wot-architecture11",
   "copyrightStart": 2017,
   "wgPublicList": "public-wot-wg",
-  "implementationReportURI": "https://w3c.github.io/wot-architecture/testing/report.html",
+  "implementationReportURI": "https://w3c.github.io/wot-architecture/testing/report11.html",
   "github": {
     "repoURL": "https://github.com/w3c/wot-architecture",
     "branch": "master"
@@ -428,14 +1307,14 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "wot-security"
     }
   },
-  "publishISODate": "2022-06-23T00:00:00.000Z",
-  "generatedSubtitle": "W3C Editor's Draft 23 June 2022"
+  "publishISODate": "2022-07-01T00:00:00.000Z",
+  "generatedSubtitle": "W3C Working Draft 01 July 2022"
 }
 </script>
 <link rel="stylesheet" href=
-"https://www.w3.org/StyleSheets/TR/2021/W3C-ED">
+"https://www.w3.org/StyleSheets/TR/2021/W3C-WD">
 </head>
-<body class="h-entry toc-inline">
+<body class="h-entry">
 <div class="head">
 <p class="logos"><a class="logo" href=
 "https://www.w3.org/"><img crossorigin="" alt="W3C" height="48"
@@ -444,15 +1323,15 @@ src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width=
 <h1 id="title" class="title">Web of Things (WoT) Architecture
 1.1</h1>
 <p id="w3c-state"><a href=
-"https://www.w3.org/standards/types#ED">W3C Editor's Draft</a>
-<time class="dt-published" datetime="2022-06-23">23 June
+"https://www.w3.org/standards/types#WD">W3C Working Draft</a>
+<time class="dt-published" datetime="2022-07-01">01 July
 2022</time></p>
 <details open="">
 <summary>More details about this document</summary>
 <dl>
 <dt>This version:</dt>
 <dd><a class="u-url" href=
-"https://w3c.github.io/wot-architecture/">https://w3c.github.io/wot-architecture/</a></dd>
+"https://www.w3.org/TR/2022/WD-wot-architecture11-20220701/">https://www.w3.org/TR/2022/WD-wot-architecture11-20220701/</a></dd>
 <dt>Latest published version:</dt>
 <dd><a href=
 "https://www.w3.org/TR/wot-architecture11/">https://www.w3.org/TR/wot-architecture11/</a></dd>
@@ -467,7 +1346,7 @@ src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width=
 history</a></dd>
 <dt>Implementation report:</dt>
 <dd><a href=
-"https://w3c.github.io/wot-architecture/testing/report.html">https://w3c.github.io/wot-architecture/testing/report.html</a></dd>
+"https://w3c.github.io/wot-architecture/testing/report11.html">https://w3c.github.io/wot-architecture/testing/report11.html</a></dd>
 <dt>Editors:</dt>
 <dd class="editor p-author h-card vcard" data-editor-id="47166">
 <span class="p-name fn">Michael Lagally</span> (<a class=
@@ -568,8 +1447,10 @@ Web of Things architecture. It also references the other
 implementation reports for the various WoT building blocks.</p>
 <p>This document was published by the <a href=
 "https://www.w3.org/groups/wg/wot">Web of Things Working Group</a>
-as an Editor's Draft.</p>
-<p>Publication as an Editor's Draft does not imply endorsement by
+as a Working Draft using the <a href=
+"https://www.w3.org/2021/Process-20211102/#recs-and-notes">Recommendation
+track</a>.</p>
+<p>Publication as a Working Draft does not imply endorsement by
 <abbr title="World Wide Web Consortium">W3C</abbr> and its
 Members.</p>
 <p>This is a draft document and may be updated, replaced or
@@ -1088,6 +1969,16 @@ interfaces in Things for particular protocols and IoT ecosystems,
 which we call Protocol Bindings. The document also provides
 examples for a number of existing IoT ecosystems and
 standards.</li>
+<li>The <em>Web of Things (WoT) Discovery</em> [<cite><a class=
+"bibref" data-link-type="biblio" href="#bib-wot-discovery" title=
+"Web of Things (WoT) Discovery">WOT-DISCOVERY</a></cite>]
+specification defines a distribution mechanism for WoT metadata
+(<a href="#dfn-thing-description" class="internalDFN"
+data-link-type="dfn" id="ref-for-dfn-thing-description-1">Thing
+Descriptions</a>). The WoT Discovery process uses existing
+mechanisms for first contact, but provides for access control
+before serving detailed metadata. It includes support for
+directories and self-description.</li>
 <li>The <em>Web of Things (WoT) Scripting API</em> [<cite><a class=
 "bibref" data-link-type="biblio" href="#bib-wot-scripting-api"
 title=
@@ -1270,7 +2161,7 @@ data-dfn-type="dfn">Device</dfn></dt>
 <dd>A Device is a physical entity that has a network interface.
 Devices can be described by a <a href="#dfn-thing-description"
 class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-description-1">Thing Description</a> and are a
+"ref-for-dfn-thing-description-2">Thing Description</a> and are a
 kind of <a href="#dfn-thing" class="internalDFN" data-link-type=
 "dfn" id="ref-for-dfn-thing-2">Thing</a>. A synonym for <a href=
 "#dfn-connected-device" class="internalDFN" data-link-type="dfn"
@@ -1308,14 +2199,14 @@ data-dfn-type="dfn">Discoverer</dfn></dt>
 <dd>An entity which acts as a client of a WoT Discovery process to
 discover and fetch a <a href="#dfn-thing-description" class=
 "internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-description-2">Thing Description</a>, e.g. by
+"ref-for-dfn-thing-description-3">Thing Description</a>, e.g. by
 being introduced to and searching a <a href=
 "#dfn-wot-thing-description-directory" class="internalDFN"
 data-link-type="dfn" id=
 "ref-for-dfn-wot-thing-description-directory-1">Thing Description
 Directory</a> exploration service or by fetching a <a href=
 "#dfn-thing-description" class="internalDFN" data-link-type="dfn"
-id="ref-for-dfn-thing-description-3">Thing Description</a> directly
+id="ref-for-dfn-thing-description-4">Thing Description</a> directly
 from the well-known endpoint on a Thing.</dd>
 <dt><dfn data-plurals="domain-specific vocabularies" id=
 "dfn-domain-specific-vocabulary" tabindex="0" aria-haspopup=
@@ -1412,7 +2303,7 @@ aria-haspopup="dialog" data-dfn-type="dfn">Metadata</dfn></dt>
 <dd>Data that provides a description of an entity's abstract
 characteristics. For example, a <a href="#dfn-thing-description"
 class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-description-4">Thing Description</a> is Metadata
+"ref-for-dfn-thing-description-5">Thing Description</a> is Metadata
 for a <a href="#dfn-thing" class="internalDFN" data-link-type="dfn"
 id="ref-for-dfn-thing-3">Thing</a>.</dd>
 <dt><dfn data-lt=
@@ -1519,7 +2410,7 @@ id="dfn-wot-registrant" tabindex="0" aria-haspopup="dialog"
 data-dfn-type="dfn">Registrant</dfn></dt>
 <dd>An entity which registers a <a href="#dfn-thing-description"
 class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-description-5">Thing Description</a> with a
+"ref-for-dfn-thing-description-6">Thing Description</a> with a
 <a href="#dfn-wot-thing-description-directory" class="internalDFN"
 data-link-type="dfn" id=
 "ref-for-dfn-wot-thing-description-directory-2">Thing Description
@@ -1527,7 +2418,7 @@ Directory</a>. This entity may or may not be the <a href=
 "#dfn-thing" class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-thing-4">Thing</a> that the registered <a href=
 "#dfn-thing-description" class="internalDFN" data-link-type="dfn"
-id="ref-for-dfn-thing-description-6">Thing Description</a>
+id="ref-for-dfn-thing-description-7">Thing Description</a>
 describes.</dd>
 <dt><dfn id="dfn-security" tabindex="0" aria-haspopup="dialog"
 data-dfn-type="dfn">Security</dfn></dt>
@@ -1555,7 +2446,7 @@ data-dfn-type="dfn">Service</dfn></dt>
 <dd>A Service is a software entity that has a network interface.
 Services can be described by a <a href="#dfn-thing-description"
 class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-description-7">Thing Description</a> and are a
+"ref-for-dfn-thing-description-8">Thing Description</a> and are a
 kind of <a href="#dfn-thing" class="internalDFN" data-link-type=
 "dfn" id="ref-for-dfn-thing-5">Thing</a>. See also <a href=
 "#dfn-virtual-thing" class="internalDFN" data-link-type="dfn" id=
@@ -1609,7 +2500,7 @@ tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">TD Context
 Extension</dfn></dt>
 <dd>A mechanism to extend <a href="#dfn-thing-description" class=
 "internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-description-8">Thing Descriptions</a> with
+"ref-for-dfn-thing-description-9">Thing Descriptions</a> with
 additional <a href="#dfn-vocabulary-term" class="internalDFN"
 data-link-type="dfn" id="ref-for-dfn-vocabulary-term-1">Vocabulary
 Terms</a> using <code>@context</code> as specified in
@@ -1618,6 +2509,12 @@ JSON-LD[<cite><a class="bibref" data-link-type="biblio" href=
 the basis for semantic annotations and extensions to core
 mechanisms such as Protocol Bindings, Security Schemes, and Data
 Schemas.</dd>
+<dt><dfn class="lint-ignore" id="dfn-td-server" tabindex="0"
+aria-haspopup="dialog" data-dfn-type="dfn">TD Server</dfn></dt>
+<dd>Short for <a href="#dfn-wot-thing-description-server" class=
+"internalDFN" data-link-type="dfn" id=
+"ref-for-dfn-wot-thing-description-server-1">Thing Description
+Server</a>.</dd>
 <dt><dfn data-plurals="things" id="dfn-thing" tabindex="0"
 aria-haspopup="dialog" data-dfn-type="dfn">Thing</dfn> or
 <dfn data-plurals="web things" id="dfn-web-thing" tabindex="0"
@@ -1639,6 +2536,18 @@ queries). A recommended API and feature set is defined in
 used as an optional part of the <a href="#dfn-wot-discovery" class=
 "internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-wot-discovery-1">WoT Discovery</a> process.</dd>
+<dt><dfn data-lt=
+"WoT Thing Description Server|Thing Description Server" id=
+"dfn-wot-thing-description-server" tabindex="0" aria-haspopup=
+"dialog" data-dfn-type="dfn">Thing Description Server</dfn></dt>
+<dd>A Thing Description Server is a web resource, addressed by a
+URL, that can provide a Thing Description when accessed. Its
+requirements are defined in [<cite><a class="bibref"
+data-link-type="biblio" href="#bib-wot-discovery" title=
+"Web of Things (WoT) Discovery">WOT-DISCOVERY</a></cite>], and is
+used as an optional part of the <a href="#dfn-wot-discovery" class=
+"internalDFN" data-link-type="dfn" id=
+"ref-for-dfn-wot-discovery-2">WoT Discovery</a> process.</dd>
 <dt><dfn data-lt="WoT Thing Model|Thing Model" data-plurals=
 "thing models|wot thing models" id="dfn-wot-thing-model" tabindex=
 "0" aria-haspopup="dialog" data-dfn-type="dfn">Thing
@@ -1672,6 +2581,11 @@ data-dfn-type="dfn">Transport Protocol</dfn></dt>
 <dd>The underlying, standardized application layer protocol without
 application-specific requirements or constraints on options or
 subprotocol mechanisms. Examples are HTTP, CoAP, or MQTT.</dd>
+<dt><dfn id="dfn-trusted-environment" tabindex="0" aria-haspopup=
+"dialog" data-dfn-type="dfn">Trusted Environment</dfn></dt>
+<dd>Set of devices that assume each other's claims of identity are
+authentic without proof and allow relatively unrestricted access to
+one another over a common protected network.</dd>
 <dt><dfn id="dfn-virtual-thing" tabindex="0" aria-haspopup="dialog"
 data-dfn-type="dfn">Virtual Thing</dfn></dt>
 <dd>A <a href="#dfn-service" class="internalDFN" data-link-type=
@@ -2153,10 +3067,12 @@ patterns with increasing complexity. They are not exhaustive and
 are presented to motivate for the WoT architecture and building
 blocks that are defined in later sections of this
 specification.</p>
-<p>This section also makes use of the concept of a Trusted
-Environment, which is a set of devices that allow relatively
-unrestricted access to one another. This is a common approach but
-carries some risks, which are discussed in section <a href=
+<p>This section also makes use of the concept of a <a href=
+"#dfn-trusted-environment" class="internalDFN" data-link-type="dfn"
+id="ref-for-dfn-trusted-environment-1">Trusted Environment</a>,
+which is a set of devices that allow relatively unrestricted access
+to one another. This is a common approach but carries some risks,
+which are discussed in section <a href=
 "#sec-security-consideration-trusted-environment-risks" class=
 "sec-ref"><bdi class="secno">10.4</bdi> Trusted Environment
 Risks</a>, along with mitigations of these risks.</p>
@@ -2614,7 +3530,7 @@ Concepts</h3>
 <p>This section introduces the fundamental concepts of the Web of
 Things. It introduces the Thing abstraction that is described with
 <a href="#dfn-thing-description" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-thing-description-9">Thing
+data-link-type="dfn" id="ref-for-dfn-thing-description-10">Thing
 Descriptions</a> and <a href="#dfn-wot-thing-model" class=
 "internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-wot-thing-model-2">Thing Models</a>, which then can be
@@ -2689,7 +3605,7 @@ class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-thing-19">Things</a>. The metadata format for
 instances are called <a href="#dfn-thing-description" class=
 "internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-description-10">Thing Descriptions</a> while
+"ref-for-dfn-thing-description-11">Thing Descriptions</a> while
 those for classes are called <a href="#dfn-wot-thing-model" class=
 "internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-wot-thing-model-4">Thing Models</a>.</p>
@@ -2766,7 +3682,7 @@ instance is not available or is not necessary. For example, some
 IoT ecosystems implicitly handle communication separately. In such
 a case, a fully detailed <a href="#dfn-thing-description" class=
 "internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-description-11">Thing Description</a>, e.g. with
+"ref-for-dfn-thing-description-12">Thing Description</a>, e.g. with
 communication metadata, is not necessary. Communication metadata
 may also not available at the beginning of a Thing lifecycle phase
 since a new entity has not yet been deployed (e.g. the IP address
@@ -2777,7 +3693,7 @@ basic information model of a <a href="#dfn-thing" class=
 "ref-for-dfn-thing-26">Thing</a> to address such kind of scenarios.
 <em>Thing Model</em> can be seen as a template for <a href=
 "#dfn-thing-description" class="internalDFN" data-link-type="dfn"
-id="ref-for-dfn-thing-description-12">Thing Descriptions</a>,
+id="ref-for-dfn-thing-description-13">Thing Descriptions</a>,
 however, that have less restriction as defined in sections "TD
 Information Model" and "Representation Format" of the
 [<cite><a class="bibref" data-link-type="biblio" href=
@@ -2847,7 +3763,7 @@ Thing Description which also allows JSON-LD processing. Note that a
 "dfn" id="ref-for-dfn-wot-thing-model-12">Thing Model</a> cannot be
 validated in the same way as <a href="#dfn-thing-description"
 class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-description-13">Thing Description</a> instances
+"ref-for-dfn-thing-description-14">Thing Description</a> instances
 due to some missing mandatory terms.</p>
 </section>
 </section>
@@ -3255,7 +4171,7 @@ deployment. Make it work with WoT.</li>
 deployment. For management purposes, <em>describe</em> the device
 lifecycle stages in a <a href="#dfn-thing-description" class=
 "internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-description-14">Thing Description</a>.</li>
+"ref-for-dfn-thing-description-15">Thing Description</a>.</li>
 <li>Bootstrap and provision a device directly with WoT, in order to
 become operational for WoT.</li>
 </ul>
@@ -3358,7 +4274,7 @@ communication with a server, for instance a <a href=
 data-link-type="dfn" id=
 "ref-for-dfn-wot-thing-description-directory-6">Thing Description
 Directory</a> or <a href="#dfn-wot-discovery" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-wot-discovery-2">Discovery</a>
+data-link-type="dfn" id="ref-for-dfn-wot-discovery-3">Discovery</a>
 services.</li>
 <li><strong>Settings</strong>: the device remains in
 <em>Operational</em> state, but may update system, service or
@@ -3605,11 +4521,11 @@ different format they are to be converted to URIs).</span>
 <span class="rfc2119-assertion" id=
 "arch-rel-type-lowercase">Nevertheless, all-lowercase URIs
 <em class="rfc2119">SHOULD</em> be used for extension relation
-types. [<cite><a class="bibref" data-link-type="biblio" href=
-"#bib-rfc8288" title="Web Linking">RFC8288</a></cite>]</span></p>
+types [<cite><a class="bibref" data-link-type="biblio" href=
+"#bib-rfc8288" title="Web Linking">RFC8288</a></cite>].</span></p>
 <p>In the Web of Things, links are used for <a href=
 "#dfn-wot-discovery" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-wot-discovery-3">Discovery</a> and to express
+"ref-for-dfn-wot-discovery-4">Discovery</a> and to express
 relations between <a href="#dfn-thing" class="internalDFN"
 data-link-type="dfn" id="ref-for-dfn-thing-57">Things</a> (e.g.,
 hierarchical or functional) and relations to other documents on the
@@ -3851,11 +4767,13 @@ type alone.</span></p>
 <p>Note that many media types only identify a generic serialization
 format that does not provide further semantics for its elements
 (e.g., XML, JSON, CBOR). <span class="rfc2119-assertion" id=
-"arch-schema">Thus, the corresponding Interaction Affordances
-<em class="rfc2119">SHOULD</em> declare a <em><a href=
-"#dfn-data-schema" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-data-schema-4">data schema</a></em> to provide more
-detailed syntactic metadata for the data exchanged.</span></p>
+"arch-schema">Thus, the Interaction Affordance for structured data
+types <em class="rfc2119">SHOULD</em> be associated with a
+<em><a href="#dfn-data-schema" class="internalDFN" data-link-type=
+"dfn" id="ref-for-dfn-data-schema-4">data schema</a></em> to
+provide more detailed syntactic metadata for the data
+exchanged.</span> Details should be specified in the TD
+specification.</p>
 </section>
 <section id="sec-wot-servient-architecture-high-level">
 <div class="header-wrapper">
@@ -3926,7 +4844,7 @@ always implemented by <a href="#dfn-servient" class="internalDFN"
 data-link-type="dfn" id="ref-for-dfn-servient-7">Servients</a>, as
 they must be able to process the <a href="#dfn-thing-description"
 class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-description-15">Thing Description</a> (TD)
+"ref-for-dfn-thing-description-16">Thing Description</a> (TD)
 format and must have a protocol stack that can be configured
 through <a href="#dfn-wot-protocol-binding" class="internalDFN"
 data-link-type="dfn" id=
@@ -4012,7 +4930,7 @@ Direct Communication</h4>
 "dfn" id="ref-for-dfn-interaction-affordance-15">Interaction
 Affordances</a> through <a href="#dfn-thing-description" class=
 "internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-description-16">Thing Descriptions</a>, and a
+"ref-for-dfn-thing-description-17">Thing Descriptions</a>, and a
 <a href="#dfn-consumer" class="internalDFN" data-link-type="dfn"
 id="ref-for-dfn-consumer-36">Consumer</a> that uses the <a href=
 "#dfn-thing" class="internalDFN" data-link-type="dfn" id=
@@ -4190,10 +5108,10 @@ security mechanism to authenticate with different <a href=
 data-link-type="dfn" id=
 "ref-for-dfn-intermediary-28">Intermediary</a> generates the
 <a href="#dfn-thing-description" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-thing-description-17">Thing
+data-link-type="dfn" id="ref-for-dfn-thing-description-18">Thing
 Description</a> for its proxy object based on the <a href=
 "#dfn-thing-description" class="internalDFN" data-link-type="dfn"
-id="ref-for-dfn-thing-description-18">Thing Description</a> of the
+id="ref-for-dfn-thing-description-19">Thing Description</a> of the
 originating <a href="#dfn-thing" class="internalDFN"
 data-link-type="dfn" id="ref-for-dfn-thing-90">Thing</a>. Depending
 on the requirements of the use cases, the TD for the proxy object
@@ -4254,14 +5172,14 @@ optional and the <a href="#dfn-wot-binding-templates" class=
 "internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-wot-binding-templates-1">Binding Templates</a> are
 informative. The <a href="#dfn-wot-discovery" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-wot-discovery-4">WoT
+data-link-type="dfn" id="ref-for-dfn-wot-discovery-5">WoT
 Discovery</a> building block defines mechanisms for distributing
 <a href="#dfn-thing-description" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-thing-description-19">Thing
+data-link-type="dfn" id="ref-for-dfn-thing-description-20">Thing
 Descriptions</a>; a <a href="#dfn-thing" class="internalDFN"
 data-link-type="dfn" id="ref-for-dfn-thing-96">Thing</a> can
 provide <a href="#dfn-thing-description" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-thing-description-20">Thing
+data-link-type="dfn" id="ref-for-dfn-thing-description-21">Thing
 Descriptions</a> directly, or they can be provided by a <a href=
 "#dfn-wot-thing-description-directory" class="internalDFN"
 data-link-type="dfn" id=
@@ -4312,7 +5230,7 @@ of JSON-LD [<cite><a class="bibref" data-link-type="biblio" href=
 graph databases to enable powerful semantic processing of the
 metadata.</p>
 <p>A <a href="#dfn-thing-description" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-thing-description-21">Thing
+data-link-type="dfn" id="ref-for-dfn-thing-description-22">Thing
 Description</a> (TD) describes <a href="#dfn-thing" class=
 "internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-thing-98">Thing</a> instances with general metadata
@@ -4404,14 +5322,14 @@ Model</h3>
 data-link-type="dfn" id="ref-for-dfn-wot-thing-model-15">Thing
 Model</a> offers the opportunity to define a template-based model
 for <a href="#dfn-thing-description" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-thing-description-22">Thing
+data-link-type="dfn" id="ref-for-dfn-thing-description-23">Thing
 Description</a> instances. A <a href="#dfn-wot-thing-model" class=
 "internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-wot-thing-model-16">Thing Model</a> has no specific or
 only partial communication- and security-based information. This
 kind of missing information is supplemented by the creation of
 <a href="#dfn-thing-description" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-thing-description-23">Thing
+data-link-type="dfn" id="ref-for-dfn-thing-description-24">Thing
 Description</a> instantiation.</p>
 <p>A <a href="#dfn-wot-thing-model" class="internalDFN"
 data-link-type="dfn" id="ref-for-dfn-wot-thing-model-17">Thing
@@ -4424,7 +5342,7 @@ class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-event-5">Events</a> and common metadata which then
 should be valid for all instantiated <a href=
 "#dfn-thing-description" class="internalDFN" data-link-type="dfn"
-id="ref-for-dfn-thing-description-24">Thing Descriptions</a>. This
+id="ref-for-dfn-thing-description-25">Thing Descriptions</a>. This
 paradigm can be compared with abstract class or interface
 definitions (~Thing Model) in object-oriented programming to create
 objects (~Thing Descriptions).Such <a href="#dfn-wot-thing-model"
@@ -4548,7 +5466,7 @@ Discovery</h3>
 <a class="self-link" href="#sec-discovery" aria-label=
 "Permalink for Section 7.4"></a></div>
 <p>The <a href="#dfn-wot-discovery" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-wot-discovery-5">WoT
+data-link-type="dfn" id="ref-for-dfn-wot-discovery-6">WoT
 Discovery</a> specification [<cite><a class="bibref"
 data-link-type="biblio" href="#bib-wot-discovery" title=
 "Web of Things (WoT) Discovery">WOT-DISCOVERY</a></cite>] defines
@@ -4560,17 +5478,17 @@ simplify access to <a href="#dfn-thing" class="internalDFN"
 data-link-type="dfn" id="ref-for-dfn-thing-103">Things</a> and
 services and support their integration. <a href=
 "#dfn-wot-discovery" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-wot-discovery-6">WoT Discovery</a> mechanisms are not
+"ref-for-dfn-wot-discovery-7">WoT Discovery</a> mechanisms are not
 limited by the bounds of local area networks and can also support
 remote discovery. They are also designed to act as extensions of
 existing search and discovery standards.</p>
 <p>One of the primary design requirements of the <a href=
 "#dfn-wot-discovery" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-wot-discovery-7">WoT Discovery</a> building block is
+"ref-for-dfn-wot-discovery-8">WoT Discovery</a> building block is
 to protect the security and privacy of both consumers and providers
 of WoT data and metadata. In particular, <a href=
 "#dfn-wot-discovery" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-wot-discovery-8">WoT Discovery</a> mechanisms are
+"ref-for-dfn-wot-discovery-9">WoT Discovery</a> mechanisms are
 designed not only to protect and control access to <a href=
 "#dfn-wot-thing-description" class="internalDFN" data-link-type=
 "dfn" id="ref-for-dfn-wot-thing-description-17">WoT Thing
@@ -4580,7 +5498,7 @@ direct or inferrable metadata.</p>
 <p>In order to accommodate existing discovery technologies while
 providing strong privacy and security, <a href="#dfn-wot-discovery"
 class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-wot-discovery-9">WoT Discovery</a> uses a two-stage
+"ref-for-dfn-wot-discovery-10">WoT Discovery</a> uses a two-stage
 process. In the first stage, an "<a href="#dfn-wot-introduction"
 class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-wot-introduction-1">introduction</a>" is made using
@@ -4610,7 +5528,7 @@ following requirements:</p>
 "#dfn-wot-introduction" class="internalDFN" data-link-type="dfn"
 id="ref-for-dfn-wot-introduction-3">introduction</a> mechanism used
 for <a href="#dfn-wot-discovery" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-wot-discovery-10">WoT
+data-link-type="dfn" id="ref-for-dfn-wot-discovery-11">WoT
 Discovery</a> <em class="rfc2119">MUST NOT</em> provide metadata
 but instead should simply result in one or more opaque URLs at
 which metadata may be accessed, if and only if the user can
@@ -4635,7 +5553,7 @@ generated URLs are recommended.</li>
 on existing mechanisms to protect web services and existing
 protocol security negotiation mechanisms), <a href=
 "#dfn-wot-discovery" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-wot-discovery-11">WoT Discovery</a> defines a set of
+"ref-for-dfn-wot-discovery-12">WoT Discovery</a> defines a set of
 second stage "<a href="#dfn-wot-exploration" class="internalDFN"
 data-link-type="dfn" id=
 "ref-for-dfn-wot-exploration-2">exploration</a>" mechanisms that
@@ -4667,7 +5585,7 @@ class="internalDFN" data-link-type="dfn" id=
 <span class="rfc2119-assertion" id=
 "arch-discovery-metadata-after-authorization">Any <a href=
 "#dfn-wot-discovery" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-wot-discovery-12">WoT Discovery</a> "exploration"
+"ref-for-dfn-wot-discovery-13">WoT Discovery</a> "exploration"
 implementation <em class="rfc2119">MUST</em> only provide metadata
 and <a href="#dfn-td" class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-td-20">TDs</a> after appropriate best-practice
@@ -4705,7 +5623,7 @@ in the case of brownfield devices.</p>
 </section>
 <p>The <a href="#dfn-wot-discovery" class="internalDFN"
 data-link-type="dfn" id=
-"ref-for-dfn-wot-discovery-13">Discovery</a> mechanisms defined in
+"ref-for-dfn-wot-discovery-14">Discovery</a> mechanisms defined in
 [<cite><a class="bibref" data-link-type="biblio" href=
 "#bib-wot-discovery" title=
 "Web of Things (WoT) Discovery">WOT-DISCOVERY</a></cite>] are not
@@ -4714,7 +5632,7 @@ their use will enhance interoperability and usability. <span class=
 "rfc2119-assertion" id=
 "arch-discovery-should-use-standard">Whenever possible, the
 <a href="#dfn-wot-discovery" class="internalDFN" data-link-type=
-"dfn" id="ref-for-dfn-wot-discovery-14">Discovery</a> mechanisms
+"dfn" id="ref-for-dfn-wot-discovery-15">Discovery</a> mechanisms
 defined in [<cite><a class="bibref" data-link-type="biblio" href=
 "#bib-wot-discovery" title=
 "Web of Things (WoT) Discovery">WOT-DISCOVERY</a></cite>]
@@ -4729,15 +5647,36 @@ WoT Binding Templates</h3>
 <a class="self-link" href="#sec-binding-templates" aria-label=
 "Permalink for Section 7.5"></a></div>
 <p><em>This section is non-normative.</em></p>
+<p>The <a href="#dfn-wot-binding-templates" class="internalDFN"
+data-link-type="dfn" id=
+"ref-for-dfn-wot-binding-templates-2">Binding Templates</a> address
+the aspect that an application client (a <a href="#dfn-consumer"
+class="internalDFN" data-link-type="dfn" id=
+"ref-for-dfn-consumer-47">Consumer</a>) can use the <a href=
+"#dfn-thing-description" class="internalDFN" data-link-type="dfn"
+id="ref-for-dfn-thing-description-26">Thing Description</a> to
+extract the specific metadata of the protocols (e.g. about HTTP,
+MQTT, Modbus, etc.), payload formats (binary, JSON, CBOR, EXI,
+etc.) and their possible usage in an IoT platform context (e.g.,
+ECHONET, OPC UA). The metadata can be passed for example to a
+network implementation interface to establish interaction with the
+desired <a href="#dfn-thing" class="internalDFN" data-link-type=
+"dfn" id="ref-for-dfn-thing-105">Thing</a> and to serialize /
+desirialize the payload messages. In that context, <a href=
+"#dfn-wot-binding-templates" class="internalDFN" data-link-type=
+"dfn" id="ref-for-dfn-wot-binding-templates-3">Binding
+Templates</a> includes the consideration of three kinds of
+bindings: Protocol binding, Payload format binding, and Platform
+binding.</p>
 <p>The non-normative <a href="#dfn-wot-binding-templates" class=
 "internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-wot-binding-templates-2">WoT Binding Templates</a>
+"ref-for-dfn-wot-binding-templates-4">WoT Binding Templates</a>
 specification [<cite><a class="bibref" data-link-type="biblio"
 href="#bib-wot-binding-templates" title=
 "Web of Things (WoT) Binding Templates">WOT-BINDING-TEMPLATES</a></cite>]
 provides a collection of blueprints that give guidance on how to
 interact with different <a href="#dfn-thing" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-thing-105">Things</a> that use
+data-link-type="dfn" id="ref-for-dfn-thing-106">Things</a> that use
 different <a href="#dfn-transport-protocol" class="internalDFN"
 data-link-type="dfn" id=
 "ref-for-dfn-transport-protocol-2">transport protocols</a>,
@@ -4754,10 +5693,10 @@ id="ref-for-dfn-transport-protocol-3">transport protocols</a> and
 describing a particular IoT device or platform, the corresponding
 <a href="#dfn-wot-binding-templates" class="internalDFN"
 data-link-type="dfn" id=
-"ref-for-dfn-wot-binding-templates-3">Binding Template</a> can be
+"ref-for-dfn-wot-binding-templates-5">Binding Template</a> can be
 used to look up the communication metadata that is to be provided
 in the <a href="#dfn-thing-description" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-thing-description-25">Thing
+data-link-type="dfn" id="ref-for-dfn-thing-description-27">Thing
 Description</a> to support that platform.</p>
 <figure id="fig-binding-templates"><img src=
 "images/bblocks/binding-templates.png" srcset=
@@ -4771,16 +5710,16 @@ Bindings</span></figcaption>
 "From Binding Templates to Protocol Bindings">Figure <bdi class=
 "figno">31</bdi></a> shows how <a href="#dfn-wot-binding-templates"
 class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-wot-binding-templates-4">Binding Templates</a> are
+"ref-for-dfn-wot-binding-templates-6">Binding Templates</a> are
 used. Based on the protocol, media type or platform binding, a
 <a href="#dfn-td" class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-td-24">TD</a> is created. The <a href="#dfn-consumer"
 class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-consumer-47">Consumer</a> that is processing a
+"ref-for-dfn-consumer-48">Consumer</a> that is processing a
 <a href="#dfn-td" class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-td-25">TD</a> implements the required <a href=
 "#dfn-wot-binding-templates" class="internalDFN" data-link-type=
-"dfn" id="ref-for-dfn-wot-binding-templates-5">Binding Template</a>
+"dfn" id="ref-for-dfn-wot-binding-templates-7">Binding Template</a>
 that is present in the TD by including a corresponding protocol
 stack, media type encoder/decoder or platform stack and by
 configuring the stack (or its messages) according to the
@@ -4789,7 +5728,7 @@ data-link-type="dfn" id="ref-for-dfn-td-26">TD</a> such as
 serialization format of the messages and header options.</p>
 <p>The <a href="#dfn-wot-binding-templates" class="internalDFN"
 data-link-type="dfn" id=
-"ref-for-dfn-wot-binding-templates-6">Binding Templates</a> spans
+"ref-for-dfn-wot-binding-templates-8">Binding Templates</a> spans
 three dimensions:</p>
 <ul>
 <li><b>Protocol</b>
@@ -4881,9 +5820,9 @@ Runtime</a>, the <a href="#dfn-wot-scripting-api" class=
 "ref-for-dfn-wot-scripting-api-4">WoT Scripting API</a> enables
 using portable application scripts that define the behavior of
 <a href="#dfn-thing" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-106">Things</a>, <a href="#dfn-consumer" class=
+"ref-for-dfn-thing-107">Things</a>, <a href="#dfn-consumer" class=
 "internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-consumer-48">Consumers</a>, and <a href=
+"ref-for-dfn-consumer-49">Consumers</a>, and <a href=
 "#dfn-intermediary" class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-intermediary-30">Intermediaries</a>.</p>
 <p>Traditionally, IoT device logic is implemented in firmware,
@@ -4914,7 +5853,7 @@ Descriptions</a>. The runtime system of the <a href=
 id="ref-for-dfn-wot-scripting-api-7">WoT Scripting API</a>
 instantiates local objects that act as an interface to other
 <a href="#dfn-thing" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-107">Things</a> and their <a href=
+"ref-for-dfn-thing-108">Things</a> and their <a href=
 "#dfn-interaction-affordance" class="internalDFN" data-link-type=
 "dfn" id="ref-for-dfn-interaction-affordance-21">Interaction
 Affordances</a> (<a href="#dfn-property" class="internalDFN"
@@ -4924,12 +5863,12 @@ data-link-type="dfn" id="ref-for-dfn-property-6">Properties</a>,
 "internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-event-6">Events</a>). It also allows scripts to expose
 <a href="#dfn-thing" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-108">Things</a>, that is, to define and
+"ref-for-dfn-thing-109">Things</a>, that is, to define and
 implement <a href="#dfn-interaction-affordance" class="internalDFN"
 data-link-type="dfn" id=
 "ref-for-dfn-interaction-affordance-22">Interaction Affordances</a>
 and publish a <a href="#dfn-thing-description" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-thing-description-26">Thing
+data-link-type="dfn" id="ref-for-dfn-thing-description-28">Thing
 Description</a>.</p>
 </section>
 <section id="sec-security-guidelines" class="informative">
@@ -4977,11 +5916,11 @@ implements the WoT building blocks presented in the previous
 section. <a href="#dfn-servient" class="internalDFN"
 data-link-type="dfn" id="ref-for-dfn-servient-16">Servients</a> can
 host and expose <a href="#dfn-thing" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-thing-109">Things</a> and/or
+data-link-type="dfn" id="ref-for-dfn-thing-110">Things</a> and/or
 consume <a href="#dfn-thing" class="internalDFN" data-link-type=
-"dfn" id="ref-for-dfn-thing-110">Things</a> (i.e., host <a href=
+"dfn" id="ref-for-dfn-thing-111">Things</a> (i.e., host <a href=
 "#dfn-consumer" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-consumer-49">Consumers</a>). Depending on the <a href=
+"ref-for-dfn-consumer-50">Consumers</a>). Depending on the <a href=
 "#dfn-wot-protocol-binding" class="internalDFN" data-link-type=
 "dfn" id="ref-for-dfn-wot-protocol-binding-7">Protocol Binding</a>,
 <a href="#dfn-servient" class="internalDFN" data-link-type="dfn"
@@ -5060,31 +5999,31 @@ Behavior Implementation</h3>
 "Permalink for Section 8.1"></a></div>
 <p>The <em>behavior</em> defines the overall application logic of a
 <a href="#dfn-thing" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-111">Thing</a>, which has several aspects:</p>
+"ref-for-dfn-thing-112">Thing</a>, which has several aspects:</p>
 <p>It includes <em>autonomous behavior</em> of <a href="#dfn-thing"
 class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-112">Things</a> (e.g., sampling of sensors or
+"ref-for-dfn-thing-113">Things</a> (e.g., sampling of sensors or
 control loops for actuators), the <em>handlers</em> for <a href=
 "#dfn-interaction-affordance" class="internalDFN" data-link-type=
 "dfn" id="ref-for-dfn-interaction-affordance-23">Interaction
 Affordances</a> (i.e., the concrete actions taken when an
 affordance is activated), <em><a href="#dfn-consumer" class=
 "internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-consumer-50">Consumer</a> behavior</em> (e.g.,
+"ref-for-dfn-consumer-51">Consumer</a> behavior</em> (e.g.,
 controlling a <a href="#dfn-thing" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-thing-113">Thing</a> or
+data-link-type="dfn" id="ref-for-dfn-thing-114">Thing</a> or
 realizing mashups), and <em><a href="#dfn-intermediary" class=
 "internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-intermediary-31">Intermediary</a> behavior</em> (e.g.,
 simply proxying a <a href="#dfn-thing" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-thing-114">Thing</a> or
+data-link-type="dfn" id="ref-for-dfn-thing-115">Thing</a> or
 composing virtual entities). The behavior implementation within a
 <a href="#dfn-servient" class="internalDFN" data-link-type="dfn"
 id="ref-for-dfn-servient-26">Servient</a> defines which <a href=
 "#dfn-thing" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-115">Things</a>, <a href="#dfn-consumer" class=
+"ref-for-dfn-thing-116">Things</a>, <a href="#dfn-consumer" class=
 "internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-consumer-51">Consumers</a>, and <a href=
+"ref-for-dfn-consumer-52">Consumers</a>, and <a href=
 "#dfn-intermediary" class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-intermediary-32">Intermediaries</a> are hosted on this
 component.</p>
@@ -5115,7 +6054,7 @@ definitions, and hence can be executed by any <a href=
 block. This makes it possible to shift application logic between
 system components, for instance moving a <a href="#dfn-consumer"
 class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-consumer-52">Consumer</a> from the cloud to an edge
+"ref-for-dfn-consumer-53">Consumer</a> from the cloud to an edge
 node to meet networking requirements, or to move an <a href=
 "#dfn-intermediary" class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-intermediary-33">Intermediary</a> to the cloud to
@@ -5145,7 +6084,7 @@ Runtime</h3>
 <a class="self-link" href="#wot-runtime" aria-label=
 "Permalink for Section 8.2"></a></div>
 <p>Technically, the <a href="#dfn-thing" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-thing-116">Thing</a>
+data-link-type="dfn" id="ref-for-dfn-thing-117">Thing</a>
 abstraction and its <a href="#dfn-interaction-model" class=
 "internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-interaction-model-3">Interaction Model</a> is
@@ -5154,7 +6093,7 @@ class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-wot-runtime-7">WoT Runtime</a> maintains the execution
 environment for the behavior implementation and is able to expose
 and/or consume <a href="#dfn-thing" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-thing-117">Things</a>, and
+data-link-type="dfn" id="ref-for-dfn-thing-118">Things</a>, and
 hence must be able to fetch, process, serialize, and serve <a href=
 "#dfn-wot-thing-description" class="internalDFN" data-link-type=
 "dfn" id="ref-for-dfn-wot-thing-description-19">WoT Thing
@@ -5170,7 +6109,7 @@ block shown in <a href="#architecture-implementation" class=
 "Implementation of a Servient using the WoT Scripting API">Figure
 <bdi class="figno">32</bdi></a> defines such an application-facing
 interface that follows the <a href="#dfn-thing" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-thing-118">Thing</a>
+data-link-type="dfn" id="ref-for-dfn-thing-119">Thing</a>
 abstraction and enables the deployment of behavior implementations
 during runtime through application scripts. See <a href=
 "#native-impl" class="sec-ref"><bdi class="secno">8.8.1</bdi>
@@ -5191,7 +6130,7 @@ different tenants.</p>
 "dfn" id="ref-for-dfn-wot-runtime-10">WoT Runtime</a> needs to
 provide certain operations to manage the lifecycle of <a href=
 "#dfn-thing" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-119">Things</a>, or more precisely their
+"ref-for-dfn-thing-120">Things</a>, or more precisely their
 software abstractions and descriptions. A lifecycle management
 (LCM) system may encapsulate those lifecycle operations within a
 <a href="#dfn-servient" class="internalDFN" data-link-type="dfn"
@@ -5220,7 +6159,7 @@ interfaces are implementation-specific, yet the <a href=
 "ref-for-dfn-wot-runtime-13">WoT Runtime</a> must provide the
 necessary adaption to the implemented <a href="#dfn-thing" class=
 "internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-120">Thing</a> abstraction.</p>
+"ref-for-dfn-thing-121">Thing</a> abstraction.</p>
 </section>
 <section id="wot-scripting-api">
 <div class="header-wrapper">
@@ -5259,7 +6198,7 @@ Abstractions</h3>
 data-link-type="dfn" id="ref-for-dfn-wot-runtime-15">WoT
 Runtime</a> instantiates software representations of <a href=
 "#dfn-thing" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-121">Things</a> based on their <a href="#dfn-td"
+"ref-for-dfn-thing-122">Things</a> based on their <a href="#dfn-td"
 class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-td-29">TDs</a>. These software representations provide
 the interface towards the behavior implementation.</p>
@@ -5267,7 +6206,7 @@ the interface towards the behavior implementation.</p>
 data-link-type="dfn" id="ref-for-dfn-exposed-thing-12">Exposed
 Thing</a> abstraction represents a <a href="#dfn-thing" class=
 "internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-122">Thing</a> hosted locally and accessible
+"ref-for-dfn-thing-123">Thing</a> hosted locally and accessible
 from the outside through the protocol stack implementation of the
 <a href="#dfn-servient" class="internalDFN" data-link-type="dfn"
 id="ref-for-dfn-servient-32">Servient</a>. The behavior
@@ -5282,9 +6221,9 @@ Affordances</a>, and providing their autonomous behavior.</p>
 data-link-type="dfn" id="ref-for-dfn-consumed-thing-11">Consumed
 Thing</a> abstraction represents a remotely hosted <a href=
 "#dfn-thing" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-123">Thing</a> for <a href="#dfn-consumer"
+"ref-for-dfn-thing-124">Thing</a> for <a href="#dfn-consumer"
 class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-consumer-53">Consumers</a> that needs to be accessed
+"ref-for-dfn-consumer-54">Consumers</a> that needs to be accessed
 using a communication protocol. <a href="#dfn-consumed-thing"
 class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-consumed-thing-12">Consumed Things</a> are proxy
@@ -5370,11 +6309,11 @@ aria-label="Permalink for Section 8.6"></a></div>
 "#dfn-exposed-thing" class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-exposed-thing-15">Exposed Things</a> and is used by
 <a href="#dfn-consumer" class="internalDFN" data-link-type="dfn"
-id="ref-for-dfn-consumer-54">Consumers</a> to access the <a href=
+id="ref-for-dfn-consumer-55">Consumers</a> to access the <a href=
 "#dfn-wot-interface" class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-wot-interface-9">WoT Interface</a> of remote <a href=
 "#dfn-thing" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-124">Things</a> (via <a href=
+"ref-for-dfn-thing-125">Things</a> (via <a href=
 "#dfn-consumed-thing" class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-consumed-thing-16">Consumed Things</a>). It produces
 the concrete protocol messages to interact over the network.
@@ -5392,7 +6331,7 @@ messages (e.g., one for HTTP(S) dialects, one for CoAP(S) dialects,
 and one for MQTT solutions, etc.). In this case, the communication
 metadata from the <a href="#dfn-thing-description" class=
 "internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-description-27">Thing Description</a> is used to
+"ref-for-dfn-thing-description-29">Thing Description</a> is used to
 select and configure the right stack (e.g., HTTP with the right
 header fields or CoAP with the right options). Parsers and
 serializers for the expected payload representation format (JSON,
@@ -5416,7 +6355,7 @@ API</h3>
 "ref-for-dfn-wot-runtime-19">WoT Runtime</a> may provide local
 hardware or system services to behavior implementations through the
 <a href="#dfn-thing" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-125">Thing</a> abstraction, as if they were
+"ref-for-dfn-thing-126">Thing</a> abstraction, as if they were
 accessible over a communication protocol. In this case, the
 <a href="#dfn-wot-runtime" class="internalDFN" data-link-type="dfn"
 id="ref-for-dfn-wot-runtime-20">WoT Runtime</a> should enable the
@@ -5445,7 +6384,7 @@ devices with such protocols (e.g., ECHONET Lite, BACnet, X10, I2C,
 SPI, etc.) through proprietary APIs, but may again choose to expose
 them to the behavior implementation via a <a href="#dfn-thing"
 class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-126">Thing</a> abstraction. A <a href=
+"ref-for-dfn-thing-127">Thing</a> abstraction. A <a href=
 "#dfn-servient" class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-servient-37">Servient</a> can then act as gateway to
 the legacy devices. This should only be done if the legacy device
@@ -5486,7 +6425,7 @@ class="internalDFN" data-link-type="dfn" id=
 class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-wot-interface-11">WoT Interface</a> of a <a href=
 "#dfn-thing" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-127">Thing</a> that has a black-box
+"ref-for-dfn-thing-128">Thing</a> that has a black-box
 implementation.</p>
 <section id="native-impl">
 <div class="header-wrapper">
@@ -5539,9 +6478,9 @@ API</span></figcaption>
 or services into the <abbr title=
 "World Wide Web Consortium">W3C</abbr> Web of Things and to use
 them as <a href="#dfn-thing" class="internalDFN" data-link-type=
-"dfn" id="ref-for-dfn-thing-128">Things</a> by creating a <a href=
+"dfn" id="ref-for-dfn-thing-129">Things</a> by creating a <a href=
 "#dfn-thing-description" class="internalDFN" data-link-type="dfn"
-id="ref-for-dfn-thing-description-28">Thing Description</a> for
+id="ref-for-dfn-thing-description-30">Thing Description</a> for
 these devices or services. Such a TD can either be created manually
 or via a tool or service. For example, a TD could be generated by a
 service that provides automatic translation of metadata provided by
@@ -5554,16 +6493,16 @@ requirements for this are given in <a href="#sec-protocol-bindings"
 class="sec-ref"><bdi class="secno">6.7</bdi> Protocol Bindings</a>.
 Much of the previous discussion also implies that a <a href=
 "#dfn-thing" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-129">Thing</a> provides its own <a href=
+"ref-for-dfn-thing-130">Thing</a> provides its own <a href=
 "#dfn-thing-description" class="internalDFN" data-link-type="dfn"
-id="ref-for-dfn-thing-description-29">Thing Description</a>. While
+id="ref-for-dfn-thing-description-31">Thing Description</a>. While
 this is a useful pattern it is not mandatory. In particular, it may
 not be possible to modify existing devices to provide their own
 <a href="#dfn-thing-description" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-thing-description-30">Thing
+data-link-type="dfn" id="ref-for-dfn-thing-description-32">Thing
 Description</a> directly. In this case the <a href=
 "#dfn-thing-description" class="internalDFN" data-link-type="dfn"
-id="ref-for-dfn-thing-description-31">Thing Description</a> will
+id="ref-for-dfn-thing-description-33">Thing Description</a> will
 have to be provided separately using a service such as a directory
 or some other external and separate distribution mechanism.</p>
 <figure id="architecture-implementation-existing"><img src=
@@ -5588,17 +6527,17 @@ Example WoT Deployments</h2>
 (WoT) abstract architecture may be instantiated when devices and
 services that implement the <a href="#dfn-thing" class=
 "internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-130">Thing</a> and <a href="#dfn-consumer"
+"ref-for-dfn-thing-131">Thing</a> and <a href="#dfn-consumer"
 class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-consumer-55">Consumer</a> roles are connected together
+"ref-for-dfn-consumer-56">Consumer</a> roles are connected together
 in various concrete topologies and deployment scenarios. These
 topologies and scenarios are not normative, but are permitted and
 supported by the WoT abstract architecture.</p>
 <p>Before discussing specific topologies, we will first review the
 roles that <a href="#dfn-thing" class="internalDFN" data-link-type=
-"dfn" id="ref-for-dfn-thing-131">Things</a> and <a href=
+"dfn" id="ref-for-dfn-thing-132">Things</a> and <a href=
 "#dfn-consumer" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-consumer-56">Consumers</a> can play in a WoT network
+"ref-for-dfn-consumer-57">Consumers</a> can play in a WoT network
 and the relationships they have with the <a href=
 "#dfn-exposed-thing" class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-exposed-thing-16">Exposed Thing</a> and <a href=
@@ -5612,9 +6551,9 @@ Thing</a> are internally available to the behavior implementations
 of <a href="#dfn-servient" class="internalDFN" data-link-type="dfn"
 id="ref-for-dfn-servient-40">Servients</a> in the roles of <a href=
 "#dfn-thing" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-132">Things</a> and <a href="#dfn-consumer"
+"ref-for-dfn-thing-133">Things</a> and <a href="#dfn-consumer"
 class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-consumer-57">Consumers</a>, respectively.</p>
+"ref-for-dfn-consumer-58">Consumers</a>, respectively.</p>
 <section id="sec-client-server-roles">
 <div class="header-wrapper">
 <h3 id="x9-1-thing-and-consumer-roles"><bdi class="secno">9.1</bdi>
@@ -5624,16 +6563,16 @@ Thing and Consumer Roles</h3>
 <p>A <a href="#dfn-servient" class="internalDFN" data-link-type=
 "dfn" id="ref-for-dfn-servient-41">Servient</a> in the role of a
 <a href="#dfn-thing" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-133">Thing</a> creates an <a href=
+"ref-for-dfn-thing-134">Thing</a> creates an <a href=
 "#dfn-exposed-thing" class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-exposed-thing-18">Exposed Thing</a> based on a
 <a href="#dfn-thing-description" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-thing-description-32">Thing
+data-link-type="dfn" id="ref-for-dfn-thing-description-34">Thing
 Description</a> (TD). TDs are published and made available to other
 <a href="#dfn-servient" class="internalDFN" data-link-type="dfn"
 id="ref-for-dfn-servient-42">Servients</a> that are in the roles of
 <a href="#dfn-consumer" class="internalDFN" data-link-type="dfn"
-id="ref-for-dfn-consumer-58">Consumers</a> or <a href=
+id="ref-for-dfn-consumer-59">Consumers</a> or <a href=
 "#dfn-intermediary" class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-intermediary-34">Intermediaries</a>. TDs may be
 published in various different ways: the TD might be registered
@@ -5643,18 +6582,18 @@ data-link-type="dfn" id=
 "ref-for-dfn-wot-thing-description-directory-9">Thing Description
 Directory</a> service, or a <a href="#dfn-thing" class=
 "internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-134">Thing</a> may provide the requesters with a
+"ref-for-dfn-thing-135">Thing</a> may provide the requesters with a
 TD upon receiving a request for a TD. It is even possible to
 statically associate a TD with <a href="#dfn-thing" class=
 "internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-135">Thing</a> in certain application
+"ref-for-dfn-thing-136">Thing</a> in certain application
 scenarios.</p>
 <p>A <a href="#dfn-servient" class="internalDFN" data-link-type=
 "dfn" id="ref-for-dfn-servient-43">Servient</a> in the role of a
 <a href="#dfn-consumer" class="internalDFN" data-link-type="dfn"
-id="ref-for-dfn-consumer-59">Consumer</a> obtains the TD of a
+id="ref-for-dfn-consumer-60">Consumer</a> obtains the TD of a
 <a href="#dfn-thing" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-136">Thing</a> using a discovery mechanism and
+"ref-for-dfn-thing-137">Thing</a> using a discovery mechanism and
 creates a <a href="#dfn-consumed-thing" class="internalDFN"
 data-link-type="dfn" id="ref-for-dfn-consumed-thing-20">Consumed
 Thing</a> based on the obtained TD. The concrete discovery
@@ -5666,7 +6605,7 @@ data-link-type="dfn" id=
 Directory</a>, a discovery protocol, through static assignment,
 etc. As discussed elsewhere, use of the <a href=
 "#dfn-wot-discovery" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-wot-discovery-15">Discovery</a> mechanisms defined in
+"ref-for-dfn-wot-discovery-16">Discovery</a> mechanisms defined in
 [<cite><a class="bibref" data-link-type="biblio" href=
 "#bib-wot-discovery" title=
 "Web of Things (WoT) Discovery">WOT-DISCOVERY</a></cite>] is
@@ -5698,7 +6637,7 @@ Thing</a> abstractions.</p>
 class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-consumed-thing-22">Consumed Thing</a> are provided to
 the <a href="#dfn-consumer" class="internalDFN" data-link-type=
-"dfn" id="ref-for-dfn-consumer-60">Consumer</a>'s behavior
+"dfn" id="ref-for-dfn-consumer-61">Consumer</a>'s behavior
 implementation through a programming language interface. In the
 <a href="#dfn-wot-scripting-api" class="internalDFN"
 data-link-type="dfn" id="ref-for-dfn-wot-scripting-api-24">WoT
@@ -5707,35 +6646,35 @@ Scripting API</a>, <a href="#dfn-consumed-thing" class=
 "ref-for-dfn-consumed-thing-23">Consumed Things</a> are represented
 by objects. The behavior implementation (that is, the application
 logic) running in a <a href="#dfn-thing" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-thing-137">Thing</a> can
+data-link-type="dfn" id="ref-for-dfn-thing-138">Thing</a> can
 engage through <a href="#dfn-interaction-affordance" class=
 "internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-interaction-affordance-27">Interaction Affordances</a>
 with <a href="#dfn-consumer" class="internalDFN" data-link-type=
-"dfn" id="ref-for-dfn-consumer-61">Consumers</a> by using the
+"dfn" id="ref-for-dfn-consumer-62">Consumers</a> by using the
 programming language interface provided by the <a href=
 "#dfn-exposed-thing" class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-exposed-thing-19">Exposed Thing</a>.</p>
 <p>A <a href="#dfn-thing" class="internalDFN" data-link-type="dfn"
-id="ref-for-dfn-thing-138">Thing</a> does not necessarily represent
+id="ref-for-dfn-thing-139">Thing</a> does not necessarily represent
 a physical device. <a href="#dfn-thing" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-thing-139">Things</a> can also
+data-link-type="dfn" id="ref-for-dfn-thing-140">Things</a> can also
 represent a collection of devices, or virtual services running in a
 gateway or in the cloud. Likewise, a <a href="#dfn-consumer" class=
 "internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-consumer-62">Consumer</a> may represent an application
+"ref-for-dfn-consumer-63">Consumer</a> may represent an application
 or service running on a gateway or cloud. <a href="#dfn-consumer"
 class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-consumer-63">Consumers</a> can also be implemented on
+"ref-for-dfn-consumer-64">Consumers</a> can also be implemented on
 edge devices. In <a href="#dfn-intermediary" class="internalDFN"
 data-link-type="dfn" id=
 "ref-for-dfn-intermediary-35">Intermediaries</a>, a single <a href=
 "#dfn-servient" class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-servient-44">Servient</a> performs both the roles of a
 <a href="#dfn-thing" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-140">Thing</a> and a <a href="#dfn-consumer"
+"ref-for-dfn-thing-141">Thing</a> and a <a href="#dfn-consumer"
 class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-consumer-64">Consumer</a> simultaneously which are
+"ref-for-dfn-consumer-65">Consumer</a> simultaneously which are
 sharing a single <a href="#dfn-wot-runtime" class="internalDFN"
 data-link-type="dfn" id="ref-for-dfn-wot-runtime-26">WoT
 Runtime</a>.</p>
@@ -5765,22 +6704,22 @@ Requirements [<cite><a class="bibref" data-link-type="biblio" href=
 "Consumer and Thing on the Same Network">Figure <bdi class=
 "figno">35</bdi></a>, the <a href="#dfn-consumer" class=
 "internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-consumer-65">Consumer</a> and <a href="#dfn-thing"
+"ref-for-dfn-consumer-66">Consumer</a> and <a href="#dfn-thing"
 class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-141">Thing</a> are on the same network and can
+"ref-for-dfn-thing-142">Thing</a> are on the same network and can
 communicate directly with each other without any intermediaries.
 One use case where this topology arises is when the <a href=
 "#dfn-consumer" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-consumer-66">Consumer</a> is an orchestration service
+"ref-for-dfn-consumer-67">Consumer</a> is an orchestration service
 or some other IoT application running on a gateway and the <a href=
 "#dfn-thing" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-142">Thing</a> is a device interfacing to a
+"ref-for-dfn-thing-143">Thing</a> is a device interfacing to a
 sensor or an actuator. However, the client/server relationship
 could easily be reversed; the client could be a device in the
 <a href="#dfn-consumer" class="internalDFN" data-link-type="dfn"
-id="ref-for-dfn-consumer-67">Consumer</a> role accessing a service
+id="ref-for-dfn-consumer-68">Consumer</a> role accessing a service
 running as a <a href="#dfn-thing" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-thing-143">Thing</a> on a
+data-link-type="dfn" id="ref-for-dfn-thing-144">Thing</a> on a
 gateway or in the cloud.</p>
 <figure id="simple-conf-application-device"><img src=
 "images/deployments/arch-simple-conf-consumer-thing.png" srcset=
@@ -5791,9 +6730,9 @@ gateway or in the cloud.</p>
 Network</span></figcaption>
 </figure>
 <p>If the <a href="#dfn-thing" class="internalDFN" data-link-type=
-"dfn" id="ref-for-dfn-thing-144">Thing</a> is in the cloud and the
+"dfn" id="ref-for-dfn-thing-145">Thing</a> is in the cloud and the
 <a href="#dfn-consumer" class="internalDFN" data-link-type="dfn"
-id="ref-for-dfn-consumer-68">Consumer</a> is on a local network
+id="ref-for-dfn-consumer-69">Consumer</a> is on a local network
 (see <a href="#smart-home" class="fig-ref" title=
 "Smart Home">Figure <bdi class="figno">1</bdi></a> for an example
 in a Smart Home use case) the actual network topology may be more
@@ -5812,9 +6751,9 @@ aria-label="Permalink for Section 9.2.2"></a></div>
 data-link-type="dfn" id=
 "ref-for-dfn-intermediary-36">Intermediary</a> plays both <a href=
 "#dfn-thing" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-145">Thing</a> and <a href="#dfn-consumer"
+"ref-for-dfn-thing-146">Thing</a> and <a href="#dfn-consumer"
 class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-consumer-69">Consumer</a> roles on the network and
+"ref-for-dfn-consumer-70">Consumer</a> roles on the network and
 supports both the <a href="#dfn-exposed-thing" class="internalDFN"
 data-link-type="dfn" id="ref-for-dfn-exposed-thing-20">Exposed
 Thing</a> and <a href="#dfn-consumed-thing" class="internalDFN"
@@ -5837,7 +6776,7 @@ aria-label="Permalink for Section 9.2.2.1"></a></div>
 "internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-intermediary-38">Intermediary</a> is a proxy for a
 <a href="#dfn-thing" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-146">Thing</a>. When the <a href=
+"ref-for-dfn-thing-147">Thing</a>. When the <a href=
 "#dfn-intermediary" class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-intermediary-39">Intermediary</a> acts as a proxy, it
 has interfaces with two separate networks or protocols. This may
@@ -5852,11 +6791,11 @@ modified.</p>
 class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-intermediary-41">Intermediary</a> obtains a TD of a
 <a href="#dfn-thing" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-147">Thing</a> and creates a <a href=
+"ref-for-dfn-thing-148">Thing</a> and creates a <a href=
 "#dfn-consumed-thing" class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-consumed-thing-25">Consumed Thing</a>. It creates a
 proxy object of the <a href="#dfn-thing" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-thing-148">Thing</a> as a
+data-link-type="dfn" id="ref-for-dfn-thing-149">Thing</a> as a
 software implementation that has the same <a href=
 "#dfn-interaction-affordance" class="internalDFN" data-link-type=
 "dfn" id="ref-for-dfn-interaction-affordance-28">Interaction
@@ -5875,7 +6814,7 @@ on this TD, and the <a href="#dfn-intermediary" class="internalDFN"
 data-link-type="dfn" id=
 "ref-for-dfn-intermediary-42">Intermediary</a> notifies other
 <a href="#dfn-consumer" class="internalDFN" data-link-type="dfn"
-id="ref-for-dfn-consumer-70">Consumers</a> or <a href=
+id="ref-for-dfn-consumer-71">Consumers</a> or <a href=
 "#dfn-intermediary" class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-intermediary-43">Intermediaries</a> of the TD via an
 appropriate publication mechanism.</p>
@@ -5927,13 +6866,13 @@ class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-digital-twin-10">digital twin</a> needs to know when
 the device is awake. The device implementation as a <a href=
 "#dfn-thing" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-149">Thing</a> may need to include a
+"ref-for-dfn-thing-150">Thing</a> may need to include a
 notification mechanism for that. This could be implemented using a
 separate <a href="#dfn-consumer" class="internalDFN"
 data-link-type="dfn" id=
-"ref-for-dfn-consumer-71">Consumer</a>/<a href="#dfn-thing" class=
+"ref-for-dfn-consumer-72">Consumer</a>/<a href="#dfn-thing" class=
 "internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-150">Thing</a> pair, or by using <a href=
+"ref-for-dfn-thing-151">Thing</a> pair, or by using <a href=
 "#dfn-event" class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-event-7">Event</a> interactions for this purpose.</p>
 </section>
@@ -5972,7 +6911,7 @@ both a local and a remote <a href="#dfn-intermediary" class=
 data-link-type="dfn" id=
 "ref-for-dfn-interaction-affordance-29">Interaction Affordances</a>
 from multiple <a href="#dfn-thing" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-thing-151">Thing</a> into a
+data-link-type="dfn" id="ref-for-dfn-thing-152">Thing</a> into a
 (set of) <a href="#dfn-exposed-thing" class="internalDFN"
 data-link-type="dfn" id="ref-for-dfn-exposed-thing-22">Exposed
 Things</a>, which can all be mapped onto a common protocol (for
@@ -5982,7 +6921,7 @@ provides the remote <a href="#dfn-intermediary" class="internalDFN"
 data-link-type="dfn" id=
 "ref-for-dfn-intermediary-48">Intermediary</a> with a simple way to
 access all the <a href="#dfn-thing" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-thing-152">Things</a> behind
+data-link-type="dfn" id="ref-for-dfn-thing-153">Things</a> behind
 the NAT device, assuming the local <a href="#dfn-intermediary"
 class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-intermediary-49">Intermediary</a> has used a converged
@@ -5993,15 +6932,15 @@ data-link-type="dfn" id=
 "ref-for-dfn-intermediary-50">Intermediary</a> can function as a
 Thing proxy, so even when the connected <a href="#dfn-thing" class=
 "internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-153">Things</a> each use a different protocol
+"ref-for-dfn-thing-154">Things</a> each use a different protocol
 (HTTP, MQTT, CoAP, etc.) and/or a different set of ecosystem
 conventions, the <a href="#dfn-exposed-thing" class="internalDFN"
 data-link-type="dfn" id="ref-for-dfn-exposed-thing-23">Exposed
 Thing</a> can converge them into a single protocol so that <a href=
 "#dfn-consumer" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-consumer-72">Consumers</a> do not need to be aware of
+"ref-for-dfn-consumer-73">Consumers</a> do not need to be aware of
 the various protocols the <a href="#dfn-thing" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-thing-154">Things</a> use.</p>
+data-link-type="dfn" id="ref-for-dfn-thing-155">Things</a> use.</p>
 <p>In <a href="#deployment-cloud-device" class="fig-ref" title=
 "Cloud Applications Implemented as Consumers Connected to Local Devices implemented as Things via Paired Intermediaries">
 Figure <bdi class="figno">37</bdi></a>, there are two clients
@@ -6084,14 +7023,14 @@ even though a custom tunneling protocol is needed, the remote
 translate this custom protocol back into standard external
 protocols. The connected <a href="#dfn-consumer" class=
 "internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-consumer-73">Consumers</a> and <a href="#dfn-thing"
+"ref-for-dfn-consumer-74">Consumers</a> and <a href="#dfn-thing"
 class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-155">Things</a> do not need to know about it. It
+"ref-for-dfn-thing-156">Things</a> do not need to know about it. It
 is also possible to extend this example to use cases where both
 <a href="#dfn-thing" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-156">Things</a> and <a href="#dfn-consumer"
+"ref-for-dfn-thing-157">Things</a> and <a href="#dfn-consumer"
 class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-consumer-74">Consumers</a> can connect on either side
+"ref-for-dfn-consumer-75">Consumers</a> can connect on either side
 of the NAT boundary. This however also requires a bidirectional
 tunnel to be established between the two <a href=
 "#dfn-intermediary" class="internalDFN" data-link-type="dfn" id=
@@ -6118,12 +7057,12 @@ to find device information by, for example, accessing a directory
 of connected devices. For simplicity in the figure below we have
 assumed all local devices are implemented as <a href="#dfn-thing"
 class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-157">Things</a> and all cloud applications as
+"ref-for-dfn-thing-158">Things</a> and all cloud applications as
 <a href="#dfn-consumer" class="internalDFN" data-link-type="dfn"
-id="ref-for-dfn-consumer-75">Consumers</a>. To make the metadata of
+id="ref-for-dfn-consumer-76">Consumers</a>. To make the metadata of
 local devices implemented as <a href="#dfn-thing" class=
 "internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-158">Things</a> available to the cloud
+"ref-for-dfn-thing-159">Things</a> available to the cloud
 applications, their metadata can be registered with a <a href=
 "#dfn-wot-thing-description-directory" class="internalDFN"
 data-link-type="dfn" id=
@@ -6155,7 +7094,7 @@ Directory</span></figcaption>
 <p>In more complex situations, not shown in the figure, there may
 also be cloud services that act as <a href="#dfn-thing" class=
 "internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-159">Things</a>. These can also register
+"ref-for-dfn-thing-160">Things</a>. These can also register
 themselves with a <a href="#dfn-wot-thing-description-directory"
 class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-wot-thing-description-directory-13">Thing Description
@@ -6167,15 +7106,15 @@ Directory</a> is a Web service, it should be visible to the local
 devices through the NAT or firewall device and its interface can
 even be provided with its own TD. Local devices acting as <a href=
 "#dfn-consumer" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-consumer-76">Consumers</a> can then discover the
+"ref-for-dfn-consumer-77">Consumers</a> can then discover the
 <a href="#dfn-thing" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-160">Things</a> in the cloud via a <a href=
+"ref-for-dfn-thing-161">Things</a> in the cloud via a <a href=
 "#dfn-wot-thing-description-directory" class="internalDFN"
 data-link-type="dfn" id=
 "ref-for-dfn-wot-thing-description-directory-15">Thing Description
 Directory</a> and connect to the <a href="#dfn-thing" class=
 "internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-161">Things</a> directly or via the local
+"ref-for-dfn-thing-162">Things</a> directly or via the local
 <a href="#dfn-intermediary" class="internalDFN" data-link-type=
 "dfn" id="ref-for-dfn-intermediary-70">Intermediary</a> if, for
 instance, protocol translation is needed.</p>
@@ -6195,10 +7134,10 @@ application eco-system, the figure below shows two eco-systems
 connected to each other to make a system-of-systems. Consider the
 case in which a client in one eco-system (i.e., <a href=
 "#dfn-consumer" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-consumer-77">Consumer</a> A below) needs to use a
+"ref-for-dfn-consumer-78">Consumer</a> A below) needs to use a
 server in another eco-system (i.e., <a href="#dfn-thing" class=
 "internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-162">Thing</a> B below). There is more than one
+"ref-for-dfn-thing-163">Thing</a> B below). There is more than one
 mechanism to achieve this cross eco-systems application-device
 integration. Below, two mechanisms are explained, each using a
 figure, to show how this can be achieved.</p>
@@ -6220,9 +7159,9 @@ data-link-type="dfn" id=
 "ref-for-dfn-wot-thing-description-directory-16">Thing Description
 Directory</a> synchronize information, which makes it possible for
 <a href="#dfn-consumer" class="internalDFN" data-link-type="dfn"
-id="ref-for-dfn-consumer-78">Consumer</a> A to obtain the
+id="ref-for-dfn-consumer-79">Consumer</a> A to obtain the
 information of <a href="#dfn-thing" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-thing-163">Thing</a> B through
+data-link-type="dfn" id="ref-for-dfn-thing-164">Thing</a> B through
 <a href="#dfn-wot-thing-description-directory" class="internalDFN"
 data-link-type="dfn" id=
 "ref-for-dfn-wot-thing-description-directory-17">Thing Description
@@ -6230,12 +7169,12 @@ Directory</a> A. As described in previous sections, remote <a href=
 "#dfn-intermediary" class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-intermediary-71">Intermediary</a> B maintains a shadow
 implementation of <a href="#dfn-thing" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-thing-164">Thing</a> B. By
+data-link-type="dfn" id="ref-for-dfn-thing-165">Thing</a> B. By
 obtaining the TD of this shadow device, <a href="#dfn-consumer"
 class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-consumer-79">Consumer</a> A is able to use <a href=
+"ref-for-dfn-consumer-80">Consumer</a> A is able to use <a href=
 "#dfn-thing" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-165">Thing</a> B through the remote <a href=
+"ref-for-dfn-thing-166">Thing</a> B through the remote <a href=
 "#dfn-intermediary" class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-intermediary-72">Intermediary</a> B.</p>
 <figure id="deployment-service-sync-directory"><img src=
@@ -6262,7 +7201,7 @@ aria-label="Permalink for Section 9.2.5.2"></a></div>
 "ref-for-dfn-intermediary-73">Intermediaries</a> synchronize device
 information. When a shadow of <a href="#dfn-thing" class=
 "internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-166">Thing</a> B is created in remote <a href=
+"ref-for-dfn-thing-167">Thing</a> B is created in remote <a href=
 "#dfn-intermediary" class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-intermediary-74">Intermediary</a> B, the shadow’s TD
 is simultaneously synchronized into remote <a href=
@@ -6271,7 +7210,7 @@ is simultaneously synchronized into remote <a href=
 "#dfn-intermediary" class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-intermediary-76">Intermediary</a> A in turn creates
 its own shadow of <a href="#dfn-thing" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-thing-167">Thing</a> B, and
+data-link-type="dfn" id="ref-for-dfn-thing-168">Thing</a> B, and
 registers the TD with <a href=
 "#dfn-wot-thing-description-directory" class="internalDFN"
 data-link-type="dfn" id=
@@ -6432,12 +7371,12 @@ class="internalDFN" data-link-type="dfn" id=
 possible, TD creators <em class="rfc2119">SHOULD</em> use the
 vetted communication metadata provided in the <a href=
 "#dfn-wot-binding-templates" class="internalDFN" data-link-type=
-"dfn" id="ref-for-dfn-wot-binding-templates-7">WoT Binding
+"dfn" id="ref-for-dfn-wot-binding-templates-9">WoT Binding
 Templates</a>.</span> <span class="rfc2119-assertion" id=
 "arch-security-consideration-communication-platform">When
 generating TDs for an IoT ecosystem not covered by the <a href=
 "#dfn-wot-binding-templates" class="internalDFN" data-link-type=
-"dfn" id="ref-for-dfn-wot-binding-templates-8">WoT Binding
+"dfn" id="ref-for-dfn-wot-binding-templates-10">WoT Binding
 Templates</a>, TD creators <em class="rfc2119">SHOULD</em> ensure
 that all the security requirements of the <a href=
 "#dfn-iot-platform" class="internalDFN" data-link-type="dfn" id=
@@ -6652,15 +7591,21 @@ the underlying protocol implementation that uses them.</span></dd>
 <p>In section <a href="#sec-common-deployment-patterns" class=
 "sec-ref"><bdi class="secno">5.</bdi> Common Deployment
 Patterns</a> several usage scenarios are presented that include the
-concept of a trusted environment and a security boundary. Entities
-that are members of a trusted environment all share access to a
-common set of resources (such as a local network) and are implictly
-granted certain access rights to each other. A common example would
-be a WiFi LAN in the home where access to the WEP password allows
-devices to communicate with each other without any further access
-controls. Allowing implicit access rights like this and using a
-single shared secret for a large number of entities means that a
-single malicious actor with access to the trusted environment can
+concept of a <a href="#dfn-trusted-environment" class="internalDFN"
+data-link-type="dfn" id="ref-for-dfn-trusted-environment-2">Trusted
+Environment</a> and a security boundary. Entities that are members
+of a <a href="#dfn-trusted-environment" class="internalDFN"
+data-link-type="dfn" id="ref-for-dfn-trusted-environment-3">Trusted
+Environment</a> all share access to a common set of resources (such
+as a local network) and are implictly granted certain access rights
+to each other. A common example would be a WiFi LAN in the home
+where access to the WEP password allows devices to communicate with
+each other without any further access controls. Allowing implicit
+access rights like this and using a single shared secret for a
+large number of entities means that a single malicious actor with
+access to the <a href="#dfn-trusted-environment" class=
+"internalDFN" data-link-type="dfn" id=
+"ref-for-dfn-trusted-environment-4">Trusted Environment</a> can
 cause significant damage.</p>
 <p>One common IoT situation is the use of an HTTP/HTML browser to
 access locally hosted web services in a home environment. Such
@@ -6709,19 +7654,19 @@ Secure Transport</h3>
 Risks</a>, there are situations in which secure transports, such as
 TLS, are not feasible or are difficult to set up, such as on a
 local LAN within a home. Unfortunately, generally access control
-mechanisms in HTTP are generally designed to be used with secure
-transport and can be easily bypassed without it. In particular, it
-is relatively easy to capture passwords and tokens from unencrypted
-protocol interactions which can be intercepted by a third party. In
-addition, man-in-the-middle attacks can be easily implemented
-without TLS providing server authentication.</p>
+mechanisms in HTTP are designed to be used with secure transport
+and can be easily bypassed without it. In particular, it is
+relatively easy to capture passwords and tokens from unencrypted
+protocol interactions which can be intercepted by a third party.
+Also, man-in-the-middle attacks can be easily implemented without
+TLS providing server authentication.</p>
 <dl>
 <dt>Mitigation:</dt>
 <dd>
-<p>Because of the practical difficulties in setting up TLS in all
-situations, we cannot make a blanket assertion that it is always
-required. Instead we provide a set of requirements for different
-use cases:</p>
+<p>Because of the practical difficulties in setting up secure
+transport in all situations, we cannot make a blanket assertion
+that it is always required. Instead we provide a set of
+requirements for different use cases:</p>
 <dl>
 <dt>Public Networks:</dt>
 <dd><span class="rfc2119-assertion" id=
@@ -6737,7 +7682,7 @@ service, because secure transport also protects the privacy of
 requestors (for example, the content of queries).</dd>
 <dt>Private Networks:</dt>
 <dd><span class="rfc2119-assertion" id=
-"arch-security-consideration-tls-mandatory-priv">When a Thing is
+"arch-security-consideration-tls-recommended-priv">When a Thing is
 made available on a private network then it <em class=
 "rfc2119">SHOULD</em> be protected by secure transport such as TLS
 or DTLS.</span> The risk increases with the sensitivity of the data
@@ -6751,11 +7696,11 @@ permissable: <span class="rfc2119-assertion" id=
 such as a LAN, protected by a firewall, <em class=
 "rfc2119">MAY</em> use the <a href=
 "#sec-security-consideration-trusted-environment-risks">Trusted
-Environment</a> approach of depending on network security only.
-This is not generally recommended but may be necessary for
-practical reasons. Please see the referenced security consideration
-for additional risks and mitigations with this
-approach.</span></dd>
+Environment</a> approach of depending on network security
+only.</span> This is not generally recommended but may be necessary
+for practical reasons. Please see the referenced security
+consideration for additional risks and mitigations with this
+approach.</dd>
 <dt>Brownfield Devices:</dt>
 <dd>WoT is descriptive and an accurate description of existing
 "brownfield" devices may reveal they are not secure. For example, a
@@ -6772,6 +7717,36 @@ security. In particular, a proxy can be used to ensure that
 communications over the public network use secure transport. A
 proxy can also be used to provide access controls.</dd>
 </dl>
+<p><span class="rfc2119-assertion" id=
+"arch-security-consideration-tls-1-3">When secure transport over
+TCP is appropriate, then at least TLS 1.3 [<cite><a class="bibref"
+data-link-type="biblio" href="#bib-rfc8446" title=
+"The Transport Layer Security (TLS) Protocol Version 1.3">RFC8446</a></cite>]
+<em class="rfc2119">SHOULD</em> be used.</span> <span class=
+"rfc2119-assertion" id="arch-security-consideration-tls-1-2">If TLS
+1.3 cannot be used for compatibility reasons but secure transport
+over TCP is appropriate, TLS 1.2 [<cite><a class="bibref"
+data-link-type="biblio" href="#bib-rfc5246" title=
+"The Transport Layer Security (TLS) Protocol Version 1.2">RFC5246</a></cite>]
+<em class="rfc2119">MAY</em> be used.</span> <span class=
+"rfc2119-assertion" id="arch-security-consideration-dtls-1-3">When
+secure transport over UDP is appropriate, then at least DTLS 1.3
+[<cite><a class="bibref" data-link-type="biblio" href=
+"#bib-rfc9147" title=
+"The Datagram Transport Layer Security (DTLS) Protocol Version 1.3">RFC9147</a></cite>]
+<em class="rfc2119">SHOULD</em> be used.</span> <span class=
+"rfc2119-assertion" id="arch-security-consideration-dtls-1-2">If
+DTLS 1.3 cannot be used for compatibility reasons but secure
+transport over UDP is appropriate, then DTLS 1.2 [<cite><a class=
+"bibref" data-link-type="biblio" href="#bib-rfc6347" title=
+"Datagram Transport Layer Security Version 1.2">RFC6347</a></cite>]
+<em class="rfc2119">MAY</em> be used.</span> <span class=
+"rfc2119-assertion" id=
+"arch-security-consideration-no-earlier-tls-or-dtls">Versions of
+DLTS or TLS earlier than 1.2 <em class="rfc2119">MUST NOT</em> be
+used for new development.</span> Existing Things using earlier
+versions of TLS or DTLS can be described by WoT metadata (e.g.
+Thing Descriptions) but should be considered insecure.</p>
 <p>Additional considerations apply if a Thing can reveal <a href=
 "#dfn-personally-identifiable-information" class="internalDFN"
 data-link-type="dfn" id=
@@ -6878,7 +7853,7 @@ contain it.</span> <span class="rfc2119-assertion" id=
 for TDs <em class="rfc2119">SHOULD</em> ensure they are only
 provided to authorized Consumers.</span> Note that the <a href=
 "#dfn-wot-discovery" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-wot-discovery-16">WoT Discovery</a> mechanism is
+"ref-for-dfn-wot-discovery-17">WoT Discovery</a> mechanism is
 designed to address this specific issue, as long as it is used with
 authentication and access controls on exploration services.
 <span class="rfc2119-assertion" id=
@@ -6920,7 +7895,7 @@ information.</p>
 <dl>
 <dt>Mitigation:</dt>
 <dd><span class="rfc2119-assertion" id=
-"arch-privacy-consideration-access-control-mandatory-person">Things
+"arch-privacy-consideration-pii-access-control-mandatory">Things
 returning data or metadata (such as TDs) associated with a person
 <em class="rfc2119">MUST</em> use some form of access
 control.</span> A special case of this is a <a href=
@@ -6936,7 +7911,7 @@ access control if the TDs describe Things associated with
 identifiable people. In the case of services returning Thing
 Descriptions, the following also applies: <span class=
 "rfc2119-assertion" id=
-"arch-privacy-consideration-access-control-mandatory-immutable">Services
+"arch-privacy-consideration-immutable-id-access-control-mandatory">Services
 returning Thing Descriptions with immutable IDs <em class=
 "rfc2119">MUST</em> use some form of access control.</span>
 Specifically, in both of these situations, the <code>nosec</code>
@@ -7043,6 +8018,25 @@ for 2 years from its inception and guiding the group to come up
 with the concept of WoT building blocks including the Thing
 Description.</p>
 </section>
+<script>
+mendeleyWebImporter = {
+  downloadPdfs(e,t) { return this._call('downloadPdfs', [e,t]); },
+  open() { return this._call('open', []); },
+  setLoginToken(e) { return this._call('setLoginToken', [e]); },
+  _call(methodName, methodArgs) {
+    const id = Math.random();
+    window.postMessage({ id, token: '0.05833591537701799', methodName, methodArgs }, 'http://localhost:3000');
+    return new Promise(resolve => {
+      const listener = window.addEventListener('message', event => {
+        const data = event.data;
+        if (typeof data !== 'object' || !('result' in data) || data.id !== id) return;
+        window.removeEventListener('message', listener);
+        resolve(data.result);
+      });
+    });
+  }
+};
+</script>
 <section id="references" class="appendix">
 <div class="header-wrapper">
 <h2 id="c-references"><bdi class="secno">C.</bdi> References</h2>
@@ -7079,6 +8073,17 @@ Standard. URL: <a href=
 Resource Identifiers (IRIs)</cite></a>. M. Duerst; M. Suignard.
 IETF. January 2005. Proposed Standard. URL: <a href=
 "https://www.rfc-editor.org/rfc/rfc3987">https://www.rfc-editor.org/rfc/rfc3987</a></dd>
+<dt id="bib-rfc5246">[RFC5246]</dt>
+<dd><a href="https://www.rfc-editor.org/rfc/rfc5246"><cite>The
+Transport Layer Security (TLS) Protocol Version 1.2</cite></a>. T.
+Dierks; E. Rescorla. IETF. August 2008. Proposed Standard. URL:
+<a href=
+"https://www.rfc-editor.org/rfc/rfc5246">https://www.rfc-editor.org/rfc/rfc5246</a></dd>
+<dt id="bib-rfc6347">[RFC6347]</dt>
+<dd><a href="https://www.rfc-editor.org/rfc/rfc6347"><cite>Datagram
+Transport Layer Security Version 1.2</cite></a>. E. Rescorla; N.
+Modadugu. IETF. January 2012. Proposed Standard. URL: <a href=
+"https://www.rfc-editor.org/rfc/rfc6347">https://www.rfc-editor.org/rfc/rfc6347</a></dd>
 <dt id="bib-rfc8174">[RFC8174]</dt>
 <dd><a href=
 "https://www.rfc-editor.org/rfc/rfc8174"><cite>Ambiguity of
@@ -7096,6 +8101,17 @@ Standard. URL: <a href=
 Linking</cite></a>. M. Nottingham. IETF. October 2017. Proposed
 Standard. URL: <a href=
 "https://httpwg.org/specs/rfc8288.html">https://httpwg.org/specs/rfc8288.html</a></dd>
+<dt id="bib-rfc8446">[RFC8446]</dt>
+<dd><a href="https://www.rfc-editor.org/rfc/rfc8446"><cite>The
+Transport Layer Security (TLS) Protocol Version 1.3</cite></a>. E.
+Rescorla. IETF. August 2018. Proposed Standard. URL: <a href=
+"https://www.rfc-editor.org/rfc/rfc8446">https://www.rfc-editor.org/rfc/rfc8446</a></dd>
+<dt id="bib-rfc9147">[RFC9147]</dt>
+<dd><a href="https://www.rfc-editor.org/rfc/rfc9147"><cite>The
+Datagram Transport Layer Security (DTLS) Protocol Version
+1.3</cite></a>. E. Rescorla; H. Tschofenig; N. Modadugu. IETF.
+April 2022. Proposed Standard. URL: <a href=
+"https://www.rfc-editor.org/rfc/rfc9147">https://www.rfc-editor.org/rfc/rfc9147</a></dd>
 <dt id="bib-solid">[SOLID]</dt>
 <dd><a href="https://solidproject.org/TR/"><cite>Solid Technical
 Reports</cite></a>. W3C Solid CG. April 2021. URL: <a href=
@@ -7412,12 +8428,15 @@ Permalink</a></div>
 "#ref-for-dfn-wot-binding-templates-4" title="Reference 3">(3)</a>
 <a href="#ref-for-dfn-wot-binding-templates-5" title=
 "Reference 4">(4)</a> <a href=
-"#ref-for-dfn-wot-binding-templates-6" title=
-"Reference 5">(5)</a></li>
-<li><a href="#ref-for-dfn-wot-binding-templates-7" title=
+"#ref-for-dfn-wot-binding-templates-6" title="Reference 5">(5)</a>
+<a href="#ref-for-dfn-wot-binding-templates-7" title=
+"Reference 6">(6)</a> <a href=
+"#ref-for-dfn-wot-binding-templates-8" title=
+"Reference 7">(7)</a></li>
+<li><a href="#ref-for-dfn-wot-binding-templates-9" title=
 "§ 10.1.2 Thing Description Communication Metadata Risk">§ 10.1.2
 Thing Description Communication Metadata Risk</a> <a href=
-"#ref-for-dfn-wot-binding-templates-8" title=
+"#ref-for-dfn-wot-binding-templates-10" title=
 "Reference 2">(2)</a></li>
 </ul>
 </div>
@@ -7576,67 +8595,68 @@ System Components and their Interconnectivity</a> <a href=
 <a href="#ref-for-dfn-consumer-45" title="Reference 6">(6)</a>
 <a href="#ref-for-dfn-consumer-46" title="Reference 7">(7)</a></li>
 <li><a href="#ref-for-dfn-consumer-47" title=
-"§ 7.5 WoT Binding Templates">§ 7.5 WoT Binding Templates</a></li>
-<li><a href="#ref-for-dfn-consumer-48" title=
-"§ 7.6 WoT Scripting API">§ 7.6 WoT Scripting API</a></li>
+"§ 7.5 WoT Binding Templates">§ 7.5 WoT Binding Templates</a>
+<a href="#ref-for-dfn-consumer-48" title="Reference 2">(2)</a></li>
 <li><a href="#ref-for-dfn-consumer-49" title=
+"§ 7.6 WoT Scripting API">§ 7.6 WoT Scripting API</a></li>
+<li><a href="#ref-for-dfn-consumer-50" title=
 "§ 8. Abstract Servient Architecture">§ 8. Abstract Servient
 Architecture</a></li>
-<li><a href="#ref-for-dfn-consumer-50" title=
+<li><a href="#ref-for-dfn-consumer-51" title=
 "§ 8.1 Behavior Implementation">§ 8.1 Behavior Implementation</a>
-<a href="#ref-for-dfn-consumer-51" title="Reference 2">(2)</a>
-<a href="#ref-for-dfn-consumer-52" title="Reference 3">(3)</a></li>
-<li><a href="#ref-for-dfn-consumer-53" title=
+<a href="#ref-for-dfn-consumer-52" title="Reference 2">(2)</a>
+<a href="#ref-for-dfn-consumer-53" title="Reference 3">(3)</a></li>
+<li><a href="#ref-for-dfn-consumer-54" title=
 "§ 8.4 Exposed Thing and Consumed Thing Abstractions">§ 8.4 Exposed
 Thing and Consumed Thing Abstractions</a></li>
-<li><a href="#ref-for-dfn-consumer-54" title=
+<li><a href="#ref-for-dfn-consumer-55" title=
 "§ 8.6 Protocol Stack Implementation">§ 8.6 Protocol Stack
 Implementation</a></li>
-<li><a href="#ref-for-dfn-consumer-55" title=
+<li><a href="#ref-for-dfn-consumer-56" title=
 "§ 9. Example WoT Deployments">§ 9. Example WoT Deployments</a>
-<a href="#ref-for-dfn-consumer-56" title="Reference 2">(2)</a>
-<a href="#ref-for-dfn-consumer-57" title="Reference 3">(3)</a></li>
-<li><a href="#ref-for-dfn-consumer-58" title=
+<a href="#ref-for-dfn-consumer-57" title="Reference 2">(2)</a>
+<a href="#ref-for-dfn-consumer-58" title="Reference 3">(3)</a></li>
+<li><a href="#ref-for-dfn-consumer-59" title=
 "§ 9.1 Thing and Consumer Roles">§ 9.1 Thing and Consumer Roles</a>
-<a href="#ref-for-dfn-consumer-59" title="Reference 2">(2)</a>
-<a href="#ref-for-dfn-consumer-60" title="Reference 3">(3)</a>
-<a href="#ref-for-dfn-consumer-61" title="Reference 4">(4)</a>
-<a href="#ref-for-dfn-consumer-62" title="Reference 5">(5)</a>
-<a href="#ref-for-dfn-consumer-63" title="Reference 6">(6)</a>
-<a href="#ref-for-dfn-consumer-64" title="Reference 7">(7)</a></li>
-<li><a href="#ref-for-dfn-consumer-65" title=
+<a href="#ref-for-dfn-consumer-60" title="Reference 2">(2)</a>
+<a href="#ref-for-dfn-consumer-61" title="Reference 3">(3)</a>
+<a href="#ref-for-dfn-consumer-62" title="Reference 4">(4)</a>
+<a href="#ref-for-dfn-consumer-63" title="Reference 5">(5)</a>
+<a href="#ref-for-dfn-consumer-64" title="Reference 6">(6)</a>
+<a href="#ref-for-dfn-consumer-65" title="Reference 7">(7)</a></li>
+<li><a href="#ref-for-dfn-consumer-66" title=
 "§ 9.2.1 Consumer and Thing on the Same Network">§ 9.2.1 Consumer
 and Thing on the Same Network</a> <a href=
-"#ref-for-dfn-consumer-66" title="Reference 2">(2)</a> <a href=
-"#ref-for-dfn-consumer-67" title="Reference 3">(3)</a> <a href=
-"#ref-for-dfn-consumer-68" title="Reference 4">(4)</a></li>
-<li><a href="#ref-for-dfn-consumer-69" title=
+"#ref-for-dfn-consumer-67" title="Reference 2">(2)</a> <a href=
+"#ref-for-dfn-consumer-68" title="Reference 3">(3)</a> <a href=
+"#ref-for-dfn-consumer-69" title="Reference 4">(4)</a></li>
+<li><a href="#ref-for-dfn-consumer-70" title=
 "§ 9.2.2 Consumer and Thing Connected via Intermediaries">§ 9.2.2
 Consumer and Thing Connected via Intermediaries</a></li>
-<li><a href="#ref-for-dfn-consumer-70" title=
+<li><a href="#ref-for-dfn-consumer-71" title=
 "§ 9.2.2.1 Intermediary Acting as a Proxy">§ 9.2.2.1 Intermediary
 Acting as a Proxy</a></li>
-<li><a href="#ref-for-dfn-consumer-71" title=
+<li><a href="#ref-for-dfn-consumer-72" title=
 "§ 9.2.2.2 Intermediary Acting as a Digital Twin">§ 9.2.2.2
 Intermediary Acting as a Digital Twin</a></li>
-<li><a href="#ref-for-dfn-consumer-72" title=
+<li><a href="#ref-for-dfn-consumer-73" title=
 "§ 9.2.3 Devices in a Local Network Controlled from a Cloud Service">
 § 9.2.3 Devices in a Local Network Controlled from a Cloud
-Service</a> <a href="#ref-for-dfn-consumer-73" title=
-"Reference 2">(2)</a> <a href="#ref-for-dfn-consumer-74" title=
+Service</a> <a href="#ref-for-dfn-consumer-74" title=
+"Reference 2">(2)</a> <a href="#ref-for-dfn-consumer-75" title=
 "Reference 3">(3)</a></li>
-<li><a href="#ref-for-dfn-consumer-75" title=
+<li><a href="#ref-for-dfn-consumer-76" title=
 "§ 9.2.4 Discovery Using a Thing Description Directory">§ 9.2.4
 Discovery Using a Thing Description Directory</a> <a href=
-"#ref-for-dfn-consumer-76" title="Reference 2">(2)</a></li>
-<li><a href="#ref-for-dfn-consumer-77" title=
+"#ref-for-dfn-consumer-77" title="Reference 2">(2)</a></li>
+<li><a href="#ref-for-dfn-consumer-78" title=
 "§ 9.2.5 Service-to-Service Connections Across Multiple Domains">§
 9.2.5 Service-to-Service Connections Across Multiple
 Domains</a></li>
-<li><a href="#ref-for-dfn-consumer-78" title=
+<li><a href="#ref-for-dfn-consumer-79" title=
 "§ 9.2.5.1 Connection Through Thing Description Directory Synchronization">
 § 9.2.5.1 Connection Through Thing Description Directory
-Synchronization</a> <a href="#ref-for-dfn-consumer-79" title=
+Synchronization</a> <a href="#ref-for-dfn-consumer-80" title=
 "Reference 2">(2)</a></li>
 </ul>
 </div>
@@ -7705,33 +8725,34 @@ Permalink</a></div>
 <p><b>Referenced in:</b></p>
 <ul>
 <li><a href="#ref-for-dfn-wot-discovery-1" title=
-"§ 3. Terminology">§ 3. Terminology</a></li>
-<li><a href="#ref-for-dfn-wot-discovery-2" title=
+"§ 3. Terminology">§ 3. Terminology</a> <a href=
+"#ref-for-dfn-wot-discovery-2" title="Reference 2">(2)</a></li>
+<li><a href="#ref-for-dfn-wot-discovery-3" title=
 "§ 6.4.3 Thing Lifecycle">§ 6.4.3 Thing Lifecycle</a></li>
-<li><a href="#ref-for-dfn-wot-discovery-3" title="§ 6.6.1 Links">§
+<li><a href="#ref-for-dfn-wot-discovery-4" title="§ 6.6.1 Links">§
 6.6.1 Links</a></li>
-<li><a href="#ref-for-dfn-wot-discovery-4" title=
-"§ 7. WoT Building Blocks">§ 7. WoT Building Blocks</a></li>
 <li><a href="#ref-for-dfn-wot-discovery-5" title=
+"§ 7. WoT Building Blocks">§ 7. WoT Building Blocks</a></li>
+<li><a href="#ref-for-dfn-wot-discovery-6" title=
 "§ 7.4 WoT Discovery">§ 7.4 WoT Discovery</a> <a href=
-"#ref-for-dfn-wot-discovery-6" title="Reference 2">(2)</a> <a href=
-"#ref-for-dfn-wot-discovery-7" title="Reference 3">(3)</a> <a href=
-"#ref-for-dfn-wot-discovery-8" title="Reference 4">(4)</a> <a href=
-"#ref-for-dfn-wot-discovery-9" title="Reference 5">(5)</a> <a href=
-"#ref-for-dfn-wot-discovery-13" title="Reference 6">(6)</a>
-<a href="#ref-for-dfn-wot-discovery-14" title=
+"#ref-for-dfn-wot-discovery-7" title="Reference 2">(2)</a> <a href=
+"#ref-for-dfn-wot-discovery-8" title="Reference 3">(3)</a> <a href=
+"#ref-for-dfn-wot-discovery-9" title="Reference 4">(4)</a> <a href=
+"#ref-for-dfn-wot-discovery-10" title="Reference 5">(5)</a>
+<a href="#ref-for-dfn-wot-discovery-14" title="Reference 6">(6)</a>
+<a href="#ref-for-dfn-wot-discovery-15" title=
 "Reference 7">(7)</a></li>
-<li><a href="#ref-for-dfn-wot-discovery-10" title=
+<li><a href="#ref-for-dfn-wot-discovery-11" title=
 "§ 7.4.1 Introduction Mechanisms">§ 7.4.1 Introduction
 Mechanisms</a></li>
-<li><a href="#ref-for-dfn-wot-discovery-11" title=
+<li><a href="#ref-for-dfn-wot-discovery-12" title=
 "§ 7.4.2 Exploration Mechanisms">§ 7.4.2 Exploration Mechanisms</a>
-<a href="#ref-for-dfn-wot-discovery-12" title=
+<a href="#ref-for-dfn-wot-discovery-13" title=
 "Reference 2">(2)</a></li>
-<li><a href="#ref-for-dfn-wot-discovery-15" title=
+<li><a href="#ref-for-dfn-wot-discovery-16" title=
 "§ 9.1 Thing and Consumer Roles">§ 9.1 Thing and Consumer
 Roles</a></li>
-<li><a href="#ref-for-dfn-wot-discovery-16" title=
+<li><a href="#ref-for-dfn-wot-discovery-17" title=
 "§ 11.1.1 Thing Description Personally Identifiable Information Risk">
 § 11.1.1 Thing Description Personally Identifiable Information
 Risk</a></li>
@@ -8653,6 +9674,17 @@ Permalink</a></div>
 </ul>
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
+id="dfn-panel-for-dfn-td-server" aria-label=
+"Links in this document to definition: TD Server">
+<div><a class="self-link" href="#dfn-td-server" aria-label=
+"Permalink for definition: TD Server. Activate to close this dialog.">
+Permalink</a></div>
+<p><b>Referenced in:</b></p>
+<ul>
+<li>Not referenced in this document.</li>
+</ul>
+</div>
+<div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-thing" aria-label=
 "Links in this document to definition: Thing">
 <div><a class="self-link" href="#dfn-thing" aria-label=
@@ -8789,106 +9821,107 @@ System Components and their Interconnectivity</a> <a href=
 "§ 7.4.2 Exploration Mechanisms">§ 7.4.2 Exploration
 Mechanisms</a></li>
 <li><a href="#ref-for-dfn-thing-105" title=
-"§ 7.5 WoT Binding Templates">§ 7.5 WoT Binding Templates</a></li>
-<li><a href="#ref-for-dfn-thing-106" title=
+"§ 7.5 WoT Binding Templates">§ 7.5 WoT Binding Templates</a>
+<a href="#ref-for-dfn-thing-106" title="Reference 2">(2)</a></li>
+<li><a href="#ref-for-dfn-thing-107" title=
 "§ 7.6 WoT Scripting API">§ 7.6 WoT Scripting API</a> <a href=
-"#ref-for-dfn-thing-107" title="Reference 2">(2)</a> <a href=
-"#ref-for-dfn-thing-108" title="Reference 3">(3)</a></li>
-<li><a href="#ref-for-dfn-thing-109" title=
+"#ref-for-dfn-thing-108" title="Reference 2">(2)</a> <a href=
+"#ref-for-dfn-thing-109" title="Reference 3">(3)</a></li>
+<li><a href="#ref-for-dfn-thing-110" title=
 "§ 8. Abstract Servient Architecture">§ 8. Abstract Servient
-Architecture</a> <a href="#ref-for-dfn-thing-110" title=
+Architecture</a> <a href="#ref-for-dfn-thing-111" title=
 "Reference 2">(2)</a></li>
-<li><a href="#ref-for-dfn-thing-111" title=
+<li><a href="#ref-for-dfn-thing-112" title=
 "§ 8.1 Behavior Implementation">§ 8.1 Behavior Implementation</a>
-<a href="#ref-for-dfn-thing-112" title="Reference 2">(2)</a>
-<a href="#ref-for-dfn-thing-113" title="Reference 3">(3)</a>
-<a href="#ref-for-dfn-thing-114" title="Reference 4">(4)</a>
-<a href="#ref-for-dfn-thing-115" title="Reference 5">(5)</a></li>
-<li><a href="#ref-for-dfn-thing-116" title="§ 8.2 WoT Runtime">§
-8.2 WoT Runtime</a> <a href="#ref-for-dfn-thing-117" title=
-"Reference 2">(2)</a> <a href="#ref-for-dfn-thing-118" title=
-"Reference 3">(3)</a> <a href="#ref-for-dfn-thing-119" title=
-"Reference 4">(4)</a> <a href="#ref-for-dfn-thing-120" title=
+<a href="#ref-for-dfn-thing-113" title="Reference 2">(2)</a>
+<a href="#ref-for-dfn-thing-114" title="Reference 3">(3)</a>
+<a href="#ref-for-dfn-thing-115" title="Reference 4">(4)</a>
+<a href="#ref-for-dfn-thing-116" title="Reference 5">(5)</a></li>
+<li><a href="#ref-for-dfn-thing-117" title="§ 8.2 WoT Runtime">§
+8.2 WoT Runtime</a> <a href="#ref-for-dfn-thing-118" title=
+"Reference 2">(2)</a> <a href="#ref-for-dfn-thing-119" title=
+"Reference 3">(3)</a> <a href="#ref-for-dfn-thing-120" title=
+"Reference 4">(4)</a> <a href="#ref-for-dfn-thing-121" title=
 "Reference 5">(5)</a></li>
-<li><a href="#ref-for-dfn-thing-121" title=
+<li><a href="#ref-for-dfn-thing-122" title=
 "§ 8.4 Exposed Thing and Consumed Thing Abstractions">§ 8.4 Exposed
 Thing and Consumed Thing Abstractions</a> <a href=
-"#ref-for-dfn-thing-122" title="Reference 2">(2)</a> <a href=
-"#ref-for-dfn-thing-123" title="Reference 3">(3)</a></li>
-<li><a href="#ref-for-dfn-thing-124" title=
+"#ref-for-dfn-thing-123" title="Reference 2">(2)</a> <a href=
+"#ref-for-dfn-thing-124" title="Reference 3">(3)</a></li>
+<li><a href="#ref-for-dfn-thing-125" title=
 "§ 8.6 Protocol Stack Implementation">§ 8.6 Protocol Stack
 Implementation</a></li>
-<li><a href="#ref-for-dfn-thing-125" title="§ 8.7 System API">§ 8.7
-System API</a> <a href="#ref-for-dfn-thing-126" title=
+<li><a href="#ref-for-dfn-thing-126" title="§ 8.7 System API">§ 8.7
+System API</a> <a href="#ref-for-dfn-thing-127" title=
 "Reference 2">(2)</a></li>
-<li><a href="#ref-for-dfn-thing-127" title=
+<li><a href="#ref-for-dfn-thing-128" title=
 "§ 8.8 Alternative Servient and WoT Implementations">§ 8.8
 Alternative Servient and WoT Implementations</a></li>
-<li><a href="#ref-for-dfn-thing-128" title=
+<li><a href="#ref-for-dfn-thing-129" title=
 "§ 8.8.2 Thing Description for Existing Devices">§ 8.8.2 Thing
 Description for Existing Devices</a> <a href=
-"#ref-for-dfn-thing-129" title="Reference 2">(2)</a></li>
-<li><a href="#ref-for-dfn-thing-130" title=
+"#ref-for-dfn-thing-130" title="Reference 2">(2)</a></li>
+<li><a href="#ref-for-dfn-thing-131" title=
 "§ 9. Example WoT Deployments">§ 9. Example WoT Deployments</a>
-<a href="#ref-for-dfn-thing-131" title="Reference 2">(2)</a>
-<a href="#ref-for-dfn-thing-132" title="Reference 3">(3)</a></li>
-<li><a href="#ref-for-dfn-thing-133" title=
+<a href="#ref-for-dfn-thing-132" title="Reference 2">(2)</a>
+<a href="#ref-for-dfn-thing-133" title="Reference 3">(3)</a></li>
+<li><a href="#ref-for-dfn-thing-134" title=
 "§ 9.1 Thing and Consumer Roles">§ 9.1 Thing and Consumer Roles</a>
-<a href="#ref-for-dfn-thing-134" title="Reference 2">(2)</a>
-<a href="#ref-for-dfn-thing-135" title="Reference 3">(3)</a>
-<a href="#ref-for-dfn-thing-136" title="Reference 4">(4)</a>
-<a href="#ref-for-dfn-thing-137" title="Reference 5">(5)</a>
-<a href="#ref-for-dfn-thing-138" title="Reference 6">(6)</a>
-<a href="#ref-for-dfn-thing-139" title="Reference 7">(7)</a>
-<a href="#ref-for-dfn-thing-140" title="Reference 8">(8)</a></li>
-<li><a href="#ref-for-dfn-thing-141" title=
+<a href="#ref-for-dfn-thing-135" title="Reference 2">(2)</a>
+<a href="#ref-for-dfn-thing-136" title="Reference 3">(3)</a>
+<a href="#ref-for-dfn-thing-137" title="Reference 4">(4)</a>
+<a href="#ref-for-dfn-thing-138" title="Reference 5">(5)</a>
+<a href="#ref-for-dfn-thing-139" title="Reference 6">(6)</a>
+<a href="#ref-for-dfn-thing-140" title="Reference 7">(7)</a>
+<a href="#ref-for-dfn-thing-141" title="Reference 8">(8)</a></li>
+<li><a href="#ref-for-dfn-thing-142" title=
 "§ 9.2.1 Consumer and Thing on the Same Network">§ 9.2.1 Consumer
-and Thing on the Same Network</a> <a href="#ref-for-dfn-thing-142"
-title="Reference 2">(2)</a> <a href="#ref-for-dfn-thing-143" title=
-"Reference 3">(3)</a> <a href="#ref-for-dfn-thing-144" title=
+and Thing on the Same Network</a> <a href="#ref-for-dfn-thing-143"
+title="Reference 2">(2)</a> <a href="#ref-for-dfn-thing-144" title=
+"Reference 3">(3)</a> <a href="#ref-for-dfn-thing-145" title=
 "Reference 4">(4)</a></li>
-<li><a href="#ref-for-dfn-thing-145" title=
+<li><a href="#ref-for-dfn-thing-146" title=
 "§ 9.2.2 Consumer and Thing Connected via Intermediaries">§ 9.2.2
 Consumer and Thing Connected via Intermediaries</a></li>
-<li><a href="#ref-for-dfn-thing-146" title=
+<li><a href="#ref-for-dfn-thing-147" title=
 "§ 9.2.2.1 Intermediary Acting as a Proxy">§ 9.2.2.1 Intermediary
-Acting as a Proxy</a> <a href="#ref-for-dfn-thing-147" title=
-"Reference 2">(2)</a> <a href="#ref-for-dfn-thing-148" title=
+Acting as a Proxy</a> <a href="#ref-for-dfn-thing-148" title=
+"Reference 2">(2)</a> <a href="#ref-for-dfn-thing-149" title=
 "Reference 3">(3)</a></li>
-<li><a href="#ref-for-dfn-thing-149" title=
+<li><a href="#ref-for-dfn-thing-150" title=
 "§ 9.2.2.2 Intermediary Acting as a Digital Twin">§ 9.2.2.2
 Intermediary Acting as a Digital Twin</a> <a href=
-"#ref-for-dfn-thing-150" title="Reference 2">(2)</a></li>
-<li><a href="#ref-for-dfn-thing-151" title=
+"#ref-for-dfn-thing-151" title="Reference 2">(2)</a></li>
+<li><a href="#ref-for-dfn-thing-152" title=
 "§ 9.2.3 Devices in a Local Network Controlled from a Cloud Service">
 § 9.2.3 Devices in a Local Network Controlled from a Cloud
-Service</a> <a href="#ref-for-dfn-thing-152" title=
-"Reference 2">(2)</a> <a href="#ref-for-dfn-thing-153" title=
-"Reference 3">(3)</a> <a href="#ref-for-dfn-thing-154" title=
-"Reference 4">(4)</a> <a href="#ref-for-dfn-thing-155" title=
-"Reference 5">(5)</a> <a href="#ref-for-dfn-thing-156" title=
+Service</a> <a href="#ref-for-dfn-thing-153" title=
+"Reference 2">(2)</a> <a href="#ref-for-dfn-thing-154" title=
+"Reference 3">(3)</a> <a href="#ref-for-dfn-thing-155" title=
+"Reference 4">(4)</a> <a href="#ref-for-dfn-thing-156" title=
+"Reference 5">(5)</a> <a href="#ref-for-dfn-thing-157" title=
 "Reference 6">(6)</a></li>
-<li><a href="#ref-for-dfn-thing-157" title=
+<li><a href="#ref-for-dfn-thing-158" title=
 "§ 9.2.4 Discovery Using a Thing Description Directory">§ 9.2.4
 Discovery Using a Thing Description Directory</a> <a href=
-"#ref-for-dfn-thing-158" title="Reference 2">(2)</a> <a href=
-"#ref-for-dfn-thing-159" title="Reference 3">(3)</a> <a href=
-"#ref-for-dfn-thing-160" title="Reference 4">(4)</a> <a href=
-"#ref-for-dfn-thing-161" title="Reference 5">(5)</a></li>
-<li><a href="#ref-for-dfn-thing-162" title=
+"#ref-for-dfn-thing-159" title="Reference 2">(2)</a> <a href=
+"#ref-for-dfn-thing-160" title="Reference 3">(3)</a> <a href=
+"#ref-for-dfn-thing-161" title="Reference 4">(4)</a> <a href=
+"#ref-for-dfn-thing-162" title="Reference 5">(5)</a></li>
+<li><a href="#ref-for-dfn-thing-163" title=
 "§ 9.2.5 Service-to-Service Connections Across Multiple Domains">§
 9.2.5 Service-to-Service Connections Across Multiple
 Domains</a></li>
-<li><a href="#ref-for-dfn-thing-163" title=
+<li><a href="#ref-for-dfn-thing-164" title=
 "§ 9.2.5.1 Connection Through Thing Description Directory Synchronization">
 § 9.2.5.1 Connection Through Thing Description Directory
-Synchronization</a> <a href="#ref-for-dfn-thing-164" title=
-"Reference 2">(2)</a> <a href="#ref-for-dfn-thing-165" title=
+Synchronization</a> <a href="#ref-for-dfn-thing-165" title=
+"Reference 2">(2)</a> <a href="#ref-for-dfn-thing-166" title=
 "Reference 3">(3)</a></li>
-<li><a href="#ref-for-dfn-thing-166" title=
+<li><a href="#ref-for-dfn-thing-167" title=
 "§ 9.2.5.2 Connection Through Proxy Synchronization">§ 9.2.5.2
 Connection Through Proxy Synchronization</a> <a href=
-"#ref-for-dfn-thing-167" title="Reference 2">(2)</a></li>
+"#ref-for-dfn-thing-168" title="Reference 2">(2)</a></li>
 </ul>
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
@@ -8964,6 +9997,19 @@ Access to Personally Identifiable Information</a></li>
 </ul>
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
+id="dfn-panel-for-dfn-wot-thing-description-server" aria-label=
+"Links in this document to definition: Thing Description Server">
+<div><a class="self-link" href="#dfn-wot-thing-description-server"
+aria-label=
+"Permalink for definition: Thing Description Server. Activate to close this dialog.">
+Permalink</a></div>
+<p><b>Referenced in:</b></p>
+<ul>
+<li><a href="#ref-for-dfn-wot-thing-description-server-1" title=
+"§ 3. Terminology">§ 3. Terminology</a></li>
+</ul>
+</div>
+<div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-wot-thing-model" aria-label=
 "Links in this document to definition: Thing Model">
 <div><a class="self-link" href="#dfn-wot-thing-model" aria-label=
@@ -9030,6 +10076,25 @@ title="Reference 3">(3)</a> <a href=
 "#ref-for-dfn-transport-protocol-5" title="Reference 4">(4)</a>
 <a href="#ref-for-dfn-transport-protocol-6" title=
 "Reference 5">(5)</a></li>
+</ul>
+</div>
+<div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
+id="dfn-panel-for-dfn-trusted-environment" aria-label=
+"Links in this document to definition: Trusted Environment">
+<div><a class="self-link" href="#dfn-trusted-environment"
+aria-label=
+"Permalink for definition: Trusted Environment. Activate to close this dialog.">
+Permalink</a></div>
+<p><b>Referenced in:</b></p>
+<ul>
+<li><a href="#ref-for-dfn-trusted-environment-1" title=
+"§ 5. Common Deployment Patterns">§ 5. Common Deployment
+Patterns</a></li>
+<li><a href="#ref-for-dfn-trusted-environment-2" title=
+"§ 10.4 Trusted Environment Risks">§ 10.4 Trusted Environment
+Risks</a> <a href="#ref-for-dfn-trusted-environment-3" title=
+"Reference 2">(2)</a> <a href="#ref-for-dfn-trusted-environment-4"
+title="Reference 3">(3)</a></li>
 </ul>
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
@@ -9346,63 +10411,67 @@ Permalink</a></div>
 <p><b>Referenced in:</b></p>
 <ul>
 <li><a href="#ref-for-dfn-thing-description-1" title=
+"§ 1. Introduction">§ 1. Introduction</a></li>
+<li><a href="#ref-for-dfn-thing-description-2" title=
 "§ 3. Terminology">§ 3. Terminology</a> <a href=
-"#ref-for-dfn-thing-description-2" title="Reference 2">(2)</a>
-<a href="#ref-for-dfn-thing-description-3" title=
-"Reference 3">(3)</a> <a href="#ref-for-dfn-thing-description-4"
+"#ref-for-dfn-thing-description-3" title="Reference 2">(2)</a>
+<a href="#ref-for-dfn-thing-description-4" title=
+"Reference 3">(3)</a> <a href="#ref-for-dfn-thing-description-5"
 title="Reference 4">(4)</a> <a href=
-"#ref-for-dfn-thing-description-5" title="Reference 5">(5)</a>
-<a href="#ref-for-dfn-thing-description-6" title=
-"Reference 6">(6)</a> <a href="#ref-for-dfn-thing-description-7"
+"#ref-for-dfn-thing-description-6" title="Reference 5">(5)</a>
+<a href="#ref-for-dfn-thing-description-7" title=
+"Reference 6">(6)</a> <a href="#ref-for-dfn-thing-description-8"
 title="Reference 7">(7)</a> <a href=
-"#ref-for-dfn-thing-description-8" title="Reference 8">(8)</a></li>
-<li><a href="#ref-for-dfn-thing-description-9" title=
-"§ 6.1 System Concepts">§ 6.1 System Concepts</a></li>
+"#ref-for-dfn-thing-description-9" title="Reference 8">(8)</a></li>
 <li><a href="#ref-for-dfn-thing-description-10" title=
-"§ 6.1.1 Metadata">§ 6.1.1 Metadata</a></li>
+"§ 6.1 System Concepts">§ 6.1 System Concepts</a></li>
 <li><a href="#ref-for-dfn-thing-description-11" title=
+"§ 6.1.1 Metadata">§ 6.1.1 Metadata</a></li>
+<li><a href="#ref-for-dfn-thing-description-12" title=
 "§ 6.1.1.2 Thing Models">§ 6.1.1.2 Thing Models</a> <a href=
-"#ref-for-dfn-thing-description-12" title="Reference 2">(2)</a>
-<a href="#ref-for-dfn-thing-description-13" title=
+"#ref-for-dfn-thing-description-13" title="Reference 2">(2)</a>
+<a href="#ref-for-dfn-thing-description-14" title=
 "Reference 3">(3)</a></li>
-<li><a href="#ref-for-dfn-thing-description-14" title=
-"§ 6.4.3 Thing Lifecycle">§ 6.4.3 Thing Lifecycle</a></li>
 <li><a href="#ref-for-dfn-thing-description-15" title=
+"§ 6.4.3 Thing Lifecycle">§ 6.4.3 Thing Lifecycle</a></li>
+<li><a href="#ref-for-dfn-thing-description-16" title=
 "§ 6.9 WoT System Components and their Interconnectivity">§ 6.9 WoT
 System Components and their Interconnectivity</a></li>
-<li><a href="#ref-for-dfn-thing-description-16" title=
+<li><a href="#ref-for-dfn-thing-description-17" title=
 "§ 6.9.1 Direct Communication">§ 6.9.1 Direct
 Communication</a></li>
-<li><a href="#ref-for-dfn-thing-description-17" title=
+<li><a href="#ref-for-dfn-thing-description-18" title=
 "§ 6.9.2 Indirect Communication">§ 6.9.2 Indirect Communication</a>
-<a href="#ref-for-dfn-thing-description-18" title=
+<a href="#ref-for-dfn-thing-description-19" title=
 "Reference 2">(2)</a></li>
-<li><a href="#ref-for-dfn-thing-description-19" title=
+<li><a href="#ref-for-dfn-thing-description-20" title=
 "§ 7. WoT Building Blocks">§ 7. WoT Building Blocks</a> <a href=
-"#ref-for-dfn-thing-description-20" title=
+"#ref-for-dfn-thing-description-21" title=
 "Reference 2">(2)</a></li>
-<li><a href="#ref-for-dfn-thing-description-21" title=
-"§ 7.1 WoT Thing Description">§ 7.1 WoT Thing Description</a></li>
 <li><a href="#ref-for-dfn-thing-description-22" title=
+"§ 7.1 WoT Thing Description">§ 7.1 WoT Thing Description</a></li>
+<li><a href="#ref-for-dfn-thing-description-23" title=
 "§ 7.2 Thing Model">§ 7.2 Thing Model</a> <a href=
-"#ref-for-dfn-thing-description-23" title="Reference 2">(2)</a>
-<a href="#ref-for-dfn-thing-description-24" title=
+"#ref-for-dfn-thing-description-24" title="Reference 2">(2)</a>
+<a href="#ref-for-dfn-thing-description-25" title=
 "Reference 3">(3)</a></li>
-<li><a href="#ref-for-dfn-thing-description-25" title=
-"§ 7.5 WoT Binding Templates">§ 7.5 WoT Binding Templates</a></li>
 <li><a href="#ref-for-dfn-thing-description-26" title=
+"§ 7.5 WoT Binding Templates">§ 7.5 WoT Binding Templates</a>
+<a href="#ref-for-dfn-thing-description-27" title=
+"Reference 2">(2)</a></li>
+<li><a href="#ref-for-dfn-thing-description-28" title=
 "§ 7.6 WoT Scripting API">§ 7.6 WoT Scripting API</a></li>
-<li><a href="#ref-for-dfn-thing-description-27" title=
+<li><a href="#ref-for-dfn-thing-description-29" title=
 "§ 8.6 Protocol Stack Implementation">§ 8.6 Protocol Stack
 Implementation</a></li>
-<li><a href="#ref-for-dfn-thing-description-28" title=
+<li><a href="#ref-for-dfn-thing-description-30" title=
 "§ 8.8.2 Thing Description for Existing Devices">§ 8.8.2 Thing
 Description for Existing Devices</a> <a href=
-"#ref-for-dfn-thing-description-29" title="Reference 2">(2)</a>
-<a href="#ref-for-dfn-thing-description-30" title=
-"Reference 3">(3)</a> <a href="#ref-for-dfn-thing-description-31"
+"#ref-for-dfn-thing-description-31" title="Reference 2">(2)</a>
+<a href="#ref-for-dfn-thing-description-32" title=
+"Reference 3">(3)</a> <a href="#ref-for-dfn-thing-description-33"
 title="Reference 4">(4)</a></li>
-<li><a href="#ref-for-dfn-thing-description-32" title=
+<li><a href="#ref-for-dfn-thing-description-34" title=
 "§ 9.1 Thing and Consumer Roles">§ 9.1 Thing and Consumer
 Roles</a></li>
 </ul>
