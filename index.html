@@ -261,20 +261,20 @@
 
 <body>
   <section id="abstract">
-    <p>The W3C Web of Things (WoT) is intended to enable
+    <p>The W3C Web of Things (WoT) enables
       interoperability across IoT platforms and application
       domains.
-      Overall, the goal of the WoT is to preserve and complement existing
-      IoT standards and solutions. In general, the W3C WoT architecture is
+      The goal of the WoT is to preserve and complement existing
+      IoT standards and solutions. The W3C WoT architecture is
       designed to describe what exists, and only prescribes new mechanisms
       when necessary.
     </p>
     <p>This <em>WoT Architecture</em> specification describes the abstract
       architecture for the W3C Web of Things.
-      This abstract architecture is based on a
-      set of requirements that were derived from use cases for
+      This abstract architecture is based on 
+      requirements that were derived from use cases for
       multiple application domains.
-      A set of modular building blocks were identified whose detailed
+      Several modular building blocks were identified whose detailed
       specifications are given in other documents.
       This document describes how these building blocks are related and work together.
       The WoT abstract architecture defines a basic conceptual
@@ -287,7 +287,7 @@
   </section>
   <section id="sotd">
     <p>
-      This document describes an abstract architecture design.
+      This document defines an abstract architecture.
       However, there is an
       <a href="https://w3c.github.io/wot-architecture/testing/report.html">Implementation Report</a>
       that describes a set of concrete implementations 
@@ -322,7 +322,7 @@
       which can be broken down into these building blocks as well as the abstract
       architecture that defines how they are related.
       The building blocks are defined and described in detail in separate specifications.
-      However, in addition to defining the abstract architecture and its terminology and
+      In addition to defining the abstract architecture and its terminology and
       conceptual framework,
       this specification also serves as an introduction to the WoT building blocks,
       and explains their interworking:</p>
@@ -360,7 +360,7 @@
         However, it should be emphasized that
         security and privacy can only be fully evaluated in the context
         of a complete set of concrete mechanisms for a specific implementation,
-        which the WoT abstract architecture does not fully specify.
+        which goes beyond the scope of the WoT abstract architecture.
         This is especially
         true when the WoT architecture is used descriptively for pre-existing systems,
         since the W3C WoT cannot constrain the behavior of such systems, it can only
@@ -373,7 +373,7 @@
     <p>This specification also covers non-normative architectural aspects
       and conditions for the deployment of WoT systems.
       These guidelines are described in the context of example deployment scenarios,
-      although this specification does not normatively define specific concrete
+      although this specification does not require specific concrete
       implementations.
     </p>
     <p>This specification serves as an umbrella for W3C WoT
@@ -395,13 +395,13 @@
         and their interplay in <a href="#sec-building-blocks"></a>,
       </li>
       <li>an informative guideline on how to map the abstract architecture to
-        possible concrete implementations in
+        concrete implementations in
         <a href="#sec-servient-implementation"></a>,
       </li>
-      <li>informative examples of possible deployment scenarios in 
+      <li>informative examples of deployment scenarios in 
         <a href="#sec-deployment-scenario"></a>,
       </li>
-      <li>and a discussion, at a high level, of
+      <li>and a set of high level
         security and privacy considerations to be aware of when
         implementing a system based on the W3C WoT architecture in
         <a href="#sec-security-considerations"></a> and
@@ -626,7 +626,7 @@
       <dd>
         The automation of the behavior of a collection of things. 
         Orchestration is combining individual things with rules or services
-        into a new service or (virtual) thing.
+        into a new service or virtual <a>Thing</a>.
       </dd>
       </dt>
       <dt>
@@ -635,8 +635,9 @@
       <dd>
         A <a>Partial TD</a> is an object that follows the same hierarchical structure of the <a>TD</a> information model, 
         but it is not required to contain all the mandatory elements. 
-        <p class=note>
-          An example usage of a <a>Partial TD</a> is in <a>WoT Scripting API</a> as an input for the creation of <a>Exposed Things</a>. 
+        <p>
+          Note: An example for the usage of a <a>Partial TD</a> is in <a>WoT Scripting API</a>, 
+          where it is used as input for the creation of <a>Exposed Things</a>. 
         </p></dd>
       <dt>
         <dfn class="lint-ignore">Privacy</dfn>
@@ -667,13 +668,13 @@
       </dt>
       <dd>An Interaction Affordance that exposes state of the Thing.
         This state can then be retrieved (read) and optionally updated (write).
-        Things can also choose to make Properties observable by pushing the new
-        state after a change.</dd>
+        Things can also choose to make Properties observable by notifying <a>Consumers</a>
+        about a state change.</dd>
       <dt>
         <dfn data-lt="WoT Protocol Binding">Protocol Binding</dfn>
       </dt>
       <dd>The mapping from an Interaction Affordance to concrete messages of a specific protocol,
-        thereby informing Consumers how to activate the Interaction Affordance.
+        thereby informing <a>Consumers</a> how to activate the <a>Interaction Affordance</a>.
         W3C WoT serializes Protocol Bindings as <a>hypermedia controls</a>.</dd>
       <dt>
         <dfn>Public Security Metadata</dfn>
@@ -729,10 +730,6 @@
       <dd>A Shadow is a <a>Virtual Thing</a> that
       maintains a copy of the state and mediates interactions with another
       <a>Thing</a>.
-      <!--
-      which may not be immediately available due to network
-      connectivity, power savings modes, or other factors.
-      -->
       A Shadow aims to achieve eventual consistency with the state
       of the Thing it represents.
       If a Shadow has more functionality than simply mirroring state
@@ -755,7 +752,7 @@
       <dt>
         <dfn class="lint-ignore">TD Vocabulary</dfn>
       </dt>
-      <dd>A controlled Linked Data vocabulary by W3C WoT to
+      <dd>A Linked Data vocabulary controlled by W3C WoT to
         tag the metadata of Things in the WoT Thing Description
         including communication metadata of WoT Binding
         Templates.</dd>
@@ -787,6 +784,14 @@
         used as an optional part of the <a>WoT Discovery</a> process.
       </dd>
       <dt>
+        <dfn>TD Fragment</dfn>
+      </dt>
+      <dd>
+        A <a>TD Fragment</a> is a substructure of the data model of a TD.
+        It is a valid object structure that can be validated syntactically against a part of the TD information model 
+	      defined in chapter 5 of the <a>Thing Description</a>specification, however the fragment may omit some context that allows full validation.
+      </dd>
+      <dt>
         <dfn data-lt="WoT Thing Description Server">Thing Description Server</dfn> 
       </dt>
       <dd>A Thing Description Server is a web resource, addressed by a URL, that can provide
@@ -801,14 +806,6 @@
         capabilities. It describes the <a>Properties</a>, <a>Actions</a>, and <a>Events</a> and common metadata that are 
         shared for an entire group of <a>Things</a>. Compared to a Thing Description, a Thing Model does not contain enough 
         information to identify or interact with a Thing instance.</dd>
-      <dt>
-        <dfn>TD Fragment</dfn>
-      </dt>
-      <dd>
-        A <a>TD Fragment</a> is a substructure of the data model of a TD.
-        It is a valid object structure that can be validated syntactically against a part of the TD datamodel 
-	defined in chapter 5 of the TD spec, however the fragment may omit some context that allows full validation.
-      </dd>
       <dt>
         <dfn>Transport Protocol</dfn>
       </dt>
