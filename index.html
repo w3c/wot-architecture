@@ -1013,7 +1013,7 @@
         based on weather conditions and presence. Energy and
         other resource consumption can be optimized based on
         usage patterns and predictions.</p>
-      <p>The consumer use cases in this section includes
+      <p>The consumer scenario in this section describes the
         Smart Home use case.</p>
       <p>
         <a href="#smart-home"></a> shows an example of a
@@ -1289,7 +1289,8 @@
         In many cases the sensor data is transmitted at regular intervals, on a state change, 
         or as a response to a request by the <a>Consumer</a>.
       </p><p>
-        Remote metering devices are frequently small embedded systems with very limited resources. 
+        Remote metering devices are frequently small embedded systems with very limited resources,
+        i.e. Class-2 or below. 
         They may be battery powered and have to minimize power consumption through various measures,
         e.g. sleep modes.
         These devices will sleep most of the time and won't transmit any data to conserve energy.
@@ -1302,7 +1303,7 @@
         factories, fleets, environmental monitoring and health monitoring. 
         Some deployments may require monitoring of a high number of geographically distributed assets,
         others only include a few devices, as in a smart home.
-        A common pattern is the one-to-many relationship between a single <a>Consumer</a> and multiple devices.
+        A common pattern is the one-to-many relationship between a single <a>Consumer</a> and multiple devices (<a>Things</a>).
       </p>
     </section>
 
@@ -1353,14 +1354,14 @@
         other to actuate or notify.</p>
       <figure id="smart-home-t2t">
         <img src="images/wot-use-cases/smart-home-t2t.png" srcset="images/wot-use-cases/smart-home-t2t.svg"
-          class="wot-arch-diagram" alt="smart home t2t use case" />
+          class="wot-arch-diagram" alt="smart home t2t deployment scenario" />
         <figcaption>Control Agent</figcaption>
       </figure>
     </section>
     <section>
       <h3>Remote Access</h3>
       <p>
-        This use case contains a mobile remote controller
+        This deployment scenario contains a mobile remote controller
         (e.g., on a smartphone) as shown in <a href="#smart-home-multi"></a>. The remote
         controller can switch between different network
         connections and protocols, e.g., between a cellular
@@ -1382,20 +1383,20 @@
       </p>
       <figure id="smart-home-multi">
         <img src="images/wot-use-cases/smart-home-multi.png" srcset="images/wot-use-cases/smart-home-multi.svg"
-          class="wot-arch-diagram" alt="smart home multi use case" />
+          class="wot-arch-diagram" alt="smart home with multiple network interfaces" />
         <figcaption>Multiple Network Interfaces</figcaption>
       </figure>
     </section>
     <section>
       <h3>Smart Home Gateways</h3>
       <p>
-        <a href="#smart-home-gateway"></a> shows a use case
-        using a Smart Home Gateway. The gateway
+        <a href="#smart-home-gateway"></a> shows a deployment scenario
+        of a <em>Smart Home Gateway</em>. The gateway
         is placed between a home network and the Internet.
         It manages electronic appliances inside the
         house and can receive commands from a remote
         controller over the Internet, e.g., from a
-        smartphone as in the previous use case. It is also
+        smartphone as in the previous scenario. It is also
         is a virtual representation of a device. The Smart
         Home Gateway typically offers proxy and firewall
         functionality.
@@ -1419,7 +1420,7 @@
     <section>
       <h3>Edge Devices</h3>
       <p>
-        An Edge Device or Edge Gateway is similar to a Smart
+        An <em>Edge Device</em> or <em>Edge Gateway</em> is similar to a Smart
         Home Gateway. We use the term to indicate additional
         tasks that are carried out by the edge gateway.
         Whereas the home gateway in <a href="#edge-device"></a> primarily just
@@ -1439,7 +1440,7 @@
     </section>
     <section>
       <h3>Digital Twins</h3>
-      <p>A digital twin is a virtual representation, i.e.
+      <p>A <em>Digital Twin</em> is a virtual representation, i.e.
         a model of a device or a group of devices that
         resides on a cloud server or edge device. It can be
         used to represent real-world devices which may not
@@ -1467,7 +1468,7 @@
         to the cloud, or whether it is connected to a
         gateway, which itself is connected to the cloud.</p>
       <section>
-        <h4>Cloud-ready Devices</h4>
+        <h4>Cloud Connected Devices</h4>
         <p>
           <a href="#smart-home-cloud1"></a> shows an
           example where electronic appliances are
@@ -1482,8 +1483,8 @@
         <figure id="smart-home-cloud1">
           <img src="images/wot-use-cases/smart-home-cloud1a.png" srcset="images/wot-use-cases/smart-home-cloud1a.svg"
             class="wot-arch-diagram" alt="smart home cloud use case 1" />
-          <figcaption>Appliance twin for a
-            Cloud-ready Devices</figcaption>
+          <figcaption>Appliance Twin for a
+            Cloud Connected Devices</figcaption>
         </figure>
       </section>
 
@@ -1515,7 +1516,7 @@
         <p>
           <a href="#smart-home-cloud2"></a> shows an
           example where legacy electronic appliances
-          cannot directly connect to the cloud. Here, a
+          are not directly connected to the cloud. Here, a
           gateway is needed to relay the connection. The
           gateway works as:
         </p>
@@ -1569,7 +1570,7 @@
 
     <section id="virtual-thing">
       <h3>Virtual Things</h3>   
-      <p>A <a>virtual thing</a> is a <a>service</a> that acts as a placeholder 
+      <p>A <a>Virtual Thing</a> is a <a>Service</a> that acts as a placeholder 
         for one or more other <a>Things</a>
         which provides an interface to its <a>consumers</a>.
       </p>
@@ -1578,8 +1579,8 @@
         to devices, where it is possible to replace a device model with another one without changing the consumer.
       </p>
       <p>
-        In a more complex scenario, a <a>virtual thing</a> provides a single interface for 
-        multiple devices, and provides a higher level of operations to its <a>consumers</a>.
+        In a more complex scenario, a <a>Virtual Thing</a> provides a single interface for 
+        multiple devices, and provides a higher level of operations to its <a>Consumers</a>.
         Individual devices can be replaced, new operations can be provided via software upgrades.
       </p>
       <p>
