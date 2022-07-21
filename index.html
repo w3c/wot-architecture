@@ -3011,12 +3011,13 @@
         but only after suitable authentication and authorization.
         </p>
         <p>
-          Two exploration mechanisms are provided, supporting both peer-to-peer 
-          discovery and directory services:
+          Two exploration mechanisms are provided, supporting both distribution of single TDs
+          and directory services for multiple TDs:
           <ul>
-            <li>Peer-to-peer discovery allows a Thing 
-                to provide its own WoT Thing Description directly.</li>
-            <li>Directory services scalably maintain searchable databases of WoT Thing Descriptions. 
+            <li>An ordinary web resource provided by an HTTP server can be used to distribute a single TD.
+                  This can also be used for self-description, to allow a Thing 
+                  to provide its own WoT Thing Description directly.</li>
+            <li>Directory services provide searchable databases of WoT Thing Descriptions. 
                 Both lightweight syntactic query mechanisms and more powerful semantic query mechanisms 
                 are supported by directory services.</li>
           </ul>
