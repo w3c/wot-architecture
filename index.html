@@ -291,11 +291,31 @@
       However, the abstract architecture described in this specification does not
       itself define concrete mechanisms or prescribe any concrete implementation.
     </p>
+    <ul>
+      <li>Sections 4 and 5 (<a href="#sec-application-domains">Application Domains</a> and 
+        <a href="#sec-common-deployment-patterns">Common Deployment Patterns</a>) explain ways to use WoT. 
+      These sections are self contained, do not contain any assertion and other 
+      specifications do not depend on these sections.</li>
+      <li>Section 6 <a href="#sec-wot-architecture">Abstract WoT System Architecture</a>, 
+        section 7 <a href="#sec-building-blocks">WoT Building Blocks</a>,
+        explain building blocks and architectural elements of the W3C WoT. 
+        These sections are normative and contain many assertions that are relevant for WoT implementations. </li>
+      <li>Section 8 <a href="#sec-servient-implementation">Abstract Servient Architecture</a> describes
+        the architecture of a <a>Servient</a>. It informatively describes how to implement a <a>WoT Runtime</a> on a device.</li>
+      <li>Section 9 <a href="#sec-deployment-scenario">Example WoT Deployments</a> 
+        provides various examples of how the Web of Things (WoT) abstract architecture 
+        may be instantiated when devices and services that implement the Thing and Consumer 
+        roles interact in different network topologies.</li>
+      <li>Section 10 <a href="#sec-security-considerations">Security Considerations</a> and 
+      <li>Section 11 <a href="#sec-privacy-considerations">Privacy Considerations</a> 
+        are normative; they summarize some general issues and provide guidelines to help preserve 
+        the security and privacy of concrete WoT implementations.</li>
+    </ul>
 
   </section>
   <section id="sotd">
     <p>
-      This document defines an abstract architecture.
+      This document describes an abstract architecture.
       However, there is an
       <a href="https://w3c.github.io/wot-architecture/testing/report.html">Implementation Report</a>
       that describes a set of concrete implementations 
@@ -303,6 +323,7 @@
       It also references the other implementation
       reports for the various WoT building blocks.
     </p>
+
   </section>
   <section id="introduction" class="informative">
     <h1>Introduction</h1>
@@ -326,9 +347,13 @@
     <p>These use cases and requirements drive the creation and further evolution
       of the W3C WoT specification family.</p>
 
-    <p>The WoT architecture specification is focused on the scope of W3C WoT standardization,
+      <p>The WoT architecture specification is focused on the scope of W3C WoT standardization,
       which can be broken down into these building blocks as well as the abstract
       architecture that defines how they are related.
+      <p>
+        The architecture document serves multiple purposes:
+      </p>
+      <p>
       The building blocks are defined and described in detail in separate specifications.
       In addition to defining the abstract architecture and its terminology and
       conceptual framework,
@@ -350,7 +375,7 @@
       <li>The <em>Web of Things (WoT) Discovery</em> [[?WOT-DISCOVERY]]
         specification defines a distribution mechanism for WoT metadata 
         (<a>Thing Descriptions</a>).
-	The WoT Discovery process uses existing mechanisms for first
+	      The WoT Discovery process uses existing mechanisms for first
         contact, but provides for access control before serving detailed metadata.
         It includes support for directories and self-description.
       </li>
