@@ -3292,7 +3292,7 @@
       Here, the <a>WoT Runtime</a> is also a Scripting Runtime system that,
       in addition to managing the WoT-specific aspects, also interprets and executes the application scripts.
       <a>Servients</a> that support the <a>WoT Scripting API</a> usually run on powerful devices, edge nodes, or in the
-      cloud.
+      cloud (c.f. <a href="#device-categories">Device Categories</a>).
       The WoT Architecture does not limit the application-facing API of the <a>WoT Runtime</a> to JavaScript/ECMAScript.
       Also other runtime systems can be used to implement a <a>Servient</a>.
     </p>
@@ -3315,7 +3315,7 @@
       in <a href="#architecture-implementation"></a> is explained in
       the following sections.
     </p>
-    <section>
+    <section id="behavior-implementation">
       <h2>Behavior Implementation</h2>
       <p>
         The <em>behavior</em> defines the overall application logic of a <a>Thing</a>,
@@ -3351,7 +3351,7 @@
         See <a href="#native-impl"></a> for behavior implementation without the <a>WoT Scripting API</a> building block.
       </p>
     </section>
-    <section>
+    <section id="wot-runtime">
       <h2>WoT Runtime</h2>
       <p>
         Technically, the <a>Thing</a> abstraction and its <a>Interaction Model</a> is implemented in a runtime system.
@@ -3387,10 +3387,10 @@
         for instance, to access local hardware such as attached sensors and actuators or to access system services such
         as storage.
         Both interfaces are implementation-specific,
-        yet the <a>WoT Runtime</a> must provide the necessary adaption to the implemented <a>Thing</a> abstraction.
+        yet the <a>WoT Runtime</a> must provide the necessary adaption to the  <a>Thing</a> abstraction it implements.
       </p>
     </section>
-    <section>
+    <section id="wot-scripting-api">
       <h3>WoT Scripting API</h3>
       <p>
         The <a>WoT Scripting API</a> building block defines an ECMAScript API that closely follows the <a>WoT Thing
@@ -3403,7 +3403,7 @@
         See [[?WOT-SCRIPTING-API]] for more details.
       </p>
     </section>
-    <section>
+    <section id="expose-consumed-thing">
       <h2>Exposed Thing and Consumed Thing Abstractions</h2>
       <p>
         The <a>WoT Runtime</a> instantiates software representations of <a>Things</a> based on their <a>TDs</a>.
