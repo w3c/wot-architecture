@@ -15,11 +15,11 @@
       },
       doJsonLd: true,
       group: "wg/wot",
-      specStatus: "ED",
+      specStatus: "WD",
       shortName: "wot-architecture11",
       copyrightStart: 2017,
       wgPublicList: "public-wot-wg",
-      implementationReportURI: "https://w3c.github.io/wot-architecture/testing/report.html",
+      implementationReportURI: "https://w3c.github.io/wot-architecture/testing/report11.html",
       github: {
         repoURL: "https://github.com/w3c/wot-architecture",
         branch: "master"
@@ -38,11 +38,6 @@
           company: "Fujitsu Ltd.",
           companyURL: "https://www.fujitsu.com/"
         }, {
-            name : "Michael McCool",
-            w3cid : "93137",
-            company : "Intel Corp.",
-            companyURL : "https://www.intel.com/"
-        }, {
           name: "Kunihiko Toumura",
           w3cid: "83488",
           company: "Hitachi, Ltd.",
@@ -57,9 +52,6 @@
           w3cid: "79307",
           company: "Panasonic Corp.",
           companyURL: "https://www.panasonic.com/"
-        }, {
-          name: "Matthias Kovatsch",
-          note: "when at Siemens"
         }],
       otherLinks: [
         {
@@ -269,20 +261,20 @@
 
 <body>
   <section id="abstract">
-    <p>The W3C Web of Things (WoT) enables
+    <p>The W3C Web of Things (WoT) is intended to enable
       interoperability across IoT platforms and application
       domains.
-      The goal of the WoT is to preserve and complement existing
-      IoT standards and solutions. The W3C WoT architecture is
+      Overall, the goal of the WoT is to preserve and complement existing
+      IoT standards and solutions. In general, the W3C WoT architecture is
       designed to describe what exists, and only prescribes new mechanisms
       when necessary.
     </p>
     <p>This <em>WoT Architecture</em> specification describes the abstract
       architecture for the W3C Web of Things.
-      This abstract architecture is based on 
-      requirements that were derived from use cases for
+      This abstract architecture is based on a
+      set of requirements that were derived from use cases for
       multiple application domains.
-      Several modular building blocks were identified whose detailed
+      A set of modular building blocks were identified whose detailed
       specifications are given in other documents.
       This document describes how these building blocks are related and work together.
       The WoT abstract architecture defines a basic conceptual
@@ -291,31 +283,11 @@
       However, the abstract architecture described in this specification does not
       itself define concrete mechanisms or prescribe any concrete implementation.
     </p>
-    <ul>
-      <li>Sections 4 and 5 (<a href="#sec-application-domains">Application Domains</a> and 
-        <a href="#sec-common-deployment-patterns">Common Deployment Patterns</a>) explain ways to use WoT. 
-      These sections are self contained, do not contain any assertion and other 
-      specifications do not depend on these sections.</li>
-      <li>Section 6 <a href="#sec-wot-architecture">Abstract WoT System Architecture</a>, 
-        section 7 <a href="#sec-building-blocks">WoT Building Blocks</a>,
-        explain building blocks and architectural elements of the W3C WoT. 
-        These sections are normative and contain many assertions that are relevant for WoT implementations. </li>
-      <li>Section 8 <a href="#sec-servient-implementation">Abstract Servient Architecture</a> describes
-        the architecture of a <a>Servient</a>. It informatively describes how to implement a <a>WoT Runtime</a> on a device.</li>
-      <li>Section 9 <a href="#sec-deployment-scenario">Example WoT Deployments</a> 
-        provides various examples of how the Web of Things (WoT) abstract architecture 
-        may be instantiated when devices and services that implement the Thing and Consumer 
-        roles interact in different network topologies.</li>
-      <li>Section 10 <a href="#sec-security-considerations">Security Considerations</a> and 
-      <li>Section 11 <a href="#sec-privacy-considerations">Privacy Considerations</a> 
-        are normative; they summarize some general issues and provide guidelines to help preserve 
-        the security and privacy of concrete WoT implementations.</li>
-    </ul>
 
   </section>
   <section id="sotd">
     <p>
-      This document describes an abstract architecture.
+      This document describes an abstract architecture design.
       However, there is an
       <a href="https://w3c.github.io/wot-architecture/testing/report.html">Implementation Report</a>
       that describes a set of concrete implementations 
@@ -323,7 +295,6 @@
       It also references the other implementation
       reports for the various WoT building blocks.
     </p>
-
   </section>
   <section id="introduction" class="informative">
     <h1>Introduction</h1>
@@ -347,15 +318,11 @@
     <p>These use cases and requirements drive the creation and further evolution
       of the W3C WoT specification family.</p>
 
-      <p>The WoT architecture specification is focused on the scope of W3C WoT standardization,
+    <p>The WoT architecture specification is focused on the scope of W3C WoT standardization,
       which can be broken down into these building blocks as well as the abstract
       architecture that defines how they are related.
-      <p>
-        The architecture document serves multiple purposes:
-      </p>
-      <p>
       The building blocks are defined and described in detail in separate specifications.
-      In addition to defining the abstract architecture and its terminology and
+      However, in addition to defining the abstract architecture and its terminology and
       conceptual framework,
       this specification also serves as an introduction to the WoT building blocks,
       and explains their interworking:</p>
@@ -375,7 +342,7 @@
       <li>The <em>Web of Things (WoT) Discovery</em> [[?WOT-DISCOVERY]]
         specification defines a distribution mechanism for WoT metadata 
         (<a>Thing Descriptions</a>).
-	      The WoT Discovery process uses existing mechanisms for first
+	The WoT Discovery process uses existing mechanisms for first
         contact, but provides for access control before serving detailed metadata.
         It includes support for directories and self-description.
       </li>
@@ -393,7 +360,7 @@
         However, it should be emphasized that
         security and privacy can only be fully evaluated in the context
         of a complete set of concrete mechanisms for a specific implementation,
-        which goes beyond the scope of the WoT abstract architecture.
+        which the WoT abstract architecture does not fully specify.
         This is especially
         true when the WoT architecture is used descriptively for pre-existing systems,
         since the W3C WoT cannot constrain the behavior of such systems, it can only
@@ -406,7 +373,7 @@
     <p>This specification also covers non-normative architectural aspects
       and conditions for the deployment of WoT systems.
       These guidelines are described in the context of example deployment scenarios,
-      although this specification does not require specific concrete
+      although this specification does not normatively define specific concrete
       implementations.
     </p>
     <p>This specification serves as an umbrella for W3C WoT
@@ -428,13 +395,13 @@
         and their interplay in <a href="#sec-building-blocks"></a>,
       </li>
       <li>an informative guideline on how to map the abstract architecture to
-        concrete implementations in
+        possible concrete implementations in
         <a href="#sec-servient-implementation"></a>,
       </li>
-      <li>informative examples of deployment scenarios in 
+      <li>informative examples of possible deployment scenarios in 
         <a href="#sec-deployment-scenario"></a>,
       </li>
-      <li>and a set of high level
+      <li>and a discussion, at a high level, of
         security and privacy considerations to be aware of when
         implementing a system based on the W3C WoT architecture in
         <a href="#sec-security-considerations"></a> and
@@ -659,7 +626,7 @@
       <dd>
         The automation of the behavior of a collection of things. 
         Orchestration is combining individual things with rules or services
-        into a new service or virtual <a>Thing</a>.
+        into a new service or (virtual) thing.
       </dd>
       </dt>
       <dt>
@@ -668,9 +635,8 @@
       <dd>
         A <a>Partial TD</a> is an object that follows the same hierarchical structure of the <a>TD</a> information model, 
         but it is not required to contain all the mandatory elements. 
-        <p>
-          Note: An example for the usage of a <a>Partial TD</a> is in <a>WoT Scripting API</a>, 
-          where it is used as input for the creation of <a>Exposed Things</a>. 
+        <p class=note>
+          An example usage of a <a>Partial TD</a> is in <a>WoT Scripting API</a> as an input for the creation of <a>Exposed Things</a>. 
         </p></dd>
       <dt>
         <dfn class="lint-ignore">Privacy</dfn>
@@ -701,13 +667,13 @@
       </dt>
       <dd>An Interaction Affordance that exposes state of the Thing.
         This state can then be retrieved (read) and optionally updated (write).
-        Things can also choose to make Properties observable by notifying <a>Consumers</a>
-        about a state change.</dd>
+        Things can also choose to make Properties observable by pushing the new
+        state after a change.</dd>
       <dt>
         <dfn data-lt="WoT Protocol Binding">Protocol Binding</dfn>
       </dt>
       <dd>The mapping from an Interaction Affordance to concrete messages of a specific protocol,
-        thereby informing <a>Consumers</a> how to activate the <a>Interaction Affordance</a>.
+        thereby informing Consumers how to activate the Interaction Affordance.
         W3C WoT serializes Protocol Bindings as <a>hypermedia controls</a>.</dd>
       <dt>
         <dfn>Public Security Metadata</dfn>
@@ -763,6 +729,10 @@
       <dd>A Shadow is a <a>Virtual Thing</a> that
       maintains a copy of the state and mediates interactions with another
       <a>Thing</a>.
+      <!--
+      which may not be immediately available due to network
+      connectivity, power savings modes, or other factors.
+      -->
       A Shadow aims to achieve eventual consistency with the state
       of the Thing it represents.
       If a Shadow has more functionality than simply mirroring state
@@ -785,7 +755,7 @@
       <dt>
         <dfn class="lint-ignore">TD Vocabulary</dfn>
       </dt>
-      <dd>A Linked Data vocabulary controlled by W3C WoT to
+      <dd>A controlled Linked Data vocabulary by W3C WoT to
         tag the metadata of Things in the WoT Thing Description
         including communication metadata of WoT Binding
         Templates.</dd>
@@ -817,14 +787,6 @@
         used as an optional part of the <a>WoT Discovery</a> process.
       </dd>
       <dt>
-        <dfn>TD Fragment</dfn>
-      </dt>
-      <dd>
-        A <a>TD Fragment</a> is a substructure of the data model of a TD.
-        It is a valid object structure that can be validated syntactically against a part of the TD information model 
-	      defined in chapter 5 of the <a>Thing Description</a>specification, however the fragment may omit some context that allows full validation.
-      </dd>
-      <dt>
         <dfn data-lt="WoT Thing Description Server">Thing Description Server</dfn> 
       </dt>
       <dd>A Thing Description Server is a web resource, addressed by a URL, that can provide
@@ -839,6 +801,14 @@
         capabilities. It describes the <a>Properties</a>, <a>Actions</a>, and <a>Events</a> and common metadata that are 
         shared for an entire group of <a>Things</a>. Compared to a Thing Description, a Thing Model does not contain enough 
         information to identify or interact with a Thing instance.</dd>
+      <dt>
+        <dfn>TD Fragment</dfn>
+      </dt>
+      <dd>
+        A <a>TD Fragment</a> is a substructure of the data model of a TD.
+        It is a valid object structure that can be validated syntactically against a part of the TD datamodel 
+	defined in chapter 5 of the TD spec, however the fragment may omit some context that allows full validation.
+      </dd>
       <dt>
         <dfn>Transport Protocol</dfn>
       </dt>
@@ -919,7 +889,7 @@
     </dl>
 
     <!-- Device categories -->
-    <section id="device-categories">
+    <section id="device-categoriesdevices">
       <h2>Device Categories</h2>	  
       <p>
         In a deployment of WoT conforming to the <a href="https://www.w3.org/TR/wot-architecture/#architecture-abstract">WoT Abstract Architecture</a>
@@ -989,25 +959,25 @@
         <td>~  256 KiB -  several MB</td>
         <td>~  1 MB - several MB</td>
         <td>gateway/hub</td>
-        <td>Large home and industrial gateways</td>
+        <td></td>
       </tr>
       </tr><tr>
         <td>Class-5, C5</td>
         <td>~ 1 GB</td>
         <td>~ 1 GB</td>
         <td>edge</td>
-        <td>Powerful edge servers</td>
+        <td></td>
       </tr>
       </tr><tr>
         <td>Class-6, C6</td>
         <td>~ several GB</td>
         <td>~ several GB</td>
         <td>cloud</td>
-        <td>Cloud systems with multiple compute nodes</td>
+        <td></td>
       </tr>
       </table>
 
-      <p class="note" title="Category Borders">
+      <p class="note" title="Category Names">
       Category borders are soft borders and categories are not exclusive, 
       i.e. there are application scenarios that 
       can be implemented by devices from several categories.
@@ -1043,7 +1013,7 @@
         based on weather conditions and presence. Energy and
         other resource consumption can be optimized based on
         usage patterns and predictions.</p>
-      <p>The consumer scenario in this section describes the
+      <p>The consumer use cases in this section includes
         Smart Home use case.</p>
       <p>
         <a href="#smart-home"></a> shows an example of a
@@ -1319,8 +1289,7 @@
         In many cases the sensor data is transmitted at regular intervals, on a state change, 
         or as a response to a request by the <a>Consumer</a>.
       </p><p>
-        Remote metering devices are frequently small embedded systems with very limited resources,
-        i.e. Class-2 or below. 
+        Remote metering devices are frequently small embedded systems with very limited resources. 
         They may be battery powered and have to minimize power consumption through various measures,
         e.g. sleep modes.
         These devices will sleep most of the time and won't transmit any data to conserve energy.
@@ -1333,7 +1302,7 @@
         factories, fleets, environmental monitoring and health monitoring. 
         Some deployments may require monitoring of a high number of geographically distributed assets,
         others only include a few devices, as in a smart home.
-        A common pattern is the one-to-many relationship between a single <a>Consumer</a> and multiple devices (<a>Things</a>).
+        A common pattern is the one-to-many relationship between a single <a>Consumer</a> and multiple devices.
       </p>
     </section>
 
@@ -1384,14 +1353,14 @@
         other to actuate or notify.</p>
       <figure id="smart-home-t2t">
         <img src="images/wot-use-cases/smart-home-t2t.png" srcset="images/wot-use-cases/smart-home-t2t.svg"
-          class="wot-arch-diagram" alt="smart home t2t deployment scenario" />
+          class="wot-arch-diagram" alt="smart home t2t use case" />
         <figcaption>Control Agent</figcaption>
       </figure>
     </section>
     <section>
       <h3>Remote Access</h3>
       <p>
-        This deployment scenario contains a mobile remote controller
+        This use case contains a mobile remote controller
         (e.g., on a smartphone) as shown in <a href="#smart-home-multi"></a>. The remote
         controller can switch between different network
         connections and protocols, e.g., between a cellular
@@ -1413,20 +1382,20 @@
       </p>
       <figure id="smart-home-multi">
         <img src="images/wot-use-cases/smart-home-multi.png" srcset="images/wot-use-cases/smart-home-multi.svg"
-          class="wot-arch-diagram" alt="smart home with multiple network interfaces" />
+          class="wot-arch-diagram" alt="smart home multi use case" />
         <figcaption>Multiple Network Interfaces</figcaption>
       </figure>
     </section>
     <section>
       <h3>Smart Home Gateways</h3>
       <p>
-        <a href="#smart-home-gateway"></a> shows a deployment scenario
-        of a <em>Smart Home Gateway</em>. The gateway
+        <a href="#smart-home-gateway"></a> shows a use case
+        using a Smart Home Gateway. The gateway
         is placed between a home network and the Internet.
         It manages electronic appliances inside the
         house and can receive commands from a remote
         controller over the Internet, e.g., from a
-        smartphone as in the previous scenario. It is also
+        smartphone as in the previous use case. It is also
         is a virtual representation of a device. The Smart
         Home Gateway typically offers proxy and firewall
         functionality.
@@ -1450,7 +1419,7 @@
     <section>
       <h3>Edge Devices</h3>
       <p>
-        An <em>Edge Device</em> or <em>Edge Gateway</em> is similar to a Smart
+        An Edge Device or Edge Gateway is similar to a Smart
         Home Gateway. We use the term to indicate additional
         tasks that are carried out by the edge gateway.
         Whereas the home gateway in <a href="#edge-device"></a> primarily just
@@ -1470,7 +1439,7 @@
     </section>
     <section>
       <h3>Digital Twins</h3>
-      <p>A <em>Digital Twin</em> is a virtual representation, i.e.
+      <p>A digital twin is a virtual representation, i.e.
         a model of a device or a group of devices that
         resides on a cloud server or edge device. It can be
         used to represent real-world devices which may not
@@ -1498,7 +1467,7 @@
         to the cloud, or whether it is connected to a
         gateway, which itself is connected to the cloud.</p>
       <section>
-        <h4>Cloud Connected Devices</h4>
+        <h4>Cloud-ready Devices</h4>
         <p>
           <a href="#smart-home-cloud1"></a> shows an
           example where electronic appliances are
@@ -1513,8 +1482,8 @@
         <figure id="smart-home-cloud1">
           <img src="images/wot-use-cases/smart-home-cloud1a.png" srcset="images/wot-use-cases/smart-home-cloud1a.svg"
             class="wot-arch-diagram" alt="smart home cloud use case 1" />
-          <figcaption>Appliance Twin for a
-            Cloud Connected Devices</figcaption>
+          <figcaption>Appliance twin for a
+            Cloud-ready Devices</figcaption>
         </figure>
       </section>
 
@@ -1546,7 +1515,7 @@
         <p>
           <a href="#smart-home-cloud2"></a> shows an
           example where legacy electronic appliances
-          are not directly connected to the cloud. Here, a
+          cannot directly connect to the cloud. Here, a
           gateway is needed to relay the connection. The
           gateway works as:
         </p>
@@ -1600,7 +1569,7 @@
 
     <section id="virtual-thing">
       <h3>Virtual Things</h3>   
-      <p>A <a>Virtual Thing</a> is a <a>Service</a> that acts as a placeholder 
+      <p>A <a>virtual thing</a> is a <a>service</a> that acts as a placeholder 
         for one or more other <a>Things</a>
         which provides an interface to its <a>consumers</a>.
       </p>
@@ -1609,8 +1578,8 @@
         to devices, where it is possible to replace a device model with another one without changing the consumer.
       </p>
       <p>
-        In a more complex scenario, a <a>Virtual Thing</a> provides a single interface for 
-        multiple devices, and provides a higher level of operations to its <a>Consumers</a>.
+        In a more complex scenario, a <a>virtual thing</a> provides a single interface for 
+        multiple devices, and provides a higher level of operations to its <a>consumers</a>.
         Individual devices can be replaced, new operations can be provided via software upgrades.
       </p>
       <p>
@@ -1701,9 +1670,9 @@
       explained in more detail, in particular the concept of hypermedia.
     </p>
     <section id="sec-architecture-overview">
-      <h2>Fundamental Concepts</h2>
+      <h2>System Concepts</h2>
       <p>This section introduces the fundamental concepts of the Web of Things. 
-        It introduces the <a>Thing</a> abstraction that is described with <a>Thing Descriptions</a> and <a>Thing Models</a>, 
+        It introduces the Thing abstraction that is described with <a>Thing Descriptions</a> and <a>Thing Models</a>, 
         which then can be used by <a>Consumers</a>.</p>
       <p>
         A <a>Thing</a> is an abstraction of a physical or virtual entity (e.g., a device or a room)
@@ -1718,7 +1687,7 @@
         thereby enabling interoperability across different <a>IoT platforms</a>, i.e., different ecosystems and
         standards.
 	The WoT <a>Thing Model</a> (TM) is likewise a standardized, machine-readable metadata representation
-	format for describing <em>classes</em> of <a>Things</a>, such as devices of a product line with common capabilities.
+	format for describing classes of <a>Things</a>, such as a product line with common capabilities.
       </p>
       <figure id="consumer-thing">
         <img src="images/architecture/consumer-thing.png" srcset="images/architecture/consumer-thing.svg"
@@ -1726,24 +1695,24 @@
         <figcaption>Consumer-Thing interaction</figcaption>
       </figure>
       <p>
-        A <a>Thing</a> can also be the abstraction of a <em>virtual entity</em>.
-        A virtual entity is the composition of one or more <a>Things</a> (e.g., a room consisting of several sensors and
+        A <a>Thing</a> can also be the abstraction of a virtual entity.
+        A virtual entity is the composition of one or more Things (e.g., a room consisting of several sensors and
         actuators).
         One option for the composition is to provide a single, consolidated <a>WoT Thing Description</a> that contains
-        the combination of capabilities for the virtual entity.
+        the superset of capabilities for the virtual entity.
         In cases where the composition is rather complex, its <a>TD</a> may <em>link</em> to hierarchical sub-Things
         within the composition.
         The main <a>TD</a> acts as entry point and only contain general metadata and potentially overarching
         capabilities.
-        This allows grouping of certain aspects of more complex <a>Things</a>.
+        This allows grouping of certain aspects of more complex Things.
       </p>
 
       <section id="metadata">
         <h3>Metadata</h3>
 	<p>
-	  The WoT architecture provides metadata formats to describe both specific <em>instances</em> 
-	  of </a>Things</a> and <em>classes</em> of <a>Things</a>.  The metadata format for <em>instances</em> is called
-	  <a>Thing Description</a> while that for <em>classes</em> is called <a>Thing Model</a>.
+	  The WoT architecture provides metadata formats to describe both specific instances 
+	  of </a>Things</a> and classes of <a>Things</a>.  The metadata format for instances are called
+	  <a>Thing Descriptions</a> while those for classes are called <a>Thing Models</a>.
 	</p>
         <section id="metadata-thing-descriptions">
         <h3>Thing Descriptions</h3>
@@ -1769,81 +1738,79 @@
       </p>
         </section>
         <section id="metadata-thing-models">
-          <h3>Thing Models</h3>
-          <p>
-            A <a>Thing Model</a> can be used to describe common capabilities that are
-            available for a set of <a>Things</a>, for example, for a large number of devices
-            in a product line. In this case the <a>Thing Model</a> defines the common capabilities of
-            all devices in the product line, but omits information specific to a particular device.
+        <h3>Thing Models</h3>
+	<p>
+	  A <a>Thing Model</a> class definition can be used to define capabilities that should be 
+	  available for all of a set of <a>Things</a>, for example, for large-scale production of devices
+	  in a product line.  In this case the <a>Thing Model</a> defines the common capabilities of
+	  all devices in the product line, but omits information specific to a particular device.
+	</p>
+        <p>
+	  A <a>Thing Model</a> may also be used when complete information for an instance
+	  is not available or is not necessary.
+          For example, some IoT ecosystems implicitly handle communication separately.
+	  In such a case, a fully detailed <a>Thing Description</a>, e.g. with 
+          communication metadata, is not necessary. 
+	  Communication metadata may also not available
+          at the beginning of a Thing lifecycle phase since a new entity has not yet been deployed 
+	  (e.g. the IP address is not yet known). 
+        </p>
+
+        <p>
+          A <em>Thing Model</em>  enables the opportunity to define the basic information model 
+	  of a <a>Thing</a> to address such kind of scenarios.
+          <em>Thing Model</em> can be seen as a template for <a>Thing Descriptions</a>, however, that have less restriction as 
+          defined in sections "TD Information Model" and "Representation Format" 
+          of the [[?WOT-THING-DESCRIPTION]]. Typically <a>Thing Model</a> examples 
+          does not contain any instance-specific information such as protocol specific data like IP addresses. 
+          However, instead of having, e.g., concrete URLs, 
+          <a>Thing Model</a> allows the usage of URL templates.  
           </p>
-          <p>
-            A <a>Thing Model</a> may also be used when complete information for an instance
-            is not available or is not necessary.
-            For example, some IoT ecosystems implicitly handle communication separately.
-            In such a case, a fully detailed <a>Thing Description</a>, e.g. with
-            communication metadata, is not necessary.
-            Communication metadata may also not available
-            at the beginning of a Thing lifecycle phase, since a new entity has not yet been deployed
-            (e.g. the IP address is not yet known).
-          </p>
-          
-          <p>
-            A <a>Thing Model</a> is used to define the basic information model
-            of a <a>Thing</a> to address such kind of scenarios.
-            The <a>Thing Model</a> can be seen as a template for <a>Thing Descriptions</a>, however, that have less restriction as
-            defined in sections "TD Information Model" and "Representation Format"
-            of the [[?WOT-THING-DESCRIPTION]]. Typically <a>Thing Model</a> examples
-            does not contain any instance-specific information such as protocol specific data like IP addresses.
-            However, instead of having, e.g., concrete URLs,
-            <a>Thing Model</a> allows the usage of URL templates.
-          </p>
-          
+
           <figure id="thing-model">
             <img src="images/architecture/thing_model_td.png" srcset="images/architecture/thing_model_td.svg"
               class="wot-arch-diagram" alt="Thing Model" />
             <figcaption>Thing Model and its relation to the Thing Description</figcaption>
           </figure>
-          
+
           <p>
             The Thing Model enables:
-          <ul>
-            <li> onboarding and management of multiple <a>Thing</a> models, e.g., by a cloud service. </li>
-            <li> simulation of devices/<a>Things</a> that have not yet been developed.</li>
-            <li> developing common applications across devices from different manufacturers that share a common <a>Thing model</a>.
-            </li>
+            <ul>
+            <li> onboard and manage of multiple <a>Thing</a> models, e.g., by a cloud service. </li>
+            <li> simulate of devices/<a>Things</a> that have not yet been developed.</li>
+            <li> develop common applications across devices from different manufacturers that share a common <a>Thing</a> model.</li>
             <li> combining multiple models into a <a>Thing</a>.
             <li> implementation support of a concrete <a>Thing</a>.
-          </ul>
-          </p>
-          <p>
+            </ul>
+            </p>
+            <p>
             The <a>Thing Model</a> is a logical description of the interface and possible interaction with <a>Thing</a>'s
             <a>Properties</a>, <a>Actions</a>, and <a>Events</a>, however it does not contain <a>Thing</a> instance-specific
             information, such as concrete protocol usage (e.g., IP address), or even a serial number and GPS location.
-            However, Thing Models allows to include, e.g., security schemes if they apply to the entire class of instances the
-            model describes. They might have URLs (e.g., like token servers) that might need to be omitted or parameterized
-            (with templates) although in a lot of cases these might also be given.
-          </p>     
-          <p>
-            A <a>Thing Model</a> can be serialized in the same JSON-based format as a Thing Description which also allows JSON-LD
-            processing.
-            Note that a <a>Thing Model</a> cannot be validated in the same way as <a>Thing Description</a> instances, since not
-            all mandatory terms of a <a>Thing Description</a> are required for a <a>Thing Model</a>.
-            missing
-            mandatory terms.
-          </p>      
-        </section>
+            However, Thing Models allows to include, e.g., security schemes if they apply to the entire class of instances the 
+            model describes. They might have URLs (e.g., like token servers) that might need to be omitted or parameterized 
+            (with templates) although in a lot of cases these might also be given. 
+            </p>
+        
+        
+            <p>
+                <a>Thing Model</a> can be serialized in the same JSON-based format as a Thing Description which also allows JSON-LD processing. 
+                Note that a <a>Thing Model</a> cannot be validated in the same way as <a>Thing Description</a> instances due to some missing 
+                mandatory terms.
+            </p>
+       </section>
       </section>
 
       <section id="links">
         <h3>Links</h3>
       </section>
       <p>
-	      Links can represent relationships between things, between things and thing models, and between thing models.       
-        Linking does not only apply to hierarchical <a>Things</a>, but also to relations between Things and other resources in
+	Links can represent relationships between things, between things and thing models, and between thing models.       
+        Linking does not only apply to hierarchical <a>Things</a>, but relations between Things and other resources in
         general.
         Link relation types express how Things relate, for instance, a switch controlling a light or a room monitored by
         a motion sensor.
-        Other resources related to a <a>Thing</a> can be documentation manuals, catalogs for spare parts, CAD files, a graphical UI,
+        Other resources related to a <a>Thing</a> can be manuals, catalogs for spare parts, CAD files, a graphical UI,
         or any other document on the Web.
         Overall, Web linking among Things makes the Web of Things navigable, for both humans and machines.
         This can be further facilitated by providing <a>Thing Description Directories</a> that manage a catalog of <a>Things</a>,
@@ -1887,7 +1854,7 @@
         thereby forming a <a>Virtual Thing</a>.
         To <a>Consumers</a>, <a>Intermediaries</a> are just another kind of <a>Thing</a>, as they possess <a>WoT Thing
           Descriptions</a> and provide a <a>WoT Interface</a>.
-        They may be indistinguishable from <a>Things</a> that are directly representing physical devices
+        They may be indistinguishable from <a>Things</a> directly representing physical devices
         in a layered system architecture like the Web [[?REST]].
       </p>
       <figure id="intermediary">
@@ -1922,7 +1889,7 @@
           Descriptions</a>).
         Ideally, such metadata is self-descriptive, so that <a>Consumers</a> are able to identify
         <em>what</em> capabilities a <a>Thing</a> provides and <em>how</em> to use the provided capabilities.
-        A key to this self-descriptiveness lies in the concept of <a>affordances</a>.
+        A key to this self-descriptiveness lies in the concept of affordances.
       </p>
       <p>
         The term affordance originates in ecological
@@ -1984,11 +1951,11 @@
         The <a>Interaction Affordances</a> provide a model of how <a>Consumers</a> can interact with the <a>Thing</a>
         through abstract operations,
         but without reference to a specific network protocol or data encoding.
-        The <a>protocol binding</a> adds the additional detail needed to map each
+        The protocol binding adds the additional detail needed to map each
         <a>Interaction Affordance</a> to concrete messages of a certain protocol.
         In general, different concrete protocols may be used to
         support different subsets of <a>Interaction Affordances</a>,
-        even within a single <a>Thing</a>. The <a>security configuration</a>
+        even within a single Thing. The <a>security configuration</a>
         aspect of a Thing represents the mechanisms used to
         control access to the <a>Interaction Affordances</a> and the management of
         related <a>Public Security Metadata</a> and <a>Private Security Data</a>.
@@ -2008,8 +1975,8 @@
       <p>
         In a deployment, that applies the WoT architecture principles, different entities interact with each other and
         exchange information between them.
-        Elements of a WoT deployment are <a>devices</a>, <a>intermediaries</a>, <a>consumers</a> and <a>directories</a>.
-        Each element has its own (intrinsic) <a>Thing</a> lifecycle.
+        Elements of a WoT deployment are devices, intermediaries, consumers and directories.
+        Each element has its own (intrinsic) Thing lifecycle.
         These elements build a system, where the entire system has a <em>System lifecycle</em>, 
         i.e. the system has several states and transitions through some states to become operational.
         This implies that devices go through their lifecycle to becomer operational, and devices 
@@ -2040,7 +2007,7 @@
       </p>
       <p>
         After an activation step (which may consist of several operations, such as provisioning, configuration etc.)
-        the <a>device</a> and <a>consumer</a> are in regular operation mode.
+        the device and consumer are in regular operation mode.
         When the device is no longer required in this scenario, it will be offboarded from the consumer. 
         After this operation it can be decomissioned and destroyed. 
       </p>
@@ -2059,8 +2026,8 @@
           a device, a consumer and a directory.
         </p>
       <p>
-        This flow is very similar to the flow in the previous section, in addition it contains a <a>directory</a> entity, 
-        which maintains a catalog of devices. In WoT this catalog is a set of <a>thing descriptions</a>
+        This flow is very similar to the flow in the previous section, in addition it contains a directory entity, 
+        which maintains a catalog of devices. In WoT this catalog is a set of <em>thing descriptions</em>
         After a device is bootstrapped like in the previous scenario, it is registered with the directory.
       </p>
       <p>
@@ -2079,7 +2046,7 @@
       <section id="thing-lifecycle">
         <h3>Thing Lifecycle</h3>
         <p>
-          Bootstrapping and provisioning of devices is an essential part of
+          Bootstrapping and provisioning devices is an essential part of
           setting up devices in all IoT protocol suites.
         </p>
         <p>
@@ -2112,8 +2079,8 @@
             OPC-UA/Anima, etc.
           </p>
           <p class="note">
-            The provisioning model presented in this section resembles 
-            the T2TRG provisioning model.
+            The provisioning model presented in this section resembles most
+            with the T2TRG provisioning model.
           </p>
           <p>
             Common elements of device bootstrapping and provisioning across
@@ -2213,7 +2180,7 @@
             <figcaption>Device Lifecycle</figcaption>
           </figure>
           <p>
-            The typical transitions between lifecycle states are the
+            The most typical transitions between lifecycle states are the
             following:
             <ul>
                 <li>
@@ -2287,7 +2254,7 @@
         very high level of abstraction makes it hard to provide
         a loose coupling between applications and resources due to
         the manifold interaction possibilities. As a result,
-        at the time of writing, typical API descriptions consist of a static mapping
+        at the time of writing typical API descriptions consist of a static mapping
         from an application intent to a resource address,
         method, request payload structure, response payload
         structure, and expected errors.
@@ -2306,21 +2273,21 @@
           defined by this specification: <a>Properties</a>, <a>Actions</a>, and <a>Events</a>.</span>
         While this narrow waist allows to decouple <a>Consumers</a> and <a>Things</a>,
         these four types of <a>Interaction Affordances</a> are still able to model virtually all interaction
-        kinds found in IoT devices and services.
+        possibilities found in IoT devices and services.
       </p>
       <section>
         <h3>Properties</h3>
         <p>
-          A <a>Property</a> is an <a>Interaction Affordance</a> that exposes the state of the <a>Thing</a>.
-          The state exposed by a <a>Property</a> can be retrievable (readable).
+          A Property is an Interaction Affordance that exposes the state of the Thing.
+          The state exposed by a Property can be retrievable (readable).
           Optionally, the state exposed by a Property may be updated (writeable).
            <a>Things</a> may choose to make Properties observable by pushing the new state after a change
             (cf. Observing Resources [[?RFC7641]]).
-         In the case of a read-only state, an Action can be used to update the state.
+         In the case of a write-only state, an Action can be used to update the state.
         </p>
         <p>
           <span class="rfc2119-assertion" id="arch-property-dataschema">
-            If the data format is not fully specified by the Protocol Binding used (e.g., through a media type),
+            If the data is not fully specified by the Protocol Binding used (e.g., through a media type),
             Properties MAY contain one <a>data schema</a> for the exposed state.</span>
         </p>
         <p>
@@ -2332,7 +2299,7 @@
       <section>
         <h3>Actions</h3>
         <p>
-          An <a>Action</a> is an <a>Interaction Affordance</a> that allows to invoke a function of the <a>Thing</a>.
+          An Action is an Interaction Affordance that allows to invoke a function of the Thing.
           <span class="rfc2119-assertion" id="arch-action-functions">
             An Action MAY manipulate state that is not directly exposed (cf. Properties),
             manipulate multiple Properties at a time, or manipulate Properties based on internal logic (e.g., toggle).</span>
@@ -2342,11 +2309,11 @@
         </p>
         <p>
           <span class="rfc2119-assertion" id="arch-action-dataschema">
-            If the data format is not fully specified by the Protocol Binding used (e.g., through a media type),
-            Actions MAY contain <a>data schemas</a> for input parameters and output results.</span>
+            If the data is not fully specified by the Protocol Binding used (e.g., through a media type),
+            Actions MAY contain <a>data schemas</a> for optional input parameters and output results.</span>
         </p>
         <p>
-          Some examples for Actions are setting multiple Properties simultaneously,
+          Examples of Actions are changing multiple Properties simultaneously,
           changing Properties over time such as fading the brightness of a light (dimming)
           or with a process that shall not be disclosed such as a proprietary control loop algorithm,
           or invoking a long-lasting process such as printing a document.</p>
@@ -2354,8 +2321,8 @@
       <section>
         <h3>Events</h3>
         <p>
-          An <a>Event</a> is an <a>Interaction Affordance</a>, which describes an event source 
-          that pushes data asynchronously from the <a>Thing</a> to the <a>Consumer</a>.
+          An Event Interaction Affordance describes an event source that pushes data asynchronously from the Thing to
+          the Consumer.
           Here not state, but state transitions (i.e., events) are communicated.
           <span class="rfc2119-assertion" id="arch-event-trigger">
             Events MAY be triggered through conditions that are not exposed as Properties.</span>
@@ -2363,11 +2330,11 @@
         <p>
           <span class="rfc2119-assertion" id="arch-event-dataschema">
             If the data is not fully specified by the Protocol Binding used (e.g., through a media type),
-            Events MAY contain <a>data schemas</a> for the event data and subscription control messages
-            (e.g., a callback URI to subscribe with a Webhook).</span>
+            Events MAY contain <a>data schemas</a> for the event data and possible subscription control messages
+            (e.g., to subscribe with a Webhook callback URI).</span>
         </p>
         <p>
-          Examples of <a>Events</a> are discrete events such as an alarm or samples of a time series that are sent regularly.
+          Examples of Events are discrete events such as an alarm or samples of a time series that are pushed regularly.
         </p>
       </section>
     </section>
@@ -2392,16 +2359,16 @@
       <p>
         W3C WoT makes use of two kinds of <a>hypermedia controls</a>:
         <em> Web links</em> [[!RFC8288]], the well-established control to navigate the Web,
-        and <em>Web forms</em> as a more powerful control to enable any kind of operation.
+        and Web forms as a more powerful control to enable any kind of operation.
         Links are already used in other IoT standards and <a>IoT platforms</a> such as
         CoRE Link Format [[?RFC6690]], OMA LWM2M [[?LWM2M]], and OCF [[?OCF]].
-        <em>Form</em> is a new concept that besides W3C WoT is also introduced by the
+        Form is a new concept that besides W3C WoT is also introduced by the
         <em>Constrained RESTful Application Language (CoRAL)</em> [[?CoRAL]] defined by the IETF.
       </p>
       <section id="sec-hypermedia-links">
         <h3>Links</h3>
         <p>
-          <em>Links</em> enable <a>Consumers</a> (or Web clients in the broader sense) to change the current context
+          Links enable <a>Consumers</a> (or Web clients in the broader sense) to change the current context
           (cf. the set of resource representations currently rendered in the Web browser)
           or to include additional resources into the current context,
           depending on the relation between context and link target.
@@ -2429,10 +2396,10 @@
             Nevertheless, all-lowercase URIs SHOULD be used for extension relation types [[!RFC8288]].</span>
         </p>
         <p>
-          In the Web of Things, <em>links</em> are used for <a>Discovery</a> and to express relations between <a>Things</a>
+          In the Web of Things, links are used for <a>Discovery</a> and to express relations between <a>Things</a>
           (e.g., hierarchical or functional)
           and relations to other documents on the Web
-          (e.g., documentation manuals or alternative representations such as CAD models).
+          (e.g., manuals or alternative representations such as CAD models).
         </p>
       </section>
       <section id="sec-hypermedia-forms">
@@ -2523,7 +2490,7 @@
     <section id="sec-protocol-bindings">
       <h2>Protocol Bindings</h2>
       <p>
-        A <a>Protocol Binding</a> is the mapping from an <a>Interaction Affordance</a> to concrete messages of a specific
+        A Protocol Binding is the mapping from an <a>Interaction Affordance</a> to concrete messages of a specific
         protocol such as HTTP [[?RFC7231]], CoAP [[?RFC7252]], or MQTT [[?MQTT]].
         It informs the <a>Consumer</a> <em>how</em> to activate the <a>Interaction Affordance</a> through a
         network-facing interface.
@@ -2543,8 +2510,8 @@
           <span class="rfc2119-assertion" id="arch-hypermedia">
             Interaction Affordances MUST include one or more Protocol Bindings.</span>
           <span class="rfc2119-assertion" id="arch-hypermedia-protocol-binding">
-            <a>Protocol Bindings</a> MUST be serialized as <a href="#sec-hypermedia-controls">hypermedia controls</a> to be self-descriptive on how to
-            activate the <a>Interaction Affordance</a>.</span>
+            Protocol Bindings MUST be serialized as <a href="#sec-hypermedia-controls">hypermedia controls</a> to be self-descriptive on how to
+            activate the Interaction Affordance.</span>
           The authority of the <a>hypermedia controls</a> can be the <a>Thing</a> itself, producing the <a>TD</a> document
           at runtime (based on its current state and including network parameters such as its IP address)
           or serving it from memory with only the current network parameters inserted.
@@ -2598,28 +2565,16 @@
 	   the Interaction Affordance for structured data types SHOULD 
            be associated with a <em><a>data schema</a></em> to provide more detailed 
 	   syntactic metadata for the data exchanged.</span>
-	   Details are further described in the <a>TD specification</a>.
+	   Details should be specified in the TD specification.
         </p>
     </section>
-    <section id="sec-i18n">
-      <h3>Internationalisation</h3>
-      <p>
-        Web of Things support interoperable internationalization and allows 
-        to use to work with multilingual data such as for User Interfaces. 
-        The design and implementation of multilingual Web of Things implementations 
-        is guided by the Thing Description [[?WOT-THING-DESCRIPTION]] specification. 
-        It describes how human-readable text in different languages can be 
-        applied based on established standards such as from [[JSON-LD]] and [[BCP47]].
-      </p>
-    </section>
-
     <section id="sec-wot-servient-architecture-high-level">
       <h2>WoT System Components and their Interconnectivity</h2>
 
       <p>Section <a href="#sec-architecture-overview"></a> described the
         WoT architecture in terms of the abstract WoT architecture components
         such as <a>Things</a>, <a>Consumers</a> and <a>Intermediaries</a>.
-        When those components are implemented as
+        When those abstract WoT architecture components are implemented as
         a software stack to take a specific role in the WoT architecture,
         such software stacks are called <a>Servients</a>.
         Systems that are based on the WoT architecture involve <a>Servients</a>,
@@ -2842,7 +2797,7 @@
         JSON-LD [[?JSON-LD11]] and graph databases to enable
         powerful semantic processing of the metadata.
       </p>
-      <p> A <a>Thing Description</a> describes <a>Thing</a>
+      <p> A <a>Thing Description</a> (TD) describes <a>Thing</a>
         instances with general metadata such as name, ID,
         descriptions, and also can provide relation metadata
         through links to related <a>Things</a> or other documents. <a>TDs</a>
@@ -2894,19 +2849,19 @@
     <section id="sec-thing-model">
       <h2>Thing Model</h2>
 
-      <p>The <a>Thing Model</a> defines a template-based model for
+      <p>The <a>Thing Model</a> offers the opportunity to define a template-based model for
           <a>Thing Description</a> instances. A <a>Thing Model</a> has no
-        instance specific and only partial communication- and  security-based information. This kind
-        of information is supplemented by the creation of <a>Thing Description</a>
+        specific or only partial communication- and  security-based information. This kind
+        of missing information is supplemented by the creation of <a>Thing Description</a>
         instantiation.
       </p>
 
 		  <p>
         A <a>Thing Model</a> mainly describes the <a>Properties</a>, <a>Actions</a>, and <a>Events</a> and
-        common metadata which then are available in all instantiated <a>Thing Descriptions</a>. This paradigm
+        common metadata which then should be valid for all instantiated <a>Thing Descriptions</a>. This paradigm
         can be compared with abstract class or interface definitions (~Thing Model) in object-oriented programming to
-		    create objects (~Thing Descriptions).Such <a>Thing Models</a> are relevant for, e.g., mass production of IoT devices,
- 		    onboarding scenarios as in cloud services, or to  simulate <a>Devices</a> that have not yet been developed.
+		    create objects (~Thing Descriptions).Such <a>Thing Models</a> get relevant for, e.g., mass production of IoT devices,
+ 		    onboard scenarios such in cloud services, or to simulate of device <a>Things</a> that have not yet been developed.
       </p>
 
     </section>
@@ -2914,8 +2869,8 @@
     <section id="wot-profiles">
       <h3>Profiles</h3>
       <p>
-      The WoT Profile Specification [[!WOT-PROFILE]] defines Profiles, 
-      that enable <em>out of the box interoperability</em> among things 
+      The WoT Profile Specification defines a WoT Baseline Profile, 
+      which enables out of the box interoperability among things 
       and devices. Out of the box interoperability implies, 
       that devices can be integrated into various application 
       scenarios without deep level adaptations. 
@@ -2948,7 +2903,7 @@
           to the <a>WoT Thing Description</a> specification. These constraints define a
           subset of valid <a>WoT Thing Descriptions</a> by defining
           additional rules on various aspects of the <a>WoT Thing
-            Description</a>.
+            Description</a> specification.
         </p>
   
         <table class="def">
@@ -3000,12 +2955,12 @@
   
         <p>These constraints and rules fall into two categories:</p>
         <ul>
-          <li>constraints on the data model.</li>
-          <li>constraints on the protocol binding.</li>
+          <li>constraints for the data model.</li>
+          <li>constraints for the protocol binding.</li>
         </ul>
   
         <p>These two categories are orthogonal to each other,
-          i.e. an information model that conforms to a profile can be
+          i.e. a data model that conforms to a profile can be
           mapped to different protocols. The protocol binding for
           each protocol may contain additional (protocol-specific)
           constraints.</p>
@@ -3112,8 +3067,7 @@
         <a>TDDs</a> are not just a convenience feature but are essential in several
         WoT use cases.
         Using a <a>TDD</a> is appropriate when a <a>Thing</a> has resource restrictions
-        (e.g., limited memory space, limited power), 
-        c.f. <a href="#device-categories">Device Categories</a>, uses a specialized protocol
+        (e.g., limited memory space, limited power), uses a specialized protocol
         requiring translation by an intermediary (in which case the <a>TD</a> provided by 
         the <a>TDD</a> would describe the
         translated network interface supported by the intermediary), 
@@ -3142,7 +3096,15 @@
     <section id="sec-binding-templates" class="informative">
       <h3>WoT Binding Templates</h3>
 
+      <p>
+        The <a>Binding Templates</a> address the aspect that an application client (a <a>Consumer</a>) can use the <a>Thing Description</a> to 
+        extract the specific metadata of the protocols (e.g. about HTTP, MQTT, Modbus, etc.), payload formats (binary, JSON, CBOR, EXI, etc.) and their possible
+        usage in an IoT platform context (e.g., ECHONET, OPC UA).
+        The metadata can be passed for example to a network implementation interface to establish interaction with the desired <a>Thing</a> and to serialize / desirialize
+        the payload messages. In that context, <a>Binding Templates</a> includes the consideration of three kinds of bindings: Protocol binding, Payload format binding, and Platform binding.  
+      </p>
 
+      <!--
       <p> The IoT uses a variety of protocols for accessing
         devices, since no single protocol is appropriate in all
         contexts. Thus, a central challenge for the Web of
@@ -3154,23 +3116,14 @@
         variety through <a>Protocol Bindings</a>, which must meet a
         number of constraints (see <a href="#sec-protocol-bindings"></a>).
       </p> 
-      <p>
-        The <a>Binding Templates</a> address the aspect that an application client (a <a>Consumer</a>) can use the <a>Thing
-          Description</a> to
-        extract the specific metadata of the protocols (e.g. about HTTP, MQTT, Modbus, etc.), payload formats (binary, JSON,
-        CBOR, EXI, etc.) and their usage in an IoT platform context (e.g., ECHONET, OPC UA).
-        The metadata can be passed to a network implementation interface to establish interaction with the 
-        <a>Thing</a> and to serialize / deserialize
-        the payload messages. In that context, <a>Binding Templates</a> include three kinds of bindings:
-        Protocol bindings, Payload format bindings, and Platform bindings.
-      </p>
+      -->
 
       <p> The non-normative <a>WoT Binding Templates</a> specification
         [[?WOT-BINDING-TEMPLATES]] provides a collection of
         blueprints that give guidance on how to interact with different <a>Things</a> 
         that use different <a>transport protocols</a>, <a>content types</a> or that are 
-        different <a>IoT platforms</a> or standards (e.g., OCF, oneM2M, OMA LWM2M, OPC UA) 
-        which use certain combinations of <a>transport protocols</a> and 
+        part different <a>IoT platforms</a> or standards (e.g., OCF, oneM2M, OMA LWM2M, OPC UA) 
+        that require certain combinations of <a>transport protocols</a> and 
         <a>content types</a>. When describing a particular IoT device or platform, the corresponding
         <a>Binding Template</a> can be used to look up the communication metadata that is to be provided in the
          <a>Thing Description</a> to  support that platform.
@@ -3206,11 +3159,9 @@
             <li>
                 <b>Subprotocol</b>
                 <p>
-                  <span class="rfc2119-assertion" id="arch-binding-templates-known-subprotocol">
-                    <a>Transport protocols</a> MAY have to use information provided by an extension mechanisms to interact successfully.</span>
-                  <span class="rfc2119-assertion" id="arch-binding-templates-subprotocol-explicit-declaration">
-                  Such <a>subprotocols</a> cannot be identified from the URI scheme alone and MUST be declared explicitly
-                  using the <code>subprotocol</code> field inside forms.</span>
+                  <a>Transport protocols</a> may have extension mechanisms that must be known to interact successfully.
+                  Such <a>subprotocols</a> cannot be identified from the URI scheme alone and must be declared explicitly
+                  using the <code>subprotocol</code> field inside forms.
                   Examples for HTTP are long polling [[?RFC6202]] (<code>longpoll</code>) or 
                   Server-Sent Events [[?HTML]] (<code>sse</code>).
                 </p>
@@ -3222,12 +3173,10 @@
           <p>
             Representation formats (a.k.a. serializations) used for exchanging data can differ between protocols, 
             <a>IoT Platforms</a> and standards.
-            <span class="rfc2119-assertion" id="arch-binding-templates-media-type-parameters">
-            The media type [[!RFC2046]] identifies these formats, while media type parameters MAY specify them further.</span>
-            <span class="rfc2119-assertion" id="arch-binding-templates-media-type-optional-parameters">
-            Forms MAY contain the media type and optional parameters in additional form fields such as a content type 
+            The media type [[!RFC2046]] identifies these formats, while media type parameters may specify them further.
+            Forms may contain the media type and optional parameters in additional form fields such as a content type 
             field known from HTTP, which combines media type and its potential parameters
-            (e.g., <code>text/plain; charset=utf-8</code>).</span>
+            (e.g., <code>text/plain; charset=utf-8</code>).
           </p>
         </li>
         <li>
@@ -3263,7 +3212,7 @@
         relatively complex update process. The <a>WoT
           Scripting API</a> in contrast enables
         implementing device logic by reusable scripts executed
-        in a runtime system for IoT applications. It is similar
+        in a runtime system for IoT applications not dissimilar
         to that of a Web browser, and aims to improve
         productivity and reduce integration costs. Furthermore,
         standardized APIs enable portability for application
@@ -3287,7 +3236,7 @@
 
     <!-- Security Guidelines -->
 
-    <section id="sec-security-guidelines">
+    <section id="sec-security-guidelines" class="informative">
       <h3>WoT Security and Privacy Guidelines</h3>
       <p> Security is a cross-cutting concern and should be
         considered in all aspects of system design. In the WoT
@@ -3329,7 +3278,7 @@
       Here, the <a>WoT Runtime</a> is also a Scripting Runtime system that,
       in addition to managing the WoT-specific aspects, also interprets and executes the application scripts.
       <a>Servients</a> that support the <a>WoT Scripting API</a> usually run on powerful devices, edge nodes, or in the
-      cloud (c.f. <a href="#device-categories">Device Categories</a>).
+      cloud.
       The WoT Architecture does not limit the application-facing API of the <a>WoT Runtime</a> to JavaScript/ECMAScript.
       Also other runtime systems can be used to implement a <a>Servient</a>.
     </p>
@@ -3352,7 +3301,7 @@
       in <a href="#architecture-implementation"></a> is explained in
       the following sections.
     </p>
-    <section id="behavior-implementation">
+    <section>
       <h2>Behavior Implementation</h2>
       <p>
         The <em>behavior</em> defines the overall application logic of a <a>Thing</a>,
@@ -3388,7 +3337,7 @@
         See <a href="#native-impl"></a> for behavior implementation without the <a>WoT Scripting API</a> building block.
       </p>
     </section>
-    <section id="wot-runtime">
+    <section>
       <h2>WoT Runtime</h2>
       <p>
         Technically, the <a>Thing</a> abstraction and its <a>Interaction Model</a> is implemented in a runtime system.
@@ -3424,10 +3373,10 @@
         for instance, to access local hardware such as attached sensors and actuators or to access system services such
         as storage.
         Both interfaces are implementation-specific,
-        yet the <a>WoT Runtime</a> must provide the necessary adaption to the  <a>Thing</a> abstraction it implements.
+        yet the <a>WoT Runtime</a> must provide the necessary adaption to the implemented <a>Thing</a> abstraction.
       </p>
     </section>
-    <section id="wot-scripting-api">
+    <section>
       <h3>WoT Scripting API</h3>
       <p>
         The <a>WoT Scripting API</a> building block defines an ECMAScript API that closely follows the <a>WoT Thing
@@ -3440,7 +3389,7 @@
         See [[?WOT-SCRIPTING-API]] for more details.
       </p>
     </section>
-    <section id="expose-consumed-thing">
+    <section>
       <h2>Exposed Thing and Consumed Thing Abstractions</h2>
       <p>
         The <a>WoT Runtime</a> instantiates software representations of <a>Things</a> based on their <a>TDs</a>.
@@ -4650,14 +4599,8 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
         <p>Special thanks to Matthias Kovatsch for co-editing and many significant contributions
 	    to the initial version of the WoT architecture specification.
 	    Special thanks to Michael McCool, Takuki Kamiya, Kazuyuki Ashimura,
-            Sebastian Käbisch, Zoltan Kis, Ege Korkan, Michael Koster, Elena Reshetova, 
-            Klaus Hartke, Ari Keränen, Kazuaki Nimura, and
-
+            Sebastian Käbisch, Zoltan Kis, Elena Reshetova, Klaus Hartke, Ari Keränen, Kazuaki Nimura, and
             Philippe Le Hegaret for their contributions to this document.
-        </p>
-        <p>
-          Special thanks to Dr. Kazuyuki Ashimura from the W3C for the continuous help and support
-          of the work of the WoT Architecture Task Force.
         </p>
         <p>
             Many thanks to the W3C staff and all other active Participants of the W3C Web
