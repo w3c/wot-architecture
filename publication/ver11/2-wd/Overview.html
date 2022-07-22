@@ -2,9 +2,9 @@
 <html lang="en-US">
 <head>
 <meta name="generator" content=
-"HTML Tidy for HTML5 for Linux version 5.6.0">
+"HTML Tidy for HTML5 for Apple macOS version 5.8.0">
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 32.1.10">
+<meta name="generator" content="ReSpec 32.2.0">
 <meta name="viewport" content=
 "width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
@@ -154,7 +154,7 @@ dd{margin-left:0}
   "name": "Web of Things (WoT) Architecture 1.1",
   "inLanguage": "en-US",
   "license": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
-  "datePublished": "2022-07-01",
+  "datePublished": "2022-07-22",
   "copyrightHolder": {
     "name": "World Wide Web Consortium",
     "url": "https://www.w3.org/"
@@ -605,10 +605,10 @@ dd{margin-left:0}
       }
     },
     {
-      "id": "https://www.iec.ch/whitepaper/pdf/iecWP-futurefactory-LR-en.pdf",
+      "id": "https://www.iec.ch/basecamp/factory-future",
       "type": "TechArticle",
       "name": "Factory of the future",
-      "url": "https://www.iec.ch/whitepaper/pdf/iecWP-futurefactory-LR-en.pdf",
+      "url": "https://www.iec.ch/basecamp/factory-future",
       "publisher": {
         "name": "IEC"
       }
@@ -1086,7 +1086,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "date": "13 June 2019"
     },
     "IEC-FOTF": {
-      "href": "https://www.iec.ch/whitepaper/pdf/iecWP-futurefactory-LR-en.pdf",
+      "href": "https://www.iec.ch/basecamp/factory-future",
       "title": "Factory of the future",
       "publisher": "IEC",
       "date": "October 2015",
@@ -1307,14 +1307,14 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "wot-security"
     }
   },
-  "publishISODate": "2022-07-01T00:00:00.000Z",
-  "generatedSubtitle": "W3C Working Draft 01 July 2022"
+  "publishISODate": "2022-07-22T00:00:00.000Z",
+  "generatedSubtitle": "W3C Working Draft 22 July 2022"
 }
 </script>
 <link rel="stylesheet" href=
 "https://www.w3.org/StyleSheets/TR/2021/W3C-WD">
 </head>
-<body class="h-entry">
+<body class="h-entry toc-inline">
 <div class="head">
 <p class="logos"><a class="logo" href=
 "https://www.w3.org/"><img crossorigin="" alt="W3C" height="48"
@@ -1324,14 +1324,14 @@ src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width=
 1.1</h1>
 <p id="w3c-state"><a href=
 "https://www.w3.org/standards/types#WD">W3C Working Draft</a>
-<time class="dt-published" datetime="2022-07-01">01 July
+<time class="dt-published" datetime="2022-07-22">22 July
 2022</time></p>
-<details open="">
+<details open>
 <summary>More details about this document</summary>
 <dl>
 <dt>This version:</dt>
 <dd><a class="u-url" href=
-"https://www.w3.org/TR/2022/WD-wot-architecture11-20220701/">https://www.w3.org/TR/2022/WD-wot-architecture11-20220701/</a></dd>
+"https://www.w3.org/TR/2022/WD-wot-architecture11-20220722/">https://www.w3.org/TR/2022/WD-wot-architecture11-20220722/</a></dd>
 <dt>Latest published version:</dt>
 <dd><a href=
 "https://www.w3.org/TR/wot-architecture11/">https://www.w3.org/TR/wot-architecture11/</a></dd>
@@ -1440,7 +1440,7 @@ revision of this technical report can be found in the <a href=
 at https://www.w3.org/TR/.</em></p>
 <p>This document describes an abstract architecture design.
 However, there is an <a href=
-"https://w3c.github.io/wot-architecture/testing/report.html">Implementation
+"https://w3c.github.io/wot-architecture/testing/report11.html">Implementation
 Report</a> that describes a set of concrete implementations
 following the <abbr title="World Wide Web Consortium">W3C</abbr>
 Web of Things architecture. It also references the other
@@ -7795,9 +7795,9 @@ from it. As a best practice, TDs should be used together with
 appropriate integrity protection mechanisms and access control
 policies, with the goal of providing it only to authorized users.
 In general, many of the <a href=
-"sec-security-considerations">Security Considerations</a> discussed
-in the previous section can also be seen as privacy risks, when
-they relate the undesired an unauthorized disclosure of
+"#sec-security-considerations">Security Considerations</a>
+discussed in the previous section can also be seen as privacy
+risks, when they relate the undesired an unauthorized disclosure of
 information.</p>
 <p>Please refer to the Privacy Considerations sections of the WoT
 Thing Description specification for additional details and
@@ -8018,25 +8018,6 @@ for 2 years from its inception and guiding the group to come up
 with the concept of WoT building blocks including the Thing
 Description.</p>
 </section>
-<script>
-mendeleyWebImporter = {
-  downloadPdfs(e,t) { return this._call('downloadPdfs', [e,t]); },
-  open() { return this._call('open', []); },
-  setLoginToken(e) { return this._call('setLoginToken', [e]); },
-  _call(methodName, methodArgs) {
-    const id = Math.random();
-    window.postMessage({ id, token: '0.05833591537701799', methodName, methodArgs }, 'http://localhost:3000');
-    return new Promise(resolve => {
-      const listener = window.addEventListener('message', event => {
-        const data = event.data;
-        if (typeof data !== 'object' || !('result' in data) || data.id !== id) return;
-        window.removeEventListener('message', listener);
-        resolve(data.result);
-      });
-    });
-  }
-};
-</script>
 <section id="references" class="appendix">
 <div class="header-wrapper">
 <h2 id="c-references"><bdi class="secno">C.</bdi> References</h2>
@@ -8186,9 +8167,9 @@ Relations</cite></a>. IANA. URL: <a href=
 "https://www.iana.org/assignments/link-relations/">https://www.iana.org/assignments/link-relations/</a></dd>
 <dt id="bib-iec-fotf">[IEC-FOTF]</dt>
 <dd><a href=
-"https://www.iec.ch/whitepaper/pdf/iecWP-futurefactory-LR-en.pdf"><cite>
-Factory of the future</cite></a>. IEC. October 2015. URL: <a href=
-"https://www.iec.ch/whitepaper/pdf/iecWP-futurefactory-LR-en.pdf">https://www.iec.ch/whitepaper/pdf/iecWP-futurefactory-LR-en.pdf</a></dd>
+"https://www.iec.ch/basecamp/factory-future"><cite>Factory of the
+future</cite></a>. IEC. October 2015. URL: <a href=
+"https://www.iec.ch/basecamp/factory-future">https://www.iec.ch/basecamp/factory-future</a></dd>
 <dt id="bib-iot-schema-org">[IOT-SCHEMA-ORG]</dt>
 <dd><a href="https://www.w3.org/community/iotschema/"><cite>Schema
 Extensions for IoT Community Group</cite></a>. URL: <a href=
