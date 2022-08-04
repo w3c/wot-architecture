@@ -3782,7 +3782,7 @@
           access all the <a>Things</a> behind the NAT device,
           assuming the local <a>Intermediary</a>
           has used a converged protocol that can traverse the NAT device
-          and has some way to expose this service to the Internet (STUN, TURN, DynDNS, etc.).
+          and has some way to expose this service to the Internet (STUN, TURN, dynamic DNS, etc.).
           In addition, the local <a>Intermediary</a> can function as a Thing proxy, so
           even when the connected <a>Things</a> each use a different
           protocol (HTTP, MQTT, CoAP, etc.) and/or a different set of
@@ -3823,7 +3823,7 @@
         </figure>
         <p> In more difficult cases the NAT and firewall traversal may not work exactly as
           shown. In particular, an ISP may not support publicly accessible addresses,
-          or STUN/TURN and/or DynDNS may not be supported or available.
+          or STUN/TURN and/or dynamic DNS may not be supported or available.
           In this case the <a>Intermediaries</a>
           may alternative reverse the client/server roles between them to set up an initial
           connection (with the local <a>Intermediary</a> first connecting to the remote <a>Intermediary</a>
