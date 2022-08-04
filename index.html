@@ -4633,7 +4633,40 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
   <section id="changes" class="appendix">
     <h1>Recent Specification Changes</h1>
 
-    <h2 id="changes-from-recommendation-1.0">Changes from the 1.0 version of [[wot-architecture]]</h2>
+    <h2 id="changes-from-fpwd-1.1">Changes from the FPWD version of [[wot-architecture11]]</h2>
+    <ul>
+      <li>Move Toru Kawaguchi to former editors.</li>
+      <li>Update abstract to reflect use of prescription (as opposed to pure description) where necessary.</li>
+      <li>New section under Terminology: Device Categories.</li>
+      <li>Section removed: System Integration.</li>
+      <li>Requirements section removed.</li>
+      <li>References to "WoT Use Cases and Requirements"
+          [[wot-use-cases-requirements]] document updated (note also inclusion of requirements analysis here).</li>
+      <li>Lifecycle section reworked; removal of separate "Information Lifecycle" section.</li>
+      <li>Reference and discuss new WoT building block and document: WoT Discovery [[wot-discovery]]</li>
+      <li>Update discussion of WoT Profiles [[wot-profile]]</li>
+      <li>Update discussion of WoT Binding Templates [[wot-binding-templates]]</li>
+      <li>Rename "System Topologies (Horizontals)" to "Common Deployment Patterns".</li>
+      <li>Rename "Application Domains (Verticals)" to "Application Domains".</li>
+      <li>New or revised deployment patterns:
+        <ul>
+          <li>Telemetry</li>
+          <li>Orchestration</li>
+          <li>Virtual Things</li>
+        </ul>
+      </li>
+      <li>Revise Security Considerations and Privacy Considerations: 
+       <ul>
+          <li>Reorganized to ensure that risks and mitigations are presented separately, 
+          and that normative content is only given under mitigations.</li>
+          <li>Added new section for Access to PII covering actual data access, not just metadata.</li>
+          <li>Added new section for Trusted Environments.</li>
+          <li>Added new section for Secure Transport. This section defines under what
+              conditions (D)TLS should or must be used.</li>
+        </ul>
+    </ul>
+
+    <h2 id="changes-in-fpwd-1.1-from-recommendation-1.0">Changes in the FPWD from the 1.0 version of [[wot-architecture]]</h2>
     <ul>
       <li>Make Security Considerations and Privacy Considerations normative.</li>
       <li>Add definitions for Connected Device (a.k.a. Device), Service, and Shadow.  
