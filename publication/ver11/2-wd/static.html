@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en-US"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 32.1.10">
+<meta name="generator" content="ReSpec 32.2.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 .issue-label{text-transform:initial}
@@ -156,7 +156,7 @@ dd{margin-left:0}
   "name": "Web of Things (WoT) Architecture 1.1",
   "inLanguage": "en-US",
   "license": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
-  "datePublished": "2022-07-01",
+  "datePublished": "2022-07-22",
   "copyrightHolder": {
     "name": "World Wide Web Consortium",
     "url": "https://www.w3.org/"
@@ -607,10 +607,10 @@ dd{margin-left:0}
       }
     },
     {
-      "id": "https://www.iec.ch/whitepaper/pdf/iecWP-futurefactory-LR-en.pdf",
+      "id": "https://www.iec.ch/basecamp/factory-future",
       "type": "TechArticle",
       "name": "Factory of the future",
-      "url": "https://www.iec.ch/whitepaper/pdf/iecWP-futurefactory-LR-en.pdf",
+      "url": "https://www.iec.ch/basecamp/factory-future",
       "publisher": {
         "name": "IEC"
       }
@@ -1085,7 +1085,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "date": "13 June 2019"
     },
     "IEC-FOTF": {
-      "href": "https://www.iec.ch/whitepaper/pdf/iecWP-futurefactory-LR-en.pdf",
+      "href": "https://www.iec.ch/basecamp/factory-future",
       "title": "Factory of the future",
       "publisher": "IEC",
       "date": "October 2015",
@@ -1306,21 +1306,21 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "wot-security"
     }
   },
-  "publishISODate": "2022-07-01T00:00:00.000Z",
-  "generatedSubtitle": "W3C Working Draft 01 July 2022"
+  "publishISODate": "2022-07-22T00:00:00.000Z",
+  "generatedSubtitle": "W3C Working Draft 22 July 2022"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/W3C-WD"></head>
 
-<body class="h-entry"><div class="head">
+<body class="h-entry toc-inline"><div class="head">
     <p class="logos"><a class="logo" href="https://www.w3.org/"><img crossorigin="" alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72">
   </a></p>
     <h1 id="title" class="title">Web of Things (WoT) Architecture 1.1</h1> 
-    <p id="w3c-state"><a href="https://www.w3.org/standards/types#WD">W3C Working Draft</a> <time class="dt-published" datetime="2022-07-01">01 July 2022</time></p>
+    <p id="w3c-state"><a href="https://www.w3.org/standards/types#WD">W3C Working Draft</a> <time class="dt-published" datetime="2022-07-22">22 July 2022</time></p>
     <details open="">
       <summary>More details about this document</summary>
       <dl>
         <dt>This version:</dt><dd>
-                <a class="u-url" href="https://www.w3.org/TR/2022/WD-wot-architecture11-20220701/">https://www.w3.org/TR/2022/WD-wot-architecture11-20220701/</a>
+                <a class="u-url" href="https://www.w3.org/TR/2022/WD-wot-architecture11-20220722/">https://www.w3.org/TR/2022/WD-wot-architecture11-20220722/</a>
               </dd>
         <dt>Latest published version:</dt><dd>
                 <a href="https://www.w3.org/TR/wot-architecture11/">https://www.w3.org/TR/wot-architecture11/</a>
@@ -1414,7 +1414,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <p>
       This document describes an abstract architecture design.
       However, there is an
-      <a href="https://w3c.github.io/wot-architecture/testing/report.html">Implementation Report</a>
+      <a href="https://w3c.github.io/wot-architecture/testing/report11.html">Implementation Report</a>
       that describes a set of concrete implementations 
       following the <abbr title="World Wide Web Consortium">W3C</abbr> Web of Things architecture.
       It also references the other implementation
@@ -5532,7 +5532,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         should be used together with appropriate integrity protection
         mechanisms and access control policies, with the goal of 
         providing it only to authorized users.
-	In general, many of the <a href="sec-security-considerations">Security Considerations</a>
+	In general, many of the <a href="#sec-security-considerations">Security Considerations</a>
 	discussed in the previous section can also be seen as privacy risks, when
 	they relate the undesired an unauthorized disclosure of information.
       </p>
@@ -5707,23 +5707,7 @@ Services returning Thing Descriptions with immutable IDs <em class="rfc2119">MUS
 
 
 
-<script>mendeleyWebImporter = {
-  downloadPdfs(e,t) { return this._call('downloadPdfs', [e,t]); },
-  open() { return this._call('open', []); },
-  setLoginToken(e) { return this._call('setLoginToken', [e]); },
-  _call(methodName, methodArgs) {
-    const id = Math.random();
-    window.postMessage({ id, token: '0.05833591537701799', methodName, methodArgs }, 'http://localhost:3000');
-    return new Promise(resolve => {
-      const listener = window.addEventListener('message', event => {
-        const data = event.data;
-        if (typeof data !== 'object' || !('result' in data) || data.id !== id) return;
-        window.removeEventListener('message', listener);
-        resolve(data.result);
-      });
-    });
-  }
-};</script><section id="references" class="appendix"><div class="header-wrapper"><h2 id="c-references"><bdi class="secno">C. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix C."></a></div><section id="normative-references"><div class="header-wrapper"><h3 id="c-1-normative-references"><bdi class="secno">C.1 </bdi>Normative references</h3><a class="self-link" href="#normative-references" aria-label="Permalink for Appendix C.1"></a></div>
+<section id="references" class="appendix"><div class="header-wrapper"><h2 id="c-references"><bdi class="secno">C. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix C."></a></div><section id="normative-references"><div class="header-wrapper"><h3 id="c-1-normative-references"><bdi class="secno">C.1 </bdi>Normative references</h3><a class="self-link" href="#normative-references" aria-label="Permalink for Appendix C.1"></a></div>
     
     <dl class="bibliography"><dt id="bib-rfc2046">[RFC2046]</dt><dd>
       <a href="https://www.rfc-editor.org/rfc/rfc2046"><cite>Multipurpose Internet Mail Extensions (MIME) Part Two: Media Types</cite></a>. N. Freed; N. Borenstein.  IETF. November 1996. Draft Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc2046">https://www.rfc-editor.org/rfc/rfc2046</a>
@@ -5773,7 +5757,7 @@ Services returning Thing Descriptions with immutable IDs <em class="rfc2119">MUS
     </dd><dt id="bib-iana-relations">[IANA-RELATIONS]</dt><dd>
       <a href="https://www.iana.org/assignments/link-relations/"><cite>Link Relations</cite></a>.  IANA. URL: <a href="https://www.iana.org/assignments/link-relations/">https://www.iana.org/assignments/link-relations/</a>
     </dd><dt id="bib-iec-fotf">[IEC-FOTF]</dt><dd>
-      <a href="https://www.iec.ch/whitepaper/pdf/iecWP-futurefactory-LR-en.pdf"><cite>Factory of the future</cite></a>.  IEC. October 2015. URL: <a href="https://www.iec.ch/whitepaper/pdf/iecWP-futurefactory-LR-en.pdf">https://www.iec.ch/whitepaper/pdf/iecWP-futurefactory-LR-en.pdf</a>
+      <a href="https://www.iec.ch/basecamp/factory-future"><cite>Factory of the future</cite></a>.  IEC. October 2015. URL: <a href="https://www.iec.ch/basecamp/factory-future">https://www.iec.ch/basecamp/factory-future</a>
     </dd><dt id="bib-iot-schema-org">[IOT-SCHEMA-ORG]</dt><dd>
       <a href="https://www.w3.org/community/iotschema/"><cite>Schema Extensions for IoT Community Group</cite></a>. URL: <a href="https://www.w3.org/community/iotschema/">https://www.w3.org/community/iotschema/</a>
     </dd><dt id="bib-iso-iec-2382">[ISO-IEC-2382]</dt><dd>

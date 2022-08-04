@@ -79,22 +79,22 @@
 #arch-other-thing-representations {
   background-color: yellow;
 }
+#arch-privacy-consideration-access-control-mandatory-person {
+  background-color: yellow;
+}
 #arch-privacy-consideration-dist-td-auth {
   background-color: yellow;
 }
 #arch-privacy-consideration-explicit-pii {
   background-color: yellow;
 }
-#arch-privacy-consideration-immutable-id-access-control-mandatory {
+#arch-privacy-consideration-id-access-control-mandatory-immutable {
   background-color: yellow;
 }
 #arch-privacy-consideration-min-explicit-pii {
   background-color: yellow;
 }
 #arch-privacy-consideration-no-unness-info-td {
-  background-color: yellow;
-}
-#arch-privacy-consideration-pii-access-control-mandatory {
   background-color: yellow;
 }
 #arch-property-dataschema {

@@ -121,7 +121,7 @@ pre.example {
     Implementation Report
   </h1>
   <p>
-    <b>Version</b>: 27 Jul 2022
+    <b>Version</b>: 4 Aug 2022
   </p>
   <p>
     <b>Editors</b>:<br>
@@ -906,6 +906,18 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
+<tr id="arch-privacy-consideration-access-control-mandatory-person" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-access-control-mandatory-person">arch-privacy-consideration-access-control-mandatory-person</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+Things returning data or metadata (such as TDs) associated with a person MUST use some form of access control.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
 <tr id="arch-privacy-consideration-dist-td-auth" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-dist-td-auth">arch-privacy-consideration-dist-td-auth</a></td>
 	<td class="baseassertion"></td>
@@ -934,8 +946,8 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="arch-privacy-consideration-immutable-id-access-control-mandatory" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-immutable-id-access-control-mandatory">arch-privacy-consideration-immutable-id-access-control-mandatory</a></td>
+<tr id="arch-privacy-consideration-id-access-control-mandatory-immutable" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-id-access-control-mandatory-immutable">arch-privacy-consideration-id-access-control-mandatory-immutable</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -972,18 +984,6 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="arch-privacy-consideration-pii-access-control-mandatory" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-pii-access-control-mandatory">arch-privacy-consideration-pii-access-control-mandatory</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="atrisk">
-Things returning data or metadata (such as TDs) associated with a person MUST use some form of access control.</td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
 <tr id="arch-property-dataschema" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-property-dataschema">arch-property-dataschema</a></td>
 	<td class="baseassertion"></td>
@@ -1015,7 +1015,8 @@ Things returning data or metadata (such as TDs) associated with a person MUST us
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
-            Extension relation types MUST be compared as strings using a case-insensitive comparison.
+            Extension relation types MUST be compared as strings using ASCII case-insensitive comparison,
+            (c.f. ASCII case insensitive).
             (If they are serialized in a different format they are to be converted to URIs).</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
