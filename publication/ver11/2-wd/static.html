@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en-US"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 32.2.0">
+<meta name="generator" content="ReSpec 32.2.1">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 .issue-label{text-transform:initial}
@@ -156,7 +156,7 @@ dd{margin-left:0}
   "name": "Web of Things (WoT) Architecture 1.1",
   "inLanguage": "en-US",
   "license": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
-  "datePublished": "2022-07-22",
+  "datePublished": "2022-08-04",
   "copyrightHolder": {
     "name": "World Wide Web Consortium",
     "url": "https://www.w3.org/"
@@ -697,13 +697,16 @@ dd{margin-left:0}
       }
     },
     {
-      "id": "https://tools.ietf.org/html/draft-hartke-t2trg-coral",
+      "id": "https://datatracker.ietf.org/doc/html/draft-ietf-core-coral/",
       "type": "TechArticle",
       "name": "The Constrained RESTful Application Language (CoRAL)",
-      "url": "https://tools.ietf.org/html/draft-hartke-t2trg-coral",
+      "url": "https://datatracker.ietf.org/doc/html/draft-ietf-core-coral/",
       "creator": [
         {
-          "name": "Klaus Hartke"
+          "name": "Christian Amsüss"
+        },
+        {
+          "name": "Thomas Fossati"
         }
       ],
       "publisher": {
@@ -1179,14 +1182,15 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "lwm2m"
     },
     "CoRAL": {
-      "href": "https://tools.ietf.org/html/draft-hartke-t2trg-coral",
+      "href": "https://datatracker.ietf.org/doc/html/draft-ietf-core-coral/",
       "title": "The Constrained RESTful Application Language (CoRAL)",
       "authors": [
-        "Klaus Hartke"
+        "Christian Amsüss",
+        "Thomas Fossati"
       ],
       "publisher": "IETF",
       "status": "Internet-Draft",
-      "date": " March 2019",
+      "date": "March 2022",
       "id": "coral"
     },
     "WOT-PIONEERS-1": {
@@ -1306,21 +1310,21 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "wot-security"
     }
   },
-  "publishISODate": "2022-07-22T00:00:00.000Z",
-  "generatedSubtitle": "W3C Working Draft 22 July 2022"
+  "publishISODate": "2022-08-04T00:00:00.000Z",
+  "generatedSubtitle": "W3C Working Draft 04 August 2022"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/W3C-WD"></head>
 
-<body class="h-entry toc-inline"><div class="head">
+<body class="h-entry"><div class="head">
     <p class="logos"><a class="logo" href="https://www.w3.org/"><img crossorigin="" alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72">
   </a></p>
     <h1 id="title" class="title">Web of Things (WoT) Architecture 1.1</h1> 
-    <p id="w3c-state"><a href="https://www.w3.org/standards/types#WD">W3C Working Draft</a> <time class="dt-published" datetime="2022-07-22">22 July 2022</time></p>
+    <p id="w3c-state"><a href="https://www.w3.org/standards/types#WD">W3C Working Draft</a> <time class="dt-published" datetime="2022-08-04">04 August 2022</time></p>
     <details open="">
       <summary>More details about this document</summary>
       <dl>
         <dt>This version:</dt><dd>
-                <a class="u-url" href="https://www.w3.org/TR/2022/WD-wot-architecture11-20220722/">https://www.w3.org/TR/2022/WD-wot-architecture11-20220722/</a>
+                <a class="u-url" href="https://www.w3.org/TR/2022/WD-wot-architecture11-20220804/">https://www.w3.org/TR/2022/WD-wot-architecture11-20220804/</a>
               </dd>
         <dt>Latest published version:</dt><dd>
                 <a href="https://www.w3.org/TR/wot-architecture11/">https://www.w3.org/TR/wot-architecture11/</a>
@@ -1434,7 +1438,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     
         This document was produced by a group
         operating under the
-        <a href="https://www.w3.org/Consortium/Patent-Policy-20170801/">1 August 2017 <abbr title="World Wide Web Consortium">W3C</abbr> Patent
+        <a href="https://www.w3.org/Consortium/Patent-Policy/"><abbr title="World Wide Web Consortium">W3C</abbr> Patent
           Policy</a>.
       
     
@@ -1444,9 +1448,9 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           the group; that page also includes
           instructions for disclosing a patent. An individual who has actual
           knowledge of a patent which the individual believes contains
-          <a href="https://www.w3.org/Consortium/Patent-Policy-20170801/#def-essential">Essential Claim(s)</a>
+          <a href="https://www.w3.org/Consortium/Patent-Policy/#def-essential">Essential Claim(s)</a>
           must disclose the information in accordance with
-          <a href="https://www.w3.org/Consortium/Patent-Policy-20170801/#sec-Disclosure">section 6 of the <abbr title="World Wide Web Consortium">W3C</abbr> Patent Policy</a>.
+          <a href="https://www.w3.org/Consortium/Patent-Policy/#sec-Disclosure">section 6 of the <abbr title="World Wide Web Consortium">W3C</abbr> Patent Policy</a>.
         
   </p><p>
                   This document is governed by the
@@ -1829,7 +1833,6 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       <dd>An entity that can create WoT Thing Descriptions
         for a specific Thing.</dd>
       <dt>
-      </dt><dt>
         <dfn data-plurals="properties" id="dfn-property" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Property</dfn>
       </dt>
       <dd>An Interaction Affordance that exposes state of the Thing.
@@ -2920,14 +2923,14 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
           <p>
             The Thing Model enables:
-            </p><ul>
+          </p>
+            <ul>
             <li> onboard and manage of multiple <a href="#dfn-thing" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-thing-27">Thing</a> models, e.g., by a cloud service. </li>
             <li> simulate of devices/<a href="#dfn-thing" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-thing-28">Things</a> that have not yet been developed.</li>
             <li> develop common applications across devices from different manufacturers that share a common <a href="#dfn-thing" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-thing-29">Thing</a> model.</li>
             <li> combining multiple models into a <a href="#dfn-thing" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-thing-30">Thing</a>.
             </li><li> implementation support of a concrete <a href="#dfn-thing" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-thing-31">Thing</a>.
             </li></ul>
-            <p></p>
             <p>
             The <a href="#dfn-wot-thing-model" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-wot-thing-model-10">Thing Model</a> is a logical description of the interface and possible interaction with <a href="#dfn-thing" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-thing-32">Thing</a>'s
             <a href="#dfn-property" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-property-2">Properties</a>, <a href="#dfn-action" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-action-2">Actions</a>, and <a href="#dfn-event" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-event-2">Events</a>, however it does not contain <a href="#dfn-thing" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-thing-33">Thing</a> instance-specific
@@ -3191,7 +3194,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         <p>
           The main scenarios for provisioning devices with WoT are as
           follows:
-        </p><ul>
+        </p>
+        <ul>
           <li>
             A device is already provisioned and operational in a
             given deployment. Make it work with WoT.
@@ -3206,7 +3210,6 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
             order to become operational for WoT.
           </li>
         </ul>
-        <p></p>
         <p>
           Various provisioning schemes are being used in IoT protocol suites.
           The text in this section is based on <a href="https://github.com/w3c/wot-architecture/tree/master/proposals">proposals</a>
@@ -3223,7 +3226,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           <p>
             Common elements of device bootstrapping and provisioning across
             various IoT protocol suites are as follows:
-            </p><ul>
+          </p>
+            <ul>
                 <li>
                     Establish the chain of trust, e.g. secure storage, keys,
                     certificates. This may involve various solutions, such
@@ -3263,11 +3267,11 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
                     Decommission and irreversibly destroy a device.
                 </li>
             </ul>
-          <p></p>
           <p>
             Taken into account these provisioning flows, in general a device
             can be in one of the following states:
-            </p><ul>
+          </p>
+            <ul>
                 <li>
                     <strong>Manufactured</strong>: the device is flashed with
                     a software image. In the case it is certified for a certain
@@ -3310,7 +3314,6 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
                     called <em>End-of-life</em> in OPC-UA and Anima.
                 </li>
             </ul>
-          <p></p>
           <figure id="fig-device-lifecycle">
             <img src="images/architecture/device-lifecycle-1.svg" srcset="images/architecture/device-lifecycle-1.svg" class="wot-arch-diagram" alt="Device Lifecycle">
             <figcaption>Figure <bdi class="figno">23</bdi> <span class="fig-title">Device Lifecycle</span></figcaption>
@@ -3318,7 +3321,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           <p>
             The most typical transitions between lifecycle states are the
             following:
-            </p><ul>
+          </p>
+            <ul>
                 <li>
                     <strong>Bootstrapping</strong> (or onboarding): the device
                     is provisioned with an identity, the chain of trust is
@@ -3373,7 +3377,6 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
                     data, software and may be physically destroyed.
                 </li>
             </ul>
-          <p></p>
       </section>
     </section>
 
@@ -4010,16 +4013,18 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         HTTP(S).
         The HTTP Baseline Profile is complemented by two other profiles
         that provide protocol bindings for the event mechanism:
-        </p><ul>
+      </p>
+        <ul>
           <li>HTTP SSE Profile for Server Sent Events</li>
           <li>HTTP Webhooks Profile for Webhooks</li>
         </ul>
+      <p>
         These profiles can be used stand alone, or a device can implement a 
         combination of them.
         
         It is envisioned, that other profiles will be defined in the future,
         that contain mappings to other protocols.
-      <p></p>
+      </p>
 
       <section id="profiling-methodology"><div class="header-wrapper"><h4 id="profile-description-methodology"><bdi class="secno">7.3.1 </bdi>Profiling Methodology</h4><a class="self-link" href="#profile-description-methodology" aria-label="Permalink for Section 7.3.1"></a></div>
         
@@ -4100,7 +4105,6 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           <img src="images/profiles/WoTProfiles.png" class="wot-profiles" alt="WoT Profiles" height="391" width="802">
           <figcaption>Figure <bdi class="figno">30</bdi> <span class="fig-title">WoT Baseline Profile - Other Profiles</span></figcaption>
         </figure>
-        <p></p>
       </section>
     </section>
 
@@ -4143,7 +4147,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         provide strong security or privacy guarantees, and this allows a variety
         of existing discovery mechanisms with relatively weak security to be used,
         as long as they satisfy the following requirements:
-        </p><ul>
+        </p>
+        <ul>
         <li>
         <span class="rfc2119-assertion" id="arch-discovery-no-metadata-in-introduction">
         Any <a href="#dfn-wot-introduction" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-wot-introduction-3">introduction</a> mechanism used for <a href="#dfn-wot-discovery" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-wot-discovery-11">WoT Discovery</a> <em class="rfc2119">MUST NOT</em> 
@@ -4159,8 +4164,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         Randomly generated URLs are recommended.
         </li>
         </ul>
-        <p></p><p>
-    </p></section>
+    </section>
     <section id="sec-discovery-exploration"><div class="header-wrapper"><h4 id="x7-4-2-exploration-mechanisms"><bdi class="secno">7.4.2 </bdi>Exploration Mechanisms</h4><a class="self-link" href="#sec-discovery-exploration" aria-label="Permalink for Section 7.4.2"></a></div>
       
         <p>
@@ -5422,8 +5426,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
             cases:
           </p>
           <dl>
-          <dt>Public Networks:</dt><dt>
-          </dt><dd><span class="rfc2119-assertion" id="arch-security-consideration-tls-mandatory-pub">When a Thing is made 
+          <dt>Public Networks:</dt>
+          <dd><span class="rfc2119-assertion" id="arch-security-consideration-tls-mandatory-pub">When a Thing is made 
             available on the public internet so it can
             be accessed by anyone, from anywhere, then it <em class="rfc2119">MUST</em> be protected by secure
             transport such as TLS or DTLS.</span>
@@ -5434,8 +5438,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
             because secure transport also protects the privacy of requestors
             (for example, the content of queries).
           </dd>
-          <dt>Private Networks:</dt><dt>
-          </dt><dd><span class="rfc2119-assertion" id="arch-security-consideration-tls-recommended-priv">When a Thing is made 
+          <dt>Private Networks:</dt>
+          <dd><span class="rfc2119-assertion" id="arch-security-consideration-tls-recommended-priv">When a Thing is made 
             available on a private network then it <em class="rfc2119">SHOULD</em> be protected by secure
             transport such as TLS or DTLS.</span>
           The risk increases with the sensitivity of the data being protected,
@@ -5453,8 +5457,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
            reasons.  Please see the referenced security consideration for
            additional risks and mitigations with this approach. 
           </dd>
-          <dt>Brownfield Devices:</dt><dt>
-          </dt><dd>WoT is descriptive and an accurate description of existing
+          <dt>Brownfield Devices:</dt>
+          <dd>WoT is descriptive and an accurate description of existing
            "brownfield" devices may reveal they are not secure.  
            For example, a specific
            device may use HTTP without TLS, which is not secure even if it 
@@ -5747,7 +5751,7 @@ Services returning Thing Descriptions with immutable IDs <em class="rfc2119">MUS
   </section><section id="informative-references"><div class="header-wrapper"><h3 id="c-2-informative-references"><bdi class="secno">C.2 </bdi>Informative references</h3><a class="self-link" href="#informative-references" aria-label="Permalink for Appendix C.2"></a></div>
     
     <dl class="bibliography"><dt id="bib-coral">[CoRAL]</dt><dd>
-      <a href="https://tools.ietf.org/html/draft-hartke-t2trg-coral"><cite>The Constrained RESTful Application Language (CoRAL)</cite></a>. Klaus Hartke.  IETF.  March 2019. Internet-Draft. URL: <a href="https://tools.ietf.org/html/draft-hartke-t2trg-coral">https://tools.ietf.org/html/draft-hartke-t2trg-coral</a>
+      <a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-coral/"><cite>The Constrained RESTful Application Language (CoRAL)</cite></a>. Christian Amsüss; Thomas Fossati.  IETF. March 2022. Internet-Draft. URL: <a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-coral/">https://datatracker.ietf.org/doc/html/draft-ietf-core-coral/</a>
     </dd><dt id="bib-ecmascript">[ECMAScript]</dt><dd>
       <a href="https://tc39.es/ecma262/multipage/"><cite>ECMAScript Language Specification</cite></a>.  Ecma International. URL: <a href="https://tc39.es/ecma262/multipage/">https://tc39.es/ecma262/multipage/</a>
     </dd><dt id="bib-hci">[HCI]</dt><dd>
