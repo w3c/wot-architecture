@@ -52,6 +52,9 @@
 #arch-media-type-extra {
   background-color: yellow;
 }
+#arch-networked {
+  background-color: yellow;
+}
 #arch-op-expected-request {
   background-color: yellow;
 }
@@ -64,13 +67,16 @@
 #arch-other-thing-representations {
   background-color: yellow;
 }
+#arch-privacy-consideration-access-control-mandatory-person {
+  background-color: yellow;
+}
 #arch-privacy-consideration-dist-td-auth {
   background-color: yellow;
 }
 #arch-privacy-consideration-explicit-pii {
   background-color: yellow;
 }
-#arch-privacy-consideration-immutable-id-access-control-mandatory {
+#arch-privacy-consideration-id-access-control-mandatory-immutable {
   background-color: yellow;
 }
 #arch-privacy-consideration-min-explicit-pii {
@@ -79,19 +85,13 @@
 #arch-privacy-consideration-no-unness-info-td {
   background-color: yellow;
 }
-#arch-privacy-consideration-pii-access-control-mandatory {
-  background-color: yellow;
-}
 #arch-property-dataschema {
   background-color: yellow;
 }
 #arch-rel-type-lowercase {
   background-color: yellow;
 }
-#arch-rel-types-1 {
-  background-color: yellow;
-}
-#arch-rel-types-2 {
+#arch-rel-types {
   background-color: yellow;
 }
 #arch-schema {
@@ -109,6 +109,12 @@
 #arch-security-consideration-communication-platform {
   background-color: yellow;
 }
+#arch-security-consideration-dtls-1-2 {
+  background-color: yellow;
+}
+#arch-security-consideration-dtls-1-3 {
+  background-color: yellow;
+}
 #arch-security-consideration-hal-refuse-unsafe {
   background-color: yellow;
 }
@@ -122,6 +128,9 @@
   background-color: yellow;
 }
 #arch-security-consideration-limit-trust {
+  background-color: yellow;
+}
+#arch-security-consideration-no-earlier-tls-or-dtls {
   background-color: yellow;
 }
 #arch-security-consideration-no-expose-cred {
@@ -151,13 +160,19 @@
 #arch-security-consideration-separate-security-data {
   background-color: yellow;
 }
-#arch-security-consideration-tls-mandatory-1 {
+#arch-security-consideration-tls-1-2 {
   background-color: yellow;
 }
-#arch-security-consideration-tls-mandatory-2 {
+#arch-security-consideration-tls-1-3 {
+  background-color: yellow;
+}
+#arch-security-consideration-tls-mandatory-pub {
   background-color: yellow;
 }
 #arch-security-consideration-tls-optional-on-lan {
+  background-color: yellow;
+}
+#arch-security-consideration-tls-recommended-priv {
   background-color: yellow;
 }
 #arch-security-consideration-use-hal {

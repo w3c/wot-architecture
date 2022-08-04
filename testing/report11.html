@@ -855,6 +855,18 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
+<tr id="arch-privacy-consideration-access-control-mandatory-person" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-access-control-mandatory-person">arch-privacy-consideration-access-control-mandatory-person</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+Things returning data or metadata (such as TDs) associated with a person MUST use some form of access control.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
 <tr id="arch-privacy-consideration-dist-td-auth" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-dist-td-auth">arch-privacy-consideration-dist-td-auth</a></td>
 	<td class="baseassertion"></td>
@@ -883,8 +895,8 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="arch-privacy-consideration-immutable-id-access-control-mandatory" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-immutable-id-access-control-mandatory">arch-privacy-consideration-immutable-id-access-control-mandatory</a></td>
+<tr id="arch-privacy-consideration-id-access-control-mandatory-immutable" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-id-access-control-mandatory-immutable">arch-privacy-consideration-id-access-control-mandatory-immutable</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -916,18 +928,6 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="atrisk"> 
             Unnecessary information
             SHOULD NOT be exposed in TDs whenever possible.</td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="arch-privacy-consideration-pii-access-control-mandatory" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-pii-access-control-mandatory">arch-privacy-consideration-pii-access-control-mandatory</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="atrisk">
-Things returning data or metadata (such as TDs) associated with a person MUST use some form of access control.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -976,10 +976,10 @@ Things returning data or metadata (such as TDs) associated with a person MUST us
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">Thus,
-            the corresponding Interaction Affordances SHOULD
-            declare a data schema to provide more detailed
-            syntactic metadata for the data exchanged.</td>
+	<td class="atrisk">Thus, 
+	   the Interaction Affordance for structured data types SHOULD 
+           be associated with a data schema to provide more detailed 
+	   syntactic metadata for the data exchanged.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
