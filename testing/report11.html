@@ -121,7 +121,7 @@ pre.example {
     Implementation Report
   </h1>
   <p>
-    <b>Version</b>: 30 Jun 2022
+    <b>Version</b>: 27 Jul 2022
   </p>
   <p>
     <b>Editors</b>:<br>
@@ -553,8 +553,8 @@ pre.example {
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
-            If the data is not fully specified by the Protocol Binding used (e.g., through a media type),
-            Actions MAY contain data schemas for optional input parameters and output results.</td>
+            If the data format is not fully specified by the Protocol Binding used (e.g., through a media type),
+            Actions MAY contain data schemas for input parameters and output results.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -595,6 +595,57 @@ pre.example {
           addition to navigation affordances (i.e., Web links),
           Things MAY offer three other types of Interaction Affordances
           defined by this specification: Properties, Actions, and Events.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-binding-templates-known-subprotocol" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-binding-templates-known-subprotocol">arch-binding-templates-known-subprotocol</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+                    Transport protocols MAY have to use information provided by an extension mechanisms to interact successfully.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-binding-templates-media-type-optional-parameters" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-binding-templates-media-type-optional-parameters">arch-binding-templates-media-type-optional-parameters</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+            Forms MAY contain the media type and optional parameters in additional form fields such as a content type 
+            field known from HTTP, which combines media type and its potential parameters
+            (e.g., text/plain; charset=utf-8).</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-binding-templates-media-type-parameters" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-binding-templates-media-type-parameters">arch-binding-templates-media-type-parameters</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+            The media type [[!RFC2046]] identifies these formats, while media type parameters MAY specify them further.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="arch-binding-templates-subprotocol-explicit-declaration" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-binding-templates-subprotocol-explicit-declaration">arch-binding-templates-subprotocol-explicit-declaration</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+                  Such subprotocols cannot be identified from the URI scheme alone and MUST be declared explicitly
+                  using the subprotocol field inside forms.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -663,8 +714,8 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="atrisk">
             If the data is not fully specified by the Protocol Binding used (e.g., through a media type),
-            Events MAY contain data schemas for the event data and possible subscription control messages
-            (e.g., to subscribe with a Webhook callback URI).</td>
+            Events MAY contain data schemas for the event data and subscription control messages
+            (e.g., a callback URI to subscribe with a Webhook).</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -939,7 +990,7 @@ Things returning data or metadata (such as TDs) associated with a person MUST us
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
-            If the data is not fully specified by the Protocol Binding used (e.g., through a media type),
+            If the data format is not fully specified by the Protocol Binding used (e.g., through a media type),
             Properties MAY contain one data schema for the exposed state.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
@@ -976,10 +1027,10 @@ Things returning data or metadata (such as TDs) associated with a person MUST us
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">Thus,
-            the corresponding Interaction Affordances SHOULD
-            declare a data schema to provide more detailed
-            syntactic metadata for the data exchanged.</td>
+	<td class="atrisk">Thus, 
+	   the Interaction Affordance for structured data types SHOULD 
+           be associated with a data schema to provide more detailed 
+	   syntactic metadata for the data exchanged.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
