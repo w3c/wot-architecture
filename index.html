@@ -2423,7 +2423,8 @@
           (e.g. <code>stylesheet</code>),
           or extension types in the form of URIs [[!RFC3986]].
           <span class="rfc2119-assertion" id="arch-rel-types">
-            Extension relation types MUST be compared as strings using a case-insensitive comparison.
+            Extension relation types MUST be compared as strings using ASCII case-insensitive comparison,
+            (c.f. <a href="https://infra.spec.whatwg.org/#ascii-case-insensitive">ASCII case insensitive</a>).
             (If they are serialized in a different format they are to be converted to URIs).</span>
           <span class="rfc2119-assertion" id="arch-rel-type-lowercase">
             Nevertheless, all-lowercase URIs SHOULD be used for extension relation types [[!RFC8288]].</span>
