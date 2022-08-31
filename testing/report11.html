@@ -121,7 +121,7 @@ pre.example {
     Implementation Report
   </h1>
   <p>
-    <b>Version</b>: 4 Aug 2022
+    <b>Version</b>: 31 Aug 2022
   </p>
   <p>
     <b>Editors</b>:<br>
@@ -168,8 +168,11 @@ pre.example {
   <li class="tocline">8. <a href="#security">Security</a></li>
   <li class="tocline">9. <a href="#test_results">Test results</a>
     <ul>
+<!--
       <li class="tocline">9.1 <a href="#automated_validation_results">Automated validation results</a></li>
       <li class="tocline">9.2 <a href="#manual_validation_results">Manual validation results</a></li>
+-->
+      <li class="tocline">9.2 <a href="#manual_validation_results">Validation results</a></li>
 <!--
       <li class="tocline">9.3 <a href="#test_interop">Interoperability results</a></li>
 -->
@@ -511,14 +514,10 @@ pre.example {
 </p>
 -->
 
+<!--
 <h3 id="h_automated_validation_results"><a id="automated_validation_results" name="automated_validation_results">9.1 Automated Validation Results</a></h3>
 <p>
   The following assertions have been validated by automated testing. 
-  <!--
-  using the
-  <a href="http://plugfest.thingweb.io/playground/">ThingWeb Playground</a>
-  <a href="https://github.com/thingweb/thingweb-playground/">AssertionTester</a>.
-  -->
 </p>
 
 <table id="testresults" class="testlist" summary="assertions and tests" cellspacing="1" cellpadding="2" width="100%">
@@ -541,11 +540,61 @@ pre.example {
     </tr>
   </thead>
   <tbody>
-<!--
+  </tbody>
+</table>
+
+<h3 id="h_manual_validation_results"><a id="manual_validation_results" name="manual_validation_results">9.2 Manual validation results</a></h3>
+<p>
+  The following assertions have been manually validated by the implementers.
+</p>
+<table id="manualresults" class="testlist" summary="manual assertions" cellspacing="1" cellpadding="2" width="100%">
+  <thead>
     <tr>
-      <th colspan="10">Section Title</th>
+      <th>ID</th>
+      <th>Category</th>
+      <th>Req</th>
+      <th>Context</th>
+      <th>Assertion</th>
+      <th>Parent</th>
+      <th colspan="4">Results</th>
     </tr>
+    <tr>
+      <th colspan="6"></th>
+      <th>P</th>
+      <th>F</th>
+      <th>N</th>
+      <th>T</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
 -->
+
+<h3 id="h_manual_validation_results"><a id="manual_validation_results" name="manual_validation_results">9.1 Validation results</a></h3>
+<p>
+  The following assertions have been validated by the implementers.
+</p>
+<table id="manualresults" class="testlist" summary="manual assertions" cellspacing="1" cellpadding="2" width="100%">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Category</th>
+      <th>Req</th>
+      <th>Context</th>
+      <th>Assertion</th>
+      <th>Parent</th>
+      <th colspan="4">Results</th>
+    </tr>
+    <tr>
+      <th colspan="6"></th>
+      <th>P</th>
+      <th>F</th>
+      <th>N</th>
+      <th>T</th>
+    </tr>
+  </thead>
+  <tbody>
   
 <tr id="arch-action-dataschema" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-action-dataschema">arch-action-dataschema</a></td>
@@ -1476,38 +1525,6 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr></tbody>
-</table>
-
-<h3 id="h_manual_validation_results"><a id="manual_validation_results" name="manual_validation_results">9.2 Manual validation results</a></h3>
-<p>
-  The following assertions have been manually validated by the implementers.
-</p>
-<table id="manualresults" class="testlist" summary="manual assertions" cellspacing="1" cellpadding="2" width="100%">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Category</th>
-      <th>Req</th>
-      <th>Context</th>
-      <th>Assertion</th>
-      <th>Parent</th>
-      <th colspan="4">Results</th>
-    </tr>
-    <tr>
-      <th colspan="6"></th>
-      <th>P</th>
-      <th>F</th>
-      <th>N</th>
-      <th>T</th>
-    </tr>
-  </thead>
-  <tbody>
-<!--
-    <tr>
-      <th colspan="10">Section Title</th>
-    </tr>
--->
-  </tbody>
 </table>
 
 
