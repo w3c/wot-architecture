@@ -10,6 +10,18 @@
 #arch-affordances {
   background-color: yellow;
 }
+#arch-binding-templates-known-subprotocol {
+  background-color: yellow;
+}
+#arch-binding-templates-media-type-optional-parameters {
+  background-color: yellow;
+}
+#arch-binding-templates-media-type-parameters {
+  background-color: yellow;
+}
+#arch-binding-templates-subprotocol-explicit-declaration {
+  background-color: yellow;
+}
 #arch-discovery-metadata-after-authorization {
   background-color: yellow;
 }
