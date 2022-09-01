@@ -79,7 +79,7 @@
           date: "13 June 2019"
         },
         "IEC-FOTF": {
-          href: "https://www.iec.ch/whitepaper/pdf/iecWP-futurefactory-LR-en.pdf",
+          href: "https://www.iec.ch/basecamp/factory-future/",
           title: "Factory of the future",
           publisher: "IEC",
           date: "October 2015"
@@ -150,12 +150,12 @@
           date: "August 2018"
         },
         "CoRAL": {
-          href: "https://tools.ietf.org/html/draft-hartke-t2trg-coral",
+          href: "https://datatracker.ietf.org/doc/html/draft-ietf-core-coral/",
           title: "The Constrained RESTful Application Language (CoRAL)",
-          authors: ["Klaus Hartke"],
+          authors: ["Christian Amsüss","Thomas Fossati"],
           publisher: "IETF",
           status: "Internet-Draft",
-          date: " March 2019"
+          date: "March 2022"
         },
         "WOT-PIONEERS-1": {
           href: "https://pdfs.semanticscholar.org/3ee3/a2e8ce93fbf9ba14ad54e12adaeb1f3ca392.pdf",
@@ -317,7 +317,7 @@
     <p>
       This document describes an abstract architecture.
       However, there is an
-      <a href="https://w3c.github.io/wot-architecture/testing/report.html">Implementation Report</a>
+      <a href="https://w3c.github.io/wot-architecture/testing/report11.html">Implementation Report</a>
       that describes a set of concrete implementations 
       following the W3C Web of Things architecture.
       It also references the other implementation
@@ -695,7 +695,6 @@
       </dt>
       <dd>An entity that can create WoT Thing Descriptions
         for a specific Thing.</dd>
-      <dt>
       <dt>
         <dfn>Property</dfn>
       </dt>
@@ -1806,6 +1805,7 @@
           
           <p>
             The Thing Model enables:
+          </p>
           <ul>
             <li> onboarding and management of multiple <a>Thing</a> models, e.g., by a cloud service. </li>
             <li> simulation of devices/<a>Things</a> that have not yet been developed.</li>
@@ -1814,7 +1814,6 @@
             <li> combining multiple models into a <a>Thing</a>.
             <li> implementation support of a concrete <a>Thing</a>.
           </ul>
-          </p>
           <p>
             The <a>Thing Model</a> is a logical description of the interface and possible interaction with <a>Thing</a>'s
             <a>Properties</a>, <a>Actions</a>, and <a>Events</a>, however it does not contain <a>Thing</a> instance-specific
@@ -2085,6 +2084,7 @@
         <p>
           The main scenarios for provisioning devices with WoT are as
           follows:
+        </p>
         <ul>
           <li>
             A device is already provisioned and operational in a
@@ -2100,7 +2100,6 @@
             order to become operational for WoT.
           </li>
         </ul>
-        </p>
         <p>
           Various provisioning schemes are being used in IoT protocol suites.
           The text in this section is based on <a
@@ -2118,6 +2117,7 @@
           <p>
             Common elements of device bootstrapping and provisioning across
             various IoT protocol suites are as follows:
+          </p>
             <ul>
                 <li>
                     Establish the chain of trust, e.g. secure storage, keys,
@@ -2158,10 +2158,10 @@
                     Decommission and irreversibly destroy a device.
                 </li>
             </ul>
-          </p>
           <p>
             Taken into account these provisioning flows, in general a device
             can be in one of the following states:
+          </p>
             <ul>
                 <li>
                     <strong>Manufactured</strong>: the device is flashed with
@@ -2205,7 +2205,6 @@
                     called <em>End-of-life</em> in OPC-UA and Anima.
                 </li>
             </ul>
-          </p>
           <figure id="fig-device-lifecycle">
             <img src="images/architecture/device-lifecycle-1.svg"
                     srcset="images/architecture/device-lifecycle-1.svg"
@@ -2215,6 +2214,7 @@
           <p>
             The typical transitions between lifecycle states are the
             following:
+          </p>
             <ul>
                 <li>
                     <strong>Bootstrapping</strong> (or onboarding): the device
@@ -2270,7 +2270,6 @@
                     data, software and may be physically destroyed.
                 </li>
             </ul>
-          </p>
       </section>
     </section>
 
@@ -2930,10 +2929,12 @@
         HTTP(S).
         The HTTP Baseline Profile is complemented by two other profiles
         that provide protocol bindings for the event mechanism:
+      </p>
         <ul>
           <li>HTTP SSE Profile for Server Sent Events</li>
           <li>HTTP Webhooks Profile for Webhooks</li>
         </ul>
+      <p>
         These profiles can be used stand alone, or a device can implement a 
         combination of them.
         
@@ -3020,7 +3021,6 @@
           <img src="images/profiles/WoTProfiles.png" class="wot-profiles" alt="WoT Profiles" />
           <figcaption>WoT Baseline Profile - Other Profiles</figcaption>
         </figure>
-        </p>
       </section>
     </section>
 
@@ -3059,6 +3059,7 @@
         <p>
           Two exploration mechanisms are provided, supporting both distribution of single TDs
           and directory services for multiple TDs:
+        </p>
           <ul>
             <li>An ordinary web resource provided by an HTTP server can be used to distribute a single TD.
                   This can also be used for self-description, to allow a Thing 
@@ -3067,6 +3068,7 @@
                 Both lightweight syntactic query mechanisms and more powerful semantic query mechanisms 
                 are supported by directory services.</li>
           </ul>
+        <p>
           Use of these mechanisms is encouraged, but not mandatory.
         </p>
     <section id="sec-discovery-introductions">
@@ -3076,6 +3078,7 @@
         provide strong security or privacy guarantees, and this allows a variety
         of existing discovery mechanisms with relatively weak security to be used,
         as long as they satisfy the following requirements:
+        </p>
         <ul>
         <li>
         <span class="rfc2119-assertion" id="arch-discovery-no-metadata-in-introduction">
@@ -3092,7 +3095,6 @@
         Randomly generated URLs are recommended.
         </li>
         </ul>
-        </p><p>
     </section>
     <section id="sec-discovery-exploration">
       <h3>Exploration Mechanisms</h3>
@@ -4395,7 +4397,7 @@
             cases:
           </p>
           <dl>
-          <dt>Public Networks:<dt>
+          <dt>Public Networks:</dt>
           <dd><span class="rfc2119-assertion" 
               id="arch-security-consideration-tls-mandatory-pub">When a Thing is made 
             available on the public internet so it can
@@ -4408,7 +4410,7 @@
             because secure transport also protects the privacy of requestors
             (for example, the content of queries).
           </dd>
-          <dt>Private Networks:<dt>
+          <dt>Private Networks:</dt>
           <dd><span class="rfc2119-assertion" 
               id="arch-security-consideration-tls-recommended-priv">When a Thing is made 
             available on a private network then it SHOULD be protected by secure
@@ -4429,7 +4431,7 @@
            reasons.  Please see the referenced security consideration for
            additional risks and mitigations with this approach. 
           </dd>
-          <dt>Brownfield Devices:<dt>
+          <dt>Brownfield Devices:</dt>
           <dd>WoT is descriptive and an accurate description of existing
            "brownfield" devices may reveal they are not secure.  
            For example, a specific
@@ -4513,7 +4515,7 @@
         should be used together with appropriate integrity protection
         mechanisms and access control policies, with the goal of 
         providing it only to authorized users.
-	In general, many of the <a href="sec-security-considerations">Security Considerations</a>
+	In general, many of the <a href="#sec-security-considerations">Security Considerations</a>
 	discussed in the previous section can also be seen as privacy risks, when
 	they relate the undesired an unauthorized disclosure of information.
       </p>
