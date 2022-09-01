@@ -438,6 +438,49 @@ dd{margin-left:0}
       }
     },
     {
+      "id": "https://www.w3.org/TR/wot-profile/",
+      "type": "TechArticle",
+      "name": "Web of Things (WoT) Profile",
+      "url": "https://www.w3.org/TR/wot-profile/",
+      "creator": [
+        {
+          "name": "Michael Lagally"
+        },
+        {
+          "name": "Michael McCool"
+        },
+        {
+          "name": "Ryuichi Matsukura"
+        },
+        {
+          "name": "Sebastian Käbisch"
+        },
+        {
+          "name": "Tomoaki Mizushima"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/wot-binding-templates/",
+      "type": "TechArticle",
+      "name": "Web of Things (WoT) Binding Templates",
+      "url": "https://www.w3.org/TR/wot-binding-templates/",
+      "creator": [
+        {
+          "name": "Michael Koster"
+        },
+        {
+          "name": "Ege Korkan"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
       "id": "https://www.w3.org/TR/wot-architecture/",
       "type": "TechArticle",
       "name": "Web of Things (WoT) Architecture",
@@ -492,23 +535,6 @@ dd{margin-left:0}
       ],
       "publisher": {
         "name": "IETF"
-      }
-    },
-    {
-      "id": "https://www.w3.org/TR/wot-binding-templates/",
-      "type": "TechArticle",
-      "name": "Web of Things (WoT) Binding Templates",
-      "url": "https://www.w3.org/TR/wot-binding-templates/",
-      "creator": [
-        {
-          "name": "Michael Koster"
-        },
-        {
-          "name": "Ege Korkan"
-        }
-      ],
-      "publisher": {
-        "name": "W3C"
       }
     },
     {
@@ -1896,9 +1922,12 @@ Information</a></li>
 "secno">A.</bdi> Recent Specification Changes</a>
 <ol class="toc">
 <li class="tocline"><a class="tocxref" href=
-"#changes-from-recommendation-1.0"><bdi class="secno">A.1</bdi>
-Changes from the 1.0 version of [<cite><span class="formerLink"
-data-link-type="biblio" title=
+"#changes-from-fpwd-1.1"><bdi class="secno">A.1</bdi> Changes from
+the FPWD version</a></li>
+<li class="tocline"><a class="tocxref" href=
+"#changes-in-fpwd-1.1-from-recommendation-1.0"><bdi class=
+"secno">A.2</bdi> Changes in the FPWD from the 1.0 version of
+[<cite><span class="formerLink" data-link-type="biblio" title=
 "Web of Things (WoT) Architecture">wot-architecture</span></cite>]</a></li>
 </ol>
 </li>
@@ -2379,6 +2408,7 @@ application using it.</dd>
 aria-haspopup="dialog" data-dfn-type="dfn">Producer</dfn></dt>
 <dd>An entity that can create WoT Thing Descriptions for a specific
 Thing.</dd>
+<dt></dt>
 <dt><dfn data-plurals="properties" id="dfn-property" tabindex="0"
 aria-haspopup="dialog" data-dfn-type="dfn">Property</dfn></dt>
 <dd>An Interaction Affordance that exposes state of the Thing. This
@@ -3739,6 +3769,7 @@ manufacturers that share a common <a href="#dfn-thing" class=
 class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-thing-31">Thing</a>.</li>
 </ul>
+<p></p>
 <p>The <a href="#dfn-wot-thing-model" class="internalDFN"
 data-link-type="dfn" id="ref-for-dfn-wot-thing-model-10">Thing
 Model</a> is a logical description of the interface and possible
@@ -4179,6 +4210,7 @@ lifecycle stages in a <a href="#dfn-thing-description" class=
 <li>Bootstrap and provision a device directly with WoT, in order to
 become operational for WoT.</li>
 </ul>
+<p></p>
 <p>Various provisioning schemes are being used in IoT protocol
 suites. The text in this section is based on <a href=
 "https://github.com/w3c/wot-architecture/tree/master/proposals">proposals</a>
@@ -4215,6 +4247,7 @@ provisioning.</li>
 (e.g. factory reset).</li>
 <li>Decommission and irreversibly destroy a device.</li>
 </ul>
+<p></p>
 <p>Taken into account these provisioning flows, in general a device
 can be in one of the following states:</p>
 <ul>
@@ -4246,6 +4279,7 @@ is relevant for device management purposes. It does not exist in
 OneM2M, LwM2M, OCF, T2TRG and is called <em>End-of-life</em> in
 OPC-UA and Anima.</li>
 </ul>
+<p></p>
 <figure id="fig-device-lifecycle"><img src=
 "images/architecture/device-lifecycle-1.svg" srcset=
 "images/architecture/device-lifecycle-1.svg" class=
@@ -4300,6 +4334,7 @@ factory default state.</li>
 <li><strong>Destroy</strong>: the device is erased from all data,
 software and may be physically destroyed.</li>
 </ul>
+<p></p>
 </section>
 </section>
 <section id="sec-interaction-model">
@@ -5462,6 +5497,7 @@ extended profiles can be built on top of a baseline profile.</p>
 "fig-title">WoT Baseline Profile - Other
 Profiles</span></figcaption>
 </figure>
+<p></p>
 </section>
 </section>
 <section id="sec-discovery">
@@ -5547,6 +5583,8 @@ id="ref-for-dfn-wot-introduction-4">Introduction</a> URLs
 e.g. a human-readable device type or name.</span> Randomly
 generated URLs are recommended.</li>
 </ul>
+<p></p>
+<p></p>
 </section>
 <section id="sec-discovery-exploration">
 <div class="header-wrapper">
@@ -7674,6 +7712,7 @@ that it is always required. Instead we provide a set of
 requirements for different use cases:</p>
 <dl>
 <dt>Public Networks:</dt>
+<dt></dt>
 <dd><span class="rfc2119-assertion" id=
 "arch-security-consideration-tls-mandatory-pub">When a Thing is
 made available on the public internet so it can be accessed by
@@ -7686,6 +7725,7 @@ endpoint, for example when providing a publically accessible
 service, because secure transport also protects the privacy of
 requestors (for example, the content of queries).</dd>
 <dt>Private Networks:</dt>
+<dt></dt>
 <dd><span class="rfc2119-assertion" id=
 "arch-security-consideration-tls-recommended-priv">When a Thing is
 made available on a private network then it <em class=
@@ -7707,6 +7747,7 @@ for practical reasons. Please see the referenced security
 consideration for additional risks and mitigations with this
 approach.</dd>
 <dt>Brownfield Devices:</dt>
+<dt></dt>
 <dd>WoT is descriptive and an accurate description of existing
 "brownfield" devices may reveal they are not secure. For example, a
 specific device may use HTTP without TLS, which is not secure even
@@ -7943,14 +7984,67 @@ discourages casual access by unauthorized parties.</dd>
 Recent Specification Changes</h2>
 <a class="self-link" href="#changes" aria-label=
 "Permalink for Appendix A."></a></div>
-<section id="changes-from-the-1-0-version-of-wot-architecture">
+<section id="changes-from-the-fpwd-version">
 <div class="header-wrapper">
-<h3 id="changes-from-recommendation-1.0"><bdi class=
-"secno">A.1</bdi> Changes from the 1.0 version of [<cite><a class=
-"bibref" data-link-type="biblio" href="#bib-wot-architecture"
-title="Web of Things (WoT) Architecture">wot-architecture</a></cite>]</h3>
-<a class="self-link" href="#changes-from-recommendation-1.0"
-aria-label="Permalink for Appendix A.1"></a></div>
+<h3 id="changes-from-fpwd-1.1"><bdi class="secno">A.1</bdi> Changes
+from the FPWD version</h3>
+<a class="self-link" href="#changes-from-fpwd-1.1" aria-label=
+"Permalink for Appendix A.1"></a></div>
+<ul>
+<li>Move Toru Kawaguchi to former editors.</li>
+<li>Update abstract to reflect use of prescription (as opposed to
+pure description) where necessary.</li>
+<li>New section under Terminology: Device Categories.</li>
+<li>Section removed: System Integration.</li>
+<li>Lifecycle section reworked; removal of separate "Information
+Lifecycle" section.</li>
+<li>Reference and discuss new WoT building block and document: WoT
+Discovery [<cite><a class="bibref" data-link-type="biblio" href=
+"#bib-wot-discovery" title=
+"Web of Things (WoT) Discovery">WOT-DISCOVERY</a></cite>]</li>
+<li>Update discussion of WoT Profiles [<cite><a class="bibref"
+data-link-type="biblio" href="#bib-wot-profile" title=
+"Web of Things (WoT) Profile">WOT-PROFILE</a></cite>]</li>
+<li>Update discussion of WoT Binding Templates [<cite><a class=
+"bibref" data-link-type="biblio" href="#bib-wot-binding-templates"
+title=
+"Web of Things (WoT) Binding Templates">WOT-BINDING-TEMPLATES</a></cite>]</li>
+<li>Rename "System Topologies (Horizontals)" to "Common Deployment
+Patterns".</li>
+<li>Rename "Application Domains (Verticals)" to "Application
+Domains".</li>
+<li>New or revised deployment patterns:
+<ul>
+<li>Telemetry</li>
+<li>Orchestration</li>
+<li>Virtual Things</li>
+</ul>
+</li>
+<li>Revise Security Considerations and Privacy Considerations:
+<ul>
+<li>Reorganized to ensure that risks and mitigations are presented
+separately, and that normative content is only given under
+mitigations.</li>
+<li>Added new section for Access to PII covering actual data
+access, not just metadata.</li>
+<li>Added new section for Trusted Environments.</li>
+<li>Added new section for Secure Transport. This section defines
+under what conditions (D)TLS should or must be used.</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id=
+"changes-in-the-fpwd-from-the-1-0-version-of-wot-architecture">
+<div class="header-wrapper">
+<h3 id="changes-in-fpwd-1.1-from-recommendation-1.0"><bdi class=
+"secno">A.2</bdi> Changes in the FPWD from the 1.0 version of
+[<cite><a class="bibref" data-link-type="biblio" href=
+"#bib-wot-architecture" title=
+"Web of Things (WoT) Architecture">wot-architecture</a></cite>]</h3>
+<a class="self-link" href=
+"#changes-in-fpwd-1.1-from-recommendation-1.0" aria-label=
+"Permalink for Appendix A.2"></a></div>
 <ul>
 <li>Make Security Considerations and Privacy Considerations
 normative.</li>
@@ -8108,12 +8202,24 @@ Things (WoT) Architecture</cite></a>. Matthias Kovatsch; Ryuichi
 Matsukura; Michael Lagally; Toru Kawaguchi; Kunihiko Toumura; Kazuo
 Kajimoto. W3C. 9 April 2020. W3C Recommendation. URL: <a href=
 "https://www.w3.org/TR/wot-architecture/">https://www.w3.org/TR/wot-architecture/</a></dd>
+<dt id="bib-wot-binding-templates">[WOT-BINDING-TEMPLATES]</dt>
+<dd><a href=
+"https://www.w3.org/TR/wot-binding-templates/"><cite>Web of Things
+(WoT) Binding Templates</cite></a>. Michael Koster; Ege Korkan.
+W3C. 30 January 2020. W3C Working Group Note. URL: <a href=
+"https://www.w3.org/TR/wot-binding-templates/">https://www.w3.org/TR/wot-binding-templates/</a></dd>
 <dt id="bib-wot-discovery">[WOT-DISCOVERY]</dt>
 <dd><a href="https://www.w3.org/TR/wot-discovery/"><cite>Web of
 Things (WoT) Discovery</cite></a>. Andrea Cimmino; Michael McCool;
 Farshid Tavakolizadeh; Kunihiko Toumura. W3C. November 2020. URL:
 <a href=
 "https://www.w3.org/TR/wot-discovery/">https://www.w3.org/TR/wot-discovery/</a></dd>
+<dt id="bib-wot-profile">[WOT-PROFILE]</dt>
+<dd><a href="https://www.w3.org/TR/wot-profile/"><cite>Web of
+Things (WoT) Profile</cite></a>. Michael Lagally; Michael McCool;
+Ryuichi Matsukura; Sebastian Käbisch; Tomoaki Mizushima. W3C. 24
+November 2020. W3C Working Draft. URL: <a href=
+"https://www.w3.org/TR/wot-profile/">https://www.w3.org/TR/wot-profile/</a></dd>
 <dt id="bib-wot-security">[WOT-SECURITY]</dt>
 <dd><a href="https://w3c.github.io/wot-security/"><cite>Web of
 Things (WoT) Security and Privacy Guidelines</cite></a>. ; Michael
@@ -8295,12 +8401,6 @@ Sensor Network Ontology</cite></a>. Armin Haller; Krzysztof
 Janowicz; Simon Cox; Danh Le Phuoc; Kerry Taylor; Maxime
 Lefrançois. W3C. 19 October 2017. W3C Recommendation. URL: <a href=
 "https://www.w3.org/TR/vocab-ssn/">https://www.w3.org/TR/vocab-ssn/</a></dd>
-<dt id="bib-wot-binding-templates">[WOT-BINDING-TEMPLATES]</dt>
-<dd><a href=
-"https://www.w3.org/TR/wot-binding-templates/"><cite>Web of Things
-(WoT) Binding Templates</cite></a>. Michael Koster; Ege Korkan.
-W3C. 30 January 2020. W3C Working Group Note. URL: <a href=
-"https://www.w3.org/TR/wot-binding-templates/">https://www.w3.org/TR/wot-binding-templates/</a></dd>
 <dt id="bib-wot-pioneers-1">[WOT-PIONEERS-1]</dt>
 <dd><a href=
 "https://pdfs.semanticscholar.org/3ee3/a2e8ce93fbf9ba14ad54e12adaeb1f3ca392.pdf">
