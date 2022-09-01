@@ -3418,11 +3418,11 @@
         defines such an application-facing interface that follows the <a>Thing</a> abstraction
         and enables the deployment of behavior implementations during runtime through application scripts.
         See <a href="#native-impl"></a> for alternative APIs, which can also only be available during compile time.
-        In general, application logic should be executed in isolated execution environments
-        to prevent unauthorized access to the management aspects of the <a>WoT Runtime</a>,
+        In general, application logic should be executed in sandboxed execution environments
+        that prevent unauthorized access to the management aspects of the <a>WoT Runtime</a> from the application code,
         in particular the <a>Private Security Data</a>.
-        In multi-tenant <a>Servients</a>, additional execution environment isolation is required for the different
-        tenants.
+        In multi-tenant <a>Servients</a>, different tenants should also be prevented from accessing each other's data
+        without authorization.
       </p>
       <p>
         A <a>WoT Runtime</a> needs to provide certain operations to manage the lifecycle of <a>Things</a>,
@@ -4169,8 +4169,8 @@
           In basic WoT setups, all scripts running inside the
           <a>WoT Runtime</a> are considered trusted,
           distributed by the manufacturer, and therefore there
-          is no strong need to perform strict isolation
-          between each running script instance. However,
+          is no strong need to perform isolate
+          script instances from each other. However,
           depending on device capabilities, deployment use
           case scenarios, and risk level it might be desirable
           to do so. For example, if one script handles
@@ -4182,27 +4182,26 @@
           example is mutual co-existence of different tenants
           on a single WoT device. In this case each WoT
           runtime instance will be hosting a different tenant,
-          and isolation between them is required.
+          and preventing tenants from accessing each other's data
+          without authorization will generally be needed.
         </p>
         <dl>
           <dt>Mitigation:</dt>
           <dd>
 	    <span class="rfc2119-assertion" id="arch-security-consideration-isolation-sensitive">
             The <a>WoT Runtime</a> SHOULD perform isolation of
-            script instances and their data in cases when
+            script instances and their data from each other in cases when
             scripts handle sensitive data.</span>
 	    <span class="rfc2119-assertion" id="arch-security-consideration-isolation-tenants">
 	    Similarly, the <a>WoT Runtime</a>
             implementation SHOULD perform isolation of <a>WoT
-              Runtime</a> instances and their data if a WoT
+              Runtime</a> instances and their data from each other if a WoT
             device has more than one tenant.</span>
-	    Such isolation
-            can be performed within the <a>WoT Runtime</a>
-            using platform security mechanisms available on
-            the device. For more information see Sections
-            "WoT Servient Single-Tenant" and "WoT Servient
-            Multi-Tenant" of the <em>WoT Security and Privacy
-              Guidelines</em> specification [[WOT-SECURITY]].
+      In practice, isolation of scripts and runtime instances from each other
+      this can be accomplished by running all instances
+      in a "sandboxed" environment that controls its access to the rest of the environment.
+      For more information see Sections "WoT Servient Single-Tenant" and "WoT Servient
+      Multi-Tenant" of the <em>WoT Security and Privacy Guidelines</em> specification [[?WOT-SECURITY]].
           </dd>
         </dl>
       </section>
