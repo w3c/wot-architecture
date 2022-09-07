@@ -4293,14 +4293,15 @@
 	    In case
             there are more than one tenant on a single
             WoT-enabled device, a <a>WoT Runtime</a>
-            implementation should guarantee isolation of
-            each tenant's provisioned security credentials.</span>
+            implementation SHOULD isolate
+            each tenant's provisioned security credentials
+            from other tenants.</span>
 	    <span class="rfc2119-assertion" id="arch-security-consideration-no-expose-cred">
-            Additionally, in order to minimize a risk that
+            In order to minimize a risk that
             provisioned security credentials get
             compromised, the <a>WoT Runtime</a>
             implementation SHOULD NOT expose any API for
-            scripts to query the provisioned security
+            scripts to query provisioned security
             credentials.</span>
 	    <span class="rfc2119-assertion" id="arch-security-consideration-limit-cred-access">
 	    Such credentials (or even better,
@@ -4565,12 +4566,13 @@
 	    <span class="rfc2119-assertion" id="arch-privacy-consideration-dist-td-auth"> 
 	    Distribution mechanisms for TDs SHOULD ensure they are 
 	    only provided to authorized Consumers.</span>
-	    Note that the <a>WoT Discovery</a> mechanism is designed to address this
-	    specific issue, as long as it is used with authentication and access
+	    Note that the <a>WoT Discovery</a> mechanism is designed to address these
+	    specific issues, as long as it is used with authentication and access
 	    controls on exploration services.
-	    <span class="rfc2119-assertion" id="arch-privacy-consideration-no-unness-info-td"> 
-            Unnecessary information
-            SHOULD NOT be exposed in TDs whenever possible.</span>
+	    <!--span class="rfc2119-assertion" id="arch-privacy-consideration-no-unness-info-td" -->
+      As a general matter of policy,
+            unnecessary information
+            should not be exposed in TDs whenever possible.<!-- </span> -->
             For example, explicit type and instance identifying information in TDs should
             only be included if it is needed by the use case.
             Even if required by the use case,
