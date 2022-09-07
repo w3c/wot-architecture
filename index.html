@@ -4601,25 +4601,29 @@
         <dt>Mitigation:</dt>
         <dd>
 	      <span class="rfc2119-assertion" id="arch-privacy-consideration-access-control-mandatory-person">
-Things returning data or metadata (such as TDs) associated with a person MUST use some form of access control.</span>
+Things returning data or metadata (such as TDs) associated with a person SHOULD use some form of access control.</span>
       A special case of this is a <a>Thing Description Directory</a>,
       as described in [[WOT-DISCOVERY]], which is a Thing that returns 
       Thing Descriptions as data.  Such directory services are included
       in the above statement and 
-      required to use access control if the TDs describe Things associated with
+      should use access control if the TDs describe Things associated with
       identifiable people.  In the case of services
       returning Thing Descriptions, the following also applies: 
 	      <span class="rfc2119-assertion" id="arch-privacy-consideration-id-access-control-mandatory-immutable">
-Services returning Thing Descriptions with immutable IDs MUST use some form of access control.</span>
+Services returning Thing Descriptions with immutable IDs SHOULD use some form of access control.</span>
       Specifically, in both of these situations, the <code>nosec</code> security
-      scheme described in [[WOT-THING-DESCRIPTION]] cannot be used,
+      scheme described in [[WOT-THING-DESCRIPTION]] should not be used,
       as it provides no access control.
       Following the principle that Thing Descriptions describing
       Things associated with specific persons should be treated as
       PII, even if they do not explictly contain it, this implies
-      that directories providing such TDs cannot use <code>nosec</code>.
-      Again it should be noted that access controls are generally only
-      effective when secure transport is also available;
+      that directories providing such TDs should not use <code>nosec</code>.
+      Generally speaking, 
+      the only exceptions should be cases where access is controlled
+      by another mechanism not described in the TD itself, such as a 
+      segmented network.
+      Again it should also be noted that access controls are generally only
+      effective when secure transport is also used;
       see <a href="#sec-security-consideration-secure-transport"></a>.
       Use of access controls without secure transport, at best,
       only discourages casual access by unauthorized parties.
