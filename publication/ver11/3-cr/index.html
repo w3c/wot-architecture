@@ -447,7 +447,7 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
       </li>
     </ul>
     <p>Additional requirements, use cases, conceptual features and new building blocks
-      are collected in future versions ofthe <em>WoT Use Cases and Requirement </em>
+      are collected in future versions of the <em>WoT Use Cases and Requirement </em>
       <a href="https://www.w3.org/TR/wot-usecases/">https://www.w3.org/TR/wot-usecases/</a> document.
     </p>
     </section> 
@@ -488,7 +488,7 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
         to be used with a specific protocol, data payload format or an IoT 
         platform that combine both of them in specific ways. This is done through
         additional descriptive vocabularies, Thing Models and examples that aim 
-        to guide the implementors of Things and Consumers alike. </dd>
+        to guide the implementers of Things and Consumers alike. </dd>
       <dt>
         <dfn>Consumed Thing</dfn>
       </dt>
@@ -2011,7 +2011,7 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
         Each element has its own (intrinsic) <a>Thing</a> lifecycle.
         These elements build a system, where the entire system has a <em>System lifecycle</em>, 
         i.e. the system has several states and transitions through some states to become operational.
-        This implies that devices go through their lifecycle to becomer operational, and devices 
+        This implies that devices go through their lifecycle to become operational, and devices 
         must be known to others before they can be used. 
       </p>
       <p>
@@ -2041,7 +2041,7 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
         After an activation step (which may consist of several operations, such as provisioning, configuration etc.)
         the <a>device</a> and <a>consumer</a> are in regular operation mode.
         When the device is no longer required in this scenario, it will be offboarded from the consumer. 
-        After this operation it can be decomissioned and destroyed. 
+        After this operation it can be decommissioned and destroyed. 
       </p>
 
         <figure id="fig-simple-system-lifecycle">
@@ -2312,7 +2312,7 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
         <p>
           A <a>Property</a> is an <a>Interaction Affordance</a> that exposes the state of the <a>Thing</a>.
           The state exposed by a <a>Property</a> can be retrievable (readable).
-          Optionally, the state exposed by a Property may be updated (writeable).
+          Optionally, the state exposed by a Property may be updated (writable).
            <a>Things</a> may choose to make Properties observable by pushing the new state after a change
             (cf. Observing Resources [[?RFC7641]]).
          In the case of a read-only state, an Action can be used to update the state.
@@ -2602,7 +2602,7 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
         </p>
     </section>
     <section id="sec-i18n">
-      <h3>Internationalisation</h3>
+      <h3>Internationalization</h3>
       <p>
         Web of Things support interoperable internationalization and allows 
         to use to work with multilingual data such as for User Interfaces. 
@@ -4335,7 +4335,7 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
       <p>
       One common IoT situation is the use of an HTTP/HTML browser to
       access locally hosted web services in a home environment.
-      Such locally hosted web services may not have a publically
+      Such locally hosted web services may not have a publicly
       visible URL and so are not able to participate in the 
       CA system expected by browsers to enable use of HTTP/TLS (HTTPS).
       It is often the case in this situation that plain HTTP is used
@@ -4360,7 +4360,7 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
 	often provide a "guest" network that can be used for this purpose.
 	<span class="rfc2119-assertion" id="arch-security-consideration-use-psk">
 	In commercial and industrial environments, 
-	explict installation of pre-shared
+	explicit installation of pre-shared
 	keys SHOULD be used to allow browsers to access local services
 	while using TLS.</span>
 	Using a single key for a large number of services is
@@ -4403,8 +4403,8 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
             A Thing available on the public internet will have a public
             URL and so normal CA mechanisms to provide certificates are available.
             This should be done even if there are no access controls on the endpoint,
-            for example when providing a publically accessible service,
-            because secure transport also protects the privacy of requestors
+            for example when providing a publicly accessible service,
+            because secure transport also protects the privacy of requesters
             (for example, the content of queries).
           </dd>
           <dt>Private Networks:</dt>
@@ -4418,7 +4418,7 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
           Secure transport is a higher priority in higher risk situations such 
           as a factory network; 
           in such cases, it is also more practical to install pre-shared keys.
-          In low-risk situations, the following is permissable:
+          In low-risk situations, the following is permissible:
           <span class="rfc2119-assertion" 
               id="arch-security-consideration-tls-optional-on-lan">
            Private networks such as a LAN, protected by a firewall, MAY use the 
@@ -4507,7 +4507,7 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
       <p>
         The metadata contained in a <a>WoT Thing Description</a>
         (TD) is potentially sensitive, and even if it does
-	      not explictly contain <a>Personally Identifiable Information</a> (PII)
+	      not explicitly contain <a>Personally Identifiable Information</a> (PII)
 	it may be possible to infer PII from it. As a best practice, TDs
         should be used together with appropriate integrity protection
         mechanisms and access control policies, with the goal of 
@@ -4620,7 +4620,7 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 -->
       Following the principle that Thing Descriptions describing
       Things associated with specific persons should be treated as
-      PII, even if they do not explictly contain it, this implies
+      PII, even if they do not explicitly contain it, this implies
       that directories providing such TDs should use access control.
       Generally speaking, 
       the only exceptions should be cases where access is controlled
@@ -4688,8 +4688,8 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
           <li>Abstract WoT System Architecture</li>
         </ul>
       </li>
-        <li>Various editors notes with placeholders for planned contributions.</li>
-        <li> References to github repositories for use cases and requirements.</li>
+      <li>Various editors notes with placeholders for planned contributions.</li>
+      <li> References to github repositories for use cases and requirements.</li>
       <li>Requirement chapter was moved to the <em>WoT Use Cases and Requirements</em> document [[WOT-USE-CASES-REQUIREMENTS]].</li>
     </ul>
 
