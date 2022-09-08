@@ -1820,7 +1820,7 @@ Hypermedia-driven</a></li>
 <li class="tocline"><a class="tocxref" href=
 "#media-types"><bdi class="secno">6.8</bdi> Media Types</a></li>
 <li class="tocline"><a class="tocxref" href="#sec-i18n"><bdi class=
-"secno">6.9</bdi> Internationalisation</a></li>
+"secno">6.9</bdi> Internationalization</a></li>
 <li class="tocline"><a class="tocxref" href=
 "#sec-wot-servient-architecture-high-level"><bdi class=
 "secno">6.10</bdi> WoT System Components and their
@@ -2201,7 +2201,7 @@ be aware of when implementing a system based on the <abbr title=
 "secno">11.</bdi> Privacy Considerations</a>, respectively.</li>
 </ul>
 <p>Additional requirements, use cases, conceptual features and new
-building blocks are collected in future versions ofthe <em>WoT Use
+building blocks are collected in future versions of the <em>WoT Use
 Cases and Requirement</em> <a href=
 "https://www.w3.org/TR/wot-usecases/">https://www.w3.org/TR/wot-usecases/</a>
 document.</p>
@@ -2268,7 +2268,7 @@ Templates</dfn></dt>
 Description to be used with a specific protocol, data payload
 format or an IoT platform that combine both of them in specific
 ways. This is done through additional descriptive vocabularies,
-Thing Models and examples that aim to guide the implementors of
+Thing Models and examples that aim to guide the implementer of
 Things and Consumers alike.</dd>
 <dt><dfn data-plurals="consumed things" id="dfn-consumed-thing"
 tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Consumed
@@ -4274,8 +4274,8 @@ Each element has its own (intrinsic) <a href="#dfn-thing" class=
 system, where the entire system has a <em>System lifecycle</em>,
 i.e. the system has several states and transitions through some
 states to become operational. This implies that devices go through
-their lifecycle to becomer operational, and devices must be known
-to others before they can be used.</p>
+their lifecycle to become operational, and devices must be known to
+others before they can be used.</p>
 <p>The following sections describe the <em>System lifecycle</em>
 and the <em>Thing lifecycle</em>. They contain sample flows to
 illustrate the different states and phases of Things in a
@@ -4307,7 +4307,7 @@ class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-consumer-24">consumer</a> are in regular operation
 mode. When the device is no longer required in this scenario, it
 will be offboarded from the consumer. After this operation it can
-be decomissioned and destroyed.</p>
+be decommissioned and destroyed.</p>
 <figure id="fig-simple-system-lifecycle"><img src=
 "images/message-flows/lifecycle-1.svg" srcset=
 "images/message-flows/lifecycle-1.svg" class="wot-arch-diagram"
@@ -4553,7 +4553,7 @@ class="internalDFN" data-link-type="dfn" id=
 "#dfn-property" class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-property-6">Property</a> can be retrievable
 (readable). Optionally, the state exposed by a Property may be
-updated (writeable). <a href="#dfn-thing" class="internalDFN"
+updated (writable). <a href="#dfn-thing" class="internalDFN"
 data-link-type="dfn" id="ref-for-dfn-thing-64">Things</a> may
 choose to make Properties observable by pushing the new state after
 a change (cf. Observing Resources [<cite><a class="bibref"
@@ -5003,8 +5003,8 @@ data-link-type="biblio" href="#bib-wot-thing-description" title=
 </section>
 <section id="sec-i18n">
 <div class="header-wrapper">
-<h3 id="x6-9-internationalisation"><bdi class="secno">6.9</bdi>
-Internationalisation</h3>
+<h3 id="x6-9-internationalization"><bdi class="secno">6.9</bdi>
+Internationalization</h3>
 <a class="self-link" href="#sec-i18n" aria-label=
 "Permalink for Section 6.9"></a></div>
 <p>Web of Things support interoperable internationalization and
@@ -7889,8 +7889,8 @@ access to the <a href="#dfn-trusted-environment" class=
 cause significant damage.</p>
 <p>One common IoT situation is the use of an HTTP/HTML browser to
 access locally hosted web services in a home environment. Such
-locally hosted web services may not have a publically visible URL
-and so are not able to participate in the CA system expected by
+locally hosted web services may not have a publicly visible URL and
+so are not able to participate in the CA system expected by
 browsers to enable use of HTTP/TLS (HTTPS). It is often the case in
 this situation that plain HTTP is used and the only security
 protecting the communication is network encryption, for example
@@ -7912,7 +7912,7 @@ example, in the home environment, a separate WiFi network can be
 used for IoT devices, and routers often provide a "guest" network
 that can be used for this purpose. <span class="rfc2119-assertion"
 id="arch-security-consideration-use-psk">In commercial and
-industrial environments, explict installation of pre-shared keys
+industrial environments, explicit installation of pre-shared keys
 <em class="rfc2119">SHOULD</em> be used to allow browsers to access
 local services while using TLS.</span> Using a single key for a
 large number of services is equivalent to the "implicit access"
@@ -7957,9 +7957,9 @@ protected by secure transport such as TLS or DTLS.</span> A Thing
 available on the public internet will have a public URL and so
 normal CA mechanisms to provide certificates are available. This
 should be done even if there are no access controls on the
-endpoint, for example when providing a publically accessible
-service, because secure transport also protects the privacy of
-requestors (for example, the content of queries).</dd>
+endpoint, for example when providing a publicly accessible service,
+because secure transport also protects the privacy of requesters
+(for example, the content of queries).</dd>
 <dt>Private Networks:</dt>
 <dd><span class="rfc2119-assertion" id=
 "arch-security-consideration-tls-recommended-priv">When a Thing is
@@ -7971,7 +7971,7 @@ people given access to the private network. Secure transport is a
 higher priority in higher risk situations such as a factory
 network; in such cases, it is also more practical to install
 pre-shared keys. In low-risk situations, the following is
-permissable: <span class="rfc2119-assertion" id=
+permissible: <span class="rfc2119-assertion" id=
 "arch-security-consideration-tls-optional-on-lan">Private networks
 such as a LAN, protected by a firewall, <em class=
 "rfc2119">MAY</em> use the <a href=
@@ -8066,7 +8066,7 @@ aria-label="Permalink for Section 11.1"></a></div>
 <p>The metadata contained in a <a href="#dfn-wot-thing-description"
 class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-wot-thing-description-25">WoT Thing Description</a>
-(TD) is potentially sensitive, and even if it does not explictly
+(TD) is potentially sensitive, and even if it does not explicitly
 contain <a href="#dfn-personally-identifiable-information" class=
 "internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-personally-identifiable-information-3">Personally
@@ -8193,7 +8193,7 @@ returning Thing Descriptions with immutable IDs <em class=
 "rfc2119">SHOULD</em> use some form of access control.</span>
 Following the principle that Thing Descriptions describing Things
 associated with specific persons should be treated as PII, even if
-they do not explictly contain it, this implies that directories
+they do not explicitly contain it, this implies that directories
 providing such TDs should use access control. Generally speaking,
 the only exceptions should be cases where access is controlled by
 another mechanism not described in the TD itself, such as a
