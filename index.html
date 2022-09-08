@@ -4613,9 +4613,11 @@ Things returning data or metadata (such as TDs) associated with a person SHOULD 
       returning Thing Descriptions, the following also applies: 
 	      <span class="rfc2119-assertion" id="arch-privacy-consideration-id-access-control-mandatory-immutable">
 Services returning Thing Descriptions with immutable IDs SHOULD use some form of access control.</span>
+<!--
       Specifically, in both of these situations, the <code>nosec</code> security
       scheme described in [[WOT-THING-DESCRIPTION]] should not be used,
       as it provides no access control.
+-->
       Following the principle that Thing Descriptions describing
       Things associated with specific persons should be treated as
       PII, even if they do not explictly contain it, this implies
