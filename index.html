@@ -3418,11 +3418,11 @@
         defines such an application-facing interface that follows the <a>Thing</a> abstraction
         and enables the deployment of behavior implementations during runtime through application scripts.
         See <a href="#native-impl"></a> for alternative APIs, which can also only be available during compile time.
-        In general, application logic should be executed in isolated execution environments
-        to prevent unauthorized access to the management aspects of the <a>WoT Runtime</a>,
+        In general, application logic should be executed in sandboxed execution environments
+        that prevent unauthorized access to the management aspects of the <a>WoT Runtime</a> from the application code,
         in particular the <a>Private Security Data</a>.
-        In multi-tenant <a>Servients</a>, additional execution environment isolation is required for the different
-        tenants.
+        In multi-tenant <a>Servients</a>, different tenants should also be prevented from accessing each other's data
+        without authorization.
       </p>
       <p>
         A <a>WoT Runtime</a> needs to provide certain operations to manage the lifecycle of <a>Things</a>,
@@ -4104,10 +4104,6 @@
 	  <span class="rfc2119-assertion" id="arch-security-consideration-separate-security-data">
           There SHOULD be a strict separation of
           <a>Public Security Metadata</a> and <a>Private Security Data</a>.</span>
-	  <span class="rfc2119-assertion" id="arch-security-consideration-public-metadata-only">
-	  <a>Producers</a> of TDs and extensions meant to be used in TDs
-          MUST ensure that only <a>Public Security Metadata</a>
-          is ever stored in TDs.</span>
 	  <span class="rfc2119-assertion" id="arch-security-consideration-auth-private-data">
 	  Authentication and authorization 
 	  SHOULD be established based on separately managed <a>Private Security Data</a>.</span>
@@ -4162,11 +4158,10 @@
         mitigations.
       </p>
       <p>
-      <span class="rfc2119-assertion" id="arch-security-consideration-other-programming-mechanisms">
 	In general, 
 	these risks and mitigations should also be applied to any system
 	that supports programmable behavior for WoT systems,
-	not just the <a>WoT Scripting API</a>.</span>
+	not just the <a>WoT Scripting API</a>.
       </p>
       <section id="sec-security-consideration-cross-script">
         <h5>Cross-Script Security Risk</h5>
@@ -4174,8 +4169,8 @@
           In basic WoT setups, all scripts running inside the
           <a>WoT Runtime</a> are considered trusted,
           distributed by the manufacturer, and therefore there
-          is no strong need to perform strict isolation
-          between each running script instance. However,
+          is no strong need to isolate
+          script instances from each other. However,
           depending on device capabilities, deployment use
           case scenarios, and risk level it might be desirable
           to do so. For example, if one script handles
@@ -4187,27 +4182,26 @@
           example is mutual co-existence of different tenants
           on a single WoT device. In this case each WoT
           runtime instance will be hosting a different tenant,
-          and isolation between them is required.
+          and preventing tenants from accessing each other's data
+          without authorization will generally be needed.
         </p>
         <dl>
           <dt>Mitigation:</dt>
           <dd>
 	    <span class="rfc2119-assertion" id="arch-security-consideration-isolation-sensitive">
             The <a>WoT Runtime</a> SHOULD perform isolation of
-            script instances and their data in cases when
+            script instances and their data from each other in cases when
             scripts handle sensitive data.</span>
 	    <span class="rfc2119-assertion" id="arch-security-consideration-isolation-tenants">
 	    Similarly, the <a>WoT Runtime</a>
             implementation SHOULD perform isolation of <a>WoT
-              Runtime</a> instances and their data if a WoT
+              Runtime</a> instances and their data from each other if a WoT
             device has more than one tenant.</span>
-	    Such isolation
-            can be performed within the <a>WoT Runtime</a>
-            using platform security mechanisms available on
-            the device. For more information see Sections
-            "WoT Servient Single-Tenant" and "WoT Servient
-            Multi-Tenant" of the <em>WoT Security and Privacy
-              Guidelines</em> specification [[WOT-SECURITY]].
+      In practice, isolation of scripts and runtime instances from each other
+      can be accomplished by running all instances
+      in a "sandboxed" environment that controls its access to the rest of the environment.
+      For more information see Sections "WoT Servient Single-Tenant" and "WoT Servient
+      Multi-Tenant" of the <em>WoT Security and Privacy Guidelines</em> specification [[?WOT-SECURITY]].
           </dd>
         </dl>
       </section>
@@ -4299,14 +4293,15 @@
 	    In case
             there are more than one tenant on a single
             WoT-enabled device, a <a>WoT Runtime</a>
-            implementation should guarantee isolation of
-            each tenant's provisioned security credentials.</span>
+            implementation SHOULD isolate
+            each tenant's provisioned security credentials
+            from other tenants.</span>
 	    <span class="rfc2119-assertion" id="arch-security-consideration-no-expose-cred">
-            Additionally, in order to minimize a risk that
+            In order to minimize a risk that
             provisioned security credentials get
             compromised, the <a>WoT Runtime</a>
             implementation SHOULD NOT expose any API for
-            scripts to query the provisioned security
+            scripts to query provisioned security
             credentials.</span>
 	    <span class="rfc2119-assertion" id="arch-security-consideration-limit-cred-access">
 	    Such credentials (or even better,
@@ -4571,12 +4566,13 @@
 	    <span class="rfc2119-assertion" id="arch-privacy-consideration-dist-td-auth"> 
 	    Distribution mechanisms for TDs SHOULD ensure they are 
 	    only provided to authorized Consumers.</span>
-	    Note that the <a>WoT Discovery</a> mechanism is designed to address this
-	    specific issue, as long as it is used with authentication and access
+	    Note that the <a>WoT Discovery</a> mechanism is designed to address these
+	    specific issues, as long as it is used with authentication and access
 	    controls on exploration services.
-	    <span class="rfc2119-assertion" id="arch-privacy-consideration-no-unness-info-td"> 
-            Unnecessary information
-            SHOULD NOT be exposed in TDs whenever possible.</span>
+	    <!--span class="rfc2119-assertion" id="arch-privacy-consideration-no-unness-info-td" -->
+      As a general matter of policy,
+            unnecessary information
+            should not be exposed in TDs whenever possible.<!-- </span> -->
             For example, explicit type and instance identifying information in TDs should
             only be included if it is needed by the use case.
             Even if required by the use case,
@@ -4605,25 +4601,29 @@
         <dt>Mitigation:</dt>
         <dd>
 	      <span class="rfc2119-assertion" id="arch-privacy-consideration-access-control-mandatory-person">
-Things returning data or metadata (such as TDs) associated with a person MUST use some form of access control.</span>
+Things returning data or metadata (such as TDs) associated with a person SHOULD use some form of access control.</span>
       A special case of this is a <a>Thing Description Directory</a>,
       as described in [[WOT-DISCOVERY]], which is a Thing that returns 
       Thing Descriptions as data.  Such directory services are included
       in the above statement and 
-      required to use access control if the TDs describe Things associated with
+      should use access control if the TDs describe Things associated with
       identifiable people.  In the case of services
       returning Thing Descriptions, the following also applies: 
 	      <span class="rfc2119-assertion" id="arch-privacy-consideration-id-access-control-mandatory-immutable">
-Services returning Thing Descriptions with immutable IDs MUST use some form of access control.</span>
+Services returning Thing Descriptions with immutable IDs SHOULD use some form of access control.</span>
       Specifically, in both of these situations, the <code>nosec</code> security
-      scheme described in [[WOT-THING-DESCRIPTION]] cannot be used,
+      scheme described in [[WOT-THING-DESCRIPTION]] should not be used,
       as it provides no access control.
       Following the principle that Thing Descriptions describing
       Things associated with specific persons should be treated as
       PII, even if they do not explictly contain it, this implies
-      that directories providing such TDs cannot use <code>nosec</code>.
-      Again it should be noted that access controls are generally only
-      effective when secure transport is also available;
+      that directories providing such TDs should use access control.
+      Generally speaking, 
+      the only exceptions should be cases where access is controlled
+      by another mechanism not described in the TD itself, such as a 
+      segmented network.
+      Again it should also be noted that access controls are generally only
+      effective when secure transport is also used;
       see <a href="#sec-security-consideration-secure-transport"></a>.
       Use of access controls without secure transport, at best,
       only discourages casual access by unauthorized parties.
