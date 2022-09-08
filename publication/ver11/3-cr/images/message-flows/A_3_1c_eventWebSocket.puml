@@ -1,0 +1,40 @@
+@startuml
+hide footbox
+
+box "WoT Client"
+participant "Application" as AP
+participant "Consumed Thing" as SA
+end box
+
+box "WoT Server"
+participant "Exposed Thing" as WS
+participant "Application" as DC
+end box
+
+== subscribe ==
+
+AP  -> SA: invoke\n"subscribeevent"\noperation
+activate SA
+SA  -> AP: return Subscription
+SA  -> WS: connect WebSocket\nto href of form\n with op=subscribeevent
+activate WS
+WS  -> DC: wait until\nevent detected
+activate DC
+
+== notify ==
+
+DC  -> WS: change detected
+WS  -> SA: send schema data\n through WebSocket connection
+SA  -> AP: Subscription callback\n with schema data
+
+== unsubscribe ==
+
+AP  -> SA: invoke\n"unsubscribeevent"\noperation
+SA  -> AP: returns void
+SA --> WS: disconnect WebSocket connection
+deactivate SA
+destroy WS
+WS --> DC: stop waiting
+destroy DC
+
+@enduml
