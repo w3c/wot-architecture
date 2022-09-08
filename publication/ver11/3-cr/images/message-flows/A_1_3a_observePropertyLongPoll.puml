@@ -1,0 +1,45 @@
+@startuml
+hide footbox
+
+box "WoT Client"
+participant "Application" as AP
+participant "Consumed Thing" as SA
+end box
+
+box "WoT Server"
+participant "Exposed Thing" as WS
+participant "Application" as DC
+end box
+
+== subscribe ==
+
+AP  -> SA: invoke\n"observeproperty"\noperation
+activate SA
+SA  -> AP: returns Subscription
+SA  -> WS: sends HTTP GET Request\nto href of form\n with op=observeProperty and\n subprotocol=longpoll
+activate WS
+WS  -> DC: wait until\nstate changes
+activate DC
+
+== notify ==
+
+DC  -> WS: change detected
+deactivate DC
+WS  -> SA: send HTTP GET Response\n (body: schema data)
+deactivate WS
+SA  -> AP: Subscription callback\n with schema data
+SA  -> WS: send HTTP GET Request\n to the same href
+activate WS
+WS  -> DC: wait until\nstate changes
+activate DC
+
+== unsubscribe ==
+
+AP  -> SA: invoke\n"unobserveproperty"\noperation
+SA  -> AP: returns void
+SA --> WS: cancel pending HTTP GET Request
+deactivate SA
+destroy WS
+WS --> DC: stop waiting
+destroy DC
+@enduml
