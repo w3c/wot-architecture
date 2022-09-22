@@ -13,3 +13,6 @@ Each commit here will sync it to the master, which will expose the content to ht
 To make contributions, please provide pull-requests to the html file, see [github help](https://help.github.com/articles/using-pull-requests/).
 
 Some images are written using [PlantUML](http://en.plantuml.com/). See [editors' guide](plantuml.md).
+
+If you are implementing the WoT architecture and their building blocks, please provide an implementation report.
+The process is described in wot-architecture/testing/
