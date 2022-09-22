@@ -14,5 +14,5 @@ To make contributions, please provide pull-requests to the html file, see [githu
 
 Some images are written using [PlantUML](http://en.plantuml.com/). See [editors' guide](plantuml.md).
 
-If you are implementing the WoT architecture and their building blocks, please provide an implementation report.
-The process is described in [wot-architecture/testing/]/wot-architecture/testing/)
+If you are implementing the WoT architecture and their building blocks, please contribute to the WoT Architecture implementation report.
+The process is described in [Implementation Report](https://github.com/w3c/wot-architecture/tree/main/testing)
