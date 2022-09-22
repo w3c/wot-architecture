@@ -12,7 +12,7 @@ and any edits would be overwritten the next time it is updated.
 
 If you want to update your input for a Member organization, 
 please go to [the wot-testing repo](https://github.com/w3c/wot-testing) and 
-follow the instructions there.
+follow the [instructions](https://github.com/w3c/wot-testing/tree/main/data/input_2022/Architecture).
 Testing results (CSV files) should then be placed in 
 [inputs/results](https://github.com/w3c/wot-architecture/tree/main/testing/inputs/results),
 testimonials in [inputs/testimonials](https://github.com/w3c/wot-architecture/tree/main/testing/inputs/testimonials)
