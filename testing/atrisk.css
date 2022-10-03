@@ -94,9 +94,6 @@
 #arch-privacy-consideration-min-explicit-pii {
   background-color: yellow;
 }
-#arch-privacy-consideration-no-unness-info-td {
-  background-color: yellow;
-}
 #arch-property-dataschema {
   background-color: yellow;
 }
@@ -149,12 +146,6 @@
   background-color: yellow;
 }
 #arch-security-consideration-no-private-security-data {
-  background-color: yellow;
-}
-#arch-security-consideration-other-programming-mechanisms {
-  background-color: yellow;
-}
-#arch-security-consideration-public-metadata-only {
   background-color: yellow;
 }
 #arch-security-consideration-secure-cred-isolation {

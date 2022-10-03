@@ -121,7 +121,7 @@ pre.example {
     Implementation Report
   </h1>
   <p>
-    <b>Version</b>: 1 Sep 2022
+    <b>Version</b>: 3 Oct 2022
   </p>
   <p>
     <b>Editors</b>:<br>
@@ -163,31 +163,31 @@ pre.example {
     <li class="tocline">7.x <a href="#impl-ORG">ORG</a></li>
         -->
   <li class="tocline">
-	6.1 <a href="#impl-ditto">WoT Hive directory</a></li>
+	6.1 <a href="#impl-ditto"></a></li>
 <li class="tocline">
-	6.2 <a href="#impl-echonet-proxy">echonet-wot-proxy: Intermediary</a></li>
+	6.2 <a href="#impl-echonet-proxy"></a></li>
 <li class="tocline">
-	6.3 <a href="#impl-editdor">Eclipse EdiTDor: Tool and Producer</a></li>
+	6.3 <a href="#impl-editdor"></a></li>
 <li class="tocline">
-	6.4 <a href="#impl-hitachi-esp-idf">TBD: TD Exposer</a></li>
+	6.4 <a href="#impl-hitachi-esp-idf"></a></li>
 <li class="tocline">
-	6.5 <a href="#impl-hitachi-nodegen">Node generator for Node-RED: TD Consumer</a></li>
+	6.5 <a href="#impl-hitachi-nodegen"></a></li>
 <li class="tocline">
-	6.6 <a href="#impl-hitachi-node-red">TBD: TD Exposer</a></li>
+	6.6 <a href="#impl-hitachi-node-red"></a></li>
 <li class="tocline">
-	6.7 <a href="#impl-hitachi-nrwotdisc">TBD: Discoverer</a></li>
+	6.7 <a href="#impl-hitachi-nrwotdisc"></a></li>
 <li class="tocline">
-	6.8 <a href="#impl-intel-nodejs">intel-nodejs: TD Exposer</a></li>
+	6.8 <a href="#impl-intel-nodejs"></a></li>
 <li class="tocline">
-	6.9 <a href="#impl-intel-proxy">intel-proxy: Intermediary</a></li>
+	6.9 <a href="#impl-intel-proxy"></a></li>
 <li class="tocline">
-	6.10 <a href="#NHK">NHK: Emulated WoT Devices</a></li>
+	6.10 <a href="#NHK"></a></li>
 <li class="tocline">
-	6.11 <a href="#impl-nodewot">Eclipse node-wot: Consumer and Exposer</a></li>
+	6.11 <a href="#impl-nodewot"></a></li>
 <li class="tocline">
-	6.12 <a href="#impl-playground">Thing Description Playground: Tool</a></li>
+	6.12 <a href="#impl-playground"></a></li>
 <li class="tocline">
-	6.13 <a href="#impl-saywot">Siemens sayWoT!: Exposer and Consumer</a></li>
+	6.13 <a href="#impl-saywot"></a></li>
 </ul>
   <li class="tocline">8. <a href="#security">Security</a></li>
   <li class="tocline">9. <a href="#test_results">Test results</a>
@@ -1139,10 +1139,10 @@ pre.example {
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-access-control-mandatory-person">arch-privacy-consideration-access-control-mandatory-person</a></td>
 	<td class="baseassertion">Privacy</td>
 
-	<td class="baseassertion">Y</td>
+	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
-Things returning data or metadata (such as TDs) associated with a person MUST use some form of access control.</td>
+Things returning data or metadata (such as TDs) associated with a person SHOULD use some form of access control.</td>
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
@@ -1182,10 +1182,10 @@ Things returning data or metadata (such as TDs) associated with a person MUST us
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-id-access-control-mandatory-immutable">arch-privacy-consideration-id-access-control-mandatory-immutable</a></td>
 	<td class="baseassertion">Privacy</td>
 
-	<td class="baseassertion">Y</td>
+	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
-Services returning Thing Descriptions with immutable IDs MUST use some form of access control.</td>
+Services returning Thing Descriptions with immutable IDs SHOULD use some form of access control.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -1200,20 +1200,6 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="atrisk">
 	    Storage of explicit PII in TDs SHOULD be minimized
             as much as possible.</td>
-	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result failed">1</td></tr>
-<tr id="arch-privacy-consideration-no-unness-info-td" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-no-unness-info-td">arch-privacy-consideration-no-unness-info-td</a></td>
-	<td class="baseassertion">Privacy</td>
-
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="atrisk"> 
-            Unnecessary information
-            SHOULD NOT be exposed in TDs whenever possible.</td>
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
@@ -1391,7 +1377,7 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="atrisk">
             The WoT Runtime SHOULD perform isolation of
-            script instances and their data in cases when
+            script instances and their data from each other in cases when
             scripts handle sensitive data.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
@@ -1407,7 +1393,7 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="atrisk">
 	    Similarly, the WoT Runtime
             implementation SHOULD perform isolation of WoT
-              Runtime instances and their data if a WoT
+              Runtime instances and their data from each other if a WoT
             device has more than one tenant.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
@@ -1467,11 +1453,11 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
-            Additionally, in order to minimize a risk that
+            In order to minimize a risk that
             provisioned security credentials get
             compromised, the WoT Runtime
             implementation SHOULD NOT expose any API for
-            scripts to query the provisioned security
+            scripts to query provisioned security
             credentials.</td>
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
@@ -1492,37 +1478,6 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">0</td>
 	<td class="result failed">1</td></tr>
-<tr id="arch-security-consideration-other-programming-mechanisms" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-other-programming-mechanisms">arch-security-consideration-other-programming-mechanisms</a></td>
-	<td class="baseassertion">Security</td>
-
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="atrisk">
-	In general, 
-	these risks and mitigations should also be applied to any system
-	that supports programmable behavior for WoT systems,
-	not just the WoT Scripting API.</td>
-	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result failed">1</td></tr>
-<tr id="arch-security-consideration-public-metadata-only" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-public-metadata-only">arch-security-consideration-public-metadata-only</a></td>
-	<td class="baseassertion">Security</td>
-
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="atrisk">
-	  Producers of TDs and extensions meant to be used in TDs
-          MUST ensure that only Public Security Metadata
-          is ever stored in TDs.</td>
-	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result failed">1</td></tr>
 <tr id="arch-security-consideration-secure-cred-isolation" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-secure-cred-isolation">arch-security-consideration-secure-cred-isolation</a></td>
 	<td class="baseassertion">Security</td>
@@ -1533,8 +1488,9 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	    In case
             there are more than one tenant on a single
             WoT-enabled device, a WoT Runtime
-            implementation should guarantee isolation of
-            each tenant's provisioned security credentials.</td>
+            implementation SHOULD isolate
+            each tenant's provisioned security credentials
+            from other tenants.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -1697,7 +1653,7 @@ Services returning Thing Descriptions with immutable IDs MUST use some form of a
 	<td class="baseassertion"></td>
 	<td class="atrisk">
 	In commercial and industrial environments, 
-	explict installation of pre-shared
+	explicit installation of pre-shared
 	keys SHOULD be used to allow browsers to access local services
 	while using TLS.</td>
 	<td class="baseassertion"></td>
