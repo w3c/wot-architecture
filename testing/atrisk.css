@@ -1,31 +1,7 @@
-#arch-action-dataschema {
-  background-color: yellow;
-}
-#arch-binding-templates-known-subprotocol {
-  background-color: yellow;
-}
-#arch-binding-templates-media-type-optional-parameters {
-  background-color: yellow;
-}
-#arch-binding-templates-media-type-parameters {
-  background-color: yellow;
-}
-#arch-binding-templates-subprotocol-explicit-declaration {
-  background-color: yellow;
-}
 #arch-discovery-no-metadata-in-introduction-urls {
   background-color: yellow;
 }
-#arch-event-dataschema {
-  background-color: yellow;
-}
-#arch-event-trigger {
-  background-color: yellow;
-}
 #arch-hypermedia-caching {
-  background-color: yellow;
-}
-#arch-hypermedia-protocol-binding {
   background-color: yellow;
 }
 #arch-intermediary-td-extra-protocols {
@@ -40,19 +16,7 @@
 #arch-privacy-consideration-explicit-pii {
   background-color: yellow;
 }
-#arch-privacy-consideration-id-access-control-mandatory-immutable {
-  background-color: yellow;
-}
 #arch-privacy-consideration-min-explicit-pii {
-  background-color: yellow;
-}
-#arch-rel-type-lowercase {
-  background-color: yellow;
-}
-#arch-rel-types {
-  background-color: yellow;
-}
-#arch-security-consideration-auth-private-data {
   background-color: yellow;
 }
 #arch-security-consideration-avoid-direct {
@@ -79,12 +43,6 @@
 #arch-security-consideration-isolation-tenants {
   background-color: yellow;
 }
-#arch-security-consideration-limit-cred-access {
-  background-color: yellow;
-}
-#arch-security-consideration-limit-trust {
-  background-color: yellow;
-}
 #arch-security-consideration-no-earlier-tls-or-dtls {
   background-color: yellow;
 }
@@ -104,9 +62,6 @@
   background-color: yellow;
 }
 #arch-security-consideration-segmented-network {
-  background-color: yellow;
-}
-#arch-security-consideration-separate-security-data {
   background-color: yellow;
 }
 #arch-security-consideration-tls-1-3 {
