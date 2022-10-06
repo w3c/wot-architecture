@@ -1,5 +1,4 @@
 "ID","Fix"
-"arch-discovery-no-metadata-in-introduction-urls","HELP, pass=1"
 "arch-hypermedia-caching","HELP, pass undefined"
 "arch-intermediary-td-extra-protocols","HELP, pass undefined"
 "arch-media-type-extra","HELP, pass=1"
@@ -23,7 +22,6 @@
 "arch-security-consideration-segmented-network","HELP, pass=1"
 "arch-security-consideration-tls-1-3","HELP, pass=1"
 "arch-security-consideration-tls-mandatory-pub","HELP, pass=1"
-"arch-security-consideration-tls-optional-on-lan","HELP, pass=1"
 "arch-security-consideration-tls-recommended-priv","HELP, pass undefined"
 "arch-security-consideration-use-hal","HELP, pass undefined"
 "arch-security-consideration-use-psk","HELP, pass undefined"
