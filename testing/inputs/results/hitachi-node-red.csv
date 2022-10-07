@@ -60,7 +60,7 @@
 "arch-security-consideration-tls-1-2","not-impl",
 "arch-security-consideration-tls-1-3","not-impl",
 "arch-security-consideration-tls-mandatory-pub","not-impl",
-"arch-security-consideration-tls-optional-on-lan","not-impl",
+"arch-security-consideration-tls-optional-on-lan","pass",
 "arch-security-consideration-tls-recommended-priv","not-impl",
 "arch-security-consideration-use-hal","not-impl",
 "arch-security-consideration-use-psk","not-impl",

@@ -121,7 +121,7 @@ pre.example {
     Implementation Report
   </h1>
   <p>
-    <b>Version</b>: 29 Sep 2022
+    <b>Version</b>: 7 Oct 2022
   </p>
   <p>
     <b>Editors</b>:<br>
@@ -163,31 +163,31 @@ pre.example {
     <li class="tocline">7.x <a href="#impl-ORG">ORG</a></li>
         -->
   <li class="tocline">
-	6.1 <a href="#impl-ditto">WoT Hive directory</a></li>
+	6.1 <a href="#impl-ditto"></a></li>
 <li class="tocline">
-	6.2 <a href="#impl-echonet-proxy">echonet-wot-proxy: Intermediary</a></li>
+	6.2 <a href="#impl-echonet-proxy"></a></li>
 <li class="tocline">
-	6.3 <a href="#impl-editdor">Eclipse EdiTDor: Tool and Producer</a></li>
+	6.3 <a href="#impl-editdor"></a></li>
 <li class="tocline">
-	6.4 <a href="#impl-hitachi-esp-idf">TBD: TD Exposer</a></li>
+	6.4 <a href="#impl-hitachi-esp-idf"></a></li>
 <li class="tocline">
-	6.5 <a href="#impl-hitachi-nodegen">Node generator for Node-RED: TD Consumer</a></li>
+	6.5 <a href="#impl-hitachi-nodegen"></a></li>
 <li class="tocline">
-	6.6 <a href="#impl-hitachi-node-red">TBD: TD Exposer</a></li>
+	6.6 <a href="#impl-hitachi-node-red"></a></li>
 <li class="tocline">
-	6.7 <a href="#impl-hitachi-nrwotdisc">TBD: Discoverer</a></li>
+	6.7 <a href="#impl-hitachi-nrwotdisc"></a></li>
 <li class="tocline">
-	6.8 <a href="#impl-intel-nodejs">intel-nodejs: TD Exposer</a></li>
+	6.8 <a href="#impl-intel-nodejs"></a></li>
 <li class="tocline">
-	6.9 <a href="#impl-intel-proxy">intel-proxy: Intermediary</a></li>
+	6.9 <a href="#impl-intel-proxy"></a></li>
 <li class="tocline">
-	6.10 <a href="#NHK">NHK: Emulated WoT Devices</a></li>
+	6.10 <a href="#NHK"></a></li>
 <li class="tocline">
-	6.11 <a href="#impl-nodewot">Eclipse node-wot: Consumer and Exposer</a></li>
+	6.11 <a href="#impl-nodewot"></a></li>
 <li class="tocline">
-	6.12 <a href="#impl-playground">Thing Description Playground: Tool</a></li>
+	6.12 <a href="#impl-playground"></a></li>
 <li class="tocline">
-	6.13 <a href="#impl-saywot">Siemens sayWoT!: Exposer and Consumer</a></li>
+	6.13 <a href="#impl-saywot"></a></li>
 </ul>
   <li class="tocline">8. <a href="#security">Security</a></li>
   <li class="tocline">9. <a href="#test_results">Test results</a>
@@ -755,134 +755,134 @@ pre.example {
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
             If the data format is not fully specified by the Protocol Binding used (e.g., through a media type),
             Actions MAY contain data schemas for input parameters and output results.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">6</td></tr>
 <tr id="arch-action-functions" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-action-functions">arch-action-functions</a></td>
 	<td class="baseassertion">Affordance</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
             An Action MAY manipulate state that is not directly exposed (cf. Properties),
             manipulate multiple Properties at a time, or manipulate Properties based on internal logic (e.g., toggle).</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">7</td></tr>
 <tr id="arch-action-process" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-action-process">arch-action-process</a></td>
 	<td class="baseassertion">Affordance</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
             Invoking an Action MAY also trigger a process on the Thing that manipulates state
             (including physical state through actuators) over time.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">7</td></tr>
 <tr id="arch-affordances" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-affordances">arch-affordances</a></td>
 	<td class="baseassertion">Affordance</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">In
+	<td class="baseassertion">In
           addition to navigation affordances (i.e., Web links),
           Things MAY offer three other types of Interaction Affordances
           defined by this specification: Properties, Actions, and Events.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
+	<td class="result baseassertion">6</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">7</td></tr>
 <tr id="arch-binding-templates-known-subprotocol" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-binding-templates-known-subprotocol">arch-binding-templates-known-subprotocol</a></td>
 	<td class="baseassertion">Binding Template</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
                     Transport protocols MAY have to use information provided by an extension mechanisms to interact successfully.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">7</td></tr>
 <tr id="arch-binding-templates-media-type-optional-parameters" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-binding-templates-media-type-optional-parameters">arch-binding-templates-media-type-optional-parameters</a></td>
 	<td class="baseassertion">Binding Template</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
             Forms MAY contain the media type and optional parameters in additional form fields such as a content type 
             field known from HTTP, which combines media type and its potential parameters
             (e.g., text/plain; charset=utf-8).</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">7</td></tr>
 <tr id="arch-binding-templates-media-type-parameters" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-binding-templates-media-type-parameters">arch-binding-templates-media-type-parameters</a></td>
 	<td class="baseassertion">Binding Template</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
             The media type [[!RFC2046]] identifies these formats, while media type parameters MAY specify them further.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">7</td></tr>
 <tr id="arch-binding-templates-subprotocol-explicit-declaration" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-binding-templates-subprotocol-explicit-declaration">arch-binding-templates-subprotocol-explicit-declaration</a></td>
 	<td class="baseassertion">Binding Template</td>
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
                   Such subprotocols cannot be identified from the URI scheme alone and MUST be declared explicitly
                   using the subprotocol field inside forms.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">7</td></tr>
 <tr id="arch-discovery-metadata-after-authorization" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-discovery-metadata-after-authorization">arch-discovery-metadata-after-authorization</a></td>
 	<td class="baseassertion">Discovery</td>
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
         Any WoT Discovery "exploration"
         implementation MUST only provide metadata and TDs
         after appropriate best-practice authentication and authorization.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">5</td></tr>
+	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">6</td></tr>
 <tr id="arch-discovery-no-metadata-in-introduction" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-discovery-no-metadata-in-introduction">arch-discovery-no-metadata-in-introduction</a></td>
 	<td class="baseassertion">Discovery</td>
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
         Any introduction mechanism used for WoT Discovery MUST NOT 
         provide metadata but instead should simply result in 
         one or more opaque URLs at which metadata
@@ -891,108 +891,108 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">5</td></tr>
+	<td class="result baseassertion">3</td>
+	<td class="result baseassertion">6</td></tr>
 <tr id="arch-discovery-no-metadata-in-introduction-urls" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-discovery-no-metadata-in-introduction-urls">arch-discovery-no-metadata-in-introduction-urls</a></td>
 	<td class="baseassertion">Discovery</td>
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
         Introduction URLs MUST NOT themselves include any metadata,
         e.g. a human-readable device type or name.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">5</td></tr>
+	<td class="result baseassertion">6</td></tr>
 <tr id="arch-discovery-should-use-standard" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-discovery-should-use-standard">arch-discovery-should-use-standard</a></td>
 	<td class="baseassertion">Discovery</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">Whenever
+	<td class="baseassertion">Whenever
         possible, the Discovery mechanisms defined in [[!WOT-DISCOVERY]]
         SHOULD be used to distribute TDs.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">5</td></tr>
+	<td class="result baseassertion">3</td>
+	<td class="result baseassertion">6</td></tr>
 <tr id="arch-event-dataschema" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-event-dataschema">arch-event-dataschema</a></td>
 	<td class="baseassertion">Affordance</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
             If the data is not fully specified by the Protocol Binding used (e.g., through a media type),
             Events MAY contain data schemas for the event data and subscription control messages
             (e.g., a callback URI to subscribe with a Webhook).</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">6</td></tr>
 <tr id="arch-event-trigger" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-event-trigger">arch-event-trigger</a></td>
 	<td class="baseassertion">Affordance</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
             Events MAY be triggered through conditions that are not exposed as Properties.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">7</td></tr>
 <tr id="arch-form-iris" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-form-iris">arch-form-iris</a></td>
 	<td class="baseassertion">Links</td>
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
             Form contexts and submission targets MUST both be
             Internationalized Resource Identifiers (IRIs)
             [[!RFC3987]].</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
+	<td class="result baseassertion">6</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">7</td></tr>
 <tr id="arch-form-iris2" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-form-iris2">arch-form-iris2</a></td>
 	<td class="baseassertion">Links</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
             Form context and submission target MAY point to
             the same resource or different resources, where the
             submission target resource implements the operation
             for the context.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
+	<td class="result baseassertion">6</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">7</td></tr>
 <tr id="arch-hypermedia" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-hypermedia">arch-hypermedia</a></td>
 	<td class="baseassertion">Links</td>
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
             Interaction Affordances MUST include one or more Protocol Bindings.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">2</td>
+	<td class="result baseassertion">5</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">7</td></tr>
 <tr id="arch-hypermedia-caching" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-hypermedia-caching">arch-hypermedia-caching</a></td>
 	<td class="baseassertion">Links</td>
@@ -1003,24 +1003,24 @@ pre.example {
             The hypermedia controls MAY be cached outside the Thing
             and used for offline processing if caching metadata is available to determine the freshness.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
+	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">5</td>
-	<td class="result baseassertion">5</td></tr>
+	<td class="result baseassertion">6</td>
+	<td class="result baseassertion">7</td></tr>
 <tr id="arch-hypermedia-protocol-binding" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-hypermedia-protocol-binding">arch-hypermedia-protocol-binding</a></td>
 	<td class="baseassertion">Links</td>
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
             Protocol Bindings MUST be serialized as hypermedia controls to be self-descriptive on how to
             activate the Interaction Affordance.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">7</td></tr>
 <tr id="arch-intermediary-td-extra-protocols" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-intermediary-td-extra-protocols">arch-intermediary-td-extra-protocols</a></td>
 	<td class="baseassertion">Links</td>
@@ -1031,110 +1031,110 @@ pre.example {
             If necessary, a TD generated by an Intermediary MAY contain
             interfaces for other communication protocols.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
+	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td></tr>
 <tr id="arch-media-type" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-media-type">arch-media-type</a></td>
 	<td class="baseassertion">Links</td>
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">All
+	<td class="baseassertion">All
             data (a.k.a. content) exchanged when activating Interaction Affordances
             MUST be identified by a media type [[!RFC2046]] in the Protocol Binding.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
+	<td class="result baseassertion">6</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">7</td></tr>
 <tr id="arch-media-type-extra" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-media-type-extra">arch-media-type-extra</a></td>
 	<td class="baseassertion">Links</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
             Protocol Bindings MAY have additional information that specifies representation formats
             in more detail than the media type alone.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">7</td></tr>
 <tr id="arch-networked" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-networked">arch-networked</a></td>
 	<td class="baseassertion">Links</td>
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">Things MUST be hosted on networked system components 
+	<td class="baseassertion">Things MUST be hosted on networked system components 
 	with a software stack to realize interaction through a
 		network-facing interface, the WoT Interface of a Thing.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
+	<td class="result baseassertion">6</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">7</td></tr>
 <tr id="arch-op-expected-request" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-op-expected-request">arch-op-expected-request</a></td>
 	<td class="baseassertion">Operations</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
             Form fields are optional and MAY further specify the
             expected request message for the given operation.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">7</td></tr>
 <tr id="arch-op-form-fields-protocol" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-op-form-fields-protocol">arch-op-form-fields-protocol</a></td>
 	<td class="baseassertion">Operations</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
             Form fields MAY depend on the protocol used for the
             submission target as specified in the URI scheme.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">7</td></tr>
 <tr id="arch-op-request-method" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-op-request-method">arch-op-request-method</a></td>
 	<td class="baseassertion">Operations</td>
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
             The request method MUST identify one method of
             the standard set of the protocol identified by the
             submission target URI scheme.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
+	<td class="result baseassertion">6</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">7</td></tr>
 <tr id="arch-other-thing-representations" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-other-thing-representations">arch-other-thing-representations</a></td>
 	<td class="baseassertion">Metadata</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
           There MAY be other representations of a Thing such as an HTML-based user interface,
           simply an image of the physical entity,
           or even non-Web representations in closed systems.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
+	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">5</td></tr>
+	<td class="result baseassertion">3</td>
+	<td class="result baseassertion">7</td></tr>
 <tr id="arch-privacy-consideration-access-control-mandatory-person" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-access-control-mandatory-person">arch-privacy-consideration-access-control-mandatory-person</a></td>
 	<td class="baseassertion">Privacy</td>
@@ -1146,22 +1146,22 @@ Things returning data or metadata (such as TDs) associated with a person SHOULD 
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">5</td></tr>
+	<td class="result baseassertion">6</td>
+	<td class="result baseassertion">7</td></tr>
 <tr id="arch-privacy-consideration-dist-td-auth" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-dist-td-auth">arch-privacy-consideration-dist-td-auth</a></td>
 	<td class="baseassertion">Privacy</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk"> 
+	<td class="baseassertion"> 
 	    Distribution mechanisms for TDs SHOULD ensure they are 
 	    only provided to authorized Consumers.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">5</td></tr>
+	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">7</td></tr>
 <tr id="arch-privacy-consideration-explicit-pii" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-explicit-pii">arch-privacy-consideration-explicit-pii</a></td>
 	<td class="baseassertion">Privacy</td>
@@ -1176,21 +1176,21 @@ Things returning data or metadata (such as TDs) associated with a person SHOULD 
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">5</td></tr>
+	<td class="result baseassertion">6</td>
+	<td class="result baseassertion">7</td></tr>
 <tr id="arch-privacy-consideration-id-access-control-mandatory-immutable" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-id-access-control-mandatory-immutable">arch-privacy-consideration-id-access-control-mandatory-immutable</a></td>
 	<td class="baseassertion">Privacy</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
 Services returning Thing Descriptions with immutable IDs SHOULD use some form of access control.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">5</td></tr>
+	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">7</td></tr>
 <tr id="arch-privacy-consideration-min-explicit-pii" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-min-explicit-pii">arch-privacy-consideration-min-explicit-pii</a></td>
 	<td class="baseassertion">Privacy</td>
@@ -1203,79 +1203,79 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">5</td></tr>
+	<td class="result baseassertion">6</td>
+	<td class="result baseassertion">7</td></tr>
 <tr id="arch-property-dataschema" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-property-dataschema">arch-property-dataschema</a></td>
 	<td class="baseassertion">Affordances</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
             If the data format is not fully specified by the Protocol Binding used (e.g., through a media type),
             Properties MAY contain one data schema for the exposed state.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
+	<td class="result baseassertion">5</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">6</td></tr>
 <tr id="arch-rel-type-lowercase" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-rel-type-lowercase">arch-rel-type-lowercase</a></td>
 	<td class="baseassertion">Links</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
             Nevertheless, all-lowercase URIs SHOULD be used for extension relation types [[!RFC8288]].</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">6</td></tr>
 <tr id="arch-rel-types" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-rel-types">arch-rel-types</a></td>
 	<td class="baseassertion">Links</td>
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
             Extension relation types MUST be compared as strings using ASCII case-insensitive comparison,
             (c.f. ASCII case insensitive).
             (If they are serialized in a different format they are to be converted to URIs).</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">6</td></tr>
 <tr id="arch-schema" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-schema">arch-schema</a></td>
 	<td class="baseassertion">Metadata</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">Thus, 
+	<td class="baseassertion">Thus, 
 	   the Interaction Affordance for structured data types SHOULD 
            be associated with a data schema to provide more detailed 
 	   syntactic metadata for the data exchanged.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
+	<td class="result baseassertion">5</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">6</td></tr>
 <tr id="arch-security-consideration-auth-private-data" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-auth-private-data">arch-security-consideration-auth-private-data</a></td>
 	<td class="baseassertion">Security</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
 	  Authentication and authorization 
 	  SHOULD be established based on separately managed Private Security Data.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">6</td></tr>
 <tr id="arch-security-consideration-avoid-direct" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-avoid-direct">arch-security-consideration-avoid-direct</a></td>
 	<td class="baseassertion">Security</td>
@@ -1287,10 +1287,10 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
             expose native device interfaces to the
             script developers.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
+	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">6</td>
+	<td class="result baseassertion">7</td></tr>
 <tr id="arch-security-consideration-communication-binding" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-communication-binding">arch-security-consideration-communication-binding</a></td>
 	<td class="baseassertion">Security</td>
@@ -1303,8 +1303,8 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">5</td></tr>
 <tr id="arch-security-consideration-communication-platform" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-communication-platform">arch-security-consideration-communication-platform</a></td>
 	<td class="baseassertion">Security</td>
@@ -1320,8 +1320,8 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">5</td></tr>
+	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">6</td></tr>
 <tr id="arch-security-consideration-dtls-1-2" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-dtls-1-2">arch-security-consideration-dtls-1-2</a></td>
 	<td class="baseassertion">Security</td>
@@ -1336,8 +1336,8 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">5</td></tr>
 <tr id="arch-security-consideration-dtls-1-3" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-dtls-1-3">arch-security-consideration-dtls-1-3</a></td>
 	<td class="baseassertion">Security</td>
@@ -1351,8 +1351,8 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">5</td></tr>
 <tr id="arch-security-consideration-hal-refuse-unsafe" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-hal-refuse-unsafe">arch-security-consideration-hal-refuse-unsafe</a></td>
 	<td class="baseassertion">Security</td>
@@ -1367,8 +1367,8 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">6</td>
+	<td class="result baseassertion">6</td></tr>
 <tr id="arch-security-consideration-isolation-sensitive" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-isolation-sensitive">arch-security-consideration-isolation-sensitive</a></td>
 	<td class="baseassertion">Security</td>
@@ -1382,8 +1382,8 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">6</td>
+	<td class="result baseassertion">6</td></tr>
 <tr id="arch-security-consideration-isolation-tenants" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-isolation-tenants">arch-security-consideration-isolation-tenants</a></td>
 	<td class="baseassertion">Security</td>
@@ -1398,54 +1398,54 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">6</td>
+	<td class="result baseassertion">6</td></tr>
 <tr id="arch-security-consideration-limit-cred-access" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-limit-cred-access">arch-security-consideration-limit-cred-access</a></td>
 	<td class="baseassertion">Security</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
 	    Such credentials (or even better,
             abstract operations that use them but do not
             expose them) SHOULD only be accessible to the underlying 
             protocol implementation that uses them.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">6</td></tr>
 <tr id="arch-security-consideration-limit-trust" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-limit-trust">arch-security-consideration-limit-trust</a></td>
 	<td class="baseassertion">Security</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
 	Trust relationships SHOULD be as restricted as possible,
 	ideally pairwise and limited to precisely the access
 	required.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">6</td></tr>
 <tr id="arch-security-consideration-no-earlier-tls-or-dtls" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-no-earlier-tls-or-dtls">arch-security-consideration-no-earlier-tls-or-dtls</a></td>
 	<td class="baseassertion">Security</td>
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
             Versions of DLTS or TLS earlier than 1.2 MUST NOT be used for 
             new development.
           </td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">6</td></tr>
 <tr id="arch-security-consideration-no-expose-cred" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-no-expose-cred">arch-security-consideration-no-expose-cred</a></td>
 	<td class="baseassertion">Security</td>
@@ -1462,8 +1462,8 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">6</td></tr>
 <tr id="arch-security-consideration-no-private-security-data" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-no-private-security-data">arch-security-consideration-no-private-security-data</a></td>
 	<td class="baseassertion">Security</td>
@@ -1476,8 +1476,8 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">6</td></tr>
 <tr id="arch-security-consideration-secure-cred-isolation" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-secure-cred-isolation">arch-security-consideration-secure-cred-isolation</a></td>
 	<td class="baseassertion">Security</td>
@@ -1494,8 +1494,8 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">6</td>
+	<td class="result baseassertion">6</td></tr>
 <tr id="arch-security-consideration-secure-cred-storage" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-secure-cred-storage">arch-security-consideration-secure-cred-storage</a></td>
 	<td class="baseassertion">Security</td>
@@ -1507,10 +1507,10 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
             provisioned security credentials, guaranteeing
             their integrity and confidentiality.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
+	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">6</td></tr>
 <tr id="arch-security-consideration-secure-update" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-secure-update">arch-security-consideration-secure-update</a></td>
 	<td class="baseassertion">Security</td>
@@ -1524,8 +1524,8 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">5</td></tr>
 <tr id="arch-security-consideration-segmented-network" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-segmented-network">arch-security-consideration-segmented-network</a></td>
 	<td class="baseassertion">Security</td>
@@ -1538,29 +1538,29 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">5</td></tr>
 <tr id="arch-security-consideration-separate-security-data" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-separate-security-data">arch-security-consideration-separate-security-data</a></td>
 	<td class="baseassertion">Security</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
           There SHOULD be a strict separation of
           Public Security Metadata and Private Security Data.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">6</td></tr>
 <tr id="arch-security-consideration-tls-1-2" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-tls-1-2">arch-security-consideration-tls-1-2</a></td>
 	<td class="baseassertion">Security</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
             If TLS 1.3 cannot be used for compatibility reasons
             but secure transport over TCP is appropriate,
             TLS 1.2 [[RFC5246]]
@@ -1568,8 +1568,8 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">3</td>
+	<td class="result baseassertion">5</td></tr>
 <tr id="arch-security-consideration-tls-1-3" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-tls-1-3">arch-security-consideration-tls-1-3</a></td>
 	<td class="baseassertion">Security</td>
@@ -1583,8 +1583,8 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">5</td></tr>
 <tr id="arch-security-consideration-tls-mandatory-pub" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-tls-mandatory-pub">arch-security-consideration-tls-mandatory-pub</a></td>
 	<td class="baseassertion">Security</td>
@@ -1606,15 +1606,15 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
            Private networks such as a LAN, protected by a firewall, MAY use the 
            Trusted 
            Environment approach of depending on network security only.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">1</td>
+	<td class="result baseassertion">5</td></tr>
 <tr id="arch-security-consideration-tls-recommended-priv" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-tls-recommended-priv">arch-security-consideration-tls-recommended-priv</a></td>
 	<td class="baseassertion">Security</td>
@@ -1627,8 +1627,8 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">5</td></tr>
 <tr id="arch-security-consideration-use-hal" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-use-hal">arch-security-consideration-use-hal</a></td>
 	<td class="baseassertion">Security</td>
@@ -1643,8 +1643,8 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">6</td>
+	<td class="result baseassertion">6</td></tr>
 <tr id="arch-security-consideration-use-psk" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-use-psk">arch-security-consideration-use-psk</a></td>
 	<td class="baseassertion">Security</td>
@@ -1667,41 +1667,41 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">WoT Thing Descriptions
+	<td class="baseassertion">WoT Thing Descriptions
 		and WoT Thing Models MAY link to other Things, WoT Thing Models,
 		and other resources on the Web to form a Web of Things.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">7</td></tr>
 <tr id="arch-td-mandatory" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-td-mandatory">arch-td-mandatory</a></td>
 	<td class="baseassertion">Metadata</td>
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
           To be considered a Thing, however, at least one TD representation MUST be available.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">6</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">5</td></tr>
+	<td class="result baseassertion">7</td></tr>
 <tr id="arch-td-metadata" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-td-metadata">arch-td-metadata</a></td>
 	<td class="baseassertion">Metadata</td>
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
    	  In W3C WoT, the description metadata for a Thing instance
 	  MUST be available as a WoT Thing Description (TD) [[?WOT-THING-DESCRIPTION]].</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
+	<td class="result baseassertion">6</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">4</td></tr></tbody>
+	<td class="result baseassertion">7</td></tr></tbody>
 </table>
 
 
