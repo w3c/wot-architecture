@@ -4,9 +4,6 @@
 #arch-intermediary-td-extra-protocols {
   background-color: yellow;
 }
-#arch-media-type-extra {
-  background-color: yellow;
-}
 #arch-privacy-consideration-access-control-mandatory-person {
   background-color: yellow;
 }
@@ -38,9 +35,6 @@
   background-color: yellow;
 }
 #arch-security-consideration-isolation-tenants {
-  background-color: yellow;
-}
-#arch-security-consideration-no-earlier-tls-or-dtls {
   background-color: yellow;
 }
 #arch-security-consideration-no-expose-cred {
