@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>[DRAFT] FAST Checklist</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href="https://www.w3.org/StyleSheets/TR/base" rel="stylesheet" />
+	<style type="text/css">
+		@counter-style checklist {
+			system: cyclic;
+			symbols: ☐;
+			suffix: " ";
+		}
+
+		.checklist {
+			list-style-type: checklist;
+		}
+
+		.checklist ul {
+			list-style-type: disc;
+		}
+
+		th,
+		td {
+			border: thin dotted grey;
+			border-collapse: collapse;
+			padding: .5ex;
+		}
+
+		table,
+		tbody {
+			border: medium solid black;
+			border-collapse: collapse;
+		}
+
+		th {
+			text-align: left;
+		}
+
+		th[scope=rowgroup] {
+			text-align: center;
+			background-color: black;
+			color: white;
+		}
+
+		th[scope=rowgroup] a:link,
+		th[scope=rowgroup] a:hover,
+		th[scope=rowgroup] a:active {
+			color: teal;
+		}
+
+		th[scope=rowgroup] a:visited {
+			color: aqua;
+		}
+
+		td:first-child::before {
+			content: "☐ ";
+		}
+	</style>
+</head>
+
+<body>
+	<h1>[DRAFT] <abbr title="Framework for Accessibility in the Specification of Technologies">FAST</abbr> Checklist
+	</h1>
+	<p>This is a draft checklist to support <a href="/">Framework for Accessibility in the Specification of Technologies
+			(FAST)</a> prepared by the <a href="http://www.w3.org/WAI/APA/">Accessible Platform Architectures Working
+			Group</a>. The goal of <abbr
+			title="Framework for Accessibility in the Specification of Technologies">FAST</abbr> is to describe the
+		features that web technologies should provide to ensure it is possible to create content that is accessible to
+		users with disabilities. The full framework references an analysis of user requirements, describes how
+		technologies, content authoring, and user agents work together to meet these needs, and provides comprehensive
+		guidance to technology developers. This checklist extracts that information at a high level to aid in
+		self-review of technologies. Specification developers can use this to help ensure the technology will address
+		features likely to be raised during horizontal review from accessibility proponents.</p>
+	<p>Web technologies address a variety of needs, and play a variety of roles in web accessibility. Content languages
+		describe primary content, styling languages impact presentation, APIs enable manipulation and data interchange,
+		and protocols tie it all together. Each of these types of technologies can impact accessibility. </p>
+	<p>This checklist is organized by types of features that a technology may provide. If the technology provides such a
+		feature, the checklist items under the heading are applicable and should be examined. If the technology does not
+		provide such a feature, the checklist items under the heading are not applicable and can be passed over.</p>
+	<table>
+		<caption></caption>
+		<thead>
+			<tr>
+				<th scope="col">Checkpoint</th>
+				<th scope="col">Explanation</th>
+				<th scope="col">References</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th colspan="3" scope="rowgroup">If technology allows visual rendering of content</th>
+			</tr>
+			<tr>
+				<td>There is a defined way for a non-visual rendering to be created. </td>
+				<td>Content is frequently authored with visual rendering the primary consideration. Some technologies,
+					such as image formats, explicitly focus on visual rendering. Some users are not able to access
+					visual content, and must use other forms of the content, such as text or audio. Content that is
+					well-structured allows automated conversion into alternate formats, or content can provide explicit
+					non-visual alternatives. Image and video technologies can and should provide support for automated
+					transformation or for alternative versions as appropriate. Other technologies that are not as
+					explicitly visual but that are likely to be rendered visually, such as text formats and often
+					structured data, need to ensure that non-visual rendering can be as easily achieved as visual
+					rendering.
+				<br>
+				<br>
+				<strong>
+					<p>In the Web of Things many devices are small embedded systems, such as sensors or gateways.
+					Many of these devices don't have a visual rendering UI at all (no display). 
+					Web of Things and the Thing Description format does not describe how to render a UI 
+					that can be used to interact with a Thing.
+					</p><p>
+					There are dedicated fields for titles and descriptions with support for multi-language
+					text representations.
+					These enable consumer implementations to generate a UI, based on the structured metadata,
+					however the format only contains text strings - there are no layout descriptions, 
+					colors, font sizes and other rendering hints.
+					It is up to the consumer to provide a UI based on that metadata and the rendering capabilities of the consumer. 
+					</p>
+					<p>
+						The remaining questions of this section are not applicable for the Web of Things.
+					</p>
+				</strong>		
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Content can be resized.</td>
+				<td>Many users need content to be displayed larger than the default, not just because of un-sharp vision
+					but also to mitigate other visual perception difficulties such as difficulty separating foreground
+					from background. Depending on device and situation, content can also be displayed smaller than the
+					author expects, so needs to be resizeable even if the intended default size is suitable.
+					Technologies should provide features to allow user resize, without experiencing problems such as
+					pixelation, clipping, excessive scrolling, etc. Support for resizing therefore requires a variety of
+					features to be enabled by the technology.
+<
+					<p>
+						<strong>Not applicable for the Web of Things. </strong>
+					</p>
+					
+				</td>
+>				<td><a href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast-scale">WCAG 2.0 Resize text</a></td>
+			</tr>
+			<tr>
+				<td>Luminosity and hue contrast can adapt to user requirements.</td>
+				<td>Users with color vision deficits and other visual impairments have more difficulty separating
+					certain foreground from background colors than average. The <a
+						href="https://www.w3.org/TR/WCAG20/#contrast-ratiodef">WCAG 2.0 luminosity contrast ratio</a>
+					describes a way to calculate this contrast, but sometimes even content that passes the guidelines is
+					insufficient. Technologies should provide ways to obtain increase or customized contrast, e.g., via
+					a "high contrast mode".
+				
+					<p>
+						<strong>Not applicable for the Web of Things. </strong>
+					</p>
+					
+				</td>
+				<td><a href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast">WCAG 2.0 Contrast
+						(minimum)</a><br /><a href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast7">WCAG 2.0
+						Contrast (enhanced)</a></td>
+			</tr>
+			<tr>
+				<td>Text presentation attributes can be changed. </td>
+				<td>Some users with visual impairments and learning disabilities find that customizing text presentation
+					improves their ability to distinguish letters, track lines, etc. Technologies should provide
+					features allowing users to customize typeface, font weight, font style, line / word / letter
+					spacing, margins, line length, justification.
+				
+					<p>
+						<strong>Not applicable for the Web of Things. </strong>
+					</p>
+					
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Visual presentation of pointers and cursors can be adjusted.</td>
+				<td>Sometimes pointer and cursor indicators are difficult for users to distinguish and locate, and
+					incessant animation, even simple blinking, can be excessively distracting for some users.
+					Technologies that define pointer and cursor indicators should provide features for user to customize
+					size, color, and animation.
+				
+					<p>
+						<strong>Not applicable for the Web of Things. </strong>
+					</p>
+					
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Changing content presentation does not render it unreadable. </td>
+				<td>Many accessibility requirements come down to allowing users to customize presentation. When
+					presentation is changed in a way the author or designer did not anticipate, unexpected side effects
+					often appear that create new problems. A frequent situation is when content is resized but the
+					region for the content is not, causing the content to be clipped. Another is when regions resize but
+					do not reposition, making it difficult to use the content at the new scale. Change of font
+					attributes sometimes leads to a similar problem, such as when users change to a heavier font but the
+					space allocated for characters does not increase. Technologies should provide features to ensure
+					that change of display attributes does not create unintended side effects.
+				
+					<p>
+						<strong>Not applicable for the Web of Things. </strong>
+					</p>	
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Technology does not allow blinking or flashing of content, or provides a feature for users to
+					quickly turn it off or permanently disable it.</td>
+				<td>Technologies should not provide features that allow authors to create content that <a
+						href="https://www.w3.org/TR/WCAG20/#blinksdef">blinks</a> (which can be excessively distracting)
+					or <a href="https://www.w3.org/TR/WCAG20/#flash-def">flashes</a> (which can be medically
+					disastrous). However, technologies that provide general animation features (even simple ones) may be
+					unable to rule out author usages that create these effects. It is important for such technologies to
+					provide a feature for users to stop animation, or prevent it until requested. More complex
+					technologies should also provide means to mark potentially problematic content, warn users who have
+					opted into the warning, and give users the option to skip or suppress problematic regions of
+					content.
+				
+					<p>
+						<strong>Not applicable for the Web of Things. </strong>
+					</p>
+					
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>It is possible to make navigation order correspond to the visual presentation.</td>
+				<td>Flexible display mechanisms can cause content to appear in unpredicted locations. This is often a
+					good feature as it allows optimization of display. However, the navigation order of such content
+					sometimes does not match the perceived order, and users have difficulty using linear (i.e.,
+					keyboard-based) navigation effectively. Technologies should provide features to ensure when the
+					visual order of content changes, the interaction order changes to match.
+				
+					<p>
+						<strong>Not applicable for the Web of Things. </strong>
+					</p>
+					
+				</td>
+				<td></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<th colspan="3" scope="rowgroup">If technology provides author control over color</th>
+			</tr>
+			<tr>
+				<td>There is a mechanism for users to override colors of text and user interface components. </td>
+				<td>Custom color settings benefits not only users with visual perception impairments, but also users who
+					can be distracted by certain colors or combinations. Technologies should provide features to allow
+					users to set their own colors or contrast for text (including background) and standard user
+					interface components. 
+				
+					<p>
+						<strong>Not applicable for the Web of Things. </strong>
+					</p>
+					
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>There is a feature for authors to define semantically available "color classes" that users can
+					easily map to custom colors, and give preference to this vs. coloring objects individually. </td>
+				<td>Allowing user override of author design is most effective when the technology provides rich
+					semantics for content, on which author or default colors are based, that can be easily recolored in
+					a meaningful manner. Technologies should define semantics, or a way for authors to define and
+					communicate the semantics they use, to allow most effective recoloring with minimal advance
+					knowledge of site implementation.
+				
+					<p>
+						<strong>Not applicable for the Web of Things. </strong>
+					</p>
+					
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>There is a feature for users to choose color schemata that work for them. </td>
+				<td>Content authors are frequently concerned with branding, and want to ensure that the color scheme of
+					content communicates the brand. But when the color scheme makes content inaccessible to users this
+					goal can be counter-productive. Technologies can increase author control and user accessibility by
+					providing a way for authors to define multiple color schemes, allowing more accessible schemes still
+					to partake in the branding process, and allowing users to choose from among available schemes. 
+				
+					<p>
+						<strong>Not applicable for the Web of Things. </strong>
+					</p>
+					
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>The foreground and background color of an object can be reported to the user via AT. </td>
+				<td>Experienced color of content is frequently the way users refer to it; for instance in "redlined"
+					text people may say "find my edits in red". Users of assistive technologies who cannot perceive the
+					color directly therefore still have a need to know the color in order to interact with others.
+					Therefore, technologies should define a way for foreground and background color to be reported to
+					assistive technologies and easily searched.
+				
+					<p>
+						<strong>Not applicable for the Web of Things. </strong>
+					</p>
+					
+</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>There are ways to set foreground and background colors separately for all objects. </td>
+				<td>Color contrast problems often arise when the foreground color of one object is overlaid onto the
+					(foreground or background) color of another object, resulting in an unintended contrast. It is
+					therefore important for technologies to allow both the foreground and background color of objects to
+					be set to reasonable values and avoid this overlay problem.
+					<p>
+						<strong>Not applicable for the Web of Things. </strong>
+					</p>
+					
+</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Compositing rules for foreground and background colors are well defined. </td>
+				<td>When color compositing rules are not clearly designed, unexpected color contrast can occur. The most
+					frequent problem is when aliasing of edges causes visual artifacts, which in the case of text with
+					its narrow strokes can significantly impact perception. Impacts of borders, shadows, and
+					transparency can also lead to inaccessible contrast. Therefore technologies should specify
+					compositing rules very precisely.
+					<p>
+						<strong>Not applicable for the Web of Things.</strong>
+					</p>
+					
+</td>
+				<td></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<th colspan="3" scope="rowgroup">If technology provides features to accept user input</th>
+			</tr>
+			<tr>
+				<td>There is a mechanism to label user input controls in an unambiguous and clear manner.</td>
+				<td>When collecting user input, users must know what input is required for each control. Often this is
+					made evident by visual context, but this does not help non-visual users or users of alternate visual
+					presentations such as magnification. When labels are provided, if they are not programmatically
+					associated with the control, users may not be able to find the correct label. Therefore it is
+					important for technologies to provide ways to associate labels with their controls.
+				
+					<p>
+						<strong>The Web of Things provides metadata fields for the title and description for 
+						all interaction controls.</strong>
+					</p>
+					
+</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Authors can associate extended help information with a control.</td>
+				<td>When authors request user input that may require special assistance, such as details of the input
+					format required or how to find an account number on a bill, they may provide extended help in
+					addition to the label. Even if this is positioned near the control, some users may not reliably find
+					it. Therefore technologies should provide a way for authors to explicitly attach extended help
+					(including links to extended help) directly to the control.
+					<p>
+						<strong>The Web of Things provides metadata fields for the title and description for 
+						all interaction controls. Links to additional documentation are supported by the thing description format.</strong>
+					</p></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>If there is an input error, it is possible to associate the error message clearly with the specific
+					control that is in error.</td>
+				<td>If a user inputs data that is not accepted by the system, a report of the issue is made and the user
+					given an opportunity to correct the input. Such error messages are frequently provided at the top of
+					the form, from where it can be difficult for the user to locate the control that needs input
+					corrected. Even if the error message is positioned closer to the control, it can be difficult to
+					find the correct control. Therefore, much like labels and help content, technologies need to provide
+					a way to associate error messages directly with the control to which they apply.
+					<p>
+						<strong>The Web of Things does not provide UI elements, however it provides a way to specify 
+							regular expressions that define string formats - It is up to the consumer implementations 
+							to perform appropriate input validation.</strong>
+					</p></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>There is a mechanism to report and set the state or value of controls programmatically.</td>
+				<td>While much user input is collected using platform input services, some users use assistive
+					technologies that work better when interacting programmatically with the content directly,
+					effectively in an alternate user interface. For this to work, technologies need to provide a means
+					for assistive technologies to get and set the nature, state, and value of input controls.
+					<p>
+						<strong>The Web of Things describes the programmatic interaction with things:
+							it enables to set states (properties) and invoke actions under control of a consumer.</Strong>
+					</p></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Authors can address multiple types of input hardware (keyboard, pointing device, touch screen, voice
+					recognition, etc.), or the technology supports hardware-agnostic input methods. </td>
+				<td>A basic tenet of accessibility is that users should be able to user input and output hardware that
+					is optimal for them. Some use alternate versions of familiar hardware, such as keyboard-compatible
+					and pointing devices, while others use less widespread types of hardware, such as voice recognition,
+					single-switch devices, Braille displays, etc. Technologies should design content input and output
+					methods to be agnostic to the specific hardware used, and provide application programming interfaces
+					for supported hardware types such as keyboard and pointer so other hardware can effectively
+					interact. Technologies should also emphasize the most hardware-neutral form of authoring feasible
+					via more abstract events, and when providing hardware-specific features ensure that multiple types
+					of hardware can be addressed.
+					<p>
+						<strong>The Web of Things does not provide UI elements, however it provides a way to specify 
+							regular expressions that define string formats - It is up to the consumer implementations 
+							to perform appropriate input validation.</strong>
+					</p>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>User input does not require specific physical characteristics (e.g., fingerprint readers).</td>
+				<td>Some user input depends on specific physical characteristics of users. For instance, early touch
+					screens required users to have a physical, not a prosthetic, finger, and fingerprint readers also
+					require users to have a fingerprint. Some users do not have the ability to interact with such
+					devices. Technologies should not require specific user characteristics, and should provide alternate
+					ways to accomplish tasks if such features are provided.
+					<p>
+						<strong>The Web of Things does not provide a UI but only provides metadata for 
+						all interaction controls. It is up to consumer implementations to provide appropriate user interfaces.</strong>
+					</p></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Authors can ensure a "meaningful" order of controls exists regardless of presentation. </td>
+				<td>Much like the issue of navigation order deviating from display order mentioned above, control order
+					is another frequent source of confusion for users when presentation has been customized.
+					Technologies should provide ways for authors to define the intended order of user input controls.
+				<p>
+					<strong>The Web of Things does not have means to prescribe a presentation order - 
+					It is up to the consumer implementations to render the controls appropriately.</Strong>
+				</p>
+				</td>
+				</td>
+				<td></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<th colspan="3" scope="rowgroup">If technology provides user interaction features</th>
+			</tr>
+			<tr>
+				<td>For every user interface object type, the "type" of object can be exposed as a role to accessibility
+					APIs. </td>
+				<td>A major way some users with disabilities access content is via assistive technologies, which provide
+					various supplemental supports for interaction. Many assistive technologies interact with content
+					primarily via accessibility APIs, which contain an abstract model of the content that includes
+					information about each object. The "type" of an object is important for users to know how to use it,
+					which is typically exposed to accessibility APIs as a "role". Technologies should ensure features
+					have a defined type and, if necessary, document accessibility API mappings for the several APIs in
+					use.
+					<p>
+						<strong>The Web of Things defines an abstract interaction model via the Thing Description.</Strong>
+					</p>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>For every user interface object type, there is a clearly defined mechanism for authors to provide
+					and / or user agents determines the "accessible name" for accessibility APIs. </td>
+				<td>Accessibility APIs provide an "accessible name" for each object, which labels it for the user. The
+					accessible name is frequently the label for a form control or the text alternative for an object.
+					Technologies should define how the accessible name for each object type can be determined, and
+					provide features to allow authors to set the accessible name.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>For user interface objects that can have states, properties, or values, authors can set these and
+					these can be exposed to accessibility APIs. </td>
+				<td>Along with the role, many objects require information about properties, states, and values to be
+					fully usable. Properties are generally specific to object types and refine the type of object;
+					states are also specific to object type and provide information about a changeable condition such as
+					checked status of a checkbox or visibility status of an object. All objects have values as well,
+					which is often the text content but can be from another source, such as the user input in a form
+					control. Technologies should define ways for user agents to expose and authors to set properties,
+					states, and values in accessibility APIs that are relevant to full understanding of and interaction
+					with the object type.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>When providing imperative mechanisms to implement technology features (e.g., scripts), authors can
+					expose accessibility information to accessibility APIs. </td>
+				<td>Declarative technologies provide structured semantic helping authors to define complete models for
+					objects that can be exposed to accessibility APIs. Imperative technologies give more freedom to the
+					author but provide less built-in accessibility semantics, and sometimes do not provide a way to
+					address accessibility APIs at all. Technologies that use imperative mechanisms to author content
+					need to provide full interfaces to accessibility APIs so authors can set the complete object model.
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>User can obtain help information about the widget. </td>
+				<td>Especially with novel widgets, users sometimes need context-specific help to learn how to use the
+					widget effectively. This information is only useful if users can easily find it. Therefore,
+					technologies should provide a mechanism for help information to be directly associated with and
+					reachable from the control.</td>
+				<td></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<th colspan="3" scope="rowgroup">If technology defines document semantics</th>
+			</tr>
+			<tr>
+				<td>Authors can title Web pages. </td>
+				<td>Web content is classically exposed on "pages", each of which contains a different chunk of content.
+					To help users easily identify their location in a set of pages, and navigate to the correct page,
+					each pages should have a title that is effectively metadata. Technologies should provide ways for
+					authors to create unique titles for each page. </td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Authors can title sections of content. </td>
+				<td>Web content is frequently divided into multiple sections, each of which has a distinct topic. Users
+					navigate among these sections to find the content most relevant to their purpose, which is
+					especially important for users of assistive technology that don't provide a two-dimensional view of
+					the content. Technologies should provide a mechanism for authors to provide section titles to help
+					users navigate and identify their location.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Authors can clearly indicate the target of a hyperlink and function of a control. </td>
+				<td>Hyperlinks and controls cause changes to the user experience. It is important that users know what
+					change will happen, or what the result of navigating a hyperlink will be. Default or contextual
+					indications may be sufficient for some users but not all. Technologies must provide features
+					allowing authors to unambiguously provide this information.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Authors can indicate content language, for the page as a whole and for blocks of content. </td>
+				<td>Assistive technology that process language, such as screen readers, braille displays, and voice
+					input, change according to human language of content. For instance, pronunciation rules and the
+					effect of certain utterances may change. Technologies need to allow authors to indicate the language
+					of content, both as a whole and for regions where it differs.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Authors can support understanding of abbreviations / acronyms / initialisms, idioms, jargon, etc.
+				</td>
+				<td>Abbreviations, acronyms, initialisms, idioms, and jargon comprise usages of content that may not be
+					familiar to all users, so it can be helpful for authors to provide supplemental information about
+					meaning. Abbreviations, acronyms, and initialisms are also often frequently pronounced different
+					from their spelling, their special nature may not be obvious from pronunciation alone. Therefore
+					technologies should allow authors to provide pronunciation and meaning guidance for these language
+					features.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Authors can support correct machine pronunciation of ambiguously spelled terms (e.g., in the phrase
+					"I am content with this content" there are different correct pronunciations of the lexeme
+					"content"). </td>
+				<td>Many languages have lexical features that can be pronounced different ways and that carry different
+					meanings. Context generally clarifies intent, but this can be less effective when assistive
+					technologies use default pronunciations. Therefore technologies should provide features to allow
+					authors to clarify pronunciation intent when needed.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Authors can identify regions of content, particularly the "main" region.</td>
+				<td>Users of some assistive technologies experience content in a linear fashion, which can make it hard
+					to find intended content that is located after several blocks of less relevant content such as
+					navigation and sidebars. Other users have difficulty making sense of the page design due to
+					complexity or the effects of magnification. Supporting users to find relevant content quickly is
+					important to effective use, and the best way to do this is to provide ways to identify regions of
+					content easily. This can be done via headings but region type semantics is also particularly
+					helpful. The main content region is the most important for users to find quickly, but other regions
+					such as navigation, headers, footers, sidebars, and subsections are also important. Technologies
+					should provide features to allow authors to identify content regions.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Declarative mechanisms (that have accessibility semantics pre-defined in the spec) are used to
+					implement technology features whenever possible. </td>
+				<td>Declarative technologies create sets of pre-defined semantics that authors use to structure content.
+					Because the semantics are well-defined, they can be broadly supported across the entire tool chain,
+					including by assistive technologies. Imperative technologies, by contrast, don't define semantics in
+					advance, which allows creation of new forms of content but requires authors to implement all aspects
+					of the user experience, including accessibility aspects that are frequently overlooked. For this
+					reason, technologies should provide declarative semantics for known feature types.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>There are unambiguous ways to express relationships between units of content, such as object
+					nesting, ID referencing, etc. </td>
+				<td>Providing an accessible user experience sometimes requires tools to combine the features of or
+					support rapid navigation between multiple related objects. Technologies should provide ways for
+					authors to define these relationships clearly and unambiguously.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Prefer structural semantics to presentational semantics. </td>
+				<td>Structural semantics provide information about the role of content within the whole, while
+					presentational semantics define intended presentation. Authors frequently use presentation to convey
+					structure, yet when taken out of context this presentation is not meaningful to all users.
+					Technologies should emphasize structural semantics over presentational semantics, and support
+					styling on the basis of structure rather than inferring structure on the basis of style.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>When providing presentational semantics, they can be easily mapped to structural semantics, e.g., to
+					support restyling or meaningful exposure to accessibility APIs. </td>
+				<td>If technologies do provide presentational semantics, they should define clear mappings to existing
+					structural semantics as well, allowing users to interact with content on the basis of implied
+					structure.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Support a comprehensive set of authoring use cases to minimize the need for alternative content.
+					(e.g., don't make authors resort to text in images to get the style they want).</td>
+				<td>Many accessibility problems in web content arise from authors attempting to work around limitations
+					of the content language and using the technology in a way that it was not intended. Technologies
+					should provide rich feature sets that allows authors to accomplish their goals without resort to
+					inaccessible usages.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Semantics allow precise and replicable location information in the document to be determined.</td>
+				<td>Finding a given location in a document is important for a variety of use cases. Users of some
+					assistive technologies require the tool to navigate to the location for them and may be confused if
+					the location is merely approximate. Technologies should enable precise location finding, not only by
+					supporting unique IDs but by structuring the language such that unambiguous and replicable selectors
+					can be used and shared.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Semantics exist to convey meaning that is commonly conveyed via presentation.</td>
+				<td>Meaning is conveyed by a variety of presentational attributes. Separated blocks of text represent
+					paragraphs, indented text represents quotes, short enlarged text indicates headings, bold text
+					conveys emphasis, relative size indicates relative importance, etc. Technologies should define
+					structural semantics for such features.</td>
+				<td></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<th colspan="3" scope="rowgroup">If technology provides time-based visual media (see also the <a
+						href="https://www.w3.org/WAI/PF/HTML/wiki/Media_Accessibility_Checklist">Media Accessibility
+						Checklist</a>)</th>
+			</tr>
+			<tr>
+				<td>It is possible for authors to provide detailed text descriptions, audio descriptions, or both of the
+					important content in the media. </td>
+				<td>Some visual media cannot at present be made directly accessible to some users. Accessibility is
+					provided via text or audio descriptions, either as part of the content or as an easily found
+					supplementary resource. Technologies should provide mechanisms to provide these descriptions and
+					associate them with the media.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>It is possible for authors to synchronize descriptions with the visual content.</td>
+				<td>Descriptions are sometimes more helpful when they can be accessed along with the main video content.
+					Technologies should provide a mechanism to synchronize descriptions, e.g., via additional audio
+					tracks, timed text, etc.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>It is possible for to provide descriptions even when the content is live.</td>
+				<td>It is harder to provide descriptions for live content, because the description must be produced at
+					the same time as the content itself. Nonetheless, for some live content such as newscasts with a
+					broad audience, this can be an important feature. Technologies should provide support for live
+					descriptions.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>User can pause, stop, replay media.</td>
+				<td>While most media can be stopped (where replay restarts from the beginning) or paused (where replay
+					restarts from where it starts), the controls to do so can be inaccessible to users. Technologies
+					need to provide accessible controls to do this, and also support programmatic control so assistive
+					technologies can pause, stop, and start media playback. This support is important even for media
+					that is not generally intended to be used in this way, such as short autoplay clips, in order to
+					provide users control over excessive distraction.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Users can send output to alternate device.</td>
+				<td>Some users use multiple video or audio devices to tune their accessible interaction. For instance, a
+					screen reader user may direct content audio to a different device than screen reader audio in order
+					to reduce collision, or a magnifier user may direct video to a separate screen in order to better
+					arrange their available screen space. Technologies should provide features to support this.</td>
+				<td></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<th colspan="3" scope="rowgroup">If technology provides audio</th>
+			</tr>
+			<tr>
+				<td>It is possible for authors to provide transcriptions. </td>
+				<td>Like descriptions of video, transcriptions of audio is important for some users. Authors should be
+					able to provide text transcripts or signed video alternatives and associate them directly with the
+					primary content.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>It is possible for authors to provide synchronized captions, either open (on by default for all
+					users).</td>
+				<td>Captions are essentially text transcripts that are synchronized to appear in small blocks when the
+					relevant audio is playing. Closed captions are visible only on request, and are best provided in a
+					timed text track although they are sometimes provide in a separate video track. Open captions are
+					included directly within the source video. Technologies should provide features to allow authors to
+					create closed and open captions.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>User can adjust volume level </td>
+				<td>Some users require different volume levels than default, and may need the relative volume of
+					different elements to be different. Technologies should provide ways for users to adjust the volume
+					of audio content within the content, not simply relying on hardware volume settings.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Contrast between foreground and background audio is sufficient </td>
+				<td>Understanding of audio is improved when background sounds do not occlude foreground or primary
+					audio. To support this, authors should be able to set background and foreground levels separately.
+					Ideally, users should also be able to adjust them separately via separate audio tracks.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Unnecessary background audio can be muted separately from the foreground audio </td>
+				<td>When background audio makes understanding of content too difficult, users should be able to suppress
+					it without losing the foreground audio. Technologies should provide features to make this possible,
+					e.g., via support of multiple audio tracks.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Technology does not include triggers for audiosensitive seizures or allows those triggers to be
+					disabled.</td>
+				<td>Like photosensitive epilepsy, audiosensitive epilepsy is known to occur. The triggering conditions
+					are less widely known at this time, but nonetheless technologies should avoid enabling authoring of
+					triggering content, or provide means to detect, warn, avoid, and suppress triggering content.</td>
+				<td></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<th colspan="3" scope="rowgroup">If technology allows time limits</th>
+			</tr>
+			<tr>
+				<td>A feature exists to allow time limits to be extended. </td>
+				<td>Because of the additional time cost to using assistive technologies, or because of difficulty
+					processing content, some users need more time to accomplish tasks than average. Common time limits
+					can be time for response before a login session expires, or time before content automatically
+					refreshes or changes. When technologies allow authors to set time limits, they should provide ways
+					for users to request extensions to the time limit - before the expiration of the limit causes a
+					disastrous interruption to their use. Some content does require a time limit, such as financial
+					transactions or testing, so technologies should also allow authors or test proctors to define limits
+					for how much extension users should be able to obtain.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Time limits for different parts of a task, such as reading instructions vs providing input, can be
+					set separately. </td>
+				<td>Different activities require different amounts of time for different users. Technologies should
+					allow authors to set time limits in a fine-grained manner when needed.</td>
+				<td></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<th colspan="3" scope="rowgroup">If technology allows text content</th>
+			</tr>
+			<tr>
+				<td>Authors can define non-text alternatives for text content. </td>
+				<td>While text is the universal accessible alternative, it is still not the best format for some users.
+					Technologies should allow authors to provide non-text alternatives to text content when needed.
+					Various types of alternatives are useful in different situations, including visual such as icons or
+					movies, auditory such as pronunciation cues and recorded speech, and haptic.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Authors can define non-text alternatives for non-text content. </td>
+				<td>Even though text alternatives for non-text content is generally recommended, in some situations a
+					non-text alternative is more suitable. For instance, a haptic version of a map, in which features
+					are conveyed by touch features, can be easier to understand than a text alternative. Technologies
+					should allow authors to provide these enhance alternatives in addition to text alternatives.</td>
+				<td></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<th colspan="3" scope="rowgroup">If technology creates objects that don't have an inherent text
+					representation</th>
+			</tr>
+			<!--
+<tr>
+<td colspan="3">This includes primarily images, video, and audio but can also include other forms of complex content. Objects should also be directly accesible, but text alternatives are needed as a universal fallback.</td>
+</tr>
+-->
+			<tr>
+				<td>There is a mechanism to create short text alternatives that label the object. </td>
+				<td>Some non-text objects can be represented as text, such as form controls, user interface objects,
+					etc. Authors have no inherent text version that can be meaningfully exposed to the user. In this
+					case, technologies should allow authors to provide a short label for the object.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>There is a mechanism to create extended text alternatives for fallback content.</td>
+				<td>In addition to labels, authors should be able to provide extended text alternatives to better
+					describe non-text objects. Technologies should provide a feature for this extended description that
+					is distinct from the short label, and that can be associated with the object.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Text alternatives can be semantically "rich" e.g., with page structure, text style, hyperlinks, etc.
+				</td>
+				<td>Extended text alternatives should allow authors to use, and users to benefit from, full text
+					semantics rather than reduce them to plain text.</td>
+				<td></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<th colspan="3" scope="rowgroup">If technology provides content fallback mechanisms, whether text or
+					other formats</th>
+			</tr>
+			<tr>
+				<td>Authors can explicitly mark content as not needing alternative content because it does not perform
+					an important role. </td>
+				<td>Some non-text content does not require an alternative version because it does not perform a function
+					important to understanding the overall content, such as objects to facilitate layout, add graphical
+					interest, etc. In order to avoiding requiring users to determine their role, technologies should
+					provide a mechanism for authors to state explicitly that the object does not require an alternate
+					version</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Content can explicitly indicate when author declined to provide alternative content. </td>
+				<td>Sometimes authoring tools prompt authors to provide alternative content, but they do not do so.
+					Technologies should provide a feature to allow the user to be notified that the author chose not to
+					provide alternative content.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Content can explicitly indicate that authoring tool is unable to generate or obtain alternative
+					content. </td>
+				<td>Some authoring tools attempt to generate alternate content, but are not always able to. Technologies
+					should allow tools to indicate to users that they were not able to generate alternate content.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Authors can explicitly associate alternative content with the primary content. </td>
+				<td>Technologies should enable authors to associate alternative content unambiguously with the main
+					content.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Authors can associate multiple types and instances of alternative content with primary content.
+				</td>
+				<td>Sometimes, it is appropriate for authors to provide multiple forms of alternate content.
+					Technologies should allow more than one unit of alternate content to be associated with a given
+					object.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Alternate content can be easily found from the initial content. </td>
+				<td>Replaces, referenced directly from, at same location of initial content.</td>
+				<td></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<th colspan="3" scope="rowgroup">If technology provides visual graphics</th>
+			</tr>
+			<tr>
+				<td>Item </td>
+				<td>This is a developing area, being explored by the <a
+						href="https://www.w3.org/WAI/PF/svg-a11y-tf/">SVG Accessibility Task Force</a>.</td>
+				<td></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<th colspan="3" scope="rowgroup">If technology provides internationalization support</th>
+			</tr>
+			<tr>
+				<td>Accessibility features can be internationalized to the same degree as other features </td>
+				<td>Technologies that support internationalization must not overlook accessibility features. In
+					particular for content alternatives, technologies should support including multiple language
+					alternatives, language identification and changes within alternative content, text directionality
+					identification, etc.</td>
+				<td></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<th colspan="3" scope="rowgroup">If technology defines accessible alternative features</th>
+			</tr>
+			<tr>
+				<td>Accessible alternatives themselves meet the same bar of accessibility. </td>
+				<td>For instance, captions should be able to have color and style changed by the user. Text alternatives
+					should allow rich content. Audio descriptions should be separable from other sound.</td>
+				<td></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<th colspan="3" scope="rowgroup">If technology provides content directly for end-users</th>
+			</tr>
+			<tr>
+				<td>Content can be encoded in a manner that allows machine transformation into accessible output </td>
+				<td>Some technologies encode content into a binary format that requires specific software to execute and
+					render the content. Unless that format provide robust interaction with accessibility APIs and
+					comprehensive transformation support, this will reduce the scope of accessible transformation that
+					could be possible for the content. Technologies should choose content formats that allow easy
+					transformation including from third-party tools and services.</td>
+				<td></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<th colspan="3" scope="rowgroup">If technology defines an API</th>
+			</tr>
+			<tr>
+				<td>If the API can be used for structured content, it provides features to represent all aspects of the
+					content including hidden accessibility features. </td>
+				<td>Application programming interfaces allow programmatic manipulation and interchange of content, and
+					are being used to create a more imperative Web. While typically APIs exchange data rather than
+					user-focused content, this data ultimately is exposed to the user in some way. Some of the content
+					richness can disappear if the API does not support features like content alternatives, control
+					association, etc. Technologies that define APIs should ensure the API is rich enough to exchange all
+					relevant accessibility information.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>If the API relies on user agents to generate a user interface, the specification provides guidance
+					about accessibility requirements needed to enable full interaction with the API. </td>
+				<td>Content manipulated by an API is generally generated into a user interface. Technologies should
+					provide guidance to ensure that user agents or dynamic content applications expose the full set of
+					accessibility information available in the API.</td>
+				<td></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<th colspan="3" scope="rowgroup">If technology defines a transmission protocol</th>
+			</tr>
+			<tr>
+				<td>Use of the protocol does not cause any aspect of the content, including metadata which could contain
+					important accessibility information, to be removed. </td>
+				<td>Transmission protocols exchange content between devices. Sometimes protocols remove content viewed
+					as unimportant, or restrict what can be transmitted for security or provenance reasons. This can
+					have unintended impacts on accessibility features in the content. Technologies defining transmission
+					profiles need to ensure all aspects of the content relevant to accessibility are included.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>It is possible to use third-party accessibility enhancement services while using the protocol. </td>
+				<td>On the Web, content is typically exchanged between a client and server. For accessibility, some
+					third-party tools may act between these endpoints to modify the content to a form that is more
+					suitable for the user. While transmission protocols need to avoid unintended modification of the
+					stream, they also need to provide support for this use case.</td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+
+</html>
