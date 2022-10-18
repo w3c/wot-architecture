@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang='en-US'>
 <head>
-  <link rel="stylesheet" href="atrisk.css">
+  <link rel="stylesheet" href="testing/atrisk.css">
   <meta charset='utf-8'>
   <title>Web of Things (WoT) Architecture 1.1</title>
   <script class="remove" src="https://www.w3.org/Tools/respec/respec-w3c"></script>
@@ -136,7 +136,7 @@
           date: "April 2019"
         },
         "WOT-USE-CASES-REQUIREMENTS": {
-          href: "https://w3c.github.io/wot-usecases/",
+          href: "https://www.w3.org/TR/wot-usecases/",
           title: "Web of Things (WoT) Use Cases and Requirements",
           publisher: "W3C",
           authors: ["Michael Lagally", "Michael McCool", "Ryuichi Matsukura", "Tomoaki Mizushima"],
@@ -242,8 +242,8 @@
         }
         , "WOT-SECURITY": {
           title: "Web of Things (WoT) Security and Privacy Guidelines"
-          //, href: "https://www.w3.org/TR/wot-security/"
-          , href: "https://w3c.github.io/wot-security/"
+          , href: "https://www.w3.org/TR/wot-security/"
+          //, href: "https://w3c.github.io/wot-security/"
           , authors: [
             , "Michael McCool"
             , "Elena Reshetova"
@@ -339,7 +339,7 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
     </p>
     <p>A set of over 30 WoT <em>use cases</em> were contributed by stakeholders from multiple industries for various
       application domains.
-      These have have being collected and were published in the <em>WoT Use Cases and Requirement </em>
+      These have been collected and were published in the <em>WoT Use Cases and Requirements</em>
       <a href="https://www.w3.org/TR/wot-usecases/">https://www.w3.org/TR/wot-usecases/</a> document.
     </p>
     <p>
@@ -542,6 +542,11 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
 	Digital Twins typically have more functionality than
 	simple <a>Shadows</a>.
       </dd>
+      <dt>
+        <dfn>Directory</dfn>
+      </dt>
+      <dd>A <a>Service</a> that maintains a set of data or metadata describing other <a>Services</a>
+       or <a>Things</a>.  An example would be a <a>WoT Thing Description Directory</a>.</dd>
       <dt><dfn data-lt="WoT Discovery">Discovery</dfn>
       <dd>Mechanisms defined by WoT for distributing and accessing
         <a>WoT Thing Descriptions</a> on the network, 
@@ -778,6 +783,10 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
         must be known to interact successfully.
         An example is long polling for HTTP.</dd>
       <dt>
+        <dfn>System</dfn>
+      </dt>
+      <dd>An entity consisting of multiple interacting components.</dd>
+      <dt>
         <dfn>TD</dfn>
       </dt>
       <dd>Short for <a>WoT Thing Description</a>.</dd>
@@ -993,18 +1002,24 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
         <td>Large home and industrial gateways</td>
       </tr><tr>
         <td>Class-5, C5</td>
-        <td>~ 1 GB</td>
-        <td>~ 1 GB</td>
+        <td>~ 1 - 8 GB</td>
+        <td>~ 1 - 16 GB</td>
         <td>edge</td>
-        <td>Powerful edge servers</td>
+        <td>Small edge servers</td>
       </tr><tr>
         <td>Class-6, C6</td>
         <td>~ several GB</td>
         <td>~ several GB</td>
+        <td>edge</td>
+        <td>Large edge servers</td>
+      </tr>
+      <tr>
+        <td>Class-7, C7</td>
+        <td>~ several GB</td>
+        <td>~ several GB</td>
         <td>cloud</td>
         <td>Cloud systems with multiple compute nodes</td>
-      </tr>
-      </table>
+      </tr></table>
 
       <p class="note" title="Category Borders">
       Category borders are soft borders and categories are not exclusive, 
@@ -1023,6 +1038,8 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
       targeted by the W3C WoT and which are used to derive the
       abstract architecture discussed in <a href="#sec-building-blocks"></a>.
     </p>
+    <p>These application domains are motivated by the use cases 
+      that are described in [?WOT-USE-CASES-REQUIREMENTS]].</p>
     <p>The Web of Things architecture does not put any
       limitations on use cases and application domains. Various
       application domains have been considered to collect common
@@ -3121,7 +3138,7 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
         implementation MUST only provide metadata and <a>TDs</a>
         after appropriate best-practice authentication and authorization.</span>
         Suitable best-practice security mechanisms for authentication and authorization for 
-        different circumstances are discussed in [[WOT-SECURITY]].  
+        different circumstances are discussed in [[?WOT-SECURITY]].  
         Suitable mechanisms for managing access controls and keys are also discussed
         in [[?SOLID]].
         </p><p> 
@@ -4056,7 +4073,7 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
       in their security requirements and risk tolerance, so
       security mechanisms will also vary based on these factors.
     </p>
-    <p>Security are especially important in the IoT
+    <p>Security is especially important in the IoT
       domain since IoT devices need to operate autonomously and, in
       many cases, may be in control of safety-critical systems.
       IoT devices are subject to different and in some
@@ -4268,7 +4285,7 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
             A set of recommendations for secure update and
             post-manufacturing provisioning can be found in
             the <em>WoT Security and Privacy Guidelines</em>
-            specification [[WOT-SECURITY]].
+            specification [[?WOT-SECURITY]].
           </dd>
         </dl>
       </section>
@@ -4323,7 +4340,7 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
       that include the concept of a <a>Trusted Environment</a> and a security 
       boundary. Entities that are members of a <a>Trusted Environment</a>
       all share access to a common set of resources (such as a local
-      network) and are implictly granted certain access rights to
+      network) and are implicitly granted certain access rights to
       each other.  A common example would be a WiFi LAN in the home
       where access to the WEP password allows devices to communicate
       with each other without any further access controls.
