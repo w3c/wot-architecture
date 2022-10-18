@@ -339,6 +339,12 @@
       max-width: 90%;
       height: auto;
     }
+    .rfc2119-assertion {
+      background-color: rgb(230,230,230)
+    }
+    .at-risk {
+      background-color: yellow
+    }
   </style>
 </head>
 
@@ -389,10 +395,20 @@
 
   </section>
   <section id="sotd">
-<p>This is a draft being prepared for transition to Candidate Recommendation status.
-As a draft document it may be updated, replaced or obsoleted by other documents at any time. It is inappropriate to cite this document as other than work in progress.
-</p>
-<p>Publication as a Candidate Recommendation does not imply endorsement by W3C and its Members. A Candidate Recommendation Snapshot has received <a href="https://www.w3.org/2021/Process-20211102/#dfn-wide-review">wide review</a>, is intended to gather implementation experience, and has commitments from Working Group members to <a href="https://www.w3.org/Consortium/Patent-Policy/#sec-Requirements">royalty-free licensing</a> for implementations.</p>
+    <p>At the time of CR transition, due to insufficient implementation
+    experience the following features are at risk:</p>
+    <ul>
+    <li><a href="#arch-hypermedia-caching">Caching of hypermedia controls for offline processing.</a></li>
+    <li><a href="#arch-intermediary-td-extra-protocols">Generation of interfaces for other protocols by an intermediary.</a></li>
+    </ul>
+    <p>In addition, a number of assertions in the Privacy Considerations
+    and Security Considerations sections are at risk.  These represent best
+    practices but often relate to deployment policy rather than implementations
+    and in some cases are difficult to validate.  The intention is to complete
+    as many of these as possible by PR; those that cannot be validated but
+    that represent best-practice recommendations will be converted into
+    informative statements.</p>
+    <p class="at-risk">At-risk assertions are marked with yellow highlighting.</span></p>
     <p>
       This document describes an abstract architecture.
       However, there is an
@@ -4113,6 +4129,12 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
 
   <section id="sec-security-considerations">
     <h1>Security Considerations</h1>
+        <p class="at-risk">Several assertions in the following are at risk, as indicated
+        by yellow highlighting.  These represent best practices but at the
+        time of CR transition have insufficient implementation experience.
+        These will be converted to informative statements if sufficient
+        implementation experience is not obtained by time of PR transition.
+        </p>
     <p>
       Security is a cross-cutting issue that needs to be considered
       in all <a href="#sec-building-blocks">WoT
@@ -4580,6 +4602,12 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
   </section>
   <section id="sec-privacy-considerations">
     <h1>Privacy Considerations</h1>
+        <p class="at-risk">Several assertions in the following are at risk, as indicated
+        by yellow highlighting.  These represent best practices but at the
+        time of CR transition have insufficient implementation experience.
+        These will be converted to informative statements if sufficient
+        implementation experience is not obtained by time of PR transition.
+        </p>
     <p>
       Privacy is a cross-cutting issue that needs to be considered
       in all <a href="#sec-building-blocks">WoT
