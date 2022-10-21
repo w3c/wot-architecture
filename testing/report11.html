@@ -162,31 +162,33 @@ pre.example {
     <li class="tocline">7.x <a href="#impl-ORG">ORG</a></li>
         -->
   <li class="tocline">
-	6.1 <a href="#impl-ditto">WoT Hive directory</a></li>
+	6.1 <a href="#impl-ditto-model">Eclipse Ditto WoT Model: Tool</a></li>
 <li class="tocline">
-	6.2 <a href="#impl-echonet-proxy">echonet-wot-proxy: Intermediary</a></li>
+	6.2 <a href="#impl-ditto">WoT Hive directory</a></li>
 <li class="tocline">
-	6.3 <a href="#impl-editdor">Eclipse EdiTDor: Tool and Producer</a></li>
+	6.3 <a href="#impl-echonet-proxy">echonet-wot-proxy: Intermediary</a></li>
 <li class="tocline">
-	6.4 <a href="#impl-hitachi-esp-idf">TBD: TD Exposer</a></li>
+	6.4 <a href="#impl-editdor">Eclipse EdiTDor: Tool and Producer</a></li>
 <li class="tocline">
-	6.5 <a href="#impl-hitachi-nodegen">Node generator for Node-RED: TD Consumer</a></li>
+	6.5 <a href="#impl-hitachi-esp-idf">Air quality sensor and acclerometer: TD Exposer</a></li>
 <li class="tocline">
-	6.6 <a href="#impl-hitachi-node-red">TBD: TD Exposer</a></li>
+	6.6 <a href="#impl-hitachi-nodegen">Node generator for Node-RED: TD Consumer</a></li>
 <li class="tocline">
-	6.7 <a href="#impl-hitachi-nrwotdisc">TBD: Discoverer</a></li>
+	6.7 <a href="#impl-hitachi-node-red">LED lamp: TD Exposer</a></li>
 <li class="tocline">
-	6.8 <a href="#impl-intel-nodejs">intel-nodejs: TD Exposer</a></li>
+	6.8 <a href="#impl-hitachi-nrwotdisc">WoT-Discovery Plugin for Node-RED: Discoverer</a></li>
 <li class="tocline">
-	6.9 <a href="#impl-intel-proxy">intel-proxy: Intermediary</a></li>
+	6.9 <a href="#impl-intel-nodejs">intel-nodejs: TD Exposer</a></li>
 <li class="tocline">
-	6.10 <a href="#NHK">NHK: Emulated WoT Devices</a></li>
+	6.10 <a href="#impl-intel-proxy">intel-proxy: Intermediary</a></li>
 <li class="tocline">
-	6.11 <a href="#impl-nodewot">Eclipse node-wot: Consumer and Exposer</a></li>
+	6.11 <a href="#NHK">NHK: Emulated WoT Devices</a></li>
 <li class="tocline">
-	6.12 <a href="#impl-playground">Thing Description Playground: Tool</a></li>
+	6.12 <a href="#impl-nodewot">Eclipse node-wot: Consumer and Exposer</a></li>
 <li class="tocline">
-	6.13 <a href="#impl-saywot">Siemens sayWoT!: Exposer and Consumer</a></li>
+	6.13 <a href="#impl-playground">Thing Description Playground: Tool</a></li>
+<li class="tocline">
+	6.14 <a href="#impl-saywot">Siemens sayWoT!: Exposer and Consumer</a></li>
 </ul>
   <li class="tocline">8. <a href="#security">Security</a></li>
   <li class="tocline">9. <a href="#test_results">Test results</a>
@@ -416,7 +418,21 @@ pre.example {
 </p>
 <div id="systems-impl">
   <!-- system implementation descriptions will be inserted here -->
-<div class="impl" id="impl-ditto">
+<div class="impl" id="impl-ditto-model">
+  <h4 id="impl-ditto-wot-model">Eclipse Ditto WoT Model: Tool</h4>
+  <p>
+    Eclipse Ditto offers a Java Module to use TDs and TMs inside Java
+    environments with concepts native to Java, e.g. providing a builder API for
+    creating new TM/TD instances and rendering those to JSON strings and vice
+    versa.
+  </p>
+  <p><b>Usage:</b> Library</p>
+  <p>
+    <b>Public Repository:</b>
+    https://github.com/eclipse/ditto/tree/master/wot/model
+  </p>
+  <p><b>Contributing Member Organizations:</b> Bosch.IO</p>
+</div><div class="impl" id="impl-ditto">
   <h4 id="impl-wothive">WoT Hive directory</h4>
   <p>
    WoT Hive is an implementation of a W3C Web of Things directory. This implementation is compliant with the standard specification but aims at providing enriched features thanks to the usage of other W3C standards related to Semantic Web technologies.
@@ -436,7 +452,7 @@ pre.example {
  This intermediary extends the node-wot library.
   </p>
 </div><div class="impl" id="impl-editdor">
-  <h4>Eclipse EdiTDor: Tool and Producer</h4>
+  <h4 id="impl-editdor">Eclipse EdiTDor: Tool and Producer</h4>
   <p>
     The Eclipse EdiTDor implementation is a web application for simply designing
     W3C Thing Descriptions and Thing Models.
@@ -448,8 +464,8 @@ pre.example {
   </p>
   <p><b>Contributing Member Organizations:</b> Siemens AG, Bosch.IO</p>
 </div><div class="impl" id="impl-hitachi-esp-idf">
-  <h4>TBD: TD Exposer</h4>
-  <p>TBD</p>
+  <h4>Air quality sensor and acclerometer: TD Exposer</h4>
+  <p>This is a sample Thing implementation in C++.</p>
 </div><div class="impl" id="impl-hitachi-nodegen">
   <h4>Node generator for Node-RED: TD Consumer</h4>
   <p>
@@ -461,11 +477,13 @@ pre.example {
     Node-RED node modules.
   </p>
 </div><div class="impl" id="impl-hitachi-node-red">
-  <h4>TBD: TD Exposer</h4>
-  <p>TBD</p>
+  <h4>LED lamp: TD Exposer</h4>
+  <p>This is a sample Thing implementation in Node-RED.</p>
 </div><div class="impl" id="impl-hitachi-nrwotdisc">
-  <h4>TBD: Discoverer</h4>
-  <p>TBD</p>
+  <h4>WoT-Discovery Plugin for Node-RED: Discoverer</h4>
+  <p>This is a plug-in for Node-RED to integrate Node-RED and WoT-Discovery.
+    You canexplore the surrounding Thing from Node-RED's Editor and install a node to interact with that Thing.
+  </p>
 </div><div class="impl" id="impl-intel-nodejs">
   <h4>intel-nodejs: TD Exposer</h4>
   <p>
@@ -528,12 +546,12 @@ pre.example {
     <b>Contributing Member Organizations:</b> Siemens AG, Invited Experts
   </p>
 </div><div class="impl" id="impl-playground">
-  <h4>Thing Description Playground: Tool</h4>
+  <h4 id="impl-playground">Thing Description Playground: Tool</h4>
   <p>
     The Thing Description Playground implementation is a set of tools that
     allows one to validate TDs, as well to transform them into different
-    representations such as OpenAPI and AsyncAPI. It also allows to detect
-    implemented assertions of the TD spec by looking at a TD, which is how the
+    representations such as OpenAPI and AsyncAPI or to manipulate TDs to add or remove default terms and values. 
+    It also allows to detect implemented assertions of the TD spec by looking at a TD, which is how the
     implementation report for the TD is generated.
   </p>
   <p>
@@ -544,9 +562,9 @@ pre.example {
     <b>Public Repository:</b> https://github.com/thingweb/thingweb-playground
     <b>Website:</b> http://plugfest.thingweb.io/playground/
   </p>
-  <p><b>Contributing Member Organizations:</b> Siemens AG</p>
+  <p><b>Contributing Member Organizations:</b>Siemens AG</p>
 </div><div class="impl" id="impl-saywot">
-  <h4>Siemens sayWoT!: Exposer and Consumer</h4>
+  <h4 id="impl-saywot">Siemens sayWoT!: Exposer and Consumer</h4>
   <p>
     sayWoT! is an industrial-grade implementation that allows integration of devices 
     into Siemens software products like 
@@ -1734,11 +1752,12 @@ Description (TD) [WOT-THING-DESCRIPTION].</td>
 <li>Kunihiko Toumura (Hitachi)</li>
 <li>Ryuichi Matsukura (Fujitsu Ltd.)</li>
 <li>Tomoaki Mizushima (IRI Inc.)</li>
-<li>Matthias Kovatsch (Huawei)</li>
+<li>Matthias Kovatsch (Siemens)</li>
 <li>Michael McCool (Intel)</li>
 <li>Michael Lagally (Oracle)</li>
 <li>Takeshi Yamada and Toru Kawaguchi (Panasonic)</li>
-<li>Sebastian Käbisch, Daniel Peintner, Victor Charpenay and Christian Glomb, Ege Korkan (Siemens)</li>
+<li>Sebastian Käbisch, Daniel Peintner, Victor Charpenay, Christian Glomb, and Ege Korkan (Siemens)</li>
+<li>Fady Salama (Siemens and Technical University of Munich)</li>
 </ul>
 <p></p>
 <div class="navbar">
