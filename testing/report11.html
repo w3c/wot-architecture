@@ -162,33 +162,35 @@ pre.example {
     <li class="tocline">7.x <a href="#impl-ORG">ORG</a></li>
         -->
   <li class="tocline">
-	6.1 <a href="#impl-ditto-model">Eclipse Ditto WoT Model: Tool</a></li>
+	7.1 <a href="#impl-ditto-model">Eclipse Ditto WoT Model: Tool</a></li>
 <li class="tocline">
-	6.2 <a href="#impl-ditto">WoT Hive directory</a></li>
+	7.2 <a href="#impl-ditto">Eclipse Ditto: TD Exposer</a></li>
 <li class="tocline">
-	6.3 <a href="#impl-echonet-proxy">echonet-wot-proxy: Intermediary</a></li>
+	7.3 <a href="#impl-echonet-proxy">echonet-wot-proxy: Intermediary</a></li>
 <li class="tocline">
-	6.4 <a href="#impl-editdor">Eclipse EdiTDor: Tool and Producer</a></li>
+	7.4 <a href="#impl-editdor">Eclipse EdiTDor: Tool and Producer</a></li>
 <li class="tocline">
-	6.5 <a href="#impl-hitachi-esp-idf">Air quality sensor and acclerometer: TD Exposer</a></li>
+	7.5 <a href="#impl-hitachi-esp-idf">Air quality sensor and acclerometer: TD Exposer</a></li>
 <li class="tocline">
-	6.6 <a href="#impl-hitachi-nodegen">Node generator for Node-RED: TD Consumer</a></li>
+	7.6 <a href="#impl-hitachi-nodegen">Node generator for Node-RED: TD Consumer</a></li>
 <li class="tocline">
-	6.7 <a href="#impl-hitachi-node-red">LED lamp: TD Exposer</a></li>
+	7.7 <a href="#impl-hitachi-node-red">LED lamp: TD Exposer</a></li>
 <li class="tocline">
-	6.8 <a href="#impl-hitachi-nrwotdisc">WoT-Discovery Plugin for Node-RED: Discoverer</a></li>
+	7.8 <a href="#impl-hitachi-nrwotdisc">WoT-Discovery Plugin for Node-RED: Discoverer</a></li>
 <li class="tocline">
-	6.9 <a href="#impl-intel-nodejs">intel-nodejs: TD Exposer</a></li>
+	7.9 <a href="#impl-intel-nodejs">intel-nodejs: TD Exposer</a></li>
 <li class="tocline">
-	6.10 <a href="#impl-intel-proxy">intel-proxy: Intermediary</a></li>
+	7.10 <a href="#impl-intel-proxy">intel-proxy: Intermediary</a></li>
 <li class="tocline">
-	6.11 <a href="#NHK">NHK: Emulated WoT Devices</a></li>
+	7.11 <a href="#NHK">NHK: Emulated WoT Devices</a></li>
 <li class="tocline">
-	6.12 <a href="#impl-nodewot">Eclipse node-wot: Consumer and Exposer</a></li>
+	7.12 <a href="#impl-nodewot">Eclipse node-wot: Consumer and Exposer</a></li>
 <li class="tocline">
-	6.13 <a href="#impl-playground">Thing Description Playground: Tool</a></li>
+	7.13 <a href="#impl-playground">Thing Description Playground: Tool</a></li>
 <li class="tocline">
-	6.14 <a href="#impl-saywot">Siemens sayWoT!: Exposer and Consumer</a></li>
+	7.14 <a href="#impl-saywot">Siemens sayWoT!: Exposer and Consumer</a></li>
+<li class="tocline">
+	7.15 <a href="#impl-wothive">WoT Hive directory</a></li>
 </ul>
   <li class="tocline">8. <a href="#security">Security</a></li>
   <li class="tocline">9. <a href="#test_results">Test results</a>
@@ -197,7 +199,7 @@ pre.example {
       <li class="tocline">9.1 <a href="#automated_validation_results">Automated validation results</a></li>
       <li class="tocline">9.2 <a href="#manual_validation_results">Manual validation results</a></li>
 -->
-      <li class="tocline">9.2 <a href="#manual_validation_results">Validation results</a></li>
+      <li class="tocline">9.1 <a href="#manual_validation_results">Validation results</a></li>
 <!--
       <li class="tocline">9.3 <a href="#test_interop">Interoperability results</a></li>
 -->
@@ -433,17 +435,18 @@ pre.example {
   </p>
   <p><b>Contributing Member Organizations:</b> Bosch.IO</p>
 </div><div class="impl" id="impl-ditto">
-  <h4 id="impl-wothive">WoT Hive directory</h4>
+  <h4 id="impl-ditto-WoT">Eclipse Ditto: TD Exposer</h4>
   <p>
-   WoT Hive is an implementation of a W3C Web of Things directory. This implementation is compliant with the standard specification but aims at providing enriched features thanks to the usage of other W3C standards related to Semantic Web technologies.
+    A service that provides APIs for managing digital twins and interacting with
+    the abstracted devices. Fetches linked Thing Models of digital twins and
+    provides instance specific Thing Descriptions for them.
   </p>
-  <p><b>Usage:</b> Directoryt</p>
-  <p><b>Public Repository:</b> https://github.com/oeg-upm/wot-hive</p>
+  <p><b>Usage:</b> Service</p>
+  <p><b>Public Repository:</b> https://github.com/eclipse/ditto</p>
   <p>
-    <b>Website:</b> https://github.com/oeg-upm/wot-hive
+    <b>Website:</b> https://www.eclipse.org/ditto/basic-wot-integration.html
   </p>
-  <p><b>Contributing Member Organizations:</b> Universidad Politécnica de Madrid</p>
-
+  <p><b>Contributing Member Organizations:</b> Bosch.IO</p>
 </div><div class="impl" id="impl-echonet-proxy">
   <h4>echonet-wot-proxy: Intermediary</h4>
   <p>
@@ -578,6 +581,18 @@ pre.example {
     <b>Website:</b> https://www.evosoft.com/en/digitalization-offering/saywot/
   </p>
   <p><b>Contributing Member Organizations:</b> Siemens AG</p>
+</div><div class="impl" id="impl-wothive">
+  <h4 id="impl-wothive-dir">WoT Hive directory</h4>
+  <p>
+   WoT Hive is an implementation of a W3C Web of Things directory. This implementation is compliant with the standard specification but aims at providing enriched features thanks to the usage of other W3C standards related to Semantic Web technologies.
+  </p>
+  <p><b>Usage:</b> Directory</p>
+  <p><b>Public Repository:</b> https://github.com/oeg-upm/wot-hive</p>
+  <p>
+    <b>Website:</b> https://github.com/oeg-upm/wot-hive
+  </p>
+  <p><b>Contributing Member Organizations:</b> Universidad Politécnica de Madrid</p>
+
 </div></div>
 
 <h2 id="h_security"><a id="security" name="security">8. Security</a></h2>
