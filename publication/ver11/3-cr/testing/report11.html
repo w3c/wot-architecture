@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Web of Things (WoT) Architecture: Implementation Report</title>
+    <title>Web of Things (WoT) Architecture 1.1: Implementation Report</title>
     <link rel="stylesheet" type="text/css" href="https://www.w3.org/StyleSheets/general.css">
     <style type="text/css" xml:space="preserve">
 /*<![CDATA[*/
@@ -117,15 +117,14 @@ pre.example {
 <div class="head">
   <a href="http://www.w3.org/"><img src="https://www.w3.org/Icons/w3c_home" alt="W3C" width="72" height="48"></a>
   <h1 id="h_ir">
-    Web of Things (WoT) Architecture:<br>
+    Web of Things (WoT) Architecture 1.1:<br>
     Implementation Report
   </h1>
   <p>
-    <b>Version</b>: 18 Oct 2022
+    <b>Version</b>: 21 Oct 2022
   </p>
   <p>
     <b>Editors</b>:<br>
-    Michael Lagally (Oracle)<br>
     Michael McCool (Intel)
   </p>
 
@@ -163,31 +162,35 @@ pre.example {
     <li class="tocline">7.x <a href="#impl-ORG">ORG</a></li>
         -->
   <li class="tocline">
-	6.1 <a href="#impl-ditto">WoT Hive directory</a></li>
+	7.1 <a href="#impl-ditto-model">Eclipse Ditto WoT Model: Tool</a></li>
 <li class="tocline">
-	6.2 <a href="#impl-echonet-proxy">echonet-wot-proxy: Intermediary</a></li>
+	7.2 <a href="#impl-ditto">Eclipse Ditto: TD Exposer</a></li>
 <li class="tocline">
-	6.3 <a href="#impl-editdor">Eclipse EdiTDor: Tool and Producer</a></li>
+	7.3 <a href="#impl-echonet-proxy">echonet-wot-proxy: Intermediary</a></li>
 <li class="tocline">
-	6.4 <a href="#impl-hitachi-esp-idf">TBD: TD Exposer</a></li>
+	7.4 <a href="#impl-editdor">Eclipse EdiTDor: Tool and Producer</a></li>
 <li class="tocline">
-	6.5 <a href="#impl-hitachi-nodegen">Node generator for Node-RED: TD Consumer</a></li>
+	7.5 <a href="#impl-hitachi-esp-idf">Air quality sensor and acclerometer: TD Exposer</a></li>
 <li class="tocline">
-	6.6 <a href="#impl-hitachi-node-red">TBD: TD Exposer</a></li>
+	7.6 <a href="#impl-hitachi-nodegen">Node generator for Node-RED: TD Consumer</a></li>
 <li class="tocline">
-	6.7 <a href="#impl-hitachi-nrwotdisc">TBD: Discoverer</a></li>
+	7.7 <a href="#impl-hitachi-node-red">LED lamp: TD Exposer</a></li>
 <li class="tocline">
-	6.8 <a href="#impl-intel-nodejs">intel-nodejs: TD Exposer</a></li>
+	7.8 <a href="#impl-hitachi-nrwotdisc">WoT-Discovery Plugin for Node-RED: Discoverer</a></li>
 <li class="tocline">
-	6.9 <a href="#impl-intel-proxy">intel-proxy: Intermediary</a></li>
+	7.9 <a href="#impl-intel-nodejs">intel-nodejs: TD Exposer</a></li>
 <li class="tocline">
-	6.10 <a href="#NHK">NHK: Emulated WoT Devices</a></li>
+	7.10 <a href="#impl-intel-proxy">intel-proxy: Intermediary</a></li>
 <li class="tocline">
-	6.11 <a href="#impl-nodewot">Eclipse node-wot: Consumer and Exposer</a></li>
+	7.11 <a href="#NHK">NHK: Emulated WoT Devices</a></li>
 <li class="tocline">
-	6.12 <a href="#impl-playground">Thing Description Playground: Tool</a></li>
+	7.12 <a href="#impl-nodewot">Eclipse node-wot: Consumer and Exposer</a></li>
 <li class="tocline">
-	6.13 <a href="#impl-saywot">Siemens sayWoT!: Exposer and Consumer</a></li>
+	7.13 <a href="#impl-playground">Thing Description Playground: Tool</a></li>
+<li class="tocline">
+	7.14 <a href="#impl-saywot">Siemens sayWoT!: Exposer and Consumer</a></li>
+<li class="tocline">
+	7.15 <a href="#impl-wothive">WoT Hive directory</a></li>
 </ul>
   <li class="tocline">8. <a href="#security">Security</a></li>
   <li class="tocline">9. <a href="#test_results">Test results</a>
@@ -196,7 +199,7 @@ pre.example {
       <li class="tocline">9.1 <a href="#automated_validation_results">Automated validation results</a></li>
       <li class="tocline">9.2 <a href="#manual_validation_results">Manual validation results</a></li>
 -->
-      <li class="tocline">9.2 <a href="#manual_validation_results">Validation results</a></li>
+      <li class="tocline">9.1 <a href="#manual_validation_results">Validation results</a></li>
 <!--
       <li class="tocline">9.3 <a href="#test_interop">Interoperability results</a></li>
 -->
@@ -225,15 +228,15 @@ pre.example {
 </p>
 -->
 <p>
-  The <a href="http://www.w3.org/TR/wot-thing-description11/">Web of Things (WoT) Thing Description 1.1</a>
+  The <a href="http://www.w3.org/TR/wot-architecture11/">Web of Things (WoT) Architecture 1.1</a>
   document was last published as a
-  <a href="https://www.w3.org/TR/2022/WD-wot-thing-description11-20220803/">Working Draft</a>
-  on 3 September 2022.
-  The planned date for entering Candidate Recommendation is 22 September 2022.
-  The planned date for entering Proposed Recommendation is 24 November 2022.
+  <a href="https://www.w3.org/TR/2022/WD-architecture11-20220907/">Working Draft</a>
+  on 7 September 2022.
+  The planned date for entering Candidate Recommendation is 26 October 2022.
+  The planned date for entering Proposed Recommendation is 12 January 2022.
 </p>
 <p>
-  This document summarizes the results from the Web of Things (WoT) TD implementer reports received and
+  This document summarizes the results from the Web of Things (WoT) Architecture 1.1 implementer reports received and
   describes the process that the Web of Things (WoT) Working Group followed in preparing this <em>Implementation Report (IR)</em>.
 </p>
 
@@ -247,14 +250,13 @@ pre.example {
 	<li>The IR does not attempt full conformance testing of implementations.</li>
 </ul>
 <p>
-  Although results were generated with a combination of automated and manual tests,
-  the automated tests were only meant to provide assistance to implementers in preparing their individual implementation
-  test reports.
+  Results were based on data files submitted by implementers stating whether
+  or not their implementations conformed to the specification.
 </p>
 
-<h2 id="h_cr_work"><a id="cr_work" name="cr_work">2. Work during the Candidate Recommendation period</a></h2>
+<h2 id="h_cr_work"><a id="cr_work" name="cr_work">2. Work planned for the Candidate Recommendation period</a></h2>
 <p>
-  During the CR period, the Working Group carried out the following activities:
+  During the CR period, the Working Group plans to carry out the following activities:
 </p>
 <ol>
 	<li>Clarification and improvement through the exposition of the specification</li>
@@ -262,23 +264,23 @@ pre.example {
         These comments and their resolution are detailed in the
         <a href="https://github.com/w3c/wot-architecture/issues">GitHub Issue tracker</a>
         with the label <a href="https://github.com/w3c/wot-architecture/issues?q=label%3A%22CR+period%22">CR&nbsp;period</a>.</li>
-	<li>Preparation of this Implementation Report.</li>
+	<li>Finalization of this Implementation Report.</li>
 </ol>
 
 <h2 id="h_participate"><a id="participate" name="participate">3. Participating in the Implementation Report</a></h2>
 <p>
   Implementers were invited to contribute to the assessment of the
-  <a href="https://www.w3.org/TR/2022/CR-wot-architecture-2022MMDD/">Web of Things (WoT) Architecture Candidate Recommendation</a>
+  <a href="https://www.w3.org/TR/2022/wot-architecture11/">Web of Things (WoT) Architecture 1.1</a> draft
   by submitting implementer reports describing the
   coverage of their implementations with respect to the test assertions outlined
-  in the <a href="#automated_validation_results">table below</a>.
+  in the <a href="#manual_validation_results">table below</a>.
 </p>
 <p>
   Implementer reports were collected through the W3C WoT Interest Group's
   <a href="https://www.w3.org/2016/07/wot-ig-charter.html#scope">PlugFest</a> activity and collected
   in the GitHub repository
-  <a href="https://github.com/w3c/wot-testing/tree/master/events/2022.03.Online/Architecture">https://github.com/w3c/wot-testing</a>
-  under <code>events/2022.03.Online/Architecture</code>.
+  <a href="https://github.com/w3c/wot-testing/tree/master/data/input_2022/Architecture">https://github.com/w3c/wot-testing</a>
+  under <code>data/input_2022/Architecture</code>.
 </p>
 <p>
   Comments on this document, or requests made for
@@ -308,18 +310,26 @@ pre.example {
     public comments received by the Working Group.
   </li>
 </ol>
+<!--
 <p>
   All three of these criteria have been met.
-<!--
   Hard to count since some implementations have multiple components, and some are shared.  Omit.
   A total of N implementations were documented by M different organizations.
--->
   The testimonials below indicate the broad base of support
   for the specification. All of the required features had at least
   two implementations.
-  All of the optional features also received at least one implementation.
+  All of the optional features also received at least two implementations.
   However, these optional features do not have
   conformance requirements that have an impact on interoperability.
+</p>
+-->
+<p>
+  In order to be included in the PR all features, whether optional
+  or required, need to have received at least two implementations.
+  At the time of publication of this report there are some gaps, as
+  documented in the Status of this Document section of the CR.
+  It is the intention of the working group to gather additional
+  implementation evidence for these features during the CR period.
 </p>
 
 <h2 id="h_report_reqs"><a id="report_reqs" name="report_reqs">5. Implementation Report requirements</a></h2>
@@ -344,13 +354,13 @@ pre.example {
     Feature status is a factor in test coverage in the report:
     <ul>
 		  <li>
-        Required specification features must have at least two
-        implementations. Implementations that do not implement a required
+        Required specification features must have at least two implementations. 
+        Implementations that do not implement a required
         specification feature must document the reason for not implementing
         the feature.
       </li>
 		  <li>
-        Optional specification features must have at least one implementation.
+        Optional specification features must have at least two implementations.
         Implementations that do not implement an optional specification
         feature should document the reason for not implementing the feature.
       </li>
@@ -410,18 +420,33 @@ pre.example {
 </p>
 <div id="systems-impl">
   <!-- system implementation descriptions will be inserted here -->
-<div class="impl" id="impl-ditto">
-  <h4 id="impl-wothive">WoT Hive directory</h4>
+<div class="impl" id="impl-ditto-model">
+  <h4 id="impl-ditto-wot-model">Eclipse Ditto WoT Model: Tool</h4>
   <p>
-   WoT Hive is an implementation of a W3C Web of Things directory. This implementation is compliant with the standard specification but aims at providing enriched features thanks to the usage of other W3C standards related to Semantic Web technologies.
+    Eclipse Ditto offers a Java Module to use TDs and TMs inside Java
+    environments with concepts native to Java, e.g. providing a builder API for
+    creating new TM/TD instances and rendering those to JSON strings and vice
+    versa.
   </p>
-  <p><b>Usage:</b> Directoryt</p>
-  <p><b>Public Repository:</b> https://github.com/oeg-upm/wot-hive</p>
+  <p><b>Usage:</b> Library</p>
   <p>
-    <b>Website:</b> https://github.com/oeg-upm/wot-hive
+    <b>Public Repository:</b>
+    https://github.com/eclipse/ditto/tree/master/wot/model
   </p>
-  <p><b>Contributing Member Organizations:</b> Universidad Politécnica de Madrid</p>
-
+  <p><b>Contributing Member Organizations:</b> Bosch.IO</p>
+</div><div class="impl" id="impl-ditto">
+  <h4 id="impl-ditto-WoT">Eclipse Ditto: TD Exposer</h4>
+  <p>
+    A service that provides APIs for managing digital twins and interacting with
+    the abstracted devices. Fetches linked Thing Models of digital twins and
+    provides instance specific Thing Descriptions for them.
+  </p>
+  <p><b>Usage:</b> Service</p>
+  <p><b>Public Repository:</b> https://github.com/eclipse/ditto</p>
+  <p>
+    <b>Website:</b> https://www.eclipse.org/ditto/basic-wot-integration.html
+  </p>
+  <p><b>Contributing Member Organizations:</b> Bosch.IO</p>
 </div><div class="impl" id="impl-echonet-proxy">
   <h4>echonet-wot-proxy: Intermediary</h4>
   <p>
@@ -430,7 +455,7 @@ pre.example {
  This intermediary extends the node-wot library.
   </p>
 </div><div class="impl" id="impl-editdor">
-  <h4>Eclipse EdiTDor: Tool and Producer</h4>
+  <h4 id="impl-editdor">Eclipse EdiTDor: Tool and Producer</h4>
   <p>
     The Eclipse EdiTDor implementation is a web application for simply designing
     W3C Thing Descriptions and Thing Models.
@@ -442,8 +467,8 @@ pre.example {
   </p>
   <p><b>Contributing Member Organizations:</b> Siemens AG, Bosch.IO</p>
 </div><div class="impl" id="impl-hitachi-esp-idf">
-  <h4>TBD: TD Exposer</h4>
-  <p>TBD</p>
+  <h4>Air quality sensor and acclerometer: TD Exposer</h4>
+  <p>This is a sample Thing implementation in C++.</p>
 </div><div class="impl" id="impl-hitachi-nodegen">
   <h4>Node generator for Node-RED: TD Consumer</h4>
   <p>
@@ -455,11 +480,13 @@ pre.example {
     Node-RED node modules.
   </p>
 </div><div class="impl" id="impl-hitachi-node-red">
-  <h4>TBD: TD Exposer</h4>
-  <p>TBD</p>
+  <h4>LED lamp: TD Exposer</h4>
+  <p>This is a sample Thing implementation in Node-RED.</p>
 </div><div class="impl" id="impl-hitachi-nrwotdisc">
-  <h4>TBD: Discoverer</h4>
-  <p>TBD</p>
+  <h4>WoT-Discovery Plugin for Node-RED: Discoverer</h4>
+  <p>This is a plug-in for Node-RED to integrate Node-RED and WoT-Discovery.
+    You canexplore the surrounding Thing from Node-RED's Editor and install a node to interact with that Thing.
+  </p>
 </div><div class="impl" id="impl-intel-nodejs">
   <h4>intel-nodejs: TD Exposer</h4>
   <p>
@@ -522,12 +549,12 @@ pre.example {
     <b>Contributing Member Organizations:</b> Siemens AG, Invited Experts
   </p>
 </div><div class="impl" id="impl-playground">
-  <h4>Thing Description Playground: Tool</h4>
+  <h4 id="impl-playground">Thing Description Playground: Tool</h4>
   <p>
     The Thing Description Playground implementation is a set of tools that
     allows one to validate TDs, as well to transform them into different
-    representations such as OpenAPI and AsyncAPI. It also allows to detect
-    implemented assertions of the TD spec by looking at a TD, which is how the
+    representations such as OpenAPI and AsyncAPI or to manipulate TDs to add or remove default terms and values. 
+    It also allows to detect implemented assertions of the TD spec by looking at a TD, which is how the
     implementation report for the TD is generated.
   </p>
   <p>
@@ -538,9 +565,9 @@ pre.example {
     <b>Public Repository:</b> https://github.com/thingweb/thingweb-playground
     <b>Website:</b> http://plugfest.thingweb.io/playground/
   </p>
-  <p><b>Contributing Member Organizations:</b> Siemens AG</p>
+  <p><b>Contributing Member Organizations:</b>Siemens AG</p>
 </div><div class="impl" id="impl-saywot">
-  <h4>Siemens sayWoT!: Exposer and Consumer</h4>
+  <h4 id="impl-saywot">Siemens sayWoT!: Exposer and Consumer</h4>
   <p>
     sayWoT! is an industrial-grade implementation that allows integration of devices 
     into Siemens software products like 
@@ -554,6 +581,18 @@ pre.example {
     <b>Website:</b> https://www.evosoft.com/en/digitalization-offering/saywot/
   </p>
   <p><b>Contributing Member Organizations:</b> Siemens AG</p>
+</div><div class="impl" id="impl-wothive">
+  <h4 id="impl-wothive-dir">WoT Hive directory</h4>
+  <p>
+   WoT Hive is an implementation of a W3C Web of Things directory. This implementation is compliant with the standard specification but aims at providing enriched features thanks to the usage of other W3C standards related to Semantic Web technologies.
+  </p>
+  <p><b>Usage:</b> Directory</p>
+  <p><b>Public Repository:</b> https://github.com/oeg-upm/wot-hive</p>
+  <p>
+    <b>Website:</b> https://github.com/oeg-upm/wot-hive
+  </p>
+  <p><b>Contributing Member Organizations:</b> Universidad Politécnica de Madrid</p>
+
 </div></div>
 
 <h2 id="h_security"><a id="security" name="security">8. Security</a></h2>
@@ -656,7 +695,6 @@ pre.example {
   prior to each value tested and the table row is also rendered in a 
   different color.
 </p>
-<!--
 <p class="at-risk">
   Assertions which have been indicated as at-risk in the CR publication
   are indicated using yellow highlighting.  
@@ -665,7 +703,6 @@ pre.example {
   and one for optional features) they
   may be removed from the final Recommendation.
 </p>
--->
 
 <!--
 <h3 id="h_automated_validation_results"><a id="automated_validation_results" name="automated_validation_results">9.1 Automated Validation Results</a></h3>
@@ -755,9 +792,11 @@ pre.example {
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            If the data format is not fully specified by the Protocol Binding used (e.g., through a media type),
-            Actions MAY contain data schemas for input parameters and output results.</td>
+	<td class="baseassertion">If
+the data format is not fully specified by the Protocol Binding used
+(e.g., through a media type), Actions MAY
+contain data
+schemas for input parameters and output results.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
@@ -769,9 +808,10 @@ pre.example {
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            An Action MAY manipulate state that is not directly exposed (cf. Properties),
-            manipulate multiple Properties at a time, or manipulate Properties based on internal logic (e.g., toggle).</td>
+	<td class="baseassertion">An Action MAY
+manipulate state that is not directly exposed (cf. Properties),
+manipulate multiple Properties at a time, or manipulate Properties
+based on internal logic (e.g., toggle).</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -783,9 +823,10 @@ pre.example {
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            Invoking an Action MAY also trigger a process on the Thing that manipulates state
-            (including physical state through actuators) over time.</td>
+	<td class="baseassertion">Invoking an Action
+MAY also trigger a process on the Thing
+that manipulates state (including physical state through actuators)
+over time.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -798,9 +839,9 @@ pre.example {
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">In
-          addition to navigation affordances (i.e., Web links),
-          Things MAY offer three other types of Interaction Affordances
-          defined by this specification: Properties, Actions, and Events.</td>
+addition to navigation affordances (i.e., Web links), Things MAY
+offer three other types of Interaction Affordances
+defined by this specification: Properties, Actions, and Events.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">6</td>
 	<td class="result baseassertion">0</td>
@@ -812,8 +853,9 @@ pre.example {
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                    Transport protocols MAY have to use information provided by an extension mechanisms to interact successfully.</td>
+	<td class="baseassertion">Transport protocols
+MAY have to use information provided by an
+extension mechanisms to interact successfully.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
@@ -825,10 +867,12 @@ pre.example {
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            Forms MAY contain the media type and optional parameters in additional form fields such as a content type 
-            field known from HTTP, which combines media type and its potential parameters
-            (e.g., text/plain; charset=utf-8).</td>
+	<td class="baseassertion">Forms
+MAY contain the media type and optional
+parameters in additional form fields such as a content type field
+known from HTTP, which combines media type and its potential
+parameters (e.g., text/plain;
+charset=utf-8).</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
@@ -840,8 +884,9 @@ pre.example {
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            The media type [[!RFC2046]] identifies these formats, while media type parameters MAY specify them further.</td>
+	<td class="baseassertion">The media type
+[RFC2046]
+identifies these formats, while media type parameters MAY specify them further.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
@@ -853,9 +898,10 @@ pre.example {
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                  Such subprotocols cannot be identified from the URI scheme alone and MUST be declared explicitly
-                  using the subprotocol field inside forms.</td>
+	<td class="baseassertion">Such
+subprotocols cannot be
+identified from the URI scheme alone and MUST be declared explicitly using the
+subprotocol field inside forms.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
@@ -867,10 +913,10 @@ pre.example {
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-        Any WoT Discovery "exploration"
-        implementation MUST only provide metadata and TDs
-        after appropriate best-practice authentication and authorization.</td>
+	<td class="baseassertion">Any WoT Discovery "exploration"
+implementation MUST only provide metadata
+and TDs after appropriate best-practice
+authentication and authorization.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -882,12 +928,13 @@ pre.example {
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-        Any introduction mechanism used for WoT Discovery MUST NOT 
-        provide metadata but instead should simply result in 
-        one or more opaque URLs at which metadata
-        may be accessed, if and only if the user can authenticate and 
-        has the appropriate authorization (access rights).</td>
+	<td class="baseassertion">Any introduction mechanism used
+for WoT
+Discovery MUST NOT provide metadata
+but instead should simply result in one or more opaque URLs at
+which metadata may be accessed, if and only if the user can
+authenticate and has the appropriate authorization (access
+rights).</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
@@ -899,9 +946,9 @@ pre.example {
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-        Introduction URLs MUST NOT themselves include any metadata,
-        e.g. a human-readable device type or name.</td>
+	<td class="baseassertion">Introduction URLs
+MUST NOT themselves include any metadata,
+e.g. a human-readable device type or name.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -913,9 +960,10 @@ pre.example {
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">Whenever
-        possible, the Discovery mechanisms defined in [[!WOT-DISCOVERY]]
-        SHOULD be used to distribute TDs.</td>
+	<td class="baseassertion">Whenever possible, the
+Discovery mechanisms
+defined in [WOT-DISCOVERY]
+SHOULD be used to distribute TDs.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
@@ -927,10 +975,12 @@ pre.example {
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            If the data is not fully specified by the Protocol Binding used (e.g., through a media type),
-            Events MAY contain data schemas for the event data and subscription control messages
-            (e.g., a callback URI to subscribe with a Webhook).</td>
+	<td class="baseassertion">If
+the data is not fully specified by the Protocol Binding used (e.g.,
+through a media type), Events MAY contain
+data schemas for the event data
+and subscription control messages (e.g., a callback URI to
+subscribe with a Webhook).</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
@@ -942,8 +992,8 @@ pre.example {
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            Events MAY be triggered through conditions that are not exposed as Properties.</td>
+	<td class="baseassertion">Events MAY be triggered through conditions that are not
+exposed as Properties.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -955,10 +1005,9 @@ pre.example {
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            Form contexts and submission targets MUST both be
-            Internationalized Resource Identifiers (IRIs)
-            [[!RFC3987]].</td>
+	<td class="baseassertion">Form
+contexts and submission targets MUST both
+be Internationalized Resource Identifiers (IRIs) [RFC3987].</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">6</td>
 	<td class="result baseassertion">0</td>
@@ -970,11 +1019,11 @@ pre.example {
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            Form context and submission target MAY point to
-            the same resource or different resources, where the
-            submission target resource implements the operation
-            for the context.</td>
+	<td class="baseassertion">Form
+context and submission target MAY point to
+the same resource or different resources, where the submission
+target resource implements the operation for the
+context.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">6</td>
 	<td class="result baseassertion">0</td>
@@ -986,8 +1035,9 @@ pre.example {
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            Interaction Affordances MUST include one or more Protocol Bindings.</td>
+	<td class="baseassertion">Interaction
+Affordances MUST include one or more
+Protocol Bindings.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">5</td>
 	<td class="result baseassertion">0</td>
@@ -999,9 +1049,10 @@ pre.example {
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
-            The hypermedia controls MAY be cached outside the Thing
-            and used for offline processing if caching metadata is available to determine the freshness.</td>
+	<td class="atrisk">The hypermedia controls
+MAY be cached outside the Thing and used for offline processing if
+caching metadata is available to determine the
+freshness.</td>
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
@@ -1013,9 +1064,10 @@ pre.example {
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            Protocol Bindings MUST be serialized as hypermedia controls to be self-descriptive on how to
-            activate the Interaction Affordance.</td>
+	<td class="baseassertion">Protocol Bindings
+MUST be serialized as hypermedia controls to be
+self-descriptive on how to activate the Interaction
+Affordance.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
@@ -1027,9 +1079,9 @@ pre.example {
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
-            If necessary, a TD generated by an Intermediary MAY contain
-            interfaces for other communication protocols.</td>
+	<td class="atrisk">If necessary, a TD generated
+by an Intermediary MAY contain interfaces for other communication
+protocols.</td>
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
@@ -1041,9 +1093,11 @@ pre.example {
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">All
-            data (a.k.a. content) exchanged when activating Interaction Affordances
-            MUST be identified by a media type [[!RFC2046]] in the Protocol Binding.</td>
+	<td class="baseassertion">All data
+(a.k.a. content) exchanged when activating Interaction Affordances
+MUST be identified by a media type
+[RFC2046]
+in the Protocol Binding.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">6</td>
 	<td class="result baseassertion">0</td>
@@ -1055,9 +1109,10 @@ pre.example {
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            Protocol Bindings MAY have additional information that specifies representation formats
-            in more detail than the media type alone.</td>
+	<td class="baseassertion">Protocol
+Bindings MAY have additional information
+that specifies representation formats in more detail than the media
+type alone.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -1069,9 +1124,10 @@ pre.example {
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">Things MUST be hosted on networked system components 
-	with a software stack to realize interaction through a
-		network-facing interface, the WoT Interface of a Thing.</td>
+	<td class="baseassertion">Things
+MUST be hosted on networked system
+components with a software stack to realize interaction through a
+network-facing interface, the WoT Interface of a Thing.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">6</td>
 	<td class="result baseassertion">0</td>
@@ -1083,9 +1139,8 @@ pre.example {
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            Form fields are optional and MAY further specify the
-            expected request message for the given operation.</td>
+	<td class="baseassertion">Form fields are optional and MAY further specify the expected request message for
+the given operation.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">0</td>
@@ -1097,9 +1152,9 @@ pre.example {
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            Form fields MAY depend on the protocol used for the
-            submission target as specified in the URI scheme.</td>
+	<td class="baseassertion">Form fields
+MAY depend on the protocol used for the
+submission target as specified in the URI scheme.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">0</td>
@@ -1111,10 +1166,10 @@ pre.example {
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            The request method MUST identify one method of
-            the standard set of the protocol identified by the
-            submission target URI scheme.</td>
+	<td class="baseassertion">The
+request method MUST identify one method of
+the standard set of the protocol identified by the submission
+target URI scheme.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">6</td>
 	<td class="result baseassertion">0</td>
@@ -1126,10 +1181,9 @@ pre.example {
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-          There MAY be other representations of a Thing such as an HTML-based user interface,
-          simply an image of the physical entity,
-          or even non-Web representations in closed systems.</td>
+	<td class="baseassertion">There MAY be other representations of a Thing such as an HTML-based user
+interface, simply an image of the physical entity, or even non-Web
+representations in closed systems.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">0</td>
@@ -1141,8 +1195,10 @@ pre.example {
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
-Things returning data or metadata (such as TDs) associated with a person SHOULD use some form of access control.</td>
+	<td class="atrisk">Things
+returning data or metadata (such as TDs) associated with a person
+SHOULD use some form of access
+control.</td>
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
@@ -1154,9 +1210,9 @@ Things returning data or metadata (such as TDs) associated with a person SHOULD 
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion"> 
-	    Distribution mechanisms for TDs SHOULD ensure they are 
-	    only provided to authorized Consumers.</td>
+	<td class="baseassertion">Distribution mechanisms
+for TDs SHOULD ensure they are only
+provided to authorized Consumers.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -1168,11 +1224,11 @@ Things returning data or metadata (such as TDs) associated with a person SHOULD 
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk"> 
-	    TDs that can be associated with a person
-	    SHOULD generally be treated as if they contained PII and
-            subject to the same management policies as other PII, even if they
-	    do not explicitly contain it.</td>
+	<td class="atrisk">TDs that can be
+associated with a person SHOULD generally
+be treated as if they contained PII and subject to the same
+management policies as other PII, even if they do not explicitly
+contain it.</td>
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
@@ -1184,8 +1240,8 @@ Things returning data or metadata (such as TDs) associated with a person SHOULD 
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-Services returning Thing Descriptions with immutable IDs SHOULD use some form of access control.</td>
+	<td class="baseassertion">Services
+returning Thing Descriptions with immutable IDs SHOULD use some form of access control.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -1197,9 +1253,9 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
-	    Storage of explicit PII in TDs SHOULD be minimized
-            as much as possible.</td>
+	<td class="atrisk">Storage of explicit
+PII in TDs SHOULD be minimized as much as
+possible.</td>
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
@@ -1211,9 +1267,10 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            If the data format is not fully specified by the Protocol Binding used (e.g., through a media type),
-            Properties MAY contain one data schema for the exposed state.</td>
+	<td class="baseassertion">If
+the data format is not fully specified by the Protocol Binding used
+(e.g., through a media type), Properties MAY contain one data schema for the exposed
+state.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">5</td>
 	<td class="result baseassertion">0</td>
@@ -1225,8 +1282,9 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            Nevertheless, all-lowercase URIs SHOULD be used for extension relation types [[!RFC8288]].</td>
+	<td class="baseassertion">Nevertheless,
+all-lowercase URIs SHOULD be used for
+extension relation types [RFC8288].</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -1238,10 +1296,11 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            Extension relation types MUST be compared as strings using ASCII case-insensitive comparison,
-            (c.f. ASCII case insensitive).
-            (If they are serialized in a different format they are to be converted to URIs).</td>
+	<td class="baseassertion">Extension
+relation types MUST be compared as strings
+using ASCII case-insensitive comparison, (c.f. ASCII case
+insensitive). (If they are serialized in a different format
+they are to be converted to URIs).</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -1253,10 +1312,11 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">Thus, 
-	   the Interaction Affordance for structured data types SHOULD 
-           be associated with a data schema to provide more detailed 
-	   syntactic metadata for the data exchanged.</td>
+	<td class="baseassertion">Thus, the Interaction Affordance for structured data
+types SHOULD be associated with a
+data schema to
+provide more detailed syntactic metadata for the data
+exchanged.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">5</td>
 	<td class="result baseassertion">0</td>
@@ -1268,9 +1328,10 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-	  Authentication and authorization 
-	  SHOULD be established based on separately managed Private Security Data.</td>
+	<td class="baseassertion">Authentication and
+authorization SHOULD be established based
+on separately managed Private Security
+Data.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -1282,10 +1343,8 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
-            The WoT Runtime SHOULD NOT directly
-            expose native device interfaces to the
-            script developers.</td>
+	<td class="atrisk">The WoT Runtime SHOULD NOT directly expose native device interfaces
+to the script developers.</td>
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
@@ -1297,9 +1356,10 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
-            Whenever possible, TD creators SHOULD use the vetted communication
-            metadata provided in the WoT Binding Templates.</td>
+	<td class="atrisk">Whenever
+possible, TD creators SHOULD use the
+vetted communication metadata provided in the WoT Binding
+Templates.</td>
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
@@ -1311,12 +1371,11 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
-            When generating TDs for an IoT
-            ecosystem not covered by the WoT Binding
-              Templates, TD creators SHOULD ensure that all the security
-            requirements of the IoT Platform are
-            satisfied.</td>
+	<td class="atrisk">When
+generating TDs for an IoT ecosystem not covered by the WoT Binding
+Templates, TD creators SHOULD ensure
+that all the security requirements of the IoT Platform are
+satisfied.</td>
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
@@ -1328,42 +1387,40 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
-            If DTLS 1.3 cannot be used for compatibility reasons
-            but secure transport over UDP is appropriate,
-            then DTLS 1.2 [[RFC6347]]
-            MAY be used.</td>
+	<td class="atrisk">If
+DTLS 1.3 cannot be used for compatibility reasons but secure
+transport over UDP is appropriate, then DTLS 1.2 [RFC6347]
+MAY be used.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">5</td>
-	<td class="result baseassertion">5</td></tr>
+	<td class="result baseassertion">6</td>
+	<td class="result baseassertion">6</td></tr>
 <tr id="arch-security-consideration-dtls-1-3" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-dtls-1-3">arch-security-consideration-dtls-1-3</a></td>
 	<td class="baseassertion">Security</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
-            When secure transport over UDP is appropriate,
-            then at least DTLS 1.3 [[RFC9147]]
-            SHOULD be used.</td>
+	<td class="atrisk">When
+secure transport over UDP is appropriate, then at least DTLS 1.3
+[RFC9147]
+SHOULD be used.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">5</td>
-	<td class="result baseassertion">5</td></tr>
+	<td class="result baseassertion">6</td>
+	<td class="result baseassertion">6</td></tr>
 <tr id="arch-security-consideration-hal-refuse-unsafe" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-hal-refuse-unsafe">arch-security-consideration-hal-refuse-unsafe</a></td>
 	<td class="baseassertion">Security</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
-	    Hardware abstraction
-            layers SHOULD refuse to execute commands that
-            might put the device (or environment) to an
-            unsafe state.</td>
+	<td class="atrisk">Hardware
+abstraction layers SHOULD refuse to
+execute commands that might put the device (or environment) to an
+unsafe state.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -1375,10 +1432,9 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
-            The WoT Runtime SHOULD perform isolation of
-            script instances and their data from each other in cases when
-            scripts handle sensitive data.</td>
+	<td class="atrisk">The WoT Runtime SHOULD perform isolation of script instances and
+their data from each other in cases when scripts handle sensitive
+data.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -1390,11 +1446,11 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
-	    Similarly, the WoT Runtime
-            implementation SHOULD perform isolation of WoT
-              Runtime instances and their data from each other if a WoT
-            device has more than one tenant.</td>
+	<td class="atrisk">Similarly, the
+WoT Runtime implementation
+SHOULD perform isolation of WoT Runtime instances and their
+data from each other if a WoT device has more than one
+tenant.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -1406,11 +1462,10 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-	    Such credentials (or even better,
-            abstract operations that use them but do not
-            expose them) SHOULD only be accessible to the underlying 
-            protocol implementation that uses them.</td>
+	<td class="baseassertion">Such credentials
+(or even better, abstract operations that use them but do not
+expose them) SHOULD only be accessible to
+the underlying protocol implementation that uses them.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -1422,10 +1477,10 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-	Trust relationships SHOULD be as restricted as possible,
-	ideally pairwise and limited to precisely the access
-	required.</td>
+	<td class="baseassertion">Trust relationships
+SHOULD be as restricted as possible,
+ideally pairwise and limited to precisely the access
+required.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -1437,10 +1492,9 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            Versions of DLTS or TLS earlier than 1.2 MUST NOT be used for 
-            new development.
-          </td>
+	<td class="baseassertion">Versions of
+DLTS or TLS earlier than 1.2 MUST NOT be
+used for new development.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -1452,13 +1506,11 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
-            In order to minimize a risk that
-            provisioned security credentials get
-            compromised, the WoT Runtime
-            implementation SHOULD NOT expose any API for
-            scripts to query provisioned security
-            credentials.</td>
+	<td class="atrisk">In order to minimize a
+risk that provisioned security credentials get compromised, the
+WoT Runtime implementation
+SHOULD NOT expose any API for scripts to
+query provisioned security credentials.</td>
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
@@ -1470,9 +1522,8 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
-          Producers of TDs MUST ensure that no Private
-          Security Data is included in TDs.</td>
+	<td class="atrisk">Producers of TDs MUST ensure that no Private Security
+Data is included in TDs.</td>
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
@@ -1484,13 +1535,10 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
-	    In case
-            there are more than one tenant on a single
-            WoT-enabled device, a WoT Runtime
-            implementation SHOULD isolate
-            each tenant's provisioned security credentials
-            from other tenants.</td>
+	<td class="atrisk">In case there
+are more than one tenant on a single WoT-enabled device, a WoT Runtime implementation
+SHOULD isolate each tenant's provisioned
+security credentials from other tenants.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -1502,10 +1550,9 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
-            The WoT Runtime SHOULD securely store any
-            provisioned security credentials, guaranteeing
-            their integrity and confidentiality.</td>
+	<td class="atrisk">The WoT Runtime SHOULD securely store any provisioned security
+credentials, guaranteeing their integrity and
+confidentiality.</td>
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
@@ -1517,10 +1564,10 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
-            Post-manufacturing provisioning or update of
-            scripts, the WoT Runtime itself or any
-            related data SHOULD be done in a secure fashion.</td>
+	<td class="atrisk">Post-manufacturing
+provisioning or update of scripts, the WoT Runtime itself or any related
+data SHOULD be done in a secure
+fashion.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -1532,9 +1579,9 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
-	In the case of implicit access control via access to a common network
-	a segmented network SHOULD be used.</td>
+	<td class="atrisk">In the case of
+implicit access control via access to a common network a segmented
+network SHOULD be used.</td>
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
@@ -1546,9 +1593,10 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-          There SHOULD be a strict separation of
-          Public Security Metadata and Private Security Data.</td>
+	<td class="baseassertion">There
+SHOULD be a strict separation of Public Security
+Metadata and Private Security
+Data.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -1560,56 +1608,54 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-            If TLS 1.3 cannot be used for compatibility reasons
-            but secure transport over TCP is appropriate,
-            TLS 1.2 [[RFC5246]]
-            MAY be used.</td>
+	<td class="baseassertion">If TLS
+1.3 cannot be used for compatibility reasons but secure transport
+over TCP is appropriate, TLS 1.2 [RFC5246]
+MAY be used.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">2</td>
+	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">5</td></tr>
+	<td class="result baseassertion">7</td></tr>
 <tr id="arch-security-consideration-tls-1-3" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-tls-1-3">arch-security-consideration-tls-1-3</a></td>
 	<td class="baseassertion">Security</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
-            When secure transport over TCP is appropriate,
-            then at least TLS 1.3 [[RFC8446]]
-            SHOULD be used.</td>
+	<td class="baseassertion">When secure transport over
+TCP is appropriate, then at least TLS 1.3 [RFC8446]
+SHOULD be used.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">5</td></tr>
+	<td class="result baseassertion">7</td></tr>
 <tr id="arch-security-consideration-tls-mandatory-pub" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-tls-mandatory-pub">arch-security-consideration-tls-mandatory-pub</a></td>
 	<td class="baseassertion">Security</td>
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">When a Thing is made 
-            available on the public internet so it can
-            be accessed by anyone, from anywhere, then it MUST be protected by secure
-            transport such as TLS or DTLS.</td>
+	<td class="atrisk">When a Thing is
+made available on the public internet so it can be accessed by
+anyone, from anywhere, then it MUST be
+protected by secure transport such as TLS or DTLS.</td>
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">5</td></tr>
 <tr id="arch-security-consideration-tls-optional-on-lan" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-tls-optional-on-lan">arch-security-consideration-tls-optional-on-lan</a></td>
 	<td class="baseassertion">Security</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-           Private networks such as a LAN, protected by a firewall, MAY use the 
-           Trusted 
-           Environment approach of depending on network security only.</td>
+	<td class="baseassertion">Private networks
+such as a LAN, protected by a firewall, MAY use the Trusted
+Environment approach of depending on network security
+only.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">0</td>
@@ -1621,9 +1667,9 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">When a Thing is made 
-            available on a private network then it SHOULD be protected by secure
-            transport such as TLS or DTLS.</td>
+	<td class="atrisk">When a Thing is
+made available on a private network then it SHOULD be protected by secure transport such as TLS
+or DTLS.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -1635,11 +1681,9 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
-	    A WoT Runtime
-            implementation SHOULD provide a hardware
-            abstraction layer for accessing the native
-            device interfaces.</td>
+	<td class="atrisk">A WoT Runtime implementation
+SHOULD provide a hardware abstraction
+layer for accessing the native device interfaces.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -1651,16 +1695,15 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
-	In commercial and industrial environments, 
-	explicit installation of pre-shared
-	keys SHOULD be used to allow browsers to access local services
-	while using TLS.</td>
+	<td class="atrisk">In commercial and
+industrial environments, explicit installation of pre-shared keys
+SHOULD be used to allow browsers to access
+local services while using TLS.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">5</td></tr>
 <tr id="arch-td-linking" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-td-linking">arch-td-linking</a></td>
 	<td class="baseassertion">Metadata</td>
@@ -1668,8 +1711,9 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">WoT Thing Descriptions
-		and WoT Thing Models MAY link to other Things, WoT Thing Models,
-		and other resources on the Web to form a Web of Things.</td>
+and WoT Thing
+Models MAY link to other Things, WoT Thing Models, and other
+resources on the Web to form a Web of Things.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">0</td>
@@ -1681,8 +1725,8 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-          To be considered a Thing, however, at least one TD representation MUST be available.</td>
+	<td class="baseassertion">To be considered a
+Thing, however, at least one TD representation MUST be available.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">6</td>
 	<td class="result baseassertion">0</td>
@@ -1694,9 +1738,10 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-   	  In W3C WoT, the description metadata for a Thing instance
-	  MUST be available as a WoT Thing Description (TD) [[?WOT-THING-DESCRIPTION]].</td>
+	<td class="baseassertion">In W3C WoT, the description
+metadata for a Thing instance
+MUST be available as a WoT Thing
+Description (TD) [WOT-THING-DESCRIPTION].</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">6</td>
 	<td class="result baseassertion">0</td>
@@ -1722,11 +1767,12 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 <li>Kunihiko Toumura (Hitachi)</li>
 <li>Ryuichi Matsukura (Fujitsu Ltd.)</li>
 <li>Tomoaki Mizushima (IRI Inc.)</li>
-<li>Matthias Kovatsch (Huawei)</li>
+<li>Matthias Kovatsch (Siemens)</li>
 <li>Michael McCool (Intel)</li>
 <li>Michael Lagally (Oracle)</li>
 <li>Takeshi Yamada and Toru Kawaguchi (Panasonic)</li>
-<li>Sebastian Käbisch, Daniel Peintner, Victor Charpenay and Christian Glomb, Ege Korkan (Siemens)</li>
+<li>Sebastian Käbisch, Daniel Peintner, Victor Charpenay, Christian Glomb, and Ege Korkan (Siemens)</li>
+<li>Fady Salama (Siemens and Technical University of Munich)</li>
 </ul>
 <p></p>
 <div class="navbar">

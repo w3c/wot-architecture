@@ -18,7 +18,6 @@
 "arch-security-consideration-secure-cred-storage","HELP, pass=1"
 "arch-security-consideration-secure-update","HELP, pass undefined"
 "arch-security-consideration-segmented-network","HELP, pass=1"
-"arch-security-consideration-tls-1-3","HELP, pass=1"
 "arch-security-consideration-tls-mandatory-pub","HELP, pass=1"
 "arch-security-consideration-tls-recommended-priv","HELP, pass undefined"
 "arch-security-consideration-use-hal","HELP, pass undefined"
