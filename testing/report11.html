@@ -121,7 +121,7 @@ pre.example {
     Implementation Report
   </h1>
   <p>
-    <b>Version</b>: 21 Oct 2022
+    <b>Version</b>: 26 Oct 2022
   </p>
   <p>
     <b>Editors</b>:<br>
@@ -150,47 +150,47 @@ pre.example {
     <li class="tocline">5.3 <a href="#out_of_scope">Out of scope</a></li>
   </ul>
   </li>
+<!--
   <li class="tocline">6. <a href="#sec-testimonials">Testimonials</a></li>
   <ul id="testimonials-toc">
+    <li class="tocline">6.x <a href="#impl-ORG">ORG</a></li>
+  </ul>
+-->
+  <li class="tocline">6. <a href="#test-systems">Systems</a></li>
+  <ul id="systems-toc">
         <!--
     <li class="tocline">6.x <a href="#impl-ORG">ORG</a></li>
         -->
-  </ul>
-  <li class="tocline">7. <a href="#test-systems">Implementations</a></li>
-  <ul id="systems-toc">
-        <!--
-    <li class="tocline">7.x <a href="#impl-ORG">ORG</a></li>
-        -->
   <li class="tocline">
-	7.1 <a href="#impl-ditto-model">Eclipse Ditto WoT Model: Tool</a></li>
+	6.1 <a href="#impl-ditto-model">Eclipse Ditto WoT Model: Tool</a></li>
 <li class="tocline">
-	7.2 <a href="#impl-ditto">Eclipse Ditto: TD Exposer</a></li>
+	6.2 <a href="#impl-ditto">Eclipse Ditto: TD Exposer</a></li>
 <li class="tocline">
-	7.3 <a href="#impl-echonet-proxy">echonet-wot-proxy: Intermediary</a></li>
+	6.3 <a href="#impl-echonet-proxy">echonet-wot-proxy: Intermediary</a></li>
 <li class="tocline">
-	7.4 <a href="#impl-editdor">Eclipse EdiTDor: Tool and Producer</a></li>
+	6.4 <a href="#impl-editdor">Eclipse EdiTDor: Tool and Producer</a></li>
 <li class="tocline">
-	7.5 <a href="#impl-hitachi-esp-idf">Air quality sensor and acclerometer: TD Exposer</a></li>
+	6.5 <a href="#impl-hitachi-esp-idf">Air quality sensor and acclerometer: TD Exposer</a></li>
 <li class="tocline">
-	7.6 <a href="#impl-hitachi-nodegen">Node generator for Node-RED: TD Consumer</a></li>
+	6.6 <a href="#impl-hitachi-nodegen">Node generator for Node-RED: TD Consumer</a></li>
 <li class="tocline">
-	7.7 <a href="#impl-hitachi-node-red">LED lamp: TD Exposer</a></li>
+	6.7 <a href="#impl-hitachi-node-red">LED lamp: TD Exposer</a></li>
 <li class="tocline">
-	7.8 <a href="#impl-hitachi-nrwotdisc">WoT-Discovery Plugin for Node-RED: Discoverer</a></li>
+	6.8 <a href="#impl-hitachi-nrwotdisc">WoT-Discovery Plugin for Node-RED: Discoverer</a></li>
 <li class="tocline">
-	7.9 <a href="#impl-intel-nodejs">intel-nodejs: TD Exposer</a></li>
+	6.9 <a href="#impl-intel-nodejs">intel-nodejs: TD Exposer</a></li>
 <li class="tocline">
-	7.10 <a href="#impl-intel-proxy">intel-proxy: Intermediary</a></li>
+	6.10 <a href="#impl-intel-proxy">intel-proxy: Intermediary</a></li>
 <li class="tocline">
-	7.11 <a href="#NHK">NHK: Emulated WoT Devices</a></li>
+	6.11 <a href="#NHK">NHK: Emulated WoT Devices</a></li>
 <li class="tocline">
-	7.12 <a href="#impl-nodewot">Eclipse node-wot: Consumer and Exposer</a></li>
+	6.12 <a href="#impl-nodewot">Eclipse node-wot: Consumer and Exposer</a></li>
 <li class="tocline">
-	7.13 <a href="#impl-playground">Thing Description Playground: Tool</a></li>
+	6.13 <a href="#impl-playground">Thing Description Playground: Tool</a></li>
 <li class="tocline">
-	7.14 <a href="#impl-saywot">Siemens sayWoT!: Exposer and Consumer</a></li>
+	6.14 <a href="#impl-saywot">Siemens sayWoT!: Exposer and Consumer</a></li>
 <li class="tocline">
-	7.15 <a href="#impl-wothive">WoT Hive directory</a></li>
+	6.15 <a href="#impl-wothive">WoT Hive directory</a></li>
 </ul>
   <li class="tocline">8. <a href="#security">Security</a></li>
   <li class="tocline">9. <a href="#test_results">Test results</a>
@@ -392,16 +392,17 @@ pre.example {
   <li>All possible combinations of Things that TDs could describe (since this is an infinite set)</li>
 </ul>
 
+<!--
 <h2 id="h_testimonials"><a id="sec-testimonials" name="sec-testimonials">6. Testimonials</a></h2>
 <p>
-  This section contains testimonials from organizations
-  supporting the WoT specifications.
+  This section will contain testimonials from organizations
+  supporting the WoT specifications.  This section is currently in progress.
 </p>
 <div id="testimonials">
-  <!-- system testimonials will be inserted here -->
 </div>
+-->
 
-<h2 id="h_systems"><a id="test-systems" name="test-systems">7. Implementations</a></h2>
+<h2 id="h_systems"><a id="test-systems" name="test-systems">6. Systems</a></h2>
 <p>
   This section contains descriptions of each of the implementations
   of the WoT Architecture specification
@@ -417,6 +418,15 @@ pre.example {
   independent implementations.  In cases where a substantial component
   was shared across implementations the features supported by that
   component were only counted once.
+</p>
+<p>
+  All test results from the first version of this specification were
+  reused to check for backward compatibility between this version
+  and the older specification.  
+  Please see the 
+  <a href="https://w3c.github.io/wot-thing-description/testing/report.html">implementation report
+  for the previous version of this specification</a> for additional
+  implementation descriptions. 
 </p>
 <div id="systems-impl">
   <!-- system implementation descriptions will be inserted here -->
