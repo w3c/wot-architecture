@@ -121,7 +121,7 @@ pre.example {
     DRAFT Implementation Report
   </h1>
   <p>
-    <b>Version</b>: 26 Oct 2022
+    <b>Version</b>: 28 Oct 2022
   </p>
   <p>
     <b>Editors</b>:<br>
@@ -162,35 +162,41 @@ pre.example {
     <li class="tocline">6.x <a href="#impl-ORG">ORG</a></li>
         -->
   <li class="tocline">
-	6.1 <a href="#impl-ditto-model">Eclipse Ditto WoT Model: Tool</a></li>
+	6.1 <a href="#impl-dart_wot">dart_wot: Consumer and Discoverer</a></li>
 <li class="tocline">
-	6.2 <a href="#impl-ditto">Eclipse Ditto: TD Exposer</a></li>
+	6.2 <a href="#impl-ditto-model">Eclipse Ditto WoT Model: Tool</a></li>
 <li class="tocline">
-	6.3 <a href="#impl-echonet-proxy">echonet-wot-proxy: Intermediary</a></li>
+	6.3 <a href="#impl-ditto">Eclipse Ditto: TD Exposer</a></li>
 <li class="tocline">
-	6.4 <a href="#impl-editdor">Eclipse EdiTDor: Tool and Producer</a></li>
+	6.4 <a href="#impl-echonet-proxy">echonet-wot-proxy: Intermediary</a></li>
 <li class="tocline">
-	6.5 <a href="#impl-hitachi-esp-idf">Air quality sensor and acclerometer: TD Exposer</a></li>
+	6.5 <a href="#impl-editdor">Eclipse EdiTDor: Tool and Producer</a></li>
 <li class="tocline">
-	6.6 <a href="#impl-hitachi-nodegen">Node generator for Node-RED: TD Consumer</a></li>
+	6.6 <a href="#impl-hitachi-esp-idf">Air quality sensor and acclerometer: TD Exposer</a></li>
 <li class="tocline">
-	6.7 <a href="#impl-hitachi-node-red">LED lamp: TD Exposer</a></li>
+	6.7 <a href="#impl-hitachi-nodegen">Node generator for Node-RED: TD Consumer</a></li>
 <li class="tocline">
-	6.8 <a href="#impl-hitachi-nrwotdisc">WoT-Discovery Plugin for Node-RED: Discoverer</a></li>
+	6.8 <a href="#impl-hitachi-node-red">LED lamp: TD Exposer</a></li>
 <li class="tocline">
-	6.9 <a href="#impl-intel-nodejs">intel-nodejs: TD Exposer</a></li>
+	6.9 <a href="#impl-hitachi-nrwotdisc">WoT-Discovery Plugin for Node-RED: Discoverer</a></li>
 <li class="tocline">
-	6.10 <a href="#impl-intel-proxy">intel-proxy: Intermediary</a></li>
+	6.10 <a href="#impl-intel-nodejs">intel-nodejs: TD Exposer</a></li>
 <li class="tocline">
-	6.11 <a href="#NHK">NHK: Emulated WoT Devices</a></li>
+	6.11 <a href="#impl-intel-proxy">intel-proxy: Intermediary</a></li>
 <li class="tocline">
-	6.12 <a href="#impl-nodewot">Eclipse node-wot: Consumer and Exposer</a></li>
+	6.12 <a href="#impl-intel-wot-ha">intel-wot-ha: TD Directory and TD Exposer</a></li>
 <li class="tocline">
-	6.13 <a href="#impl-playground">Thing Description Playground: Tool</a></li>
+	6.13 <a href="#NHK">NHK: Emulated WoT Devices</a></li>
 <li class="tocline">
-	6.14 <a href="#impl-saywot">Siemens sayWoT!: Exposer and Consumer</a></li>
+	6.14 <a href="#impl-nodewot">Eclipse node-wot: Consumer and Exposer</a></li>
 <li class="tocline">
-	6.15 <a href="#impl-wothive">WoT Hive directory</a></li>
+	6.15 <a href="#impl-playground">Thing Description Playground: Tool</a></li>
+<li class="tocline">
+	6.16 <a href="#impl-saywot">Siemens sayWoT!: Exposer and Consumer</a></li>
+<li class="tocline">
+	6.17 <a href="#impl-tinyiot">TinyIoT Thing Directory</a></li>
+<li class="tocline">
+	6.18 <a href="#impl-wothive">WoT Hive directory</a></li>
 </ul>
   <li class="tocline">8. <a href="#security">Security</a></li>
   <li class="tocline">9. <a href="#test_results">Test results</a>
@@ -440,7 +446,29 @@ pre.example {
 -->
 <div id="systems-impl">
   <!-- system implementation descriptions will be inserted here -->
-<div class="impl" id="impl-ditto-model">
+<div class="impl" id="impl-dart_wot">
+  <h4 id="impl-dart_wot">dart_wot: Consumer and Discoverer</h4>
+  <p>
+    The library <code>dart_wot</code> is a WoT Scripting API implementation written in the Dart programming language, aimed at bringing Web of Things support to the Dart/Flutter ecosystem.
+  </p>
+  <p>
+    It supports consuming and discovering TDs, providing protocol bindings for HTTP, CoAP, and MQTT.
+    Its supported security mechanisms include DTLS (CoAP), TLS (HTTP, MQTT), Basic and Bearer authentication (HTTP), PSK (CoAP), and username/password authentication (MQTT).
+    Furthermore, <code>dart_wot</code>'s CoAP binding offers experimental support for ACE-OAuth (RFC 9200), an authorization and authentication framework for constrained environments.
+  </p>
+  <p>
+    <strong>Usage:</strong> <code>dart_wot</code> can be included in Dart and Flutter projects as a dependency. In Flutter apps, all platforms are supported, with macOS and iOS (where CoAPS support is limited) and Web browsers (where CoAP is not supported at all) as partial exceptions.
+  </p>
+  <p>
+    <strong>Public Repository:</strong> https://github.com/namib-project/dart_wot
+  </p>
+  <p>
+    <strong>pub.dev Entry:</strong> https://pub.dev/packages/dart_wot
+  </p>
+  <p>
+    <strong>Contributing Member Organizations:</strong> Invited Experts
+  </p>
+</div><div class="impl" id="impl-ditto-model">
   <h4 id="impl-ditto-wot-model">Eclipse Ditto WoT Model: Tool</h4>
   <p>
     Eclipse Ditto offers a Java Module to use TDs and TMs inside Java
@@ -534,6 +562,18 @@ pre.example {
   The secure endpoints provided by this service are not given in TDs for the 
   service itself, but added to the TDs for the Things it services.
   </p>
+</div><div class="impl" id="impl-intel-wot-ha">
+  <h4>intel-wot-ha: TD Directory and TD Exposer</h4>
+  <p>
+  A simple integration of WoT into Home Assistant.
+  A service interrogates the metadata made available from Home Assistant on
+  its external RESTful API. It then generates TDs for Home Assistant entities
+  that can be accessed via this API and makes then available via
+  a TD Directory service that follows the WoT Discovery specification.
+  WoT Consumers can then access the TD Directory to find TDs for
+  entities supported by Home Assistant and access these services
+  using WoT affordance abstractions.
+  </p>
 </div><div class="impl" id="NHK">
   <h4>NHK: Emulated WoT Devices</h4>
   <p>
@@ -601,6 +641,24 @@ pre.example {
     <b>Website:</b> https://www.evosoft.com/en/digitalization-offering/saywot/
   </p>
   <p><b>Contributing Member Organizations:</b> Siemens AG</p>
+</div><div class="impl" id="impl-tinyiot">
+  <h4 id="impl-tinyiot">TinyIoT Thing Directory</h4>
+  <p>
+    This is an implementation of the W3C Web of Things (WoT) Thing Description Directory (TDD).
+    This directory is designed to be lightweight and portable, enabling deployment on the edge.
+    It uses a layered architecture to allows the addition of different storage backends to server high scalability needs.
+    </p><p>
+    The directory advertises itself in local networks using DNS-SD.
+    It comes with the Things and Notification APIs, as well as JSONPath search support (non-normative).
+    The directory performs fine-grained access control with the help of locally defined rules and an OpenID Connect server.
+  </p>
+  <p><b>Usage:</b> Directory</p>
+  <p><b>Public Repository:</b> https://github.com/TinyIoT/thing-directory</p>
+  <p>
+    <b>Website:</b> https://github.com/TinyIoT
+  </p>
+  <p><b>Contributing Member Organizations:</b> The parent fork has been developed as part of LinkSmart by Fraunhofer-Gesellschaft</p>
+
 </div><div class="impl" id="impl-wothive">
   <h4 id="impl-wothive-dir">WoT Hive directory</h4>
   <p>
