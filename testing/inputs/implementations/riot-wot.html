@@ -1,0 +1,25 @@
+<div class="impl" id="impl-riot-wot">
+  <h4>RIOT WoT Implementation: TD Exposer</h4>
+  <p>
+  WoT modules for RIOT, a real-time operating system for the Internet of Things.
+  </p>
+
+  <p>
+  The implementation provides data structures and serialization capabilities for generating and retrieving a RIOT device's TD using CoAP and DTLS (in PSK and RPK mode).
+  The TD can be both discovered using <code>/.well-known/wot</code> and the CoRE Link Format (exposing the TD resource via <code>/.well-known/core</code>).
+  Furthermore, the implementation includes a code generator that allows for translating an input Thing Model or Thing Description into C structures which will be used for serializing the device's TD.
+  </p>
+  <p>
+    At the time of writing, the implementation is not yet part of the RIOT upstream repository and only lives in a RIOT fork.
+    However, the authors are working on integrating it into the RIOT upstream project.
+  </p>
+  <p>
+    <strong>Usage:</strong> RIOT-based applications can include the WoT modules via RIOT's Make-based build system.
+  </p>
+  <p>
+    <strong>Example applications (usable with ESP32s) can be found here:</strong> https://github.com/namib-project/wot-nodes
+  </p>
+  <p>
+    <strong>Contributing Member Organizations:</strong> Invited Experts
+  </p>
+</div>

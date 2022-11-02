@@ -1,7 +1,57 @@
 <!DOCTYPE html>
 <html lang='en-US'>
 <head>
-  <link rel="stylesheet" href="atrisk.css">
+  <!-- <link rel="stylesheet" href="testing/atrisk.css"> -->
+  <style>
+#arch-hypermedia-caching {
+  background-color: yellow;
+}
+#arch-intermediary-td-extra-protocols {
+  background-color: yellow;
+}
+#arch-privacy-consideration-explicit-pii {
+  background-color: yellow;
+}
+#arch-security-consideration-avoid-direct {
+  background-color: yellow;
+}
+#arch-security-consideration-communication-binding {
+  background-color: yellow;
+}
+#arch-security-consideration-communication-platform {
+  background-color: yellow;
+}
+#arch-security-consideration-dtls-1-3 {
+  background-color: yellow;
+}
+#arch-security-consideration-hal-refuse-unsafe {
+  background-color: yellow;
+}
+#arch-security-consideration-isolation-sensitive {
+  background-color: yellow;
+}
+#arch-security-consideration-isolation-tenants {
+  background-color: yellow;
+}
+#arch-security-consideration-secure-cred-isolation {
+  background-color: yellow;
+}
+#arch-security-consideration-secure-update {
+  background-color: yellow;
+}
+#arch-security-consideration-segmented-network {
+  background-color: yellow;
+}
+#arch-security-consideration-tls-recommended-priv {
+  background-color: yellow;
+}
+#arch-security-consideration-use-hal {
+  background-color: yellow;
+}
+#arch-security-consideration-use-psk {
+  background-color: yellow;
+}
+  </style>
   <meta charset='utf-8'>
   <title>Web of Things (WoT) Architecture 1.1</title>
   <script class="remove" src="https://www.w3.org/Tools/respec/respec-w3c"></script>
@@ -16,7 +66,7 @@
       doJsonLd: true,
       group: "wg/wot",
       specStatus: "CR",
-      crEnd: "2022-12-15",
+      crEnd: "2023-01-11",
       shortName: "wot-architecture11",
       copyrightStart: 2017,
       wgPublicList: "public-wot-wg",
@@ -136,7 +186,7 @@
           date: "April 2019"
         },
         "WOT-USE-CASES-REQUIREMENTS": {
-          href: "https://w3c.github.io/wot-usecases/",
+          href: "https://www.w3.org/TR/wot-usecases/",
           title: "Web of Things (WoT) Use Cases and Requirements",
           publisher: "W3C",
           authors: ["Michael Lagally", "Michael McCool", "Ryuichi Matsukura", "Tomoaki Mizushima"],
@@ -242,8 +292,8 @@
         }
         , "WOT-SECURITY": {
           title: "Web of Things (WoT) Security and Privacy Guidelines"
-          //, href: "https://www.w3.org/TR/wot-security/"
-          , href: "https://w3c.github.io/wot-security/"
+          , href: "https://www.w3.org/TR/wot-security/"
+          //, href: "https://w3c.github.io/wot-security/"
           , authors: [
             , "Michael McCool"
             , "Elena Reshetova"
@@ -264,6 +314,12 @@
     img.wot-arch-diagram {
       max-width: 90%;
       height: auto;
+    }
+    .rfc2119-assertion {
+      background-color: rgb(230,230,230)
+    }
+    .at-risk {
+      background-color: yellow
     }
   </style>
 </head>
@@ -315,10 +371,53 @@
 
   </section>
   <section id="sotd">
-<p>This is a draft being prepared for transition to Candidate Recommendation status.
-As a draft document it may be updated, replaced or obsoleted by other documents at any time. It is inappropriate to cite this document as other than work in progress.
-</p>
-<p>Publication as a Candidate Recommendation does not imply endorsement by W3C and its Members. A Candidate Recommendation Snapshot has received <a href="https://www.w3.org/2021/Process-20211102/#dfn-wide-review">wide review</a>, is intended to gather implementation experience, and has commitments from Working Group members to <a href="https://www.w3.org/Consortium/Patent-Policy/#sec-Requirements">royalty-free licensing</a> for implementations.</p>
+    <p>At the time of CR transition, due to insufficient implementation
+    experience the following features are at risk:</p>
+    <ul>
+    <li>Caching of hypermedia controls for offline processing.
+      <a href="#arch-hypermedia-caching">arch-hypermedia-caching</a>.
+    </li>
+    <li>Generation of interfaces for other protocols by an intermediary.
+      <a href="#arch-intermediary-td-extra-protocols">arch-intermediary-td-extra-protocols</a>.
+    </li>
+    </ul>
+    <p>In addition, a number of assertions in the Privacy Considerations
+    and Security Considerations sections are at risk:  
+    </p>
+<ul>
+<li><a href="#arch-privacy-consideration-explicit-pii">arch-privacy-consideration-explicit-pii</a></li>
+<li><a href="#arch-security-consideration-avoid-direct">arch-security-consideration-avoid-direct</a></li>
+<li><a href="#arch-security-consideration-communication-binding">arch-security-consideration-communication-binding</a></li>
+<li><a href="#arch-security-consideration-communication-platform">arch-security-consideration-communication-platform</a></li>
+<li><a href="#arch-security-consideration-dtls-1-3">arch-security-consideration-dtls-1-3</a></li>
+<li><a href="#arch-security-consideration-hal-refuse-unsafe">arch-security-consideration-hal-refuse-unsafe</a></li>
+<li><a href="#arch-security-consideration-isolation-sensitive">arch-security-consideration-isolation-sensitive</a></li>
+<li><a href="#arch-security-consideration-isolation-tenants">arch-security-consideration-isolation-tenants</a></li>
+<li><a href="#arch-security-consideration-secure-cred-isolation">arch-security-consideration-secure-cred-isolation</a></li>
+<li><a href="#arch-security-consideration-secure-update">arch-security-consideration-secure-update</a></li>
+<li><a href="#arch-security-consideration-segmented-network">arch-security-consideration-segmented-network</a></li>
+<li><a href="#arch-security-consideration-tls-recommended-priv">arch-security-consideration-tls-recommended-priv</a></li>
+<li><a href="#arch-security-consideration-use-hal">arch-security-consideration-use-hal</a></li>
+<li><a href="#arch-security-consideration-use-psk">arch-security-consideration-use-psk</a></li>
+</ul>
+    <p>
+    These represent best
+    practices but often relate to deployment policy rather than implementations
+    and in some cases are difficult to validate.  The intention is to complete
+    as many of these as possible by PR; those that cannot be validated but
+    that represent best-practice recommendations will be converted into
+    informative statements.</p>
+    <p class="at-risk">At-risk assertions are marked with yellow highlighting.</span></p>
+    <p>
+    The Web of Things Working Group intends to submit this document for
+    consideration as a W3C Proposed Recommendation after at least the
+    minimum CR review period has passed.
+    However, before PR transition is requested,
+    any features or assertions currently marked as at-risk that do not
+    have at least two implementations at that time will either be
+    removed or converted into informative statements, as appropriate.
+    </p>
+<!--
     <p>
       This document describes an abstract architecture.
       However, there is an
@@ -328,6 +427,7 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
       It also references the other implementation
       reports for the various WoT building blocks.
     </p>
+-->
 
   </section>
   <section id="introduction" class="informative">
@@ -339,7 +439,7 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
     </p>
     <p>A set of over 30 WoT <em>use cases</em> were contributed by stakeholders from multiple industries for various
       application domains.
-      These have have being collected and were published in the <em>WoT Use Cases and Requirement </em>
+      These have been collected and were published in the <em>WoT Use Cases and Requirements</em>
       <a href="https://www.w3.org/TR/wot-usecases/">https://www.w3.org/TR/wot-usecases/</a> document.
     </p>
     <p>
@@ -542,6 +642,11 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
 	Digital Twins typically have more functionality than
 	simple <a>Shadows</a>.
       </dd>
+      <dt>
+        <dfn class="lint-ignore">Directory</dfn>
+      </dt>
+      <dd>A <a>Service</a> that maintains a set of data or metadata describing other <a>Services</a>
+       or <a>Things</a>.  An example would be a <a>WoT Thing Description Directory</a>.</dd>
       <dt><dfn data-lt="WoT Discovery">Discovery</dfn>
       <dd>Mechanisms defined by WoT for distributing and accessing
         <a>WoT Thing Descriptions</a> on the network, 
@@ -700,6 +805,13 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
       <dd>An entity that can create WoT Thing Descriptions
         for a specific Thing.</dd>
       <dt>
+        <dfn>Profile</dfn>
+      </dt>
+      <dd>A technical specification which provides a set of assertions such that any <a>Consumer</a> 
+  	which conforms with the those assertions is out-of-the-box interoperable with any <a>Thing</a> 
+  	which also conforms with those assertions.
+      </dd>
+      <dt>
         <dfn>Property</dfn>
       </dt>
       <dd>An Interaction Affordance that exposes state of the Thing.
@@ -777,6 +889,10 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
       <dd>An extension mechanism to a transport protocol that
         must be known to interact successfully.
         An example is long polling for HTTP.</dd>
+      <dt>
+        <dfn class="lint-ignore">System</dfn>
+      </dt>
+      <dd>An entity consisting of multiple interacting components.</dd>
       <dt>
         <dfn>TD</dfn>
       </dt>
@@ -893,6 +1009,10 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
       <dd>The network-facing interface of a Thing
         that is described by a WoT Thing Description.</dd>
       <dt>
+        <dfn>WoT Profile</dfn>
+      </dt>
+      <dd>Synonym for <a>Profile</a>.</dd>	    
+      <dt>
         <dfn>WoT Runtime</dfn>
       </dt>
       <dd>A runtime system that maintains an execution
@@ -993,18 +1113,24 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
         <td>Large home and industrial gateways</td>
       </tr><tr>
         <td>Class-5, C5</td>
-        <td>~ 1 GB</td>
-        <td>~ 1 GB</td>
+        <td>~ 1 - 8 GB</td>
+        <td>~ 1 - 16 GB</td>
         <td>edge</td>
-        <td>Powerful edge servers</td>
+        <td>Small edge servers</td>
       </tr><tr>
         <td>Class-6, C6</td>
         <td>~ several GB</td>
         <td>~ several GB</td>
+        <td>edge</td>
+        <td>Large edge servers</td>
+      </tr>
+      <tr>
+        <td>Class-7, C7</td>
+        <td>~ several GB</td>
+        <td>~ several GB</td>
         <td>cloud</td>
         <td>Cloud systems with multiple compute nodes</td>
-      </tr>
-      </table>
+      </tr></table>
 
       <p class="note" title="Category Borders">
       Category borders are soft borders and categories are not exclusive, 
@@ -1023,6 +1149,8 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
       targeted by the W3C WoT and which are used to derive the
       abstract architecture discussed in <a href="#sec-building-blocks"></a>.
     </p>
+    <p>These application domains are motivated by the use cases 
+      that are described in [?WOT-USE-CASES-REQUIREMENTS]].</p>
     <p>The Web of Things architecture does not put any
       limitations on use cases and application domains. Various
       application domains have been considered to collect common
@@ -2914,7 +3042,7 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
     <section id="wot-profiles">
       <h3>Profiles</h3>
       <p>
-      The WoT Profile Specification [[!WOT-PROFILE]] defines Profiles, 
+      The <a>WoT Profile</a> Specification [[!WOT-PROFILE]] defines Profiles, 
       that enable <em>out of the box interoperability</em> among things 
       and devices. Out of the box interoperability implies, 
       that devices can be integrated into various application 
@@ -3121,7 +3249,7 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
         implementation MUST only provide metadata and <a>TDs</a>
         after appropriate best-practice authentication and authorization.</span>
         Suitable best-practice security mechanisms for authentication and authorization for 
-        different circumstances are discussed in [[WOT-SECURITY]].  
+        different circumstances are discussed in [[?WOT-SECURITY]].  
         Suitable mechanisms for managing access controls and keys are also discussed
         in [[?SOLID]].
         </p><p> 
@@ -4022,6 +4150,12 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
 
   <section id="sec-security-considerations">
     <h1>Security Considerations</h1>
+        <p class="at-risk">Several assertions in the following are at risk, as indicated
+        by yellow highlighting.  These represent best practices but at the
+        time of CR transition have insufficient implementation experience.
+        These will be converted to informative statements if sufficient
+        implementation experience is not obtained by time of PR transition.
+        </p>
     <p>
       Security is a cross-cutting issue that needs to be considered
       in all <a href="#sec-building-blocks">WoT
@@ -4056,7 +4190,7 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
       in their security requirements and risk tolerance, so
       security mechanisms will also vary based on these factors.
     </p>
-    <p>Security are especially important in the IoT
+    <p>Security is especially important in the IoT
       domain since IoT devices need to operate autonomously and, in
       many cases, may be in control of safety-critical systems.
       IoT devices are subject to different and in some
@@ -4268,7 +4402,7 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
             A set of recommendations for secure update and
             post-manufacturing provisioning can be found in
             the <em>WoT Security and Privacy Guidelines</em>
-            specification [[WOT-SECURITY]].
+            specification [[?WOT-SECURITY]].
           </dd>
         </dl>
       </section>
@@ -4323,7 +4457,7 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
       that include the concept of a <a>Trusted Environment</a> and a security 
       boundary. Entities that are members of a <a>Trusted Environment</a>
       all share access to a common set of resources (such as a local
-      network) and are implictly granted certain access rights to
+      network) and are implicitly granted certain access rights to
       each other.  A common example would be a WiFi LAN in the home
       where access to the WEP password allows devices to communicate
       with each other without any further access controls.
@@ -4489,6 +4623,12 @@ As a draft document it may be updated, replaced or obsoleted by other documents 
   </section>
   <section id="sec-privacy-considerations">
     <h1>Privacy Considerations</h1>
+        <p class="at-risk">Several assertions in the following are at risk, as indicated
+        by yellow highlighting.  These represent best practices but at the
+        time of CR transition have insufficient implementation experience.
+        These will be converted to informative statements if sufficient
+        implementation experience is not obtained by time of PR transition.
+        </p>
     <p>
       Privacy is a cross-cutting issue that needs to be considered
       in all <a href="#sec-building-blocks">WoT
