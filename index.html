@@ -3237,11 +3237,9 @@
             <li>
                 <b>Subprotocol</b>
                 <p>
-                  <span class="rfc2119-assertion" id="arch-binding-templates-known-subprotocol">
-                    <a>Transport protocols</a> MAY have to use information provided by an extension mechanisms to interact successfully.</span>
-                  <span class="rfc2119-assertion" id="arch-binding-templates-subprotocol-explicit-declaration">
-                  Such <a>subprotocols</a> cannot be identified from the URI scheme alone and MUST be declared explicitly
-                  using the <code>subprotocol</code> field inside forms.</span>
+                  <a>Transport protocols</a> may have to use information provided by an extension mechanisms to interact successfully.
+                  Such <a>subprotocols</a> cannot be identified from the URI scheme alone and must be declared explicitly
+                  using the <code>subprotocol</code> field inside forms.
                   Examples for HTTP are long polling [[?RFC6202]] (<code>longpoll</code>) or 
                   Server-Sent Events [[?HTML]] (<code>sse</code>).
                 </p>
@@ -3253,12 +3251,10 @@
           <p>
             Representation formats (a.k.a. serializations) used for exchanging data can differ between protocols, 
             <a>IoT Platforms</a> and standards.
-            <span class="rfc2119-assertion" id="arch-binding-templates-media-type-parameters">
-            The media type [[!RFC2046]] identifies these formats, while media type parameters MAY specify them further.</span>
-            <span class="rfc2119-assertion" id="arch-binding-templates-media-type-optional-parameters">
-            Forms MAY contain the media type and optional parameters in additional form fields such as a content type 
+            The media type [[?RFC2046]] identifies these formats, while media type parameters may specify them further.
+            Forms may contain the media type and optional parameters in additional form fields such as a content type 
             field known from HTTP, which combines media type and its potential parameters
-            (e.g., <code>text/plain; charset=utf-8</code>).</span>
+            (e.g., <code>text/plain; charset=utf-8</code>).
           </p>
         </li>
         <li>
