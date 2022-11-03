@@ -3102,17 +3102,15 @@
         </p>
         <ul>
         <li>
-        <span class="rfc2119-assertion" id="arch-discovery-no-metadata-in-introduction">
-        Any <a>introduction</a> mechanism used for <a>WoT Discovery</a> MUST NOT 
+        Any <a>introduction</a> mechanism used for <a>WoT Discovery</a> must not
         provide metadata but instead should simply result in 
         one or more opaque URLs at which metadata
         may be accessed, if and only if the user can authenticate and 
-        has the appropriate authorization (access rights).</span>
+        has the appropriate authorization (access rights).
         </li>
         <li>
-        <span class="rfc2119-assertion" id="arch-discovery-no-metadata-in-introduction-urls">
-        <a>Introduction</a> URLs MUST NOT themselves include any metadata,
-        e.g. a human-readable device type or name.</span>  
+        <a>Introduction</a> URLs must not themselves include any metadata,
+        e.g. a human-readable device type or name.  
         Randomly generated URLs are recommended.
         </li>
         </ul>
@@ -3126,7 +3124,7 @@
         "<a>exploration</a>" mechanisms that provide actual access to metadata.
         </p><p>
         The first and simplest <a>exploration</a> mechanism defines how to fetch a <a>TD</a>
-        directly from the device itself. This supports ad-hoc peer-to-peer discovery.
+        directly from a simple web resource or from the device itself. This supports ad-hoc peer-to-peer discovery.
         However, in many circumstances (including but not limited to management of 
         large collections of TDs), an alternative <a>exploration</a> mechanism,
         the <a>WoT Thing Description Directory</a> (<a>TDD</a>) service, 
@@ -3137,10 +3135,9 @@
         <a>TDDs</a> also provide change notification mechanisms 
         to support secure distribution of
         <a>TD</a> updates to authorized consumers.
-        <span class="rfc2119-assertion" id="arch-discovery-metadata-after-authorization">
-        Any <a>WoT Discovery</a> "exploration"
-        implementation MUST only provide metadata and <a>TDs</a>
-        after appropriate best-practice authentication and authorization.</span>
+        To preserve security and privacy, any <a>WoT Discovery</a> "exploration"
+        implementation must only provide metadata and <a>TDs</a>
+        after appropriate best-practice authentication and authorization.
         Suitable best-practice security mechanisms for authentication and authorization for 
         different circumstances are discussed in [[?WOT-SECURITY]].  
         Suitable mechanisms for managing access controls and keys are also discussed
@@ -3168,9 +3165,6 @@
         The <a>Discovery</a> mechanisms defined in [[!WOT-DISCOVERY]] are not mandatory, but
         they are designed to meet the above requirements and their use will enhance 
         interoperability and usability.
-        <span class="rfc2119-assertion" id="arch-discovery-should-use-standard">Whenever
-        possible, the <a>Discovery</a> mechanisms defined in [[!WOT-DISCOVERY]]
-        SHOULD be used to distribute <a>TDs</a>.</span>
         </p>
     </section>
 
