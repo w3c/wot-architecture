@@ -4,22 +4,10 @@
 #arch-intermediary-td-extra-protocols {
   background-color: yellow;
 }
-#arch-privacy-consideration-explicit-pii {
-  background-color: yellow;
-}
-#arch-security-consideration-avoid-direct {
-  background-color: yellow;
-}
 #arch-security-consideration-communication-binding {
   background-color: yellow;
 }
 #arch-security-consideration-communication-platform {
-  background-color: yellow;
-}
-#arch-security-consideration-dtls-1-3 {
-  background-color: yellow;
-}
-#arch-security-consideration-hal-refuse-unsafe {
   background-color: yellow;
 }
 #arch-security-consideration-isolation-sensitive {
@@ -28,21 +16,33 @@
 #arch-security-consideration-isolation-tenants {
   background-color: yellow;
 }
-#arch-security-consideration-secure-cred-isolation {
-  background-color: yellow;
-}
-#arch-security-consideration-secure-update {
-  background-color: yellow;
-}
-#arch-security-consideration-segmented-network {
-  background-color: yellow;
-}
-#arch-security-consideration-tls-recommended-priv {
+#arch-security-consideration-avoid-direct {
   background-color: yellow;
 }
 #arch-security-consideration-use-hal {
   background-color: yellow;
 }
+#arch-security-consideration-hal-refuse-unsafe {
+  background-color: yellow;
+}
+#arch-security-consideration-secure-update {
+  background-color: yellow;
+}
+#arch-security-consideration-secure-cred-isolation {
+  background-color: yellow;
+}
+#arch-security-consideration-segmented-network {
+  background-color: yellow;
+}
 #arch-security-consideration-use-psk {
+  background-color: yellow;
+}
+#arch-security-consideration-tls-recommended-priv {
+  background-color: yellow;
+}
+#arch-security-consideration-dtls-1-3 {
+  background-color: yellow;
+}
+#arch-privacy-consideration-explicit-pii {
   background-color: yellow;
 }
