@@ -28,6 +28,10 @@ For example, if a question or part of a question is relevant to content delivery
 then we will consider it in whole or in part as relating to the Discovery deliverable,
 as opposed to the Thing Description deliverable.
 
+Note: We use "metadata" in in this document as a general term for formal information that 
+describes another system. WoT Thing Descriptions and WoT Thing Models are forms of metadata
+defined by the WoT deliverables.
+
 ## Background
 The mission of the Web of Things (WoT) WG is to combat the fragmentation of the IoT
 ecosystem by defing building blocks that improve the interoperability of
