@@ -292,7 +292,6 @@
       However, the abstract architecture described in this specification does not
       itself define concrete mechanisms or prescribe any concrete implementation.
     </p>
-
   </section>
   <section id="sotd">
     <p>
@@ -304,7 +303,17 @@
       It also references the other implementation
       reports for the various WoT building blocks.
     </p>
-
+ <p>The Web of Things Working Group intends to submit this document
+        for consideration as a <abbr title=
+        "World Wide Web Consortium">W3C</abbr> Proposed Recommendation
+        after at least the minimum CR review period has passed. However,
+        before PR transition is requested, any features or assertions
+        currently marked as at-risk that did not appear in the Architecture 1.0
+        specification and do not have at least two implementations at that
+        time will either be removed or converted into informative
+        statements, as appropriate. 
+    </p>
+  <p class="at-risk">At-risk assertions are marked with yellow highlighting.</span></p>
   </section>
   <section id="introduction" class="informative">
     <h1>Introduction</h1>
@@ -1026,7 +1035,7 @@
       abstract architecture discussed in <a href="#sec-building-blocks"></a>.
     </p>
     <p>These application domains are motivated by the use cases 
-      that are described in [?WOT-USE-CASES-REQUIREMENTS]].</p>
+      that are described in [[?WOT-USE-CASES-REQUIREMENTS]].</p>
     <p>The Web of Things architecture does not put any
       limitations on use cases and application domains. Various
       application domains have been considered to collect common
@@ -2915,7 +2924,7 @@
     <section id="wot-profiles">
       <h3>Profiles</h3>
       <p>
-      The <a>WoT Profile</a> Specification [[!WOT-PROFILE]] defines Profiles, 
+      The <a>WoT Profile</a> Specification [[?WOT-PROFILE]] defines Profiles, 
       that enable <em>out of the box interoperability</em> among things 
       and devices. Out of the box interoperability implies, 
       that devices can be integrated into various application 
@@ -3082,17 +3091,15 @@
         </p>
         <ul>
         <li>
-        <span class="rfc2119-assertion" id="arch-discovery-no-metadata-in-introduction">
-        Any <a>introduction</a> mechanism used for <a>WoT Discovery</a> MUST NOT 
+        Any <a>introduction</a> mechanism used for <a>WoT Discovery</a> must not
         provide metadata but instead should simply result in 
         one or more opaque URLs at which metadata
         may be accessed, if and only if the user can authenticate and 
-        has the appropriate authorization (access rights).</span>
+        has the appropriate authorization (access rights).
         </li>
         <li>
-        <span class="rfc2119-assertion" id="arch-discovery-no-metadata-in-introduction-urls">
-        <a>Introduction</a> URLs MUST NOT themselves include any metadata,
-        e.g. a human-readable device type or name.</span>  
+        <a>Introduction</a> URLs must not themselves include any metadata,
+        e.g. a human-readable device type or name.  
         Randomly generated URLs are recommended.
         </li>
         </ul>
@@ -3117,10 +3124,9 @@
         <a>TDDs</a> also provide change notification mechanisms 
         to support secure distribution of
         <a>TD</a> updates to authorized consumers.
-        <span class="rfc2119-assertion" id="arch-discovery-metadata-after-authorization">
         Any <a>WoT Discovery</a> "exploration"
-        implementation MUST only provide metadata and <a>TDs</a>
-        after appropriate best-practice authentication and authorization.</span>
+        implementation must only provide metadata and <a>TDs</a>
+        after appropriate best-practice authentication and authorization.
         Suitable best-practice security mechanisms for authentication and authorization for 
         different circumstances are discussed in [[?WOT-SECURITY]].  
         Suitable mechanisms for managing access controls and keys are also discussed
@@ -3145,12 +3151,9 @@
         </p>
        </section>
         <p>
-        The <a>Discovery</a> mechanisms defined in [[!WOT-DISCOVERY]] are not mandatory, but
+        The <a>Discovery</a> mechanisms defined in [[?WOT-DISCOVERY]] are not mandatory, but
         they are designed to meet the above requirements and their use will enhance 
         interoperability and usability.
-        <span class="rfc2119-assertion" id="arch-discovery-should-use-standard">Whenever
-        possible, the <a>Discovery</a> mechanisms defined in [[!WOT-DISCOVERY]]
-        SHOULD be used to distribute <a>TDs</a>.</span>
         </p>
     </section>
 
@@ -3223,11 +3226,9 @@
             <li>
                 <b>Subprotocol</b>
                 <p>
-                  <span class="rfc2119-assertion" id="arch-binding-templates-known-subprotocol">
-                    <a>Transport protocols</a> MAY have to use information provided by an extension mechanisms to interact successfully.</span>
-                  <span class="rfc2119-assertion" id="arch-binding-templates-subprotocol-explicit-declaration">
-                  Such <a>subprotocols</a> cannot be identified from the URI scheme alone and MUST be declared explicitly
-                  using the <code>subprotocol</code> field inside forms.</span>
+                  <a>Transport protocols</a> may have to use information provided by an extension mechanisms to interact successfully.
+                  Such <a>subprotocols</a> cannot be identified from the URI scheme alone and must be declared explicitly
+                  using the <code>subprotocol</code> field inside forms.
                   Examples for HTTP are long polling [[?RFC6202]] (<code>longpoll</code>) or 
                   Server-Sent Events [[?HTML]] (<code>sse</code>).
                 </p>
@@ -3239,12 +3240,10 @@
           <p>
             Representation formats (a.k.a. serializations) used for exchanging data can differ between protocols, 
             <a>IoT Platforms</a> and standards.
-            <span class="rfc2119-assertion" id="arch-binding-templates-media-type-parameters">
-            The media type [[!RFC2046]] identifies these formats, while media type parameters MAY specify them further.</span>
-            <span class="rfc2119-assertion" id="arch-binding-templates-media-type-optional-parameters">
-            Forms MAY contain the media type and optional parameters in additional form fields such as a content type 
+            The media type [[?RFC2046]] identifies these formats, while media type parameters may specify them further.
+            Forms may contain the media type and optional parameters in additional form fields such as a content type 
             field known from HTTP, which combines media type and its potential parameters
-            (e.g., <code>text/plain; charset=utf-8</code>).</span>
+            (e.g., <code>text/plain; charset=utf-8</code>).
           </p>
         </li>
         <li>
@@ -4639,8 +4638,15 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 
   <section id="changes" class="appendix">
     <h1>Recent Specification Changes</h1>
+    <h2 id="changes-from-wd-2022-09-07">Changes from the WD published September 7, 2022</h2>
+    <ul>
+      <li>Modify <a href="#sec-building-blocks">Section 7, WoT Building Blocks</a> so that it is informative.</li>
+      <li>Add terminology entries for Profile, System, and Directory.</li>
+      <li>Updates to affiliation of Matthias Kovatsch (as a former editor).</li>
+      <li>Add/update references to the WoT Use Cases and Requirements [[WOT-USE-CASES-REQUIREMENTS]] document.</li>
+    </ul>
 
-    <h2 id="changes-from-fpwd-1.1">Changes from the FPWD version</h2>
+    <h2 id="changes-from-fpwd-1.1">Changes in WD published September 7, 2022 from the FPWD version</h2>
     <ul>
       <li>Move Toru Kawaguchi to former editors.</li>
       <li>Update abstract to reflect use of prescription (as opposed to pure description) where necessary.</li>
@@ -4649,7 +4655,7 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
       <li>Lifecycle section reworked; removal of separate "Information Lifecycle" section.</li>
       <li>Reference and discuss new WoT building block and document: WoT Discovery [[WOT-DISCOVERY]]</li>
       <li>Update discussion of WoT Profiles [[WOT-PROFILE]]</li>
-      <li>Update discussion of WoT Binding Templates [[WOT-BINDING-TEMPLATES]]</li>
+      <li>Update discussion of WoT Binding Templates [[?WOT-BINDING-TEMPLATES]]</li>
       <li>Rename "System Topologies (Horizontals)" to "Common Deployment Patterns".</li>
       <li>Rename "Application Domains (Verticals)" to "Application Domains".</li>
       <li>New or revised deployment patterns:

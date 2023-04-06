@@ -66,7 +66,7 @@
       doJsonLd: true,
       group: "wg/wot",
       specStatus: "CR",
-      crEnd: "2023-01-11",
+      crEnd: "2023-02-16",
       shortName: "wot-architecture11",
       copyrightStart: 2017,
       wgPublicList: "public-wot-wg",
@@ -75,6 +75,7 @@
         repoURL: "https://github.com/w3c/wot-architecture",
         branch: "main"
       },
+      publishDate: "2023-01-19",
       previousPublishDate: "2022-09-07",
       previousMaturity: "WD",
       editors: [
@@ -249,7 +250,7 @@
           date: "January 2015"
         },
         "ISO-IEC-2382": {
-          href: "https://www.iso.org/obp/ui/#iso:std:iso-iec:2382:ed-1:v1:en",
+          href: "https://www.iso.org/obp/ui/#iso:std:iso-iec:2382:ed-1:v2:en",
           title: "Information technology — Vocabulary",
           publisher: "ISO",
           date: "2015"
@@ -354,9 +355,10 @@
       These sections are self contained, do not contain any assertion and other 
       specifications do not depend on these sections.</li>
       <li>Section 6 <a href="#sec-wot-architecture">Abstract WoT System Architecture</a>, 
-        section 7 <a href="#sec-building-blocks">WoT Building Blocks</a>,
-        explain building blocks and architectural elements of the W3C WoT. 
-        These sections are normative and contain many assertions that are relevant for WoT implementations. </li>
+        explains architectural elements of the W3C WoT. 
+        This section is normative and contains assertions that are relevant for WoT implementations.</li>
+      <li>Section 7 <a href="#sec-building-blocks">WoT Building Blocks</a>,
+        explains building blocks of the W3C WoT.</li> 
       <li>Section 8 <a href="#sec-servient-implementation">Abstract Servient Architecture</a> describes
         the architecture of a <a>Servient</a>. It informatively describes how to implement a <a>WoT Runtime</a> on a device.</li>
       <li>Section 9 <a href="#sec-deployment-scenario">Example WoT Deployments</a> 
@@ -371,6 +373,16 @@
 
   </section>
   <section id="sotd">
+ <p>The Web of Things Working Group intends to submit this document
+        for consideration as a <abbr title=
+        "World Wide Web Consortium">W3C</abbr> Proposed Recommendation
+        after at least the minimum CR review period has passed. However,
+        before PR transition is requested, any features or assertions
+        currently marked as at-risk that did not appear in the Architecture 1.0
+        specification and do not have at least two implementations at that
+        time will either be removed or converted into informative
+        statements, as appropriate.
+    </p>
     <p>At the time of CR transition, due to insufficient implementation
     experience the following features are at risk:</p>
     <ul>
@@ -408,15 +420,7 @@
     that represent best-practice recommendations will be converted into
     informative statements.</p>
     <p class="at-risk">At-risk assertions are marked with yellow highlighting.</span></p>
-    <p>
-    The Web of Things Working Group intends to submit this document for
-    consideration as a W3C Proposed Recommendation after at least the
-    minimum CR review period has passed.
-    However, before PR transition is requested,
-    any features or assertions currently marked as at-risk that do not
-    have at least two implementations at that time will either be
-    removed or converted into informative statements, as appropriate.
-    </p>
+
 <!--
     <p>
       This document describes an abstract architecture.
@@ -1011,7 +1015,7 @@
       <dt>
         <dfn>WoT Profile</dfn>
       </dt>
-      <dd>Synonym for <a>Profile</a>.</dd>	    
+      <dd>Synonym for <a>Profile</a></dd>	    
       <dt>
         <dfn>WoT Runtime</dfn>
       </dt>
@@ -2907,11 +2911,8 @@
     </section>
   </section>
 
-  <section id="sec-building-blocks">
+  <section id="sec-building-blocks" class="informative">
     <h1>WoT Building Blocks</h1>
-    <p>
-      <em>This section is normative.</em>
-    </p>
     <p> The Web of Things (WoT) building blocks allow the
       implementation of systems that conform with the abstract WoT
       Architecture. The specifics of these building blocks are
@@ -3042,7 +3043,7 @@
     <section id="wot-profiles">
       <h3>Profiles</h3>
       <p>
-      The <a>WoT Profile</a> Specification [[!WOT-PROFILE]] defines Profiles, 
+      The <a>WoT Profile</a> Specification [[?WOT-PROFILE]] defines Profiles, 
       that enable <em>out of the box interoperability</em> among things 
       and devices. Out of the box interoperability implies, 
       that devices can be integrated into various application 
@@ -3209,17 +3210,15 @@
         </p>
         <ul>
         <li>
-        <span class="rfc2119-assertion" id="arch-discovery-no-metadata-in-introduction">
-        Any <a>introduction</a> mechanism used for <a>WoT Discovery</a> MUST NOT 
+        Any <a>introduction</a> mechanism used for <a>WoT Discovery</a> must not
         provide metadata but instead should simply result in 
         one or more opaque URLs at which metadata
         may be accessed, if and only if the user can authenticate and 
-        has the appropriate authorization (access rights).</span>
+        has the appropriate authorization (access rights).
         </li>
         <li>
-        <span class="rfc2119-assertion" id="arch-discovery-no-metadata-in-introduction-urls">
-        <a>Introduction</a> URLs MUST NOT themselves include any metadata,
-        e.g. a human-readable device type or name.</span>  
+        <a>Introduction</a> URLs must not themselves include any metadata,
+        e.g. a human-readable device type or name.  
         Randomly generated URLs are recommended.
         </li>
         </ul>
@@ -3244,10 +3243,9 @@
         <a>TDDs</a> also provide change notification mechanisms 
         to support secure distribution of
         <a>TD</a> updates to authorized consumers.
-        <span class="rfc2119-assertion" id="arch-discovery-metadata-after-authorization">
         Any <a>WoT Discovery</a> "exploration"
-        implementation MUST only provide metadata and <a>TDs</a>
-        after appropriate best-practice authentication and authorization.</span>
+        implementation must only provide metadata and <a>TDs</a>
+        after appropriate best-practice authentication and authorization.
         Suitable best-practice security mechanisms for authentication and authorization for 
         different circumstances are discussed in [[?WOT-SECURITY]].  
         Suitable mechanisms for managing access controls and keys are also discussed
@@ -3272,18 +3270,15 @@
         </p>
        </section>
         <p>
-        The <a>Discovery</a> mechanisms defined in [[!WOT-DISCOVERY]] are not mandatory, but
+        The <a>Discovery</a> mechanisms defined in [[?WOT-DISCOVERY]] are not mandatory, but
         they are designed to meet the above requirements and their use will enhance 
         interoperability and usability.
-        <span class="rfc2119-assertion" id="arch-discovery-should-use-standard">Whenever
-        possible, the <a>Discovery</a> mechanisms defined in [[!WOT-DISCOVERY]]
-        SHOULD be used to distribute <a>TDs</a>.</span>
         </p>
     </section>
 
     <!-- Binding Templates -->
 
-    <section id="sec-binding-templates" class="informative">
+    <section id="sec-binding-templates" >
       <h3>WoT Binding Templates</h3>
 
 
@@ -3350,11 +3345,9 @@
             <li>
                 <b>Subprotocol</b>
                 <p>
-                  <span class="rfc2119-assertion" id="arch-binding-templates-known-subprotocol">
-                    <a>Transport protocols</a> MAY have to use information provided by an extension mechanisms to interact successfully.</span>
-                  <span class="rfc2119-assertion" id="arch-binding-templates-subprotocol-explicit-declaration">
-                  Such <a>subprotocols</a> cannot be identified from the URI scheme alone and MUST be declared explicitly
-                  using the <code>subprotocol</code> field inside forms.</span>
+                  <a>Transport protocols</a> may have to use information provided by an extension mechanisms to interact successfully.
+                  Such <a>subprotocols</a> cannot be identified from the URI scheme alone and must be declared explicitly
+                  using the <code>subprotocol</code> field inside forms.
                   Examples for HTTP are long polling [[?RFC6202]] (<code>longpoll</code>) or 
                   Server-Sent Events [[?HTML]] (<code>sse</code>).
                 </p>
@@ -3366,12 +3359,10 @@
           <p>
             Representation formats (a.k.a. serializations) used for exchanging data can differ between protocols, 
             <a>IoT Platforms</a> and standards.
-            <span class="rfc2119-assertion" id="arch-binding-templates-media-type-parameters">
-            The media type [[!RFC2046]] identifies these formats, while media type parameters MAY specify them further.</span>
-            <span class="rfc2119-assertion" id="arch-binding-templates-media-type-optional-parameters">
-            Forms MAY contain the media type and optional parameters in additional form fields such as a content type 
+            The media type [[?RFC2046]] identifies these formats, while media type parameters may specify them further.
+            Forms may contain the media type and optional parameters in additional form fields such as a content type 
             field known from HTTP, which combines media type and its potential parameters
-            (e.g., <code>text/plain; charset=utf-8</code>).</span>
+            (e.g., <code>text/plain; charset=utf-8</code>).
           </p>
         </li>
         <li>
@@ -3390,7 +3381,7 @@
 
     <!-- Scripting -->
 
-    <section id="sec-scripting-api" class="informative">
+    <section id="sec-scripting-api">
       <h3>WoT Scripting API</h3>
       <p> The <a>WoT Scripting API</a> is an optional "convenience"
         building block of W3C WoT that eases IoT application
