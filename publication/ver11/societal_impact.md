@@ -182,6 +182,8 @@ database of WoT Thing Descriptions.  However, there can be many such services
 used in different contexts; they do not need to be centralized, although such 
 centralization may be useful in some contexts (e.g. a central directory for
 smart city services in a particular city).
+WoT Discovery is also an optional service and is not required for 
+deployment of a WoT system.
 
 Identifiers used in WoT Thing Descriptions can be generated randomly using
 UUIDs, avoiding the need for a central id management service.  This is recommended
