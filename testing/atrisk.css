@@ -1,19 +1,4 @@
-#arch-hypermedia-caching {
-  background-color: yellow;
-}
-#arch-intermediary-td-extra-protocols {
-  background-color: yellow;
-}
-#arch-security-consideration-communication-binding {
-  background-color: yellow;
-}
 #arch-security-consideration-communication-platform {
-  background-color: yellow;
-}
-#arch-security-consideration-isolation-sensitive {
-  background-color: yellow;
-}
-#arch-security-consideration-isolation-tenants {
   background-color: yellow;
 }
 #arch-security-consideration-avoid-direct {
@@ -26,9 +11,6 @@
   background-color: yellow;
 }
 #arch-security-consideration-secure-update {
-  background-color: yellow;
-}
-#arch-security-consideration-secure-cred-isolation {
   background-color: yellow;
 }
 #arch-security-consideration-segmented-network {
