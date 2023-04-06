@@ -1,18 +1,41 @@
 
-- [31: arch-security-consideration-communication-platform](https://w3c.github.io/wot-architecture#arch-security-consideration-communication-platform) : 
+## [31: arch-security-consideration-communication-platform](https://w3c.github.io/wot-architecture#arch-security-consideration-communication-platform) : 
+
 When generating TDs for an IoT ecosystem not covered by the WoT Binding Templates, 
 TD creators SHOULD ensure that all the security requirements of the IoT Platform are satisfied.
-  - This should be a pass for Oracle, Ditto, Philips hue and pretty much any TD bound to a platform
- - [34: arch-security-consideration-avoid-direct](https://w3c.github.io/wot-architecture#arch-security-consideration-avoid-direct) 	The WoT Runtime SHOULD NOT directly expose native device interfaces to the script developers.
-   - dart_wot should pass this. @JKRhb 
 
+* Implementation requirements: No new requriements, should be already passed for Oracle, Ditto, Philips hue and pretty much any TD bound to a platform
 
-- [35: arch-security-consideration-use-hal](https://w3c.github.io/wot-architecture#arch-security-consideration-use-hal)A WoT Runtime implementation SHOULD provide a hardware abstraction layer for accessing the native device interfaces. 
-- [36: arch-security-consideration-hal-refuse-unsafe](https://w3c.github.io/wot-architecture#arch-security-consideration-hal-refuse-unsafe) Hardware abstraction layers SHOULD refuse to execute commands that might put the device (or environment) to an unsafe state. 
-- [37: arch-security-consideration-secure-update](https://w3c.github.io/wot-architecture#arch-security-consideration-secure-update) Post-manufacturing provisioning or update of scripts, the WoT Runtime itself or any related data SHOULD be done in a secure fashion.
+ ## [34: arch-security-consideration-avoid-direct](https://w3c.github.io/wot-architecture#arch-security-consideration-avoid-direct) 	
+ 
+ The WoT Runtime SHOULD NOT directly expose native device interfaces to the script developers.
+  
+ * Implementation requirements: Most implementations (e.g. Node, Python, Java) will have an abstraction layer or a sandbox that abstracts the hardware due to the underyling runtime environment. Virtual things would satidsfy that by default because of no hardware.
 
-- [43: arch-security-consideration-segmented-network](https://w3c.github.io/wot-architecture#arch-security-consideration-segmented-network) In the case of implicit access control via access to a common network a segmented network SHOULD be used.
-  - This is very specific to deployments. Philips Hue passes this since it is in a specific network setup. We can pass this even though it is a bit weird.
+## [35: arch-security-consideration-use-hal](https://w3c.github.io/wot-architecture#arch-security-consideration-use-hal)
+
+A WoT Runtime implementation SHOULD provide a hardware abstraction layer for accessing the native device interfaces. 
+
+* Implementation requirements: Most implementations (e.g. Node, Python, Java) have an abstraction layer or a sandbox that abstracts the hardware due to the underyling runtime environment. 
+
+## [36: arch-security-consideration-hal-refuse-unsafe](https://w3c.github.io/wot-architecture#arch-security-consideration-hal-refuse-unsafe) 
+
+Hardware abstraction layers SHOULD refuse to execute commands that might put the device (or environment) to an unsafe state. 
+
+* Implementation requirements: Example - restrict a robot to operate withing certain areas of it's envelope. Prevent hardware to go to conditions that are out bounds of normal operation conditions, e.g. not make a light so bright that it exceeds it's power requirements.
+
+# cut-off here in call on Jan 12th
+
+## [37: arch-security-consideration-secure-update](https://w3c.github.io/wot-architecture#arch-security-consideration-secure-update) 
+
+Post-manufacturing provisioning or update of scripts, the WoT Runtime itself or any related data SHOULD be done in a secure fashion.
+
+## [43: arch-security-consideration-segmented-network](https://w3c.github.io/wot-architecture#arch-security-consideration-segmented-network) 
+
+In the case of implicit access control via access to a common network a segmented network SHOULD be used.
+ 
+
+ - This is very specific to deployments. Philips Hue passes this since it is in a specific network setup. We can pass this even though it is a bit weird.
 
 - [44: arch-security-consideration-use-psk](https://w3c.github.io/wot-architecture#arch-security-consideration-use-psk) : In commercial and industrial environments, explicit installation of pre-shared keys SHOULD be used to allow browsers to access local services while using TLS.
   - This is difficult to understand. This means how to establish TLS without a certificate authority.
