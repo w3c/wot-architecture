@@ -292,28 +292,6 @@
       However, the abstract architecture described in this specification does not
       itself define concrete mechanisms or prescribe any concrete implementation.
     </p>
-    <ul>
-      <li>Sections 4 and 5 (<a href="#sec-application-domains">Application Domains</a> and 
-        <a href="#sec-common-deployment-patterns">Common Deployment Patterns</a>) explain ways to use WoT. 
-      These sections are self contained, do not contain any assertion and other 
-      specifications do not depend on these sections.</li>
-      <li>Section 6 <a href="#sec-wot-architecture">Abstract WoT System Architecture</a>, 
-        explains architectural elements of the W3C WoT. 
-        This section is normative and contains assertions that are relevant for WoT implementations.</li>
-      <li>Section 7 <a href="#sec-building-blocks">WoT Building Blocks</a>,
-        explains building blocks of the W3C WoT.</li> 
-      <li>Section 8 <a href="#sec-servient-implementation">Abstract Servient Architecture</a> describes
-        the architecture of a <a>Servient</a>. It informatively describes how to implement a <a>WoT Runtime</a> on a device.</li>
-      <li>Section 9 <a href="#sec-deployment-scenario">Example WoT Deployments</a> 
-        provides various examples of how the Web of Things (WoT) abstract architecture 
-        may be instantiated when devices and services that implement the Thing and Consumer 
-        roles interact in different network topologies.</li>
-      <li>Section 10 <a href="#sec-security-considerations">Security Considerations</a> and 
-      Section 11 <a href="#sec-privacy-considerations">Privacy Considerations</a> 
-        are normative; they summarize some general issues and provide guidelines to help preserve 
-        the security and privacy of concrete WoT implementations.</li>
-    </ul>
-
   </section>
   <section id="sotd">
     <p>
@@ -4495,7 +4473,7 @@
             MAY be used.</span>
           <span class="rfc2119-assertion"
               id="arch-security-consideration-no-earlier-tls-or-dtls">
-            Versions of DLTS or TLS earlier than 1.2 MUST NOT be used for 
+            Versions of DTLS or TLS earlier than 1.2 MUST NOT be used for 
             new development.
           </span>
           Existing Things using earlier versions of TLS or DTLS can be 
