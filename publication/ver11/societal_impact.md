@@ -146,6 +146,9 @@ specifications themselves into Japanese.
 ### 6. [What effect may features of your specification have on minority groups?](https://w3ctag.github.io/societal-impact-questionnaire/#minority-groups)
 No specific impact, other than the language barrier noted.
 Minority groups may not be able to access metadata in their language.
+However, it depends on the manufacturer or service provider to decide
+which languages are supported, and this is no different than the current
+situation with other web content.
 
 IoT devices or services may only be available to those able to afford access
 devices.  However, if IoT services are made available via a web front-end,
