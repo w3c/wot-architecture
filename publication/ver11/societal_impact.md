@@ -226,7 +226,10 @@ being as constrained by compatibility concerns.
 
 ### 10. [What is the expected lifetime of your specification feature(s)?](https://w3ctag.github.io/societal-impact-questionnaire/#lifetime)
 WoT is designed to have a long-term (indefinite) impact on the architecture of
-IoT systems.
+IoT systems.  It is also expected that future systems will build upon the availability of
+WoT metadata.  WoT metadata can also improve the functional lifetime of IoT systems
+by documenting how to interact with them in a standard way independent of 
+manufacturer.
 
 ### 11. [Have you completed the Security & Privacy Self-review Questionnaire?](https://w3ctag.github.io/societal-impact-questionnaire/#security-and-privacy)
-Yes, see (here)(https://github.com/w3c/wot-architecture/blob/main/publication/ver11/security_and_privacy.md)
+Yes, see [here](https://github.com/w3c/wot-architecture/blob/main/publication/ver11/security_and_privacy.md)
