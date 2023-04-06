@@ -129,6 +129,15 @@ An end user can choose not to install IoT devices.
 They could also use to access IoT services directly without first accessing
 WoT metadata (e.g. using specific documentation for that IoT service)
 although this would in most cases lead to significantly more effort.
+If an application needs WoT metadata to function, availabliity and
+use of WoT metadata would, of course, be required.  Applications can however
+be designed to avoid the use of WoT metadata if necessary, at least for
+specific IoT devices.
+
+A device manufacturer can also choose not to publish WoT metadata for their
+devices.  However, this does not prevent others from publishing WoT metadata
+about their devices.  This is however similar to the fact that web content
+in general can be published about any public subject.
  
 ### 5. [What groups of people are excluded from using features of your specification?](https://w3ctag.github.io/societal-impact-questionnaire/#excluded)
 No specific groups of people are excluded, although language may be a barrier.
