@@ -109,8 +109,9 @@ hazards from both current and future metadata in WoT Thing Descriptions, the
 WoT Discovery process provides mechanisms to control access to WoT Thing Descriptions.
 
 ### 3. [What risks do you see in features of your specification being misused, or used differently from how you intended?](https://w3ctag.github.io/societal-impact-questionnaire/#misuse)
-Many possible misuses and risks are already discussed in the answers to the Security and
-Privacy questionnaire, such as distributed denial of service attacks and
+Many possible misuses and risks are already discussed in the 
+[answers to the Security and Privacy questionnaire](https://github.com/w3c/wot-architecture/blob/main/publication/ver11/security_and_privacy.md), 
+such as distributed denial of service attacks and
 man-in-the-middle attacks.  See also the individual specifications for 
 descriptions of risks and mitigations.  
 
