@@ -96,7 +96,7 @@ WoT does not directly address accessibility but IoT systems generally can be
 used to build custom user interfaces, including those that make systems easier
 to use (e.g. large buttons to replace difficult to use controls) or map sensory
 modalities (e.g. mapping visual indicators to audible ones or vice-versa).
-Unfortunately, the current WoT specification describes only network behavior,
+Unfortunately, the current WoT specification describes only network communication and interactions,
 not physical behavior, making automated construction of such interfaces difficult.
 However, since WoT uses JSON-LD, it would be possible in theory to annotate WoT
 Thing Descriptions with information such as this.
