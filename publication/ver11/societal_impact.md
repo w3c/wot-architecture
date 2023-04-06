@@ -32,9 +32,9 @@ as opposed to the Thing Description deliverable.
 The mission of the Web of Things (WoT) WG is to combat the fragmentation of the IoT
 ecosystem by defing building blocks that improve the interoperability of
 existing IoT standards and ecosystems.  The "Web" can be considered one of several
-ecosystems that we are aiming to acheive interoperability with, and as implied
+ecosystems that we are aiming to achieve interoperability with, and as implied
 by the name the WoT uses standard web technologies or other technologies defined within the 
-W3C, such as JSON-LD to acheive this goal.  
+W3C, such as JSON-LD to achieve this goal.  
 However, it should be noted that WoT does not define
 any new browser capabilities and a WoT system may not include a web browser or 
 even a web server.  A WoT system may also be purely machine-to-machine and may
