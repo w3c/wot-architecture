@@ -200,7 +200,8 @@ include components such as batteries with both a manufacturing cost and an envir
 impact if not recovered.  Positively, IoT devices can provide real-time data that
 can provide visibility into and the potential for optimizing resource usage.  For 
 example, IoT management may be essential for the stability of distributed energy
-systems for renewable energy.
+systems for renewable energy (see [a use case that discusses this specific
+application in our Use Cases and Requirements document](https://www.w3.org/TR/wot-usecases/#use-case-opc-ua-binding)).
 
 WoT systems support the adoption and use of IoT technologies so these
 negative and positive aspects are included in WoT.  For WoT in particular,
