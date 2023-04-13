@@ -36,7 +36,7 @@
 "arch-rel-types","null",
 "arch-schema","null",
 "arch-security-consideration-auth-private-data","pass",
-"arch-security-consideration-avoid-direct","not-impl","dart_wot can only be used as a consumer and discoverer at the moment"
+"arch-security-consideration-avoid-direct","pass",
 "arch-security-consideration-communication-binding","null",
 "arch-security-consideration-communication-platform","null",
 "arch-security-consideration-dtls-1-2","pass",
