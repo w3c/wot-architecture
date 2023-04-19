@@ -1,13 +1,7 @@
-#arch-security-consideration-use-hal {
-  background-color: yellow;
-}
 #arch-security-consideration-hal-refuse-unsafe {
   background-color: yellow;
 }
 #arch-security-consideration-use-psk {
-  background-color: yellow;
-}
-#arch-security-consideration-tls-recommended-priv {
   background-color: yellow;
 }
 #arch-security-consideration-dtls-1-3 {
