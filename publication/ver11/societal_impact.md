@@ -133,7 +133,7 @@ An end user can choose not to install IoT devices.
 They could also use to access IoT services directly without first accessing
 WoT metadata (e.g. using specific documentation for that IoT service)
 although this would in most cases lead to significantly more effort.
-If an application needs WoT metadata to function, availabliity and
+If an application needs WoT metadata to function, availability and
 use of WoT metadata would, of course, be required.  Applications can however
 be designed to avoid the use of WoT metadata if necessary, at least for
 specific IoT devices.
