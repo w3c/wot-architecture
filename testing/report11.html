@@ -121,7 +121,7 @@ pre.example {
     DRAFT Implementation Report
   </h1>
   <p>
-    <b>Version</b>: 13 Apr 2023
+    <b>Version</b>: 19 Apr 2023
   </p>
   <p>
     <b>Editors</b>:<br>
@@ -1042,9 +1042,9 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">An Action MAY manipulate state that is not directly exposed (cf. Properties), manipulate multiple Properties at a time, or manipulate Properties based on internal logic (e.g., toggle).</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">6</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">10</td></tr>
 <tr id="arch-action-process" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-action-process">9: arch-action-process</a></td>
@@ -1054,9 +1054,9 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Invoking an Action MAY also trigger a process on the Thing that manipulates state (including physical state through actuators) over time.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">6</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">10</td></tr>
 <tr id="arch-action-dataschema" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-action-dataschema">10: arch-action-dataschema</a></td>
@@ -1078,9 +1078,9 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Events MAY be triggered through conditions that are not exposed as Properties.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">5</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">6</td>
+	<td class="result baseassertion">5</td>
 	<td class="result baseassertion">10</td></tr>
 <tr id="arch-event-dataschema" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-event-dataschema">12: arch-event-dataschema</a></td>
@@ -1270,9 +1270,9 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">There SHOULD be a strict separation of Public Security Metadata and Private Security Data.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">9</td></tr>
 <tr id="arch-security-consideration-auth-private-data" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-auth-private-data">28: arch-security-consideration-auth-private-data</a></td>
@@ -1282,9 +1282,9 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Authentication and authorization SHOULD be established based on separately managed Private Security Data.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">9</td></tr>
 <tr id="arch-security-consideration-no-private-security-data" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-no-private-security-data">29: arch-security-consideration-no-private-security-data</a></td>
@@ -1294,9 +1294,9 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Producers of TDs MUST ensure that no Private Security Data is included in TDs.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
+	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">6</td>
+	<td class="result baseassertion">5</td>
 	<td class="result baseassertion">9</td></tr>
 <tr id="arch-security-consideration-communication-binding" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-communication-binding">30: arch-security-consideration-communication-binding</a></td>
@@ -1354,9 +1354,9 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">The WoT Runtime SHOULD NOT directly expose native device interfaces to the script developers.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
+	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">7</td>
+	<td class="result baseassertion">6</td>
 	<td class="result baseassertion">10</td></tr>
 <tr id="arch-security-consideration-use-hal" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-use-hal">35: arch-security-consideration-use-hal</a></td>
@@ -1364,11 +1364,11 @@ pre.example {
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">A WoT Runtime implementation SHOULD provide a hardware abstraction layer for accessing the native device interfaces.</td>
+	<td class="baseassertion">A WoT Runtime implementation SHOULD provide a hardware abstraction layer for accessing the native device interfaces.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">8</td>
+	<td class="result baseassertion">7</td>
 	<td class="result baseassertion">9</td></tr>
 <tr id="arch-security-consideration-hal-refuse-unsafe" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-hal-refuse-unsafe">36: arch-security-consideration-hal-refuse-unsafe</a></td>
@@ -1378,9 +1378,9 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="atrisk">Hardware abstraction layers SHOULD refuse to execute commands that might put the device (or environment) to an unsafe state.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
+	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">9</td>
+	<td class="result baseassertion">8</td>
 	<td class="result baseassertion">9</td></tr>
 <tr id="arch-security-consideration-secure-update" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-secure-update">37: arch-security-consideration-secure-update</a></td>
@@ -1462,9 +1462,9 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">In the case of implicit access control via access to a common network a segmented network SHOULD be used.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">2</td>
+	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">7</td></tr>
 <tr id="arch-security-consideration-use-psk" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-use-psk">44: arch-security-consideration-use-psk</a></td>
@@ -1474,9 +1474,9 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="atrisk">In commercial and industrial environments, explicit installation of pre-shared keys SHOULD be used to allow browsers to access local services while using TLS.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
+	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">6</td>
+	<td class="result baseassertion">5</td>
 	<td class="result baseassertion">6</td></tr>
 <tr id="arch-security-consideration-tls-mandatory-pub" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-tls-mandatory-pub">45: arch-security-consideration-tls-mandatory-pub</a></td>
@@ -1496,11 +1496,11 @@ pre.example {
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">When a Thing is made available on a private network then it SHOULD be protected by secure transport such as TLS or DTLS.</td>
+	<td class="baseassertion">When a Thing is made available on a private network then it SHOULD be protected by secure transport such as TLS or DTLS.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">7</td>
+	<td class="result baseassertion">6</td>
 	<td class="result baseassertion">8</td></tr>
 <tr id="arch-security-consideration-tls-optional-on-lan" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-tls-optional-on-lan">47: arch-security-consideration-tls-optional-on-lan</a></td>
