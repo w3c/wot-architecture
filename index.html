@@ -4229,11 +4229,19 @@
             implementation SHOULD provide a hardware
             abstraction layer for accessing the native
             device interfaces.</span>
-	    <span class="rfc2119-assertion" id="arch-security-consideration-hal-refuse-unsafe">
+      Hardware abstraction layers, or HALs, mediate the interaction between the 
+      application and the hardware and can be as simple as a software library,
+      although more sophisticated implementations may be implemented as drivers
+      accessible through system calls or supported by hypervisors.  The more 
+      sophisticated versions of HALs can prevent applications from bypassing them.
+	    <!-- <span class="rfc2119-assertion" id="arch-security-consideration-hal-refuse-unsafe"> -->
 	    Hardware abstraction
-            layers SHOULD refuse to execute commands that
+            layers should refuse to execute commands that
             might put the device (or environment) to an
-            unsafe state.</span>
+            unsafe state.<!-- </span> -->
+      Such "software interlocks" should not be the only mechanism preventing 
+      a system from entering an unsafe state.  Ideally, multiple layered safety
+      controls should be used, including both software and hardware interlocks.
 	    Additionally, in order to reduce
             the damage to a physical WoT device in cases a
             script gets compromised, it is important to
