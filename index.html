@@ -4466,11 +4466,16 @@
             but secure transport over TCP is appropriate,
             TLS 1.2 [[RFC5246]]
             MAY be used.</span>
-          <span class="rfc2119-assertion" 
-              id="arch-security-consideration-dtls-1-3">
+          <!-- <span class="rfc2119-assertion" 
+              id="arch-security-consideration-dtls-1-3"> 
+            This was downgraded from an assertion due to lack of testing
+            (problem with availablity of libraries).  However, it is still
+            a good idea to use DTLS 1.3 when available.
+          -->
             When secure transport over UDP is appropriate,
             then at least DTLS 1.3 [[RFC9147]]
-            SHOULD be used.</span>
+            is recommended, if possible.
+          <!-- </span> -->
           <span class="rfc2119-assertion" 
               id="arch-security-consideration-dtls-1-2">
             If DTLS 1.3 cannot be used for compatibility reasons
