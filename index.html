@@ -4356,17 +4356,23 @@
 	In the case of implicit access control via access to a common network
 	a segmented network SHOULD be used.</span>
 	For example, in the home environment,
-	a separate WiFi network can be used for IoT devices, and routers
+	a separate network can be used for IoT devices.
+<!-- following not strictly true as guest networks often do not allow inter-device communication
+  , and routers
 	often provide a "guest" network that can be used for this purpose.
-	<span class="rfc2119-assertion" id="arch-security-consideration-use-psk">
+-->
+	<!-- <span class="rfc2119-assertion" id="arch-security-consideration-use-psk"> -->
 	In commercial and industrial environments, 
-	explicit installation of pre-shared
-	keys SHOULD be used to allow browsers to access local services
-	while using TLS.</span>
-	Using a single key for a large number of services is
-	equivalent to the "implicit access" situation above.  However, once TLS is
-	enabled other security mechanisms that assume secure transport
+	explicit installation of <!-- pre-shared
+	keys --> certificates should be used to allow browsers to access local services
+	while using TLS.
+  <!-- </span> -->
+  Certificates support secure authentication and are required to enable TLS.
+  Once TLS is enabled other security mechanisms that assume secure transport, 
+  such as API keys or passwords,
 	can be used to provide fine-grained access control.
+	Note that using a single key for a large number of services is
+	equivalent to the "implicit access" situation above.  
         </dd>
       </dl>
     </section>
