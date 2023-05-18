@@ -4659,6 +4659,47 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
 	  </section>
   </section>
 
+  <section id="sec-accessibility-considerations">
+    <h1>Accessibility Considerations</h1>
+    <p>
+    Accessibility should be thought of from the beginning of the development 
+    of a component in any WoT system. 
+    If the component has a user interface, this must be accessible. 
+    If it is for machine-to-machine interaction only, 
+    it must support user interfaces to be accessible.
+    </p>
+    <p>
+    For user interfaces, 
+    relevant guidance on accessibility can be found in the following documents:
+    </p>
+    <ul>
+    <li>W3C Web Content Accessibility Guidelines [[WCAG22]]
+        (for web-based user interfaces)</li>
+    <li>EN 301 549 [[etsi-en-301-549]]
+        (for hardware and any other user interfaces, 
+        especially for software/firmware running on "closed functionality" devices)</li>
+    </ul>
+    <p>
+    In general, 
+    a Thing should always have at least one user interface that is fully accessible according i
+    to WCAG and EN 301 549.
+    Accessibility must be applied to the interfaces for all types of users: 
+    manufacturers, installers, device owners, end users.
+    </p>
+    <p>
+    The accessibility status of a user interface for a Thing should be declared in the Thing’s manifest, 
+    so that users can pick the user interface that is most appropriate for them.
+    </p>
+    <p>
+    Components that do not offer a user interface, 
+    must still support accessible user interfaces by providing suitable data and functions 
+    that can be employed by accessible user interfaces. 
+    For example, developers of public Things (e.g. a ticket machine or an ATM) should consider 
+    a locator function by which a user can physically identify and locate the Thing by auditory, 
+    visual or other signaling.
+    </p>
+  </section>
+
   <section id="changes" class="appendix">
     <h1>Recent Specification Changes</h1>
     <h2 id="changes-from-wd-2022-09-07">Changes from the WD published September 7, 2022</h2>
