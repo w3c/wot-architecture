@@ -4662,42 +4662,98 @@ Services returning Thing Descriptions with immutable IDs SHOULD use some form of
   <section id="sec-accessibility-considerations" class="informative">
     <h1>Accessibility Considerations</h1>
     <p>
-    Accessibility should be thought of from the beginning of the development 
-    of a component in any WoT system. 
-    If the component has a user interface, this must be accessible. 
-    If it is for machine-to-machine interaction only, 
-    it must support user interfaces to be accessible.
+    IoT generally and WoT in particular provide both opportunties and challenges for 
+    accessibilty.
+    On the one hand, network access to internet-enabled devices' functionality
+    makes it possible to build alternative interfaces to that functionality,
+    both web-based and physical,
+    that are not limited by the devices' own hardware.
+    Such interfaces can and
+    should follow best practices for accessibility.
+    On the other hand, 
+    IoT devices are diverse, are often cost and space limited,
+    and situations where they do need to rely on their
+    own hardware for interfacing, 
+    such as during onboarding before a network connection is established, 
+    can be challenging to make accessible.
     </p>
     <p>
-    For user interfaces, 
-    relevant guidance on accessibility can be found in the following documents:
+    There are two situations to consider for WoT regarding accessibility:
+    greenfield devices designed from the beginning to be used with WoT,
+    and brownfield devices where WoT is used only to describe an existing
+    system.
+    </p>
+    <p>
+    A number of use cases that relate to accessibilty are covered in 
+    The <em>WoT Use Cases and Requirements</em> document [[WOT-USE-CASES-REQUIREMENTS]].
+    </p>
+    <section id="sec-accessibility-considerations-greenfield">
+    <h2>Greenfield WoT Systems</h2>
+    <p>
+    Ideally, accessibility should be thought of from the beginning of the development 
+    of a component in any greenfield WoT system. 
+    If the component's hardware has its own display or other form of
+    physical user interface, this must be as accessible as possible.
+    If it cannot be made accessible (for example, due to screen size limitations),
+    then equivalent functionality should be made available over the network
+    so an accessible interface (such as a web or voice interface) can be used instead.
+    When the component is accessed over the network, provisions must be 
+    made for accessible web interfaces whether hosted directly on the 
+    device or provided by another component (such as a dashboard).
+    Situations where the on-board hardware is the only option for interfaces,
+    such as during onboarding, should be carefully designed to be made
+    as accessible as possible.
     </p>
     <ul>
-    <li>W3C Web Content Accessibility Guidelines [[WCAG22]]
-        (for web-based user interfaces)</li>
-    <li>EN 301 549 [[etsi-en-301-549]]
-        (for hardware and any other user interfaces, 
-        especially for software/firmware running on "closed functionality" devices)</li>
+    <li>
+        For web-based user interfaces, 
+        relevant guidance on accessibility can be found in 
+        W3C Web Content Accessibility Guidelines [[WCAG22]].</li>
+    <li>More generally, EN 301 549 [[etsi-en-301-549]]
+        provides guidelines for hardware and other user interfaces, 
+        especially for software/firmware running on "closed functionality" devices.</li>
     </ul>
     <p>
     In general, 
-    a Thing should always have at least one user interface that is fully accessible according i
+    a Thing should always have at least one user interface 
+    (either direct or network-based) that is fully accessible according 
     to WCAG and EN 301 549.
-    Accessibility must be applied to the interfaces for all types of users: 
+    Accessibility must be applied to the interfaces made available for
+    all types of users: 
     manufacturers, installers, device owners, end users.
     </p>
     <p>
-    The accessibility status of a user interface for a Thing should be declared in the Thing’s manifest, 
+    The accessibility status of the user interfaces for a Thing should be declared in the Thing’s metadata, 
     so that users can pick the user interface that is most appropriate for them.
+    If the Thing has a web interface, existing mechanisms to describe
+    web interfaces should be used.
+    To better support the connection between the web and physical interfaces,
+    affordances described in a WoT Thing Description should be 
+    annotated in such a way that their relation to the physical interface
+    on the devie can be understood.
     </p>
     <p>
-    Components that do not offer a user interface, 
-    must still support accessible user interfaces by providing suitable data and functions 
-    that can be employed by accessible user interfaces. 
+    Components that do not directly offer a user interface 
+    must still support accessiblibilty by providing suitable data and functions. 
     For example, developers of public Things (e.g. a ticket machine or an ATM) should consider 
     a locator function by which a user can physically identify and locate the Thing by auditory, 
     visual or other signaling.
     </p>
+    </section>
+    <section id="sec-accessibility-considerations-brownfield">
+    <h2>Brownfield WoT Systems</h2>
+    <p>
+    Brownfield applications of WoT cover situations where WoT metadata is used to 
+    describe an existing device, but WoT was not considered during its design.
+    In this case many of the above provisions still apply.  
+    For example, a web interface provided by another system to monitor or control the device 
+    should follow the guidelines
+    in WCAG, and the Thing Description should annotate affordances appropriately.
+    If a device's own physical interface provides an accessibility challenge,
+    there is the potential to overcome it with an alternative interface based
+    on its network affordances.
+    </p>
+    </section>
   </section>
 
   <section id="changes" class="appendix">
