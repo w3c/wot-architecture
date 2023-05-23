@@ -121,7 +121,7 @@ pre.example {
     DRAFT Implementation Report
   </h1>
   <p>
-    <b>Version</b>: 19 Apr 2023
+    <b>Version</b>: 23 May 2023
   </p>
   <p>
     <b>Editors</b>:<br>
@@ -1316,7 +1316,7 @@ pre.example {
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">When generating TDs for an IoT ecosystem not covered by the WoT Binding Templates, TD creators SHOULD ensure that all the security requirements of the IoT Platform are satisfied.</td>
+	<td class="baseassertion">When generating TDs for an IoT Platform not covered by the WoT Binding Templates, TD creators SHOULD ensure that all the security requirements of the IoT Platform are satisfied.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -1352,7 +1352,7 @@ pre.example {
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">The WoT Runtime SHOULD NOT directly expose native device interfaces to the script developers.</td>
+	<td class="baseassertion">The WoT Runtime SHOULD NOT directly expose low-level device hardware interfaces to the script developers.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">0</td>
@@ -1364,26 +1364,14 @@ pre.example {
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">A WoT Runtime implementation SHOULD provide a hardware abstraction layer for accessing the native device interfaces.</td>
+	<td class="baseassertion">A WoT Runtime implementation SHOULD provide a hardware abstraction layer for accessing the low-level device hardware interfaces.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">7</td>
 	<td class="result baseassertion">9</td></tr>
-<tr id="arch-security-consideration-hal-refuse-unsafe" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-hal-refuse-unsafe">36: arch-security-consideration-hal-refuse-unsafe</a></td>
-	<td class="baseassertion">Security</td>
-
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="atrisk">Hardware abstraction layers SHOULD refuse to execute commands that might put the device (or environment) to an unsafe state.</td>
-	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">8</td>
-	<td class="result baseassertion">9</td></tr>
 <tr id="arch-security-consideration-secure-update" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-secure-update">37: arch-security-consideration-secure-update</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-secure-update">36: arch-security-consideration-secure-update</a></td>
 	<td class="baseassertion">Security</td>
 
 	<td class="baseassertion">N</td>
@@ -1395,7 +1383,7 @@ pre.example {
 	<td class="result baseassertion">6</td>
 	<td class="result baseassertion">8</td></tr>
 <tr id="arch-security-consideration-secure-cred-storage" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-secure-cred-storage">38: arch-security-consideration-secure-cred-storage</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-secure-cred-storage">37: arch-security-consideration-secure-cred-storage</a></td>
 	<td class="baseassertion">Security</td>
 
 	<td class="baseassertion">N</td>
@@ -1407,7 +1395,7 @@ pre.example {
 	<td class="result baseassertion">5</td>
 	<td class="result baseassertion">9</td></tr>
 <tr id="arch-security-consideration-secure-cred-isolation" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-secure-cred-isolation">39: arch-security-consideration-secure-cred-isolation</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-secure-cred-isolation">38: arch-security-consideration-secure-cred-isolation</a></td>
 	<td class="baseassertion">Security</td>
 
 	<td class="baseassertion">N</td>
@@ -1419,7 +1407,7 @@ pre.example {
 	<td class="result baseassertion">7</td>
 	<td class="result baseassertion">10</td></tr>
 <tr id="arch-security-consideration-no-expose-cred" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-no-expose-cred">40: arch-security-consideration-no-expose-cred</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-no-expose-cred">39: arch-security-consideration-no-expose-cred</a></td>
 	<td class="baseassertion">Security</td>
 
 	<td class="baseassertion">N</td>
@@ -1431,7 +1419,7 @@ pre.example {
 	<td class="result baseassertion">7</td>
 	<td class="result baseassertion">9</td></tr>
 <tr id="arch-security-consideration-limit-cred-access" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-limit-cred-access">41: arch-security-consideration-limit-cred-access</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-limit-cred-access">40: arch-security-consideration-limit-cred-access</a></td>
 	<td class="baseassertion">Security</td>
 
 	<td class="baseassertion">N</td>
@@ -1443,7 +1431,7 @@ pre.example {
 	<td class="result baseassertion">5</td>
 	<td class="result baseassertion">9</td></tr>
 <tr id="arch-security-consideration-limit-trust" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-limit-trust">42: arch-security-consideration-limit-trust</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-limit-trust">41: arch-security-consideration-limit-trust</a></td>
 	<td class="baseassertion">Security</td>
 
 	<td class="baseassertion">N</td>
@@ -1455,7 +1443,7 @@ pre.example {
 	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">10</td></tr>
 <tr id="arch-security-consideration-segmented-network" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-segmented-network">43: arch-security-consideration-segmented-network</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-segmented-network">42: arch-security-consideration-segmented-network</a></td>
 	<td class="baseassertion">Security</td>
 
 	<td class="baseassertion">N</td>
@@ -1466,20 +1454,8 @@ pre.example {
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">7</td></tr>
-<tr id="arch-security-consideration-use-psk" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-use-psk">44: arch-security-consideration-use-psk</a></td>
-	<td class="baseassertion">Security</td>
-
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="atrisk">In commercial and industrial environments, explicit installation of pre-shared keys SHOULD be used to allow browsers to access local services while using TLS.</td>
-	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">5</td>
-	<td class="result baseassertion">6</td></tr>
 <tr id="arch-security-consideration-tls-mandatory-pub" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-tls-mandatory-pub">45: arch-security-consideration-tls-mandatory-pub</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-tls-mandatory-pub">43: arch-security-consideration-tls-mandatory-pub</a></td>
 	<td class="baseassertion">Security</td>
 
 	<td class="baseassertion">Y</td>
@@ -1491,7 +1467,7 @@ pre.example {
 	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">8</td></tr>
 <tr id="arch-security-consideration-tls-recommended-priv" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-tls-recommended-priv">46: arch-security-consideration-tls-recommended-priv</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-tls-recommended-priv">44: arch-security-consideration-tls-recommended-priv</a></td>
 	<td class="baseassertion">Security</td>
 
 	<td class="baseassertion">N</td>
@@ -1503,7 +1479,7 @@ pre.example {
 	<td class="result baseassertion">6</td>
 	<td class="result baseassertion">8</td></tr>
 <tr id="arch-security-consideration-tls-optional-on-lan" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-tls-optional-on-lan">47: arch-security-consideration-tls-optional-on-lan</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-tls-optional-on-lan">45: arch-security-consideration-tls-optional-on-lan</a></td>
 	<td class="baseassertion">Security</td>
 
 	<td class="baseassertion">N</td>
@@ -1515,7 +1491,7 @@ pre.example {
 	<td class="result baseassertion">1</td>
 	<td class="result baseassertion">8</td></tr>
 <tr id="arch-security-consideration-tls-1-3" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-tls-1-3">48: arch-security-consideration-tls-1-3</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-tls-1-3">46: arch-security-consideration-tls-1-3</a></td>
 	<td class="baseassertion">Security</td>
 
 	<td class="baseassertion">N</td>
@@ -1527,7 +1503,7 @@ pre.example {
 	<td class="result baseassertion">5</td>
 	<td class="result baseassertion">10</td></tr>
 <tr id="arch-security-consideration-tls-1-2" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-tls-1-2">49: arch-security-consideration-tls-1-2</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-tls-1-2">47: arch-security-consideration-tls-1-2</a></td>
 	<td class="baseassertion">Security</td>
 
 	<td class="baseassertion">N</td>
@@ -1538,20 +1514,8 @@ pre.example {
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">10</td></tr>
-<tr id="arch-security-consideration-dtls-1-3" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-dtls-1-3">50: arch-security-consideration-dtls-1-3</a></td>
-	<td class="baseassertion">Security</td>
-
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="atrisk">When secure transport over UDP is appropriate, then at least DTLS 1.3 [RFC9147] SHOULD be used.</td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">10</td>
-	<td class="result baseassertion">10</td></tr>
 <tr id="arch-security-consideration-dtls-1-2" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-dtls-1-2">51: arch-security-consideration-dtls-1-2</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-dtls-1-2">48: arch-security-consideration-dtls-1-2</a></td>
 	<td class="baseassertion">Security</td>
 
 	<td class="baseassertion">N</td>
@@ -1563,19 +1527,19 @@ pre.example {
 	<td class="result baseassertion">8</td>
 	<td class="result baseassertion">10</td></tr>
 <tr id="arch-security-consideration-no-earlier-tls-or-dtls" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-no-earlier-tls-or-dtls">52: arch-security-consideration-no-earlier-tls-or-dtls</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-security-consideration-no-earlier-tls-or-dtls">49: arch-security-consideration-no-earlier-tls-or-dtls</a></td>
 	<td class="baseassertion">Security</td>
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">Versions of DLTS or TLS earlier than 1.2 MUST NOT be used for new development.</td>
+	<td class="baseassertion">Versions of DTLS or TLS earlier than 1.2 MUST NOT be used for new development.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">5</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">5</td>
 	<td class="result baseassertion">10</td></tr>
 <tr id="arch-privacy-consideration-min-explicit-pii" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-min-explicit-pii">53: arch-privacy-consideration-min-explicit-pii</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-min-explicit-pii">50: arch-privacy-consideration-min-explicit-pii</a></td>
 	<td class="baseassertion">Privacy</td>
 
 	<td class="baseassertion">N</td>
@@ -1587,7 +1551,7 @@ pre.example {
 	<td class="result baseassertion">7</td>
 	<td class="result baseassertion">10</td></tr>
 <tr id="arch-privacy-consideration-explicit-pii" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-explicit-pii">54: arch-privacy-consideration-explicit-pii</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-explicit-pii">51: arch-privacy-consideration-explicit-pii</a></td>
 	<td class="baseassertion">Privacy</td>
 
 	<td class="baseassertion">N</td>
@@ -1599,7 +1563,7 @@ pre.example {
 	<td class="result baseassertion">7</td>
 	<td class="result baseassertion">9</td></tr>
 <tr id="arch-privacy-consideration-dist-td-auth" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-dist-td-auth">55: arch-privacy-consideration-dist-td-auth</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-dist-td-auth">52: arch-privacy-consideration-dist-td-auth</a></td>
 	<td class="baseassertion">Privacy</td>
 
 	<td class="baseassertion">N</td>
@@ -1611,7 +1575,7 @@ pre.example {
 	<td class="result baseassertion">5</td>
 	<td class="result baseassertion">9</td></tr>
 <tr id="arch-privacy-consideration-access-control-mandatory-person" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-access-control-mandatory-person">56: arch-privacy-consideration-access-control-mandatory-person</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-access-control-mandatory-person">53: arch-privacy-consideration-access-control-mandatory-person</a></td>
 	<td class="baseassertion">Privacy</td>
 
 	<td class="baseassertion">N</td>
@@ -1623,7 +1587,7 @@ pre.example {
 	<td class="result baseassertion">7</td>
 	<td class="result baseassertion">10</td></tr>
 <tr id="arch-privacy-consideration-id-access-control-mandatory-immutable" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-id-access-control-mandatory-immutable">57: arch-privacy-consideration-id-access-control-mandatory-immutable</a></td>
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-architecture#arch-privacy-consideration-id-access-control-mandatory-immutable">54: arch-privacy-consideration-id-access-control-mandatory-immutable</a></td>
 	<td class="baseassertion">Privacy</td>
 
 	<td class="baseassertion">N</td>

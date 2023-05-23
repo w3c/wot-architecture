@@ -1,6 +1,6 @@
 {
   "report_htmlfile_rel": "report11.html",
   "src_base": "https://w3c.github.io/wot-architecture",
-  "src_htmlfile": "publication/ver11/3-cr/Overview.html",
+  "src_htmlfile": "static.html",
   "verbosity": 3
 }
