@@ -130,7 +130,7 @@ pre.example {
     Michael McCool (Intel)
   </p>
 
-  <p class="copyright"><a href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2023 <a href="http://www.w3.org/"><acronym title="World Wide Web Consortium">W3C</acronym></a><sup>®</sup> (<a href="http://www.csail.mit.edu/"><acronym title="Massachusetts Institute of Technology">MIT</acronym></a>, <a href="http://www.ercim.org/"><acronym title="European Research Consortium for Informatics and Mathematics">ERCIM</acronym></a>, <a href="http://www.keio.ac.jp/">Keio</a>), All Rights Reserved. W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a> rules apply.</p>
+  <p class="copyright"><a href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2022 <a href="http://www.w3.org/"><acronym title="World Wide Web Consortium">W3C</acronym></a><sup>®</sup> (<a href="http://www.csail.mit.edu/"><acronym title="Massachusetts Institute of Technology">MIT</acronym></a>, <a href="http://www.ercim.org/"><acronym title="European Research Consortium for Informatics and Mathematics">ERCIM</acronym></a>, <a href="http://www.keio.ac.jp/">Keio</a>), All Rights Reserved. W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a> rules apply.</p>
   <hr title="Separator for header">
 </div>
 
@@ -202,9 +202,10 @@ pre.example {
 <p>
   The <a href="http://www.w3.org/TR/wot-architecture11/">Web of Things (WoT) Architecture 1.1</a>
   document was last published as a
-  <a href="https://www.w3.org/TR/2023/CR-wot-architecture11-20230119/">Candidate Recommendation Snapshot</a>
-  on 19 January 2023.
-  The planned date for entering Proposed Recommendation is 21 June 2022.
+  <a href="https://www.w3.org/TR/2022/WD-architecture11-20220907/">Working Draft</a>
+  on 7 September 2022.
+  The planned date for entering Candidate Recommendation is 26 October 2022.
+  The planned date for entering Proposed Recommendation is 12 January 2022.
 </p>
 <p>
   This document summarizes the results from the Web of Things (WoT) Architecture 1.1 implementer reports received and
@@ -225,27 +226,23 @@ pre.example {
   or not their implementations conformed to the specification.
 </p>
 
-<h2 id="h_cr_work"><a id="cr_work" name="cr_work">2. Work done during the Candidate Recommendation period</a></h2>
+<h2 id="h_cr_work"><a id="cr_work" name="cr_work">2. Work planned for the Candidate Recommendation period</a></h2>
 <p>
-  During the CR period, the Working Group performed the following activities:
+  During the CR period, the Working Group plans to carry out the following activities:
 </p>
 <ol>
-	<li>Clarification and improvement of the exposition of the specification</li>
+	<li>Clarification and improvement through the exposition of the specification</li>
 	<li>Disposing of comments that were communicated to the WG during the CR period.
         These comments and their resolution are detailed in the
-        <a href="https://github.com/w3c/wot-architecture/issues">GitHub Issue tracker</a>.
-<!--
-        with the label <a href="https://github.com/w3c/wot-architecture/issues?q=label%3A%22CR+period%22">CR&nbsp;period</a>.
--->
-  </li>
-  <li>Gathering of additional test inputs and resolution of any at-risk assertions.</li>
+        <a href="https://github.com/w3c/wot-architecture/issues">GitHub Issue tracker</a>
+        with the label <a href="https://github.com/w3c/wot-architecture/issues?q=label%3A%22CR+period%22">CR&nbsp;period</a>.</li>
 	<li>Finalization of this Implementation Report.</li>
 </ol>
 
 <h2 id="h_participate"><a id="participate" name="participate">3. Participating in the Implementation Report</a></h2>
 <p>
   Implementers were invited to contribute to the assessment of the
-  <a href="https://www.w3.org/TR/2023/CR-wot-architecture11-20230119/">Web of Things (WoT) Architecture 1.1 Candidate Recommendation</a> 
+  <a href="https://www.w3.org/TR/2022/wot-architecture11/">Web of Things (WoT) Architecture 1.1</a> draft
   by submitting implementer reports describing the
   coverage of their implementations with respect to the test assertions outlined
   in the <a href="#manual_validation_results">table below</a>.
@@ -269,7 +266,8 @@ pre.example {
 <h2 id="h_pr_entrance_crit"><a id="pr_entrance_crit" name="pr_entrance_crit">4. Entrance criteria for the Proposed Recommendation phase</a></h2>
 <p>
   The Web of Things (WoT) Working Group established the following
-  entrance criteria for the Proposed Recommendation phase:
+  entrance criteria for the Proposed Recommendation phase in the
+  Request for CR:
 </p>
 <ol>
   <li>
@@ -300,21 +298,21 @@ pre.example {
 <p>
   In order to be included in the PR all features, whether optional
   or required, need to have received at least two implementations.
-  At the time of publication of this report 
-  all assertions have met this requirement.
+  At the time of publication of this report there are some gaps, as
+  documented in the Status of this Document section of the CR.
+  It is the intention of the working group to gather additional
+  implementation evidence for these features during the CR period.
 </p>
 
 <h2 id="h_report_reqs"><a id="report_reqs" name="report_reqs">5. Implementation Report requirements</a></h2>
 
 <h4 id="h_DetailedReqs"><a id="DetailedReqs" name="DetailedReqs">5.1 Detailed requirements</a></h4>
 <ol>
-<!--
 	<li>
     Testimonials from implementers are included in the IR when
     provided to document the utility and implementability of the
     specification.
   </li>
--->
 	<li>
     IR must cover all specified features in the specification. For
     each feature the IR should indicate:
@@ -324,7 +322,6 @@ pre.example {
 	     <li>Implementability of the feature specification.</li>
     </ul>
   </li>
-<!--
   <li>
     Feature status is a factor in test coverage in the report:
     <ul>
@@ -341,7 +338,6 @@ pre.example {
       </li>
 	  </ul>
 	</li>
--->
 </ol>
 <p>
   Feature status is in practice indicated by
@@ -350,11 +346,6 @@ pre.example {
   containing the words MUST are considered required.
   Features defined using MAY and SHOULD assertions are considered optional.
 </p>
-<p>
-  Feature utility is indicated indirectly by the number of implementations
-  supporting each feature.  In general, features with fewer implementations will
-  have a narrower scope, but may still be important for specific use cases.
-</p>
 
 <h4 id="h_NotesOnTesting"><a id="NotesOnTesting" name="NotesOnTesting">5.2 Notes on testing</a></h4>
 <ol>
@@ -362,11 +353,6 @@ pre.example {
     An implementer report must indicate the outcome of evaluating 
     the implementation with respect to each of the assertions defined in the specification.
     Possible outcomes are <code>pass</code>, <code>fail</code>, or <code>not-impl</code> (not implemented).
-  </li>
-  <li>
-    In practice, implementer reports consist of CSV files for each implementation with the above
-    status assigned to each assertion in the specification.  This report was
-    then automatically generated from these input files. 
   </li>
 </ol>
 
@@ -435,16 +421,14 @@ pre.example {
   specification describes systems that include features to support security.
   Functional aspects of assertions associated with security features are validated
   in the same fashion as other functional features.
-<!--
   In addition, however, the
-  <a href="https://www.w3.org/2022/07/wot-wg-2022.html">Web of Things (WoT) WG Charter</a>
+  <a href="https://www.w3.org/2016/12/wot-wg-2016.html">Web of Things (WoT) WG Charter</a>
   requires the development of a test plan.
   An appropriate security test plan, including a description
   of how existing web service penetration testing tools can be used,
   in addition to a description of more general security and privacy considerations,
   is included in
   <a href="http://www.w3.org/TR/wot-security">Web of Things (WoT) Security and Privacy Guidelines</a>.
--->
 </p>
 
 <h2 id="h_test_results"><a id="test_results" name="test_results">9. Test results</a></h2>
@@ -513,8 +497,6 @@ pre.example {
     of shared components) reporting a status (of any kind) on each assertion.
     The totals do not sum to a consistent value since not all implementations have provided information on all
     assertions.
-    In particular if an implementation is a client/consumer it may not 
-    provide information on features that relate to servers/exposers, and vice-versa.
   </li>
 </ul>
 <p>
@@ -528,6 +510,14 @@ pre.example {
   For such cases the "child" assertions have underscores in their names
   prior to each value tested and the table row is also rendered in a 
   different color.
+</p>
+<p class="at-risk">
+  Assertions which have been indicated as at-risk in the CR publication
+  are indicated using yellow highlighting.  
+  If these have insufficient implementation
+  experience (fewer than two independent implementations for mandatory features
+  and one for optional features) they
+  may be removed from the final Recommendation.
 </p>
 
 <!--
@@ -623,40 +613,21 @@ pre.example {
 		
 <h2 id="h_ack"><a id="ack" name="ack">Acknowledgements</a></h2>
 <p>
-The Web of Things Working Group would like to acknowledge the contributions to 
-the making of this document from the following individuals in various capacities,
-including contributions to past testing inputs which were used for compatibility testing:</p>
+  The Web of Things Working Group would like to acknowledge the contributions to the making of this document from the following individuals in various capacities.</p>
+<p>
 <ul>
-<li>Luca Barbato (Sifis/wot-rust)</li>
-<li>Philipp Blum (Invited Expert)</li>
-<li>Victor Charpenay (Siemens)</li>
-<li>Andrea Cimmino (Universidad Politécnica de Madrid)</li>
-<li>Hiroki Endo (NHK)</li>
-<li>Ben Francis (Krellian and Mozilla)</li>
-<li>Christian Glomb (Siemens)</li>
-<li>Thomas Jaeckle (Bosch/Ditto)</li>
-<li>Sebastian Käbisch (Siemens)</li>
-<li>Toru Kawaguchi (Panasonic)</li>
-<li>Ege Korkan (Siemens and Technical University of Munich)</li>
 <li>Michael Koster (SmartThings)</li>
-<li>Matthias Kovatsch (Huawei)</li>
-<li>Michael Lagally (Oracle)</li>
-<li>Ryuichi Matsukura (Fujitsu)</li>
-<li>Michael McCool (Intel)</li>
-<li>Murloc6 (Siemens/Logilab)</li>
-<li>Kevin Olotu (Bosch/Vorto)</li>
-<li>Daniel Peintner(Siemens)</li>
-<li>Cu Pham (ECHONET)</li>
 <li>Dave Raggett (ERCIM)</li>
-<li>Jan Romann (University of Bremen/RIoT)</li>
-<li>Takeshi Sano (Fujitsu)</li>
-<li>Fady Salama (Technical University of Munich)</li>
-<li>Takahisa Suzuki (Fujitsu)</li>
-<li>Marcus Wolf Schmidt (?)</li>
-<li>Farshid Tavakolizadeh (Fraunhofer-Gesellschaft)</li>
-<li>Elodie Thieblin (Siemens/Logilab)</li>
+<li>Takahisa Suzuki, Takeshi Sano and Ryuichi Matsukura (Fujitsu)</li>
 <li>Kunihiko Toumura (Hitachi)</li>
-<li>Takeshi Yamada (Panasonic)</li>
+<li>Ryuichi Matsukura (Fujitsu Ltd.)</li>
+<li>Tomoaki Mizushima (IRI Inc.)</li>
+<li>Matthias Kovatsch (Siemens)</li>
+<li>Michael McCool (Intel)</li>
+<li>Michael Lagally (Oracle)</li>
+<li>Takeshi Yamada and Toru Kawaguchi (Panasonic)</li>
+<li>Sebastian Käbisch, Daniel Peintner, Victor Charpenay, Christian Glomb, and Ege Korkan (Siemens)</li>
+<li>Fady Salama (Siemens and Technical University of Munich)</li>
 </ul>
 </p>
 <div class="navbar">
