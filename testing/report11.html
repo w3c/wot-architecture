@@ -121,7 +121,7 @@ pre.example {
     DRAFT Implementation Report
   </h1>
   <p>
-    <b>Version</b>: 31 May 2023
+    <b>Version</b>: 1 Jun 2023
   </p>
   <p>
     <b>Editors</b>:<br>
@@ -220,15 +220,17 @@ pre.example {
 <li class="tocline">
 	6.24 <a href="#impl-saywot">Siemens sayWoT!: Exposer and Consumer</a></li>
 <li class="tocline">
-	6.25 <a href="#impl-siemens-logilab">SparTDD: Thing Description Directory</a></li>
+	6.25 <a href="#impl-sdf-wot-converter">SDF-WoT-Converter: Tool</a></li>
 <li class="tocline">
-	6.26 <a href="#impl-tinyiot">tiny-iot: TinyIoT Thing Directory</a></li>
+	6.26 <a href="#impl-siemens-logilab">SparTDD: Thing Description Directory</a></li>
 <li class="tocline">
-	6.27 <a href="#impl-wot-coap-dns-sd">WoT CoAP Server supporting DNS-SD: TD Exposer</a></li>
+	6.27 <a href="#impl-tinyiot">tiny-iot: TinyIoT Thing Directory</a></li>
 <li class="tocline">
-	6.28 <a href="#impl-wot-experimental">WoT Experimental: Thing</a></li>
+	6.28 <a href="#impl-wot-coap-dns-sd">WoT CoAP Server supporting DNS-SD: TD Exposer</a></li>
 <li class="tocline">
-	6.29 <a href="#impl-wothive">WoT Hive directory</a></li>
+	6.29 <a href="#impl-wot-experimental">WoT Experimental: Thing</a></li>
+<li class="tocline">
+	6.30 <a href="#impl-wothive">WoT Hive directory</a></li>
 </ul>
   <li class="tocline">8. <a href="#security">Security</a></li>
   <li class="tocline">9. <a href="#test_results">Test results</a>
@@ -806,6 +808,23 @@ https://www.fujitsu.com/jp/products/network/carrier-router/wideareanetwork/virtu
     <b>Website:</b> https://www.evosoft.com/en/digitalization-offering/saywot/
   </p>
   <p><b>Contributing Member Organizations:</b> Siemens AG</p>
+</div><div class="impl" id="impl-sdf-wot-converter">
+    <h4>SDF-WoT-Converter: Tool</h4>
+    <p>
+        The SDF-WoT-Converter is a Python-based conversion tool between WoT data models (TDs and TMs) and the <a href="https://datatracker.ietf.org/doc/draft-ietf-asdf-sdf/">Semantic Definition Format (SDF)</a>, an IETF specification that strives to be a common data format for IoT device descriptions.
+        The implementation provides a library API for using it in Python projects as well as a command-line interface after installing it via the Python package manager <code>pip</code>.
+        Besides converting between WoT data models and SDF, the implementation also supports the conversion between TDs and TMs.
+    </p>
+    <p>
+        <strong>Usage:</strong> Library or Command Line
+    </p>
+    <p>
+        <strong>Public Repository:</strong> https://github.com/JKRhb/sdf-wot-converter-py
+    </p>
+    <p>
+        <strong>Python Package Index Entry:</strong> https://pypi.org/project/sdf-wot-converter/
+    </p>
+    <p><strong>Contributing Member Organizations:</strong> Invited Experts</p>
 </div><div class="impl" id="impl-siemens-logilab">
   <h4 id="impl-siemens-logilab-WoT">SparTDD: Thing Description Directory</h4>
   <p>
