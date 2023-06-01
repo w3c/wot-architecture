@@ -231,6 +231,8 @@ pre.example {
 	6.29 <a href="#impl-wot-experimental">WoT Experimental: Thing</a></li>
 <li class="tocline">
 	6.30 <a href="#impl-wothive">WoT Hive directory</a></li>
+<li class="tocline">
+	6.31 <a href="#impl-zion">Zion: A scalable Thing Description Directory</a></li>
 </ul>
   <li class="tocline">8. <a href="#security">Security</a></li>
   <li class="tocline">9. <a href="#test_results">Test results</a>
@@ -460,12 +462,33 @@ pre.example {
 <p>
   This section contains descriptions of each of the implementations
   of the WoT Architecture specification
-  from all organizations that submitted implementer reports.
+  from all organizations that submitted implementer reports to at least one
+  of the WoT specifications.
   Each implementation represents a working system
   that is based on the WoT Architecture.
+  However, only the following submitted implementation reports for the 
+  WoT Architecture specification itself, and not all of these reported on
+  all features:
 </p>
+<ul>
+	<li><a href="#impl-dart_wot">dart_wot: Consumer and Discoverer</a></li>
+	<li><a href="#impl-ditto-model">Eclipse Ditto WoT Model: Tool</a></li>
+	<li><a href="#impl-ditto">Eclipse Ditto: TD Exposer</a></li>
+	<li><a href="#impl-fujitsu-proxy">fujitsu-proxy: Intermediary</a></li>
+	<li><a href="#impl-hitachi-esp-idf">hitachi-esp-idf: Air quality sensor and acclerometer: TD Exposer</a></li>
+	<li><a href="#impl-hitachi-nodegen">hitachi-nodegen: Node generator for Node-RED: TD Consumer</a></li>
+	<li><a href="#impl-hitachi-nodered">hitachi-nodered: LED lamp: TD Exposer</a></li>
+	<li><a href="#impl-intel-nodejs">intel-nodejs: TD Exposer</a></li>
+	<li><a href="#impl-nodewot">Eclipse node-wot: Consumer and Exposer</a></li>
+	<li><a href="#impl-playground">Thing Description Playground: Tool</a></li>
+	<li><a href="#impl-riot-wot">RIOT WoT Implementation: TD Exposer</a></li>
+	<li><a href="#impl-saywot">Siemens sayWoT!: Exposer and Consumer</a></li>
+	<li><a href="#impl-wot-experimental">WoT Experimental: Thing</a></li>
+</ul>
 <p>
-  We only count systems with mostly independent code bases
+  For the purpose of establishing the implementability of the 
+  WoT Architecture specification,
+  we only count systems with mostly independent code bases
   as distinct implementations.
   There are however some cases (documented in the following) where
   implementations shared components but were still considered substantially
@@ -893,6 +916,40 @@ https://www.fujitsu.com/jp/products/network/carrier-router/wideareanetwork/virtu
     <b>Website:</b> https://github.com/oeg-upm/wot-hive
   </p>
   <p><b>Contributing Member Organizations:</b> Universidad Politécnica de Madrid</p>
+
+</div><div class="impl" id="impl-zion">
+  <h4 id="impl-zion">Zion: A scalable Thing Description Directory</h4>
+  <p>
+    Zion implements the standard TDD APIs with a set of extentions to cover the use cases of <a href="https://vaimee.com/">VAIMEE</a>
+    </p><p>
+    </p><p>Zion employes the best open source technologies to provide a scalable TDD service. Zion wants to be <a href="https://github.com/vaimee/tdd-workload-generator">fast</a>, ease to use
+    and flexible. Our goal is to build a service tailored for entrepise use and scalable to different deployments from small set of TDs in the Edge to high loads of the Cloud.
+    Currently, Zion is written in Typescript and supports the following features:</p>
+    <ul>
+      <li><a href="https://w3c.github.io/wot-discovery/#introduction-mech">Introduction methods</a> :
+        <ul>
+          <li>DNS-SD</li>
+          <li>Well-known URL</li>
+          <li>CoRE Link Format and <code>/.well-known/core</code></li>
+        </ul>
+      </li>
+      <li>Standard API:
+        <ul>
+          <li>CRUD operations on the collection of TDs</li>
+          <li>JSONPath queries compliant with IETF JSONPath standard <a href="https://datatracker.ietf.org/doc/html/draft-ietf-jsonpath-base#section-3.5.8">draft 5</a></li>
+          <li>Pagination support</li>
+        </ul>
+      </li>
+      <li>Basic support for authentication and authorization</li>
+    </ul>
+
+  <p></p>
+  <p><b>Usage:</b> Directory</p>
+  <p><b>Public Repository:</b> https://github.com/vaimee/zion</p>
+  <p>
+    <b>Website:</b> https://zion.vaimee.com/
+  </p>
+  <p><b>Contributing Member Organizations:</b> Invited Experts </p>
 
 </div></div>
 
