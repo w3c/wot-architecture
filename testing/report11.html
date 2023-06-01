@@ -121,14 +121,24 @@ pre.example {
     DRAFT Implementation Report
   </h1>
   <p>
-    <b>Version</b>: 23 May 2023
+    <b>Version</b>: 1 Jun 2023
   </p>
   <p>
     <b>Editors</b>:<br>
     Michael McCool (Intel)
   </p>
 
-  <p class="copyright"><a href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2022 <a href="http://www.w3.org/"><acronym title="World Wide Web Consortium">W3C</acronym></a><sup>®</sup> (<a href="http://www.csail.mit.edu/"><acronym title="Massachusetts Institute of Technology">MIT</acronym></a>, <a href="http://www.ercim.org/"><acronym title="European Research Consortium for Informatics and Mathematics">ERCIM</acronym></a>, <a href="http://www.keio.ac.jp/">Keio</a>), All Rights Reserved. W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a> rules apply.</p>
+  <p class="copyright">
+    <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a>
+    ©
+    2017-2023
+
+    <a href="https://www.w3.org/">World Wide Web Consortium</a>.
+    <abbr title="World Wide Web Consortium">W3C</abbr><sup>®</sup>
+    <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
+    <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and
+    <a rel="license" href="https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document" title="W3C Software and Document Notice and License">permissive document license</a> rules apply.
+  </p>
   <hr title="Separator for header">
 </div>
 
@@ -174,39 +184,55 @@ pre.example {
 <li class="tocline">
 	6.6 <a href="#impl-fischertechnik">Fischertechnik Factory Simulator: Thing</a></li>
 <li class="tocline">
-	6.7 <a href="#impl-hitachi-esp-idf">Air quality sensor and acclerometer: TD Exposer</a></li>
+	6.7 <a href="#impl-fujitsu-ledbulb">fujitsu-ledbulb: TD Exposer</a></li>
 <li class="tocline">
-	6.8 <a href="#impl-hitachi-nodegen">Node generator for Node-RED: TD Consumer</a></li>
+	6.8 <a href="#impl-fujitsu-proxy">fujitsu-proxy: Intermediary</a></li>
 <li class="tocline">
-	6.9 <a href="#impl-hitachi-node-red">LED lamp: TD Exposer</a></li>
+	6.9 <a href="#impl-fujitsu-sensorledbulb">fujitsu-sensor: TD Exposer</a></li>
 <li class="tocline">
-	6.10 <a href="#impl-hitachi-nrwotdisc">WoT-Discovery Plugin for Node-RED: Discoverer</a></li>
+	6.10 <a href="#impl-hitachi-esp-idf">hitachi-esp-idf: Air quality sensor and acclerometer: TD Exposer</a></li>
 <li class="tocline">
-	6.11 <a href="#impl-intel-nodejs">intel-nodejs: TD Exposer</a></li>
+	6.11 <a href="#impl-hitachi-nodegen">hitachi-nodegen: Node generator for Node-RED: TD Consumer</a></li>
 <li class="tocline">
-	6.12 <a href="#impl-intel-proxy">intel-proxy: Intermediary</a></li>
+	6.12 <a href="#impl-hitachi-nodered">hitachi-nodered: LED lamp: TD Exposer</a></li>
 <li class="tocline">
-	6.13 <a href="#impl-intel-wot-ha">intel-wot-ha: TD Directory and TD Exposer</a></li>
+	6.13 <a href="#impl-hitachi-nrwotdisc">hitachi-nrwotdisc: WoT-Discovery Plugin for Node-RED: Discoverer</a></li>
 <li class="tocline">
-	6.14 <a href="#impl-mqtt-experimental">MQTT Experimental: Thing</a></li>
+	6.14 <a href="#impl-intel-nodejs">intel-nodejs: TD Exposer</a></li>
 <li class="tocline">
-	6.15 <a href="#NHK">NHK: Emulated WoT Devices</a></li>
+	6.15 <a href="#impl-intel-proxy">intel-proxy: Intermediary</a></li>
 <li class="tocline">
-	6.16 <a href="#impl-nodewot">Eclipse node-wot: Consumer and Exposer</a></li>
+	6.16 <a href="#impl-intel-wot-ha">intel-wot-ha: TD Directory and TD Exposer</a></li>
 <li class="tocline">
-	6.17 <a href="#impl-philips-hue">Thing Description Playground: Tool</a></li>
+	6.17 <a href="#impl-mqtt-experimental">MQTT Experimental: Thing</a></li>
 <li class="tocline">
-	6.18 <a href="#impl-playground">Thing Description Playground: Tool</a></li>
+	6.18 <a href="#NHK">NHK: Emulated WoT Devices</a></li>
 <li class="tocline">
-	6.19 <a href="#impl-python-flask">Custom Python Flask Things: Thing</a></li>
+	6.19 <a href="#impl-nodewot">Eclipse node-wot: Consumer and Exposer</a></li>
 <li class="tocline">
-	6.20 <a href="#impl-riot-wot">RIOT WoT Implementation: TD Exposer</a></li>
+	6.20 <a href="#impl-philips-hue">philips-hue: Philips Hue Integration</a></li>
 <li class="tocline">
-	6.21 <a href="#impl-saywot">Siemens sayWoT!: Exposer and Consumer</a></li>
+	6.21 <a href="#impl-playground">Thing Description Playground: Tool</a></li>
 <li class="tocline">
-	6.22 <a href="#impl-tinyiot">TinyIoT Thing Directory</a></li>
+	6.22 <a href="#impl-python-flask">flask-tum: Custom Python Flask Things: Thing</a></li>
 <li class="tocline">
-	6.23 <a href="#impl-wothive">WoT Hive directory</a></li>
+	6.23 <a href="#impl-riot-wot">RIOT WoT Implementation: TD Exposer</a></li>
+<li class="tocline">
+	6.24 <a href="#impl-saywot">Siemens sayWoT!: Exposer and Consumer</a></li>
+<li class="tocline">
+	6.25 <a href="#impl-sdf-wot-converter">SDF-WoT-Converter: Tool</a></li>
+<li class="tocline">
+	6.26 <a href="#impl-siemens-logilab">SparTDD: Thing Description Directory</a></li>
+<li class="tocline">
+	6.27 <a href="#impl-tinyiot">tiny-iot: TinyIoT Thing Directory</a></li>
+<li class="tocline">
+	6.28 <a href="#impl-wot-coap-dns-sd">WoT CoAP Server supporting DNS-SD: TD Exposer</a></li>
+<li class="tocline">
+	6.29 <a href="#impl-wot-experimental">WoT Experimental: Thing</a></li>
+<li class="tocline">
+	6.30 <a href="#impl-wothive">WoT Hive directory</a></li>
+<li class="tocline">
+	6.31 <a href="#impl-zion">Zion: A scalable Thing Description Directory</a></li>
 </ul>
   <li class="tocline">8. <a href="#security">Security</a></li>
   <li class="tocline">9. <a href="#test_results">Test results</a>
@@ -246,10 +272,9 @@ pre.example {
 <p>
   The <a href="http://www.w3.org/TR/wot-architecture11/">Web of Things (WoT) Architecture 1.1</a>
   document was last published as a
-  <a href="https://www.w3.org/TR/2022/WD-architecture11-20220907/">Working Draft</a>
-  on 7 September 2022.
-  The planned date for entering Candidate Recommendation is 26 October 2022.
-  The planned date for entering Proposed Recommendation is 12 January 2022.
+  <a href="https://www.w3.org/TR/2023/CR-wot-architecture11-20230119/">Candidate Recommendation Snapshot</a>
+  on 19 January 2023.
+  The planned date for entering Proposed Recommendation is 21 June 2022.
 </p>
 <p>
   This document summarizes the results from the Web of Things (WoT) Architecture 1.1 implementer reports received and
@@ -270,23 +295,27 @@ pre.example {
   or not their implementations conformed to the specification.
 </p>
 
-<h2 id="h_cr_work"><a id="cr_work" name="cr_work">2. Work planned for the Candidate Recommendation period</a></h2>
+<h2 id="h_cr_work"><a id="cr_work" name="cr_work">2. Work done during the Candidate Recommendation period</a></h2>
 <p>
-  During the CR period, the Working Group plans to carry out the following activities:
+  During the CR period, the Working Group performed the following activities:
 </p>
 <ol>
-	<li>Clarification and improvement through the exposition of the specification</li>
+	<li>Clarification and improvement of the exposition of the specification</li>
 	<li>Disposing of comments that were communicated to the WG during the CR period.
         These comments and their resolution are detailed in the
-        <a href="https://github.com/w3c/wot-architecture/issues">GitHub Issue tracker</a>
-        with the label <a href="https://github.com/w3c/wot-architecture/issues?q=label%3A%22CR+period%22">CR&nbsp;period</a>.</li>
+        <a href="https://github.com/w3c/wot-architecture/issues">GitHub Issue tracker</a>.
+<!--
+        with the label <a href="https://github.com/w3c/wot-architecture/issues?q=label%3A%22CR+period%22">CR&nbsp;period</a>.
+-->
+  </li>
+  <li>Gathering of additional test inputs and resolution of any at-risk assertions.</li>
 	<li>Finalization of this Implementation Report.</li>
 </ol>
 
 <h2 id="h_participate"><a id="participate" name="participate">3. Participating in the Implementation Report</a></h2>
 <p>
   Implementers were invited to contribute to the assessment of the
-  <a href="https://www.w3.org/TR/2022/wot-architecture11/">Web of Things (WoT) Architecture 1.1</a> draft
+  <a href="https://www.w3.org/TR/2023/CR-wot-architecture11-20230119/">Web of Things (WoT) Architecture 1.1 Candidate Recommendation</a> 
   by submitting implementer reports describing the
   coverage of their implementations with respect to the test assertions outlined
   in the <a href="#manual_validation_results">table below</a>.
@@ -310,8 +339,7 @@ pre.example {
 <h2 id="h_pr_entrance_crit"><a id="pr_entrance_crit" name="pr_entrance_crit">4. Entrance criteria for the Proposed Recommendation phase</a></h2>
 <p>
   The Web of Things (WoT) Working Group established the following
-  entrance criteria for the Proposed Recommendation phase in the
-  Request for CR:
+  entrance criteria for the Proposed Recommendation phase:
 </p>
 <ol>
   <li>
@@ -342,21 +370,21 @@ pre.example {
 <p>
   In order to be included in the PR all features, whether optional
   or required, need to have received at least two implementations.
-  At the time of publication of this report there are some gaps, as
-  documented in the Status of this Document section of the CR.
-  It is the intention of the working group to gather additional
-  implementation evidence for these features during the CR period.
+  At the time of publication of this report 
+  all assertions have met this requirement.
 </p>
 
 <h2 id="h_report_reqs"><a id="report_reqs" name="report_reqs">5. Implementation Report requirements</a></h2>
 
 <h4 id="h_DetailedReqs"><a id="DetailedReqs" name="DetailedReqs">5.1 Detailed requirements</a></h4>
 <ol>
+<!--
 	<li>
     Testimonials from implementers are included in the IR when
     provided to document the utility and implementability of the
     specification.
   </li>
+-->
 	<li>
     IR must cover all specified features in the specification. For
     each feature the IR should indicate:
@@ -366,6 +394,7 @@ pre.example {
 	     <li>Implementability of the feature specification.</li>
     </ul>
   </li>
+<!--
   <li>
     Feature status is a factor in test coverage in the report:
     <ul>
@@ -382,6 +411,7 @@ pre.example {
       </li>
 	  </ul>
 	</li>
+-->
 </ol>
 <p>
   Feature status is in practice indicated by
@@ -390,6 +420,11 @@ pre.example {
   containing the words MUST are considered required.
   Features defined using MAY and SHOULD assertions are considered optional.
 </p>
+<p>
+  Feature utility is indicated indirectly by the number of implementations
+  supporting each feature.  In general, features with fewer implementations will
+  have a narrower scope, but may still be important for specific use cases.
+</p>
 
 <h4 id="h_NotesOnTesting"><a id="NotesOnTesting" name="NotesOnTesting">5.2 Notes on testing</a></h4>
 <ol>
@@ -397,6 +432,11 @@ pre.example {
     An implementer report must indicate the outcome of evaluating 
     the implementation with respect to each of the assertions defined in the specification.
     Possible outcomes are <code>pass</code>, <code>fail</code>, or <code>not-impl</code> (not implemented).
+  </li>
+  <li>
+    In practice, implementer reports consist of CSV files for each implementation with the above
+    status assigned to each assertion in the specification.  This report was
+    then automatically generated from these input files. 
   </li>
 </ol>
 
@@ -422,12 +462,33 @@ pre.example {
 <p>
   This section contains descriptions of each of the implementations
   of the WoT Architecture specification
-  from all organizations that submitted implementer reports.
+  from all organizations that submitted implementer reports to at least one
+  of the WoT specifications.
   Each implementation represents a working system
   that is based on the WoT Architecture.
+  However, only the following submitted implementation reports for the 
+  WoT Architecture specification itself, and not all of these reported on
+  all features:
 </p>
+<ul>
+	<li><a href="#impl-dart_wot">dart_wot: Consumer and Discoverer</a></li>
+	<li><a href="#impl-ditto-model">Eclipse Ditto WoT Model: Tool</a></li>
+	<li><a href="#impl-ditto">Eclipse Ditto: TD Exposer</a></li>
+	<li><a href="#impl-fujitsu-proxy">fujitsu-proxy: Intermediary</a></li>
+	<li><a href="#impl-hitachi-esp-idf">hitachi-esp-idf: Air quality sensor and acclerometer: TD Exposer</a></li>
+	<li><a href="#impl-hitachi-nodegen">hitachi-nodegen: Node generator for Node-RED: TD Consumer</a></li>
+	<li><a href="#impl-hitachi-nodered">hitachi-nodered: LED lamp: TD Exposer</a></li>
+	<li><a href="#impl-intel-nodejs">intel-nodejs: TD Exposer</a></li>
+	<li><a href="#impl-nodewot">Eclipse node-wot: Consumer and Exposer</a></li>
+	<li><a href="#impl-playground">Thing Description Playground: Tool</a></li>
+	<li><a href="#impl-riot-wot">RIOT WoT Implementation: TD Exposer</a></li>
+	<li><a href="#impl-saywot">Siemens sayWoT!: Exposer and Consumer</a></li>
+	<li><a href="#impl-wot-experimental">WoT Experimental: Thing</a></li>
+</ul>
 <p>
-  We only count systems with mostly independent code bases
+  For the purpose of establishing the implementability of the 
+  WoT Architecture specification,
+  we only count systems with mostly independent code bases
   as distinct implementations.
   There are however some cases (documented in the following) where
   implementations shared components but were still considered substantially
@@ -538,11 +599,36 @@ pre.example {
   <p>
   </p>
   <p><b>Contributing Member Organizations:</b>Siemens AG and TU Munich (not member)</p>
+</div><div class="impl" id="impl-fujitsu-ledbulb">
+  <h4>fujitsu-ledbulb: TD Exposer</h4>
+  <p>
+  The Fujitsu ledbulb is a Wi-Fi controllable LED bulb that can be changed brightness and color. In addition, the light can be gradually turned off or turned on at a specified time.
+  </p>
+</div><div class="impl" id="impl-fujitsu-proxy">
+  <h4>fujitsu-proxy: Intermediary</h4>
+  <p>
+  Fujitsu's proxy creates a shadow of the device in the proxy, allowing consumers to control the actual device by accessing the shadow. Even if the actual device does not have an authentication mechanism, the proxy provides an authentication mechanism instead to enable secure access. Another advantage is that even if multiple devices have different protocol bindings, they can be accessed using one protocol. It also has a directory for discovering networked devices, creating their shadows, and registering them. </p>
+  <p>
+  The proxy is implemented in Java.
+  </p>
+  <p>
+  This proxy is provided as a product in Japan. The product page is below (Japanese only).
+https://www.fujitsu.com/jp/products/network/carrier-router/wideareanetwork/virtuora-mx/
+  </p>
+</div><div class="impl" id="impl-fujitsu-sensorledbulb">
+  <h4>fujitsu-sensor: TD Exposer</h4>
+  <p>
+  The Fujitsu sensor is a sensor with temperature, humidity, and air pressure, and can be communicated through Wi-Fi to get data. This sensor was used to collect environmental data in agriculture and factories.
+  </p>
 </div><div class="impl" id="impl-hitachi-esp-idf">
-  <h4>Air quality sensor and acclerometer: TD Exposer</h4>
-  <p>This is a sample Thing implementation in C++.</p>
+  <h4>hitachi-esp-idf: Air quality sensor and acclerometer: TD Exposer</h4>
+  <p>
+    This is an example of a Thing implemented on a microcontroller. 
+    It can exporting the Thing's sensor reading via HTTP REST API,
+    and advertise its own Thing Description using DNS-SD/mDNS.
+  </p>
 </div><div class="impl" id="impl-hitachi-nodegen">
-  <h4>Node generator for Node-RED: TD Consumer</h4>
+  <h4>hitachi-nodegen: Node generator for Node-RED: TD Consumer</h4>
   <p>
     <a href="https://github.com/node-red/node-red-nodegen">Node generator</a> is
     command line tool to generate
@@ -551,19 +637,29 @@ pre.example {
     tool, node developers can dramatically reduce their time to implement
     Node-RED node modules.
   </p>
-</div><div class="impl" id="impl-hitachi-node-red">
-  <h4>LED lamp: TD Exposer</h4>
-  <p>This is a sample Thing implementation in Node-RED.</p>
+</div><div class="impl" id="impl-hitachi-nodered">
+  <h4>hitachi-nodered: LED lamp: TD Exposer</h4>
+  <p>
+    This is an example of a Thing implemented in Node-RED.
+    It can turn on and off a LED connected to Raspberry Pi's GPIOs
+    and notify changes in LED status.
+    It can also advertise its own Thing Description using DNS-SD/mDNS.
+  </p>
 </div><div class="impl" id="impl-hitachi-nrwotdisc">
-  <h4>WoT-Discovery Plugin for Node-RED: Discoverer</h4>
-  <p>This is a plug-in for Node-RED to integrate Node-RED and WoT-Discovery.
-    You canexplore the surrounding Thing from Node-RED's Editor and install a node to interact with that Thing.
+  <h4>hitachi-nrwotdisc: WoT-Discovery Plugin for Node-RED: Discoverer</h4>
+  <p>
+    This plugin uses wot-discovery functionality
+    and make it easy to import Things into Node-RED flow editor.
+    The plugin discovers Things connected on the local area network or registered 
+    in the Thing Description Directory, and converts them into functional blocks 
+    that can be used in Node-RED.
   </p>
 </div><div class="impl" id="impl-intel-nodejs">
   <h4>intel-nodejs: TD Exposer</h4>
   <p>
   Two services based on a shared NodeJS codebase (not using node-wot):
-  </p><ul>
+  </p>
+  <ul>
 	 <li>A simple camera service that interfaces 
 	 with V4L (Video for Linux) to capture still images
          from a USB camera.
@@ -571,7 +667,8 @@ pre.example {
 	 <li>A simple text-to-speech output service based on espeak.
 	 </li>
   </ul>
-  <p></p>
+  <p><b>Usage:</b> Exposer</p>
+  <p><b>Contributing Member Organizations:</b> Intel</p>
 </div><div class="impl" id="impl-intel-proxy">intel-proxy: Intermediary
   <h4>intel-proxy: Intermediary</h4>
   <p>
@@ -586,6 +683,8 @@ pre.example {
   The secure endpoints provided by this service are not given in TDs for the 
   service itself, but added to the TDs for the Things it services.
   </p>
+  <p><b>Usage:</b> Intermediary</p>
+  <p><b>Contributing Member Organizations:</b> Intel</p>
 </div><div class="impl" id="impl-intel-wot-ha">
   <h4>intel-wot-ha: TD Directory and TD Exposer</h4>
   <p>
@@ -598,6 +697,8 @@ pre.example {
   entities supported by Home Assistant and access these services
   using WoT affordance abstractions.
   </p>
+  <p><b>Usage:</b> Directory and Exposer</p>
+  <p><b>Contributing Member Organizations:</b> Intel</p>
 </div><div class="impl" id="impl-mqtt-experimental">
   <h4 id="impl-mqtt-experimental">MQTT Experimental: Thing</h4>
   <p>
@@ -647,7 +748,7 @@ pre.example {
     <b>Contributing Member Organizations:</b> Siemens AG, Invited Experts
   </p>
 </div><div class="impl" id="impl-philips-hue">
-  <h4 id="impl-philips-hue">Thing Description Playground: Tool</h4>
+  <h4 id="impl-philips-hue">philips-hue: Philips Hue Integration</h4>
   <p>
     This implementation leverages the already developed Philips Hue devices. The TDs for them are written by hand and show the use of WoT for brownfield
     devices. Philips Hue uses API Key in the URI, which is one of the features of the TD 1.1.
@@ -678,7 +779,7 @@ pre.example {
   </p>
   <p><b>Contributing Member Organizations:</b>Siemens AG</p>
 </div><div class="impl" id="impl-python-flask">
-  <h4 id="impl-python-flask">Custom Python Flask Things: Thing</h4>
+  <h4 id="impl-python-flask">flask-tum: Custom Python Flask Things: Thing</h4>
   <p>
     Custom implementation pattern using the Flask library for creating an HTTP server that exposes a TD. 
     This pattern is used in many devices that have been developed.
@@ -730,8 +831,36 @@ pre.example {
     <b>Website:</b> https://www.evosoft.com/en/digitalization-offering/saywot/
   </p>
   <p><b>Contributing Member Organizations:</b> Siemens AG</p>
+</div><div class="impl" id="impl-sdf-wot-converter">
+    <h4>SDF-WoT-Converter: Tool</h4>
+    <p>
+        The SDF-WoT-Converter is a Python-based conversion tool between WoT data models (TDs and TMs) and the <a href="https://datatracker.ietf.org/doc/draft-ietf-asdf-sdf/">Semantic Definition Format (SDF)</a>, an IETF specification that strives to be a common data format for IoT device descriptions.
+        The implementation provides a library API for using it in Python projects as well as a command-line interface after installing it via the Python package manager <code>pip</code>.
+        Besides converting between WoT data models and SDF, the implementation also supports the conversion between TDs and TMs.
+    </p>
+    <p>
+        <strong>Usage:</strong> Library or Command Line
+    </p>
+    <p>
+        <strong>Public Repository:</strong> https://github.com/JKRhb/sdf-wot-converter-py
+    </p>
+    <p>
+        <strong>Python Package Index Entry:</strong> https://pypi.org/project/sdf-wot-converter/
+    </p>
+    <p><strong>Contributing Member Organizations:</strong> Invited Experts</p>
+</div><div class="impl" id="impl-siemens-logilab">
+  <h4 id="impl-siemens-logilab-WoT">SparTDD: Thing Description Directory</h4>
+  <p>
+    SparTDD is an implementation of the W3C Web of Things
+    Thing Description Directory. There are two main components.
+    The API of the TDD is written in Python using <a href="https://flask.palletsprojects.com/">Flask</a>.
+    The data is stored in RDF in a <a href="https://jena.apache.org/documentation/archive/serving_data/fuseki1.html">Apache Jena Fuseki</a>
+    SPARQL endpoint. A demo can be found <a href="https://siemens-wot.demo.logilab.fr/">here</a>.
+  </p>
+  <p><b>Usage:</b>Directory</p>
+  <p><b>Contributing Member Organizations:</b>Siemens</p>
 </div><div class="impl" id="impl-tinyiot">
-  <h4 id="impl-tinyiot">TinyIoT Thing Directory</h4>
+  <h4 id="impl-tinyiot">tiny-iot: TinyIoT Thing Directory</h4>
   <p>
     This is an implementation of the W3C Web of Things (WoT) Thing Description Directory (TDD).
     This directory is designed to be lightweight and portable, enabling deployment on the edge.
@@ -748,6 +877,34 @@ pre.example {
   </p>
   <p><b>Contributing Member Organizations:</b> The parent fork has been developed as part of LinkSmart by Fraunhofer-Gesellschaft</p>
 
+</div><div class="impl" id="impl-wot-coap-dns-sd">
+    <h4>WoT CoAP Server supporting DNS-SD: TD Exposer</h4>
+    <p>
+      Basic Rust-based CoAP server, providing a TD resource that can be discovered using DNS-SD and
+      multicast DNS.
+    </p>
+    <p>
+      <strong>Usage:</strong> The application can be started from the command line using Rust's package manager cargo.
+    </p>
+    <p>
+      <strong>Public Repository:</strong> https://github.com/JKRhb/wot-coap-dns-sd
+    </p>
+    <p>
+      <strong>Contributing Member Organizations:</strong> Invited Experts
+    </p>
+  </div><div class="impl" id="impl-wot-experimental">
+  <h4 id="impl-wot-experimental">WoT Experimental: Thing</h4>
+  <p>
+    The WoT Experimental is a collection of Thing implementations that aims to test different features of the TD 
+    specification such as WoT operations, Data Schema variations and API Key usage in Body.
+  </p>
+  <p>
+    <b>Usage:</b> Command line
+  </p>
+  <p>
+    <b>Public Repository:</b> https://github.com/egekorkan/wot-implementations
+  </p>
+  <p><b>Contributing Member Organizations:</b>Siemens AG</p>
 </div><div class="impl" id="impl-wothive">
   <h4 id="impl-wothive-dir">WoT Hive directory</h4>
   <p>
@@ -760,6 +917,40 @@ pre.example {
   </p>
   <p><b>Contributing Member Organizations:</b> Universidad Politécnica de Madrid</p>
 
+</div><div class="impl" id="impl-zion">
+  <h4 id="impl-zion">Zion: A scalable Thing Description Directory</h4>
+  <p>
+    Zion implements the standard TDD APIs with a set of extentions to cover the use cases of <a href="https://vaimee.com/">VAIMEE</a>
+    </p><p>
+    </p><p>Zion employes the best open source technologies to provide a scalable TDD service. Zion wants to be <a href="https://github.com/vaimee/tdd-workload-generator">fast</a>, ease to use
+    and flexible. Our goal is to build a service tailored for entrepise use and scalable to different deployments from small set of TDs in the Edge to high loads of the Cloud.
+    Currently, Zion is written in Typescript and supports the following features:</p>
+    <ul>
+      <li><a href="https://w3c.github.io/wot-discovery/#introduction-mech">Introduction methods</a> :
+        <ul>
+          <li>DNS-SD</li>
+          <li>Well-known URL</li>
+          <li>CoRE Link Format and <code>/.well-known/core</code></li>
+        </ul>
+      </li>
+      <li>Standard API:
+        <ul>
+          <li>CRUD operations on the collection of TDs</li>
+          <li>JSONPath queries compliant with IETF JSONPath standard <a href="https://datatracker.ietf.org/doc/html/draft-ietf-jsonpath-base#section-3.5.8">draft 5</a></li>
+          <li>Pagination support</li>
+        </ul>
+      </li>
+      <li>Basic support for authentication and authorization</li>
+    </ul>
+
+  <p></p>
+  <p><b>Usage:</b> Directory</p>
+  <p><b>Public Repository:</b> https://github.com/vaimee/zion</p>
+  <p>
+    <b>Website:</b> https://zion.vaimee.com/
+  </p>
+  <p><b>Contributing Member Organizations:</b> Invited Experts </p>
+
 </div></div>
 
 <h2 id="h_security"><a id="security" name="security">8. Security</a></h2>
@@ -769,14 +960,16 @@ pre.example {
   specification describes systems that include features to support security.
   Functional aspects of assertions associated with security features are validated
   in the same fashion as other functional features.
+<!--
   In addition, however, the
-  <a href="https://www.w3.org/2016/12/wot-wg-2016.html">Web of Things (WoT) WG Charter</a>
+  <a href="https://www.w3.org/2022/07/wot-wg-2022.html">Web of Things (WoT) WG Charter</a>
   requires the development of a test plan.
   An appropriate security test plan, including a description
   of how existing web service penetration testing tools can be used,
   in addition to a description of more general security and privacy considerations,
   is included in
   <a href="http://www.w3.org/TR/wot-security">Web of Things (WoT) Security and Privacy Guidelines</a>.
+-->
 </p>
 
 <h2 id="h_test_results"><a id="test_results" name="test_results">9. Test results</a></h2>
@@ -845,6 +1038,8 @@ pre.example {
     of shared components) reporting a status (of any kind) on each assertion.
     The totals do not sum to a consistent value since not all implementations have provided information on all
     assertions.
+    In particular if an implementation is a client/consumer it may not 
+    provide information on features that relate to servers/exposers, and vice-versa.
   </li>
 </ul>
 <p>
@@ -858,14 +1053,6 @@ pre.example {
   For such cases the "child" assertions have underscores in their names
   prior to each value tested and the table row is also rendered in a 
   different color.
-</p>
-<p class="at-risk">
-  Assertions which have been indicated as at-risk in the CR publication
-  are indicated using yellow highlighting.  
-  If these have insufficient implementation
-  experience (fewer than two independent implementations for mandatory features
-  and one for optional features) they
-  may be removed from the final Recommendation.
 </p>
 
 <!--
@@ -1609,21 +1796,41 @@ pre.example {
 		
 <h2 id="h_ack"><a id="ack" name="ack">Acknowledgements</a></h2>
 <p>
-  The Web of Things Working Group would like to acknowledge the contributions to the making of this document from the following individuals in various capacities.</p>
-<p>
-</p><ul>
+The Web of Things Working Group would like to acknowledge the contributions to 
+the making of this document from the following individuals in various capacities,
+including contributions to past testing inputs which were used for compatibility testing:</p>
+<ul>
+<li>Cristiano Aguzzi (Invited Expert)</li>
+<li>Luca Barbato (Luminem)</li>
+<li>Philipp Blum (Invited Expert)</li>
+<li>Victor Charpenay (Siemens)</li>
+<li>Andrea Cimmino (Universidad Politécnica de Madrid)</li>
+<li>Hiroki Endo (NHK)</li>
+<li>Ben Francis (Krellian and Mozilla)</li>
+<li>Christian Glomb (Siemens)</li>
+<li>Thomas Jaeckle (Bosch/Ditto)</li>
+<li>Sebastian Käbisch (Siemens)</li>
+<li>Toru Kawaguchi (Panasonic)</li>
+<li>Ege Korkan (Siemens and Technical University of Munich)</li>
 <li>Michael Koster (SmartThings)</li>
-<li>Dave Raggett (ERCIM)</li>
-<li>Takahisa Suzuki, Takeshi Sano and Ryuichi Matsukura (Fujitsu)</li>
-<li>Kunihiko Toumura (Hitachi)</li>
-<li>Ryuichi Matsukura (Fujitsu Ltd.)</li>
-<li>Tomoaki Mizushima (IRI Inc.)</li>
-<li>Matthias Kovatsch (Siemens)</li>
-<li>Michael McCool (Intel)</li>
+<li>Matthias Kovatsch (Huawei)</li>
 <li>Michael Lagally (Oracle)</li>
-<li>Takeshi Yamada and Toru Kawaguchi (Panasonic)</li>
-<li>Sebastian Käbisch, Daniel Peintner, Victor Charpenay, Christian Glomb, and Ege Korkan (Siemens)</li>
-<li>Fady Salama (Siemens and Technical University of Munich)</li>
+<li>Ryuichi Matsukura (Fujitsu)</li>
+<li>Michael McCool (Intel)</li>
+<li>Fabien Amarger  (Logilab)</li>
+<li>Kevin Olotu (Bosch/Vorto)</li>
+<li>Daniel Peintner(Siemens)</li>
+<li>Cu Pham (ECHONET)</li>
+<li>Dave Raggett (ERCIM)</li>
+<li>Jan Romann (University of Bremen/RIoT)</li>
+<li>Takeshi Sano (Fujitsu)</li>
+<li>Fady Salama (Technical University of Munich)</li>
+<li>Takahisa Suzuki (Fujitsu)</li>
+<li>Marcus Wolf Schmidt (Technical University of Munich)</li>
+<li>Farshid Tavakolizadeh (Fraunhofer-Gesellschaft)</li>
+<li>Elodie Thieblin (Siemens and Logilab)</li>
+<li>Kunihiko Toumura (Hitachi)</li>
+<li>Takeshi Yamada (Panasonic)</li>
 </ul>
 <p></p>
 <div class="navbar">
