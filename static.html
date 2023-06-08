@@ -36,7 +36,6 @@ dfn{cursor:pointer}
 .dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
 </style>
   
-<link rel="stylesheet" href="testing/atrisk.css">
   
   
 <title>Web of Things (WoT) Architecture 1.1</title>
@@ -138,6 +137,9 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     "no-headingless-sections": true
   },
   "doJsonLd": true,
+  "noLegacyStyle": true,
+  "inlineCSS": true,
+  "noIDLIn": true,
   "group": "wg/wot",
   "specStatus": "ED",
   "shortName": "wot-architecture11",
@@ -195,6 +197,15 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   ],
   "otherLinks": [
     {
+      "key": "Previous Recommendation",
+      "data": [
+        {
+          "value": "https://www.w3.org/TR/2020/REC-wot-architecture-20200409/",
+          "href": "https://www.w3.org/TR/2020/REC-wot-architecture-20200409/"
+        }
+      ]
+    },
+    {
       "key": "Contributors",
       "data": [
         {
@@ -202,11 +213,24 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           "href": "https://github.com/w3c/wot-architecture/graphs/contributors"
         }
       ]
+    },
+    {
+      "key": "Repository",
+      "data": [
+        {
+          "value": "We are on GitHub",
+          "href": "https://github.com/w3c/wot-architecture/"
+        },
+        {
+          "value": "File a bug",
+          "href": "https://github.com/w3c/wot-architecture/issues"
+        }
+      ]
     }
   ],
   "localBiblio": {
     "CoRE-RD": {
-      "href": "https://tools.ietf.org/html/draft-ietf-core-resource-directory-21",
+      "href": "https://datatracker.ietf.org/doc/html/draft-ietf-core-resource-directory-21",
       "title": "CoRE Resource Directory",
       "authors": [
         "M. Koster",
@@ -272,7 +296,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "norman"
     },
     "MQTT": {
-      "href": "http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.html",
+      "href": "https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.html",
       "title": "MQTT Version 3.1.1 Plus Errata 01",
       "authors": [
         "Andrew Banks",
@@ -283,7 +307,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "mqtt"
     },
     "OCF": {
-      "href": "https://openconnectivity.org/developer/specifications",
+      "href": "https://openconnectivity.org/developer/specifications/",
       "title": "OCF Core Specification",
       "publisher": "Open Connectivity Foundation",
       "status": "Version 2.0.2",
@@ -305,7 +329,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "wot-use-cases-requirements"
     },
     "LWM2M": {
-      "href": "http://openmobilealliance.org/release/LightweightM2M/V1_1-20180710-A/OMA-TS-LightweightM2M_Core-V1_1-20180710-A.pdf",
+      "href": "https://openmobilealliance.org/release/LightweightM2M/V1_1-20180710-A/OMA-TS-LightweightM2M_Core-V1_1-20180710-A.pdf",
       "title": "Lightweight Machine to Machine Technical Specification: Core",
       "publisher": "OMA SpecWorks",
       "status": "Approved Version: 1.1",
@@ -338,7 +362,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "wot-pioneers-1"
     },
     "WOT-PIONEERS-2": {
-      "href": "http://dret.net/netdret/docs/wilde-irep07-015-restful-things.pdf",
+      "href": "https://escholarship.org/uc/item/1786t1dm",
       "title": "Putting Things to REST",
       "authors": [
         "Erik Wilde"
@@ -382,7 +406,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "y.4409-y.2070"
     },
     "ISO-IEC-2382": {
-      "href": "https://www.iso.org/obp/ui/#iso:std:iso-iec:2382:ed-1:v1:en",
+      "href": "https://www.iso.org/obp/ui/#iso:std:iso-iec:2382:ed-1:v2:en",
       "title": "Information technology — Vocabulary",
       "publisher": "ISO",
       "date": "2015",
@@ -441,16 +465,16 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "wot-security"
     }
   },
-  "publishISODate": "2023-06-06T00:00:00.000Z",
-  "generatedSubtitle": "W3C Editor's Draft 06 June 2023"
+  "publishISODate": "2023-06-08T00:00:00.000Z",
+  "generatedSubtitle": "W3C Editor's Draft 08 June 2023"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED"></head>
 
-<body class="h-entry"><div class="head">
+<body class="h-entry toc-inline"><div class="head">
     <p class="logos"><a class="logo" href="https://www.w3.org/"><img crossorigin="" alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72">
   </a></p>
     <h1 id="title" class="title">Web of Things (WoT) Architecture 1.1</h1> 
-    <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">W3C Editor's Draft</a> <time class="dt-published" datetime="2023-06-06">06 June 2023</time></p>
+    <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">W3C Editor's Draft</a> <time class="dt-published" datetime="2023-06-08">08 June 2023</time></p>
     <details open="">
       <summary>More details about this document</summary>
       <dl>
@@ -499,8 +523,14 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         <a href="https://github.com/w3c/wot-architecture/issues/">open issues</a>)
       </dd><dd><a href="mailto:public-wot-wg@w3.org?subject=%5Bwot-architecture11%5D%20YOUR%20TOPIC%20HERE">public-wot-wg@w3.org</a> with subject line <kbd>[wot-architecture11] <em>… message topic …</em></kbd> (<a rel="discussion" href="https://lists.w3.org/Archives/Public/public-wot-wg">archives</a>)</dd>
         
-        <dt>Contributors</dt><dd>
+        <dt>Previous Recommendation</dt><dd>
+    <a href="https://www.w3.org/TR/2020/REC-wot-architecture-20200409/">https://www.w3.org/TR/2020/REC-wot-architecture-20200409/</a>
+  </dd><dt>Contributors</dt><dd>
     <a href="https://github.com/w3c/wot-architecture/graphs/contributors">In the GitHub repository</a>
+  </dd><dt>Repository</dt><dd>
+    <a href="https://github.com/w3c/wot-architecture/">We are on GitHub</a>
+  </dd><dd>
+    <a href="https://github.com/w3c/wot-architecture/issues">File a bug</a>
   </dd>
       </dl>
     </details>
@@ -557,15 +587,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       It also references the other implementation
       reports for the various WoT building blocks.
     </p>
- <p>The Web of Things Working Group intends to submit this document
-        for consideration as a <abbr title="World Wide Web Consortium">W3C</abbr> Proposed Recommendation
-        after at least the minimum CR review period has passed. However,
-        before PR transition is requested, any features or assertions
-        currently marked as at-risk that did not appear in the Architecture 1.0
-        specification and do not have at least two implementations at that
-        time will either be removed or converted into informative
-        statements, as appropriate. 
-    </p>
+
   <p class="at-risk">At-risk assertions are marked with yellow highlighting.</p>
   <p>
     This document was published by the <a href="https://www.w3.org/groups/wg/wot">Web of Things Working Group</a> as
@@ -602,9 +624,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         and Construction</a></li><li class="tocline"><a class="tocxref" href="#agriculture"><bdi class="secno">4.8 </bdi>Agriculture</a></li><li class="tocline"><a class="tocxref" href="#healthcare"><bdi class="secno">4.9 </bdi>Healthcare</a></li><li class="tocline"><a class="tocxref" href="#environmentmonitoring"><bdi class="secno">4.10 </bdi>Environment
         Monitoring</a></li><li class="tocline"><a class="tocxref" href="#smartcities"><bdi class="secno">4.11 </bdi>Smart Cities</a></li><li class="tocline"><a class="tocxref" href="#smartbuildings"><bdi class="secno">4.12 </bdi>Smart Buildings</a></li><li class="tocline"><a class="tocxref" href="#connectedcar"><bdi class="secno">4.13 </bdi>Connected Car</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#connectedcar-example"><bdi class="secno">4.13.1 </bdi>Connected Car
           Example</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#sec-common-deployment-patterns"><bdi class="secno">5. </bdi>Common Deployment Patterns</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#telemetry"><bdi class="secno">5.1 </bdi>Telemetry</a></li><li class="tocline"><a class="tocxref" href="#device-controllers"><bdi class="secno">5.2 </bdi>Device Controllers</a></li><li class="tocline"><a class="tocxref" href="#thing-to-thing"><bdi class="secno">5.3 </bdi>Thing-to-Thing</a></li><li class="tocline"><a class="tocxref" href="#remote-access"><bdi class="secno">5.4 </bdi>Remote Access</a></li><li class="tocline"><a class="tocxref" href="#smart-home-gateways"><bdi class="secno">5.5 </bdi>Smart Home Gateways</a></li><li class="tocline"><a class="tocxref" href="#edge-devices"><bdi class="secno">5.6 </bdi>Edge Devices</a></li><li class="tocline"><a class="tocxref" href="#digital-twins"><bdi class="secno">5.7 </bdi>Digital Twins</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#cloud-connected-devices"><bdi class="secno">5.7.1 </bdi>Cloud Connected Devices</a></li><li class="tocline"><a class="tocxref" href="#orchestration"><bdi class="secno">5.7.2 </bdi>Orchestration</a></li><li class="tocline"><a class="tocxref" href="#legacy-devices"><bdi class="secno">5.7.3 </bdi>Legacy Devices</a></li></ol></li><li class="tocline"><a class="tocxref" href="#multi-cloud"><bdi class="secno">5.8 </bdi>Multi-Cloud</a></li><li class="tocline"><a class="tocxref" href="#virtual-thing"><bdi class="secno">5.9 </bdi>Virtual Things</a></li><li class="tocline"><a class="tocxref" href="#sec-cross-domain-collaboration"><bdi class="secno">5.10 </bdi>Cross-domain Collaboration</a></li><li class="tocline"><a class="tocxref" href="#sec-system-integration"><bdi class="secno">5.11 </bdi>System Integration</a></li></ol></li><li class="tocline"><a class="tocxref" href="#sec-wot-architecture"><bdi class="secno">6. </bdi>Abstract WoT System Architecture</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#sec-architecture-overview"><bdi class="secno">6.1 </bdi>Fundamental Concepts</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#metadata"><bdi class="secno">6.1.1 </bdi>Metadata</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#metadata-thing-descriptions"><bdi class="secno">6.1.1.1 </bdi>Thing Descriptions</a></li><li class="tocline"><a class="tocxref" href="#metadata-thing-models"><bdi class="secno">6.1.1.2 </bdi>Thing Models</a></li></ol></li><li class="tocline"><a class="tocxref" href="#links"><bdi class="secno">6.1.2 </bdi>Links</a></li><li class="tocline"><a class="tocxref" href="#intermediaries"><bdi class="secno">6.1.3 </bdi>Intermediaries</a></li></ol></li><li class="tocline"><a class="tocxref" href="#sec-affordances"><bdi class="secno">6.2 </bdi>Affordances</a></li><li class="tocline"><a class="tocxref" href="#sec-web-thing"><bdi class="secno">6.3 </bdi>Web Thing</a></li><li class="tocline"><a class="tocxref" href="#lifecycle"><bdi class="secno">6.4 </bdi>Lifecycle</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#simple-system-lifecycle"><bdi class="secno">6.4.1 </bdi>Simple System Lifecycle</a></li><li class="tocline"><a class="tocxref" href="#system-lifecycle-no-directory"><bdi class="secno">6.4.2 </bdi>System Lifecycle with Registration</a></li><li class="tocline"><a class="tocxref" href="#thing-lifecycle"><bdi class="secno">6.4.3 </bdi>Thing Lifecycle</a></li></ol></li><li class="tocline"><a class="tocxref" href="#sec-interaction-model"><bdi class="secno">6.5 </bdi>Interaction Model</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#properties"><bdi class="secno">6.5.1 </bdi>Properties</a></li><li class="tocline"><a class="tocxref" href="#actions"><bdi class="secno">6.5.2 </bdi>Actions</a></li><li class="tocline"><a class="tocxref" href="#events"><bdi class="secno">6.5.3 </bdi>Events</a></li></ol></li><li class="tocline"><a class="tocxref" href="#sec-hypermedia-controls"><bdi class="secno">6.6 </bdi>Hypermedia Controls</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#sec-hypermedia-links"><bdi class="secno">6.6.1 </bdi>Links</a></li><li class="tocline"><a class="tocxref" href="#sec-hypermedia-forms"><bdi class="secno">6.6.2 </bdi>Forms</a></li></ol></li><li class="tocline"><a class="tocxref" href="#sec-protocol-bindings"><bdi class="secno">6.7 </bdi>Protocol Bindings</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#hypermedia-driven"><bdi class="secno">6.7.1 </bdi>Hypermedia-driven</a></li><li class="tocline"><a class="tocxref" href="#sec-arch-URIs"><bdi class="secno">6.7.2 </bdi>URIs</a></li></ol></li><li class="tocline"><a class="tocxref" href="#media-types"><bdi class="secno">6.8 </bdi>Media Types</a></li><li class="tocline"><a class="tocxref" href="#sec-i18n"><bdi class="secno">6.9 </bdi>Internationalization</a></li><li class="tocline"><a class="tocxref" href="#sec-wot-servient-architecture-high-level"><bdi class="secno">6.10 </bdi>WoT System Components and their Interconnectivity</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#direct-communication"><bdi class="secno">6.10.1 </bdi>Direct Communication</a></li><li class="tocline"><a class="tocxref" href="#indirect-communication"><bdi class="secno">6.10.2 </bdi>Indirect Communication</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#sec-building-blocks"><bdi class="secno">7. </bdi>WoT Building Blocks</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#sec-thing-description"><bdi class="secno">7.1 </bdi>WoT Thing Description</a></li><li class="tocline"><a class="tocxref" href="#sec-thing-model"><bdi class="secno">7.2 </bdi>Thing Model</a></li><li class="tocline"><a class="tocxref" href="#wot-profiles"><bdi class="secno">7.3 </bdi>Profiles</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#profile-description-methodology"><bdi class="secno">7.3.1 </bdi>Profiling Methodology</a></li></ol></li><li class="tocline"><a class="tocxref" href="#sec-discovery"><bdi class="secno">7.4 </bdi>WoT Discovery</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#sec-discovery-introductions"><bdi class="secno">7.4.1 </bdi>Introduction Mechanisms</a></li><li class="tocline"><a class="tocxref" href="#sec-discovery-exploration"><bdi class="secno">7.4.2 </bdi>Exploration Mechanisms</a></li></ol></li><li class="tocline"><a class="tocxref" href="#sec-binding-templates"><bdi class="secno">7.5 </bdi>WoT Binding Templates</a></li><li class="tocline"><a class="tocxref" href="#sec-scripting-api"><bdi class="secno">7.6 </bdi>WoT Scripting API</a></li><li class="tocline"><a class="tocxref" href="#sec-security-guidelines"><bdi class="secno">7.7 </bdi>WoT Security and Privacy Guidelines</a></li></ol></li><li class="tocline"><a class="tocxref" href="#sec-servient-implementation"><bdi class="secno">8. </bdi>Abstract Servient Architecture</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#behavior-implementation"><bdi class="secno">8.1 </bdi>Behavior Implementation</a></li><li class="tocline"><a class="tocxref" href="#wot-runtime"><bdi class="secno">8.2 </bdi>WoT Runtime</a></li><li class="tocline"><a class="tocxref" href="#wot-scripting-api"><bdi class="secno">8.3 </bdi>WoT Scripting API</a></li><li class="tocline"><a class="tocxref" href="#expose-consumed-thing"><bdi class="secno">8.4 </bdi>Exposed Thing and Consumed Thing Abstractions</a></li><li class="tocline"><a class="tocxref" href="#private-security-data"><bdi class="secno">8.5 </bdi>Private Security Data</a></li><li class="tocline"><a class="tocxref" href="#protocol-stack-implementation"><bdi class="secno">8.6 </bdi>Protocol Stack Implementation</a></li><li class="tocline"><a class="tocxref" href="#system-api"><bdi class="secno">8.7 </bdi>System API</a></li><li class="tocline"><a class="tocxref" href="#alt-servient-impl"><bdi class="secno">8.8 </bdi>Alternative Servient and WoT Implementations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#native-impl"><bdi class="secno">8.8.1 </bdi>Native WoT API</a></li><li class="tocline"><a class="tocxref" href="#existing-impl"><bdi class="secno">8.8.2 </bdi>Thing Description for Existing Devices</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#sec-deployment-scenario"><bdi class="secno">9. </bdi>Example WoT Deployments</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#sec-client-server-roles"><bdi class="secno">9.1 </bdi>Thing and Consumer Roles</a></li><li class="tocline"><a class="tocxref" href="#sec-topologies-deployment-scenarios"><bdi class="secno">9.2 </bdi>Topology of WoT Systems and Deployment Scenarios</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#sec-deployment-app-dev"><bdi class="secno">9.2.1 </bdi>Consumer and Thing on the Same Network</a></li><li class="tocline"><a class="tocxref" href="#sec-deployment-intermediaries"><bdi class="secno">9.2.2 </bdi>Consumer and Thing Connected via Intermediaries</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#sec-deployment-app-proxy-dev"><bdi class="secno">9.2.2.1 </bdi>Intermediary Acting as a Proxy</a></li><li class="tocline"><a class="tocxref" href="#sec-deployment-digital-twin"><bdi class="secno">9.2.2.2 </bdi>Intermediary Acting as a Digital Twin</a></li></ol></li><li class="tocline"><a class="tocxref" href="#sec-deployment-cloud"><bdi class="secno">9.2.3 </bdi>Devices in a Local Network Controlled from a Cloud Service</a></li><li class="tocline"><a class="tocxref" href="#sec-deployment-discovery-with-directory"><bdi class="secno">9.2.4 </bdi>Discovery Using a Thing Description Directory</a></li><li class="tocline"><a class="tocxref" href="#sec-deployment-service-to-service"><bdi class="secno">9.2.5 </bdi>Service-to-Service Connections Across Multiple Domains</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#sec-deployment-service-to-service-synchronized"><bdi class="secno">9.2.5.1 </bdi>Connection Through Thing Description Directory Synchronization</a></li><li class="tocline"><a class="tocxref" href="#sec-deployment-service-sync-proxy"><bdi class="secno">9.2.5.2 </bdi>Connection Through Proxy Synchronization</a></li></ol></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#sec-security-considerations"><bdi class="secno">10. </bdi>Security Considerations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#sec-security-consideration-td-risks"><bdi class="secno">10.1 </bdi>WoT Thing Description Risks</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#sec-security-consideration-td-private"><bdi class="secno">10.1.1 </bdi>Thing Description Private Security Data Risk</a></li><li class="tocline"><a class="tocxref" href="#sec-security-consideration-td-cm"><bdi class="secno">10.1.2 </bdi>Thing Description Communication Metadata Risk</a></li></ol></li><li class="tocline"><a class="tocxref" href="#sec-security-consideration-scripting-risks"><bdi class="secno">10.2 </bdi>WoT Scripting API Risks</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#sec-security-consideration-cross-script"><bdi class="secno">10.2.1 </bdi>Cross-Script Security Risk</a></li><li class="tocline"><a class="tocxref" href="#sec-security-consideration-device-direct-access"><bdi class="secno">10.2.2 </bdi>Physical Device Direct Access Risk</a></li></ol></li><li class="tocline"><a class="tocxref" href="#sec-security-consideration-runtime-risks"><bdi class="secno">10.3 </bdi>WoT Runtime Risks</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#sec-security-consideration-update-provisioning"><bdi class="secno">10.3.1 </bdi>Provisioning and Update Security Risk</a></li><li class="tocline"><a class="tocxref" href="#sec-security-consideration-credentials-storage"><bdi class="secno">10.3.2 </bdi>Security Credentials Storage Risk</a></li></ol></li><li class="tocline"><a class="tocxref" href="#sec-security-consideration-trusted-environment-risks"><bdi class="secno">10.4 </bdi>Trusted Environment Risks</a></li><li class="tocline"><a class="tocxref" href="#sec-security-consideration-secure-transport"><bdi class="secno">10.5 </bdi>Secure Transport</a></li></ol></li><li class="tocline"><a class="tocxref" href="#sec-privacy-considerations"><bdi class="secno">11. </bdi>Privacy Considerations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#sec-privacy-consideration-td-risks"><bdi class="secno">11.1 </bdi>WoT Thing Description Risks</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#sec-privacy-consideration-td-pii"><bdi class="secno">11.1.1 </bdi>Thing Description Personally Identifiable
-
-          Information Risk</a></li></ol></li><li class="tocline"><a class="tocxref" href="#arch-privacy-consideration-access-controls"><bdi class="secno">11.2 </bdi>Access to Personally Identifiable Information</a></li></ol></li><li class="tocline"><a class="tocxref" href="#sec-accessibility-considerations"><bdi class="secno">12. </bdi>Accessibility Considerations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#sec-accessibility-considerations-greenfield"><bdi class="secno">12.1 </bdi>Greenfield WoT Systems</a></li><li class="tocline"><a class="tocxref" href="#sec-accessibility-considerations-brownfield"><bdi class="secno">12.2 </bdi>Brownfield WoT Systems</a></li></ol></li><li class="tocline"><a class="tocxref" href="#changes"><bdi class="secno">A. </bdi>Recent Specification Changes</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#changes-from-wd-2022-09-07"><bdi class="secno">A.1 </bdi>Changes from the WD published September 7, 2022</a></li><li class="tocline"><a class="tocxref" href="#changes-from-fpwd-1.1"><bdi class="secno">A.2 </bdi>Changes in WD published September 7, 2022 from the FPWD version</a></li><li class="tocline"><a class="tocxref" href="#changes-in-fpwd-1.1-from-recommendation-1.0"><bdi class="secno">A.3 </bdi>Changes in the FPWD from the 1.0 version of [<cite><span class="formerLink" data-link-type="biblio" title="Web of Things (WoT) Architecture">wot-architecture</span></cite>]</a></li></ol></li><li class="tocline"><a class="tocxref" href="#acknowledgements"><bdi class="secno">B. </bdi>Acknowledgments</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">C. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">C.1 </bdi>Normative references</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">C.2 </bdi>Informative references</a></li></ol></li></ol></nav>
-
+          Information Risk</a></li></ol></li><li class="tocline"><a class="tocxref" href="#arch-privacy-consideration-access-controls"><bdi class="secno">11.2 </bdi>Access to Personally Identifiable Information</a></li></ol></li><li class="tocline"><a class="tocxref" href="#sec-accessibility-considerations"><bdi class="secno">12. </bdi>Accessibility Considerations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#sec-accessibility-considerations-greenfield"><bdi class="secno">12.1 </bdi>Greenfield WoT Systems</a></li><li class="tocline"><a class="tocxref" href="#sec-accessibility-considerations-brownfield"><bdi class="secno">12.2 </bdi>Brownfield WoT Systems</a></li></ol></li><li class="tocline"><a class="tocxref" href="#changes"><bdi class="secno">A. </bdi>Recent Specification Changes</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#changes-from-cr"><bdi class="secno">A.1 </bdi>Changes from 19 January 2023 Candidate Recommendation</a></li><li class="tocline"><a class="tocxref" href="#changes-from-wd-2022-09-07"><bdi class="secno">A.2 </bdi>Changes from the WD published September 7, 2022</a></li><li class="tocline"><a class="tocxref" href="#changes-from-fpwd-1.1"><bdi class="secno">A.3 </bdi>Changes in WD published September 7, 2022 from the FPWD version</a></li><li class="tocline"><a class="tocxref" href="#changes-in-fpwd-1.1-from-recommendation-1.0"><bdi class="secno">A.4 </bdi>Changes in the FPWD from the 1.0 version of [<cite><span class="formerLink" data-link-type="biblio" title="Web of Things (WoT) Architecture">wot-architecture</span></cite>]</a></li></ol></li><li class="tocline"><a class="tocxref" href="#acknowledgements"><bdi class="secno">B. </bdi>Acknowledgments</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">C. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">C.1 </bdi>Normative references</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">C.2 </bdi>Informative references</a></li></ol></li></ol></nav>
   <section id="introduction" class="informative"><div class="header-wrapper"><h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></div><p><em>This section is non-normative.</em></p>
     
     <p>The goals of the <em>Web of Things</em> (WoT) are to improve the interoperability
@@ -4967,7 +4987,8 @@ Services returning Thing Descriptions with immutable IDs <em class="rfc2119">SHO
       <li>No normative changes from Candidate Recommendation.</li>
       <li>At-risk assertions that did not receive sufficient implementations were removed or
           converted to informative statements.</li>
-      <li><a href="https://services.w3.org/htmldiff?doc1=https%3A%2F%2Fwww.w3.org%2FTR%2F2023%2FCR-wot-architecture11-20230119%2F&amp;doc2=https%3A%2F%2Fw3c.github.io%2Fwot-architecture%2Fstatic.html">HTML Diff</a></li>
+
+      <li><a href="https://w3c.github.io/wot-architecture/publication/ver11/4-pr/diff.html">HTML Diff</a></li>
       </ul>
     </section><section id="changes-from-the-wd-published-september-7-2022"><div class="header-wrapper"><h3 id="changes-from-wd-2022-09-07"><bdi class="secno">A.2 </bdi>Changes from the WD published September 7, 2022</h3><a class="self-link" href="#changes-from-wd-2022-09-07" aria-label="Permalink for Appendix A.2"></a></div>
     <ul>
@@ -5043,7 +5064,7 @@ Services returning Thing Descriptions with immutable IDs <em class="rfc2119">SHO
            for co-editing and many significant contributions
 	         to the initial version of the WoT architecture specification.
 	      Special thanks to 
-            Christiano Aguzzi,
+            Cristiano Aguzzi,
             Andrea Cimmino Arriaga,
             Kazuyuki Ashimura,
             Luca Barbato,
@@ -5147,7 +5168,7 @@ Services returning Thing Descriptions with immutable IDs <em class="rfc2119">SHO
     </dd><dt id="bib-iot-schema-org">[IOT-SCHEMA-ORG]</dt><dd>
       <a href="https://www.w3.org/community/iotschema/"><cite>Schema Extensions for IoT Community Group</cite></a>. URL: <a href="https://www.w3.org/community/iotschema/">https://www.w3.org/community/iotschema/</a>
     </dd><dt id="bib-iso-iec-2382">[ISO-IEC-2382]</dt><dd>
-      <a href="https://www.iso.org/obp/ui/#iso:std:iso-iec:2382:ed-1:v1:en"><cite>Information technology — Vocabulary</cite></a>.  ISO. 2015. URL: <a href="https://www.iso.org/obp/ui/#iso:std:iso-iec:2382:ed-1:v1:en">https://www.iso.org/obp/ui/#iso:std:iso-iec:2382:ed-1:v1:en</a>
+      <a href="https://www.iso.org/obp/ui/#iso:std:iso-iec:2382:ed-1:v2:en"><cite>Information technology — Vocabulary</cite></a>.  ISO. 2015. URL: <a href="https://www.iso.org/obp/ui/#iso:std:iso-iec:2382:ed-1:v2:en">https://www.iso.org/obp/ui/#iso:std:iso-iec:2382:ed-1:v2:en</a>
     </dd><dt id="bib-iso-iec-27000">[ISO-IEC-27000]</dt><dd>
       <a href="https://www.iso.org/obp/ui/#iso:std:iso-iec:27000:ed-5:v1:en"><cite>Information technology — Security techniques — Information security management systems — Overview and vocabulary</cite></a>.  ISO. 2018. URL: <a href="https://www.iso.org/obp/ui/#iso:std:iso-iec:27000:ed-5:v1:en">https://www.iso.org/obp/ui/#iso:std:iso-iec:27000:ed-5:v1:en</a>
     </dd><dt id="bib-iso-iec-29100">[ISO-IEC-29100]</dt><dd>
@@ -5157,13 +5178,13 @@ Services returning Thing Descriptions with immutable IDs <em class="rfc2119">SHO
     </dd><dt id="bib-linked-data">[LINKED-DATA]</dt><dd>
       <a href="https://www.w3.org/DesignIssues/LinkedData.html"><cite>Linked Data Design Issues</cite></a>. Tim Berners-Lee.  W3C. 27 July 2006. W3C-Internal Document. URL: <a href="https://www.w3.org/DesignIssues/LinkedData.html">https://www.w3.org/DesignIssues/LinkedData.html</a>
     </dd><dt id="bib-lwm2m">[LWM2M]</dt><dd>
-      <a href="http://openmobilealliance.org/release/LightweightM2M/V1_1-20180710-A/OMA-TS-LightweightM2M_Core-V1_1-20180710-A.pdf"><cite>Lightweight Machine to Machine Technical Specification: Core</cite></a>.  OMA SpecWorks. August 2018. Approved Version: 1.1. URL: <a href="http://openmobilealliance.org/release/LightweightM2M/V1_1-20180710-A/OMA-TS-LightweightM2M_Core-V1_1-20180710-A.pdf">http://openmobilealliance.org/release/LightweightM2M/V1_1-20180710-A/OMA-TS-LightweightM2M_Core-V1_1-20180710-A.pdf</a>
+      <a href="https://openmobilealliance.org/release/LightweightM2M/V1_1-20180710-A/OMA-TS-LightweightM2M_Core-V1_1-20180710-A.pdf"><cite>Lightweight Machine to Machine Technical Specification: Core</cite></a>.  OMA SpecWorks. August 2018. Approved Version: 1.1. URL: <a href="https://openmobilealliance.org/release/LightweightM2M/V1_1-20180710-A/OMA-TS-LightweightM2M_Core-V1_1-20180710-A.pdf">https://openmobilealliance.org/release/LightweightM2M/V1_1-20180710-A/OMA-TS-LightweightM2M_Core-V1_1-20180710-A.pdf</a>
     </dd><dt id="bib-mqtt">[MQTT]</dt><dd>
-      <a href="http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.html"><cite>MQTT Version 3.1.1 Plus Errata 01</cite></a>. Andrew Banks; Rahul Gupta.  OASIS Standard. December 2015. URL: <a href="http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.html">http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.html</a>
+      <a href="https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.html"><cite>MQTT Version 3.1.1 Plus Errata 01</cite></a>. Andrew Banks; Rahul Gupta.  OASIS Standard. December 2015. URL: <a href="https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.html">https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.html</a>
     </dd><dt id="bib-norman">[NORMAN]</dt><dd>
       <cite>The Psychology of Everyday Things</cite>. Donald A. Norman.  Basic Books. 1988. 
     </dd><dt id="bib-ocf">[OCF]</dt><dd>
-      <a href="https://openconnectivity.org/developer/specifications"><cite>OCF Core Specification</cite></a>.  Open Connectivity Foundation. April 2019. Version 2.0.2. URL: <a href="https://openconnectivity.org/developer/specifications">https://openconnectivity.org/developer/specifications</a>
+      <a href="https://openconnectivity.org/developer/specifications/"><cite>OCF Core Specification</cite></a>.  Open Connectivity Foundation. April 2019. Version 2.0.2. URL: <a href="https://openconnectivity.org/developer/specifications/">https://openconnectivity.org/developer/specifications/</a>
     </dd><dt id="bib-rest">[REST]</dt><dd>
       <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf"><cite>REST: Architectural Styles and the Design of Network-based Software Architectures</cite></a>. Roy Thomas Fielding.  University of California, Irvine. 2000. PhD thesis. URL: <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf">https://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf</a>
     </dd><dt id="bib-rfc6202">[RFC6202]</dt><dd>
@@ -5193,7 +5214,7 @@ Services returning Thing Descriptions with immutable IDs <em class="rfc2119">SHO
     </dd><dt id="bib-wot-pioneers-1">[WOT-PIONEERS-1]</dt><dd>
       <a href="https://pdfs.semanticscholar.org/3ee3/a2e8ce93fbf9ba14ad54e12adaeb1f3ca392.pdf"><cite>Mobile Service Interaction with the Web of Things</cite></a>. E. Rukzio, M. Paolucci; M. Wagner, H. Berndt; J. Hamard; A. Schmidt.  Proceedings of 13th International Conference on Telecommunications (ICT 2006), Funchal, Madeira island, Portugal. May 2006. URL: <a href="https://pdfs.semanticscholar.org/3ee3/a2e8ce93fbf9ba14ad54e12adaeb1f3ca392.pdf">https://pdfs.semanticscholar.org/3ee3/a2e8ce93fbf9ba14ad54e12adaeb1f3ca392.pdf</a>
     </dd><dt id="bib-wot-pioneers-2">[WOT-PIONEERS-2]</dt><dd>
-      <a href="http://dret.net/netdret/docs/wilde-irep07-015-restful-things.pdf"><cite>Putting Things to REST</cite></a>. Erik Wilde.  UCB iSchool Report 2007-015, UC Berkeley, Berkeley, CA, USA. November 2007. URL: <a href="http://dret.net/netdret/docs/wilde-irep07-015-restful-things.pdf">http://dret.net/netdret/docs/wilde-irep07-015-restful-things.pdf</a>
+      <a href="https://escholarship.org/uc/item/1786t1dm"><cite>Putting Things to REST</cite></a>. Erik Wilde.  UCB iSchool Report 2007-015, UC Berkeley, Berkeley, CA, USA. November 2007. URL: <a href="https://escholarship.org/uc/item/1786t1dm">https://escholarship.org/uc/item/1786t1dm</a>
     </dd><dt id="bib-wot-pioneers-3">[WOT-PIONEERS-3]</dt><dd>
       <a href="https://www.vs.inf.ethz.ch/publ/papers/ostermai-poster-2008.pdf"><cite>Poster Abstract: Dyser – Towards a Real-Time Search Engine for the Web of Things</cite></a>. Benedikt Ostermaier; B. Maryam Elahi; Kay Römer; Michael Fahrmair; Wolfgang Kellerer.  Proceedings of ACM SenSys 2008, Raleigh, NC, USA. November 2008. URL: <a href="https://www.vs.inf.ethz.ch/publ/papers/ostermai-poster-2008.pdf">https://www.vs.inf.ethz.ch/publ/papers/ostermai-poster-2008.pdf</a>
     </dd><dt id="bib-wot-pioneers-4">[WOT-PIONEERS-4]</dt><dd>
