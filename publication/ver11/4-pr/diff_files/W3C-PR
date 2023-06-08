@@ -1,0 +1,8 @@
+
+/* Style for a "Proposed Recommendation" */
+
+@import "base.css";
+
+body {
+  background-image: url(logos/PR.svg);
+}
