@@ -14,6 +14,9 @@
         "no-headingless-sections": true
       },
       doJsonLd: true,
+      noLegacyStyle:  true,
+      inlineCSS:      true,
+      noIDLIn:        true,
       group: "wg/wot",
       specStatus: "ED",
       shortName: "wot-architecture11",
@@ -62,12 +65,26 @@
            company:    "Huawei",
            companyURL: "https://www.huawei.com"
         }],
-      otherLinks: [
-        {
+      otherLinks: [{
+          key: "Previous Recommendation",
+          data: [{
+            value: "https://www.w3.org/TR/2020/REC-wot-architecture-20200409/",
+            href: "https://www.w3.org/TR/2020/REC-wot-architecture-20200409/"
+          }]
+        }, {
           key: "Contributors",
           data: [{
             value: "In the GitHub repository",
             href: "https://github.com/w3c/wot-architecture/graphs/contributors"
+          }]
+        }, {
+          key: "Repository",
+          data: [{
+            value: "We are on GitHub",
+            href: "https://github.com/w3c/wot-architecture/"
+          }, {
+            value: "File a bug",
+            href: "https://github.com/w3c/wot-architecture/issues"
           }]
         }],
       localBiblio: {
