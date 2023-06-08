@@ -1,0 +1,40 @@
+@startuml
+hide footbox
+
+box "WoT Client"
+participant "Application" as AP
+participant "Consumed Thing" as SA
+end box
+
+box "WoT Server"
+participant "Exposed Thing" as WS
+participant "Application" as DC
+end box
+
+== subscribe ==
+
+AP  -> SA: invoke\n"subscribeevent"\noperation
+activate SA
+SA  -> AP: returns Subscription
+SA  -> WS: send HTTP POST Request\nto href of form\n with op=subscribeeevent and\n subprotocol=sse\n (body: none)
+activate WS
+WS  -> SA: send back HTTP POST Response\n (body: none; Content-Type: text/event-stream)
+WS  -> DC: wait until\n event occurs
+activate DC
+
+== notify ==
+
+DC  -> WS: event detected
+WS  -> SA: send back HTTP POST Response\n (body: schema data; Content-Type: text/event-stream)
+SA  -> AP: Subscription callback\n with schema data
+
+== unsubscribe ==
+
+AP  -> SA: invoke\n"unsubscribeevent"\noperation
+SA  -> AP: returns void
+SA --> WS: cancel pending HTTP POST Request
+deactivate SA
+destroy WS
+WS --> DC: stop waiting
+destroy DC
+@enduml
