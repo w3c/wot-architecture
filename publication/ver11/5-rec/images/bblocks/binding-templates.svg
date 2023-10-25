@@ -6,7 +6,10 @@
    version="1.1"
    id="svg159"
    sodipodi:docname="binding-templates.svg"
-   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   inkscape:export-filename="binding-templates2.png"
+   inkscape:export-xdpi="81.80619"
+   inkscape:export-ydpi="81.80619"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -22,14 +25,16 @@
      inkscape:pagecheckerboard="0"
      showgrid="false"
      inkscape:zoom="0.61488511"
-     inkscape:cx="1022.9553"
-     inkscape:cy="613.93582"
-     inkscape:window-width="1920"
-     inkscape:window-height="1080"
-     inkscape:window-x="0"
-     inkscape:window-y="1080"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="g157" />
+     inkscape:cx="810.72056"
+     inkscape:cy="620.44111"
+     inkscape:window-width="2847"
+     inkscape:window-height="1949"
+     inkscape:window-x="3674"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g157"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
   <style
      id="style2"><![CDATA[.B{font-family:Noto Sans,Noto Sans_MSFontService,sans-serif}.C{font-size:33px}.D{fill:#fff}.E{font-weight:400}.F{stroke:#000}.G{stroke-linejoin:round}.H{stroke-miterlimit:10}.I{fill-rule:evenodd}.J{fill:#00b050}.K{font-size:29px}.L{font-size:42px}.M{stroke-width:3}]]></style>
   <defs
@@ -141,16 +146,23 @@
     <text
        class="B D K"
        id="text87"
-       x="1130.1072"
-       y="270.75"><tspan
+       x="1209.4464"
+       y="251.23416"><tspan
          sodipodi:role="line"
          id="tspan14384"
-         x="1130.1072"
-         y="270.75">Philips Hue</tspan><tspan
+         x="1209.4464"
+         y="251.23416"
+         style="text-align:center;text-anchor:middle">Custom</tspan><tspan
+         sodipodi:role="line"
+         x="1209.4464"
+         y="287.48416"
+         style="text-align:center;text-anchor:middle"
+         id="tspan482">devices</tspan><tspan
          sodipodi:role="line"
          id="tspan14386"
-         x="1130.1072"
-         y="307">with HTTP</tspan></text>
+         x="1209.4464"
+         y="323.73416"
+         style="text-align:center;text-anchor:middle">with HTTP</tspan></text>
     <path
        d="M159 185.35c0-9.03 7.32-16.35 16.35-16.35h185.3c9.03 0 16.35 7.32 16.35 16.35v185.3c0 9.03-7.32 16.35-16.35 16.35h-185.3c-9.03 0-16.35-7.32-16.35-16.35z"
        class="I J"
